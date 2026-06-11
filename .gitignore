@@ -1,0 +1,12 @@
+data/senlab.db
+library/pdfs/
+library/fulltext/
+canonical/papers/
+canonical/excerpts/
+canonical/lenses/
+canonical/themes/
+__pycache__/
+*.pyc
+node_modules/
+dist/
+build/
