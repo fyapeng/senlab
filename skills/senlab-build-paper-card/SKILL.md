@@ -84,6 +84,17 @@ Use integer scores 1 to 5 only for:
 
 Add one short justification sentence for each score.
 
+## Metadata Verification via Web Search
+
+Before writing `journal_or_series`, `doi`, `authors`, or `year` as canonical, run a web search to confirm them. PDF extraction is noisy and often wrong.
+
+Steps:
+1. Search `WebSearch` for: `"{title}" {first_author} {year} doi`
+2. Cross-check journal name, volume/issue, and DOI from the publisher page or CrossRef.
+3. Confirm full author list spelling matches the published version.
+4. If the paper has been published since the PDF was created (e.g., a former working paper), update `publication_status` to `published_version` and fill the journal field.
+5. Only mark a field `TODO_VERIFY` if the web search returns no reliable result.
+
 ## Quality Bar
 
 - Distinguish author claims from your interpretation.

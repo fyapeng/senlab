@@ -7,7 +7,7 @@
   "subfield": "applied-micro",
   "paper_paradigm": "empirical_structural",
   "journal_or_series": "Journal of Political Economy",
-  "doi": "10.1086/510401",
+  "doi": "10.1086/512249",
   "research_question": "为什么美国不同地区在心脏病手术（集约型治疗）使用强度上存在巨大差异，而这种差异却与平均患者结果几乎无关？这究竟是\"曲线末端医学\"（flat of the curve medicine）所暗示的医疗资源浪费，还是可以用另一个更符合数据的模型来解释？",
   "why_it_matters": "\"地理变异 + 结果无关\"这一事实长期被解读为医疗支出低效的证据，并成为削减高强度地区支出政策的依据（如 Fisher et al. 2003 建议的削减 30% Medicare 支出）。如果这一解读是错的，相应政策可能对相关患者造成损害。Chandra & Staiger 提出的生产溢出效应模型重新解释了这一现象，认为地区专业化通过溢出效应同时提升了集约型和非集约型治疗各自的边际回报，从而在整体结果无差异的同时，对最适合该治疗的患者存在实质性收益差异。",
   "core_object": "美国医疗保险（Medicare）心脏病发作（AMI）患者接受集约型手术治疗与非集约型医疗管理的比例，以及地区治疗强度与患者结果之间的关系。",
