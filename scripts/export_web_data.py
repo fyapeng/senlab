@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 import sqlite3
-from collections import Counter, defaultdict
+from collections import Counter
 from pathlib import Path
 
 from senlab_markdown import load_text, parse_frontmatter_and_body, parse_heading_sections
@@ -90,7 +90,7 @@ def main() -> None:
         for row in paper_rows:
             work_id = row["work_id"]
             themes = [
-                dict(theme_id=t["theme_id"], name=t["name"])
+                {"theme_id": t["theme_id"], "name": t["name"]}
                 for t in conn.execute(
                     """
                     SELECT t.theme_id, t.name
@@ -105,14 +105,15 @@ def main() -> None:
             for theme in themes:
                 theme_counter[theme["theme_id"]] += 1
                 theme_name_map[theme["theme_id"]] = theme["name"]
+
             excerpts = [
-                dict(
-                    excerpt_id=e["excerpt_id"],
-                    location=e["location"],
-                    topic=e["topic"],
-                    quote_or_paraphrase=e["quote_or_paraphrase"],
-                    why_this_matters=e["why_this_matters"],
-                )
+                {
+                    "excerpt_id": e["excerpt_id"],
+                    "location": e["location"],
+                    "topic": e["topic"],
+                    "quote_or_paraphrase": e["quote_or_paraphrase"],
+                    "why_this_matters": e["why_this_matters"],
+                }
                 for e in conn.execute(
                     """
                     SELECT excerpt_id, location, topic, quote_or_paraphrase, why_this_matters
@@ -123,16 +124,17 @@ def main() -> None:
                     (work_id,),
                 )
             ]
+
             lenses = [
-                dict(
-                    lens_id=l["lens_id"],
-                    theme_id=l["theme_id"],
-                    lens_type=l["lens_type"],
-                    claim=l["claim"],
-                    interpretation=l["interpretation"],
-                    overclaim_risk=l["overclaim_risk"],
-                    safer_formulation=l["safer_formulation"],
-                )
+                {
+                    "lens_id": l["lens_id"],
+                    "theme_id": l["theme_id"],
+                    "lens_type": l["lens_type"],
+                    "claim": l["claim"],
+                    "interpretation": l["interpretation"],
+                    "overclaim_risk": l["overclaim_risk"],
+                    "safer_formulation": l["safer_formulation"],
+                }
                 for l in conn.execute(
                     """
                     SELECT lens_id, theme_id, lens_type, claim, interpretation, overclaim_risk, safer_formulation
@@ -143,6 +145,7 @@ def main() -> None:
                     (work_id,),
                 )
             ]
+
             sections = parse_card_sections(row["markdown_path"])
             overall_score = sum((row["dao"] or 0, row["fa"] or 0, row["shi"] or 0, row["shu"] or 0, row["qi"] or 0))
             paper_detail = {
@@ -183,7 +186,6 @@ def main() -> None:
                 "excerpts": excerpts,
                 "lenses": lenses,
                 "sections": sections,
-                "markdown": load_markdown(row["markdown_path"]),
             }
             papers.append(paper_detail)
             if row["paper_paradigm"]:
@@ -205,20 +207,20 @@ def main() -> None:
         latest_ids = [paper["work_id"] for paper in sorted(papers, key=lambda item: (item["year"] or 0, item["work_id"]), reverse=True)[:6]]
 
         theme_rows = [
-            dict(
-                theme_id=row["theme_id"],
-                name=row["name"],
-                field=row["field"],
-                status=row["status"],
-                paper_count=theme_counter.get(row["theme_id"], 0),
-            )
+            {
+                "theme_id": row["theme_id"],
+                "name": row["name"],
+                "field": row["field"],
+                "status": row["status"],
+                "paper_count": theme_counter.get(row["theme_id"], 0),
+            }
             for row in conn.execute("SELECT theme_id, name, field, status FROM themes ORDER BY name")
         ]
 
         site_index = {
             "brand": {
                 "title": "Sencium Lab",
-                "tagline": "A local-first research paper database for structured reading, evaluation, and reuse.",
+                "tagline": "一个用于结构化阅读、评价与复用的本地优先研究文献数据库。",
                 "github_url": "https://github.com/fyapeng/senlab",
                 "contact_email": "contact@fyapeng.com",
                 "wechat_name": "申椿",
@@ -239,7 +241,7 @@ def main() -> None:
                 {"key": "shi", "label": "势", "desc": "制度、数据、时代与文献窗口的优势。"},
                 {"key": "shu", "label": "术", "desc": "执行质量、推导组织与实证实现。"},
                 {"key": "qi", "label": "器", "desc": "数据、模型、制度与工具的复用价值。"},
-                {"key": "subjective", "label": "主观", "desc": "对当前研究议程的个人价值。"},
+                {"key": "subjective", "label": "主观", "desc": "对当前研究议程的个人价值判断。"},
             ],
             "papers": [
                 {
