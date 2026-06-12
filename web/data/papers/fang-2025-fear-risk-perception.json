@@ -33,9 +33,92 @@
     "qi": "Stacked DID 设计框架有复用价值，但核心数据（全量诉讼 + 全量 claims）在其他国家或地区复现较难。",
     "subjective": "对研究医生激励与医疗监管的研究者有重要参考价值，尤其是关注心理/行为机制在医疗决策中的作用，与医疗欺诈执法研究有一定关联。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "physician-behavior",
+      "name": "医生行为与激励"
+    },
+    {
+      "theme_id": "malpractice-risk",
+      "name": "医疗事故诉讼风险"
+    },
+    {
+      "theme_id": "monitoring-enforcement",
+      "name": "监测与执法"
+    },
+    {
+      "theme_id": "behavioral-health-economics",
+      "name": "行为健康经济学"
+    },
+    {
+      "theme_id": "defensive-medicine",
+      "name": "防御性医疗"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "fang-2025-fear-risk-perception-ex-001",
+      "location": "Main Results",
+      "topic": "main_results",
+      "quote_or_paraphrase": "医疗事故诉讼发生后，涉诉医院与科室内的医生会显著减少高风险患者接诊和手术实施，同时增加诊断检查与传统中医使用；这些变化在数周内逐步消退。患者健康并未改善，30 天再入院率甚至略有上升。",
+      "why_this_matters": "这条摘录表明，诉讼冲击引发的并不是“更优治疗”，而是一种短期的防御性反应。它适合作为“责任风险会扭曲医生临床决策”的直接证据。"
+    },
+    {
+      "excerpt_id": "fang-2025-fear-risk-perception-ex-002",
+      "location": "Mechanism Tests",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "文章的机制检验显示，医生对胜诉和败诉案件的反应强度相近，对不同错误类型也没有出现精细匹配的纠偏模式；但涉及针对医生的暴力案件时，行为反应尤其强烈。这更符合恐惧、显著性与心理成本驱动，而不符合理性更新错误概率的解释。",
+      "why_this_matters": "这条摘录把“医疗诉讼风险”拆成了经济激励与心理冲击两个部分，并明确支持后者。对理解防御性医疗究竟来自赔偿激励还是来自情绪与风险感知，这条证据很关键。"
+    },
+    {
+      "excerpt_id": "fang-2025-fear-risk-perception-ex-003",
+      "location": "Spillover Evidence",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "诉讼冲击不仅影响涉诉科室，也会在医院内部产生外溢：与涉诉科室越相似、越接近的其他科室，防御性反应越强。这说明风险感知和恐惧并非只在直接责任人处起作用，而会在组织内部扩散。",
+      "why_this_matters": "这条摘录把诉讼风险从个体激励问题拓展成了组织心理与院内传播问题，对理解医院层面的防御性医疗很重要。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "fang-2025-fear-risk-perception-lens-fact",
+      "theme_id": "physician-behavior",
+      "lens_type": "fact",
+      "claim": "医疗诉讼会显著改变医生的临床决策模式，而且这种变化并未带来患者健康改善。",
+      "interpretation": "这篇文章之所以重要，是因为它把“防御性医疗”从抽象概念变成了可观测的行为包：少做手术、少接高风险病人、多做检查，但结果并没更好。",
+      "overclaim_risk": "不要写成所有诉讼都会长期扭曲行为。本文强调的是短期、强烈但会消退的反应。",
+      "safer_formulation": "这篇文章表明，医疗诉讼会显著推动短期防御性医疗行为，而这些行为并未对应患者健康改善。",
+      "evidence_excerpt_ids": [
+        "fang-2025-fear-risk-perception-ex-001",
+        "fang-2025-fear-risk-perception-ex-003"
+      ]
+    },
+    {
+      "lens_id": "fang-2025-fear-risk-perception-lens-mechanism",
+      "theme_id": "malpractice-risk",
+      "lens_type": "mechanism",
+      "claim": "医生面对诉讼后的过度反应，很大程度上是心理成本和风险感知扭曲驱动的，而不只是理性纠错或经济惩罚。",
+      "interpretation": "本文最有价值的地方，是把医疗责任风险拆成了“经济上的赔偿后果”和“心理上的恐惧冲击”两部分。胜诉与败诉反应接近、暴力事件反应更强，这些证据都更支持后者。",
+      "overclaim_risk": "不要把结论写成“经济激励完全不重要”。本文强调的是在中国这一低财务赔偿、高心理压力环境中，非经济成本尤其关键。",
+      "safer_formulation": "这篇文章表明，在中国公立医院的诉讼环境下，医生的防御性反应与其说是对赔偿概率的精细更新，不如说更像对显著风险事件的短期恐惧性调整。",
+      "evidence_excerpt_ids": [
+        "fang-2025-fear-risk-perception-ex-001",
+        "fang-2025-fear-risk-perception-ex-002"
+      ]
+    },
+    {
+      "lens_id": "fang-2025-fear-risk-perception-lens-policy",
+      "theme_id": "defensive-medicine",
+      "lens_type": "policy",
+      "claim": "医疗责任改革若只处理财务赔偿，而忽略医生的心理压力、暴力威胁和风险显著性，往往难以根治防御性医疗。",
+      "interpretation": "文章显示，诉讼冲击带来的行为变化并没有改善患者健康，却短期扭曲了临床决策。既然主要驱动不是纯粹的财务惩罚，那么政策就不能只靠 tort reform，还需要考虑医生支持体系、沟通与风险缓释机制。",
+      "overclaim_risk": "不要把本文扩展成“诉讼制度改革无效”。更准确的说法是，单独依靠财务责任规则很可能不够。",
+      "safer_formulation": "这篇文章提示，若防御性医疗包含显著的心理与情绪成分，仅靠赔偿责任改革未必足够，还需要配套的医生支持与风险管理机制。",
+      "evidence_excerpt_ids": [
+        "fang-2025-fear-risk-perception-ex-001",
+        "fang-2025-fear-risk-perception-ex-002"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `fang-2025-fear-risk-perception`\n- Canonical Version ID: `fang-2025-fear-risk-perception-uploaded`",
     "Common Core": "",

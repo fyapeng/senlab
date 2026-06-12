@@ -6,13 +6,29 @@ const FIELD_LABELS = {
   "applied-micro": "应用微观",
   "microeconomic-theory": "微观理论",
   "information-design": "信息设计",
+  "economics": "经济学",
+  "econometrics": "计量经济学",
+  "public-economics": "公共经济学",
+  "labor-economics": "劳动经济学",
+};
+
+const SUBFIELD_LABELS = {
+  "applied-micro": "应用微观",
+  econometrics: "计量经济学",
+  theory: "理论",
+  "information-design": "信息设计",
+  "microeconomic-theory": "微观理论",
 };
 
 const PARADIGM_LABELS = {
-  empirical_structural: "实证 / 结构",
-  empirical_reduced_form: "实证 / 简约",
+  empirical_structural: "实证 / 结构估计",
+  empirical_reduced_form: "实证 / 简约式",
+  reduced_form_IV: "实证 / 工具变量",
+  reduced_form_DD: "实证 / 差分法",
   theory: "理论",
+  methodology: "计量方法",
   econometrics: "计量方法",
+  empirical_review: "综述",
   review: "综述",
   mixed: "混合",
 };
@@ -108,6 +124,15 @@ function formatField(value) {
   return FIELD_LABELS[value] || value || "未分类";
 }
 
+function humanizeSlug(value) {
+  if (!value) return "";
+  return String(value).replace(/-/g, " ");
+}
+
+function formatSubfield(value) {
+  return SUBFIELD_LABELS[value] || FIELD_LABELS[value] || humanizeSlug(value) || "未分类";
+}
+
 function formatParadigm(value) {
   return PARADIGM_LABELS[value] || value || "未判定";
 }
@@ -117,11 +142,16 @@ function formatLensType(value) {
 }
 
 function formatTopic(value) {
-  return TOPIC_LABELS[value] || value || "未标记";
+  return TOPIC_LABELS[value] || humanizeSlug(value) || "未标记";
 }
 
 function formatLocation(value) {
   return LOCATION_LABELS[value] || value || "未知位置";
+}
+
+function formatThemeName(theme) {
+  if (!theme) return "未链接主题";
+  return theme.name || humanizeSlug(theme.theme_id) || "未链接主题";
 }
 
 function formatSolarNow() {
@@ -444,7 +474,7 @@ async function renderDashboard(site) {
         <div class="section-head">
           <div>
             <div class="eyebrow">最近入库</div>
-            <h2 class="section-title">新近档案</h2>
+            <h2 class="section-title">最新入档</h2>
           </div>
         </div>
         <div class="stack-list">
@@ -768,7 +798,7 @@ async function renderPaper(site) {
   const sections = paper.sections || {};
   const detailFields = [
     ["领域", formatField(paper.field)],
-    ["子领域", paper.subfield || ""],
+    ["子领域", formatSubfield(paper.subfield)],
     ["范式", formatParadigm(paper.paper_paradigm)],
     ["期刊", paper.journal_or_series],
     ["DOI", paper.doi],
@@ -789,7 +819,7 @@ async function renderPaper(site) {
         <div class="paper-meta-line">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
         <div class="paper-meta-line">${paper.journal_or_series || "期刊待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</div>
         <div class="chip-row">
-          ${paper.themes.map((theme) => `<span class="chip">${theme.name}</span>`).join("")}
+          ${paper.themes.map((theme) => `<span class="chip">${escHtml(formatThemeName(theme))}</span>`).join("")}
         </div>
       </article>
       <article class="panel score-panel">
@@ -848,18 +878,32 @@ async function renderPaper(site) {
             </div>
           </div>
           <div class="stack-list">
-            ${paper.lenses
-              .map((lens) => {
+            ${paper.lenses.length
+              ? paper.lenses
+                  .map((lens) => {
                 const linkedTheme = paper.themes.find((theme) => theme.theme_id === lens.theme_id);
+                const evidenceItems = (lens.evidence_excerpt_ids || [])
+                  .map((excerptId) => {
+                    const excerpt = paper.excerpts.find((item) => item.excerpt_id === excerptId);
+                    const label = excerpt
+                      ? `${formatTopic(excerpt.topic)} · ${formatLocation(excerpt.location)}`
+                      : excerptId;
+                    return `<span class="chip">${escHtml(label)}</span>`;
+                  })
+                  .join("");
                 return `
                   <div class="stack-item">
-                    <strong>${formatLensType(lens.lens_type)} · ${linkedTheme?.name || lens.theme_id || "未链接主题"}</strong>
-                    <div class="muted">${lens.claim || ""}</div>
-                    <div class="muted">更稳妥的说法：${lens.safer_formulation || "—"}</div>
+                    <strong>${formatLensType(lens.lens_type)} · ${escHtml(formatThemeName(linkedTheme || lens))}</strong>
+                    <div class="muted"><strong>支持论点：</strong>${escHtml(lens.claim || "—")}</div>
+                    <div class="muted"><strong>为何使用：</strong>${escHtml(lens.interpretation || "—")}</div>
+                    <div class="muted"><strong>过度延伸风险：</strong>${escHtml(lens.overclaim_risk || "—")}</div>
+                    <div class="muted"><strong>更稳妥的说法：</strong>${escHtml(lens.safer_formulation || "—")}</div>
+                    ${evidenceItems ? `<div class="chip-row">${evidenceItems}</div>` : ""}
                   </div>
                 `;
-              })
-              .join("")}
+                  })
+                  .join("")
+              : '<div class="empty">该论文的引用视角尚未补完。</div>'}
           </div>
         </article>
 
@@ -871,17 +915,20 @@ async function renderPaper(site) {
             </div>
           </div>
           <div class="stack-list">
-            ${paper.excerpts
-              .map(
+            ${paper.excerpts.length
+              ? paper.excerpts
+                  .map(
                 (excerpt) => `
                   <div class="stack-item">
-                    <strong>${formatLocation(excerpt.location)} · ${formatTopic(excerpt.topic)}</strong>
-                    <div class="muted">${excerpt.quote_or_paraphrase || "—"}</div>
-                    <div class="muted">为何重要：${excerpt.why_this_matters || "—"}</div>
+                    <strong>${formatTopic(excerpt.topic)} · ${formatLocation(excerpt.location)}</strong>
+                    <div class="muted"><strong>证据内容：</strong>${escHtml(excerpt.quote_or_paraphrase || "—")}</div>
+                    <div class="muted"><strong>为何重要：</strong>${escHtml(excerpt.why_this_matters || "—")}</div>
+                    <div class="muted"><strong>摘录编号：</strong>${escHtml(excerpt.excerpt_id || "—")}</div>
                   </div>
                 `
               )
-              .join("")}
+                  .join("")
+              : '<div class="empty">该论文的证据摘录尚未补完。</div>'}
           </div>
         </article>
 

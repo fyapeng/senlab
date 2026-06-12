@@ -85,7 +85,11 @@
       "claim": "persuasion 的机制，在于重新塑造接收者后验信念的分布，同时保持 Bayes plausibility。",
       "interpretation": "它最关键的机制是几何性的：发送者选择一个后验分布，使行动频率发生变化，但整体上仍满足贝叶斯一致性。",
       "overclaim_risk": "这个机制适用于承诺型信号设计，并不自动覆盖所有 strategic communication 场景。",
-      "safer_formulation": "在 Bayesian persuasion 框架中，行动变化来自发送者对后验分布的设计能力，而这一设计仍受 Bayes plausibility 约束。"
+      "safer_formulation": "在 Bayesian persuasion 框架中，行动变化来自发送者对后验分布的设计能力，而这一设计仍受 Bayes plausibility 约束。",
+      "evidence_excerpt_ids": [
+        "kamenica-2011-bayesian-persuasion-ex-002",
+        "kamenica-2011-bayesian-persuasion-ex-004"
+      ]
     },
     {
       "lens_id": "kamenica-2011-bayesian-persuasion-lens-opportunity",
@@ -94,7 +98,10 @@
       "claim": "这个框架为把 information design 引入具体制度场景提供了一个可复用模板。",
       "interpretation": "它的价值不仅在于解释一个既有问题，更在于为应用研究提供一套“如何从信息环境设计切入”的问题生成器。",
       "overclaim_risk": "这是一篇框架论文，不是对某个具体制度的直接经验性证据。",
-      "safer_formulation": "这篇文章提供了一个可迁移的理论模板，可用于分析那些由参与者控制信息环境的应用场景。"
+      "safer_formulation": "这篇文章提供了一个可迁移的理论模板，可用于分析那些由参与者控制信息环境的应用场景。",
+      "evidence_excerpt_ids": [
+        "kamenica-2011-bayesian-persuasion-ex-002"
+      ]
     },
     {
       "lens_id": "kamenica-2011-bayesian-persuasion-lens-theory",
@@ -103,7 +110,11 @@
       "claim": "即便不改变偏好、也不做转移支付，策略性地控制信息结构仍然可以改变行动选择。",
       "interpretation": "它最重要的用途，是为“通过控制信息环境来改变行为”提供一个标准化的理论框架。",
       "overclaim_risk": "不要把这里的 persuasion 与 cheap talk 或事后欺骗模型混为一谈。",
-      "safer_formulation": "在 Bayesian persuasion 框架中，发送者可以通过选择信息结构改变接收者后验，并由此影响行动。"
+      "safer_formulation": "在 Bayesian persuasion 框架中，发送者可以通过选择信息结构改变接收者后验，并由此影响行动。",
+      "evidence_excerpt_ids": [
+        "kamenica-2011-bayesian-persuasion-ex-001",
+        "kamenica-2011-bayesian-persuasion-ex-002"
+      ]
     }
   ],
   "sections": {

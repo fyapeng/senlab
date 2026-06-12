@@ -33,9 +33,91 @@
     "qi": "这套\"隐含工时\"测量方法完全基于公开可获取数据，代码逻辑清晰，任何人都可以复制应用于不同年份或不同保险类型，复用价值极高。",
     "subjective": "直接提供了识别潜在过度计费医生的操作性工具，且后续被多篇欺诈研究引用作为基准检测方法，是研究 Medicare 欺诈的必读参考。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "medicare-waste",
+      "name": "Medicare 浪费"
+    },
+    {
+      "theme_id": "medicare-claims-methodology",
+      "name": "Medicare 索赔方法"
+    },
+    {
+      "theme_id": "physician-overbilling",
+      "name": "医生过度计费"
+    },
+    {
+      "theme_id": "healthcare-fraud",
+      "name": "医疗欺诈"
+    },
+    {
+      "theme_id": "fraud-detection",
+      "name": "欺诈识别"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "fang-2017-detecting-potential-overbilling-ex-001",
+      "location": "Flagging Rule",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "文章利用 Medicare 医生服务编码隐含的工作小时数，标记那些按申报量计算周工作时间超过 100 小时的医生。样本中约有 2,300 名医生落入这一高度不合理的区间，被视为潜在过度计费对象。",
+      "why_this_matters": "这条摘录展示了一种极具操作性的欺诈筛查方法：不依赖病情复杂度假设，而直接利用时间约束来识别不可信申报。"
+    },
+    {
+      "excerpt_id": "fang-2017-detecting-potential-overbilling-ex-002",
+      "location": "Pricing Incentives",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "被标记医生对更高强度编码带来的边际收入更敏感，同时其每小时隐含收入更低。这个组合难以用正常高效率解释，更符合通过更高频或更高强度编码来“补收入”的过度计费行为。",
+      "why_this_matters": "这条证据使工时筛查不只是一个机械标记规则，而是与经济激励和编码行为模式联系了起来。"
+    },
+    {
+      "excerpt_id": "fang-2017-detecting-potential-overbilling-ex-003",
+      "location": "Methodological Contribution",
+      "topic": "method",
+      "quote_or_paraphrase": "本文方法的优点在于，它几乎不受患者选择性和病例组合差异干扰，因为它不直接把高支出或高利用率当成问题，而是检验申报是否违反了最基本的工时可行性约束。",
+      "why_this_matters": "这条摘录解释了为什么这篇文章会成为后续 Medicare 欺诈研究的常用方法参照：它简单、可复制、且具备较强可扩展性。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "fang-2017-detecting-potential-overbilling-lens-fact",
+      "theme_id": "physician-overbilling",
+      "lens_type": "fact",
+      "claim": "部分 Medicare 提供者的申报行为明显超出合理工作量约束，并与更强的收入驱动编码模式相一致。",
+      "interpretation": "本文不是在说“少数极端值无关紧要”，而是在用一个非常保守的规则指出：异常申报并非个别离群点，而是值得监管正视的系统现象。",
+      "overclaim_risk": "不要把本文写成对所有被标记医生的行为已经完成司法判断。文章识别的是高可疑度模式。",
+      "safer_formulation": "这篇文章表明，Medicare 索赔中存在显著的可疑过度计费模式，且这些模式与更强的编码收入激励相一致。",
+      "evidence_excerpt_ids": [
+        "fang-2017-detecting-potential-overbilling-ex-001",
+        "fang-2017-detecting-potential-overbilling-ex-002"
+      ]
+    },
+    {
+      "lens_id": "fang-2017-detecting-potential-overbilling-lens-method",
+      "theme_id": "fraud-detection",
+      "lens_type": "method",
+      "claim": "利用索赔编码隐含的工作小时约束，可以构造出简单、可扩展、且较少受病例结构混淆的过度计费识别工具。",
+      "interpretation": "本文的价值首先在方法层面。它把复杂的欺诈识别问题转成了一个很朴素但很强的可行性检验，因此特别适合作为第一层自动筛查。",
+      "overclaim_risk": "不要把标记结果写成“已证实欺诈”。它更适合被表述为高风险筛查，而不是最终定罪标准。",
+      "safer_formulation": "这篇文章表明，基于隐含工时的规则可以有效标记潜在过度计费对象，是 Medicare 欺诈识别的一种有用筛查工具。",
+      "evidence_excerpt_ids": [
+        "fang-2017-detecting-potential-overbilling-ex-001",
+        "fang-2017-detecting-potential-overbilling-ex-003"
+      ]
+    },
+    {
+      "lens_id": "fang-2017-detecting-potential-overbilling-lens-policy",
+      "theme_id": "medicare-claims-methodology",
+      "lens_type": "policy",
+      "claim": "在执法资源有限时，基于 claims 的自动化高风险筛查可以显著提高 Medicare 审计与调查的 targeting 效率。",
+      "interpretation": "这篇文章的政策意义在于，它给出了一个低成本入口。监管者不必从零开始做复杂个案调查，而可以先用规则把最不可信的一批医生筛出来。",
+      "overclaim_risk": "不要写成“规则筛查可以替代正式调查”。它更适合作为资源配置工具，而不是独立执法结论。",
+      "safer_formulation": "这篇文章提示，Medicare 执法可以通过基于 claims 的自动化筛查显著提升目标识别效率，但后续仍需要更深入的核查程序。",
+      "evidence_excerpt_ids": [
+        "fang-2017-detecting-potential-overbilling-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `fang-2017-detecting-potential-overbilling`\n- Canonical Version ID: `fang-2017-detecting-potential-overbilling-uploaded`",
     "Common Core": "",

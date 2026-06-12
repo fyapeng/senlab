@@ -33,9 +33,92 @@
     "qi": "多臂赌博机+诊断技能的建模框架、处方熵的度量方法以及技能调节实验价值的思路，均可在其他情境下复用。",
     "subjective": "对研究医生技能异质性、处方行为与指南政策的健康经济学研究者极为重要，是 Chandra-Staiger-Chan 脉络的重要补充。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "practice-style",
+      "name": "医生实践风格"
+    },
+    {
+      "theme_id": "physician-skill-heterogeneity",
+      "name": "医生技能异质性"
+    },
+    {
+      "theme_id": "physician-behavior",
+      "name": "医生行为与激励"
+    },
+    {
+      "theme_id": "quality-guidelines",
+      "name": "医疗质量指南"
+    },
+    {
+      "theme_id": "learning-and-experimentation",
+      "name": "学习与试验性治疗"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "currie-2020-understanding-doctor-decision-ex-001",
+      "location": "Abstract / Introduction",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "文章的三条核心实证发现：（1）在高技能医生的患者中，更分散的处方组合（更高的处方熵）预测更好的患者结果；（2）在低技能医生的患者中，这一关系消失；（3）违反处方指南在所有患者中均与更差的急诊结果相关。 > \"Among patients seeing skilled doctors, more dispersed prescribing is associated with better patient outcomes… Among patients seeing less skilled physicians, more dispersed prescribing is not associated with better patient outcomes… Violating guidelines about drug transitions is associated with worse outcomes in all patients.\"",
+      "why_this_matters": "这三条发现共同表明，医生行为的\"好\"与\"坏\"不能用单一维度（如处方多样性）来衡量，而必须与医生本身的诊断技能水平相结合才能解读。处方多样性对高技能医生是资产，对低技能医生则无益；而指南违反则对所有人有害。这为处方指南的差异化设计提供了核心依据。"
+    },
+    {
+      "excerpt_id": "currie-2020-understanding-doctor-decision-ex-002",
+      "location": "Introduction — Theory Section",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "文章理论模型的关键洞见是：试验性处方（experimentation）的价值取决于医生的诊断技能。 > \"The novel insight from our model is that the trade-off between experimentation and choosing the drug with the highest expected value depends on the physician's diagnostic skill. Intuitively, if a physician is not able to correctly assess a patient's condition, then there is little to be learned from experimenting and the patient is likely to be better off without it.\" > \"Other things being equal, a skilled diagnostician should be more experimental than a less skilled diagnostician.\" 在多臂赌博机框架中，医生为患者选择抗抑郁药好比拉\"老虎机\"：技能更高的医生能更准确地观察到患者对药物的响应信号，因此从试验中学到更多，应有更多样的处方组合。",
+      "why_this_matters": "这段 excerpt 是文章理论贡献的核心：它将\"诊断技能\"引入多臂赌博机的最优决策框架，解释了为什么相同的行为（多样处方）对不同技能水平的医生有截然不同的含义。这一机制直接决定了处方多样性与患者结果的交互效应应以技能为调节变量。"
+    },
+    {
+      "excerpt_id": "currie-2020-understanding-doctor-decision-ex-003",
+      "location": "Introduction",
+      "topic": "counterfactual",
+      "quote_or_paraphrase": "尽管更多样的处方组合在高技能医生中预测更好结果，扩大可选药物数量（增加选择集）并不必然改善患者福利： > \"expanding the drug choice set does not necessarily improve patient welfare within a fixed treatment window. Hence, guidelines that limit choice may be welfare-improving.\" > \"Simulations of our model demonstrate exactly this point, consistently indicating that restrictions on physicians' choice sets (guidelines) can be welfare-improving over a finite treatment horizon.\" 这是因为在有限治疗窗口内，选择集扩大在增加高技能医生有益试验的同时，也增加了低技能医生违反指南的概率，而后者的负面效应可能更大。",
+      "why_this_matters": "这条 excerpt 展示了文章最具政策反转意味的发现：看似应该\"多给医生选择空间\"的直觉在有限治疗窗口内可能是错的。指南的价值不仅在于防止明显错误，更在于保护低技能医生的患者免受无效试验的伤害。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "currie-2020-understanding-doctor-decision-lens-fact",
+      "theme_id": "practice-style",
+      "lens_type": "fact",
+      "claim": "更分散的处方风格并不天然更好，它只有在高技能医生手中才更可能转化为更好结果。",
+      "interpretation": "这篇文章非常适合用来反驳“风格差异就是坏事”或“更多个性化一定更好”这两种对立的简单叙事。",
+      "overclaim_risk": "不要把本文写成反指南或反多样性。它强调的是技能条件下的权衡。",
+      "safer_formulation": "这篇文章表明，医生处方风格的多样性是否改善结果，取决于医生本身的诊断和学习能力。",
+      "evidence_excerpt_ids": [
+        "currie-2020-understanding-doctor-decision-ex-001",
+        "currie-2020-understanding-doctor-decision-ex-002"
+      ]
+    },
+    {
+      "lens_id": "currie-2020-understanding-doctor-decision-lens-mechanism",
+      "theme_id": "physician-skill-heterogeneity",
+      "lens_type": "mechanism",
+      "claim": "医生的处方多样性不能脱离其诊断技能单独评价；技能越高，试验性处方越可能改善患者结果。",
+      "interpretation": "Currie 和 MacLeod 的关键贡献，不是简单说“多开几种药更好”或“更守指南更好”，而是把多样性行为放进一个技能调节的 bandit 决策框架里。这样一来，实践风格差异就不再只是一种偏好现象，而成为技能异质性在学习过程中的行为投影。",
+      "overclaim_risk": "不要把文章说成“高熵处方一定更好”。文中的结论明确依赖医生技能水平，而且实证部分主要是条件相关与模型一致性检验，并非严格因果识别。",
+      "safer_formulation": "这篇文章表明，在抑郁症处方场景中，更分散的处方风格只有在高技能医生那里才与更好的患者结果相关，这与“技能越高，试验性学习价值越大”的行为机制相一致。",
+      "evidence_excerpt_ids": [
+        "currie-2020-understanding-doctor-decision-ex-001",
+        "currie-2020-understanding-doctor-decision-ex-002"
+      ]
+    },
+    {
+      "lens_id": "currie-2020-understanding-doctor-decision-lens-policy",
+      "theme_id": "quality-guidelines",
+      "lens_type": "policy",
+      "claim": "当医生技能高度异质时，处方指南或有限选择集可能优于完全放开选择空间，因为它能约束低技能医生的有害试验。",
+      "interpretation": "这篇文章把“是否应当给医生更多自由裁量”这个常见直觉翻了过来。它告诉我们，选择空间的价值不是普遍的，而是取决于决策者是否有足够技能把试验转化成学习收益。对于技能分布广、错误代价高的场景，指南限制可以是福利改进工具。",
+      "overclaim_risk": "不要把这篇文章解读成“指南永远优于自由裁量”。文中强调的是有限治疗窗口与技能异质性下的权衡，而不是一条普遍的反自由裁量结论。",
+      "safer_formulation": "这篇文章提示，在医生技能异质性显著且错误试验代价较高的治疗场景中，限制选择集的处方指南可能比完全放开更有利于平均患者福利。",
+      "evidence_excerpt_ids": [
+        "currie-2020-understanding-doctor-decision-ex-001",
+        "currie-2020-understanding-doctor-decision-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `currie-2020-understanding-doctor-decision`\n- Canonical Version ID: `currie-2020-understanding-doctor-decision-uploaded`",
     "Common Core": "",

@@ -33,9 +33,94 @@
     "qi": "团队特定经历的测量方法与两套识别策略均可直接迁移至其他需要跨工种协作的医疗或非医疗场景，可复用价值很高。",
     "subjective": "对研究医疗团队生产、医生协作价值与医疗质量来源的健康经济学研究者而言，此文是必读文献，直接建立了团队特定人力资本改善患者结局的因果证据。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "physician-teams",
+      "name": "医生团队协作"
+    },
+    {
+      "theme_id": "organizational-economics-health",
+      "name": "医疗组织经济学"
+    },
+    {
+      "theme_id": "human-capital-teams",
+      "name": "团队专属人力资本"
+    },
+    {
+      "theme_id": "team-specific-human-capital",
+      "name": "团队专属人力资本积累"
+    },
+    {
+      "theme_id": "team-production",
+      "name": "团队生产"
+    },
+    {
+      "theme_id": "cardiac-care-quality",
+      "name": "心脏病治疗质量"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "chen-2021-team-specific-human-ex-001",
+      "location": "Main Results",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "手术医生与住院医生之间共同工作经历增加一个标准差，会显著降低 PCI 与 CABG 患者的 30 天死亡率。这表明团队特定人力资本不是抽象概念，而是能在关键临床结果上体现出来的真实生产要素。",
+      "why_this_matters": "这条摘录给“团队磨合有价值”提供了直接的因果证据，而且不是停留在流程效率，而是落到了患者存活率。"
+    },
+    {
+      "excerpt_id": "chen-2021-team-specific-human-ex-002",
+      "location": "Productivity Hypothesis",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "文章发现，随着共同经历增加，患者死亡率下降的同时，医疗资源消耗并未上升，反而有所下降。这更支持“生产率提升”而非“更多投入换更好结果”的解释。",
+      "why_this_matters": "这条证据说明团队特定人力资本不是简单靠多做检查、多投资源来改善结果，而是提升了团队协同本身的效率。"
+    },
+    {
+      "excerpt_id": "chen-2021-team-specific-human-ex-003",
+      "location": "Substitution with General Experience",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "通用个体经验对团队特定人力资本具有一定替代作用，但替代并不完全。也就是说，经验丰富的个人仍然无法完全替代彼此之间长期合作形成的默契和协同。",
+      "why_this_matters": "这条摘录告诉我们，团队质量不只是好医生的简单加总，重组团队会真实损失一部分不可替代的协作资本。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "chen-2021-team-specific-human-lens-fact",
+      "theme_id": "team-specific-human-capital",
+      "lens_type": "fact",
+      "claim": "医疗团队的历史合作经验会形成可观测、可积累、且对质量有实质影响的团队特定人力资本。",
+      "interpretation": "本文把团队磨合从一种经验常识变成了可因果识别的生产要素。对医疗团队研究来说，这是非常关键的事实锚点。",
+      "overclaim_risk": "不要写成“所有合作经验都同样有价值”。文章识别的是特定类型高技能团队中的历史协作经验。",
+      "safer_formulation": "这篇文章表明，在心脏介入和外科团队中，成员之间累积的共同工作经历会显著改善患者结果。",
+      "evidence_excerpt_ids": [
+        "chen-2021-team-specific-human-ex-001"
+      ]
+    },
+    {
+      "lens_id": "chen-2021-team-specific-human-lens-mechanism",
+      "theme_id": "human-capital-teams",
+      "lens_type": "mechanism",
+      "claim": "团队特定人力资本改善结果的主要渠道是更高的协同效率，而不是更多资源消耗。",
+      "interpretation": "文章中“结果更好且投入更省”的组合非常关键，因为它把团队经验与真正的生产率提升联系了起来。",
+      "overclaim_risk": "不要把机制写成已经完全分离。它强烈支持生产率解释，但并不排除部分流程规范或沟通成本下降共同作用。",
+      "safer_formulation": "这篇文章的证据与一种清晰机制相一致：团队共同经历通过提升协同效率改善质量，而不是通过增加资源投入。",
+      "evidence_excerpt_ids": [
+        "chen-2021-team-specific-human-ex-002"
+      ]
+    },
+    {
+      "lens_id": "chen-2021-team-specific-human-lens-policy",
+      "theme_id": "team-production",
+      "lens_type": "policy",
+      "claim": "医院在排班、团队稳定性和人员重组上的组织决策，会通过团队特定人力资本影响患者结果。",
+      "interpretation": "如果团队经验不能被通用个人经验完全替代，那么医院把成员当作完全可替换零件来排班，就会低估重组成本。",
+      "overclaim_risk": "不要把结论写成“团队永远不要轮换”。轮换可能有培训收益，文章强调的是稳定性的价值不能被忽略。",
+      "safer_formulation": "这篇文章提示，医院在团队配置和排班设计中需要权衡培训与灵活性收益，以及团队特定人力资本流失的质量成本。",
+      "evidence_excerpt_ids": [
+        "chen-2021-team-specific-human-ex-001",
+        "chen-2021-team-specific-human-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `chen-2021-team-specific-human`\n- Canonical Version ID: `chen-2021-team-specific-human-uploaded`",
     "Common Core": "",

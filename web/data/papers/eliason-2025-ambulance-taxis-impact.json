@@ -33,9 +33,96 @@
     "qi": "Staggered DD 框架与\"规制 vs. 诉讼\"比较方法可推广至其他 Medicare 欺诈场景，但核心数据难以直接获取。",
     "subjective": "直接关联医疗欺诈执法与政策工具选择，对研究 Medicare 欺诈、监察与执法的研究者是核心文献。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "medicare-fraud",
+      "name": "Medicare 欺诈"
+    },
+    {
+      "theme_id": "prior-authorization",
+      "name": "事前授权"
+    },
+    {
+      "theme_id": "healthcare-fraud",
+      "name": "医疗欺诈"
+    },
+    {
+      "theme_id": "ambulance-regulation",
+      "name": "救护车服务监管"
+    },
+    {
+      "theme_id": "monitoring-enforcement",
+      "name": "监测与执法"
+    },
+    {
+      "theme_id": "regulation-vs-litigation",
+      "name": "监管与诉讼的工具比较"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "eliason-2025-ambulance-taxis-impact-ex-001",
+      "location": "Abstract & Introduction (pp. 1–4)",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "文章核心发现：加入事前授权（prior authorization）要求使 Medicare 透析患者的非急救救护车乘坐次数立即、持续地下降 68%，效果远超单纯的刑事与民事诉讼（pay-and-chase litigation）。尽管救护车使用量骤降，患者的透析完成率、住院率与死亡率均未见显著恶化。作者估算，若从 2003 年起即推行全国事前授权，联邦政府可节省逾 48 亿美元，且无任何健康代价。2003–2017 年间，Medicare 在透析患者非急救救护车上共花费 77 亿美元（3750 万次乘车），三倍于透析患者数量的增长幅度，凸显了欺诈规模。",
+      "why_this_matters": "这条 excerpt 直接提供了\"行政监管（事前授权）优于司法诉讼（事后追缴）\"这一政策比较的核心数字：68% 的使用量削减，与几乎零健康代价相结合，是支持事前授权政策扩展的最直接实证证据。"
+    },
+    {
+      "excerpt_id": "eliason-2025-ambulance-taxis-impact-ex-002",
+      "location": "Introduction, Mechanism Discussion (pp. 4–6)",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "文章识别出诉讼失效的两个主要机制：（1）有限责任（limited liability）——欺诈者的资产不足以承担全额罚款，使得高额民事赔偿威慑力有限；（2）低侦查概率（low probability of detection）——联邦 FBI 和 DOJ 调查范围有限，大量欺诈公司从未被起诉。对比之下，事前授权直接截断了提交不必要乘车报销的机会，不依赖于事后侦查与罚款，因此不受上述两个制约。文章还发现，诉讼对未被直接起诉的企业（market-level spillover）影响极为有限，与\"有限责任+低侦查概率\"导致诉讼威慑力弱的解释一致。",
+      "why_this_matters": "机制分析是这篇文章超越单纯政策比较的理论贡献所在。理解诉讼为何失效（而不只是记录它失效了）——有限责任与低侦查概率——对于预测其他欺诈场景中两种工具的相对效力至关重要。凡有限责任与低侦查概率同时存在的领域，诉讼均可预期效果不佳。"
+    },
+    {
+      "excerpt_id": "eliason-2025-ambulance-taxis-impact-ex-003",
+      "location": "Main Results — Market Structure (Paper Card §Main Results)",
+      "topic": "main_results",
+      "quote_or_paraphrase": "事前授权不仅减少了乘车次数，还显著重塑了救护车市场结构：受事前授权覆盖地区的救护车公司数量大幅下降，留存公司更加专注于透析接送这一核心业务。相比之下，诉讼对未被直接起诉企业的市场效应极为有限。事前授权后，继续乘车的患者具有更多真实医疗必要性证明，说明政策有效筛选了合规乘客。患者健康结果（透析完成率、住院率、死亡率）在事前授权前后无显著差异，与\"削减的是欺诈性而非必要性乘车\"的解释一致。",
+      "why_this_matters": "市场结构变化提供了机制层面的补充证据：大量救护车公司退出市场，表明它们的存在主要依赖欺诈收入；留存公司专业化则意味着市场向真正提供服务的合规提供者集中。这一发现支持了事前授权不仅节省支出、更净化市场结构的政策叙事。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "eliason-2025-ambulance-taxis-impact-lens-mechanism",
+      "theme_id": "monitoring-enforcement",
+      "lens_type": "mechanism",
+      "claim": "当违规者面临有限责任且被查概率很低时，事后诉讼难以形成足够威慑；直接卡住报销入口的前端审查更有效。",
+      "interpretation": "这篇文章不仅展示了 prior authorization 的强效果，还明确给出诉讼失效的双重机制解释：罚款即使很高，也可能因为有限责任而无法真正内部化；而侦查覆盖不足又使预期惩罚本身偏低。这使它成为“监测与执法机制设计”主题下很有穿透力的一篇文献。",
+      "overclaim_risk": "不要把机制说成已经被完全结构识别。文章提供的是强有力的机制解释与市场层证据，而不是对有限责任和侦查概率参数的完全分离估计。",
+      "safer_formulation": "这篇文章的证据与一种清晰机制相一致：在有限责任和低侦查概率并存的医疗欺诈市场里，后端诉讼威慑往往不足，而前端报销审查更容易起作用。",
+      "evidence_excerpt_ids": [
+        "eliason-2025-ambulance-taxis-impact-ex-002"
+      ]
+    },
+    {
+      "lens_id": "eliason-2025-ambulance-taxis-impact-lens-policy",
+      "theme_id": "prior-authorization",
+      "lens_type": "policy",
+      "claim": "如果授权规则针对的是可验证性强、必要性标准明确的服务，事前授权可以在几乎零健康代价下显著节省公共医保支出。",
+      "interpretation": "很多对 prior authorization 的批评都担心它会阻断必要治疗。但在这篇文章研究的场景里，政策切掉的是明显偏离医疗必要性的乘车需求，患者透析完成率、住院率和死亡率都没有恶化，因此它提供了一个“前端筛查可以高效且低伤害”的清晰案例。",
+      "overclaim_risk": "不要把文章表述成“所有 prior authorization 都无害”。这篇文章研究的是医疗必要性较容易核验的运输服务，而不是复杂临床治疗决策。",
+      "safer_formulation": "这篇文章说明，在医疗必要性相对容易验证的服务上，事前授权有可能以很小的患者健康代价大幅压缩 Medicare 的欺诈性或低价值支出。",
+      "evidence_excerpt_ids": [
+        "eliason-2025-ambulance-taxis-impact-ex-001",
+        "eliason-2025-ambulance-taxis-impact-ex-003"
+      ]
+    },
+    {
+      "lens_id": "eliason-2025-ambulance-taxis-impact-lens-regulation-vs-litigation",
+      "theme_id": "regulation-vs-litigation",
+      "lens_type": "policy",
+      "claim": "对于高频、小额、分散且侦查难度高的医疗欺诈，事前授权式监管比刑事或民事追诉更有效。",
+      "interpretation": "这篇文章最强的地方在于，它不是抽象比较“监管”和“诉讼”，而是在同一类 Medicare 救护车欺诈市场里，直接比较两种工具的实证结果。68% 的乘车量压缩、有限的诉讼溢出效应和零健康代价，共同构成了对前端监管的强支持。",
+      "overclaim_risk": "不要把这篇文章写成“监管总是优于诉讼”。它识别的是一个具有有限责任、低侦查概率和高报销诱因的特定市场，外推到其他行业或其他医疗服务时仍需谨慎。",
+      "safer_formulation": "这篇文章表明，在 Medicare 透析患者非急救救护车这一高欺诈风险场景中，事前授权式监管比单纯依赖刑事和民事诉讼更能有效压缩不必要服务。",
+      "evidence_excerpt_ids": [
+        "eliason-2025-ambulance-taxis-impact-ex-001",
+        "eliason-2025-ambulance-taxis-impact-ex-002",
+        "eliason-2025-ambulance-taxis-impact-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `eliason-2025-ambulance-taxis-impact`\n- Canonical Version ID: `eliason-2025-ambulance-taxis-impact-uploaded`",
     "Common Core": "",

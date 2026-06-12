@@ -33,9 +33,89 @@
     "qi": "分解框架和价格信号分析路径可复用性强，但高度依赖内部企业数据，完整复制门槛较高。",
     "subjective": "对理解成本分担机制、非线性合同行为和保险市场设计均不可或缺，是健康经济学必读文献之一。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "health-insurance-market-design",
+      "name": "健康保险市场设计"
+    },
+    {
+      "theme_id": "patient-cost-sharing",
+      "name": "患者自付费用设计"
+    },
+    {
+      "theme_id": "cost-sharing-demand",
+      "name": "成本分担与医疗需求"
+    },
+    {
+      "theme_id": "moral-hazard-health",
+      "name": "道德风险与医疗利用"
+    },
+    {
+      "theme_id": "nonlinear-contract-behavior",
+      "name": "非线性合同中的消费者行为"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "brot-goldberg-2017-what-does-deductible-ex-001",
+      "location": "Abstract",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "作者利用一家大型自保险企业强制将所有员工从完全免费医疗切换到高免赔额计划的自然实验，将支出降幅（11.8%–13.8%）分解为价格比价、数量削减和数量替代三个成分，发现支出下降完全来自数量的直接削减，而非消费者转向更便宜的服务提供方。两年内未发现消费者学会价格比价的证据。",
+      "why_this_matters": "这条 excerpt 直接点明了文章的核心反直觉发现：高免赔额计划支持者所寄望的\"价格比价效率红利\"在数据中根本不存在，支出压缩的全部代价由就医数量缩减来承担。这一发现从根本上挑战了以高免赔额计划作为成本控制工具的政策逻辑，也为后续研究消费者对非线性合同的误解提供了直接动机。"
+    },
+    {
+      "excerpt_id": "brot-goldberg-2017-what-does-deductible-ex-002",
+      "location": "Introduction（第1265页）",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "消费者对就诊时当期现货价格（spot price）的响应极为强烈——在控制了真实影子价格（真实年末预期边际价格）和前一年年末边际价格后，处于免赔额以下的状态仍解释了约42%的增量支出削减。即便是预计当年肯定会超过免赔额的最高患病风险四分之一人群，在处于免赔额以下月份时支出削减幅度也高达42%，且在第二年内未见任何学习效应。",
+      "why_this_matters": "\"现货价格偏误\"是这篇文章最具行为经济学意义的核心机制证据：消费者并非基于前瞻性动态优化做决策，而是对就诊那一刻的实际标价做出近视性反应。这一机制直接解释了为何高患病风险人群（最应该就医者）反而在免赔额以下月份大幅削减支出，揭示出当前高免赔额计划设计存在的深层行为失灵。"
+    },
+    {
+      "excerpt_id": "brot-goldberg-2017-what-does-deductible-ex-003",
+      "location": "Introduction（第1264–1265页）",
+      "topic": "identification_logic",
+      "quote_or_paraphrase": "研究者利用一家大型自保险企业在特定年份（t0）强制将全体员工从零自付费保险移入高免赔额健康计划（HDHP）这一外生政策变化构造自然实验。新计划覆盖的医疗机构和服务范围与原计划完全相同，唯一改变是财务结构；企业同时向员工健康储蓄账户注入与平均自付额等值的一次性补贴，以中和收入效应。员工收入较高（中位$125,000–$150,000），受教育程度高，作者将其描述为\"价格比价能力的最优情形\"。",
+      "why_this_matters": "识别设计的干净程度直接决定了机制结论的可信度。强制切换排除了个体选择偏误，医疗机会集不变排除了供给侧混淆，HSA补贴设计类比RAND HIE的收入效应中性安排，使纯粹的价格效应得以识别。更关键的是：若连这批高收入、高教育、技术娴熟的员工都无法实现价格比价，则对普通人群而言该工具的效果只会更差。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "brot-goldberg-2017-what-does-deductible-lens-counterfactual",
+      "theme_id": "nonlinear-contract-behavior",
+      "lens_type": "counterfactual",
+      "claim": "如果消费者能够根据真实影子价格（而非现货价格）调整就医决策，高免赔额计划下的有益就医削减将大幅减少，福利代价将显著低于当前可观测水平。",
+      "interpretation": "文章通过两条证据线索支持这一反事实论证：（1）最高患病风险人群（其真实影子价格接近零，因为他们几乎肯定会在年末超过免赔额）在免赔额以下月份的支出削减幅度高达42%，这与理性预期模型的预测完全相悖；（2）两年内消费者未学会对影子价格做出响应，说明信息干预或合同简化（而非仅靠时间和经验）才是改善决策的路径。这两点共同指向：现行合同复杂性本身制造了可避免的福利损失。",
+      "overclaim_risk": "不要把这个反事实论证当作\"高免赔额计划在理想条件下一定有效\"的支持——文章只显示了行为偏误的额外代价，并未论证在无偏误条件下合同设计的净效率是否为正。",
+      "safer_formulation": "现有证据表明，高免赔额计划在消费者存在现货价格偏误的条件下产生了可量化的额外福利损失；政策干预若能帮助消费者更准确地预测年末真实影子价格，或简化合同结构以降低决策复杂度，有望在不增加道德风险的前提下减少这部分额外损失。",
+      "evidence_excerpt_ids": [
+        "- brot-goldberg-2017-what-does-deductible-ex-002 - brot-goldberg-2017-what-does-deductible-ex-001"
+      ]
+    },
+    {
+      "lens_id": "brot-goldberg-2017-what-does-deductible-lens-mechanism",
+      "theme_id": "nonlinear-contract-behavior",
+      "lens_type": "mechanism",
+      "claim": "在高免赔额保险合同下，消费者对医疗服务的削减主要受当前现货价格驱动，而非合同内嵌的真实影子价格，这导致就医决策与理性前瞻性优化严重偏离。",
+      "interpretation": "文章最有说服力的证据是：即便控制了真实影子价格，消费者处于免赔额以下状态仍解释了约42%的额外支出削减；最高患病风险人群（最应就医者）在低现货价格月份之外的月份削减更多。这两条证据形成了\"现货价格偏误\"的闭合论证——消费者并非在优化终生健康效用，而是在对每次就诊的账单价格做出即时反应。",
+      "overclaim_risk": "不要将所有高免赔额计划下的就医减少都归因于现货价格偏误；道德风险（对真实价格变化的理性响应）仍然存在，这篇文章说的是偏误的叠加效应，而非否定全部价格响应。",
+      "safer_formulation": "在高免赔额计划下，消费者对医疗服务的削减不仅包含对真实成本上升的理性响应，还包含对非线性合同结构的系统性误解——后者导致了与理性预期模型相悖的行为模式，特别是高风险患者在低现货价格月份之外大幅削减有价值就医。",
+      "evidence_excerpt_ids": [
+        "- brot-goldberg-2017-what-does-deductible-ex-002 - brot-goldberg-2017-what-does-deductible-ex-001"
+      ]
+    },
+    {
+      "lens_id": "brot-goldberg-2017-what-does-deductible-lens-policy",
+      "theme_id": "health-insurance-market-design",
+      "lens_type": "policy",
+      "claim": "高免赔额计划通过削减就医数量（而非价格比价）来降低医疗支出，且削减范围同时覆盖低价值和高价值医疗服务，意味着该政策工具的福利代价远高于其效率叙事所暗示的水平。",
+      "interpretation": "政策设计者推广高免赔额计划的核心论据是\"价格比价红利\"——消费者获得财务激励后会货比三家，倒逼提供方降价，实现效率改进。但这篇文章的分解结果显示，价格比价贡献接近于零，支出下降完全来自数量削减，且削减同时包含预防保健和慢性病管理等高价值服务。考虑到研究对象是受教育程度最高、最有能力价格比价的高收入员工群体，对普通人群而言该工具的效果只会更差。",
+      "overclaim_risk": "不要将这篇文章解读为\"高免赔额计划一定增加净社会成本\"；研究只能说削减中包含了高价值服务，但无法直接测量所削减服务的净健康损失，部分削减（如不必要的影像检查）可能确实是低价值的。",
+      "safer_formulation": "现有最优质的自然实验证据表明，高免赔额计划实现支出压缩的主要渠道是无差别的就医数量削减，而非效率提升性的价格比价；且在信息处理能力最强的消费者群体中亦如此，这对依赖消费者价格敏感性进行效率论证的政策叙事构成了严肃挑战。",
+      "evidence_excerpt_ids": [
+        "- brot-goldberg-2017-what-does-deductible-ex-001 - brot-goldberg-2017-what-does-deductible-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `brot-goldberg-2017-what-does-deductible`\n- Canonical Version ID: `brot-goldberg-2017-what-does-deductible-uploaded`",
     "Common Core": "",

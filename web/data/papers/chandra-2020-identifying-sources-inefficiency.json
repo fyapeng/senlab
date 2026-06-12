@@ -33,9 +33,94 @@
     "qi": "广义 Roy 模型 + 倾向得分充分统计量的分配有效性识别框架，以及\"同倾向得分患者效益差异 = 无效率\"的核心识别思路，可迁移至任何存在治疗选择的医疗评估场景。",
     "subjective": "对于研究医院生产率、医疗治疗决策效率以及实践变异政策含义的健康经济学研究者而言，此文是概念框架与实证工具的双重基准，高度相关。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "healthcare-inefficiency",
+      "name": "医疗低效率"
+    },
+    {
+      "theme_id": "organizational-economics-health",
+      "name": "医疗组织经济学"
+    },
+    {
+      "theme_id": "empirical-structural-health",
+      "name": "医疗结构估计"
+    },
+    {
+      "theme_id": "comparative-advantage-hospitals",
+      "name": "医院比较优势"
+    },
+    {
+      "theme_id": "treatment-variation",
+      "name": "治疗变异"
+    },
+    {
+      "theme_id": "allocative-efficiency",
+      "name": "配置效率"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "chandra-2020-identifying-sources-inefficiency-ex-001",
+      "location": "Main Claim",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "文章发现，大多数医院在心脏病再灌注治疗上存在实质性的配置无效率，尤其表现为对低倾向得分患者的过度治疗，这些治疗在某些情况下甚至造成伤害。",
+      "why_this_matters": "这条摘录说明医院间治疗差异并不只是“多一点少一点”的中性变动，而可能包含真实的错误配置与福利损失。"
+    },
+    {
+      "excerpt_id": "chandra-2020-identifying-sources-inefficiency-ex-002",
+      "location": "Comparative Advantage",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "本文同时发现，医院之间的比较优势差异同样显著，且量级与平均治疗效益相近。也就是说，有些医院不仅“治得多或少”不同，而且“治同样的病人时效果更好或更差”。",
+      "why_this_matters": "这条证据把效率问题拆成了两层：一层是病人分配错了，一层是医院本身治疗回报不同。后者直接关联组织能力和技术比较优势。"
+    },
+    {
+      "excerpt_id": "chandra-2020-identifying-sources-inefficiency-ex-003",
+      "location": "Counterfactual",
+      "topic": "counterfactual",
+      "quote_or_paraphrase": "作者估计，若能消除配置无效率，再灌注治疗带来的总生存收益可提高约 44%。这意味着相当大一部分福利损失并不来自技术不足，而是来自技术被错误使用。",
+      "why_this_matters": "这条摘录让低效率的政策含义变得非常具体：改进配置本身就可能释放巨大的存活收益。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "chandra-2020-identifying-sources-inefficiency-lens-fact",
+      "theme_id": "healthcare-inefficiency",
+      "lens_type": "fact",
+      "claim": "跨医院治疗差异很大一部分来自错误配置，尤其是对低收益患者的过度治疗。",
+      "interpretation": "本文的重要性在于，它把“治疗差异”翻译成了更有政策含义的“配置无效率”。这让医疗组织效率问题从描述统计走向福利分析。",
+      "overclaim_risk": "不要写成“所有高治疗率医院都低效”。文章同时强调比较优势差异的存在。",
+      "safer_formulation": "这篇文章表明，医院间治疗差异中包含显著的配置无效率，尤其表现为某些医院对低收益患者的过度治疗。",
+      "evidence_excerpt_ids": [
+        "chandra-2020-identifying-sources-inefficiency-ex-001"
+      ]
+    },
+    {
+      "lens_id": "chandra-2020-identifying-sources-inefficiency-lens-mechanism",
+      "theme_id": "comparative-advantage-hospitals",
+      "lens_type": "mechanism",
+      "claim": "医院间治疗差异不仅来自是否治疗的阈值不同，也来自医院本身对同一治疗的真实回报不同。",
+      "interpretation": "本文把比较优势这个贸易和组织经济学概念，真正落到了医院治疗回报异质性上。这使得“哪家医院来做”变成与“是否做治疗”同等重要的问题。",
+      "overclaim_risk": "不要把本文写成完全识别了所有能力来源。它识别了比较优势存在，但未必完全解释其形成机制。",
+      "safer_formulation": "这篇文章表明，医院之间存在显著的比较优势差异，因此治疗效率不仅取决于治疗是否实施，也取决于由谁实施。",
+      "evidence_excerpt_ids": [
+        "chandra-2020-identifying-sources-inefficiency-ex-002"
+      ]
+    },
+    {
+      "lens_id": "chandra-2020-identifying-sources-inefficiency-lens-policy",
+      "theme_id": "allocative-efficiency",
+      "lens_type": "policy",
+      "claim": "提高医疗福利的关键，往往不是统一压低或抬高治疗率，而是改善患者与医院之间的匹配配置。",
+      "interpretation": "如果消除配置无效率就能释放 44% 的额外生存收益，那么政策重点显然不该只是争论“做得太多还是太少”，而应转向“做给了谁”。",
+      "overclaim_risk": "不要把本文写成“支付制度微调就能解决一切”。作者强调的还包括组织信念和比较优势识别问题。",
+      "safer_formulation": "这篇文章提示，医疗效率改革应更多聚焦于改善治疗配置与患者匹配，而不是仅仅压平医院间平均治疗差异。",
+      "evidence_excerpt_ids": [
+        "chandra-2020-identifying-sources-inefficiency-ex-001",
+        "chandra-2020-identifying-sources-inefficiency-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `chandra-2020-identifying-sources-inefficiency`\n- Canonical Version ID: `chandra-2020-identifying-sources-inefficiency-uploaded`",
     "Common Core": "",

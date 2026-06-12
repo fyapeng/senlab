@@ -33,9 +33,91 @@
     "qi": "Roy 模型 + 溢出效应的框架被 Chan et al. (2022) 和其他文献直接引用和扩展；\"通过预测集合区分模型\"的方法也具有广泛可迁移性。",
     "subjective": "对理解地理变异、医疗资源配置效率和医生技能异质性的健康经济学研究者而言，这是理论与实证结合的入门范本。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "practice-style",
+      "name": "医生实践风格"
+    },
+    {
+      "theme_id": "physician-skill-heterogeneity",
+      "name": "医生技能异质性"
+    },
+    {
+      "theme_id": "geographic-variation",
+      "name": "医疗地域变异"
+    },
+    {
+      "theme_id": "treatment-intensity",
+      "name": "治疗强度"
+    },
+    {
+      "theme_id": "productivity-spillovers",
+      "name": "生产率溢出"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "chandra-2007-productivity-spillovers-health-ex-001",
+      "location": "Core Puzzle",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "美国不同地区在心脏病集约治疗强度上存在巨大差异，但这种差异与平均患者结果几乎无关。文章指出，这一经验事实并不自动意味着“高强度治疗都是浪费”，还可能反映患者排序与生产率溢出。",
+      "why_this_matters": "这条摘录直接切中“曲线末端医学”争论的核心。它提醒我们，平均结果不变并不等于边际回报处处为零。"
+    },
+    {
+      "excerpt_id": "chandra-2007-productivity-spillovers-health-ex-002",
+      "location": "Roy Model Interpretation",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "文章提出含生产率溢出的 Roy 模型，用来解释为何高强度地区的平均结果未必更好，但最适合集约治疗的患者在这些地区受益更多。关键不在于“大家都被多治了”，而在于高强度地区对真正受益患者的匹配和生产率可能更强。",
+      "why_this_matters": "这条证据把地区差异从“浪费”问题推进到“比较优势与溢出”问题，对后续医院技能异质性和治疗匹配文献影响很大。"
+    },
+    {
+      "excerpt_id": "chandra-2007-productivity-spillovers-health-ex-003",
+      "location": "Policy Implication",
+      "topic": "counterfactual",
+      "quote_or_paraphrase": "若高强度地区的边际回报更高是因为它们在某些技术上具有更强生产率，那么简单压缩地区间治疗强度差异可能会损害最可能受益的患者。政策更应关注选择与匹配，而不是机械追求平均化。",
+      "why_this_matters": "这条摘录将文章从理论解释推进到政策含义，适合用来反驳“见到地区差异就应立刻压平”的简单叙事。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "chandra-2007-productivity-spillovers-health-lens-fact",
+      "theme_id": "geographic-variation",
+      "lens_type": "fact",
+      "claim": "地区间医疗强度差异的含义不能只靠平均结果来判断，还必须考虑异质治疗收益与选择结构。",
+      "interpretation": "本文是对“平坦曲线医学”最有力的修正之一。它不否认浪费可能存在，但反对从平均结果不变直接跳到“边际治疗没有价值”。",
+      "overclaim_risk": "不要把本文写成“高强度地区一定更好”。文章强调的是更复杂的结构解释，而不是简单赞成更多治疗。",
+      "safer_formulation": "这篇文章表明，地区治疗强度高并且平均结果相近，并不能单独证明额外治疗没有价值，因为最适合治疗的患者可能在高强度地区获得了更多收益。",
+      "evidence_excerpt_ids": [
+        "chandra-2007-productivity-spillovers-health-ex-001",
+        "chandra-2007-productivity-spillovers-health-ex-003"
+      ]
+    },
+    {
+      "lens_id": "chandra-2007-productivity-spillovers-health-lens-mechanism",
+      "theme_id": "productivity-spillovers",
+      "lens_type": "mechanism",
+      "claim": "医疗强度差异的背后可能是技术与组织生产率溢出，而不是单纯的供给诱导或低效率。",
+      "interpretation": "本文的关键，是把地理变异问题重新建模为一个带异质回报和溢出效应的选择问题。它为后来的医院比较优势与技能异质性文献打下了基础。",
+      "overclaim_risk": "不要写成“生产率溢出已被直接观测到”。更准确地说，这是一个与核心事实高度一致的结构解释。",
+      "safer_formulation": "这篇文章提出并支持一种重要解释：地区高强度治疗可能伴随更强的生产率溢出和更好的患者匹配，因此其边际回报未必低。",
+      "evidence_excerpt_ids": [
+        "chandra-2007-productivity-spillovers-health-ex-002"
+      ]
+    },
+    {
+      "lens_id": "chandra-2007-productivity-spillovers-health-lens-policy",
+      "theme_id": "treatment-intensity",
+      "lens_type": "policy",
+      "claim": "政策若忽略异质治疗收益和生产率差异，简单压平治疗率可能损害真正高收益患者。",
+      "interpretation": "本文的政策含义并不是“多治总比少治好”，而是“均值比较不足以指导削减政策”。正确的改革重点应是识别谁更该接受治疗、哪些提供者更擅长治疗。",
+      "overclaim_risk": "不要把本文变成对高支出地区的全面辩护。它只是说，粗暴的削减逻辑缺乏足够依据。",
+      "safer_formulation": "这篇文章提示，地区治疗强度的政策评估需要结合异质回报与生产率差异，而不是仅凭平均结果判断高强度地区存在浪费。",
+      "evidence_excerpt_ids": [
+        "chandra-2007-productivity-spillovers-health-ex-001",
+        "chandra-2007-productivity-spillovers-health-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `chandra-2007-productivity-spillovers-health`\n- Canonical Version ID: `chandra-2007-productivity-spillovers-health-uploaded`",
     "Common Core": "",

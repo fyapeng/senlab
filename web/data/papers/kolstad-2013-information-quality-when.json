@@ -33,9 +33,89 @@
     "qi": "\"信息冲击 + 结构需求模型\"的识别框架和内在/外在激励分解思路可推广至其他质量报告设计或绩效考核研究。",
     "subjective": "对研究医生激励、质量信息政策及非货币激励机制的健康经济学研究者极为核心。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "information-and-incentives",
+      "name": "信息与激励"
+    },
+    {
+      "theme_id": "intrinsic-motivation-physicians",
+      "name": "医生内在激励"
+    },
+    {
+      "theme_id": "physician-behavior",
+      "name": "医生行为与激励"
+    },
+    {
+      "theme_id": "empirical-structural-health",
+      "name": "医疗结构估计"
+    },
+    {
+      "theme_id": "quality-reporting",
+      "name": "质量信息披露"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "kolstad-2013-information-quality-when-ex-001",
+      "location": "Abstract / Introduction",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "作者发现，对质量报告卡信息的内在（非货币）响应约为利润激励响应的四倍：外部激励仅使宾夕法尼亚 CABG 全州风险调整死亡率下降约 3%，而将内在激励纳入模型后，预测的质量改善与实际观测值高度吻合。 > \"Information on performance that was new to surgeons and unrelated to patient demand led to an intrinsic response four times larger than surgeon response to profit incentives.\"",
+      "why_this_matters": "这条 excerpt 直接呈现了文章的核心量化发现：质量报告卡主要通过改变外科医生的内在激励（而非需求侧）来提升手术质量。这一发现颠覆了\"质量信息政策必须依赖消费者需求响应\"的主流假设，为医疗质量政策设计提供了全新基准。"
+    },
+    {
+      "excerpt_id": "kolstad-2013-information-quality-when-ex-002",
+      "location": "Section I — Model",
+      "topic": "identification_logic",
+      "quote_or_paraphrase": "作者将外科医生效用设定为利润与内在激励的加性可分形式（公式 1）： > \"U_i = Π_i(θ_i, θ_{-i}, Ω) + Γ_i(θ_i, θ_j, Ω)\" 其中 Γ 项捕捉的是外科医生相对于参照群体 j ∈ J 的内在效用。信息变量 Ω 同时作用于利润渠道（改变需求弹性）和内在渠道（改变医生对自身相对质量的认知）。核心识别逻辑是：报告卡的风险调整方案为每位外科医生提供了可量化的\"信息更新量\"——事前自我评估越偏高（即对自身质量过于乐观）的医生，在报告卡发布后得到的信息冲击越大，随后的质量改善也越显著。",
+      "why_this_matters": "这段 excerpt 阐明了文章区分内在与外在激励的识别机制：两种激励均通过 Ω（信息）进入，但作用渠道不同。需求侧响应通过结构模型估计利润激励；信息冲击对质量的额外影响（超出利润预测部分）则归因于内在激励。这是将模型与识别策略对接的关键桥梁。"
+    },
+    {
+      "excerpt_id": "kolstad-2013-information-quality-when-ex-003",
+      "location": "Introduction / Section IV",
+      "topic": "counterfactual",
+      "quote_or_paraphrase": "文章明确对现行报告卡政策设计提出质疑：如果外科医生的质量改善主要来自内在激励而非需求侧响应，那么当前\"简化报告卡、推送给消费者\"的政策路径价值有限；反而向外科医生提供更详尽的临床数据可能更有效率。 > \"contrary to current efforts to simplify provider report cards, it may be preferable to deliver data with more clinical detail.\" 作者进一步指出，鲁棒性检验已排除了以下替代解释：患者严重程度的选择性变化（基于可观测量与\"未使用\"观测量）、动态货币激励（手术量变化或保险结构变化）、以及跨期技术进步。",
+      "why_this_matters": "这条 excerpt 是文章政策含义的核心落点：报告卡的价值不在于消费者端，而在于供给者端的信息反馈。这一结论对当前全球各国推行的质量报告制度（如 P4P、公开绩效排名）都有直接的再设计意义。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "kolstad-2013-information-quality-when-lens-mechanism",
+      "theme_id": "intrinsic-motivation-physicians",
+      "lens_type": "mechanism",
+      "claim": "在价格管制的医疗市场中，向供给者披露相对绩效信息所产生的质量激励，主要来自医生的内在动机（peer comparison），而非市场份额变化带来的利润激励。",
+      "interpretation": "文章最有力的机制证据是：在结构需求模型充分控制利润激励之后，信息更新量（外科医生事前信念偏差）对事后质量改善仍有强烈的正向预测力，且其效应量约为利润渠道的四倍。这说明医生内在的\"相对绩效关注\"是质量信息政策产生效果的主要渠道，而非通过需求端传导。",
+      "overclaim_risk": "不要将\"内在激励比利润激励大四倍\"解读为\"利润激励无关紧要\"。文章明确显示利润激励仍然显著，RAMR 下降约 3% 可归因于此；内在激励更大只意味着政策设计的重心应调整，而非完全放弃外部激励工具。",
+      "safer_formulation": "证据表明，质量报告卡带来的手术质量改善中，内在（非货币）激励贡献的绝对量级约为利润激励的四倍；因此，质量报告政策对供给者绩效的影响，不能单纯用消费者需求弹性来预测。",
+      "evidence_excerpt_ids": [
+        "kolstad-2013-information-quality-when-ex-001 kolstad-2013-information-quality-when-ex-002"
+      ]
+    },
+    {
+      "lens_id": "kolstad-2013-information-quality-when-lens-method",
+      "theme_id": "information-and-incentives",
+      "lens_type": "method",
+      "claim": "在同一政策干预（质量报告卡）既影响需求侧激励又影响供给者信息集的场景中，可以通过结构需求模型\"净化\"出利润激励效应，再将总响应与之比较，从而识别非货币（内在）激励的贡献。",
+      "interpretation": "Kolstad 的识别两步走策略值得仔细学习：第一步，用 BLP 类随机系数需求模型估计患者对外科医生质量的需求弹性，并基于报告卡前后的市场结构变化模拟利润激励的边际变化；第二步，用风险调整方案隐含的信息更新量（个人先验与报告卡结果之差）作为内在激励冲击的代理变量，检验其对质量改善的额外解释力。两步均独立有据可依，组合起来可以在不依赖完全外生实验的情况下完成激励渠道的分解。",
+      "overclaim_risk": "这一识别策略的效力依赖结构需求模型对利润激励的正确刻画，以及风险调整方案\"信息更新量\"对内在激励冲击的有效代理。若需求模型设定偏误，或医生信念形成机制不符合假设，两步分解的精确性都会受到影响。",
+      "safer_formulation": "Kolstad (2013) 提供了一种将结构需求估计与信息冲击代理变量结合来分解外在/内在激励的识别框架；这一框架可推广至其他\"政策干预同时影响需求侧和供给者信息集\"的应用场景，但需满足需求模型设定正确和信息更新代理变量有效的前提条件。",
+      "evidence_excerpt_ids": [
+        "kolstad-2013-information-quality-when-ex-002"
+      ]
+    },
+    {
+      "lens_id": "kolstad-2013-information-quality-when-lens-policy",
+      "theme_id": "quality-reporting",
+      "lens_type": "policy",
+      "claim": "当医生具有内在动机时，质量报告卡的最优形式不是简化版的公开排名，而是向医生提供详尽的临床绩效数据；将信息简化为消费者友好格式可能削弱对供给者的激励效果。",
+      "interpretation": "Kolstad 的反事实分析显示，当质量改善主要来自内在激励时，报告卡的细节程度比其公开可读性更重要。外科医生需要足够精细的临床信息才能识别自身的质量短板，过度简化的报告卡反而消除了这一学习渠道。这与当前各国推行\"消费者友好型\"报告卡的政策趋势形成直接张力。",
+      "overclaim_risk": "不要从这篇文章得出\"公开质量信息对消费者毫无价值\"的结论。文章分析的是 CABG 这一高度专业化手术，消费者本就难以评估质量；在消费者信息搜索成本更低、质量更易量化的其他医疗服务中，需求侧渠道可能更重要。",
+      "safer_formulation": "在外科医生具有强烈内在激励的场景（如 CABG 报告卡），质量报告制度向供给者提供详细临床反馈可能比简化公开排名对质量改善更有效；但这一结论的适用范围取决于供给者内在激励的强度以及消费者信息处理能力的高低。",
+      "evidence_excerpt_ids": [
+        "kolstad-2013-information-quality-when-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `kolstad-2013-information-quality-when`\n- Canonical Version ID: `kolstad-2013-information-quality-when-uploaded`",
     "Common Core": "",

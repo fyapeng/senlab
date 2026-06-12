@@ -30,6 +30,12 @@ def parse_card_sections(markdown_path: str | None) -> dict[str, str]:
     return parse_heading_sections(body)
 
 
+def humanize_slug(value: str | None) -> str:
+    if not value:
+        return ""
+    return value.replace("-", " ")
+
+
 def nav_items() -> list[dict[str, str]]:
     return [
         {"href": "./index.html", "label": "总览"},
@@ -91,14 +97,17 @@ def main() -> None:
         for row in paper_rows:
             work_id = row["work_id"]
             themes = [
-                {"theme_id": t["theme_id"], "name": t["name"]}
+                {
+                    "theme_id": t["theme_id"],
+                    "name": t["name"] or humanize_slug(t["theme_id"]),
+                }
                 for t in conn.execute(
                     """
-                    SELECT t.theme_id, t.name
-                    FROM themes t
-                    JOIN paper_theme_links ptl ON ptl.theme_id = t.theme_id
+                    SELECT ptl.theme_id, t.name
+                    FROM paper_theme_links ptl
+                    LEFT JOIN themes t ON ptl.theme_id = t.theme_id
                     WHERE ptl.work_id = ?
-                    ORDER BY t.name
+                    ORDER BY COALESCE(t.name, ptl.theme_id)
                     """,
                     (work_id,),
                 )
@@ -135,6 +144,18 @@ def main() -> None:
                     "interpretation": l["interpretation"],
                     "overclaim_risk": l["overclaim_risk"],
                     "safer_formulation": l["safer_formulation"],
+                    "evidence_excerpt_ids": [
+                        row["excerpt_id"]
+                        for row in conn.execute(
+                            """
+                            SELECT excerpt_id
+                            FROM lens_excerpt_links
+                            WHERE lens_id = ?
+                            ORDER BY excerpt_id
+                            """,
+                            (l["lens_id"],),
+                        ).fetchall()
+                    ],
                 }
                 for l in conn.execute(
                     """
@@ -208,16 +229,25 @@ def main() -> None:
         ranking_ids = {key: [paper["work_id"] for paper in value] for key, value in rankings.items()}
         latest_ids = [paper["work_id"] for paper in sorted(papers, key=lambda item: item.get("created_at") or "", reverse=True)[:6]]
 
-        theme_rows = [
-            {
+        theme_records: dict[str, dict[str, str | int]] = {}
+        for row in conn.execute("SELECT theme_id, name, field, status FROM themes ORDER BY name"):
+            theme_records[row["theme_id"]] = {
                 "theme_id": row["theme_id"],
-                "name": row["name"],
+                "name": row["name"] or humanize_slug(row["theme_id"]),
                 "field": row["field"],
                 "status": row["status"],
                 "paper_count": theme_counter.get(row["theme_id"], 0),
             }
-            for row in conn.execute("SELECT theme_id, name, field, status FROM themes ORDER BY name")
-        ]
+        for theme_id, count in theme_counter.items():
+            if theme_id not in theme_records:
+                theme_records[theme_id] = {
+                    "theme_id": theme_id,
+                    "name": theme_name_map.get(theme_id, humanize_slug(theme_id)),
+                    "field": "",
+                    "status": "linked_without_theme_file",
+                    "paper_count": count,
+                }
+        theme_rows = sorted(theme_records.values(), key=lambda item: str(item["name"]).lower())
 
         site_index = {
             "brand": {

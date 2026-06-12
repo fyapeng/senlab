@@ -33,9 +33,90 @@
     "qi": "迁移识别策略和患者—地点固定效应分解框架对其他医疗利用、地区效应和行为持久性问题均有强复用潜力。",
     "subjective": "这是健康经济学学生必读的地区差异文献之一，方法和结论均有直接学习与引用价值。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "medicare-utilization",
+      "name": "Medicare 医疗利用"
+    },
+    {
+      "theme_id": "geographic-variation-healthcare",
+      "name": "医疗利用地域差异"
+    },
+    {
+      "theme_id": "place-effects-health",
+      "name": "地点效应与健康"
+    },
+    {
+      "theme_id": "patient-migration-identification",
+      "name": "患者迁移识别策略"
+    },
+    {
+      "theme_id": "demand-supply-decomposition",
+      "name": "需求与供给分解"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "finkelstein-2016-sources-geographic-variation-ex-001",
+      "location": "Main Claim",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "Medicare 医疗利用的地区差异中，约 40% 到 50% 可归因于患者特征，其余 50% 到 60% 才来自地点特有的供给环境。这意味着地区差异既不是纯需求故事，也不是纯供给故事。",
+      "why_this_matters": "这条摘录直接修正了“地区差异几乎全是供给侧驱动”的旧共识，是地理变异文献中的关键数字。"
+    },
+    {
+      "excerpt_id": "finkelstein-2016-sources-geographic-variation-ex-002",
+      "location": "Movers Design",
+      "topic": "method",
+      "quote_or_paraphrase": "文章利用 Medicare 受益人迁移，在个人固定效应的基础上比较同一人搬到不同地区后的利用变化，从而将患者需求特征和地点供给效应分离开来。",
+      "why_this_matters": "这条摘录展示了本文最核心的方法论价值：利用迁移识别 place effect，是后来很多地区差异研究反复借鉴的设计。"
+    },
+    {
+      "excerpt_id": "finkelstein-2016-sources-geographic-variation-ex-003",
+      "location": "Interpretation",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "地区医疗利用差异的剩余部分并不是“空气中的地区效应”，而更可能反映地方医生供给结构、治疗惯例和制度环境的综合结果。文章因此把地区差异重新解释为“人 × 地点”的共同产物。",
+      "why_this_matters": "这条摘录避免了把地区差异简化成单一机制，帮助后续研究把需求、供给和地点制度同时纳入分析框架。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "finkelstein-2016-sources-geographic-variation-lens-fact",
+      "theme_id": "geographic-variation-healthcare",
+      "lens_type": "fact",
+      "claim": "医疗利用的地区差异并非几乎全部由供给驱动，患者需求特征同样解释了相当大比例。",
+      "interpretation": "本文最重要的事实贡献，是把原本偏向供给侧的叙事拉回到一个更对称的需求-供给分解框架里。",
+      "overclaim_risk": "不要写成“需求和供给各占一半是普遍规律”。这个比例依赖样本、服务类型和识别口径。",
+      "safer_formulation": "这篇文章表明，在 Medicare 利用差异中，患者需求特征和地点供给环境都很重要，前者的解释力远高于早期文献常给出的印象。",
+      "evidence_excerpt_ids": [
+        "finkelstein-2016-sources-geographic-variation-ex-001"
+      ]
+    },
+    {
+      "lens_id": "finkelstein-2016-sources-geographic-variation-lens-method",
+      "theme_id": "patient-migration-identification",
+      "lens_type": "method",
+      "claim": "利用个体迁移，可以较可信地识别地点本身对医疗利用的影响，而不仅仅是不同地区居民构成不同。",
+      "interpretation": "本文方法的优点在于，它不依赖横截面比较，而是利用同一个人跨地区移动后的利用变化，这使 place effect 的识别更加直观有力。",
+      "overclaim_risk": "不要把迁移设计写成完全无选择偏误。搬家本身仍可能与生命周期变化、健康变化或家庭冲击相关。",
+      "safer_formulation": "这篇文章展示了一个有力的识别思路：通过观察同一 Medicare 受益人在不同地区的利用变化，研究者可以更清楚地分离个人因素与地点因素。",
+      "evidence_excerpt_ids": [
+        "finkelstein-2016-sources-geographic-variation-ex-002"
+      ]
+    },
+    {
+      "lens_id": "finkelstein-2016-sources-geographic-variation-lens-policy",
+      "theme_id": "medicare-utilization",
+      "lens_type": "policy",
+      "claim": "针对地区差异的政策如果忽视患者需求和健康构成差异，容易把合理差异误判为低效率。",
+      "interpretation": "这篇文章的政策含义是，地区治理既需要供给侧改革，也需要更细的风险调整和需求端理解，否则容易过度纠偏。",
+      "overclaim_risk": "不要把本文理解成“供给改革不重要”。文章强调的是供给并非唯一来源。",
+      "safer_formulation": "这篇文章提示，针对 Medicare 地区利用差异的政策评估需要同时考虑患者构成与地方供给环境，而不能把所有差异都当成供给侧浪费。",
+      "evidence_excerpt_ids": [
+        "finkelstein-2016-sources-geographic-variation-ex-001",
+        "finkelstein-2016-sources-geographic-variation-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `finkelstein-2016-sources-geographic-variation`\n- Canonical Version ID: `finkelstein-2016-sources-geographic-variation-uploaded`",
     "Common Core": "",
@@ -60,7 +141,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "研究样本限于 65 岁以上 Medicare 受益人，外推至年轻人群或私人保险市场需谨慎。研究期间的迁移样本可能具有选择性（健康状况较好者更可能迁移）。分解结果是部分均衡估计，未考虑供给侧对患者组成变化的长期内生响应。此外，分解方案无法进一步区分患者效应中健康状况与偏好的相对贡献——这一问题文章承认尚未完全解决。",
-    "Theme Links": "- `geographic-variation-healthcare`\n- `demand-supply-decomposition`\n- `Medicare-utilization`\n- `place-effects-health`\n- `patient-migration-identification`",
+    "Theme Links": "- `geographic-variation-healthcare`\n- `demand-supply-decomposition`\n- `medicare-utilization`\n- `place-effects-health`\n- `patient-migration-identification`",
     "Ratings": "",
     "Dao": "- Score: 5\n- Note: 医疗地区差异的来源是健康政策与健康经济学中最核心的实证问题之一，问题重要性极高。",
     "Fa": "- Score: 5\n- Note: 利用迁移事件构建的识别策略简洁清晰，事件研究预趋势检验严格，识别逻辑说服力强。",

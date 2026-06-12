@@ -33,9 +33,95 @@
     "qi": "识别框架（随机分配+轮换+层级模型分解判断力与影响力）具有较高可复用性，但数据对单一机构依赖性较强，直接复制门槛较高。",
     "subjective": "对研究医疗团队决策、实践变异来源、医疗培训效果以及组织层级如何影响信息聚合的健康经济学研究者而言，此文高度相关且具有直接启发价值。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "physician-teams",
+      "name": "医生团队协作"
+    },
+    {
+      "theme_id": "practice-variation",
+      "name": "医疗实践变异"
+    },
+    {
+      "theme_id": "organizational-economics-health",
+      "name": "医疗组织经济学"
+    },
+    {
+      "theme_id": "human-capital-teams",
+      "name": "团队专属人力资本"
+    },
+    {
+      "theme_id": "information-aggregation-teams",
+      "name": "团队内信息汇聚"
+    },
+    {
+      "theme_id": "team-production",
+      "name": "团队生产"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "chan-2021-influence-information-team-ex-001",
+      "location": "Main Results",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "住院医一旦跨过第一年培训门槛、转为高年资角色，其对团队决策的影响力会出现显著跳升；这种跳升不是缓慢积累出来的，而是在角色变化处不连续地发生。团队实践差异因此高度集中在少数高年资成员身上。",
+      "why_this_matters": "这条摘录直接回答了“团队决策里谁真正说了算”这个问题。它为数据库中关于团队生产、层级结构和医疗实践差异来源的主题提供了非常清晰的事实锚点。"
+    },
+    {
+      "excerpt_id": "chan-2021-influence-information-team-ex-002",
+      "location": "Mechanism / Structural Interpretation",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "作者进一步表明，这种影响力集中并不只是制度上“高年资可以拍板”。更有说服力的解释是，团队在做信息聚合时，会把更多决策权重交给经验更多、判断质量更高的成员；也就是说，影响力跳升主要反映了信息与判断质量的重新加权。",
+      "why_this_matters": "这条证据把“层级”从一个单纯组织现象转成了“团队如何聚合分散信息”的经济学问题。它适合支撑有关团队信息聚合、人力资本与组织效率的引用视角。"
+    },
+    {
+      "excerpt_id": "chan-2021-influence-information-team-ex-003",
+      "location": "Policy Interpretation",
+      "topic": "counterfactual",
+      "quote_or_paraphrase": "结构解释显示，相对于 attending physician，住院医团队拥有的影响力可能高于其知识水平所能完全证明的程度。这暗示上级监督与团队权重配置仍有优化空间。",
+      "why_this_matters": "这条摘录把团队影响力问题从描述推到了组织设计层面，说明团队中“谁该说了算”本身就是可优化的制度选择。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "chan-2021-influence-information-team-lens-fact",
+      "theme_id": "physician-teams",
+      "lens_type": "fact",
+      "claim": "在医疗团队中，层级结构会显著影响谁的判断真正进入最终决策，高年资成员的影响力远高于低年资成员。",
+      "interpretation": "这篇文章的重要贡献是把团队决策中的“影响力”从模糊印象变成了可识别的经验对象。它说明团队不是简单求平均，而是会把更大权重交给某些成员。",
+      "overclaim_risk": "不要把本文写成“低年资成员没有作用”。更准确地说，是他们对最终决策的边际影响较小，而不是完全被排除。",
+      "safer_formulation": "这篇文章表明，在住院医团队中，决策影响力显著向高年资成员集中，这种集中本身就是医疗实践差异的重要来源之一。",
+      "evidence_excerpt_ids": [
+        "chan-2021-influence-information-team-ex-001"
+      ]
+    },
+    {
+      "lens_id": "chan-2021-influence-information-team-lens-method",
+      "theme_id": "information-aggregation-teams",
+      "lens_type": "method",
+      "claim": "团队决策中的层级差异，不应仅理解为组织命令链，还应理解为团队依据成员判断质量重新分配决策权重的信息聚合过程。",
+      "interpretation": "作者并没有把“高年资更有权”停留在描述层面，而是进一步论证这种权力集中为何可能是理性的，因为团队在用经验和判断质量给成员加权。这让本文能跨出医疗组织研究，进入团队生产与信息经济学主题。",
+      "overclaim_risk": "不要把本文写成已经完全证明“信息聚合优于命令层级”或“层级总是有效率”。它识别的是一个特定教学医院中的机制，更广泛组织环境可能不同。",
+      "safer_formulation": "这篇文章的证据与一种信息聚合解释相一致：医疗团队会把更多决策权重交给更有经验、判断更可靠的成员，而不仅仅是机械地遵循行政层级。",
+      "evidence_excerpt_ids": [
+        "chan-2021-influence-information-team-ex-001",
+        "chan-2021-influence-information-team-ex-002"
+      ]
+    },
+    {
+      "lens_id": "chan-2021-influence-information-team-lens-opportunity",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "opportunity",
+      "claim": "医疗团队中决策权重的配置未必自动最优，上级监督、培训结构和角色分工都可能影响团队效率。",
+      "interpretation": "本文并不是简单赞成“资深者说了算”，它实际上提出了一个更有组织含义的问题：团队如何在学习、监督和效率之间配置决策权。",
+      "overclaim_risk": "不要把本文写成已经证明了当前监督一定不足。它更像是在提出一个有根据的组织改进方向。",
+      "safer_formulation": "这篇文章提示，医疗团队中的影响力配置与上级监督结构可能仍有优化空间，因此团队层级本身应被视为组织设计问题。",
+      "evidence_excerpt_ids": [
+        "chan-2021-influence-information-team-ex-002",
+        "chan-2021-influence-information-team-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `chan-2021-influence-information-team`\n- Canonical Version ID: `chan-2021-influence-information-team-uploaded`",
     "Common Core": "",

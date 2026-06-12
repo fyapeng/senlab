@@ -33,9 +33,92 @@
     "qi": "只要使用有协变量调整或交错采纳的 DDD 设计，本文就是必要参考；R 包直接可用，复用价值极高。",
     "subjective": "对做应用健康经济学研究（大量 DDD 应用）的学生而言，这是工具箱中的必备方法论文章。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "triple-difference-estimator",
+      "name": "三重差分估计量"
+    },
+    {
+      "theme_id": "staggered-adoption-DiD",
+      "name": "交错采用双重差分"
+    },
+    {
+      "theme_id": "covariate-adjusted-identification",
+      "name": "协变量调整识别"
+    },
+    {
+      "theme_id": "doubly-robust-estimator",
+      "name": "双重鲁棒估计量"
+    },
+    {
+      "theme_id": "causal-inference-methods",
+      "name": "因果推断方法"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "ortiz-2025-better-understanding-triple-ex-001",
+      "location": "Main Claim",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "文章指出，把 DDD 简单当成“两个 DiD 之差”或直接套用三向固定效应回归，在存在协变量调整需求时一般并不成立；在交错采用情形下，即便没有协变量，也不能简单把所有尚未处理的单位合并成一个统一对照组。",
+      "why_this_matters": "这条摘录直接告诉应用研究者：很多常见 DDD 写法在现实设计下会系统失效。它适合作为数据库里“DDD 方法边界条件”的核心引用。"
+    },
+    {
+      "excerpt_id": "ortiz-2025-better-understanding-triple-ex-002",
+      "location": "Estimator Construction & Simulations",
+      "topic": "method",
+      "quote_or_paraphrase": "作者提出了回归调整、逆概率加权和双重稳健三类 DDD 估计量，并将其扩展到交错采用设计。模拟与经验应用都表明，这些估计量能显著修正朴素三重差分的偏误，其中双重稳健版本在模型设定存在部分误差时尤其有价值。",
+      "why_this_matters": "这条证据不仅指出旧方法哪里错，还给出了一套可操作的新工具。对任何需要在协变量调整或 staggered adoption 场景下使用 DDD 的研究者，这都是可直接复用的方法论资源。"
+    },
+    {
+      "excerpt_id": "ortiz-2025-better-understanding-triple-ex-003",
+      "location": "Empirical Applications",
+      "topic": "application_example",
+      "quote_or_paraphrase": "在多个经验应用中，作者展示了朴素三重差分与新提出的 DR DDD 估计量可能给出截然不同的结论。有的政策效果在传统三向固定效应下显著，但在更稳健的 DDD 框架下变得不显著。",
+      "why_this_matters": "这条摘录说明方法差异不是抽象理论问题，而会直接改变应用论文的实质性结论。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "ortiz-2025-better-understanding-triple-lens-application",
+      "theme_id": "doubly-robust-estimator",
+      "lens_type": "opportunity",
+      "claim": "与其继续沿用朴素三重差分回归，不如采用作者提出的回归调整、IPW 或双重稳健 DDD 估计量，并按“从未处理组”分组构造对照后再聚合。",
+      "interpretation": "这篇文章的强处在于它不只指出旧方法的问题，还把修正方案做成了能落地的估计器与软件工具。对于健康经济学里大量使用 DDD 的政策评估，这几乎是可以直接嵌入实证流程的操作手册。",
+      "overclaim_risk": "不要把本文写成“用了 DR 就万无一失”。双重稳健改善的是设定风险与偏误，不代表研究者可以忽略样本支持、处理定义或平行趋势条件本身。",
+      "safer_formulation": "这篇文章为应用研究者提供了一套更稳健的 DDD 实现路径，尤其适合需要协变量调整或处理时点交错的政策评估场景。",
+      "evidence_excerpt_ids": [
+        "ortiz-2025-better-understanding-triple-ex-001",
+        "ortiz-2025-better-understanding-triple-ex-002"
+      ]
+    },
+    {
+      "lens_id": "ortiz-2025-better-understanding-triple-lens-fact",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "fact",
+      "claim": "DDD 的具体实现不是技术性小修小补，估计框架的改变足以改变政策效果是否显著的判断。",
+      "interpretation": "这篇文章最大的说服力之一，是它把抽象偏误问题落回了应用结果本身：方法错了，结论就可能反过来。",
+      "overclaim_risk": "不要把它写成旧文献一律失效。更准确的是，在复杂设计下，旧实现方式的风险很高。",
+      "safer_formulation": "这篇文章表明，在协变量调整或交错采用场景中，DDD 的实现方式会显著影响实证结论，因此研究者应认真选择估计框架。",
+      "evidence_excerpt_ids": [
+        "ortiz-2025-better-understanding-triple-ex-002",
+        "ortiz-2025-better-understanding-triple-ex-003"
+      ]
+    },
+    {
+      "lens_id": "ortiz-2025-better-understanding-triple-lens-method",
+      "theme_id": "triple-difference-estimator",
+      "lens_type": "method",
+      "claim": "在有协变量调整需求或交错采用设计时，朴素 DDD 往往有偏，应用研究需要转向条件化、加权或双重稳健的 DDD 估计量。",
+      "interpretation": "这篇文章把 DDD 从一个常被随手套用的回归配方，重新拉回到潜在结果与识别条件的框架里。它的价值不只是“改进估计效率”，而是纠正很多场景下本来就不成立的估计对象。",
+      "overclaim_risk": "不要把本文写成“旧有 DDD 全都无效”。更准确的是：在简单两期、无协变量等特定条件下，旧方法可以成立；但现实中这些条件经常不满足。",
+      "safer_formulation": "这篇文章表明，DDD 的正确实现高度依赖设计细节；当存在协变量调整或 staggered adoption 时，研究者通常需要比传统三向固定效应更严格的估计框架。",
+      "evidence_excerpt_ids": [
+        "ortiz-2025-better-understanding-triple-ex-001",
+        "ortiz-2025-better-understanding-triple-ex-002"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `ortiz-2025-better-understanding-triple`\n- Canonical Version ID: `ortiz-2025-better-understanding-triple-uploaded`",
     "Common Core": "",

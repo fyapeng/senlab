@@ -32,9 +32,9 @@
   ],
   "meta": {
     "paper_count": 25,
-    "theme_count": 9,
-    "excerpt_count": 12,
-    "lens_count": 11,
+    "theme_count": 92,
+    "excerpt_count": 78,
+    "lens_count": 77,
     "updated_from_local_db": true
   },
   "score_dimensions": [
@@ -90,9 +90,34 @@
         "subjective": 5,
         "overall": 23
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "medicare-fraud",
+          "name": "Medicare 欺诈"
+        },
+        {
+          "theme_id": "prior-authorization",
+          "name": "事前授权"
+        },
+        {
+          "theme_id": "healthcare-fraud",
+          "name": "医疗欺诈"
+        },
+        {
+          "theme_id": "ambulance-regulation",
+          "name": "救护车服务监管"
+        },
+        {
+          "theme_id": "monitoring-enforcement",
+          "name": "监测与执法"
+        },
+        {
+          "theme_id": "regulation-vs-litigation",
+          "name": "监管与诉讼的工具比较"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "ortiz-2025-better-understanding-triple",
@@ -114,9 +139,30 @@
         "subjective": 5,
         "overall": 23
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "triple-difference-estimator",
+          "name": "三重差分估计量"
+        },
+        {
+          "theme_id": "staggered-adoption-DiD",
+          "name": "交错采用双重差分"
+        },
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "doubly-robust-estimator",
+          "name": "双重鲁棒估计量"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "fang-2025-fear-risk-perception",
@@ -138,9 +184,30 @@
         "subjective": 4,
         "overall": 19
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "physician-behavior",
+          "name": "医生行为与激励"
+        },
+        {
+          "theme_id": "malpractice-risk",
+          "name": "医疗事故诉讼风险"
+        },
+        {
+          "theme_id": "monitoring-enforcement",
+          "name": "监测与执法"
+        },
+        {
+          "theme_id": "behavioral-health-economics",
+          "name": "行为健康经济学"
+        },
+        {
+          "theme_id": "defensive-medicine",
+          "name": "防御性医疗"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "shi-2024-monitoring-waste-medicare",
@@ -162,9 +229,30 @@
         "subjective": 5,
         "overall": 24
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "medicare-waste",
+          "name": "Medicare 浪费"
+        },
+        {
+          "theme_id": "hospital-behavior-incentives",
+          "name": "hospital behavior incentives"
+        },
+        {
+          "theme_id": "healthcare-fraud",
+          "name": "医疗欺诈"
+        },
+        {
+          "theme_id": "deterrence-effects",
+          "name": "威慑效应"
+        },
+        {
+          "theme_id": "monitoring-enforcement",
+          "name": "监测与执法"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "chandra-2024-health-costs-cost",
@@ -186,9 +274,30 @@
         "subjective": 5,
         "overall": 24
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "health-insurance-market-design",
+          "name": "健康保险市场设计"
+        },
+        {
+          "theme_id": "patient-cost-sharing",
+          "name": "患者自付费用设计"
+        },
+        {
+          "theme_id": "cost-sharing-demand",
+          "name": "成本分担与医疗需求"
+        },
+        {
+          "theme_id": "drug-adherence-health-outcomes",
+          "name": "药物依从性与健康结果"
+        },
+        {
+          "theme_id": "moral-hazard-health",
+          "name": "道德风险与医疗利用"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "chan-2022-selection-variation-diagnostic",
@@ -210,9 +319,30 @@
         "subjective": 5,
         "overall": 25
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "physician-skill-heterogeneity",
+          "name": "医生技能异质性"
+        },
+        {
+          "theme_id": "physician-behavior",
+          "name": "医生行为与激励"
+        },
+        {
+          "theme_id": "practice-variation",
+          "name": "医疗实践变异"
+        },
+        {
+          "theme_id": "judges-design-IV",
+          "name": "法官设计工具变量"
+        },
+        {
+          "theme_id": "diagnostic-accuracy",
+          "name": "诊断准确性"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "olden-2022-triple-difference-estimator",
@@ -234,9 +364,30 @@
         "subjective": 5,
         "overall": 23
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "triple-difference-estimator",
+          "name": "三重差分估计量"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        },
+        {
+          "theme_id": "parallel-trends-assumption",
+          "name": "平行趋势假设"
+        },
+        {
+          "theme_id": "identification-in-applied-micro",
+          "name": "应用微观识别策略"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "chan-2021-influence-information-team",
@@ -258,9 +409,34 @@
         "subjective": 5,
         "overall": 23
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "physician-teams",
+          "name": "医生团队协作"
+        },
+        {
+          "theme_id": "practice-variation",
+          "name": "医疗实践变异"
+        },
+        {
+          "theme_id": "organizational-economics-health",
+          "name": "医疗组织经济学"
+        },
+        {
+          "theme_id": "human-capital-teams",
+          "name": "团队专属人力资本"
+        },
+        {
+          "theme_id": "information-aggregation-teams",
+          "name": "团队内信息汇聚"
+        },
+        {
+          "theme_id": "team-production",
+          "name": "团队生产"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "chen-2021-team-specific-human",
@@ -282,9 +458,34 @@
         "subjective": 5,
         "overall": 25
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "physician-teams",
+          "name": "医生团队协作"
+        },
+        {
+          "theme_id": "organizational-economics-health",
+          "name": "医疗组织经济学"
+        },
+        {
+          "theme_id": "human-capital-teams",
+          "name": "团队专属人力资本"
+        },
+        {
+          "theme_id": "team-specific-human-capital",
+          "name": "团队专属人力资本积累"
+        },
+        {
+          "theme_id": "team-production",
+          "name": "团队生产"
+        },
+        {
+          "theme_id": "cardiac-care-quality",
+          "name": "心脏病治疗质量"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "chandra-2020-identifying-sources-inefficiency",
@@ -306,9 +507,34 @@
         "subjective": 5,
         "overall": 25
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "healthcare-inefficiency",
+          "name": "医疗低效率"
+        },
+        {
+          "theme_id": "organizational-economics-health",
+          "name": "医疗组织经济学"
+        },
+        {
+          "theme_id": "empirical-structural-health",
+          "name": "医疗结构估计"
+        },
+        {
+          "theme_id": "comparative-advantage-hospitals",
+          "name": "医院比较优势"
+        },
+        {
+          "theme_id": "treatment-variation",
+          "name": "治疗变异"
+        },
+        {
+          "theme_id": "allocative-efficiency",
+          "name": "配置效率"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "currie-2020-understanding-doctor-decision",
@@ -330,9 +556,30 @@
         "subjective": 5,
         "overall": 20
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "practice-style",
+          "name": "医生实践风格"
+        },
+        {
+          "theme_id": "physician-skill-heterogeneity",
+          "name": "医生技能异质性"
+        },
+        {
+          "theme_id": "physician-behavior",
+          "name": "医生行为与激励"
+        },
+        {
+          "theme_id": "quality-guidelines",
+          "name": "医疗质量指南"
+        },
+        {
+          "theme_id": "learning-and-experimentation",
+          "name": "学习与试验性治疗"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "finkelstein-2019-subsidizing-health-insurance",
@@ -354,9 +601,30 @@
         "subjective": 5,
         "overall": 25
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "insurance-subsidies-low-income",
+          "name": "低收入群体保险补贴"
+        },
+        {
+          "theme_id": "health-insurance-market-design",
+          "name": "健康保险市场设计"
+        },
+        {
+          "theme_id": "health-insurance-demand",
+          "name": "健康保险需求"
+        },
+        {
+          "theme_id": "cost-sharing-demand",
+          "name": "成本分担与医疗需求"
+        },
+        {
+          "theme_id": "adverse-selection-insurance",
+          "name": "逆向选择与保险市场"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "fang-2017-detecting-potential-overbilling",
@@ -378,9 +646,30 @@
         "subjective": 5,
         "overall": 20
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "medicare-waste",
+          "name": "Medicare 浪费"
+        },
+        {
+          "theme_id": "medicare-claims-methodology",
+          "name": "Medicare 索赔方法"
+        },
+        {
+          "theme_id": "physician-overbilling",
+          "name": "医生过度计费"
+        },
+        {
+          "theme_id": "healthcare-fraud",
+          "name": "医疗欺诈"
+        },
+        {
+          "theme_id": "fraud-detection",
+          "name": "欺诈识别"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "brot-goldberg-2017-what-does-deductible",
@@ -402,9 +691,30 @@
         "subjective": 5,
         "overall": 24
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "health-insurance-market-design",
+          "name": "健康保险市场设计"
+        },
+        {
+          "theme_id": "patient-cost-sharing",
+          "name": "患者自付费用设计"
+        },
+        {
+          "theme_id": "cost-sharing-demand",
+          "name": "成本分担与医疗需求"
+        },
+        {
+          "theme_id": "moral-hazard-health",
+          "name": "道德风险与医疗利用"
+        },
+        {
+          "theme_id": "nonlinear-contract-behavior",
+          "name": "非线性合同中的消费者行为"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "finkelstein-2016-sources-geographic-variation",
@@ -426,9 +736,30 @@
         "subjective": 5,
         "overall": 25
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "medicare-utilization",
+          "name": "Medicare 医疗利用"
+        },
+        {
+          "theme_id": "geographic-variation-healthcare",
+          "name": "医疗利用地域差异"
+        },
+        {
+          "theme_id": "place-effects-health",
+          "name": "地点效应与健康"
+        },
+        {
+          "theme_id": "patient-migration-identification",
+          "name": "患者迁移识别策略"
+        },
+        {
+          "theme_id": "demand-supply-decomposition",
+          "name": "需求与供给分解"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "chan-2016-teamwork-moral-hazard",
@@ -450,9 +781,34 @@
         "subjective": 5,
         "overall": 25
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "foot-dragging-information",
+          "name": "信息隐藏与工作拖延"
+        },
+        {
+          "theme_id": "physician-teams",
+          "name": "医生团队协作"
+        },
+        {
+          "theme_id": "organizational-economics-health",
+          "name": "医疗组织经济学"
+        },
+        {
+          "theme_id": "moral-hazard-teams",
+          "name": "团队内道德风险"
+        },
+        {
+          "theme_id": "team-production",
+          "name": "团队生产"
+        },
+        {
+          "theme_id": "mutual-monitoring",
+          "name": "相互监督机制"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "handel-2015-health-insurance-humans",
@@ -548,9 +904,30 @@
         "subjective": 5,
         "overall": 23
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "patient-cost-sharing",
+          "name": "患者自付费用设计"
+        },
+        {
+          "theme_id": "cost-sharing-demand",
+          "name": "成本分担与医疗需求"
+        },
+        {
+          "theme_id": "health-insurance-elderly",
+          "name": "老年人健康保险"
+        },
+        {
+          "theme_id": "financial-risk-protection",
+          "name": "财务风险保护"
+        },
+        {
+          "theme_id": "moral-hazard-health",
+          "name": "道德风险与医疗利用"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "kolstad-2013-information-quality-when",
@@ -572,9 +949,30 @@
         "subjective": 5,
         "overall": 24
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "information-and-incentives",
+          "name": "信息与激励"
+        },
+        {
+          "theme_id": "intrinsic-motivation-physicians",
+          "name": "医生内在激励"
+        },
+        {
+          "theme_id": "physician-behavior",
+          "name": "医生行为与激励"
+        },
+        {
+          "theme_id": "empirical-structural-health",
+          "name": "医疗结构估计"
+        },
+        {
+          "theme_id": "quality-reporting",
+          "name": "质量信息披露"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "kamenica-2011-bayesian-persuasion",
@@ -633,9 +1031,30 @@
         "subjective": 5,
         "overall": 24
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "practice-style",
+          "name": "医生实践风格"
+        },
+        {
+          "theme_id": "physician-skill-heterogeneity",
+          "name": "医生技能异质性"
+        },
+        {
+          "theme_id": "geographic-variation",
+          "name": "医疗地域变异"
+        },
+        {
+          "theme_id": "treatment-intensity",
+          "name": "治疗强度"
+        },
+        {
+          "theme_id": "productivity-spillovers",
+          "name": "生产率溢出"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "cutler-2006-determinants-mortality",
@@ -657,9 +1076,30 @@
         "subjective": 4,
         "overall": 21
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "health-inequality",
+          "name": "health inequality"
+        },
+        {
+          "theme_id": "income-health-gradient",
+          "name": "income health gradient"
+        },
+        {
+          "theme_id": "medical-technology-mortality",
+          "name": "medical technology mortality"
+        },
+        {
+          "theme_id": "mortality-determinants",
+          "name": "mortality determinants"
+        },
+        {
+          "theme_id": "public-health-infrastructure",
+          "name": "public health infrastructure"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "grossman-2000-human-capital-model",
@@ -681,9 +1121,30 @@
         "subjective": 3,
         "overall": 24
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "human-capital-health",
+          "name": "健康人力资本"
+        },
+        {
+          "theme_id": "demand-for-health",
+          "name": "健康需求理论"
+        },
+        {
+          "theme_id": "household-production-theory",
+          "name": "家庭生产理论"
+        },
+        {
+          "theme_id": "education-health-gradient",
+          "name": "教育与健康梯度"
+        },
+        {
+          "theme_id": "health-investment-lifecycle",
+          "name": "生命周期健康投资"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     },
     {
       "work_id": "hayek-1945-use-knowledge-society",
@@ -705,12 +1166,138 @@
         "subjective": 3,
         "overall": 22
       },
-      "themes": [],
-      "excerpt_count": 0,
-      "lens_count": 0
+      "themes": [
+        {
+          "theme_id": "price-system-information",
+          "name": "价格系统与信息传递"
+        },
+        {
+          "theme_id": "health-insurance-information-asymmetry",
+          "name": "健康保险信息不对称"
+        },
+        {
+          "theme_id": "information-decentralization",
+          "name": "分散信息"
+        },
+        {
+          "theme_id": "knowledge-dispersion",
+          "name": "知识分散"
+        },
+        {
+          "theme_id": "central-planning-vs-markets",
+          "name": "计划与市场的协调比较"
+        }
+      ],
+      "excerpt_count": 3,
+      "lens_count": 3
     }
   ],
   "themes": [
+    {
+      "theme_id": "health-inequality",
+      "name": "health inequality",
+      "field": "",
+      "status": "linked_without_theme_file",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "hospital-behavior-incentives",
+      "name": "hospital behavior incentives",
+      "field": "",
+      "status": "linked_without_theme_file",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "income-health-gradient",
+      "name": "income health gradient",
+      "field": "",
+      "status": "linked_without_theme_file",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "medical-technology-mortality",
+      "name": "medical technology mortality",
+      "field": "",
+      "status": "linked_without_theme_file",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "medicare-utilization",
+      "name": "Medicare 医疗利用",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "medicare-fraud",
+      "name": "Medicare 欺诈",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "medicare-waste",
+      "name": "Medicare 浪费",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "medicare-claims-methodology",
+      "name": "Medicare 索赔方法",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "mortality-determinants",
+      "name": "mortality determinants",
+      "field": "",
+      "status": "linked_without_theme_file",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "public-health-infrastructure",
+      "name": "public health infrastructure",
+      "field": "",
+      "status": "linked_without_theme_file",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "triple-difference-estimator",
+      "name": "三重差分估计量",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "prior-authorization",
+      "name": "事前授权",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "staggered-adoption-DiD",
+      "name": "交错采用双重差分",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "price-system-information",
+      "name": "价格系统与信息传递",
+      "field": "economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "insurance-subsidies-low-income",
+      "name": "低收入群体保险补贴",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
     {
       "theme_id": "drug-demand-under-insurance",
       "name": "保险下的药品需求",
@@ -733,6 +1320,13 @@
       "paper_count": 1
     },
     {
+      "theme_id": "information-and-incentives",
+      "name": "信息与激励",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
       "theme_id": "information-design-persuasion",
       "name": "信息设计与劝服",
       "field": "microeconomic-theory",
@@ -740,8 +1334,43 @@
       "paper_count": 1
     },
     {
+      "theme_id": "foot-dragging-information",
+      "name": "信息隐藏与工作拖延",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "human-capital-health",
+      "name": "健康人力资本",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-insurance-information-asymmetry",
+      "name": "健康保险信息不对称",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-insurance-market-design",
+      "name": "健康保险市场设计",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 3
+    },
+    {
       "theme_id": "health-insurance-choice",
       "name": "健康保险计划选择",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-insurance-demand",
+      "name": "健康保险需求",
       "field": "health-economics",
       "status": "draft_completed",
       "paper_count": 1
@@ -754,10 +1383,409 @@
       "paper_count": 1
     },
     {
+      "theme_id": "demand-for-health",
+      "name": "健康需求理论",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "information-decentralization",
+      "name": "分散信息",
+      "field": "economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "intrinsic-motivation-physicians",
+      "name": "医生内在激励",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "physician-teams",
+      "name": "医生团队协作",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "practice-style",
+      "name": "医生实践风格",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "physician-skill-heterogeneity",
+      "name": "医生技能异质性",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "physician-behavior",
+      "name": "医生行为与激励",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 4
+    },
+    {
+      "theme_id": "physician-overbilling",
+      "name": "医生过度计费",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "malpractice-risk",
+      "name": "医疗事故诉讼风险",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "healthcare-inefficiency",
+      "name": "医疗低效率",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "geographic-variation-healthcare",
+      "name": "医疗利用地域差异",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "geographic-variation",
+      "name": "医疗地域变异",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "practice-variation",
+      "name": "医疗实践变异",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "healthcare-fraud",
+      "name": "医疗欺诈",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "organizational-economics-health",
+      "name": "医疗组织经济学",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 4
+    },
+    {
+      "theme_id": "empirical-structural-health",
+      "name": "医疗结构估计",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "quality-guidelines",
+      "name": "医疗质量指南",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "comparative-advantage-hospitals",
+      "name": "医院比较优势",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "covariate-adjusted-identification",
+      "name": "协变量调整识别",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "difference-in-differences",
+      "name": "双重差分",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "doubly-robust-estimator",
+      "name": "双重鲁棒估计量",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "causal-inference-methods",
+      "name": "因果推断方法",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "human-capital-teams",
+      "name": "团队专属人力资本",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "team-specific-human-capital",
+      "name": "团队专属人力资本积累",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "information-aggregation-teams",
+      "name": "团队内信息汇聚",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "moral-hazard-teams",
+      "name": "团队内道德风险",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "team-production",
+      "name": "团队生产",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "place-effects-health",
+      "name": "地点效应与健康",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "deterrence-effects",
+      "name": "威慑效应",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "learning-and-experimentation",
+      "name": "学习与试验性治疗",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "household-production-theory",
+      "name": "家庭生产理论",
+      "field": "economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "parallel-trends-assumption",
+      "name": "平行趋势假设",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "identification-in-applied-micro",
+      "name": "应用微观识别策略",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "cardiac-care-quality",
+      "name": "心脏病治疗质量",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "patient-cost-sharing",
+      "name": "患者自付费用设计",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "patient-migration-identification",
+      "name": "患者迁移识别策略",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "cost-sharing-demand",
+      "name": "成本分担与医疗需求",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 4
+    },
+    {
+      "theme_id": "ambulance-regulation",
+      "name": "救护车服务监管",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "education-health-gradient",
+      "name": "教育与健康梯度",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "fraud-detection",
+      "name": "欺诈识别",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "treatment-variation",
+      "name": "治疗变异",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "treatment-intensity",
+      "name": "治疗强度",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "judges-design-IV",
+      "name": "法官设计工具变量",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "productivity-spillovers",
+      "name": "生产率溢出",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-investment-lifecycle",
+      "name": "生命周期健康投资",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "monitoring-enforcement",
+      "name": "监测与执法",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "regulation-vs-litigation",
+      "name": "监管与诉讼的工具比较",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "mutual-monitoring",
+      "name": "相互监督机制",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "knowledge-dispersion",
+      "name": "知识分散",
+      "field": "economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
       "theme_id": "strategic-communication",
       "name": "策略性沟通",
       "field": "microeconomic-theory",
       "status": "seeded_demo",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-insurance-elderly",
+      "name": "老年人健康保险",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "drug-adherence-health-outcomes",
+      "name": "药物依从性与健康结果",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "behavioral-health-economics",
+      "name": "行为健康经济学",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "central-planning-vs-markets",
+      "name": "计划与市场的协调比较",
+      "field": "economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "diagnostic-accuracy",
+      "name": "诊断准确性",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "financial-risk-protection",
+      "name": "财务风险保护",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "quality-reporting",
+      "name": "质量信息披露",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "adverse-selection-insurance",
+      "name": "逆向选择与保险市场",
+      "field": "health-economics",
+      "status": "draft_completed",
       "paper_count": 1
     },
     {
@@ -768,15 +1796,350 @@
       "paper_count": 1
     },
     {
+      "theme_id": "moral-hazard-health",
+      "name": "道德风险与医疗利用",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "allocative-efficiency",
+      "name": "配置效率",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "defensive-medicine",
+      "name": "防御性医疗",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "demand-supply-decomposition",
+      "name": "需求与供给分解",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
       "theme_id": "nonlinear-insurance-contracts",
       "name": "非线性保险合同",
       "field": "health-economics",
       "status": "seeded_demo",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "nonlinear-contract-behavior",
+      "name": "非线性合同中的消费者行为",
+      "field": "health-economics",
+      "status": "draft_completed",
       "paper_count": 1
     }
   ],
   "theme_distribution": [
     {
+      "theme_id": "physician-behavior",
+      "name": "医生行为与激励",
+      "paper_count": 4
+    },
+    {
+      "theme_id": "cost-sharing-demand",
+      "name": "成本分担与医疗需求",
+      "paper_count": 4
+    },
+    {
+      "theme_id": "organizational-economics-health",
+      "name": "医疗组织经济学",
+      "paper_count": 4
+    },
+    {
+      "theme_id": "healthcare-fraud",
+      "name": "医疗欺诈",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "monitoring-enforcement",
+      "name": "监测与执法",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "health-insurance-market-design",
+      "name": "健康保险市场设计",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "patient-cost-sharing",
+      "name": "患者自付费用设计",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "moral-hazard-health",
+      "name": "道德风险与医疗利用",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "physician-skill-heterogeneity",
+      "name": "医生技能异质性",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "physician-teams",
+      "name": "医生团队协作",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "team-production",
+      "name": "团队生产",
+      "paper_count": 3
+    },
+    {
+      "theme_id": "triple-difference-estimator",
+      "name": "三重差分估计量",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "causal-inference-methods",
+      "name": "因果推断方法",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "medicare-waste",
+      "name": "Medicare 浪费",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "practice-variation",
+      "name": "医疗实践变异",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "human-capital-teams",
+      "name": "团队专属人力资本",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "empirical-structural-health",
+      "name": "医疗结构估计",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "practice-style",
+      "name": "医生实践风格",
+      "paper_count": 2
+    },
+    {
+      "theme_id": "medicare-fraud",
+      "name": "Medicare 欺诈",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "prior-authorization",
+      "name": "事前授权",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "ambulance-regulation",
+      "name": "救护车服务监管",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "regulation-vs-litigation",
+      "name": "监管与诉讼的工具比较",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "staggered-adoption-DiD",
+      "name": "交错采用双重差分",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "covariate-adjusted-identification",
+      "name": "协变量调整识别",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "doubly-robust-estimator",
+      "name": "双重鲁棒估计量",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "malpractice-risk",
+      "name": "医疗事故诉讼风险",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "behavioral-health-economics",
+      "name": "行为健康经济学",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "defensive-medicine",
+      "name": "防御性医疗",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "hospital-behavior-incentives",
+      "name": "hospital behavior incentives",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "deterrence-effects",
+      "name": "威慑效应",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "drug-adherence-health-outcomes",
+      "name": "药物依从性与健康结果",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "judges-design-IV",
+      "name": "法官设计工具变量",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "diagnostic-accuracy",
+      "name": "诊断准确性",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "difference-in-differences",
+      "name": "双重差分",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "parallel-trends-assumption",
+      "name": "平行趋势假设",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "identification-in-applied-micro",
+      "name": "应用微观识别策略",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "information-aggregation-teams",
+      "name": "团队内信息汇聚",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "team-specific-human-capital",
+      "name": "团队专属人力资本积累",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "cardiac-care-quality",
+      "name": "心脏病治疗质量",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "healthcare-inefficiency",
+      "name": "医疗低效率",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "comparative-advantage-hospitals",
+      "name": "医院比较优势",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "treatment-variation",
+      "name": "治疗变异",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "allocative-efficiency",
+      "name": "配置效率",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "quality-guidelines",
+      "name": "医疗质量指南",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "learning-and-experimentation",
+      "name": "学习与试验性治疗",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "insurance-subsidies-low-income",
+      "name": "低收入群体保险补贴",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-insurance-demand",
+      "name": "健康保险需求",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "adverse-selection-insurance",
+      "name": "逆向选择与保险市场",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "medicare-claims-methodology",
+      "name": "Medicare 索赔方法",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "physician-overbilling",
+      "name": "医生过度计费",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "fraud-detection",
+      "name": "欺诈识别",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "nonlinear-contract-behavior",
+      "name": "非线性合同中的消费者行为",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "medicare-utilization",
+      "name": "Medicare 医疗利用",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "geographic-variation-healthcare",
+      "name": "医疗利用地域差异",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "place-effects-health",
+      "name": "地点效应与健康",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "patient-migration-identification",
+      "name": "患者迁移识别策略",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "demand-supply-decomposition",
+      "name": "需求与供给分解",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "foot-dragging-information",
+      "name": "信息隐藏与工作拖延",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "moral-hazard-teams",
+      "name": "团队内道德风险",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "mutual-monitoring",
+      "name": "相互监督机制",
+      "paper_count": 1
+    },
+    {
       "theme_id": "information-frictions-in-insurance",
       "name": "保险选择中的信息摩擦",
       "paper_count": 1
@@ -807,6 +2170,31 @@
       "paper_count": 1
     },
     {
+      "theme_id": "health-insurance-elderly",
+      "name": "老年人健康保险",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "financial-risk-protection",
+      "name": "财务风险保护",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "information-and-incentives",
+      "name": "信息与激励",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "intrinsic-motivation-physicians",
+      "name": "医生内在激励",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "quality-reporting",
+      "name": "质量信息披露",
+      "paper_count": 1
+    },
+    {
       "theme_id": "belief-manipulation-and-disclosure",
       "name": "信念操纵与信息披露",
       "paper_count": 1
@@ -819,6 +2207,96 @@
     {
       "theme_id": "strategic-communication",
       "name": "策略性沟通",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "geographic-variation",
+      "name": "医疗地域变异",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "treatment-intensity",
+      "name": "治疗强度",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "productivity-spillovers",
+      "name": "生产率溢出",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-inequality",
+      "name": "health inequality",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "income-health-gradient",
+      "name": "income health gradient",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "medical-technology-mortality",
+      "name": "medical technology mortality",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "mortality-determinants",
+      "name": "mortality determinants",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "public-health-infrastructure",
+      "name": "public health infrastructure",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "human-capital-health",
+      "name": "健康人力资本",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "demand-for-health",
+      "name": "健康需求理论",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "household-production-theory",
+      "name": "家庭生产理论",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "education-health-gradient",
+      "name": "教育与健康梯度",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-investment-lifecycle",
+      "name": "生命周期健康投资",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "price-system-information",
+      "name": "价格系统与信息传递",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-insurance-information-asymmetry",
+      "name": "健康保险信息不对称",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "information-decentralization",
+      "name": "分散信息",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "knowledge-dispersion",
+      "name": "知识分散",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "central-planning-vs-markets",
+      "name": "计划与市场的协调比较",
       "paper_count": 1
     }
   ],

@@ -85,7 +85,11 @@
       "claim": "在分析保险慷慨度的政策反事实时，应区分总量反应与时点替代，而不是把二者混为一谈。",
       "interpretation": "这篇文章的重要性不只在于给出一个 headline spending effect，更在于它提示其中相当一部分变化可能只是索赔时点前移，而不是年度净用药量真正上升。",
       "overclaim_risk": "不要把文中较低的净效应表述成完全无模型依赖的结论；它来自一个带有结构假设的扩展。",
-      "safer_formulation": "文章表明，填补 donut hole 所带来的表面支出增幅中，有相当一部分可能反映了跨期替代，而不一定是年度总用药需求的同比例上升。"
+      "safer_formulation": "文章表明，填补 donut hole 所带来的表面支出增幅中，有相当一部分可能反映了跨期替代，而不一定是年度总用药需求的同比例上升。",
+      "evidence_excerpt_ids": [
+        "einav-2015-response-drug-expenditure-ex-001",
+        "einav-2015-response-drug-expenditure-ex-004"
+      ]
     },
     {
       "lens_id": "einav-2015-response-drug-expenditure-lens-mechanism",
@@ -94,7 +98,11 @@
       "claim": "非线性保险合同下的行为反应，不只是静态价格弹性的结果，还包含前瞻性的动态调整。",
       "interpretation": "文中的索赔时点证据说明，受益人会把合同隐含的未来价格路径纳入决策，而不是只在越过阈值的当下才机械反应。",
       "overclaim_risk": "这篇文章提供的是有力但仍偏间接的动态证据，不应被引用为所有保险环境下完整行为机制的最终证明。",
-      "safer_formulation": "现有证据与一种前瞻性的索赔时点调整机制相一致，说明 Part D 合同下的行为反应包含动态因素。"
+      "safer_formulation": "现有证据与一种前瞻性的索赔时点调整机制相一致，说明 Part D 合同下的行为反应包含动态因素。",
+      "evidence_excerpt_ids": [
+        "einav-2015-response-drug-expenditure-ex-002",
+        "einav-2015-response-drug-expenditure-ex-003"
+      ]
     },
     {
       "lens_id": "einav-2015-response-drug-expenditure-lens-method",
@@ -103,7 +111,10 @@
       "claim": "围绕合同折点的 bunching 与索赔时点变化，可以识别个体对非线性价格的行为反应。",
       "interpretation": "这篇文章的可复用之处，在于它把折点附近的描述性证据与动态结构模型结合起来，而不是停留在单纯的 reduced-form 相关性。",
       "overclaim_risk": "不要把这篇文章误写成一个通用的 bunching 设计；其中的结构层对部分结论是关键的。",
-      "safer_formulation": "文章展示了如何把合同折点附近的描述性证据与动态模型结合，用来研究非线性价格下的行为反应。"
+      "safer_formulation": "文章展示了如何把合同折点附近的描述性证据与动态模型结合，用来研究非线性价格下的行为反应。",
+      "evidence_excerpt_ids": [
+        "einav-2015-response-drug-expenditure-ex-002"
+      ]
     },
     {
       "lens_id": "einav-2015-response-drug-expenditure-lens-policy",
@@ -112,7 +123,11 @@
       "claim": "非线性保险合同会实质性改变医疗支出的时点与水平。",
       "interpretation": "这篇文章说明，保险覆盖结构本身就能通过边际价格路径改变受益人的行为。",
       "overclaim_risk": "不要把这里的精确量级直接外推到 Medicare Part D 之外的制度环境。",
-      "safer_formulation": "在 Medicare Part D 中，受益人对 donut hole 带来的价格上升表现出经济上显著的行为反应。"
+      "safer_formulation": "在 Medicare Part D 中，受益人对 donut hole 带来的价格上升表现出经济上显著的行为反应。",
+      "evidence_excerpt_ids": [
+        "einav-2015-response-drug-expenditure-ex-001",
+        "einav-2015-response-drug-expenditure-ex-002"
+      ]
     }
   ],
   "sections": {

@@ -33,9 +33,90 @@
     "qi": "是进入死亡率与健康不平等文献的极佳参考框架，但复用性主要在于背景阅读与问题定位，而非直接借用方法。",
     "subjective": "对健康经济学学生而言是必读综述，帮助建立对死亡率议题的宏观认知；若做实证应用则需配合更细致的因果识别文献。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "health-inequality",
+      "name": "health inequality"
+    },
+    {
+      "theme_id": "income-health-gradient",
+      "name": "income health gradient"
+    },
+    {
+      "theme_id": "medical-technology-mortality",
+      "name": "medical technology mortality"
+    },
+    {
+      "theme_id": "mortality-determinants",
+      "name": "mortality determinants"
+    },
+    {
+      "theme_id": "public-health-infrastructure",
+      "name": "public health infrastructure"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "cutler-2006-determinants-mortality-ex-001",
+      "location": "Introduction, pp. 97–98",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "作者援引 Nordhaus（2002）的估算指出，过去一百年中长寿的经济价值\"大约与非健康商品和服务的经济增长同等量级\"；Murphy and Topel（2005）进一步估计，1970—2000 年间每年增加寿命的价值约为常规国民收入的一半。文章明确提出，死亡率下降不能归因于单一因素，而需要一个能同时解释历史趋势、跨国差异与国内不平等三组事实的整合性理论框架——但该框架目前尚不存在。",
+      "why_this_matters": "这条 excerpt 直接陈述了文章的核心抱负：用三维度（历史、国际、国内）梳理死亡率决定因素，同时坦承现有文献尚未提供统一的因果理论。它为后续援引文中任何一个具体事实时提供\"宏观框架\"锚点。"
+    },
+    {
+      "excerpt_id": "cutler-2006-determinants-mortality-ex-002",
+      "location": "Determinants of the Historical Decline in Mortality, pp. 99–106",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "在死亡率历史下降的驱动因素讨论中，文章梳理了营养改善、公共卫生基础设施（供水净化、卫生系统）与医疗干预三条机制路径，并给出了关键量化证据：McKeown 指出结核病死亡率在任何有效治疗出现之前已下降了 80%（营养改善先行）；Cutler and Miller（2005）的 IV 估计表明，20 世纪初供水净化贡献了美国城市死亡率下降的约一半；而 1960 年后心血管疾病死亡率下降超过 50%，贡献了该时期约 70% 的预期寿命增长，其中医疗技术进步（而非行为改变）占三分之二。",
+      "why_this_matters": "这三条机制路径提供了健康经济学中最经典的\"什么因素降低了死亡率\"的事实清单，适合在援引医疗技术外部性、公共卫生基础设施价值或营养—健康互补关系时作为背景证据使用。"
+    },
+    {
+      "excerpt_id": "cutler-2006-determinants-mortality-ex-003",
+      "location": "Mortality Differences within Countries, pp. 112–117",
+      "topic": "main_results",
+      "quote_or_paraphrase": "文章记录了收入—健康梯度（health gradient）的若干关键事实：1980 年美国收入分布底部 5% 人群的各年龄预期寿命比顶部 5% 人群低约 25%；英格兰男性手工业者比专业人士预期寿命短 8.4 年，且该差距自 1970 年代以来持续扩大。在可能的机制中，文章讨论了直接收入效应（购买力）、间接教育效应（健康生产效率）以及\"健康选择进入高收入职业\"的反向因果，并坦承三者的相对贡献尚无定论；但援引工具变量研究（义务教育法）指出，教育对健康存在独立的正向因果效应。",
+      "why_this_matters": "这是援引\"收入—健康梯度\"文献时最常被引用的描述性事实出处之一；同时文章对因果方向的审慎处理提示研究者，简单将梯度解读为收入→健康的单向因果是过度简化的。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "cutler-2006-determinants-mortality-lens-fact",
+      "theme_id": "mortality-determinants",
+      "lens_type": "fact",
+      "claim": "二十世纪死亡率的大幅下降是经济史上最重要的福利改善之一，其决定因素在历史上以公共卫生基础设施和营养改善为主，在现代以医疗技术进步为主，且收入与健康之间存在稳健的正向梯度关系。",
+      "interpretation": "这篇文章最有说服力的贡献，是把横跨两百年的死亡率变化与跨国/国内不平等数据汇集在一起，提供了一张关于\"健康改善从哪里来\"的宏观图谱。每当需要说明\"医疗不仅仅是支出问题，而是历史上真正提升了寿命\"或\"收入与健康高度相关但因果不清\"时，这篇文章都是最合适的文献出处。",
+      "overclaim_risk": "不要把这篇综述文章中的描述性关联直接等同于因果估计——文章本身多次强调收入与健康之间的内生性问题。特别是，\"收入高→健康好\"这一梯度中有相当部分可能来自反向因果（健康好才能进入高收入职业）或教育的混淆效应。将文中数字当作纯粹的因果效应大小来引用是不当的。",
+      "safer_formulation": "根据 Cutler, Deaton and Lleras-Muney（2006）对历史死亡率趋势的系统综述，收入与预期寿命呈正相关，但这一关联同时反映了医疗技术进步、公共卫生投入和教育水平提升的综合效应，不能直接解读为收入对健康的纯因果影响。",
+      "evidence_excerpt_ids": [
+        "cutler-2006-determinants-mortality-ex-001 cutler-2006-determinants-mortality-ex-003"
+      ]
+    },
+    {
+      "lens_id": "cutler-2006-determinants-mortality-lens-mechanism",
+      "theme_id": "medical-technology-mortality",
+      "lens_type": "mechanism",
+      "claim": "1960 年代以来预期寿命的提升，很大程度上源于心血管疾病治疗技术的进步，而非仅仅来自收入增长或生活方式改变。医疗干预具有独立于收入之外的健康改善效应。",
+      "interpretation": "文章记录了 Preston 曲线随时间上移这一关键事实——相同收入水平下，后期国家的预期寿命显著高于早期国家，这说明存在独立于收入之外的健康改善力量。在机制上，心血管疾病死亡率下降超过 50%，其中医疗技术贡献了三分之二，是最有说服力的现代案例。公共卫生基础设施（供水净化贡献美国早期死亡率下降约一半）则提供了历史上的对应证据。",
+      "overclaim_risk": "不要据此断言所有医疗支出都能有效降低死亡率——文章本身也指出高医疗利用率地区的健康结果并不必然更好（参见 Skinner 2011 的综述），且文章的证据主要来自历史趋势而非随机实验。将\"过去医疗技术进步降低了死亡率\"外推为\"当前增加医疗支出将提高健康\"需要额外的识别证据。",
+      "safer_formulation": "Cutler et al.（2006）的历史证据表明，医疗技术进步（尤其是心血管疾病治疗）是二十世纪中后期死亡率下降的重要独立驱动力，但这一历史性因果关联不能直接推断到当前边际医疗支出的健康效益。",
+      "evidence_excerpt_ids": [
+        "cutler-2006-determinants-mortality-ex-002"
+      ]
+    },
+    {
+      "lens_id": "cutler-2006-determinants-mortality-lens-policy",
+      "theme_id": "public-health-infrastructure",
+      "lens_type": "policy",
+      "claim": "公共卫生基础设施、行为改变和医疗技术进步在不同历史时期共同塑造了死亡率下降，因此健康政策需要组合视角。",
+      "interpretation": "这篇综述文献的价值在于提醒研究者，不要把死亡率下降归功于单一因素。不同阶段真正起作用的机制不同。",
+      "overclaim_risk": "不要把综述性结论当成单篇因果论文的硬估计。它更适合作为框架性引用。",
+      "safer_formulation": "这篇文章表明，死亡率变化通常由公共卫生、行为和医疗技术等多种因素共同驱动，因此政策评估需要历史和制度分期视角。",
+      "evidence_excerpt_ids": [
+        "cutler-2006-determinants-mortality-ex-001",
+        "cutler-2006-determinants-mortality-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `cutler-2006-determinants-mortality`\n- Canonical Version ID: `cutler-2006-determinants-mortality-uploaded`",
     "Common Core": "",

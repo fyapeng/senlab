@@ -33,9 +33,91 @@
     "qi": "Grossman 框架是健康经济学几乎所有理论与实证工作的起点，复用价值无可替代。",
     "subjective": "对健康经济学学生极为重要，须理解这一框架；但模型本身较为抽象，不可直接拿来套用现代实证研究，需配合后续文献阅读。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "human-capital-health",
+      "name": "健康人力资本"
+    },
+    {
+      "theme_id": "demand-for-health",
+      "name": "健康需求理论"
+    },
+    {
+      "theme_id": "household-production-theory",
+      "name": "家庭生产理论"
+    },
+    {
+      "theme_id": "education-health-gradient",
+      "name": "教育与健康梯度"
+    },
+    {
+      "theme_id": "health-investment-lifecycle",
+      "name": "生命周期健康投资"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "grossman-2000-human-capital-model-ex-001",
+      "location": "Core Model",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "健康在 Grossman 模型中既是消费品，也是投资品：它一方面直接进入效用函数，另一方面决定个体可用于工作和生活的健康时间总量，因此像耐久资本一样可以投资、积累和折旧。",
+      "why_this_matters": "这条摘录是健康经济学最基础的理论起点。它解释了为什么“健康需求”不能简单等同于“医疗服务需求”。"
+    },
+    {
+      "excerpt_id": "grossman-2000-human-capital-model-ex-002",
+      "location": "Shadow Price",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "健康的影子价格会随着年龄增长而上升，因为健康资本折旧率提高；同时，教育会通过提升健康生产效率来降低健康影子价格。这使年龄与教育成为解释健康行为和健康差异的核心变量。",
+      "why_this_matters": "这条证据把健康不平等和生命周期差异拉进了同一个理论框架里，是后续教育-健康梯度文献的重要起点。"
+    },
+    {
+      "excerpt_id": "grossman-2000-human-capital-model-ex-003",
+      "location": "Non-Intuitive Implication",
+      "topic": "theory",
+      "quote_or_paraphrase": "Grossman 模型的一个关键推论是：健康影子价格上升可能同时降低健康存量需求，却提高健康投入需求。也就是说，个体可能在健康更贵时花更多资源维持健康，但仍接受更低的最优健康水平。",
+      "why_this_matters": "这条摘录非常适合用来解释为什么医疗投入增加并不一定意味着健康更好，也说明理论上“更多就医”和“更健康”并不总是同方向。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "grossman-2000-human-capital-model-lens-mechanism",
+      "theme_id": "education-health-gradient",
+      "lens_type": "mechanism",
+      "claim": "教育通过提高健康生产效率改善健康，年龄通过提高健康折旧率削弱健康，这两者共同塑造健康梯度。",
+      "interpretation": "Grossman 并没有把教育与健康的关系简单归因于收入，而是给出一个更深层的效率机制：受教育程度更高的人，可能更擅长把时间和资源转化为健康。",
+      "overclaim_risk": "不要把它写成教育对健康梯度的唯一解释。现实中收入、认知和制度环境也同样重要。",
+      "safer_formulation": "Grossman 模型提供了一种经典解释：教育通过提高健康生产效率，年龄通过加快折旧，共同塑造了个体的健康差异。",
+      "evidence_excerpt_ids": [
+        "grossman-2000-human-capital-model-ex-002"
+      ]
+    },
+    {
+      "lens_id": "grossman-2000-human-capital-model-lens-opportunity",
+      "theme_id": "household-production-theory",
+      "lens_type": "opportunity",
+      "claim": "很多现代实证问题都可以被重写为“什么改变了健康资本的生产函数、折旧率或影子价格”。",
+      "interpretation": "Grossman 模型最适合作为主题搭桥工具。它未必能直接回答今天的每个经验问题，但能把医疗利用、教育、健康行为和保险设计放进同一逻辑系统。",
+      "overclaim_risk": "不要把它写成现代政策分析的直接工作模型。它更多是概念框架。",
+      "safer_formulation": "Grossman 模型为今天的很多健康经济学议题提供了共同语言：研究者可以把不同政策冲击理解为对健康投资激励、生产效率或折旧路径的改变。",
+      "evidence_excerpt_ids": [
+        "grossman-2000-human-capital-model-ex-001",
+        "grossman-2000-human-capital-model-ex-003"
+      ]
+    },
+    {
+      "lens_id": "grossman-2000-human-capital-model-lens-theory",
+      "theme_id": "human-capital-health",
+      "lens_type": "theory",
+      "claim": "健康应被建模为一种可投资、可折旧的人力资本，而不是把医疗消费直接等同于健康本身。",
+      "interpretation": "Grossman 的价值在于，他让健康成为一个动态资本概念，从而把时间、教育、医疗投入和生命周期都放进同一模型里。",
+      "overclaim_risk": "不要把 Grossman 写成能解释所有现实健康行为。它是理论起点，不是现代行为事实的完整模型。",
+      "safer_formulation": "Grossman 模型为健康经济学提供了一个基础框架：健康是既带来效用、又能提高可用时间的资本，因此医疗需求应理解为健康生产过程的一部分。",
+      "evidence_excerpt_ids": [
+        "grossman-2000-human-capital-model-ex-001",
+        "grossman-2000-human-capital-model-ex-003"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `grossman-2000-human-capital-model`\n- Canonical Version ID: `grossman-2000-human-capital-model-uploaded`",
     "Common Core": "",

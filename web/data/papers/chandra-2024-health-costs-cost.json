@@ -33,9 +33,92 @@
     "qi": "出生月份×非线性合同的识别思路可迁移至其他非线性保险设计研究；机器学习用于识别政策异质性的方法也具有可复用价值。",
     "subjective": "对任何研究成本分担、保险设计或药物adherence的健康经济学者都是必读文章，更新了该领域的基本认知框架。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "health-insurance-market-design",
+      "name": "健康保险市场设计"
+    },
+    {
+      "theme_id": "patient-cost-sharing",
+      "name": "患者自付费用设计"
+    },
+    {
+      "theme_id": "cost-sharing-demand",
+      "name": "成本分担与医疗需求"
+    },
+    {
+      "theme_id": "drug-adherence-health-outcomes",
+      "name": "药物依从性与健康结果"
+    },
+    {
+      "theme_id": "moral-hazard-health",
+      "name": "道德风险与医疗利用"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "chandra-2024-health-costs-cost-ex-001",
+      "location": "Abstract & Main Results",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "文章核心发现是：当 Medicare Part D 受益人的月度药品预算每减少 100 美元时，12 个月死亡率上升约 0.0164 个百分点，约相当于 3.9% 的相对增幅。这个健康代价主要通过停药传导出来，而不是通过其他医疗服务替代被完全抵消。",
+      "why_this_matters": "这条摘录直接把“成本分担抑制利用”与“成本分担损害健康”连了起来，适合在数据库里支撑一个更强的判断：患者自付并不只是减少低价值需求，在某些慢病和高风险人群上，它会切断真正重要的治疗。"
+    },
+    {
+      "excerpt_id": "chandra-2024-health-costs-cost-ex-002",
+      "location": "Heterogeneity & Survey Evidence",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "作者发现，高风险患者反而削减了更多高价值药物，尤其是他汀类、降压药和降糖药这类一旦停药就可能快速带来严重后果的品类。与此同时，多数受益人显著低估了停药风险，只有少数人认为中断用药一个月会带来严重健康后果。",
+      "why_this_matters": "这条证据说明，健康损失并不只是价格上升后的“理性最优调整”。高风险患者更大幅度停掉关键药物、且普遍低估停药代价，更符合信息不足或行为偏差的解释。"
+    },
+    {
+      "excerpt_id": "chandra-2024-health-costs-cost-ex-003",
+      "location": "Counterfactual / Policy Exercise",
+      "topic": "counterfactual",
+      "quote_or_paraphrase": "文章测算，若取消这类成本驱动的关键药物中断，每延长一个生命年的成本约为 11,321 美元，远低于常见的健康政策支付阈值。这说明减少高价值药物的患者成本分担具有极高的成本效益。",
+      "why_this_matters": "这条摘录把健康损失直接转化成了政策可比较的成本效益口径，非常适合用于保险设计讨论。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "chandra-2024-health-costs-cost-lens-fact",
+      "theme_id": "cost-sharing-demand",
+      "lens_type": "fact",
+      "claim": "在 Medicare Part D 场景下，患者成本分担不仅减少用药，还会提高死亡风险。",
+      "interpretation": "这篇文章最强的一点，是它把成本分担、停药和死亡率放进了同一条因果链，并且给出了可比较的政策数量级。",
+      "overclaim_risk": "不要把本文扩展成“所有成本分担都会致命”。更准确的说法是，在高价值慢病药物场景下，风险尤其突出。",
+      "safer_formulation": "这篇文章表明，在 Medicare Part D 的关键药物保障场景中，较高患者成本分担会带来可观的健康代价，而非仅仅压缩低价值需求。",
+      "evidence_excerpt_ids": [
+        "chandra-2024-health-costs-cost-ex-001",
+        "chandra-2024-health-costs-cost-ex-003"
+      ]
+    },
+    {
+      "lens_id": "chandra-2024-health-costs-cost-lens-mechanism",
+      "theme_id": "drug-adherence-health-outcomes",
+      "lens_type": "mechanism",
+      "claim": "成本分担的健康代价主要来自关键药物依从性下降，而且这种下降并不完全是理性优化，常常伴随风险感知偏差。",
+      "interpretation": "如果高风险患者恰恰削减了更多高价值药物，同时多数人又低估停药风险，那么“患者会自动把有限预算配置到最重要药物上”的假设就站不住了。本文因此把药物依从性、信息认知与保险设计连在了一起。",
+      "overclaim_risk": "不要把这篇文章写成已经完全区分了所有行为机制。它强烈支持信息不足或行为偏差，但并不能排除流动性约束、认知负担等其他伴随机制共同作用。",
+      "safer_formulation": "这篇文章的证据与一种清晰机制相一致：预算收紧会诱发高风险患者停用高价值药物，而患者对停药后果的系统性低估放大了这种健康损失。",
+      "evidence_excerpt_ids": [
+        "chandra-2024-health-costs-cost-ex-001",
+        "chandra-2024-health-costs-cost-ex-002"
+      ]
+    },
+    {
+      "lens_id": "chandra-2024-health-costs-cost-lens-policy",
+      "theme_id": "patient-cost-sharing",
+      "lens_type": "policy",
+      "claim": "在慢病管理与高风险患者场景中，提高自付比例未必只是减少浪费，反而可能通过停用关键药物直接损害健康。",
+      "interpretation": "这篇文章的重要性在于，它不再只停留在“成本分担影响利用率”这一层，而是直接把预算收紧、停药和死亡率上升连成了一条因果链。这样一来，成本分担的政策评估就必须同时考虑健康损失，而不能只看财政节约。",
+      "overclaim_risk": "不要把本文写成“所有自付都是坏的”。它识别的是 Medicare Part D 特定合同结构下、特定高价值药物中断导致的健康后果，外推到普通门诊小额共付或短期低风险用药时需要谨慎。",
+      "safer_formulation": "这篇文章表明，在 Medicare Part D 的药品保障场景中，对高风险慢病患者提高自付可能不仅减少用药，还会造成可观的健康损失，因此成本分担不能被简单视为提升效率的工具。",
+      "evidence_excerpt_ids": [
+        "chandra-2024-health-costs-cost-ex-001",
+        "chandra-2024-health-costs-cost-ex-002"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `chandra-2024-health-costs-cost`\n- Canonical Version ID: `chandra-2024-health-costs-cost-uploaded`",
     "Common Core": "",

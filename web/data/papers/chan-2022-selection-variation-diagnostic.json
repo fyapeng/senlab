@@ -33,9 +33,91 @@
     "qi": "ROC 识别框架、技能-偏好分离策略和对 judges design 的方法论批判均具有高度可迁移性，适用于医生、法官、教师等多类代理人研究。",
     "subjective": "对研究医生异质性、诊断行为和政策评估方法论的健康经济学研究者而言，这是近年最重要的文献之一。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "physician-skill-heterogeneity",
+      "name": "医生技能异质性"
+    },
+    {
+      "theme_id": "physician-behavior",
+      "name": "医生行为与激励"
+    },
+    {
+      "theme_id": "practice-variation",
+      "name": "医疗实践变异"
+    },
+    {
+      "theme_id": "judges-design-IV",
+      "name": "法官设计工具变量"
+    },
+    {
+      "theme_id": "diagnostic-accuracy",
+      "name": "诊断准确性"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "chan-2022-selection-variation-diagnostic-ex-001",
+      "location": "Main Claim",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "文章将医疗决策变异拆成偏好异质性与技能异质性两部分，发现技能差异能够解释约 39% 的诊断决策变异和约 78% 的结果变异。这说明医生之间并不只是“口味不同”，而是诊断能力本身存在系统差异。",
+      "why_this_matters": "这条摘录直接改变了对实践变异的理解框架。若大量差异来自技能而非偏好，那么简单把高诊断率或低诊断率看成“风格”就会误读政策含义。"
+    },
+    {
+      "excerpt_id": "chan-2022-selection-variation-diagnostic-ex-002",
+      "location": "Diagnostic Skill Evidence",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "作者提供了一个关键描述性证据：诊断率更高的放射科医生，漏诊率也更高。这与“高诊断率仅代表更积极偏好”的解释不一致，反而表明部分医生是在准确率更低的情况下更频繁地下诊断。",
+      "why_this_matters": "这条证据是技能差异存在的直观抓手。它说明更高利用率未必代表更高质量，甚至可能意味着更差的判断。"
+    },
+    {
+      "excerpt_id": "chan-2022-selection-variation-diagnostic-ex-003",
+      "location": "Judges Design Critique",
+      "topic": "method",
+      "quote_or_paraphrase": "文章指出，在存在技能异质性的情形下，直接把医生分配当作工具变量会违反关键识别条件。在其应用场景中，这种做法甚至会导出“诊断肺炎让患者更容易再次因肺炎返院”这种明显不可信的结论。",
+      "why_this_matters": "这不只是一个技术细节，而是对很多代理人分配式 IV 研究的直接警告。研究者若忽略技能异质性，可能连因果方向都判断错。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "chan-2022-selection-variation-diagnostic-lens-fact",
+      "theme_id": "physician-skill-heterogeneity",
+      "lens_type": "fact",
+      "claim": "医疗提供者异质性应被理解为“技能 + 偏好”的复合体，而不能简化成单一风格差异。",
+      "interpretation": "本文的贡献在于把“实践风格”重新拆开。很多经验研究把高利用率与低利用率直接映射成偏好，但本文表明，这里面往往还混着重要的能力差异。",
+      "overclaim_risk": "不要把本文扩展成“偏好差异不重要”。更准确的说法是，技能差异重要到不能被忽略。",
+      "safer_formulation": "这篇文章表明，在医疗决策变异中，诊断技能异质性占有显著比重，因此实践差异不能被简单理解为偏好差异。",
+      "evidence_excerpt_ids": [
+        "chan-2022-selection-variation-diagnostic-ex-001",
+        "chan-2022-selection-variation-diagnostic-ex-002"
+      ]
+    },
+    {
+      "lens_id": "chan-2022-selection-variation-diagnostic-lens-method",
+      "theme_id": "judges-design-IV",
+      "lens_type": "method",
+      "claim": "当代理人分配同时改变处理概率和处理质量时，judges design 一类 IV 设计可能不再可信。",
+      "interpretation": "本文最有穿透力的一点，是它不仅提出了理论担忧，还给出了明显荒谬的经验后果，逼着研究者重新审视“随机分到不同医生”这一识别想象。",
+      "overclaim_risk": "不要把它写成“所有 judges design 都失效”。更准确地说，是在技能异质性与单调性失败严重时风险很大。",
+      "safer_formulation": "这篇文章提示，若医生异质性同时体现在是否治疗和治疗质量上，简单依赖医生分配作为工具变量可能会产生严重偏误。",
+      "evidence_excerpt_ids": [
+        "chan-2022-selection-variation-diagnostic-ex-003"
+      ]
+    },
+    {
+      "lens_id": "chan-2022-selection-variation-diagnostic-lens-policy",
+      "theme_id": "practice-variation",
+      "lens_type": "policy",
+      "claim": "若实践差异中包含大量技能差异，政策重点应放在提高诊断准确率，而不是单纯压平医生之间的诊断率差异。",
+      "interpretation": "本文的重要政策含义是，减少差异不等于改善质量。如果把所有医生都推向同一诊断率，反而可能把高技能医生向低技能水平拉平。",
+      "overclaim_risk": "不要写成“任何标准化政策都不好”。问题不在标准化本身，而在它是否误把技能差异当成偏好差异。",
+      "safer_formulation": "这篇文章表明，在存在显著技能异质性的诊断场景中，提高准确率通常比压平诊断率本身更有政策价值。",
+      "evidence_excerpt_ids": [
+        "chan-2022-selection-variation-diagnostic-ex-001",
+        "chan-2022-selection-variation-diagnostic-ex-002"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `chan-2022-selection-variation-diagnostic`\n- Canonical Version ID: `chan-2022-selection-variation-diagnostic-uploaded`",
     "Common Core": "",

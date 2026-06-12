@@ -33,9 +33,90 @@
     "qi": "作为思想框架，可为信息不对称、医疗政策设计、保险合同理论等提供理论视角；但直接的方法论复用性有限。",
     "subjective": "对健康经济学学生而言是重要的思想背景，帮助理解为何信息问题在医疗市场中如此根本；但不直接支撑实证研究，需结合 Arrow (1963) 等文献阅读。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "price-system-information",
+      "name": "价格系统与信息传递"
+    },
+    {
+      "theme_id": "health-insurance-information-asymmetry",
+      "name": "健康保险信息不对称"
+    },
+    {
+      "theme_id": "information-decentralization",
+      "name": "分散信息"
+    },
+    {
+      "theme_id": "knowledge-dispersion",
+      "name": "知识分散"
+    },
+    {
+      "theme_id": "central-planning-vs-markets",
+      "name": "计划与市场的协调比较"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "hayek-1945-use-knowledge-society-ex-001",
+      "location": "Core Argument",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "Hayek 的核心论点是，社会经济问题本质上是如何利用分散于无数个体手中的知识，尤其是“特定时间与地点的知识”。这些知识不可能被任何中央计划者完整掌握。",
+      "why_this_matters": "这条摘录是理解去中心化协调、市场机制和信息问题的起点，也是后来信息经济学与机制设计的重要思想背景。"
+    },
+    {
+      "excerpt_id": "hayek-1945-use-knowledge-society-ex-002",
+      "location": "Price System",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "价格体系的价值不在于它让所有人知道全部信息，而在于它用极少的信息把稀缺性变化和协调信号传递给相关行动者，使个体能够在不理解全局的情况下做出适应性调整。",
+      "why_this_matters": "这条证据解释了为什么市场协调可能优于中央命令，也说明价格为何是一种信息装置，而不只是支付工具。"
+    },
+    {
+      "excerpt_id": "hayek-1945-use-knowledge-society-ex-003",
+      "location": "Health Economics Relevance",
+      "topic": "application_example",
+      "quote_or_paraphrase": "放到健康经济学里，Hayek 的框架提醒我们：患者掌握自身症状与偏好，医生掌握临床与技术知识，保险人掌握风险池和支付规则信息，这些知识天然分散，因此任何集中设计都面临结构性信息局限。",
+      "why_this_matters": "这条摘录让这篇经典理论文献真正进入健康经济学语境，可用于解释医疗信息不对称、保险设计与监管边界。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "hayek-1945-use-knowledge-society-lens-mechanism",
+      "theme_id": "price-system-information",
+      "lens_type": "mechanism",
+      "claim": "价格的关键功能之一，是在无需集中汇总全部知识的情况下传递局部稀缺性与协调信号。",
+      "interpretation": "这篇文章最强的地方，是把价格从“交换比率”重新定义成“压缩信息的装置”。这个思路对保险价格、共付设计和市场协调都很有启发。",
+      "overclaim_risk": "不要写成“只要有价格就一定高效”。在信息扭曲和第三方支付场景中，价格信号可能并不完整。",
+      "safer_formulation": "Hayek 的论点表明，价格体系之所以重要，不仅因为它决定交易成本，还因为它能在分散知识环境下传递协调所需的关键信号。",
+      "evidence_excerpt_ids": [
+        "hayek-1945-use-knowledge-society-ex-002"
+      ]
+    },
+    {
+      "lens_id": "hayek-1945-use-knowledge-society-lens-opportunity",
+      "theme_id": "health-insurance-information-asymmetry",
+      "lens_type": "opportunity",
+      "claim": "医疗与健康保险中的很多制度问题，本质上都来自知识分散和集中决策能力受限。",
+      "interpretation": "Hayek 不是在直接讨论医疗，但他的框架非常适合解释为什么患者、医生、保险人之间的私人信息会让医疗市场和保险设计变得复杂。",
+      "overclaim_risk": "不要把本文直接当作医疗市场规范性结论。它更适合作为上游理论视角，而不是直接政策处方。",
+      "safer_formulation": "Hayek 1945 为理解医疗中的信息分散和集中监管局限提供了一个基础思想框架，可作为健康保险信息不对称研究的理论背景。",
+      "evidence_excerpt_ids": [
+        "hayek-1945-use-knowledge-society-ex-001",
+        "hayek-1945-use-knowledge-society-ex-003"
+      ]
+    },
+    {
+      "lens_id": "hayek-1945-use-knowledge-society-lens-theory",
+      "theme_id": "information-decentralization",
+      "lens_type": "theory",
+      "claim": "许多经济制度的核心任务不是替代个体知识，而是在知识分散的前提下实现协调。",
+      "interpretation": "Hayek 的贡献不在具体经验估计，而在提出了一个结构性难题：中央权威并不是因为不够聪明才失败，而是因为需要的信息本就不可能集中。",
+      "overclaim_risk": "不要把本文写成对一切市场结果的无条件辩护。它强调的是知识问题，而不是否认所有市场失灵。",
+      "safer_formulation": "Hayek 1945 提供了一个重要理论视角：当关键知识分散在不同主体手中时，制度设计的核心问题是如何在不集中全部信息的情况下完成协调。",
+      "evidence_excerpt_ids": [
+        "hayek-1945-use-knowledge-society-ex-001"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `hayek-1945-use-knowledge-society`\n- Canonical Version ID: `hayek-1945-use-knowledge-society-uploaded`",
     "Common Core": "",

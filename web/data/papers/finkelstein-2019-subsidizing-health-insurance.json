@@ -33,9 +33,90 @@
     "qi": "Einav-Finkelstein-Cullen竞争选择框架的完整实证应用，为后续补贴保险市场研究提供了可直接复用的方法论模板。",
     "subjective": "对理解低收入保险需求、补贴有效性与不完全覆盖成因均不可或缺，是任何研究保险市场设计或公共保险政策的学者的必读文献。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "insurance-subsidies-low-income",
+      "name": "低收入群体保险补贴"
+    },
+    {
+      "theme_id": "health-insurance-market-design",
+      "name": "健康保险市场设计"
+    },
+    {
+      "theme_id": "health-insurance-demand",
+      "name": "健康保险需求"
+    },
+    {
+      "theme_id": "cost-sharing-demand",
+      "name": "成本分担与医疗需求"
+    },
+    {
+      "theme_id": "adverse-selection-insurance",
+      "name": "逆向选择与保险市场"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "finkelstein-2019-subsidizing-health-insurance-ex-001",
+      "location": "Main WTP Result",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "低收入成年人对医疗保险的支付意愿极低，中位数 WTP 仅约 100 美元/月，而保险公司的平均成本约为 420 美元/月。也就是说，典型参保人的支付意愿远低于其保险成本。",
+      "why_this_matters": "这条摘录直接击中“不完全覆盖为什么存在”的核心：问题不只是价格太高或补贴不够，而是需求本身就很弱。"
+    },
+    {
+      "excerpt_id": "finkelstein-2019-subsidizing-health-insurance-ex-002",
+      "location": "Subsidy Gradient",
+      "topic": "counterfactual",
+      "quote_or_paraphrase": "即便把保费压低到平均成本的 25%，也至多只有一半左右的人口购买保险；即便压低到平均成本的 10%，仍有相当一部分低收入成年人不参保。大额补贴并不会自动换来接近全覆盖。",
+      "why_this_matters": "这条证据对很多政策直觉是冷水。它说明补贴当然有效，但需求曲线本身非常平，不能期待靠补贴单独解决覆盖问题。"
+    },
+    {
+      "excerpt_id": "finkelstein-2019-subsidizing-health-insurance-ex-003",
+      "location": "Selection Decomposition",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "逆向选择确实存在，边际参保者比平均参保者更健康，但它只能解释 WTP 与成本差距的大约三分之一。更大的问题是，很多人即使面对自己的边际医疗成本，也仍然不愿意为保险支付那么多。",
+      "why_this_matters": "这条摘录重新排序了政策关注点：逆向选择重要，但不是低覆盖的唯一甚至首要解释。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "finkelstein-2019-subsidizing-health-insurance-lens-fact",
+      "theme_id": "health-insurance-demand",
+      "lens_type": "fact",
+      "claim": "低收入群体对健康保险的真实支付意愿可能远低于保险成本，这本身就是不完全覆盖的重要原因。",
+      "interpretation": "这篇文章让“保险需求弱”从推测变成了直接测量结果。它提醒我们，不完全覆盖并不总是市场失灵的单一后果，也可能包含真实需求不足。",
+      "overclaim_risk": "不要把本文写成“低收入人群不需要保险”。WTP 低并不等于福利收益低，尤其在流动性约束和行为偏差存在时更是如此。",
+      "safer_formulation": "这篇文章表明，在现实补贴制度下，低收入成年人对健康保险的支付意愿显著低于保险成本，这对理解不完全覆盖至关重要。",
+      "evidence_excerpt_ids": [
+        "finkelstein-2019-subsidizing-health-insurance-ex-001"
+      ]
+    },
+    {
+      "lens_id": "finkelstein-2019-subsidizing-health-insurance-lens-mechanism",
+      "theme_id": "adverse-selection-insurance",
+      "lens_type": "mechanism",
+      "claim": "逆向选择存在，但无法单独解释低收入保险市场的低参保率，更大的缺口来自支付意愿本身偏低。",
+      "interpretation": "本文的机制意义在于，它把“选择问题”和“需求问题”拆开了。很多政策讨论把二者混为一谈，而这篇文章明确告诉我们，需求弱本身是独立问题。",
+      "overclaim_risk": "不要写成“逆向选择无关紧要”。更准确的说法是，它重要但解释力有限。",
+      "safer_formulation": "这篇文章表明，逆向选择只能解释低收入人群保险支付意愿与成本缺口的一部分，需求不足本身同样关键。",
+      "evidence_excerpt_ids": [
+        "finkelstein-2019-subsidizing-health-insurance-ex-003"
+      ]
+    },
+    {
+      "lens_id": "finkelstein-2019-subsidizing-health-insurance-lens-policy",
+      "theme_id": "insurance-subsidies-low-income",
+      "lens_type": "policy",
+      "claim": "保费补贴固然提高参保率，但单靠补贴未必能实现接近完全覆盖，尤其在低收入群体中更是如此。",
+      "interpretation": "本文的政策价值在于，它把补贴政策从“多补一点就能接近全覆盖”的想象中拉回现实。补贴有效，但需求曲线本身并不够陡。",
+      "overclaim_risk": "不要把本文变成反补贴论证。更准确的是，补贴需要与自动参保、默认选项或信息干预等工具配合。",
+      "safer_formulation": "这篇文章提示，针对低收入人群的保险补贴政策虽能提升参保率，但若目标是接近全覆盖，往往还需要补贴之外的制度工具。",
+      "evidence_excerpt_ids": [
+        "finkelstein-2019-subsidizing-health-insurance-ex-001",
+        "finkelstein-2019-subsidizing-health-insurance-ex-002"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `finkelstein-2019-subsidizing-health-insurance`\n- Canonical Version ID: `finkelstein-2019-subsidizing-health-insurance-uploaded`",
     "Common Core": "",

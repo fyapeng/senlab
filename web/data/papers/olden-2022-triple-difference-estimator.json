@@ -33,9 +33,90 @@
     "qi": "任何使用 DDD 的实证研究都应参考本文；是汇报识别假设、设计前趋势检验的权威参考。",
     "subjective": "对应用健康经济学学生而言，这是使用 DDD 前的必读方法论文章，直接可操作，复用价值极高。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "triple-difference-estimator",
+      "name": "三重差分估计量"
+    },
+    {
+      "theme_id": "difference-in-differences",
+      "name": "双重差分"
+    },
+    {
+      "theme_id": "causal-inference-methods",
+      "name": "因果推断方法"
+    },
+    {
+      "theme_id": "parallel-trends-assumption",
+      "name": "平行趋势假设"
+    },
+    {
+      "theme_id": "identification-in-applied-micro",
+      "name": "应用微观识别策略"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "olden-2022-triple-difference-estimator-ex-001",
+      "location": "Main Identification Result",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "三重差分虽然形式上可写成两个 DiD 之差，但要识别有因果含义的 DDD 效应，只需要一个平行趋势假设，而不是两个彼此独立的平行趋势假设。",
+      "why_this_matters": "这条摘录直接修正了很多应用论文对 DDD 的口头解释，也让汇报识别假设时更精确。"
+    },
+    {
+      "excerpt_id": "olden-2022-triple-difference-estimator-ex-002",
+      "location": "Bias Cancellation Intuition",
+      "topic": "identification_logic",
+      "quote_or_paraphrase": "DDD 的关键直觉不是“每个 DiD 都各自有因果含义”，而是两个 DiD 若共享相同偏误，那么相减后这个偏误会被抵消。DDD 的识别重点因此是偏误结构，而不只是形式上的三重相减。",
+      "why_this_matters": "这条证据很适合用于讲清 DDD 真正在做什么，也能帮助研究者避免把 DDD 当作更复杂但更安全的默认回归形式。"
+    },
+    {
+      "excerpt_id": "olden-2022-triple-difference-estimator-ex-003",
+      "location": "Applied Implication",
+      "topic": "method",
+      "quote_or_paraphrase": "对于应用研究者而言，这篇文章的主要含义是：在使用 DDD 时，应明确说明所依赖的是“组间相对趋势在处理与对照州中相同”这一假设，而不是模糊地声称自己“多差了一层所以更稳健”。",
+      "why_this_matters": "这条摘录能直接提升论文写作与识别表述质量，也为与 Ortiz 2025 等扩展文献衔接打下基础。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "olden-2022-triple-difference-estimator-lens-application",
+      "theme_id": "identification-in-applied-micro",
+      "lens_type": "opportunity",
+      "claim": "应用研究在使用 DDD 时，应明确报告“相对趋势一致”这一假设，并把 DDD 理解为偏误修正工具，而不是默认更强识别。",
+      "interpretation": "对很多实证论文来说，这篇文章的价值不在新增一个估计器，而在于纠正了 DDD 的叙述方式和识别习惯。",
+      "overclaim_risk": "不要把它写成对所有 DDD 实证都给出最终操作手册。更复杂的协变量和交错采用问题还要看后续扩展文献。",
+      "safer_formulation": "这篇文章为应用研究者提供了一个更精确的 DDD 表述框架，可作为书写识别假设和解释三重差分逻辑的基础参考。",
+      "evidence_excerpt_ids": [
+        "olden-2022-triple-difference-estimator-ex-001",
+        "olden-2022-triple-difference-estimator-ex-003"
+      ]
+    },
+    {
+      "lens_id": "olden-2022-triple-difference-estimator-lens-fact",
+      "theme_id": "triple-difference-estimator",
+      "lens_type": "fact",
+      "claim": "DDD 的因果识别并不要求两个独立平行趋势假设，而依赖一个关于相对趋势的单一平行趋势假设。",
+      "interpretation": "本文的重要性在于，它把很多应用研究里含混的 DDD 说法收紧成了一个更清楚、更可检视的识别命题。",
+      "overclaim_risk": "不要把本文写成“DDD 很容易用”。它只是更清楚地说明了该满足什么条件。",
+      "safer_formulation": "这篇文章表明，DDD 的核心识别条件是一个关于相对趋势的平行趋势假设，而不是两个彼此独立的 DiD 假设。",
+      "evidence_excerpt_ids": [
+        "olden-2022-triple-difference-estimator-ex-001"
+      ]
+    },
+    {
+      "lens_id": "olden-2022-triple-difference-estimator-lens-method",
+      "theme_id": "difference-in-differences",
+      "lens_type": "method",
+      "claim": "DDD 的有效性取决于两个 DiD 偏误是否共享同一结构，而不是取决于每个 DiD 单独是否已经无偏。",
+      "interpretation": "本文最值得保留的地方，是它让 DDD 从回归配方变回识别逻辑。研究者必须解释为什么偏误可以被差掉，而不是只展示一个三向交互项。",
+      "overclaim_risk": "不要把本文扩展成 DDD 在任何复杂面板下都足够。它处理的是更基础的识别逻辑，而不是所有扩展设计。",
+      "safer_formulation": "这篇文章提醒研究者，DDD 的关键在于共享偏误的消除逻辑，因此应用时应优先说明偏误结构而非仅报告三重交互项系数。",
+      "evidence_excerpt_ids": [
+        "olden-2022-triple-difference-estimator-ex-002"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `olden-2022-triple-difference-estimator`\n- Canonical Version ID: `olden-2022-triple-difference-estimator-uploaded`",
     "Common Core": "",

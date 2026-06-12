@@ -33,9 +33,90 @@
     "qi": "RD思路和弹性估计可广泛复用，但完整复制高度依赖日本厚生劳动省数据；提供的弹性数字（约-0.2）被后续文献广泛引用。",
     "subjective": "为成本分担文献提供了迄今最干净的老年人群因果估计，对任何研究保险成本分担或老年医疗需求的学者不可回避。"
   },
-  "themes": [],
-  "excerpts": [],
-  "lenses": [],
+  "themes": [
+    {
+      "theme_id": "patient-cost-sharing",
+      "name": "患者自付费用设计"
+    },
+    {
+      "theme_id": "cost-sharing-demand",
+      "name": "成本分担与医疗需求"
+    },
+    {
+      "theme_id": "health-insurance-elderly",
+      "name": "老年人健康保险"
+    },
+    {
+      "theme_id": "financial-risk-protection",
+      "name": "财务风险保护"
+    },
+    {
+      "theme_id": "moral-hazard-health",
+      "name": "道德风险与医疗利用"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "shigeoka-2014-effect-patient-cost-ex-001",
+      "location": "Abstract / Introduction（第2152–2153页）",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "作者利用日本70岁处成本分担骤降60%–80%的政策断点，采用回归断点设计，发现降低自付比例显著提高了老年患者的门诊和住院就诊量，弹性约为-0.2；但未发现死亡率或自报健康状况有显著改善；同时，较低的自付比例明显减少了患者的高额自付支出风险，效果在支出分布右尾最为突出。",
+      "why_this_matters": "这三条结论构成了成本分担文献中的经典三角权衡：降低自付确实提高了就医量（价格弹性约-0.2），但短期内可观测的健康改善有限，而财务风险保护效应则是真实且显著的。这一结论框架直接服务于\"成本分担最优水平\"的政策讨论——不能只看就医量，还需权衡财务保护与健康的双重目标。"
+    },
+    {
+      "excerpt_id": "shigeoka-2014-effect-patient-cost-ex-002",
+      "location": "Introduction（第2153–2155页）",
+      "topic": "identification_logic",
+      "quote_or_paraphrase": "日本70岁政策断点提供了一系列在其他研究场景中难以同时具备的识别优势：全民医保覆盖确保断点两侧的差异只反映保险慷慨度而非覆盖与否；70岁不伴随就业、养老金等其他重大变化；全国统一费率表使医生报销不随患者年龄变化，排除了医生行为对断点两侧的差异性响应；门诊和住院均可在同一研究中观测；且可直接测量成本分担变化（而非保险提供本身）对财务风险暴露的影响。",
+      "why_this_matters": "识别假设的合理性是文章可信度的核心支柱。作者一一列举并论证了日本制度设计如何使70岁断点接近于纯粹的成本分担变化实验，特别是\"医生供给侧无响应\"这一特性——相比美国市场，日本统一费率制度有效排除了最常见的混淆渠道，使需求弹性估计具有更强的内部有效性。"
+    },
+    {
+      "excerpt_id": "shigeoka-2014-effect-patient-cost-ex-003",
+      "location": "Financial Risk Protection",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "降低老年患者自付比例虽然未显著改善死亡率和自报健康，但明显降低了高额自付支出风险，尤其是在支出分布右尾。文章因此强调，成本分担政策的福利评价不能只看健康结果，还要看财务风险保护。",
+      "why_this_matters": "这条摘录补齐了成本分担文献里常被忽视的一半：即使健康改善有限，保险的财务保护价值仍可能很高。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "shigeoka-2014-effect-patient-cost-lens-fact",
+      "theme_id": "cost-sharing-demand",
+      "lens_type": "fact",
+      "claim": "在老年人群中，降低成本分担会显著提高门诊和住院利用，但短期内未必带来可观测的健康改善。",
+      "interpretation": "Shigeoka 的价值在于把“利用增加”“健康改善不显著”“财务风险保护增强”这三件事放在同一识别框架里同时测量。这样一来，成本分担的福利评价就不能再只盯着利用量变化本身。",
+      "overclaim_risk": "不要把文章说成“成本分担对健康完全没有影响”。它识别的是 70 岁附近人群的短期效应，无法排除长期或更隐性的健康收益。",
+      "safer_formulation": "这篇文章表明，在日本老年人群体中，较低的成本分担显著提高了医疗利用并改善了财务风险保护，但在短期可观测健康指标上没有发现明显改善。",
+      "evidence_excerpt_ids": [
+        "shigeoka-2014-effect-patient-cost-ex-001"
+      ]
+    },
+    {
+      "lens_id": "shigeoka-2014-effect-patient-cost-lens-method",
+      "theme_id": "financial-risk-protection",
+      "lens_type": "method",
+      "claim": "当供给侧报销规则不随患者年龄或保险类型变化时，年龄门槛 RD 可以为成本分担的需求弹性提供非常干净的识别。",
+      "interpretation": "很多医疗需求研究都难以把患者需求反应与医生供给反应分开。Shigeoka 借助日本统一费率表和 70 岁门槛，几乎把供给侧混淆全部排除了，这使它成为成本分担识别设计里非常值得反复调用的方法例子。",
+      "overclaim_risk": "不要把这个设计描述为“完全无外推问题”。它识别的是 70 岁门槛附近的局部效应，而且高度依赖日本制度环境。",
+      "safer_formulation": "这篇文章提供了一个极其干净的年龄门槛 RD 设计，用于识别老年人群体中成本分担变化对医疗利用和财务风险暴露的局部因果效应。",
+      "evidence_excerpt_ids": [
+        "shigeoka-2014-effect-patient-cost-ex-002"
+      ]
+    },
+    {
+      "lens_id": "shigeoka-2014-effect-patient-cost-lens-policy",
+      "theme_id": "patient-cost-sharing",
+      "lens_type": "policy",
+      "claim": "成本分担改革的政策评估不能只看医疗利用和短期健康，还必须把高支出尾部人群的财务风险保护收益纳入福利比较。",
+      "interpretation": "这篇文章的重要政策启发在于，它让“成本分担降低是否值得”这个问题脱离了单纯的 moral hazard 框架。对老年高支出患者而言，风险保护本身就是一项实质福利收益，不能因为短期健康指标不显著就被忽略。",
+      "overclaim_risk": "不要把文章写成“所有降低自付都值得”。文中并没有完成完整的最优保险标定，只是清楚展示了风险保护收益不能被遗漏。",
+      "safer_formulation": "这篇文章提示，在老年人医疗保险设计中，即使降低成本分担没有带来短期可观测健康改善，其显著的财务风险保护效应仍应被纳入政策福利评估。",
+      "evidence_excerpt_ids": [
+        "shigeoka-2014-effect-patient-cost-ex-001",
+        "shigeoka-2014-effect-patient-cost-ex-002"
+      ]
+    }
+  ],
   "sections": {
     "Identity": "- Work ID: `shigeoka-2014-effect-patient-cost`\n- Canonical Version ID: `shigeoka-2014-effect-patient-cost-uploaded`",
     "Common Core": "",
