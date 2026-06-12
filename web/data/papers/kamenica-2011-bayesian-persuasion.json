@@ -17,13 +17,13 @@
   "created_at": "2026-06-11T15:07:45.548704+00:00",
   "one_line_judgment": "一篇长期复用价值极高的经典信息设计框架论文。",
   "ratings": {
-    "dao": 5,
-    "fa": 5,
-    "shi": 4,
-    "shu": 5,
-    "qi": 5,
-    "subjective": 4,
-    "overall": 24
+    "dao": 10,
+    "fa": 10,
+    "shi": 8,
+    "shu": 10,
+    "qi": 10,
+    "subjective": 8,
+    "overall": 56
   },
   "rating_notes": {
     "dao": "这是一个基础性、定义了后续研究方向的问题。",
@@ -145,12 +145,12 @@
     "Limitations": "模型抽象掉了事后 misreporting、重复沟通、内生承诺摩擦，以及 cheap talk 与更广义机制设计里强调的一些激励相容问题。",
     "Theme Links": "- `information-design-persuasion`\n- `strategic-communication`\n- `belief-manipulation-and-disclosure`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 这是一个基础性、定义了后续研究方向的问题。",
-    "Fa": "- Score: 5\n- Note: 模型逻辑和后验分布重写都非常干净，是理论文章里罕见的高完成度。",
-    "Shi": "- Score: 4\n- Note: 它的优势不在某个单一制度窗口，而在于概念上的广泛可迁移性。",
-    "Shu": "- Score: 5\n- Note: 证明路径、例子设计和整体组织都非常优雅。",
-    "Qi": "- Score: 5\n- Note: 这个框架在很多理论和应用问题中都能直接复用。",
-    "Subjective": "- Score: 4\n- Note: 当我需要机制表达、理论框架或选题迁移时，这篇文章特别有价值。",
+    "Dao": "- Score: 10\n- Note: 这是一个基础性、定义了后续研究方向的问题。",
+    "Fa": "- Score: 10\n- Note: 模型逻辑和后验分布重写都非常干净，是理论文章里罕见的高完成度。",
+    "Shi": "- Score: 8\n- Note: 它的优势不在某个单一制度窗口，而在于概念上的广泛可迁移性。",
+    "Shu": "- Score: 10\n- Note: 证明路径、例子设计和整体组织都非常优雅。",
+    "Qi": "- Score: 10\n- Note: 这个框架在很多理论和应用问题中都能直接复用。",
+    "Subjective": "- Score: 8\n- Note: 当我需要机制表达、理论框架或选题迁移时，这篇文章特别有价值。",
     "One-Line Judgment": "一篇长期复用价值极高的经典信息设计框架论文。",
     "TODO_VERIFY": "- Confirm whether the uploaded PDF is the final AER version or a mirrored copy.\n- Confirm how much of the later information-design literature should be treated as direct extension versus parallel development for theme-note purposes."
   }

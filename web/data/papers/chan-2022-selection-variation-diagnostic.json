@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:05:03.806438+00:00",
   "one_line_judgment": "一篇用放射科医生漏诊数据彻底拆解偏好与技能异质性、并对 judges design 发出方法论警告的里程碑文献。",
   "ratings": {
-    "dao": 5,
-    "fa": 5,
-    "shi": 5,
-    "shu": 5,
-    "qi": 5,
-    "subjective": 5,
-    "overall": 25
+    "dao": 10,
+    "fa": 10,
+    "shi": 9,
+    "shu": 10,
+    "qi": 10,
+    "subjective": 10,
+    "overall": 59
   },
   "rating_notes": {
     "dao": "将技能与偏好的分离推向了实证识别的前沿，并直接挑战了大量现有研究所依赖的 judges design 的有效性。",
@@ -144,12 +144,12 @@
     "Limitations": "准随机分配假设虽有系统性验证，但在全样本中仍观察到统计显著（虽经济上较小）的患者特征不平衡；漏诊率由 10 天内返院诊断近似，可能遗漏较晚才确诊的漏诊病例，或混入其他疾病的误归因。研究场景为 VHA 急诊放射科，外部推广到私人医疗机构、非急诊场景或其他诊断任务需谨慎。结构模型假设放射科医生按单一阈值规则决策，且效用函数形式参数化，这些假设的合理性有一定局限。",
     "Theme Links": "- `physician-skill-heterogeneity`\n- `diagnostic-accuracy`\n- `judges-design-IV`\n- `practice-variation`\n- `physician-behavior`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 将技能与偏好的分离推向了实证识别的前沿，并直接挑战了大量现有研究所依赖的 judges design 的有效性。",
-    "Fa": "- Score: 5\n- Note: ROC 框架与准随机分配的结合在逻辑上极为严密；利用诊断率与漏诊率的联合分布进行部分识别的策略非常精巧。",
-    "Shi": "- Score: 5\n- Note: VHA 急诊胸片场景提供了准随机分配的极佳条件，550 万观测提供了强大的统计功效，数据质量和制度环境均属顶级。",
-    "Shu": "- Score: 5\n- Note: 从描述性事实到部分识别到结构估计再到反事实分析，论证链完整，鲁棒性检验充分，执行质量极高。",
-    "Qi": "- Score: 5\n- Note: ROC 识别框架、技能-偏好分离策略和对 judges design 的方法论批判均具有高度可迁移性，适用于医生、法官、教师等多类代理人研究。",
-    "Subjective": "- Score: 5\n- Note: 对研究医生异质性、诊断行为和政策评估方法论的健康经济学研究者而言，这是近年最重要的文献之一。",
+    "Dao": "- Score: 10\n- Note: 将技能与偏好的分离推向了实证识别的前沿，并直接挑战了大量现有研究所依赖的 judges design 的有效性。",
+    "Fa": "- Score: 10\n- Note: ROC 框架与准随机分配的结合在逻辑上极为严密；利用诊断率与漏诊率的联合分布进行部分识别的策略非常精巧。",
+    "Shi": "- Score: 9\n- Note: VHA 急诊胸片场景提供了准随机分配的极佳条件，550 万观测提供了强大的统计功效，数据质量和制度环境均属顶级。",
+    "Shu": "- Score: 10\n- Note: 从描述性事实到部分识别到结构估计再到反事实分析，论证链完整，鲁棒性检验充分，执行质量极高。",
+    "Qi": "- Score: 10\n- Note: ROC 识别框架、技能-偏好分离策略和对 judges design 的方法论批判均具有高度可迁移性，适用于医生、法官、教师等多类代理人研究。",
+    "Subjective": "- Score: 10\n- Note: 对研究医生异质性、诊断行为和政策评估方法论的健康经济学研究者而言，这是近年最重要的文献之一。",
     "One-Line Judgment": "一篇用放射科医生漏诊数据彻底拆解偏好与技能异质性、并对 judges design 发出方法论警告的里程碑文献。",
     "TODO_VERIFY": "- Confirm exact sample period years for the VHA chest X-ray data.\n- Confirm the signal correlation numbers (0.76/0.85/0.93) and false-negative aversion ratio (6.71) when citing quantitatively."
   }

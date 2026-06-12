@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:05:07.208913+00:00",
   "one_line_judgment": "事前授权胜过追缴诉讼：首篇大规模实证证明行政监管比司法执法更有效遏制 Medicare 救护车欺诈。",
   "ratings": {
-    "dao": 5,
-    "fa": 4,
-    "shi": 5,
-    "shu": 5,
-    "qi": 4,
-    "subjective": 5,
-    "overall": 23
+    "dao": 9,
+    "fa": 8,
+    "shi": 9,
+    "shu": 9,
+    "qi": 8,
+    "subjective": 9,
+    "overall": 52
   },
   "rating_notes": {
     "dao": "直接比较两种主流医保欺诈治理工具的因果效力，研究问题在政策上具有极高战略价值。",
@@ -149,12 +149,12 @@
     "Limitations": "staggered DD 设计依赖平行趋势假设，事前授权推出在各州并非完全随机，存在潜在选择性（CMS 可能优先在欺诈严重州推行）；患者健康结果的度量基于 claims 数据，对长期健康影响的追踪有局限；市场结构影响仅在透析救护车这一特定市场中被测量，一般化结论需谨慎；理论模型相对简约，主要用于解释实证，而非提供完整的最优政策分析框架。",
     "Theme Links": "- `medicare-fraud`\n- `monitoring-enforcement`\n- `regulation-vs-litigation`\n- `ambulance-regulation`\n- `prior-authorization`\n- `healthcare-fraud`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 直接比较两种主流医保欺诈治理工具的因果效力，研究问题在政策上具有极高战略价值。",
-    "Fa": "- Score: 4\n- Note: Staggered DD 设计合理，但事前授权推出的内生性仍是潜在挑战；理论模型较为简约。",
-    "Shi": "- Score: 5\n- Note: 全美 15 年透析患者 claims 数据与手工整理的诉讼数据库相结合，数据独特性极强，制度背景选择精准。",
-    "Shu": "- Score: 5\n- Note: 实证分析涵盖使用量、市场结构与患者健康三个层面，加之理论框架校准，执行完整。",
-    "Qi": "- Score: 4\n- Note: Staggered DD 框架与\"规制 vs. 诉讼\"比较方法可推广至其他 Medicare 欺诈场景，但核心数据难以直接获取。",
-    "Subjective": "- Score: 5\n- Note: 直接关联医疗欺诈执法与政策工具选择，对研究 Medicare 欺诈、监察与执法的研究者是核心文献。",
+    "Dao": "- Score: 9\n- Note: 直接比较两种主流医保欺诈治理工具的因果效力，研究问题在政策上具有极高战略价值。",
+    "Fa": "- Score: 8\n- Note: Staggered DD 设计合理，但事前授权推出的内生性仍是潜在挑战；理论模型较为简约。",
+    "Shi": "- Score: 9\n- Note: 全美 15 年透析患者 claims 数据与手工整理的诉讼数据库相结合，数据独特性极强，制度背景选择精准。",
+    "Shu": "- Score: 9\n- Note: 实证分析涵盖使用量、市场结构与患者健康三个层面，加之理论框架校准，执行完整。",
+    "Qi": "- Score: 8\n- Note: Staggered DD 框架与\"规制 vs. 诉讼\"比较方法可推广至其他 Medicare 欺诈场景，但核心数据难以直接获取。",
+    "Subjective": "- Score: 9\n- Note: 直接关联医疗欺诈执法与政策工具选择，对研究 Medicare 欺诈、监察与执法的研究者是核心文献。",
     "One-Line Judgment": "事前授权胜过追缴诉讼：首篇大规模实证证明行政监管比司法执法更有效遏制 Medicare 救护车欺诈。",
     "TODO_VERIFY": "- 确认 JPE 2025 具体卷期页码信息（DOI 已核实：10.1086/734134）。\n- 核实诉讼数据库的可获取性与覆盖范围。"
   }

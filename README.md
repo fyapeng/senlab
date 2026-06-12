@@ -7,7 +7,7 @@ It combines:
 - original PDF preservation
 - stable work/version identity management
 - structured paper cards
-- Dao-Fa-Shi-Shu-Qi plus subjective ratings
+- Dao-Fa-Shi-Shu-Qi plus subjective 10-point ratings
 - citation lenses for reusable claims
 - SQLite-backed indexing
 - a static demo web interface for search, detail, and comparison
@@ -74,7 +74,7 @@ Create the empty repository first, then push the local project so there is no ex
 - search page
 - paper detail page
 - compare page
-- six-dimension ratings
+- six-dimension 10-point ratings
 - locally synchronized canonical content
 
 ## Current Demo Papers

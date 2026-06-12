@@ -214,6 +214,6 @@ Before finishing, verify:
 1. `work_id` and `version_id` exist and are consistent.
 2. The PDF is stored in the canonical library path.
 3. The paper card follows the exact template.
-4. Ratings use integers 1-5.
+4. Ratings use integers 1-10.
 5. Every citation lens points to specific evidence.
 6. Unknown facts are marked `TODO_VERIFY` rather than guessed.

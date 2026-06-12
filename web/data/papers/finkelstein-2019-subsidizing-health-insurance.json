@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:04:52.198131+00:00",
   "one_line_judgment": "大额补贴换不来全覆盖，因为低收入人群对保险的支付意愿本身就系统性地低于他们自己的医疗成本——这篇文章把这一不便的真相量化得清清楚楚。",
   "ratings": {
-    "dao": 5,
-    "fa": 5,
-    "shi": 5,
-    "shu": 5,
-    "qi": 5,
-    "subjective": 5,
-    "overall": 25
+    "dao": 10,
+    "fa": 10,
+    "shi": 9,
+    "shu": 9,
+    "qi": 9,
+    "subjective": 10,
+    "overall": 57
   },
   "rating_notes": {
     "dao": "直接测量低收入人群WTP与成本之间的差距，回答了公共保险补贴政策的核心问题，学术与政策价值均极高。",
@@ -143,12 +143,12 @@
     "Limitations": "研究场景为马萨诸塞州单一市场，结果的可外推性取决于其他地区无偿医疗可及性、保险市场竞争程度等制度因素是否相似。WTP估计内涵了麻烦成本，不完全等同于对保险本身的价值判断。样本仅覆盖WTP分布约第6至第70百分位（能被观测到的参保/退出人群），最高WTP人群始终参保、最低WTP人群（从未参保）均无法被直接观测，需依赖模型外推。如果无偿医疗的可得性随政策变化（如医院行为响应大规模参保扩张），则反事实估计可能有偏。此外，CommCare于2014年随ACA实施而结构性调整，直接外推至ACA语境需谨慎。",
     "Theme Links": "- `health-insurance-demand`\n- `health-insurance-market-design`\n- `adverse-selection-insurance`\n- `cost-sharing-demand`\n- `insurance-subsidies-low-income`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 直接测量低收入人群WTP与成本之间的差距，回答了公共保险补贴政策的核心问题，学术与政策价值均极高。",
-    "Fa": "- Score: 5\n- Note: 利用制度性补贴断点的RD设计干净可信，与Einav-Finkelstein-Cullen框架的结合使弹性估计与福利含义之间的转化严谨透明。",
-    "Shi": "- Score: 5\n- Note: CommCare行政数据质量高，三个断点提供多重识别来源，ACA前身的制度背景使结论政策相关性极强。",
-    "Shu": "- Score: 5\n- Note: 从描述性证据到RD估计到需求模型到政策模拟，各环节逻辑清晰、假设透明，执行质量很高。",
-    "Qi": "- Score: 5\n- Note: Einav-Finkelstein-Cullen竞争选择框架的完整实证应用，为后续补贴保险市场研究提供了可直接复用的方法论模板。",
-    "Subjective": "- Score: 5\n- Note: 对理解低收入保险需求、补贴有效性与不完全覆盖成因均不可或缺，是任何研究保险市场设计或公共保险政策的学者的必读文献。",
+    "Dao": "- Score: 10\n- Note: 直接测量低收入人群WTP与成本之间的差距，回答了公共保险补贴政策的核心问题，学术与政策价值均极高。",
+    "Fa": "- Score: 10\n- Note: 利用制度性补贴断点的RD设计干净可信，与Einav-Finkelstein-Cullen框架的结合使弹性估计与福利含义之间的转化严谨透明。",
+    "Shi": "- Score: 9\n- Note: CommCare行政数据质量高，三个断点提供多重识别来源，ACA前身的制度背景使结论政策相关性极强。",
+    "Shu": "- Score: 9\n- Note: 从描述性证据到RD估计到需求模型到政策模拟，各环节逻辑清晰、假设透明，执行质量很高。",
+    "Qi": "- Score: 9\n- Note: Einav-Finkelstein-Cullen竞争选择框架的完整实证应用，为后续补贴保险市场研究提供了可直接复用的方法论模板。",
+    "Subjective": "- Score: 10\n- Note: 对理解低收入保险需求、补贴有效性与不完全覆盖成因均不可或缺，是任何研究保险市场设计或公共保险政策的学者的必读文献。",
     "One-Line Judgment": "大额补贴换不来全覆盖，因为低收入人群对保险的支付意愿本身就系统性地低于他们自己的医疗成本——这篇文章把这一不便的真相量化得清清楚楚。",
     "TODO_VERIFY": "- 确认DOI无误。\n- 如引用WTP数字，注意$100/月是WTP分布中位数的估计，与具体模型规格和样本有关。\n- 确认CommCare运营年份（2006–2013）及ACA衔接节点。"
   }

@@ -285,7 +285,7 @@ function paperCard(paper) {
   `;
 }
 
-function radarSvg(ratings) {
+function radarSvg(ratings, maxScore = 10) {
   const dims = [
     { key: "dao", label: "道" },
     { key: "fa", label: "法" },
@@ -297,7 +297,7 @@ function radarSvg(ratings) {
   const size = 300;
   const center = size / 2;
   const radius = 98;
-  const levels = 5;
+  const levels = maxScore;
   const step = (Math.PI * 2) / dims.length;
   const polygons = Array.from({ length: levels }, (_, index) => {
     const ratio = (index + 1) / levels;
@@ -380,7 +380,7 @@ async function renderDashboard(site) {
         <div class="eyebrow">序言</div>
         <h1>Sencium Lab</h1>
         <p class="lead">${site.brand.tagline}</p>
-        <p class="intro-text">Sencium Lab 将题目、作者、期刊、评分、证据摘录与主题脉络整理为结构化档案，让检索、比较、引用与选题在同一个研究系统内完成。</p>
+        <p class="intro-text">Sencium Lab 将题目、作者、期刊、六维十分制评分、证据摘录与主题脉络整理为结构化档案，让检索、比较、引用与选题在同一个研究系统内完成。</p>
         <div class="intro-shelf">
           <div class="intro-note">
             <h3 class="intro-note-title">档案</h3>
@@ -408,7 +408,7 @@ async function renderDashboard(site) {
     </section>
 
     <section class="grid-4">
-      ${statCard("收录论文", site.meta.paper_count, "已建立案卡并完成评分")}
+      ${statCard("收录论文", site.meta.paper_count, "已建立案卡并完成六维十分制评分")}
       ${statCard("研究主题", site.meta.theme_count, "跨论文的主题聚合节点")}
       ${statCard("证据摘录", site.meta.excerpt_count, "可溯源至原文位置的证据块")}
       ${statCard("引用视角", site.meta.lens_count, "可复用的论断与引文边界")}
@@ -418,7 +418,7 @@ async function renderDashboard(site) {
       <div class="section-head">
         <div>
           <div class="eyebrow">评议体系</div>
-          <h2 class="section-title">六维评估</h2>
+          <h2 class="section-title">六维十分制</h2>
         </div>
       </div>
       <div class="grid-3">
@@ -747,7 +747,7 @@ async function renderAbout(site) {
             <h1 class="section-title">Sencium Lab 是什么</h1>
           </div>
         </div>
-        <p class="intro-text">Sencium Lab 是一套私人学术文献系统，将精读转化为结构化的论文案卡、证据摘录与引用视角，并以六维框架对每篇论文做出持续可用的研究判断。本地存储，公开可检索。</p>
+        <p class="intro-text">Sencium Lab 是一套私人学术文献系统，将精读转化为结构化的论文案卡、证据摘录与引用视角，并以六维十分制对每篇论文做出持续可用的研究判断。本地存储，公开可检索。</p>
         <div class="stack-list">
           <div class="stack-item"><strong>索引层</strong><div class="muted">展示题目、作者、期刊、评分与主题，是对外公开的论文目录。</div></div>
           <div class="stack-item"><strong>分析层</strong><div class="muted">展示结构化案卡、论旨展开、证据摘录与引用视角，是主要的分析界面。</div></div>
@@ -758,7 +758,7 @@ async function renderAbout(site) {
         <div class="section-head">
           <div>
             <div class="eyebrow">评议方法</div>
-            <h2 class="section-title">六维评估</h2>
+          <h2 class="section-title">六维十分制</h2>
           </div>
         </div>
         <div class="stack-list">
@@ -826,7 +826,7 @@ async function renderPaper(site) {
         <div class="section-head compact">
           <div>
             <div class="eyebrow">评分图谱</div>
-            <h2 class="section-title">六维评估</h2>
+            <h2 class="section-title">六维十分制</h2>
           </div>
         </div>
         <div class="radar-wrap">${radarSvg(paper.ratings)}</div>

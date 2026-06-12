@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:05:14.152821+00:00",
   "one_line_judgment": "将健康需求与医疗需求从理论上彻底分离，奠定健康经济学核心理论框架的半世纪之作。",
   "ratings": {
-    "dao": 5,
-    "fa": 5,
-    "shi": 4,
-    "shu": 5,
-    "qi": 5,
-    "subjective": 3,
-    "overall": 24
+    "dao": 9,
+    "fa": 8,
+    "shi": 8,
+    "shu": 8,
+    "qi": 9,
+    "subjective": 6,
+    "overall": 48
   },
   "rating_notes": {
     "dao": "提出健康经济学的核心理论框架，将健康需求问题正式化，是整个领域的奠基性贡献。",
@@ -143,12 +143,12 @@
     "Limitations": "模型假设完全信息，排除了信息不对称和不确定性；排除联合生产（如吸烟既产生效用又损害健康）是简化但失真的；假设折旧率外生给定，而实际上健康行为本身影响折旧；纯投资模型的实证含义（工资较高者更健康）与收入—健康梯度在穷人中的形态并不完全吻合。Ehrlich and Chuma (1990) 对模型的最优投资路径存在不确定性问题提出了严肃批评，Grossman 在本章做了回应。",
     "Theme Links": "- `human-capital-health`\n- `demand-for-health`\n- `health-investment-lifecycle`\n- `education-health-gradient`\n- `household-production-theory`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 提出健康经济学的核心理论框架，将健康需求问题正式化，是整个领域的奠基性贡献。",
-    "Fa": "- Score: 5\n- Note: 在人力资本理论和家庭生产函数框架内建立严格的跨期最优化模型，理论内部一致性高。",
-    "Shi": "- Score: 4\n- Note: 理论模型的\"数据\"是内部逻辑的自洽性；作为手册章节，对实证文献的综述覆盖面广，但相关数据质量参差。",
-    "Shu": "- Score: 5\n- Note: 模型推导清晰，比较静态分析完整，手册章节体裁使得写作深度与系统性兼顾，执行质量高。",
-    "Qi": "- Score: 5\n- Note: Grossman 框架是健康经济学几乎所有理论与实证工作的起点，复用价值无可替代。",
-    "Subjective": "- Score: 3\n- Note: 对健康经济学学生极为重要，须理解这一框架；但模型本身较为抽象，不可直接拿来套用现代实证研究，需配合后续文献阅读。",
+    "Dao": "- Score: 9\n- Note: 提出健康经济学的核心理论框架，将健康需求问题正式化，是整个领域的奠基性贡献。",
+    "Fa": "- Score: 8\n- Note: 在人力资本理论和家庭生产函数框架内建立严格的跨期最优化模型，理论内部一致性高。",
+    "Shi": "- Score: 8\n- Note: 理论模型的\"数据\"是内部逻辑的自洽性；作为手册章节，对实证文献的综述覆盖面广，但相关数据质量参差。",
+    "Shu": "- Score: 8\n- Note: 模型推导清晰，比较静态分析完整，手册章节体裁使得写作深度与系统性兼顾，执行质量高。",
+    "Qi": "- Score: 9\n- Note: Grossman 框架是健康经济学几乎所有理论与实证工作的起点，复用价值无可替代。",
+    "Subjective": "- Score: 6\n- Note: 对健康经济学学生极为重要，须理解这一框架；但模型本身较为抽象，不可直接拿来套用现代实证研究，需配合后续文献阅读。",
     "One-Line Judgment": "将健康需求与医疗需求从理论上彻底分离，奠定健康经济学核心理论框架的半世纪之作。",
     "TODO_VERIFY": "- Confirm volume/chapter DOI for Handbook of Health Economics Vol. 1.\n- Grossman (1972a) JPE and (1972b) NBER monograph are the original sources — this handbook chapter is the 2000 retrospective and extension."
   }

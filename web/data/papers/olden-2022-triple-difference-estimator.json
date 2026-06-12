@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:05:10.291317+00:00",
   "one_line_judgment": "首次将三重差分估计量的识别假设形式化推导清楚，证明它只需一个差分上的平行趋势，而非两个。",
   "ratings": {
-    "dao": 4,
-    "fa": 5,
-    "shi": 4,
-    "shu": 5,
-    "qi": 5,
-    "subjective": 5,
-    "overall": 23
+    "dao": 8,
+    "fa": 10,
+    "shi": 7,
+    "shu": 9,
+    "qi": 9,
+    "subjective": 9,
+    "overall": 52
   },
   "rating_notes": {
     "dao": "填补了一个被广泛使用却缺乏正式基础的估计量的识别理论空白，问题定位精准，实用价值高。",
@@ -143,12 +143,12 @@
     "Limitations": "本文限于最简单的 2×2×2 设置（二元处理、二元组别、两期），未涉及多期面板、交错采纳（staggered adoption）、协变量调整或连续处理强度；这些扩展由 Ortiz and Sant'Anna (2025) 进一步处理。DDD 的推断（inference）部分讨论较为简略，未正式推导标准误的渐进性质。",
     "Theme Links": "- `triple-difference-estimator`\n- `causal-inference-methods`\n- `parallel-trends-assumption`\n- `difference-in-differences`\n- `identification-in-applied-micro`",
     "Ratings": "",
-    "Dao": "- Score: 4\n- Note: 填补了一个被广泛使用却缺乏正式基础的估计量的识别理论空白，问题定位精准，实用价值高。",
-    "Fa": "- Score: 5\n- Note: 潜在结果框架下的识别推导严格，证明思路清晰，识别假设的表达精确且有原创性。",
-    "Shi": "- Score: 4\n- Note: 方法论文不依赖数据，但对 AER/JPE/QJE 32 篇文献的系统回顾提供了扎实的应用现状证据，增强了论文的动机。",
-    "Shu": "- Score: 5\n- Note: 从推导到解释到文献回顾，写作严谨，例子直观，方程标注清晰，执行质量高。",
-    "Qi": "- Score: 5\n- Note: 任何使用 DDD 的实证研究都应参考本文；是汇报识别假设、设计前趋势检验的权威参考。",
-    "Subjective": "- Score: 5\n- Note: 对应用健康经济学学生而言，这是使用 DDD 前的必读方法论文章，直接可操作，复用价值极高。",
+    "Dao": "- Score: 8\n- Note: 填补了一个被广泛使用却缺乏正式基础的估计量的识别理论空白，问题定位精准，实用价值高。",
+    "Fa": "- Score: 10\n- Note: 潜在结果框架下的识别推导严格，证明思路清晰，识别假设的表达精确且有原创性。",
+    "Shi": "- Score: 7\n- Note: 方法论文不依赖数据，但对 AER/JPE/QJE 32 篇文献的系统回顾提供了扎实的应用现状证据，增强了论文的动机。",
+    "Shu": "- Score: 9\n- Note: 从推导到解释到文献回顾，写作严谨，例子直观，方程标注清晰，执行质量高。",
+    "Qi": "- Score: 9\n- Note: 任何使用 DDD 的实证研究都应参考本文；是汇报识别假设、设计前趋势检验的权威参考。",
+    "Subjective": "- Score: 9\n- Note: 对应用健康经济学学生而言，这是使用 DDD 前的必读方法论文章，直接可操作，复用价值极高。",
     "One-Line Judgment": "首次将三重差分估计量的识别假设形式化推导清楚，证明它只需一个差分上的平行趋势，而非两个。",
     "TODO_VERIFY": "- Confirm Econometrics Journal volume/page range (Vol. 25, pp. 531–553, 2022) from fulltext confirmed.\n- Gruber (1994) is the original triple difference paper — worth adding to library if not already present."
   }

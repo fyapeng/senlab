@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:04:52.617938+00:00",
   "one_line_judgment": "用含溢出效应的 Roy 模型一举颠覆\"地理变异等于浪费\"叙事的健康经济学理论与实证标杆。",
   "ratings": {
-    "dao": 5,
-    "fa": 4,
-    "shi": 5,
-    "shu": 5,
-    "qi": 5,
-    "subjective": 5,
-    "overall": 24
+    "dao": 10,
+    "fa": 8,
+    "shi": 9,
+    "shu": 9,
+    "qi": 9,
+    "subjective": 10,
+    "overall": 55
   },
   "rating_notes": {
     "dao": "直接挑战了\"医疗支出变异 = 低效浪费\"这一长期主导政策讨论的诊断，提出了对地理变异文献整体性的替代解释框架。",
@@ -145,12 +145,12 @@
     "Limitations": "核心因果识别依赖于模型一致性检验而非单一干净工具变量，若存在模型设定错误，检验可能失效。溢出效应的具体机制（学习溢出 vs. 基础设施可用性 vs. 医生选择）在数据中无法区分，而不同机制的福利含义不同。研究以 AMI 为例，能否推广至其他疾病和干预类型需额外验证。Medicare 人群（主要为 65 岁以上老年人）不代表全人群。2007 年之后心脏病诊疗技术和报销政策发生了较大变化，结果的时效性需注意。",
     "Theme Links": "- `productivity-spillovers`\n- `geographic-variation`\n- `physician-skill-heterogeneity`\n- `practice-style`\n- `treatment-intensity`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 直接挑战了\"医疗支出变异 = 低效浪费\"这一长期主导政策讨论的诊断，提出了对地理变异文献整体性的替代解释框架。",
-    "Fa": "- Score: 4\n- Note: 通过一组模型预测与数据的系统对比来区分假说，逻辑严密；但缺乏单一干净的工具变量，识别效力依赖模型正确设定。",
-    "Shi": "- Score: 5\n- Note: AMI 是医疗地理变异研究中最经典的场景，Medicare 数据规模大、质量高，发表时机正处于\"地理变异 = 浪费\"叙事的鼎盛期，冲击力极强。",
-    "Shu": "- Score: 5\n- Note: 理论模型推导清晰，实证检验细致，对替代解释（规模效应、供给诱导需求）的排除充分，论证链完整。",
-    "Qi": "- Score: 5\n- Note: Roy 模型 + 溢出效应的框架被 Chan et al. (2022) 和其他文献直接引用和扩展；\"通过预测集合区分模型\"的方法也具有广泛可迁移性。",
-    "Subjective": "- Score: 5\n- Note: 对理解地理变异、医疗资源配置效率和医生技能异质性的健康经济学研究者而言，这是理论与实证结合的入门范本。",
+    "Dao": "- Score: 10\n- Note: 直接挑战了\"医疗支出变异 = 低效浪费\"这一长期主导政策讨论的诊断，提出了对地理变异文献整体性的替代解释框架。",
+    "Fa": "- Score: 8\n- Note: 通过一组模型预测与数据的系统对比来区分假说，逻辑严密；但缺乏单一干净的工具变量，识别效力依赖模型正确设定。",
+    "Shi": "- Score: 9\n- Note: AMI 是医疗地理变异研究中最经典的场景，Medicare 数据规模大、质量高，发表时机正处于\"地理变异 = 浪费\"叙事的鼎盛期，冲击力极强。",
+    "Shu": "- Score: 9\n- Note: 理论模型推导清晰，实证检验细致，对替代解释（规模效应、供给诱导需求）的排除充分，论证链完整。",
+    "Qi": "- Score: 9\n- Note: Roy 模型 + 溢出效应的框架被 Chan et al. (2022) 和其他文献直接引用和扩展；\"通过预测集合区分模型\"的方法也具有广泛可迁移性。",
+    "Subjective": "- Score: 10\n- Note: 对理解地理变异、医疗资源配置效率和医生技能异质性的健康经济学研究者而言，这是理论与实证结合的入门范本。",
     "One-Line Judgment": "用含溢出效应的 Roy 模型一举颠覆\"地理变异等于浪费\"叙事的健康经济学理论与实证标杆。",
     "TODO_VERIFY": "- Confirm the exact DOI (10.1086/510401 is inferred from JPE vol/issue — verify against paper cover page).\n- Confirm exact sample years and Medicare patient count from the data appendix when citing."
   }

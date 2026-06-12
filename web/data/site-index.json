@@ -30,6 +30,12 @@
       "label": "关于"
     }
   ],
+  "score_scale": {
+    "min": 1,
+    "max": 10,
+    "dimensions": 6,
+    "overall_max": 60
+  },
   "meta": {
     "paper_count": 25,
     "theme_count": 92,
@@ -82,13 +88,13 @@
       "doi": "10.1086/734134",
       "one_line_judgment": "事前授权胜过追缴诉讼：首篇大规模实证证明行政监管比司法执法更有效遏制 Medicare 救护车欺诈。",
       "ratings": {
-        "dao": 5,
-        "fa": 4,
-        "shi": 5,
-        "shu": 5,
-        "qi": 4,
-        "subjective": 5,
-        "overall": 23
+        "dao": 9,
+        "fa": 8,
+        "shi": 9,
+        "shu": 9,
+        "qi": 8,
+        "subjective": 9,
+        "overall": 52
       },
       "themes": [
         {
@@ -131,13 +137,13 @@
       "doi": "10.48550/arXiv.2505.09942",
       "one_line_judgment": "将 DDD 方法论从两期无协变量的理想世界推进到协变量调整与交错采纳的现实世界，是 DDD 应用的新标准参考。",
       "ratings": {
-        "dao": 4,
-        "fa": 5,
-        "shi": 4,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 23
+        "dao": 8,
+        "fa": 10,
+        "shi": 8,
+        "shu": 9,
+        "qi": 9,
+        "subjective": 9,
+        "overall": 53
       },
       "themes": [
         {
@@ -176,13 +182,13 @@
       "doi": null,
       "one_line_judgment": "诉讼的恐惧比经济损失更能扭曲医生行为：一篇将非理性预期确立为防御性医疗主机制的实证研究。",
       "ratings": {
-        "dao": 4,
-        "fa": 4,
-        "shi": 4,
-        "shu": 4,
-        "qi": 3,
-        "subjective": 4,
-        "overall": 19
+        "dao": 8,
+        "fa": 8,
+        "shi": 7,
+        "shu": 8,
+        "qi": 6,
+        "subjective": 8,
+        "overall": 45
       },
       "themes": [
         {
@@ -221,13 +227,13 @@
       "doi": "10.1093/qje/qjad049",
       "one_line_judgment": "一篇将威慑效应主体化、同时证明监察不伤患者的 Medicare 浪费治理基准实证研究。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 4,
-        "subjective": 5,
-        "overall": 24
+        "dao": 10,
+        "fa": 10,
+        "shi": 10,
+        "shu": 10,
+        "qi": 8,
+        "subjective": 10,
+        "overall": 58
       },
       "themes": [
         {
@@ -266,13 +272,13 @@
       "doi": "10.1093/qje/qjae015",
       "one_line_judgment": "成本分担不是在削减浪费，而是在逼迫最需要药物的患者停药致死——这篇文章用$11,321每生命年的代价算清了这笔账。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 4,
-        "subjective": 5,
-        "overall": 24
+        "dao": 10,
+        "fa": 10,
+        "shi": 10,
+        "shu": 10,
+        "qi": 8,
+        "subjective": 10,
+        "overall": 58
       },
       "themes": [
         {
@@ -311,13 +317,13 @@
       "doi": "10.1093/qje/qjab048",
       "one_line_judgment": "一篇用放射科医生漏诊数据彻底拆解偏好与技能异质性、并对 judges design 发出方法论警告的里程碑文献。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 25
+        "dao": 10,
+        "fa": 10,
+        "shi": 9,
+        "shu": 10,
+        "qi": 10,
+        "subjective": 10,
+        "overall": 59
       },
       "themes": [
         {
@@ -356,13 +362,13 @@
       "doi": "10.1093/ectj/utac010",
       "one_line_judgment": "首次将三重差分估计量的识别假设形式化推导清楚，证明它只需一个差分上的平行趋势，而非两个。",
       "ratings": {
-        "dao": 4,
-        "fa": 5,
-        "shi": 4,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 23
+        "dao": 8,
+        "fa": 10,
+        "shi": 7,
+        "shu": 9,
+        "qi": 9,
+        "subjective": 9,
+        "overall": 52
       },
       "themes": [
         {
@@ -401,13 +407,13 @@
       "doi": "10.1257/pol.20180501",
       "one_line_judgment": "一篇用住院医师准随机数据打开医疗团队决策\"黑箱\"、揭示影响力集中背后信息聚合逻辑的重要实证研究。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 4,
-        "qi": 4,
-        "subjective": 5,
-        "overall": 23
+        "dao": 9,
+        "fa": 9,
+        "shi": 8,
+        "shu": 8,
+        "qi": 8,
+        "subjective": 9,
+        "overall": 51
       },
       "themes": [
         {
@@ -450,13 +456,13 @@
       "doi": "10.1257/aer.20201238",
       "one_line_judgment": "用急诊准随机配对证明医生之间的合作历史是一种可以救命的团队特定人力资本。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 25
+        "dao": 9,
+        "fa": 9,
+        "shi": 8,
+        "shu": 9,
+        "qi": 9,
+        "subjective": 9,
+        "overall": 53
       },
       "themes": [
         {
@@ -499,13 +505,13 @@
       "doi": "10.1093/qje/qjz040",
       "one_line_judgment": "一篇用广义 Roy 模型将医疗变异中的分配无效率与比较优势真正拆开的方法论基准文献，44%可提升空间令人警醒。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 25
+        "dao": 10,
+        "fa": 10,
+        "shi": 9,
+        "shu": 10,
+        "qi": 9,
+        "subjective": 10,
+        "overall": 58
       },
       "themes": [
         {
@@ -548,13 +554,13 @@
       "doi": "10.3982/ECTA16591",
       "one_line_judgment": "一篇将诊断技能引入医生处方决策框架、揭示试验价值依赖技能水平的开创性文献。",
       "ratings": {
-        "dao": 5,
-        "fa": 3,
-        "shi": 4,
-        "shu": 4,
-        "qi": 4,
-        "subjective": 5,
-        "overall": 20
+        "dao": 8,
+        "fa": 6,
+        "shi": 7,
+        "shu": 7,
+        "qi": 8,
+        "subjective": 8,
+        "overall": 44
       },
       "themes": [
         {
@@ -593,13 +599,13 @@
       "doi": "10.1257/aer.20171455",
       "one_line_judgment": "大额补贴换不来全覆盖，因为低收入人群对保险的支付意愿本身就系统性地低于他们自己的医疗成本——这篇文章把这一不便的真相量化得清清楚楚。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 25
+        "dao": 10,
+        "fa": 10,
+        "shi": 9,
+        "shu": 9,
+        "qi": 9,
+        "subjective": 10,
+        "overall": 57
       },
       "themes": [
         {
@@ -638,13 +644,13 @@
       "doi": "10.1257/aer.20160349",
       "one_line_judgment": "用物理时间约束揭示可疑过度计费：一把简洁有力的 Medicare 欺诈初筛工具。",
       "ratings": {
-        "dao": 4,
-        "fa": 3,
-        "shi": 4,
-        "shu": 4,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 20
+        "dao": 7,
+        "fa": 6,
+        "shi": 7,
+        "shu": 7,
+        "qi": 9,
+        "subjective": 8,
+        "overall": 44
       },
       "themes": [
         {
@@ -683,13 +689,13 @@
       "doi": "10.1093/qje/qjx013",
       "one_line_judgment": "高免赔额计划砍掉的不是\"水分\"而是\"肉\"——这篇文章用数量分解和价格信号分析彻底重新定义了我们对成本分担机制的理解。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 4,
-        "subjective": 5,
-        "overall": 24
+        "dao": 9,
+        "fa": 9,
+        "shi": 8,
+        "shu": 9,
+        "qi": 8,
+        "subjective": 9,
+        "overall": 52
       },
       "themes": [
         {
@@ -728,13 +734,13 @@
       "doi": "10.1093/qje/qjw023",
       "one_line_judgment": "用患者迁移剥离需求与供给贡献，重新定标了\"医疗地区差异主要由供给侧驱动\"这一既有共识。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 25
+        "dao": 10,
+        "fa": 10,
+        "shi": 9,
+        "shu": 9,
+        "qi": 9,
+        "subjective": 10,
+        "overall": 57
       },
       "themes": [
         {
@@ -773,13 +779,13 @@
       "doi": "10.1086/685910",
       "one_line_judgment": "一篇用急诊室自然实验证明团队自我管理可以打败经典道德风险预言的组织经济学力作。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 25
+        "dao": 10,
+        "fa": 9,
+        "shi": 9,
+        "shu": 9,
+        "qi": 9,
+        "subjective": 10,
+        "overall": 56
       },
       "themes": [
         {
@@ -822,13 +828,13 @@
       "doi": "10.1257/aer.20131126",
       "one_line_judgment": "一篇把风险偏好、信息摩擦与福利分析真正拆开的健康保险选择基准文献。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 25
+        "dao": 10,
+        "fa": 10,
+        "shi": 9,
+        "shu": 10,
+        "qi": 10,
+        "subjective": 10,
+        "overall": 59
       },
       "themes": [
         {
@@ -859,13 +865,13 @@
       "doi": "10.1093/qje/qjv005",
       "one_line_judgment": "一篇关于非线性保险合同与健康政策反事实分析的基准型论文。",
       "ratings": {
-        "dao": 5,
-        "fa": 4,
-        "shi": 5,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 24
+        "dao": 10,
+        "fa": 8,
+        "shi": 9,
+        "shu": 9,
+        "qi": 10,
+        "subjective": 10,
+        "overall": 56
       },
       "themes": [
         {
@@ -896,13 +902,13 @@
       "doi": "10.1257/aer.104.7.2152",
       "one_line_judgment": "日本70岁的一刀切政策断点，为健康经济学提供了迄今最干净的老年成本分担弹性估计，顺带给出了财务保护效应的可信证据。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 4,
-        "qi": 4,
-        "subjective": 5,
-        "overall": 23
+        "dao": 9,
+        "fa": 9,
+        "shi": 9,
+        "shu": 8,
+        "qi": 8,
+        "subjective": 9,
+        "overall": 52
       },
       "themes": [
         {
@@ -941,13 +947,13 @@
       "doi": "10.1257/aer.103.7.2875",
       "one_line_judgment": "一篇用宾夕法尼亚手术报告卡干净地证明内在激励是医生质量改善主要驱动力的基准文献。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 5,
-        "shu": 5,
-        "qi": 4,
-        "subjective": 5,
-        "overall": 24
+        "dao": 9,
+        "fa": 9,
+        "shi": 8,
+        "shu": 9,
+        "qi": 8,
+        "subjective": 9,
+        "overall": 52
       },
       "themes": [
         {
@@ -986,13 +992,13 @@
       "doi": "10.1257/aer.101.6.2590",
       "one_line_judgment": "一篇长期复用价值极高的经典信息设计框架论文。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 4,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 4,
-        "overall": 24
+        "dao": 10,
+        "fa": 10,
+        "shi": 8,
+        "shu": 10,
+        "qi": 10,
+        "subjective": 8,
+        "overall": 56
       },
       "themes": [
         {
@@ -1023,13 +1029,13 @@
       "doi": "10.1086/512249",
       "one_line_judgment": "用含溢出效应的 Roy 模型一举颠覆\"地理变异等于浪费\"叙事的健康经济学理论与实证标杆。",
       "ratings": {
-        "dao": 5,
-        "fa": 4,
-        "shi": 5,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 5,
-        "overall": 24
+        "dao": 10,
+        "fa": 8,
+        "shi": 9,
+        "shu": 9,
+        "qi": 9,
+        "subjective": 10,
+        "overall": 55
       },
       "themes": [
         {
@@ -1068,13 +1074,13 @@
       "doi": "10.1257/jep.20.3.97",
       "one_line_judgment": "一篇从历史、国际与国内三维度系统梳理死亡率决定因素的权威综述，是进入健康经济学文献的必要背景读物。",
       "ratings": {
-        "dao": 5,
-        "fa": 3,
-        "shi": 4,
-        "shu": 5,
-        "qi": 4,
-        "subjective": 4,
-        "overall": 21
+        "dao": 8,
+        "fa": 6,
+        "shi": 8,
+        "shu": 8,
+        "qi": 7,
+        "subjective": 7,
+        "overall": 44
       },
       "themes": [
         {
@@ -1113,13 +1119,13 @@
       "doi": "10.1016/S1574-0064(00)80166-3",
       "one_line_judgment": "将健康需求与医疗需求从理论上彻底分离，奠定健康经济学核心理论框架的半世纪之作。",
       "ratings": {
-        "dao": 5,
-        "fa": 5,
-        "shi": 4,
-        "shu": 5,
-        "qi": 5,
-        "subjective": 3,
-        "overall": 24
+        "dao": 9,
+        "fa": 8,
+        "shi": 8,
+        "shu": 8,
+        "qi": 9,
+        "subjective": 6,
+        "overall": 48
       },
       "themes": [
         {
@@ -1158,13 +1164,13 @@
       "doi": "10.2307/1809376",
       "one_line_judgment": "重新定义经济问题为知识利用问题，为价格机制与去中央化提供了最深刻的理论辩护，也是理解医疗信息不对称之根源的思想底色。",
       "ratings": {
-        "dao": 5,
-        "fa": 4,
-        "shi": 4,
-        "shu": 5,
-        "qi": 4,
-        "subjective": 3,
-        "overall": 22
+        "dao": 9,
+        "fa": 8,
+        "shi": 8,
+        "shu": 9,
+        "qi": 8,
+        "subjective": 6,
+        "overall": 48
       },
       "themes": [
         {
@@ -2347,56 +2353,56 @@
   "rankings": {
     "overall": [
       "chan-2022-selection-variation-diagnostic",
-      "chen-2021-team-specific-human",
+      "handel-2015-health-insurance-humans",
+      "shi-2024-monitoring-waste-medicare",
+      "chandra-2024-health-costs-cost",
       "chandra-2020-identifying-sources-inefficiency",
       "finkelstein-2019-subsidizing-health-insurance",
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
-      "handel-2015-health-insurance-humans",
-      "shi-2024-monitoring-waste-medicare",
-      "chandra-2024-health-costs-cost",
-      "brot-goldberg-2017-what-does-deductible",
       "einav-2015-response-drug-expenditure",
-      "kolstad-2013-information-quality-when",
-      "chandra-2007-productivity-spillovers-health",
       "kamenica-2011-bayesian-persuasion",
-      "grossman-2000-human-capital-model",
-      "eliason-2025-ambulance-taxis-impact",
+      "chandra-2007-productivity-spillovers-health",
       "ortiz-2025-better-understanding-triple",
+      "chen-2021-team-specific-human",
+      "eliason-2025-ambulance-taxis-impact",
       "olden-2022-triple-difference-estimator",
-      "chan-2021-influence-information-team",
+      "brot-goldberg-2017-what-does-deductible",
       "shigeoka-2014-effect-patient-cost",
+      "kolstad-2013-information-quality-when",
+      "chan-2021-influence-information-team",
+      "grossman-2000-human-capital-model",
       "hayek-1945-use-knowledge-society",
-      "cutler-2006-determinants-mortality",
+      "fang-2025-fear-risk-perception",
       "currie-2020-understanding-doctor-decision",
       "fang-2017-detecting-potential-overbilling",
-      "fang-2025-fear-risk-perception"
+      "cutler-2006-determinants-mortality"
     ],
     "dao": [
-      "eliason-2025-ambulance-taxis-impact",
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
       "chan-2022-selection-variation-diagnostic",
-      "chan-2021-influence-information-team",
-      "chen-2021-team-specific-human",
       "chandra-2020-identifying-sources-inefficiency",
-      "currie-2020-understanding-doctor-decision",
       "finkelstein-2019-subsidizing-health-insurance",
-      "brot-goldberg-2017-what-does-deductible",
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
       "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
-      "shigeoka-2014-effect-patient-cost",
-      "kolstad-2013-information-quality-when",
       "kamenica-2011-bayesian-persuasion",
       "chandra-2007-productivity-spillovers-health",
-      "cutler-2006-determinants-mortality",
+      "eliason-2025-ambulance-taxis-impact",
+      "chan-2021-influence-information-team",
+      "chen-2021-team-specific-human",
+      "brot-goldberg-2017-what-does-deductible",
+      "shigeoka-2014-effect-patient-cost",
+      "kolstad-2013-information-quality-when",
       "grossman-2000-human-capital-model",
       "hayek-1945-use-knowledge-society",
       "ortiz-2025-better-understanding-triple",
       "fang-2025-fear-risk-perception",
       "olden-2022-triple-difference-estimator",
+      "currie-2020-understanding-doctor-decision",
+      "cutler-2006-determinants-mortality",
       "fang-2017-detecting-potential-overbilling"
     ],
     "fa": [
@@ -2405,84 +2411,87 @@
       "chandra-2024-health-costs-cost",
       "chan-2022-selection-variation-diagnostic",
       "olden-2022-triple-difference-estimator",
-      "chan-2021-influence-information-team",
-      "chen-2021-team-specific-human",
       "chandra-2020-identifying-sources-inefficiency",
       "finkelstein-2019-subsidizing-health-insurance",
-      "brot-goldberg-2017-what-does-deductible",
       "finkelstein-2016-sources-geographic-variation",
-      "chan-2016-teamwork-moral-hazard",
       "handel-2015-health-insurance-humans",
+      "kamenica-2011-bayesian-persuasion",
+      "chan-2021-influence-information-team",
+      "chen-2021-team-specific-human",
+      "brot-goldberg-2017-what-does-deductible",
+      "chan-2016-teamwork-moral-hazard",
       "shigeoka-2014-effect-patient-cost",
       "kolstad-2013-information-quality-when",
-      "kamenica-2011-bayesian-persuasion",
-      "grossman-2000-human-capital-model",
       "eliason-2025-ambulance-taxis-impact",
       "fang-2025-fear-risk-perception",
       "einav-2015-response-drug-expenditure",
       "chandra-2007-productivity-spillovers-health",
+      "grossman-2000-human-capital-model",
       "hayek-1945-use-knowledge-society",
       "currie-2020-understanding-doctor-decision",
       "fang-2017-detecting-potential-overbilling",
       "cutler-2006-determinants-mortality"
     ],
     "shi": [
-      "eliason-2025-ambulance-taxis-impact",
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
+      "eliason-2025-ambulance-taxis-impact",
       "chan-2022-selection-variation-diagnostic",
-      "chan-2021-influence-information-team",
-      "chen-2021-team-specific-human",
       "chandra-2020-identifying-sources-inefficiency",
       "finkelstein-2019-subsidizing-health-insurance",
-      "brot-goldberg-2017-what-does-deductible",
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
       "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "shigeoka-2014-effect-patient-cost",
-      "kolstad-2013-information-quality-when",
       "chandra-2007-productivity-spillovers-health",
       "ortiz-2025-better-understanding-triple",
-      "fang-2025-fear-risk-perception",
-      "olden-2022-triple-difference-estimator",
-      "currie-2020-understanding-doctor-decision",
-      "fang-2017-detecting-potential-overbilling",
+      "chan-2021-influence-information-team",
+      "chen-2021-team-specific-human",
+      "brot-goldberg-2017-what-does-deductible",
+      "kolstad-2013-information-quality-when",
       "kamenica-2011-bayesian-persuasion",
       "cutler-2006-determinants-mortality",
       "grossman-2000-human-capital-model",
-      "hayek-1945-use-knowledge-society"
+      "hayek-1945-use-knowledge-society",
+      "fang-2025-fear-risk-perception",
+      "olden-2022-triple-difference-estimator",
+      "currie-2020-understanding-doctor-decision",
+      "fang-2017-detecting-potential-overbilling"
     ],
     "shu": [
-      "eliason-2025-ambulance-taxis-impact",
-      "ortiz-2025-better-understanding-triple",
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
       "chan-2022-selection-variation-diagnostic",
+      "chandra-2020-identifying-sources-inefficiency",
+      "handel-2015-health-insurance-humans",
+      "kamenica-2011-bayesian-persuasion",
+      "eliason-2025-ambulance-taxis-impact",
+      "ortiz-2025-better-understanding-triple",
       "olden-2022-triple-difference-estimator",
       "chen-2021-team-specific-human",
-      "chandra-2020-identifying-sources-inefficiency",
       "finkelstein-2019-subsidizing-health-insurance",
       "brot-goldberg-2017-what-does-deductible",
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
-      "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "kolstad-2013-information-quality-when",
-      "kamenica-2011-bayesian-persuasion",
       "chandra-2007-productivity-spillovers-health",
-      "cutler-2006-determinants-mortality",
-      "grossman-2000-human-capital-model",
       "hayek-1945-use-knowledge-society",
       "fang-2025-fear-risk-perception",
       "chan-2021-influence-information-team",
+      "shigeoka-2014-effect-patient-cost",
+      "cutler-2006-determinants-mortality",
+      "grossman-2000-human-capital-model",
       "currie-2020-understanding-doctor-decision",
-      "fang-2017-detecting-potential-overbilling",
-      "shigeoka-2014-effect-patient-cost"
+      "fang-2017-detecting-potential-overbilling"
     ],
     "qi": [
-      "ortiz-2025-better-understanding-triple",
       "chan-2022-selection-variation-diagnostic",
+      "handel-2015-health-insurance-humans",
+      "einav-2015-response-drug-expenditure",
+      "kamenica-2011-bayesian-persuasion",
+      "ortiz-2025-better-understanding-triple",
       "olden-2022-triple-difference-estimator",
       "chen-2021-team-specific-human",
       "chandra-2020-identifying-sources-inefficiency",
@@ -2490,9 +2499,6 @@
       "fang-2017-detecting-potential-overbilling",
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
-      "handel-2015-health-insurance-humans",
-      "einav-2015-response-drug-expenditure",
-      "kamenica-2011-bayesian-persuasion",
       "chandra-2007-productivity-spillovers-health",
       "grossman-2000-human-capital-model",
       "eliason-2025-ambulance-taxis-impact",
@@ -2503,32 +2509,32 @@
       "brot-goldberg-2017-what-does-deductible",
       "shigeoka-2014-effect-patient-cost",
       "kolstad-2013-information-quality-when",
-      "cutler-2006-determinants-mortality",
       "hayek-1945-use-knowledge-society",
+      "cutler-2006-determinants-mortality",
       "fang-2025-fear-risk-perception"
     ],
     "subjective": [
-      "eliason-2025-ambulance-taxis-impact",
-      "ortiz-2025-better-understanding-triple",
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
       "chan-2022-selection-variation-diagnostic",
-      "olden-2022-triple-difference-estimator",
-      "chan-2021-influence-information-team",
-      "chen-2021-team-specific-human",
       "chandra-2020-identifying-sources-inefficiency",
-      "currie-2020-understanding-doctor-decision",
       "finkelstein-2019-subsidizing-health-insurance",
-      "fang-2017-detecting-potential-overbilling",
-      "brot-goldberg-2017-what-does-deductible",
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
       "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
+      "chandra-2007-productivity-spillovers-health",
+      "eliason-2025-ambulance-taxis-impact",
+      "ortiz-2025-better-understanding-triple",
+      "olden-2022-triple-difference-estimator",
+      "chan-2021-influence-information-team",
+      "chen-2021-team-specific-human",
+      "brot-goldberg-2017-what-does-deductible",
       "shigeoka-2014-effect-patient-cost",
       "kolstad-2013-information-quality-when",
-      "chandra-2007-productivity-spillovers-health",
       "fang-2025-fear-risk-perception",
+      "currie-2020-understanding-doctor-decision",
+      "fang-2017-detecting-potential-overbilling",
       "kamenica-2011-bayesian-persuasion",
       "cutler-2006-determinants-mortality",
       "grossman-2000-human-capital-model",

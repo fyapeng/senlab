@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:04:59.774580+00:00",
   "one_line_judgment": "一篇用宾夕法尼亚手术报告卡干净地证明内在激励是医生质量改善主要驱动力的基准文献。",
   "ratings": {
-    "dao": 5,
-    "fa": 5,
-    "shi": 5,
-    "shu": 5,
-    "qi": 4,
-    "subjective": 5,
-    "overall": 24
+    "dao": 9,
+    "fa": 9,
+    "shi": 8,
+    "shu": 9,
+    "qi": 8,
+    "subjective": 9,
+    "overall": 52
   },
   "rating_notes": {
     "dao": "提出了质量信息披露政策设计中最基本的问题之一：报告卡的价值是通过消费者需求传递，还是通过给供给者提供绩效信息传递。",
@@ -142,12 +142,12 @@
     "Limitations": "识别内在激励响应依赖于用风险调整方案构造的\"信息更新量\"代理变量，这一变量可能存在测量误差，且难以完全排除遗漏变量偏误。报告卡对患者严重程度选择的影响虽已做鲁棒性检验，但无法完全排除。此外，研究仅覆盖宾夕法尼亚州 CABG 手术这一单一情境，推广到其他专科或报告卡设计是否成立仍需审慎。外科医生事前信念的构造假设较强，结果对这些假设的敏感性有一定局限。",
     "Theme Links": "- `quality-reporting`\n- `intrinsic-motivation-physicians`\n- `information-and-incentives`\n- `physician-behavior`\n- `empirical-structural-health`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 提出了质量信息披露政策设计中最基本的问题之一：报告卡的价值是通过消费者需求传递，还是通过给供给者提供绩效信息传递。",
-    "Fa": "- Score: 5\n- Note: 将结构需求模型与信息冲击的外生变异结合，把内在激励从利润激励中剥离出来，识别策略相当精巧。",
-    "Shi": "- Score: 5\n- Note: CABG 报告卡场景具有价格管制、独立外科医生制度和可量化信息冲击等特点，是识别内在激励的绝佳自然实验。",
-    "Shu": "- Score: 5\n- Note: 理论模型与实证分解之间的对应关系清晰，鲁棒性分析充分排除了主要替代解释，执行质量高。",
-    "Qi": "- Score: 4\n- Note: \"信息冲击 + 结构需求模型\"的识别框架和内在/外在激励分解思路可推广至其他质量报告设计或绩效考核研究。",
-    "Subjective": "- Score: 5\n- Note: 对研究医生激励、质量信息政策及非货币激励机制的健康经济学研究者极为核心。",
+    "Dao": "- Score: 9\n- Note: 提出了质量信息披露政策设计中最基本的问题之一：报告卡的价值是通过消费者需求传递，还是通过给供给者提供绩效信息传递。",
+    "Fa": "- Score: 9\n- Note: 将结构需求模型与信息冲击的外生变异结合，把内在激励从利润激励中剥离出来，识别策略相当精巧。",
+    "Shi": "- Score: 8\n- Note: CABG 报告卡场景具有价格管制、独立外科医生制度和可量化信息冲击等特点，是识别内在激励的绝佳自然实验。",
+    "Shu": "- Score: 9\n- Note: 理论模型与实证分解之间的对应关系清晰，鲁棒性分析充分排除了主要替代解释，执行质量高。",
+    "Qi": "- Score: 8\n- Note: \"信息冲击 + 结构需求模型\"的识别框架和内在/外在激励分解思路可推广至其他质量报告设计或绩效考核研究。",
+    "Subjective": "- Score: 9\n- Note: 对研究医生激励、质量信息政策及非货币激励机制的健康经济学研究者极为核心。",
     "One-Line Judgment": "一篇用宾夕法尼亚手术报告卡干净地证明内在激励是医生质量改善主要驱动力的基准文献。",
     "TODO_VERIFY": "- Confirm the exact RAMR decline attributable to extrinsic vs. intrinsic incentives when citing quantitatively.\n- Confirm exact dates of PHC4 report card releases if citing institutional detail."
   }

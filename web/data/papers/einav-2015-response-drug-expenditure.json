@@ -17,13 +17,13 @@
   "created_at": "2026-06-11T15:07:33.472400+00:00",
   "one_line_judgment": "一篇关于非线性保险合同与健康政策反事实分析的基准型论文。",
   "ratings": {
-    "dao": 5,
-    "fa": 4,
-    "shi": 5,
-    "shu": 5,
-    "qi": 5,
-    "subjective": 5,
-    "overall": 24
+    "dao": 10,
+    "fa": 8,
+    "shi": 9,
+    "shu": 9,
+    "qi": 10,
+    "subjective": 10,
+    "overall": 56
   },
   "rating_notes": {
     "dao": "问题本身兼具政策重要性和理论核心性，直接指向保险合同设计。",
@@ -157,12 +157,12 @@
     "Limitations": "文章的反事实数量级依赖于动态模型设定、对跨年替代的简化处理，以及如何把“索赔行为变化”映射为真正具有福利含义的药品消费变化。",
     "Theme Links": "- `nonlinear-insurance-contracts`\n- `drug-demand-under-insurance`\n- `policy-counterfactuals-in-health`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 问题本身兼具政策重要性和理论核心性，直接指向保险合同设计。",
-    "Fa": "- Score: 4\n- Note: 描述性证据很扎实，但部分结论的强度依赖于模型结构与扩展设定。",
-    "Shi": "- Score: 5\n- Note: 制度环境极强，Part D 的非线性合同天然提供了非常好的识别窗口。",
-    "Shu": "- Score: 5\n- Note: 描述证据、动态模型与政策反事实的衔接非常完整，执行质量很高。",
-    "Qi": "- Score: 5\n- Note: 制度背景、数据结构和合同设计都具有高度复用价值。",
-    "Subjective": "- Score: 5\n- Note: 对健康经济学、保险设计和政策评估都具有直接用途。",
+    "Dao": "- Score: 10\n- Note: 问题本身兼具政策重要性和理论核心性，直接指向保险合同设计。",
+    "Fa": "- Score: 8\n- Note: 描述性证据很扎实，但部分结论的强度依赖于模型结构与扩展设定。",
+    "Shi": "- Score: 9\n- Note: 制度环境极强，Part D 的非线性合同天然提供了非常好的识别窗口。",
+    "Shu": "- Score: 9\n- Note: 描述证据、动态模型与政策反事实的衔接非常完整，执行质量很高。",
+    "Qi": "- Score: 10\n- Note: 制度背景、数据结构和合同设计都具有高度复用价值。",
+    "Subjective": "- Score: 10\n- Note: 对健康经济学、保险设计和政策评估都具有直接用途。",
     "One-Line Judgment": "一篇关于非线性保险合同与健康政策反事实分析的基准型论文。",
     "TODO_VERIFY": "- Confirm exact sample construction details from the body of the paper.\n- Confirm whether the uploaded PDF is the final published formatting or a post-processed copy.\n- Confirm the exact interpretation of the catastrophic-coverage marginal price in the sample plans versus the standard contract illustration."
   }

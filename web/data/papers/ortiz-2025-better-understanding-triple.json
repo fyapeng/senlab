@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:05:12.010810+00:00",
   "one_line_judgment": "将 DDD 方法论从两期无协变量的理想世界推进到协变量调整与交错采纳的现实世界，是 DDD 应用的新标准参考。",
   "ratings": {
-    "dao": 4,
-    "fa": 5,
-    "shi": 4,
-    "shu": 5,
-    "qi": 5,
-    "subjective": 5,
-    "overall": 23
+    "dao": 8,
+    "fa": 10,
+    "shi": 8,
+    "shu": 9,
+    "qi": 9,
+    "subjective": 9,
+    "overall": 53
   },
   "rating_notes": {
     "dao": "直接解决了应用研究者在使用 DDD 时面临的两个最常见的现实障碍（协变量调整与交错采纳），问题定位精准且具有广泛影响。",
@@ -145,12 +145,12 @@
     "Limitations": "论文主要关注两个扩展维度（协变量调整与交错采纳），尚未系统处理连续处理强度、部分识别或敏感性分析框架。推断的渐近理论在固定 T、大 n 框架下建立，对 T 较大时的有限样本性质尚待探索。配套 R 包尚为工作论文阶段（2025 年 7 月），稳定性有待观察。此外，论文覆盖的 DDD 定义较为特定（两个条件缺一不可才受处理），与某些将 DDD 用于异质性分析的应用有所不同。",
     "Theme Links": "- `triple-difference-estimator`\n- `causal-inference-methods`\n- `staggered-adoption-DiD`\n- `doubly-robust-estimator`\n- `covariate-adjusted-identification`",
     "Ratings": "",
-    "Dao": "- Score: 4\n- Note: 直接解决了应用研究者在使用 DDD 时面临的两个最常见的现实障碍（协变量调整与交错采纳），问题定位精准且具有广泛影响。",
-    "Fa": "- Score: 5\n- Note: 识别条件推导严格，在潜在结果框架下证明了朴素估计量的偏误，并给出双重稳健估计量的形式化保证。",
-    "Shi": "- Score: 4\n- Note: 三个实证应用来自不同领域，有效展示了方法的普适性；Monte Carlo 设计与现实应用衔接紧密。",
-    "Shu": "- Score: 5\n- Note: 理论、模拟、实证应用三位一体，R 包配套，论文内部一致性强，执行质量高。",
-    "Qi": "- Score: 5\n- Note: 只要使用有协变量调整或交错采纳的 DDD 设计，本文就是必要参考；R 包直接可用，复用价值极高。",
-    "Subjective": "- Score: 5\n- Note: 对做应用健康经济学研究（大量 DDD 应用）的学生而言，这是工具箱中的必备方法论文章。",
+    "Dao": "- Score: 8\n- Note: 直接解决了应用研究者在使用 DDD 时面临的两个最常见的现实障碍（协变量调整与交错采纳），问题定位精准且具有广泛影响。",
+    "Fa": "- Score: 10\n- Note: 识别条件推导严格，在潜在结果框架下证明了朴素估计量的偏误，并给出双重稳健估计量的形式化保证。",
+    "Shi": "- Score: 8\n- Note: 三个实证应用来自不同领域，有效展示了方法的普适性；Monte Carlo 设计与现实应用衔接紧密。",
+    "Shu": "- Score: 9\n- Note: 理论、模拟、实证应用三位一体，R 包配套，论文内部一致性强，执行质量高。",
+    "Qi": "- Score: 9\n- Note: 只要使用有协变量调整或交错采纳的 DDD 设计，本文就是必要参考；R 包直接可用，复用价值极高。",
+    "Subjective": "- Score: 9\n- Note: 对做应用健康经济学研究（大量 DDD 应用）的学生而言，这是工具箱中的必备方法论文章。",
     "One-Line Judgment": "将 DDD 方法论从两期无协变量的理想世界推进到协变量调整与交错采纳的现实世界，是 DDD 应用的新标准参考。",
     "TODO_VERIFY": "- Check whether paper has been formally accepted by a journal by the time of filing — as of July 2025 it is arXiv:2505.09942v3.\n- R package `triplediff` availability and CRAN status should be verified if citing for applied use."
   }

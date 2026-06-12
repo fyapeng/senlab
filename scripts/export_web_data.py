@@ -169,7 +169,16 @@ def main() -> None:
             ]
 
             sections = parse_card_sections(row["markdown_path"])
-            overall_score = sum((row["dao"] or 0, row["fa"] or 0, row["shi"] or 0, row["shu"] or 0, row["qi"] or 0))
+            overall_score = sum(
+                (
+                    row["dao"] or 0,
+                    row["fa"] or 0,
+                    row["shi"] or 0,
+                    row["shu"] or 0,
+                    row["qi"] or 0,
+                    row["subjective"] or 0,
+                )
+            )
             paper_detail = {
                 "work_id": work_id,
                 "title": row["title"],
@@ -260,6 +269,12 @@ def main() -> None:
                 "logo_intro_url": "./web/assets/logo.svg",
             },
             "nav": nav_items(),
+            "score_scale": {
+                "min": 1,
+                "max": 10,
+                "dimensions": 6,
+                "overall_max": 60,
+            },
             "meta": {
                 "paper_count": len(papers),
                 "theme_count": len(theme_rows),

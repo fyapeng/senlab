@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:04:57.804161+00:00",
   "one_line_judgment": "用患者迁移剥离需求与供给贡献，重新定标了\"医疗地区差异主要由供给侧驱动\"这一既有共识。",
   "ratings": {
-    "dao": 5,
-    "fa": 5,
-    "shi": 5,
-    "shu": 5,
-    "qi": 5,
-    "subjective": 5,
-    "overall": 25
+    "dao": 10,
+    "fa": 10,
+    "shi": 9,
+    "shu": 9,
+    "qi": 9,
+    "subjective": 10,
+    "overall": 57
   },
   "rating_notes": {
     "dao": "医疗地区差异的来源是健康政策与健康经济学中最核心的实证问题之一，问题重要性极高。",
@@ -143,12 +143,12 @@
     "Limitations": "研究样本限于 65 岁以上 Medicare 受益人，外推至年轻人群或私人保险市场需谨慎。研究期间的迁移样本可能具有选择性（健康状况较好者更可能迁移）。分解结果是部分均衡估计，未考虑供给侧对患者组成变化的长期内生响应。此外，分解方案无法进一步区分患者效应中健康状况与偏好的相对贡献——这一问题文章承认尚未完全解决。",
     "Theme Links": "- `geographic-variation-healthcare`\n- `demand-supply-decomposition`\n- `medicare-utilization`\n- `place-effects-health`\n- `patient-migration-identification`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 医疗地区差异的来源是健康政策与健康经济学中最核心的实证问题之一，问题重要性极高。",
-    "Fa": "- Score: 5\n- Note: 利用迁移事件构建的识别策略简洁清晰，事件研究预趋势检验严格，识别逻辑说服力强。",
-    "Shi": "- Score: 5\n- Note: Medicare 全国索赔数据质量高、覆盖面广，十年面板加迁移事件提供了理想的识别窗口。",
-    "Shu": "- Score: 5\n- Note: 模型推导、事件研究图、稳健性检验、分类利用量分析与相关性分析环环相扣，执行完整。",
-    "Qi": "- Score: 5\n- Note: 迁移识别策略和患者—地点固定效应分解框架对其他医疗利用、地区效应和行为持久性问题均有强复用潜力。",
-    "Subjective": "- Score: 5\n- Note: 这是健康经济学学生必读的地区差异文献之一，方法和结论均有直接学习与引用价值。",
+    "Dao": "- Score: 10\n- Note: 医疗地区差异的来源是健康政策与健康经济学中最核心的实证问题之一，问题重要性极高。",
+    "Fa": "- Score: 10\n- Note: 利用迁移事件构建的识别策略简洁清晰，事件研究预趋势检验严格，识别逻辑说服力强。",
+    "Shi": "- Score: 9\n- Note: Medicare 全国索赔数据质量高、覆盖面广，十年面板加迁移事件提供了理想的识别窗口。",
+    "Shu": "- Score: 9\n- Note: 模型推导、事件研究图、稳健性检验、分类利用量分析与相关性分析环环相扣，执行完整。",
+    "Qi": "- Score: 9\n- Note: 迁移识别策略和患者—地点固定效应分解框架对其他医疗利用、地区效应和行为持久性问题均有强复用潜力。",
+    "Subjective": "- Score: 10\n- Note: 这是健康经济学学生必读的地区差异文献之一，方法和结论均有直接学习与引用价值。",
     "One-Line Judgment": "用患者迁移剥离需求与供给贡献，重新定标了\"医疗地区差异主要由供给侧驱动\"这一既有共识。",
     "TODO_VERIFY": "- Confirm exact DOI string.\n- HRR 层面地点效应估计的精度在 Online Appendix 中有更多讨论——如后续精细使用可参阅。"
   }

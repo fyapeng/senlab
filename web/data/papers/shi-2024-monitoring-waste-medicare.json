@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:05:06.690309+00:00",
   "one_line_judgment": "一篇将威慑效应主体化、同时证明监察不伤患者的 Medicare 浪费治理基准实证研究。",
   "ratings": {
-    "dao": 5,
-    "fa": 5,
-    "shi": 5,
-    "shu": 5,
-    "qi": 4,
-    "subjective": 5,
-    "overall": 24
+    "dao": 10,
+    "fa": 10,
+    "shi": 10,
+    "shu": 10,
+    "qi": 8,
+    "subjective": 10,
+    "overall": 58
   },
   "rating_notes": {
     "dao": "直接回答\"监察公共医疗浪费是否值得\"这一核心政策问题，研究问题的战略价值极高。",
@@ -143,12 +143,12 @@
     "Limitations": "识别依赖跨 RAC 管辖边界的 DD 设计，一定程度上受限于 RAC 管辖边界并非完全外生（虽非医院可以影响）；患者健康结果仅能由 30 天再访率近似代理，无法排除某些更长期或更隐性的健康影响；样本仅覆盖 Medicare 住院人群，结论外推至门诊或私保领域需谨慎；两午夜规则样本窗口较窄（仅包含时间临界附近的患者），代表性有限。",
     "Theme Links": "- `medicare-waste`\n- `monitoring-enforcement`\n- `healthcare-fraud`\n- `deterrence-effects`\n- `hospital-behavior-incentives`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 直接回答\"监察公共医疗浪费是否值得\"这一核心政策问题，研究问题的战略价值极高。",
-    "Fa": "- Score: 5\n- Note: 两套相互印证的 DD 策略（RAC 管辖边界 + 两午夜规则）识别力强，且对威慑与追回的拆分具有方法论创新价值。",
-    "Shi": "- Score: 5\n- Note: 独特的 RAC 行政审计数据与 Medicare claims 数据组合，加之制度细节（两午夜规则）为患者健康识别提供了绝佳窗口。",
-    "Shu": "- Score: 5\n- Note: 描述性事实、医院行为模型、两套 DD 设计与合规成本量化全面衔接，执行质量极高。",
-    "Qi": "- Score: 4\n- Note: 数据独特性较高（RAC 行政数据难以获取），但 DD 设计框架与威慑拆分方法可广泛复用于其他公共支出监察场景。",
-    "Subjective": "- Score: 5\n- Note: 对研究 Medicare 欺诈与执法的研究者而言是核心参照文献，威慑效应框架与合规成本测量都有直接参考价值。",
+    "Dao": "- Score: 10\n- Note: 直接回答\"监察公共医疗浪费是否值得\"这一核心政策问题，研究问题的战略价值极高。",
+    "Fa": "- Score: 10\n- Note: 两套相互印证的 DD 策略（RAC 管辖边界 + 两午夜规则）识别力强，且对威慑与追回的拆分具有方法论创新价值。",
+    "Shi": "- Score: 10\n- Note: 独特的 RAC 行政审计数据与 Medicare claims 数据组合，加之制度细节（两午夜规则）为患者健康识别提供了绝佳窗口。",
+    "Shu": "- Score: 10\n- Note: 描述性事实、医院行为模型、两套 DD 设计与合规成本量化全面衔接，执行质量极高。",
+    "Qi": "- Score: 8\n- Note: 数据独特性较高（RAC 行政数据难以获取），但 DD 设计框架与威慑拆分方法可广泛复用于其他公共支出监察场景。",
+    "Subjective": "- Score: 10\n- Note: 对研究 Medicare 欺诈与执法的研究者而言是核心参照文献，威慑效应框架与合规成本测量都有直接参考价值。",
     "One-Line Judgment": "一篇将威慑效应主体化、同时证明监察不伤患者的 Medicare 浪费治理基准实证研究。",
     "TODO_VERIFY": "- 确认 DOI 与期刊卷期信息（QJE 2024, vol. 139, no. 2, pp. 993–1049）。\n- 核实 RAC 行政数据的可及性，评估复用潜力。"
   }

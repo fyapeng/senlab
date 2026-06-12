@@ -31,12 +31,12 @@ DEMO = {
         "main_claim": "Filling the donut hole increases annual drug spending, but a meaningful share of the response reflects anticipatory behavior and cross-year substitution rather than pure within-year moral hazard.",
         "why_in_my_db": "This paper is reusable as a policy-design reference, a nonlinear pricing case, a bunching-style empirical pattern, and a health-insurance demand benchmark.",
         "ratings": {
-            "dao": 5,
-            "fa": 4,
-            "shi": 5,
-            "shu": 5,
-            "qi": 5,
-            "subjective": 5,
+            "dao": 10,
+            "fa": 8,
+            "shi": 10,
+            "shu": 9,
+            "qi": 10,
+            "subjective": 10,
             "dao_note": "The paper answers a first-order question about insurance design and utilization.",
             "fa_note": "The empirical logic is strong, though some interpretation depends on modeling assumptions in the counterfactual stage.",
             "shi_note": "Medicare Part D provides a rare, policy-salient nonlinear budget set with excellent variation.",
@@ -137,27 +137,27 @@ The counterfactual magnitudes depend on the dynamic specification, and the cross
 ## Ratings
 
 ### Dao
-- Score: 5
+- Score: 10
 - Note: The question is policy-relevant and conceptually central for insurance design.
 
 ### Fa
-- Score: 4
+- Score: 8
 - Note: The descriptive evidence is strong, though some conclusions depend on model structure.
 
 ### Shi
-- Score: 5
+- Score: 10
 - Note: The institutional setting provides unusually strong leverage.
 
 ### Shu
-- Score: 5
+- Score: 9
 - Note: The paper executes the empirical and model-based parts with discipline.
 
 ### Qi
-- Score: 5
+- Score: 10
 - Note: The setting, data logic, and contract design are highly reusable.
 
 ### Subjective
-- Score: 5
+- Score: 10
 - Note: It is directly useful for health-economics and policy-evaluation work.
 
 ### One-Line Judgment
@@ -234,12 +234,12 @@ A benchmark paper on nonlinear insurance contracts and counterfactual health-pol
         "main_claim": "A sender can often benefit from persuasion even when the receiver understands the sender's motives, and optimal persuasion can be characterized through feasible posterior beliefs.",
         "why_in_my_db": "This is a core theory reference for information design, mechanism intuition, and research migration across political economy, marketing, law, and platform settings.",
         "ratings": {
-            "dao": 5,
-            "fa": 5,
-            "shi": 4,
-            "shu": 5,
-            "qi": 5,
-            "subjective": 4,
+            "dao": 10,
+            "fa": 10,
+            "shi": 8,
+            "shu": 10,
+            "qi": 10,
+            "subjective": 8,
             "dao_note": "The paper asks a foundational question about strategic information transmission.",
             "fa_note": "The model logic is clean and the posterior reformulation is internally powerful.",
             "shi_note": "It launched a major research direction, though its value depends less on one empirical window than on conceptual generality.",
@@ -343,27 +343,27 @@ The model abstracts from ex post lying, richer dynamic communication, and some i
 ## Ratings
 
 ### Dao
-- Score: 5
+- Score: 10
 - Note: The question is foundational and field-defining.
 
 ### Fa
-- Score: 5
+- Score: 10
 - Note: The model logic and posterior reformulation are exceptionally clean.
 
 ### Shi
-- Score: 4
+- Score: 8
 - Note: Its value comes from conceptual reach more than one institutional opportunity.
 
 ### Shu
-- Score: 5
+- Score: 10
 - Note: The execution is elegant and highly disciplined.
 
 ### Qi
-- Score: 5
+- Score: 10
 - Note: The framework is broadly reusable across many settings.
 
 ### Subjective
-- Score: 4
+- Score: 8
 - Note: It is especially valuable when theory and mechanism framing matter.
 
 ### One-Line Judgment

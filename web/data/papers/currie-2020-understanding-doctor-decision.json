@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T06:05:00.706295+00:00",
   "one_line_judgment": "一篇将诊断技能引入医生处方决策框架、揭示试验价值依赖技能水平的开创性文献。",
   "ratings": {
-    "dao": 5,
-    "fa": 3,
-    "shi": 4,
-    "shu": 4,
-    "qi": 4,
-    "subjective": 5,
-    "overall": 20
+    "dao": 8,
+    "fa": 6,
+    "shi": 7,
+    "shu": 7,
+    "qi": 8,
+    "subjective": 8,
+    "overall": 44
   },
   "rating_notes": {
     "dao": "将医生技能、动态学习与决策异质性整合进一个统一框架，回答了实践指南设计中的核心问题。",
@@ -146,12 +146,12 @@
     "Limitations": "实证部分缺乏严格的因果识别，主要依赖条件相关关系；技能的度量方式是间接的，可能存在测量误差和内生性问题。IQVIA 数据缺乏患者标识符，无法追踪同一患者在同一医生处的药物转换，熵值混合了跨患者与患者内变异。BCBS 样本为商业保险人群，外部效度有限，且老年患者和 Medicaid 患者被排除。分析期间（2013—2016 年）抗抑郁药市场以仿制药为主，结论是否适用于价格差异更大的其他处方场景尚不明确。",
     "Theme Links": "- `physician-skill-heterogeneity`\n- `physician-behavior`\n- `practice-style`\n- `learning-and-experimentation`\n- `quality-guidelines`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 将医生技能、动态学习与决策异质性整合进一个统一框架，回答了实践指南设计中的核心问题。",
-    "Fa": "- Score: 3\n- Note: 实证部分主要为描述性相关分析，因果识别较弱；理论模型较严格，但与实证的连接以模拟为主，说服力依赖模型假设。",
-    "Shi": "- Score: 4\n- Note: BCBS+IQVIA 的数据组合覆盖面广，抑郁症处方场景（价格影响小、技能重要、需要试验）是研究医生决策的良好窗口，但缺乏患者内追踪是明显局限。",
-    "Shu": "- Score: 4\n- Note: 理论模型构建严谨，处方熵指标设计合理，模拟与实证的对应关系清晰；但实证部分因果识别不足，执行完整性稍有欠缺。",
-    "Qi": "- Score: 4\n- Note: 多臂赌博机+诊断技能的建模框架、处方熵的度量方法以及技能调节实验价值的思路，均可在其他情境下复用。",
-    "Subjective": "- Score: 5\n- Note: 对研究医生技能异质性、处方行为与指南政策的健康经济学研究者极为重要，是 Chandra-Staiger-Chan 脉络的重要补充。",
+    "Dao": "- Score: 8\n- Note: 将医生技能、动态学习与决策异质性整合进一个统一框架，回答了实践指南设计中的核心问题。",
+    "Fa": "- Score: 6\n- Note: 实证部分主要为描述性相关分析，因果识别较弱；理论模型较严格，但与实证的连接以模拟为主，说服力依赖模型假设。",
+    "Shi": "- Score: 7\n- Note: BCBS+IQVIA 的数据组合覆盖面广，抑郁症处方场景（价格影响小、技能重要、需要试验）是研究医生决策的良好窗口，但缺乏患者内追踪是明显局限。",
+    "Shu": "- Score: 7\n- Note: 理论模型构建严谨，处方熵指标设计合理，模拟与实证的对应关系清晰；但实证部分因果识别不足，执行完整性稍有欠缺。",
+    "Qi": "- Score: 8\n- Note: 多臂赌博机+诊断技能的建模框架、处方熵的度量方法以及技能调节实验价值的思路，均可在其他情境下复用。",
+    "Subjective": "- Score: 8\n- Note: 对研究医生技能异质性、处方行为与指南政策的健康经济学研究者极为重要，是 Chandra-Staiger-Chan 脉络的重要补充。",
     "One-Line Judgment": "一篇将诊断技能引入医生处方决策框架、揭示试验价值依赖技能水平的开创性文献。",
     "TODO_VERIFY": "- Confirm the journal: the fulltext says Econometrica Vol. 88 No. 3 (May 2020), not AER — verify and correct journal_or_series field if needed.\n- Confirm exact entropy score numbers across specialties when citing quantitatively."
   }

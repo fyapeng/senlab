@@ -17,13 +17,13 @@
   "created_at": "2026-06-12T03:50:18.693294+00:00",
   "one_line_judgment": "一篇把风险偏好、信息摩擦与福利分析真正拆开的健康保险选择基准文献。",
   "ratings": {
-    "dao": 5,
-    "fa": 5,
-    "shi": 5,
-    "shu": 5,
-    "qi": 5,
-    "subjective": 5,
-    "overall": 25
+    "dao": 10,
+    "fa": 10,
+    "shi": 9,
+    "shu": 10,
+    "qi": 10,
+    "subjective": 10,
+    "overall": 59
   },
   "rating_notes": {
     "dao": "它问的是保险选择研究里最关键的基础问题之一：观察到的选择究竟代表偏好，还是代表摩擦。",
@@ -155,12 +155,12 @@
     "Limitations": "这篇文章的识别高度依赖问卷所测得的 friction measures，而问卷本身可能受到回答选择、事后 rationalization 与 measurement error 的影响。此外，研究环境是单一大型雇主，外部有效性仍需谨慎；结构模型虽然能分解不同 choice foundation，但 counterfactual choice menu 的外推仍需要额外假设。",
     "Theme Links": "- `health-insurance-choice`\n- `information-frictions-in-insurance`\n- `consumer-welfare-under-choice-frictions`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: 它问的是保险选择研究里最关键的基础问题之一：观察到的选择究竟代表偏好，还是代表摩擦。",
-    "Fa": "- Score: 5\n- Note: 行政数据与 survey 的组合显著增强了识别力，使得风险偏好与信息摩擦的分离更有说服力。",
-    "Shi": "- Score: 5\n- Note: 雇主保险环境、详细 claims 数据与个体调查链接的组合提供了很强的制度与数据窗口。",
-    "Shu": "- Score: 5\n- Note: 描述性分析、结构估计和 welfare counterfactual 之间衔接完整，执行质量很高。",
-    "Qi": "- Score: 5\n- Note: 文章的可复用价值很强，既有复杂合同选择框架，也有“survey + admin”识别路径和 welfare decomposition 思路。",
-    "Subjective": "- Score: 5\n- Note: 对健康保险、复杂产品选择、行为摩擦识别和政策福利评估都高度有用。",
+    "Dao": "- Score: 10\n- Note: 它问的是保险选择研究里最关键的基础问题之一：观察到的选择究竟代表偏好，还是代表摩擦。",
+    "Fa": "- Score: 10\n- Note: 行政数据与 survey 的组合显著增强了识别力，使得风险偏好与信息摩擦的分离更有说服力。",
+    "Shi": "- Score: 9\n- Note: 雇主保险环境、详细 claims 数据与个体调查链接的组合提供了很强的制度与数据窗口。",
+    "Shu": "- Score: 10\n- Note: 描述性分析、结构估计和 welfare counterfactual 之间衔接完整，执行质量很高。",
+    "Qi": "- Score: 10\n- Note: 文章的可复用价值很强，既有复杂合同选择框架，也有“survey + admin”识别路径和 welfare decomposition 思路。",
+    "Subjective": "- Score: 10\n- Note: 对健康保险、复杂产品选择、行为摩擦识别和政策福利评估都高度有用。",
     "One-Line Judgment": "一篇把风险偏好、信息摩擦与福利分析真正拆开的健康保险选择基准文献。",
     "TODO_VERIFY": "- Confirm the exact employer context description if later writing a more detailed note.\n- Confirm the exact baseline versus full-model welfare-loss numbers when citing quantitatively."
   }
