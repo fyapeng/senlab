@@ -85,6 +85,11 @@ img {
   max-width: 42vw;
 }
 
+.brand-logo.intro {
+  width: 300px;
+  max-width: 48vw;
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -396,6 +401,73 @@ img {
   line-height: 1.7;
   max-height: 560px;
   overflow: auto;
+}
+
+.section-block {
+  border-top: 1px dashed var(--line);
+  padding-top: 14px;
+  margin-top: 14px;
+}
+
+.section-block:first-child {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.section-block h4 {
+  margin: 0 0 8px;
+  font-size: 17px;
+}
+
+.section-block p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.list-mode {
+  display: grid;
+  gap: 14px;
+}
+
+.paper-row {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.72);
+  padding: 18px 20px;
+}
+
+.paper-row-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: start;
+}
+
+.paper-row-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.paper-row-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.paper-row-summary {
+  margin-top: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  margin-top: 18px;
 }
 
 .radar-wrap {

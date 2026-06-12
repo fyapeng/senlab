@@ -99,7 +99,7 @@ function buildShell(site, activePage) {
     <header class="topbar">
       <div class="topbar-inner">
         <a href="./index.html" class="brand-lockup">
-          <img class="brand-logo" src="${site.brand.logo_url}" alt="Sencium Lab" />
+          <img class="brand-logo intro" src="${site.brand.logo_intro_url}" alt="Sencium Lab" />
         </a>
         <nav class="nav">${navLinks}</nav>
       </div>
@@ -228,8 +228,9 @@ async function renderDashboard(site) {
     <section class="hero">
       <div class="hero-copy panel">
         <div class="eyebrow">Intro</div>
-        <img src="${site.brand.logo_intro_url}" alt="Sencium Lab intro" />
-        <p style="margin-top:18px">${site.brand.tagline}</p>
+        <h1>Sencium Lab</h1>
+        <p>${site.brand.tagline}</p>
+        <p class="intro-text">这个站点从本地数据库中提取结构化论文信息、评分、证据片段、citation lenses 与主题关联，用来支持长期文献积累、选题判断与引用复用。</p>
         <div class="tag-row">
           <span class="tag">SQLite backed</span>
           <span class="tag">Canonical paper cards</span>
@@ -358,28 +359,15 @@ async function renderDashboard(site) {
 async function renderRankings(site) {
   const main = document.getElementById("page-main");
   const metric = qs("metric") || "overall";
+  const page = Number(qs("page") || "1");
+  const pageSize = 12;
   const rankingIds = site.rankings[metric] || site.rankings.overall;
-  const rows = rankingIds
+  const rankingPapers = rankingIds
     .map((id) => site.papers.find((paper) => paper.work_id === id))
-    .filter(Boolean)
-    .map((paper, index) => {
-      const value = metric === "overall" ? paper.ratings.overall : paper.ratings[metric];
-      return `
-        <tr>
-          <td>${index + 1}</td>
-          <td>
-            <a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a>
-            <div class="muted">${paper.authors || ""}</div>
-            <div class="muted">${paper.journal_or_series || ""}</div>
-          </td>
-          <td>${formatField(paper.field)}</td>
-          <td>${formatParadigm(paper.paper_paradigm)}</td>
-          <td>${value ?? "—"}</td>
-          <td>${paper.one_line_judgment || ""}</td>
-        </tr>
-      `;
-    })
-    .join("");
+    .filter(Boolean);
+  const totalPages = Math.max(1, Math.ceil(rankingPapers.length / pageSize));
+  const currentPage = Math.min(Math.max(page, 1), totalPages);
+  const visible = rankingPapers.slice((currentPage - 1) * pageSize, currentPage * pageSize);
   main.innerHTML = `
     <section class="panel">
       <div class="section-head">
@@ -401,19 +389,35 @@ async function renderRankings(site) {
             .join("")}
         </div>
       </div>
-      <table class="rank-table">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>论文</th>
-            <th>领域</th>
-            <th>范式</th>
-            <th>分数</th>
-            <th>判断</th>
-          </tr>
-        </thead>
-        <tbody>${rows}</tbody>
-      </table>
+      <div class="list-mode">
+        ${visible
+          .map((paper, index) => {
+            const value = metric === "overall" ? paper.ratings.overall : paper.ratings[metric];
+            return `
+              <article class="paper-row">
+                <div class="paper-row-head">
+                  <div>
+                    <div class="paper-meta">#${(currentPage - 1) * pageSize + index + 1} · ${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
+                    <h3 class="paper-row-title"><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a></h3>
+                    <div class="muted">${paper.authors || ""}</div>
+                    <div class="muted">${paper.journal_or_series || ""}</div>
+                  </div>
+                  <div class="paper-row-actions">
+                    <span class="chip">${metric === "overall" ? "综合" : metric} ${value ?? "—"}</span>
+                    <a class="button-link secondary" href="./paper.html?work=${encodeURIComponent(paper.work_id)}">详情</a>
+                  </div>
+                </div>
+                <div class="paper-row-summary">${paper.one_line_judgment || ""}</div>
+              </article>
+            `;
+          })
+          .join("")}
+      </div>
+      <div class="pager">
+        <a class="button-link secondary" href="./rankings.html?metric=${metric}&page=${Math.max(1, currentPage - 1)}">上一页</a>
+        <span class="muted">第 ${currentPage} / ${totalPages} 页</span>
+        <a class="button-link secondary" href="./rankings.html?metric=${metric}&page=${Math.min(totalPages, currentPage + 1)}">下一页</a>
+      </div>
     </section>
   `;
 }
@@ -439,13 +443,17 @@ async function renderSearch(site) {
           ${[...new Set(site.papers.map((paper) => paper.paper_paradigm).filter(Boolean))].map((item) => `<option value="${item}">${formatParadigm(item)}</option>`).join("")}
         </select>
       </div>
-      <div id="search-results" class="grid-2"></div>
+      <div id="search-results" class="list-mode"></div>
+      <div id="search-pager" class="pager"></div>
     </section>
   `;
   const queryInput = document.getElementById("query");
   const fieldFilter = document.getElementById("field-filter");
   const paradigmFilter = document.getElementById("paradigm-filter");
   const host = document.getElementById("search-results");
+  const pager = document.getElementById("search-pager");
+  let currentPage = 1;
+  const pageSize = 10;
 
   const renderResults = () => {
     const q = queryInput.value.trim().toLowerCase();
@@ -465,11 +473,47 @@ async function renderSearch(site) {
         .toLowerCase();
       return (!q || haystack.includes(q)) && (!field || paper.field === field) && (!paradigm || paper.paper_paradigm === paradigm);
     });
-    host.innerHTML = filtered.length ? filtered.map((paper) => paperCard(paper)).join("") : '<div class="empty">没有符合条件的论文。</div>';
+    const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+    currentPage = Math.min(currentPage, totalPages);
+    const visible = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+    host.innerHTML = filtered.length
+      ? visible
+          .map(
+            (paper) => `
+              <article class="paper-row">
+                <div class="paper-row-head">
+                  <div>
+                    <div class="paper-meta">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
+                    <h3 class="paper-row-title"><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a></h3>
+                    <div class="muted">${paper.authors || ""}</div>
+                    <div class="muted">${paper.journal_or_series || ""}</div>
+                  </div>
+                  <div class="paper-row-actions">
+                    <a class="button-link" href="./paper.html?work=${encodeURIComponent(paper.work_id)}">查看详情</a>
+                    <a class="button-link secondary" href="./compare.html?left=${encodeURIComponent(paper.work_id)}">加入对比</a>
+                  </div>
+                </div>
+                <div class="paper-row-summary">${paper.one_line_judgment || ""}</div>
+              </article>
+            `
+          )
+          .join("")
+      : '<div class="empty">没有符合条件的论文。</div>';
+    pager.innerHTML = filtered.length
+      ? `
+          <a class="button-link secondary" href="#" id="search-prev">上一页</a>
+          <span class="muted">第 ${currentPage} / ${totalPages} 页</span>
+          <a class="button-link secondary" href="#" id="search-next">下一页</a>
+        `
+      : "";
+    const prev = document.getElementById("search-prev");
+    const next = document.getElementById("search-next");
+    if (prev) prev.onclick = (event) => { event.preventDefault(); currentPage = Math.max(1, currentPage - 1); renderResults(); };
+    if (next) next.onclick = (event) => { event.preventDefault(); currentPage = Math.min(totalPages, currentPage + 1); renderResults(); };
   };
-  queryInput.addEventListener("input", renderResults);
-  fieldFilter.addEventListener("change", renderResults);
-  paradigmFilter.addEventListener("change", renderResults);
+  queryInput.addEventListener("input", () => { currentPage = 1; renderResults(); });
+  fieldFilter.addEventListener("change", () => { currentPage = 1; renderResults(); });
+  paradigmFilter.addEventListener("change", () => { currentPage = 1; renderResults(); });
   renderResults();
 }
 
@@ -602,6 +646,7 @@ async function renderPaper(site) {
   }
   const paper = await getJson(`${PAPER_DATA_BASE}${encodeURIComponent(workId)}.json`);
   document.title = `Sencium Lab · ${paper.title}`;
+  const sections = paper.sections || {};
   const detailFields = [
     ["领域", formatField(paper.field)],
     ["子领域", formatField(paper.subfield)],
@@ -647,6 +692,51 @@ async function renderPaper(site) {
           <dl>
             ${detailFields.map(([label, value]) => `<dt>${label}</dt><dd>${value || "—"}</dd>`).join("")}
           </dl>
+        </article>
+        <article class="detail-card panel">
+          <div class="section-head">
+            <div>
+              <div class="eyebrow">Rendered Sections</div>
+              <h2 class="section-title">结构化内容渲染</h2>
+            </div>
+          </div>
+          ${[
+            "Research Question",
+            "Why It Matters",
+            "Core Object",
+            "Approach",
+            "Main Claim",
+            "Institutional Setting",
+            "Data Source",
+            "Identification Logic",
+            "Main Results",
+            "Mechanism Evidence",
+            "Counterfactual Or Policy Exercise",
+            "Limitations",
+          ]
+            .filter((key) => sections[key])
+            .map(
+              (key) => `
+                <section class="section-block">
+                  <h4>${{
+                    "Research Question": "研究问题",
+                    "Why It Matters": "为什么重要",
+                    "Core Object": "研究对象",
+                    "Approach": "研究路径",
+                    "Main Claim": "主结论",
+                    "Institutional Setting": "制度背景",
+                    "Data Source": "数据来源",
+                    "Identification Logic": "识别逻辑",
+                    "Main Results": "主要结果",
+                    "Mechanism Evidence": "机制证据",
+                    "Counterfactual Or Policy Exercise": "反事实 / 政策分析",
+                    "Limitations": "局限",
+                  }[key]}</h4>
+                  <p>${sections[key]}</p>
+                </section>
+              `
+            )
+            .join("")}
         </article>
         <article class="detail-card panel">
           <div class="section-head">
