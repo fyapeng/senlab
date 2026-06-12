@@ -19,6 +19,14 @@ Write all analytical fields in Chinese by default. Keep original-language values
 - DOI
 - technical terms that are substantially clearer in English
 
+For original-language metadata, standardize to publication-style English rather than raw PDF extraction:
+
+- convert all-caps titles to normal title case
+- remove trailing footnote stars such as `*`
+- remove OCR line-break artifacts and duplicated spaces
+- keep author names in normal English capitalization
+- do not preserve PDF typography noise as canonical metadata
+
 ## Common Fields
 
 Always complete:
@@ -82,3 +90,4 @@ Add one short justification sentence for each score.
 - Do not invent facts absent from the paper.
 - Mark uncertain metadata or claims as `TODO_VERIFY`.
 - Prefer Chinese field content that reads naturally on the public website rather than raw translation fragments.
+- If publication metadata and PDF OCR conflict, prefer the verified publication-style title, author list, and journal formatting.

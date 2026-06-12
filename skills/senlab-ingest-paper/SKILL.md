@@ -21,6 +21,11 @@ Use this skill only for the deterministic intake stage.
 - Treat `version_id` as specific to the uploaded PDF.
 - Do not delete earlier versions when a newer one appears.
 - If title or author parsing looks suspicious, keep the intake result and mark the identity for review rather than inventing replacements silently.
+- Treat PDF-extracted metadata as noisy by default, especially for journal PDFs.
+- If the detected title is all caps, convert it to standard title case before it becomes canonical metadata.
+- Remove layout artifacts from titles, including trailing `*`, dagger markers, footnote numerals, and line-break noise, unless the symbol is genuinely part of the title.
+- Normalize author names to standard English name form rather than OCR casing or punctuation artifacts.
+- Preserve the official publication title and author spelling when they can be verified from the paper first page or journal metadata.
 
 ## Validation
 
