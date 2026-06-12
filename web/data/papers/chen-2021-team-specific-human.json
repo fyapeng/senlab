@@ -16,6 +16,28 @@
   "why_in_my_db": "本文是团队特定人力资本在医疗卫生场景中因果识别的首批研究之一，直接关联团队生产、医生协作与人力资本理论三条脉络。对于研究医疗质量差异、团队组织方式与医疗系统效率的研究者来说，此文既提供了可复用的识别框架，也贡献了医疗团队重组政策的量化福利基础。",
   "created_at": "2026-06-12T06:05:09.825417+00:00",
   "one_line_judgment": "用急诊准随机配对证明医生之间的合作历史是一种可以救命的团队特定人力资本。",
+  "topics": [
+    {
+      "topic_id": "team-specific-human-capital",
+      "name": "team specific human capital"
+    },
+    {
+      "topic_id": "physician-teams",
+      "name": "physician teams"
+    },
+    {
+      "topic_id": "cardiac-care",
+      "name": "cardiac care"
+    },
+    {
+      "topic_id": "collaboration",
+      "name": "collaboration"
+    },
+    {
+      "topic_id": "patient-outcomes",
+      "name": "patient outcomes"
+    }
+  ],
   "ratings": {
     "dao": 9,
     "fa": 9,
@@ -35,28 +57,8 @@
   },
   "themes": [
     {
-      "theme_id": "physician-teams",
-      "name": "医生团队协作"
-    },
-    {
-      "theme_id": "organizational-economics-health",
-      "name": "医疗组织经济学"
-    },
-    {
-      "theme_id": "human-capital-teams",
-      "name": "团队专属人力资本"
-    },
-    {
-      "theme_id": "team-specific-human-capital",
-      "name": "团队专属人力资本积累"
-    },
-    {
-      "theme_id": "team-production",
-      "name": "团队生产"
-    },
-    {
-      "theme_id": "cardiac-care-quality",
-      "name": "心脏病治疗质量"
+      "theme_id": "healthcare-teams-and-organizational-design",
+      "name": "医疗团队与组织设计"
     }
   ],
   "excerpts": [
@@ -145,7 +147,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "1. 研究场景限于 PCI 和 CABG 两种心脏手术及 Medicare（老年）患者群体，对其他手术类型、专科或非老年患者的外部有效性有待验证。2. 共同工作经历的测量以合作次数计，未能区分合作的质量与类型（是否包含高难度或高不确定性案例），存在测量误差。3. 研究无法区分共同经历改善的具体协调路径（沟通方式学习、技术互补、信任建立等），机制识别较为粗粒度。4. 双向固定效应策略面临共同经历随时间单调增长、难以包含丰富异质性的限制；急诊样本的外部有效性也依赖急诊患者与择期患者之间的可比性。",
-    "Theme Links": "- `team-production`\n- `human-capital-teams`\n- `physician-teams`\n- `team-specific-human-capital`\n- `organizational-economics-health`\n- `cardiac-care-quality`",
+    "Theme Links": "- `healthcare-teams-and-organizational-design`",
     "Ratings": "",
     "Dao": "- Score: 9\n- Note: 研究问题将人力资本理论的\"团队特定性\"这一长期理论空缺落地于有清晰福利含义的医疗场景，具有极强的理论与政策价值。",
     "Fa": "- Score: 9\n- Note: 两套互补准实验策略——急诊准随机配对与双向固定效应——结果高度一致，对匹配质量替代解释的系统性排除使识别逻辑极为可信。",

@@ -16,7 +16,9 @@ Use this skill only for themes, keywords, and theme-link maintenance.
 
 ## Taxonomy Rules
 
-- Prefer precise themes over broad umbrellas.
+- `Theme Links` are for mid-level cross-paper themes that organize the library, not for one-paper-specific topics.
+- Fine-grained concepts should usually live in paper-level `tags` / keywords rather than as standalone themes.
+- Prefer themes that can plausibly group multiple papers and support site-level navigation or network views.
 - Do not create near-duplicate themes that differ only in wording.
 - If renaming a theme, preserve its identity unless the conceptual scope changes materially.
 - If conceptual scope changes materially, create a new theme and relink papers deliberately.

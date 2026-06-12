@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章将医生技能异质性、动态学习与决策模型结合，是\"practice style + 医生技能\"这一支线的重要文献。它与 Chandra & Staiger (2007) 和 Chan, Gentzkow & Yu (2022) 形成一条关于技能异质性与医生行为的研究脉络，同时对理解何时指南能够改善福利提供了行为基础。",
   "created_at": "2026-06-12T06:05:00.706295+00:00",
   "one_line_judgment": "一篇将诊断技能引入医生处方决策框架、揭示试验价值依赖技能水平的开创性文献。",
+  "topics": [
+    {
+      "topic_id": "physician-skill",
+      "name": "physician skill"
+    },
+    {
+      "topic_id": "practice-style",
+      "name": "practice style"
+    },
+    {
+      "topic_id": "antidepressant-prescribing",
+      "name": "antidepressant prescribing"
+    },
+    {
+      "topic_id": "decision-making",
+      "name": "decision making"
+    },
+    {
+      "topic_id": "guidelines",
+      "name": "guidelines"
+    }
+  ],
   "ratings": {
     "dao": 8,
     "fa": 6,
@@ -35,24 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "practice-style",
-      "name": "医生实践风格"
+      "theme_id": "physician-behavior-and-clinical-decision-making",
+      "name": "医生行为与临床决策"
     },
     {
-      "theme_id": "physician-skill-heterogeneity",
-      "name": "医生技能异质性"
-    },
-    {
-      "theme_id": "physician-behavior",
-      "name": "医生行为与激励"
-    },
-    {
-      "theme_id": "quality-guidelines",
-      "name": "医疗质量指南"
-    },
-    {
-      "theme_id": "learning-and-experimentation",
-      "name": "学习与试验性治疗"
+      "theme_id": "healthcare-productivity-variation-and-inefficiency",
+      "name": "医疗生产率、差异与低效率"
     }
   ],
   "excerpts": [
@@ -144,7 +154,7 @@
     "Players": "医生（决策者）和患者（\"slot machine\"）。医生在每期为患者选择抗抑郁药，目标是找到最优匹配药物。",
     "Key Propositions": "核心理论贡献是将诊断技能引入多臂赌博机框架：诊断技能越高（即医生对患者状态的信号越准确），试验（exploration）的信息价值越高，因此最优保留概率（reservation probability）越低，处方组合越多样。这与偏好（risk preference）对处方多样性的影响不同，可在原则上加以区分。",
     "Limitations": "实证部分缺乏严格的因果识别，主要依赖条件相关关系；技能的度量方式是间接的，可能存在测量误差和内生性问题。IQVIA 数据缺乏患者标识符，无法追踪同一患者在同一医生处的药物转换，熵值混合了跨患者与患者内变异。BCBS 样本为商业保险人群，外部效度有限，且老年患者和 Medicaid 患者被排除。分析期间（2013—2016 年）抗抑郁药市场以仿制药为主，结论是否适用于价格差异更大的其他处方场景尚不明确。",
-    "Theme Links": "- `physician-skill-heterogeneity`\n- `physician-behavior`\n- `practice-style`\n- `learning-and-experimentation`\n- `quality-guidelines`",
+    "Theme Links": "- `physician-behavior-and-clinical-decision-making`\n- `healthcare-productivity-variation-and-inefficiency`",
     "Ratings": "",
     "Dao": "- Score: 8\n- Note: 将医生技能、动态学习与决策异质性整合进一个统一框架，回答了实践指南设计中的核心问题。",
     "Fa": "- Score: 6\n- Note: 实证部分主要为描述性相关分析，因果识别较弱；理论模型较严格，但与实证的连接以模拟为主，说服力依赖模型假设。",

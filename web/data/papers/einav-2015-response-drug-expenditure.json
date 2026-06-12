@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章可以同时作为非线性价格反应、保险合同设计、折点附近 bunching 现象以及政策反事实分析的基准文献。",
   "created_at": "2026-06-11T15:07:33.472400+00:00",
   "one_line_judgment": "一篇关于非线性保险合同与健康政策反事实分析的基准型论文。",
+  "topics": [
+    {
+      "topic_id": "nonlinear-pricing",
+      "name": "nonlinear pricing"
+    },
+    {
+      "topic_id": "medicare-part-d",
+      "name": "medicare part d"
+    },
+    {
+      "topic_id": "health-insurance",
+      "name": "health insurance"
+    },
+    {
+      "topic_id": "bunching",
+      "name": "bunching"
+    },
+    {
+      "topic_id": "counterfactual",
+      "name": "counterfactual"
+    }
+  ],
   "ratings": {
     "dao": 10,
     "fa": 8,
@@ -35,16 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "drug-demand-under-insurance",
-      "name": "保险下的药品需求"
+      "theme_id": "health-insurance-and-cost-sharing",
+      "name": "健康保险与成本分担"
     },
     {
-      "theme_id": "policy-counterfactuals-in-health",
-      "name": "健康政策反事实分析"
-    },
-    {
-      "theme_id": "nonlinear-insurance-contracts",
-      "name": "非线性保险合同"
+      "theme_id": "regulation-design-and-policy-incentives",
+      "name": "监管设计与政策激励"
     }
   ],
   "excerpts": [
@@ -155,7 +173,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "文章的反事实数量级依赖于动态模型设定、对跨年替代的简化处理，以及如何把“索赔行为变化”映射为真正具有福利含义的药品消费变化。",
-    "Theme Links": "- `nonlinear-insurance-contracts`\n- `drug-demand-under-insurance`\n- `policy-counterfactuals-in-health`",
+    "Theme Links": "- `health-insurance-and-cost-sharing`\n- `regulation-design-and-policy-incentives`",
     "Ratings": "",
     "Dao": "- Score: 10\n- Note: 问题本身兼具政策重要性和理论核心性，直接指向保险合同设计。",
     "Fa": "- Score: 8\n- Note: 描述性证据很扎实，但部分结论的强度依赖于模型结构与扩展设定。",

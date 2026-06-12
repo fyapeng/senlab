@@ -16,6 +16,32 @@
   "why_in_my_db": "这篇文章是理解\"医疗地区差异\"这一健康经济学核心议题的基准文献，提供了简洁的迁移识别策略，并将需求—供给分解问题推进到一个可信因果识别的层面。其方法框架（利用个体迁移分离固定效应）对很多其他问题也具有方法论示范价值。",
   "created_at": "2026-06-12T06:04:57.804161+00:00",
   "one_line_judgment": "用患者迁移剥离需求与供给贡献，重新定标了\"医疗地区差异主要由供给侧驱动\"这一既有共识。",
+  "topics": [
+    {
+      "topic_id": "geographic-variation",
+      "name": "geographic variation"
+    },
+    {
+      "topic_id": "healthcare-utilization",
+      "name": "healthcare utilization"
+    },
+    {
+      "topic_id": "Medicare",
+      "name": "Medicare"
+    },
+    {
+      "topic_id": "patient-migration",
+      "name": "patient migration"
+    },
+    {
+      "topic_id": "demand-supply-decomposition",
+      "name": "demand supply decomposition"
+    },
+    {
+      "topic_id": "place-effects",
+      "name": "place effects"
+    }
+  ],
   "ratings": {
     "dao": 10,
     "fa": 10,
@@ -35,24 +61,8 @@
   },
   "themes": [
     {
-      "theme_id": "medicare-utilization",
-      "name": "Medicare 医疗利用"
-    },
-    {
-      "theme_id": "geographic-variation-healthcare",
-      "name": "医疗利用地域差异"
-    },
-    {
-      "theme_id": "place-effects-health",
-      "name": "地点效应与健康"
-    },
-    {
-      "theme_id": "patient-migration-identification",
-      "name": "患者迁移识别策略"
-    },
-    {
-      "theme_id": "demand-supply-decomposition",
-      "name": "需求与供给分解"
+      "theme_id": "healthcare-productivity-variation-and-inefficiency",
+      "name": "医疗生产率、差异与低效率"
     }
   ],
   "excerpts": [
@@ -141,7 +151,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "研究样本限于 65 岁以上 Medicare 受益人，外推至年轻人群或私人保险市场需谨慎。研究期间的迁移样本可能具有选择性（健康状况较好者更可能迁移）。分解结果是部分均衡估计，未考虑供给侧对患者组成变化的长期内生响应。此外，分解方案无法进一步区分患者效应中健康状况与偏好的相对贡献——这一问题文章承认尚未完全解决。",
-    "Theme Links": "- `geographic-variation-healthcare`\n- `demand-supply-decomposition`\n- `medicare-utilization`\n- `place-effects-health`\n- `patient-migration-identification`",
+    "Theme Links": "- `healthcare-productivity-variation-and-inefficiency`",
     "Ratings": "",
     "Dao": "- Score: 10\n- Note: 医疗地区差异的来源是健康政策与健康经济学中最核心的实证问题之一，问题重要性极高。",
     "Fa": "- Score: 10\n- Note: 利用迁移事件构建的识别策略简洁清晰，事件研究预趋势检验严格，识别逻辑说服力强。",

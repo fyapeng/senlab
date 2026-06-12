@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章从\"药物中断—死亡率\"这条通路切入，将成本分担与健康后果真正打通，为长期以来在健康经济学中悬而未决的\"成本分担是否有害健康\"问题提供了最直接的因果证据。它同时融合了准随机识别策略、机器学习与患者行为调查，方法论上具有前沿示范意义。",
   "created_at": "2026-06-12T06:05:16.673632+00:00",
   "one_line_judgment": "成本分担不是在削减浪费，而是在逼迫最需要药物的患者停药致死——这篇文章用$11,321每生命年的代价算清了这笔账。",
+  "topics": [
+    {
+      "topic_id": "cost-sharing",
+      "name": "cost sharing"
+    },
+    {
+      "topic_id": "drug-interruption",
+      "name": "drug interruption"
+    },
+    {
+      "topic_id": "mortality",
+      "name": "mortality"
+    },
+    {
+      "topic_id": "Medicare-Part-D",
+      "name": "Medicare Part D"
+    },
+    {
+      "topic_id": "donut-hole",
+      "name": "donut hole"
+    }
+  ],
   "ratings": {
     "dao": 10,
     "fa": 10,
@@ -35,24 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "health-insurance-market-design",
-      "name": "健康保险市场设计"
+      "theme_id": "health-insurance-and-cost-sharing",
+      "name": "健康保险与成本分担"
     },
     {
-      "theme_id": "patient-cost-sharing",
-      "name": "患者自付费用设计"
-    },
-    {
-      "theme_id": "cost-sharing-demand",
-      "name": "成本分担与医疗需求"
-    },
-    {
-      "theme_id": "drug-adherence-health-outcomes",
-      "name": "药物依从性与健康结果"
-    },
-    {
-      "theme_id": "moral-hazard-health",
-      "name": "道德风险与医疗利用"
+      "theme_id": "health-capital-mortality-and-health-production",
+      "name": "健康资本、死亡率与健康生产"
     }
   ],
   "excerpts": [
@@ -143,7 +153,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "中心识别假设（出生月份影响死亡率只通过预算渠道）得到了大量安慰剂检验支持，但无法在2SLS框架中直接估计药物消费对死亡率的结构性效应（因跨期反馈回路），文章只能报告出生月份对死亡率的减少型效应。样本限于65岁新参保者的第一年，长期效应（如慢性病管理中断的累积后果）未被捕捉。中等用药量的界定依赖于初始消费观测，若高风险患者提前策略性地调整消费，部分估计可能受到前瞻性行为的干扰（文章有检验显示基线特征均衡，但不能完全排除）。此外，约一半样本为Medicare Advantage参保者，无法观测其住院或门诊支出，部分替代效应无法测量。",
-    "Theme Links": "- `cost-sharing-demand`\n- `moral-hazard-health`\n- `patient-cost-sharing`\n- `health-insurance-market-design`\n- `drug-adherence-health-outcomes`",
+    "Theme Links": "- `health-insurance-and-cost-sharing`\n- `health-capital-mortality-and-health-production`",
     "Ratings": "",
     "Dao": "- Score: 10\n- Note: 直接回答了保险设计中最核心也最困难的问题：成本分担是否杀人？给出的证据令人信服且后果严重。",
     "Fa": "- Score: 10\n- Note: 出生月份×预算机制构造了近乎随机的药品预算变异，安慰剂检验在544个对照中排名第97.8百分位，识别可信度极高。",

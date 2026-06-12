@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章将监管工具对比纳入 Medicare 欺诈执法的实证框架，直接回答\"哪种工具有效\"的政策问题。与 Shi（2024）讨论监察威慑形成互补，与 Fang & Gong（2017）讨论欺诈检测形成对照，三者共同构成一套从检测到执法再到政策工具选择的完整研究链条。同时，staggered DD 设计与市场结构分析框架具有很强的方法论可复用性。",
   "created_at": "2026-06-12T06:05:07.208913+00:00",
   "one_line_judgment": "事前授权胜过追缴诉讼：首篇大规模实证证明行政监管比司法执法更有效遏制 Medicare 救护车欺诈。",
+  "topics": [
+    {
+      "topic_id": "medicare-fraud",
+      "name": "medicare fraud"
+    },
+    {
+      "topic_id": "ambulance-fraud",
+      "name": "ambulance fraud"
+    },
+    {
+      "topic_id": "prior-authorization",
+      "name": "prior authorization"
+    },
+    {
+      "topic_id": "dialysis",
+      "name": "dialysis"
+    },
+    {
+      "topic_id": "regulation-vs-litigation",
+      "name": "regulation vs litigation"
+    }
+  ],
   "ratings": {
     "dao": 9,
     "fa": 8,
@@ -35,28 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "medicare-fraud",
-      "name": "Medicare 欺诈"
+      "theme_id": "healthcare-fraud-waste-and-enforcement",
+      "name": "医疗欺诈、浪费与执法"
     },
     {
-      "theme_id": "prior-authorization",
-      "name": "事前授权"
-    },
-    {
-      "theme_id": "healthcare-fraud",
-      "name": "医疗欺诈"
-    },
-    {
-      "theme_id": "ambulance-regulation",
-      "name": "救护车服务监管"
-    },
-    {
-      "theme_id": "monitoring-enforcement",
-      "name": "监测与执法"
-    },
-    {
-      "theme_id": "regulation-vs-litigation",
-      "name": "监管与诉讼的工具比较"
+      "theme_id": "regulation-design-and-policy-incentives",
+      "name": "监管设计与政策激励"
     }
   ],
   "excerpts": [
@@ -147,7 +153,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.（文章有一个简约博弈模型讨论有限责任与侦查概率如何使诉讼失效，但实证部分是主体。）",
     "Limitations": "staggered DD 设计依赖平行趋势假设，事前授权推出在各州并非完全随机，存在潜在选择性（CMS 可能优先在欺诈严重州推行）；患者健康结果的度量基于 claims 数据，对长期健康影响的追踪有局限；市场结构影响仅在透析救护车这一特定市场中被测量，一般化结论需谨慎；理论模型相对简约，主要用于解释实证，而非提供完整的最优政策分析框架。",
-    "Theme Links": "- `medicare-fraud`\n- `monitoring-enforcement`\n- `regulation-vs-litigation`\n- `ambulance-regulation`\n- `prior-authorization`\n- `healthcare-fraud`",
+    "Theme Links": "- `healthcare-fraud-waste-and-enforcement`\n- `regulation-design-and-policy-incentives`",
     "Ratings": "",
     "Dao": "- Score: 9\n- Note: 直接比较两种主流医保欺诈治理工具的因果效力，研究问题在政策上具有极高战略价值。",
     "Fa": "- Score: 8\n- Note: Staggered DD 设计合理，但事前授权推出的内生性仍是潜在挑战；理论模型较为简约。",

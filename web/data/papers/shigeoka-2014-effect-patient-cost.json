@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章是利用非美国制度背景（日本全民医保）研究成本分担因果效应的范本，日本独特的全国统一费率表使得医生供给侧响应可以被近乎完全排除，识别十分干净。同时，文章对老年人群体的住院和门诊弹性均有估计，与医疗保险设计和公共财政领域的核心政策问题直接挂钩。",
   "created_at": "2026-06-12T06:05:15.237317+00:00",
   "one_line_judgment": "日本70岁的一刀切政策断点，为健康经济学提供了迄今最干净的老年成本分担弹性估计，顺带给出了财务保护效应的可信证据。",
+  "topics": [
+    {
+      "topic_id": "cost-sharing",
+      "name": "cost sharing"
+    },
+    {
+      "topic_id": "regression-discontinuity",
+      "name": "regression discontinuity"
+    },
+    {
+      "topic_id": "elderly-health",
+      "name": "elderly health"
+    },
+    {
+      "topic_id": "utilization-elasticity",
+      "name": "utilization elasticity"
+    },
+    {
+      "topic_id": "financial-risk-protection",
+      "name": "financial risk protection"
+    }
+  ],
   "ratings": {
     "dao": 9,
     "fa": 9,
@@ -35,24 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "patient-cost-sharing",
-      "name": "患者自付费用设计"
+      "theme_id": "health-insurance-and-cost-sharing",
+      "name": "健康保险与成本分担"
     },
     {
-      "theme_id": "cost-sharing-demand",
-      "name": "成本分担与医疗需求"
-    },
-    {
-      "theme_id": "health-insurance-elderly",
-      "name": "老年人健康保险"
-    },
-    {
-      "theme_id": "financial-risk-protection",
-      "name": "财务风险保护"
-    },
-    {
-      "theme_id": "moral-hazard-health",
-      "name": "道德风险与医疗利用"
+      "theme_id": "health-capital-mortality-and-health-production",
+      "name": "健康资本、死亡率与健康生产"
     }
   ],
   "excerpts": [
@@ -141,7 +151,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "RD设计仅能识别70岁附近人群（局部平均处理效应），对其他年龄段的外推需谨慎。短期内未检测到健康改善，但无法排除长期或跨期的健康效益，健康结果的不显著结论不宜被直接解读为\"就医增加没有价值\"。Patient Survey为截面数据，只能观测患者数量而非个体跟踪，限制了对利用率动态的精细分析。研究期间日本成本分担制度多次调整，不同年度的弹性可能存在异质性，主分析通过汇总年度样本处理，可能模糊了这种异质性。此外，日本的全国统一费率、无守门人制度等制度特征与美国差异显著，直接外推需注意制度可比性。",
-    "Theme Links": "- `cost-sharing-demand`\n- `patient-cost-sharing`\n- `moral-hazard-health`\n- `health-insurance-elderly`\n- `financial-risk-protection`",
+    "Theme Links": "- `health-insurance-and-cost-sharing`\n- `health-capital-mortality-and-health-production`",
     "Ratings": "",
     "Dao": "- Score: 9\n- Note: 同时回答了成本分担影响就医量、健康和财务风险三个核心问题，政策相关性高，老年群体的证据空白在文献中尤为重要。",
     "Fa": "- Score: 9\n- Note: 日本70岁断点的识别极为干净——供给侧无响应、无其他政策重叠，是RD设计在医疗领域最理想的应用场景之一。",

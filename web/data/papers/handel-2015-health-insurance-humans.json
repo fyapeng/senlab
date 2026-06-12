@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章是“复杂合同选择 + 信息摩擦 + 结构化福利分析”这一条研究路径上的基准文献。它既能服务于健康保险选择问题，也能服务于更一般的复杂产品市场、行为摩擦识别和 welfare decomposition。",
   "created_at": "2026-06-12T03:50:18.693294+00:00",
   "one_line_judgment": "一篇把风险偏好、信息摩擦与福利分析真正拆开的健康保险选择基准文献。",
+  "topics": [
+    {
+      "topic_id": "health-insurance",
+      "name": "health insurance"
+    },
+    {
+      "topic_id": "information-frictions",
+      "name": "information frictions"
+    },
+    {
+      "topic_id": "plan-choice",
+      "name": "plan choice"
+    },
+    {
+      "topic_id": "consumer-welfare",
+      "name": "consumer welfare"
+    },
+    {
+      "topic_id": "structural-demand",
+      "name": "structural demand"
+    }
+  ],
   "ratings": {
     "dao": 10,
     "fa": 10,
@@ -35,16 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "information-frictions-in-insurance",
-      "name": "保险选择中的信息摩擦"
+      "theme_id": "insurance-choice-and-information-frictions",
+      "name": "保险选择与信息摩擦"
     },
     {
-      "theme_id": "health-insurance-choice",
-      "name": "健康保险计划选择"
-    },
-    {
-      "theme_id": "consumer-welfare-under-choice-frictions",
-      "name": "选择摩擦下的消费者福利"
+      "theme_id": "health-insurance-and-cost-sharing",
+      "name": "健康保险与成本分担"
     }
   ],
   "excerpts": [
@@ -153,7 +171,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "这篇文章的识别高度依赖问卷所测得的 friction measures，而问卷本身可能受到回答选择、事后 rationalization 与 measurement error 的影响。此外，研究环境是单一大型雇主，外部有效性仍需谨慎；结构模型虽然能分解不同 choice foundation，但 counterfactual choice menu 的外推仍需要额外假设。",
-    "Theme Links": "- `health-insurance-choice`\n- `information-frictions-in-insurance`\n- `consumer-welfare-under-choice-frictions`",
+    "Theme Links": "- `insurance-choice-and-information-frictions`\n- `health-insurance-and-cost-sharing`",
     "Ratings": "",
     "Dao": "- Score: 10\n- Note: 它问的是保险选择研究里最关键的基础问题之一：观察到的选择究竟代表偏好，还是代表摩擦。",
     "Fa": "- Score: 10\n- Note: 行政数据与 survey 的组合显著增强了识别力，使得风险偏好与信息摩擦的分离更有说服力。",

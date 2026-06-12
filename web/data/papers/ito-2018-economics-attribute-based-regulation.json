@@ -16,6 +16,32 @@
   "why_in_my_db": "这篇文章兼具理论框架、准实验识别、bunching 工具和反事实政策比较四种价值。它不仅能用于环境经济学和产业政策讨论，也很适合作为“第二最佳监管”“属性扭曲”“compliance trading 优于分段标准”“notched policy 下的产品操纵”这些写作与选题的基础文献。",
   "created_at": "2026-06-12T08:20:55.067959+00:00",
   "one_line_judgment": "一篇把“属性基准监管”从直觉争论推进到可理论化、可识别、可反事实比较层面的高价值论文，结论明确指向：不能把分段属性标准误当成交易制度的无成本替代品。",
+  "topics": [
+    {
+      "topic_id": "attribute-based-regulation",
+      "name": "attribute based regulation"
+    },
+    {
+      "topic_id": "fuel-economy-standards",
+      "name": "fuel economy standards"
+    },
+    {
+      "topic_id": "bunching",
+      "name": "bunching"
+    },
+    {
+      "topic_id": "notches",
+      "name": "notches"
+    },
+    {
+      "topic_id": "compliance-trading",
+      "name": "compliance trading"
+    },
+    {
+      "topic_id": "japan",
+      "name": "japan"
+    }
+  ],
   "ratings": {
     "dao": 9,
     "fa": 9,
@@ -35,16 +61,12 @@
   },
   "themes": [
     {
-      "theme_id": "attribute-based-regulation",
-      "name": "属性基准监管"
+      "theme_id": "causal-inference-and-program-evaluation",
+      "name": "因果识别与政策评估"
     },
     {
-      "theme_id": "fuel-economy-standards",
-      "name": "燃油经济性标准"
-    },
-    {
-      "theme_id": "bunching-and-notches",
-      "name": "阈值响应与 Bunching"
+      "theme_id": "regulation-design-and-policy-incentives",
+      "name": "监管设计与政策激励"
     }
   ],
   "excerpts": [
@@ -168,7 +190,7 @@
     "Comparative Statics": "比较静态的关键在于两个参数：其一，次级属性对监管激励的弹性越大，ABR 引发的扭曲和 deadweight loss 越高；其二，属性与边际合规成本相关性越强，ABR 在无交易条件下帮助均衡成本的潜在收益越大。若分配权重与属性相关，最优属性斜率还会随再分配动机增强而变大。",
     "Applications": "应用场景远不止汽车节能标准。家电能效分级、按尺寸或容量定标的环保与能效监管、按企业规模豁免的劳动与证券监管，以及任何“监管目标写在一个维度上、合规标准却取决于另一个维度”的制度，都可以用本文框架来分析其效率与分配后果。",
     "Limitations": "本文的经验识别高度依赖日本燃油经济制度中的离散阈值结构，因此对那些属性函数平滑、缺少清晰 notch 的制度，识别便利性会显著下降。安全外部性的福利换算属于 back-of-the-envelope 估计，量级有参考意义，但不应被视为精确 welfare accounting。另一个实际限制是：当前入库的 PDF 是 2016 年工作论文/手稿版本，而非 2018 年期刊排版版本，因此正文措辞与最终发表稿可能存在少量版本差异。",
-    "Theme Links": "- `attribute-based-regulation`\n- `bunching-and-notches`\n- `fuel-economy-standards`",
+    "Theme Links": "- `regulation-design-and-policy-incentives`\n- `causal-inference-and-program-evaluation`",
     "Ratings": "",
     "Dao": "- Score: 9\n- Note: 问的是一种被广泛使用却缺乏统一福利框架的监管形式，问题本身既基础又有政策穿透力。",
     "Fa": "- Score: 9\n- Note: 理论部分逻辑严整，经验部分把 bunching 与面板反事实结合起来，识别和论证链条都很完整。",

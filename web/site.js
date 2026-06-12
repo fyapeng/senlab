@@ -203,6 +203,389 @@ function el(tag, className, html) {
   return node;
 }
 
+const KNOWLEDGE_COLORS = [
+  "#a0532a",
+  "#2f6c82",
+  "#7a8f3b",
+  "#915f9b",
+  "#b46d2e",
+  "#4a5fa8",
+  "#a2465e",
+  "#3e8a72",
+  "#8b6b2f",
+  "#5b7f9a",
+];
+
+function topicChip(topic) {
+  return `<span class="chip chip-topic">${escHtml(formatTopic(topic.name || topic.topic_id || topic))}</span>`;
+}
+
+function buildThemeColorMap(graph) {
+  return Object.fromEntries((graph.theme_nodes || []).map((theme, index) => [theme.id, KNOWLEDGE_COLORS[index % KNOWLEDGE_COLORS.length]]));
+}
+
+function renderKnowledgeMapSection(site) {
+  return `
+    <section class="panel section">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">知识结构</div>
+          <h2 class="section-title">交互知识地图</h2>
+        </div>
+        <div class="knowledge-meta">
+          <span class="chip">核心主题 <strong>${site.meta.theme_count}</strong></span>
+          <span class="chip">细 topic <strong>${site.meta.topic_count || 0}</strong></span>
+        </div>
+      </div>
+      <div class="knowledge-toolbar">
+        <button type="button" class="chip chip-toggle active" data-map-mode="themes">主题网络</button>
+        <button type="button" class="chip chip-toggle" data-map-mode="papers">文献网络</button>
+      </div>
+      <div class="knowledge-layout">
+        <div class="knowledge-stage-wrap">
+          <div class="knowledge-caption">节点大小表示覆盖文献数或综合分，连线表示共享主题关系。点击节点可查看详细脉络。</div>
+          <div id="knowledge-stage" class="knowledge-stage"></div>
+          <div id="knowledge-legend" class="knowledge-legend"></div>
+        </div>
+        <aside id="knowledge-detail" class="knowledge-detail"></aside>
+      </div>
+    </section>
+  `;
+}
+
+function activateKnowledgeMap(site) {
+  const graph = site.knowledge_graph;
+  if (!graph || !graph.theme_nodes?.length) return;
+
+  const stage = document.getElementById("knowledge-stage");
+  const detail = document.getElementById("knowledge-detail");
+  const legend = document.getElementById("knowledge-legend");
+  const toggles = Array.from(document.querySelectorAll("[data-map-mode]"));
+  const themeMap = new Map((graph.theme_nodes || []).map((item) => [item.id, item]));
+  const paperMap = new Map(site.papers.map((item) => [item.work_id, item]));
+  const paperNodeMap = new Map((graph.paper_nodes || []).map((item) => [item.id, item]));
+  const colorMap = buildThemeColorMap(graph);
+  const themeEdgeMax = Math.max(1, ...(graph.theme_edges || []).map((item) => item.weight || 1));
+  const paperEdgeMax = Math.max(1, ...(graph.paper_edges || []).map((item) => item.weight || 1));
+
+  let mode = "themes";
+  let selectedThemeId = graph.theme_nodes[0]?.id || "";
+  let selectedPaperId = graph.paper_nodes[0]?.id || "";
+
+  const papersForTheme = (themeId) => (themeMap.get(themeId)?.paper_ids || []).map((id) => paperMap.get(id)).filter(Boolean);
+
+  const relatedThemes = (themeId) =>
+    (graph.theme_edges || [])
+      .filter((edge) => edge.source === themeId || edge.target === themeId)
+      .map((edge) => {
+        const otherId = edge.source === themeId ? edge.target : edge.source;
+        return { edge, theme: themeMap.get(otherId) };
+      })
+      .filter((item) => item.theme)
+      .sort((left, right) => right.edge.weight - left.edge.weight);
+
+  const relatedPapers = (paperId) =>
+    (graph.paper_edges || [])
+      .filter((edge) => edge.source === paperId || edge.target === paperId)
+      .map((edge) => {
+        const otherId = edge.source === paperId ? edge.target : edge.source;
+        return { edge, paper: paperMap.get(otherId) };
+      })
+      .filter((item) => item.paper)
+      .sort((left, right) => right.edge.weight - left.edge.weight || (right.paper.ratings.overall || 0) - (left.paper.ratings.overall || 0));
+
+  function renderLegend() {
+    legend.innerHTML = (graph.theme_nodes || [])
+      .map(
+        (theme) => `
+          <span class="legend-chip">
+            <span class="legend-dot" style="background:${colorMap[theme.id] || "#a0532a"}"></span>
+            ${escHtml(theme.name)}
+          </span>
+        `
+      )
+      .join("");
+  }
+
+  function themeSvg(selectedId) {
+    const nodes = [...graph.theme_nodes];
+    const width = 760;
+    const height = 460;
+    const cx = width / 2;
+    const cy = height / 2;
+    const rx = 250;
+    const ry = 150;
+    const sorted = nodes.sort((left, right) => right.paper_count - left.paper_count || left.name.localeCompare(right.name));
+    const positions = new Map();
+    sorted.forEach((node, index) => {
+      const angle = (-Math.PI / 2) + (Math.PI * 2 * index) / Math.max(sorted.length, 1);
+      positions.set(node.id, {
+        x: cx + Math.cos(angle) * rx,
+        y: cy + Math.sin(angle) * ry,
+      });
+    });
+
+    const edges = (graph.theme_edges || [])
+      .map((edge) => {
+        const source = positions.get(edge.source);
+        const target = positions.get(edge.target);
+        if (!source || !target) return "";
+        const isActive = edge.source === selectedId || edge.target === selectedId;
+        return `<line x1="${source.x}" y1="${source.y}" x2="${target.x}" y2="${target.y}" stroke="rgba(104,120,133,${isActive ? 0.42 : 0.16})" stroke-width="${1 + (edge.weight / themeEdgeMax) * 4}" />`;
+      })
+      .join("");
+
+    const nodeMarkup = sorted
+      .map((node) => {
+        const pos = positions.get(node.id);
+        const radius = 14 + node.paper_count * 5;
+        const isActive = node.id === selectedId;
+        return `
+          <g class="knowledge-node-group ${isActive ? "active" : ""}" data-theme-id="${node.id}" tabindex="0">
+            <circle cx="${pos.x}" cy="${pos.y}" r="${radius}" fill="${colorMap[node.id] || "#a0532a"}" fill-opacity="${isActive ? 0.96 : 0.82}" stroke="${isActive ? "#16202a" : "rgba(22,32,42,0.16)"}" stroke-width="${isActive ? 2.4 : 1.2}" />
+            <text x="${pos.x}" y="${pos.y + radius + 18}" text-anchor="middle" class="knowledge-label">${escHtml(node.name)}</text>
+            <text x="${pos.x}" y="${pos.y + 5}" text-anchor="middle" class="knowledge-count">${node.paper_count}</text>
+          </g>
+        `;
+      })
+      .join("");
+
+    return `<svg class="knowledge-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="主题网络图">${edges}${nodeMarkup}</svg>`;
+  }
+
+  function paperSvg(selectedId) {
+    const width = 760;
+    const height = 460;
+    const cx = width / 2;
+    const cy = height / 2;
+    const themeOrder = (graph.theme_nodes || []).map((item) => item.id);
+    const grouped = themeOrder.flatMap((themeId) =>
+      (graph.paper_nodes || [])
+        .filter((paper) => paper.primary_theme_id === themeId)
+        .sort((left, right) => (right.overall || 0) - (left.overall || 0) || (right.year || 0) - (left.year || 0))
+    );
+    const leftovers = (graph.paper_nodes || [])
+      .filter((paper) => !grouped.find((item) => item.id === paper.id))
+      .sort((left, right) => (right.overall || 0) - (left.overall || 0));
+    const nodes = [...grouped, ...leftovers];
+    const positions = new Map();
+
+    let cursor = -Math.PI / 2;
+    themeOrder.forEach((themeId) => {
+      const cluster = nodes.filter((paper) => paper.primary_theme_id === themeId);
+      if (!cluster.length) return;
+      const span = (Math.PI * 2 * cluster.length) / Math.max(nodes.length, 1);
+      cluster.forEach((paper, index) => {
+        const angle = cursor + (span * (index + 0.5)) / cluster.length;
+        const radial = 168 + ((paper.overall || 0) / 60) * 24;
+        positions.set(paper.id, {
+          x: cx + Math.cos(angle) * radial,
+          y: cy + Math.sin(angle) * (radial * 0.78),
+        });
+      });
+      cursor += span;
+    });
+    leftovers.forEach((paper, index) => {
+      const angle = (-Math.PI / 2) + (Math.PI * 2 * index) / Math.max(leftovers.length, 1);
+      positions.set(paper.id, {
+        x: cx + Math.cos(angle) * 140,
+        y: cy + Math.sin(angle) * 108,
+      });
+    });
+
+    const edges = (graph.paper_edges || [])
+      .map((edge) => {
+        const source = positions.get(edge.source);
+        const target = positions.get(edge.target);
+        if (!source || !target) return "";
+        const isActive = edge.source === selectedId || edge.target === selectedId;
+        return `<line x1="${source.x}" y1="${source.y}" x2="${target.x}" y2="${target.y}" stroke="rgba(104,120,133,${isActive ? 0.38 : 0.1})" stroke-width="${0.8 + (edge.weight / paperEdgeMax) * 2.8}" />`;
+      })
+      .join("");
+
+    const nodeMarkup = nodes
+      .map((paper) => {
+        const pos = positions.get(paper.id);
+        const isActive = paper.id === selectedId;
+        const color = colorMap[paper.primary_theme_id] || "#a0532a";
+        const radius = 8 + Math.max(0, (paper.overall || 0) - 40) * 0.35;
+        return `
+          <g class="knowledge-node-group ${isActive ? "active" : ""}" data-paper-id="${paper.id}" tabindex="0">
+            <circle cx="${pos.x}" cy="${pos.y}" r="${radius}" fill="${color}" fill-opacity="${isActive ? 0.96 : 0.8}" stroke="${isActive ? "#16202a" : "rgba(22,32,42,0.12)"}" stroke-width="${isActive ? 2.2 : 1}" />
+            <text x="${pos.x}" y="${pos.y + radius + 14}" text-anchor="middle" class="knowledge-paper-label">${escHtml((paper.title || "").split(":")[0])}</text>
+          </g>
+        `;
+      })
+      .join("");
+
+    return `<svg class="knowledge-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="文献关系图">${edges}${nodeMarkup}</svg>`;
+  }
+
+  function themeDetail(themeId) {
+    const theme = themeMap.get(themeId);
+    if (!theme) return "";
+    const linkedPapers = papersForTheme(themeId);
+    const neighbors = relatedThemes(themeId);
+    return `
+      <div class="knowledge-card">
+        <div class="eyebrow">当前主题</div>
+        <h3>${escHtml(theme.name)}</h3>
+        <p class="muted">覆盖 ${theme.paper_count} 篇论文，是当前文献库中的一个中层聚合主题。</p>
+      </div>
+      <div class="knowledge-card">
+        <div class="eyebrow">高频 Topics</div>
+        <div class="chip-row">
+          ${(theme.top_topics || []).map(topicChip).join("") || '<span class="muted">暂无</span>'}
+        </div>
+      </div>
+      <div class="knowledge-card">
+        <div class="eyebrow">相关主题</div>
+        <div class="stack-list compact">
+          ${neighbors
+            .slice(0, 6)
+            .map(
+              ({ edge, theme: item }) => `
+                <button type="button" class="stack-item action" data-theme-jump="${item.id}">
+                  <strong>${escHtml(item.name)}</strong>
+                  <div class="muted">与当前主题共享 ${edge.weight} 篇论文</div>
+                </button>
+              `
+            )
+            .join("") || '<div class="stack-item"><div class="muted">当前没有共现主题。</div></div>'}
+        </div>
+      </div>
+      <div class="knowledge-card">
+        <div class="eyebrow">关联文献</div>
+        <div class="stack-list compact">
+          ${linkedPapers
+            .map(
+              (paper) => `
+                <button type="button" class="stack-item action" data-paper-jump="${paper.work_id}">
+                  <strong>${escHtml(paper.title)}</strong>
+                  <div class="muted">${escHtml(String(paper.year || ""))} · 综合分 ${paper.ratings.overall ?? "—"}</div>
+                </button>
+              `
+            )
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  function paperDetail(paperId) {
+    const paper = paperMap.get(paperId);
+    const paperNode = paperNodeMap.get(paperId);
+    if (!paper || !paperNode) return "";
+    const neighbors = relatedPapers(paperId);
+    return `
+      <div class="knowledge-card">
+        <div class="eyebrow">当前文献</div>
+        <h3><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${escHtml(paper.title)}</a></h3>
+        <p class="muted">${escHtml(paper.authors || "")}</p>
+        <p class="muted">${escHtml(String(paper.year || ""))} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</p>
+        <p class="muted">综合分 ${paper.ratings.overall ?? "—"} / 60</p>
+      </div>
+      <div class="knowledge-card">
+        <div class="eyebrow">主题</div>
+        <div class="chip-row">
+          ${paper.themes.map((theme) => `<button type="button" class="chip chip-topic chip-action" data-theme-jump="${theme.theme_id}">${escHtml(formatThemeName(theme))}</button>`).join("")}
+        </div>
+      </div>
+      <div class="knowledge-card">
+        <div class="eyebrow">Topics</div>
+        <div class="chip-row">
+          ${(paper.topics || []).map(topicChip).join("") || '<span class="muted">暂无</span>'}
+        </div>
+      </div>
+      <div class="knowledge-card">
+        <div class="eyebrow">相关文献</div>
+        <div class="stack-list compact">
+          ${neighbors
+            .slice(0, 8)
+            .map(
+              ({ edge, paper: item }) => `
+                <button type="button" class="stack-item action" data-paper-jump="${item.work_id}">
+                  <strong>${escHtml(item.title)}</strong>
+                  <div class="muted">共享 ${edge.shared_theme_ids.length} 个主题 · 综合分 ${item.ratings.overall ?? "—"}</div>
+                </button>
+              `
+            )
+            .join("") || '<div class="stack-item"><div class="muted">当前没有共享主题的近邻文献。</div></div>'}
+        </div>
+      </div>
+    `;
+  }
+
+  function bindDetailActions() {
+    detail.querySelectorAll("[data-theme-jump]").forEach((button) => {
+      button.addEventListener("click", () => {
+        mode = "themes";
+        selectedThemeId = button.getAttribute("data-theme-jump") || selectedThemeId;
+        render();
+      });
+    });
+    detail.querySelectorAll("[data-paper-jump]").forEach((button) => {
+      button.addEventListener("click", () => {
+        mode = "papers";
+        selectedPaperId = button.getAttribute("data-paper-jump") || selectedPaperId;
+        render();
+      });
+    });
+  }
+
+  function bindStageActions() {
+    stage.querySelectorAll("[data-theme-id]").forEach((node) => {
+      const jump = () => {
+        selectedThemeId = node.getAttribute("data-theme-id") || selectedThemeId;
+        render();
+      };
+      node.addEventListener("click", jump);
+      node.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          jump();
+        }
+      });
+    });
+    stage.querySelectorAll("[data-paper-id]").forEach((node) => {
+      const jump = () => {
+        selectedPaperId = node.getAttribute("data-paper-id") || selectedPaperId;
+        render();
+      };
+      node.addEventListener("click", jump);
+      node.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          jump();
+        }
+      });
+    });
+  }
+
+  function render() {
+    toggles.forEach((button) => button.classList.toggle("active", button.getAttribute("data-map-mode") === mode));
+    if (mode === "themes") {
+      stage.innerHTML = themeSvg(selectedThemeId);
+      detail.innerHTML = themeDetail(selectedThemeId);
+    } else {
+      stage.innerHTML = paperSvg(selectedPaperId);
+      detail.innerHTML = paperDetail(selectedPaperId);
+    }
+    bindStageActions();
+    bindDetailActions();
+  }
+
+  toggles.forEach((button) => {
+    button.addEventListener("click", () => {
+      mode = button.getAttribute("data-map-mode") || "themes";
+      render();
+    });
+  });
+
+  renderLegend();
+  render();
+}
+
 function buildShell(site, activePage) {
   const shell = el("div", "site");
   const navLinks = site.nav
@@ -277,6 +660,7 @@ function paperCard(paper) {
       <div class="chip-row">
         ${paper.themes.map((theme) => `<span class="chip">${escHtml(theme.name)}</span>`).join("")}
       </div>
+      ${paper.topics?.length ? `<div class="chip-row topic-chip-row">${paper.topics.slice(0, 4).map(topicChip).join("")}</div>` : ""}
       <div class="tag-row">
         <a class="button-link" href="./paper.html?work=${encodeURIComponent(paper.work_id)}">查看详情</a>
         <a class="button-link secondary" href="./compare.html?left=${encodeURIComponent(paper.work_id)}">加入对比</a>
@@ -499,6 +883,119 @@ async function renderDashboard(site) {
   activateClock();
 }
 
+async function renderDashboardV2(site) {
+  const main = document.getElementById("page-main");
+  const topPapers = site.rankings.overall
+    .slice(0, 4)
+    .map((id) => site.papers.find((paper) => paper.work_id === id))
+    .filter(Boolean);
+  const quote = quoteForToday();
+
+  main.innerHTML = `
+    <section class="hero hero-dashboard">
+      <div class="hero-copy panel">
+        <div class="eyebrow">序言</div>
+        <h1>Sencium Lab</h1>
+        <p class="lead">${site.brand.tagline}</p>
+        <p class="intro-text">Sencium Lab 将题目、作者、期刊、六维十分制评分、细粒度 topic、证据摘录与中层主题脉络整理为结构化档案，让检索、比较、引用与选题在同一个研究系统内完成。</p>
+        <div class="intro-shelf">
+          <div class="intro-note">
+            <h3 class="intro-note-title">档案</h3>
+            <p class="intro-note-text">把题目、作者、期刊、DOI 与核心判断整理成结构化 paper card，长期可检索、可对比。</p>
+          </div>
+          <div class="intro-note">
+            <h3 class="intro-note-title">视角</h3>
+            <p class="intro-note-text">从每篇论文中提炼可复用的论断、支撑证据与安全引用边界，形成 citation lenses。</p>
+          </div>
+          <div class="intro-note">
+            <h3 class="intro-note-title">脉络</h3>
+            <p class="intro-note-text">用中层 theme 和细 topic 共同组织文献，逐步长成可交互的研究知识网络。</p>
+          </div>
+        </div>
+      </div>
+      <div class="hero-side panel">
+        ${renderTimeWidget()}
+        <div class="info-card quote-card">
+          <div class="eyebrow">今日引句</div>
+          <p class="quote-en">“${quote.text}”</p>
+          <p class="quote-zh">${quote.zh}</p>
+          <p class="quote-author">—— ${quote.author}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid-4">
+      ${statCard("收录论文", site.meta.paper_count, "已建立案卡并完成六维十分制评分")}
+      ${statCard("核心主题", site.meta.theme_count, "适合跨论文聚合与知识地图展示的中层 theme")}
+      ${statCard("细 Topics", site.meta.topic_count || 0, "保留对象、方法、制度与术语层面的细粒度 topic")}
+      ${statCard("证据与视角", `${site.meta.excerpt_count} / ${site.meta.lens_count}`, "证据摘录与 citation lenses 共同支持后续复用")}
+    </section>
+
+    <section class="panel section">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">评分体系</div>
+          <h2 class="section-title">六维十分制</h2>
+        </div>
+      </div>
+      <div class="grid-3">
+        ${site.score_dimensions
+          .map(
+            (item) => `
+              <div class="info-card">
+                <h3>${item.label}</h3>
+                <p class="muted">${item.desc}</p>
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">高分样本</div>
+          <h2 class="section-title">当前高分论文</h2>
+        </div>
+        <a class="button-link secondary" href="./rankings.html">查看完整排序</a>
+      </div>
+      <div class="grid-2">
+        ${topPapers.map((paper) => paperCard(paper)).join("")}
+      </div>
+    </section>
+
+    ${renderKnowledgeMapSection(site)}
+
+    <section class="panel section">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">最近入库</div>
+          <h2 class="section-title">最新入档</h2>
+        </div>
+      </div>
+      <div class="grid-2">
+        ${site.latest
+          .map((workId) => site.papers.find((paper) => paper.work_id === workId))
+          .filter(Boolean)
+          .map(
+            (paper) => `
+              <div class="stack-item">
+                <a href="./paper.html?work=${encodeURIComponent(paper.work_id)}"><strong>${paper.title}</strong></a>
+                <div class="muted">${paper.authors || ""}</div>
+                <div class="muted">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
+              </div>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+
+  activateKnowledgeMap(site);
+  activateClock();
+}
+
 async function renderRankings(site) {
   const main = document.getElementById("page-main");
   const metric = qs("metric") || "overall";
@@ -602,6 +1099,7 @@ async function renderSearch(site) {
         paper.paper_paradigm,
         paper.one_line_judgment,
         ...paper.themes.map((theme) => theme.name),
+        ...(paper.topics || []).map((topic) => topic.name),
       ]
         .join(" ")
         .toLowerCase();
@@ -821,6 +1319,7 @@ async function renderPaper(site) {
         <div class="chip-row">
           ${paper.themes.map((theme) => `<span class="chip">${escHtml(formatThemeName(theme))}</span>`).join("")}
         </div>
+        ${paper.topics?.length ? `<div class="chip-row topic-chip-row">${paper.topics.map(topicChip).join("")}</div>` : ""}
       </article>
       <article class="panel score-panel">
         <div class="section-head compact">
@@ -970,7 +1469,7 @@ async function bootstrap() {
   const shell = buildShell(site, page);
   document.getElementById("site-shell").replaceWith(shell);
 
-  if (page === "dashboard") return renderDashboard(site);
+  if (page === "dashboard") return renderDashboardV2(site);
   if (page === "rankings") return renderRankings(site);
   if (page === "search") return renderSearch(site);
   if (page === "compare") return renderCompare(site);

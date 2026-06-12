@@ -16,6 +16,32 @@
   "why_in_my_db": "这篇文章是健康经济学领域理解\"健康的决定因素\"这一核心命题的权威综述性文章，出自 JEP，写作清晰，覆盖面广。对于健康经济学学生而言，它是进入死亡率文献、健康不平等文献和历史健康研究的最佳入口之一。同时，它也为后续阅读更细致的因果识别论文（如公共卫生基础设施对死亡率的影响）提供了宏观背景。",
   "created_at": "2026-06-12T06:05:04.153059+00:00",
   "one_line_judgment": "一篇从历史、国际与国内三维度系统梳理死亡率决定因素的权威综述，是进入健康经济学文献的必要背景读物。",
+  "topics": [
+    {
+      "topic_id": "mortality",
+      "name": "mortality"
+    },
+    {
+      "topic_id": "health-history",
+      "name": "health history"
+    },
+    {
+      "topic_id": "income-health-gradient",
+      "name": "income health gradient"
+    },
+    {
+      "topic_id": "public-health",
+      "name": "public health"
+    },
+    {
+      "topic_id": "medical-technology",
+      "name": "medical technology"
+    },
+    {
+      "topic_id": "health-inequality",
+      "name": "health inequality"
+    }
+  ],
   "ratings": {
     "dao": 8,
     "fa": 6,
@@ -35,24 +61,8 @@
   },
   "themes": [
     {
-      "theme_id": "health-inequality",
-      "name": "health inequality"
-    },
-    {
-      "theme_id": "income-health-gradient",
-      "name": "income health gradient"
-    },
-    {
-      "theme_id": "medical-technology-mortality",
-      "name": "medical technology mortality"
-    },
-    {
-      "theme_id": "mortality-determinants",
-      "name": "mortality determinants"
-    },
-    {
-      "theme_id": "public-health-infrastructure",
-      "name": "public health infrastructure"
+      "theme_id": "health-capital-mortality-and-health-production",
+      "name": "健康资本、死亡率与健康生产"
     }
   ],
   "excerpts": [
@@ -141,7 +151,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "作为综述文章，本文缺乏统一的识别框架，因果推断力度参差不齐。收入与健康的双向因果关系始终是解读难点。文章写作于 2006 年，此后的健康梯度研究（如 Chetty et al. 2016）与历史死亡率因果识别研究已有大量更新。文中对发展中国家的讨论较为简略。",
-    "Theme Links": "- `mortality-determinants`\n- `income-health-gradient`\n- `public-health-infrastructure`\n- `medical-technology-mortality`\n- `health-inequality`",
+    "Theme Links": "- `health-capital-mortality-and-health-production`",
     "Ratings": "",
     "Dao": "- Score: 8\n- Note: 死亡率决定因素是健康经济学和发展经济学中最根本的问题之一，问题重要性极高。",
     "Fa": "- Score: 6\n- Note: 作为综述文章，识别严格度依赖被综述的原始论文，文章本身不提供新的因果估计，整体论证偏叙述性。",

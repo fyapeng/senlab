@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章是成本分担与道德风险文献中机制拆解最为精细的一篇，也是\"消费者对非线性合同响应\"这一议题的核心参考文献。对理解消费者行为异质性、合同设计福利后果，以及联结行为经济学与保险经济学具有重要价值。",
   "created_at": "2026-06-12T06:05:17.714308+00:00",
   "one_line_judgment": "高免赔额计划砍掉的不是\"水分\"而是\"肉\"——这篇文章用数量分解和价格信号分析彻底重新定义了我们对成本分担机制的理解。",
+  "topics": [
+    {
+      "topic_id": "cost-sharing",
+      "name": "cost sharing"
+    },
+    {
+      "topic_id": "high-deductible-health-plan",
+      "name": "high deductible health plan"
+    },
+    {
+      "topic_id": "moral-hazard",
+      "name": "moral hazard"
+    },
+    {
+      "topic_id": "price-responsiveness",
+      "name": "price responsiveness"
+    },
+    {
+      "topic_id": "spending-decomposition",
+      "name": "spending decomposition"
+    }
+  ],
   "ratings": {
     "dao": 9,
     "fa": 9,
@@ -35,24 +57,8 @@
   },
   "themes": [
     {
-      "theme_id": "health-insurance-market-design",
-      "name": "健康保险市场设计"
-    },
-    {
-      "theme_id": "patient-cost-sharing",
-      "name": "患者自付费用设计"
-    },
-    {
-      "theme_id": "cost-sharing-demand",
-      "name": "成本分担与医疗需求"
-    },
-    {
-      "theme_id": "moral-hazard-health",
-      "name": "道德风险与医疗利用"
-    },
-    {
-      "theme_id": "nonlinear-contract-behavior",
-      "name": "非线性合同中的消费者行为"
+      "theme_id": "health-insurance-and-cost-sharing",
+      "name": "健康保险与成本分担"
     }
   ],
   "excerpts": [
@@ -140,7 +146,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "研究场景为单一大型高收入雇主，员工相对富裕、受教育程度高、技术熟练——这意味着研究结论代表的是最有能力进行价格比价的群体，外部有效性需谨慎，对低收入或信息处理能力更弱的人群而言，结论可能更为悲观。切换前均为零自付费的特殊起点使得价格弹性估计可能偏大（从0到正价格的跳跃比正常范围内的价格变动更剧烈）。同时，切换方案附带了HSA补贴，一定程度上中和了收入效应，这使结果更\"干净\"但也降低了对无此补贴政策场景的适用性。对消费者福利（与产量）的净评估受限于数据中无法直接测量各服务的健康价值。",
-    "Theme Links": "- `cost-sharing-demand`\n- `moral-hazard-health`\n- `nonlinear-contract-behavior`\n- `patient-cost-sharing`\n- `health-insurance-market-design`",
+    "Theme Links": "- `health-insurance-and-cost-sharing`",
     "Ratings": "",
     "Dao": "- Score: 9\n- Note: 直击\"高免赔额计划为何以及如何降低支出\"这一健康政策核心问题，机制识别是同类文献中最清晰的。",
     "Fa": "- Score: 9\n- Note: 强制切换的自然实验提供了近乎理想的外生变异，再加上机制分解框架与价格信号分析，识别逻辑严密。",

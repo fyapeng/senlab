@@ -16,6 +16,32 @@
   "why_in_my_db": "Grossman 模型是健康经济学的理论基础文献，任何涉及健康需求、医疗利用、教育与健康关系，或健康行为的研究都应理解这一框架。对于健康经济学学生，这是构建理论直觉的必读篇目，即使后续研究多为实证，也需要 Grossman 框架提供理论锚点。",
   "created_at": "2026-06-12T06:05:14.152821+00:00",
   "one_line_judgment": "将健康需求与医疗需求从理论上彻底分离，奠定健康经济学核心理论框架的半世纪之作。",
+  "topics": [
+    {
+      "topic_id": "health-capital",
+      "name": "health capital"
+    },
+    {
+      "topic_id": "demand-for-health",
+      "name": "demand for health"
+    },
+    {
+      "topic_id": "human-capital",
+      "name": "human capital"
+    },
+    {
+      "topic_id": "household-production",
+      "name": "household production"
+    },
+    {
+      "topic_id": "health-investment",
+      "name": "health investment"
+    },
+    {
+      "topic_id": "education-health",
+      "name": "education health"
+    }
+  ],
   "ratings": {
     "dao": 9,
     "fa": 8,
@@ -35,24 +61,8 @@
   },
   "themes": [
     {
-      "theme_id": "human-capital-health",
-      "name": "健康人力资本"
-    },
-    {
-      "theme_id": "demand-for-health",
-      "name": "健康需求理论"
-    },
-    {
-      "theme_id": "household-production-theory",
-      "name": "家庭生产理论"
-    },
-    {
-      "theme_id": "education-health-gradient",
-      "name": "教育与健康梯度"
-    },
-    {
-      "theme_id": "health-investment-lifecycle",
-      "name": "生命周期健康投资"
+      "theme_id": "health-capital-mortality-and-health-production",
+      "name": "健康资本、死亡率与健康生产"
     }
   ],
   "excerpts": [
@@ -141,7 +151,7 @@
     "Comparative Statics": "- 折旧率上升 → 影子价格上升 → 健康需求下降，但医疗需求变化方向不确定（纯投资模型中可能同向上升）；\n- 工资率上升 → 健康投资收益上升 → 健康需求量上升（纯投资模型），但时间投入成本亦上升，对医疗服务需求的净效应不确定；\n- 教育提升效率 → 影子价格下降 → 健康需求与健康时间均上升，对医疗服务需求可能下降（效率主导）。",
     "Applications": "Grossman 在第 5 节对模型进行实证检验，利用美国男性横截面数据，以工作缺勤天数（sick days）作为健康的代理变量，估计教育、工资率和医疗价格对健康需求的效应；结果总体与理论预测方向一致。第 6 节综述了大量后续横截面、纵向和自然实验研究。第 7 节专门讨论教育与健康之间因果方向的识别问题（工具变量方法：义务教育法、出生季节等）。",
     "Limitations": "模型假设完全信息，排除了信息不对称和不确定性；排除联合生产（如吸烟既产生效用又损害健康）是简化但失真的；假设折旧率外生给定，而实际上健康行为本身影响折旧；纯投资模型的实证含义（工资较高者更健康）与收入—健康梯度在穷人中的形态并不完全吻合。Ehrlich and Chuma (1990) 对模型的最优投资路径存在不确定性问题提出了严肃批评，Grossman 在本章做了回应。",
-    "Theme Links": "- `human-capital-health`\n- `demand-for-health`\n- `health-investment-lifecycle`\n- `education-health-gradient`\n- `household-production-theory`",
+    "Theme Links": "- `health-capital-mortality-and-health-production`",
     "Ratings": "",
     "Dao": "- Score: 9\n- Note: 提出健康经济学的核心理论框架，将健康需求问题正式化，是整个领域的奠基性贡献。",
     "Fa": "- Score: 8\n- Note: 在人力资本理论和家庭生产函数框架内建立严格的跨期最优化模型，理论内部一致性高。",

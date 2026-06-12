@@ -16,6 +16,28 @@
   "why_in_my_db": "本文直接研究医疗团队决策中信息与影响力的结构，是理解团队生产如何在健康经济学场景中运作的重要理论与实证参考。它把\"团队层级结构 → 影响力集中 → 实践变异来源\"这一因果链条打通，对于研究医疗团队组织、住院医培训效果以及医疗支出变异来源均有高度参考价值。",
   "created_at": "2026-06-12T06:05:12.576942+00:00",
   "one_line_judgment": "一篇用住院医师准随机数据打开医疗团队决策\"黑箱\"、揭示影响力集中背后信息聚合逻辑的重要实证研究。",
+  "topics": [
+    {
+      "topic_id": "team-decisions",
+      "name": "team decisions"
+    },
+    {
+      "topic_id": "physician-training",
+      "name": "physician training"
+    },
+    {
+      "topic_id": "practice-variation",
+      "name": "practice variation"
+    },
+    {
+      "topic_id": "information-aggregation",
+      "name": "information aggregation"
+    },
+    {
+      "topic_id": "residency",
+      "name": "residency"
+    }
+  ],
   "ratings": {
     "dao": 9,
     "fa": 9,
@@ -35,28 +57,16 @@
   },
   "themes": [
     {
-      "theme_id": "physician-teams",
-      "name": "医生团队协作"
+      "theme_id": "information-economics-and-persuasion",
+      "name": "信息经济学与说服"
     },
     {
-      "theme_id": "practice-variation",
-      "name": "医疗实践变异"
+      "theme_id": "physician-behavior-and-clinical-decision-making",
+      "name": "医生行为与临床决策"
     },
     {
-      "theme_id": "organizational-economics-health",
-      "name": "医疗组织经济学"
-    },
-    {
-      "theme_id": "human-capital-teams",
-      "name": "团队专属人力资本"
-    },
-    {
-      "theme_id": "information-aggregation-teams",
-      "name": "团队内信息汇聚"
-    },
-    {
-      "theme_id": "team-production",
-      "name": "团队生产"
+      "theme_id": "healthcare-teams-and-organizational-design",
+      "name": "医疗团队与组织设计"
     }
   ],
   "excerpts": [
@@ -146,7 +156,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "1. 研究场景为单一大型学术医院内科住院医师项目，实践变异模式与影响力结构可能不代表社区医院、其他专科或其他培训项目。2. 以医疗支出作为决策代理指标，无法区分\"正确\"决策与\"错误\"决策，也无法直接衡量患者健康结局。3. 识别资历处的不连续效应需要假设学员判断力在一年门槛处连续，但角色变化可能同期影响判断力本身（学习动机的突然增强等）。4. 贝叶斯信息聚合结构模型需要参数化假设，对机制解读有一定影响。",
-    "Theme Links": "- `team-production`\n- `physician-teams`\n- `practice-variation`\n- `information-aggregation-teams`\n- `human-capital-teams`\n- `organizational-economics-health`",
+    "Theme Links": "- `healthcare-teams-and-organizational-design`\n- `physician-behavior-and-clinical-decision-making`\n- `information-economics-and-persuasion`",
     "Ratings": "",
     "Dao": "- Score: 9\n- Note: 直接问医疗团队中信息与影响力如何结构化决策变异这一核心问题，对实践变异研究提供了新的组织机制视角，研究问题极具原创价值。",
     "Fa": "- Score: 9\n- Note: 患者随机分配与学员轮换带来的准自然实验、资历门槛的不连续识别策略，以及结构模型的机制评估，三层识别互为补充，设计严谨。",

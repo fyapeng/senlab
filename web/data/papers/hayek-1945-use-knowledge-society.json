@@ -16,6 +16,28 @@
   "why_in_my_db": "Hayek 1945 被纳入健康经济学课程，是因为医疗市场中的信息问题在本质上具有 Hayek 式特征：患者拥有关于自身症状与偏好的私人信息，医生拥有关于治疗技术的专业知识，保险公司拥有关于风险池的聚合信息——这些知识分散于各方，无法被单一主体（无论是政府还是保险公司）完全掌握。Hayek 的框架为理解医疗信息不对称的根源、去中心化保险设计（如消费者主导型保险）的潜在优势，以及集中监管的局限性，提供了一个根本性的思想视角。",
   "created_at": "2026-06-12T06:05:14.566086+00:00",
   "one_line_judgment": "重新定义经济问题为知识利用问题，为价格机制与去中央化提供了最深刻的理论辩护，也是理解医疗信息不对称之根源的思想底色。",
+  "topics": [
+    {
+      "topic_id": "information-decentralization",
+      "name": "information decentralization"
+    },
+    {
+      "topic_id": "price-system",
+      "name": "price system"
+    },
+    {
+      "topic_id": "knowledge-dispersion",
+      "name": "knowledge dispersion"
+    },
+    {
+      "topic_id": "market-mechanism",
+      "name": "market mechanism"
+    },
+    {
+      "topic_id": "central-planning",
+      "name": "central planning"
+    }
+  ],
   "ratings": {
     "dao": 9,
     "fa": 8,
@@ -35,24 +57,8 @@
   },
   "themes": [
     {
-      "theme_id": "price-system-information",
-      "name": "价格系统与信息传递"
-    },
-    {
-      "theme_id": "health-insurance-information-asymmetry",
-      "name": "健康保险信息不对称"
-    },
-    {
-      "theme_id": "information-decentralization",
-      "name": "分散信息"
-    },
-    {
-      "theme_id": "knowledge-dispersion",
-      "name": "知识分散"
-    },
-    {
-      "theme_id": "central-planning-vs-markets",
-      "name": "计划与市场的协调比较"
+      "theme_id": "information-economics-and-persuasion",
+      "name": "信息经济学与说服"
     }
   ],
   "excerpts": [
@@ -140,7 +146,7 @@
     "Comparative Statics": "竞争（去中央化）vs. 中央计划：前者能动态利用局部知识，后者受限于可集中统计的信息；当经济变化频繁且细碎时，前者的信息优势最为显著；当变化少、稳定、可预测时，两者差距缩小。",
     "Applications": "论文本身主要以思想实验为主。在健康经济学中的应用包括：（1）信息不对称（Akerlof 1970 逆选择，Arrow 1963 健康市场特殊性）可被视为 Hayek 式知识分散问题的具体实例；（2）消费者主导型健康保险设计（HSA、高自付额计划）的政策倡导者援引 Hayek 式逻辑；（3）医生—患者信息不对称、供应商诱导需求（supplier-induced demand）等现象均可在此框架下理解为知识分散的特定形态。",
     "Limitations": "哈耶克的论证本质上是关于原则的，未提供关于\"何时价格能充分传递信息、何时不能\"的精确条件；论文也没有处理市场失灵的情形（外部性、公共品、逆选择）。在医疗领域，信息不对称的结构性问题往往导致价格不能有效汇集分散知识，使得 Hayek 式论证需要大量修正才能应用。此外，原文写于 1945 年计划经济辩论背景下，部分论证针对特定历史对手（苏联式计划经济），对现代混合医疗体系的适用性需审慎评估。",
-    "Theme Links": "- `information-decentralization`\n- `price-system-information`\n- `knowledge-dispersion`\n- `health-insurance-information-asymmetry`\n- `central-planning-vs-markets`",
+    "Theme Links": "- `information-economics-and-persuasion`",
     "Ratings": "",
     "Dao": "- Score: 9\n- Note: 提出了关于社会如何利用分散知识的根本性问题，是经济学思想史中最重要的议题之一。",
     "Fa": "- Score: 8\n- Note: 论证以思辨为主，缺乏数学形式化，但逻辑严密，类比精准（锡的例子至今仍是教学典范）。",

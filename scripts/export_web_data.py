@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import sqlite3
 from collections import Counter
+from itertools import combinations
 from pathlib import Path
 
 from senlab_markdown import load_text, parse_frontmatter_and_body, parse_heading_sections
@@ -30,10 +31,28 @@ def parse_card_sections(markdown_path: str | None) -> dict[str, str]:
     return parse_heading_sections(body)
 
 
+def parse_card_frontmatter(markdown_path: str | None) -> dict:
+    markdown = load_markdown(markdown_path)
+    if not markdown:
+        return {}
+    frontmatter, _ = parse_frontmatter_and_body(markdown)
+    return frontmatter
+
+
 def humanize_slug(value: str | None) -> str:
     if not value:
         return ""
     return value.replace("-", " ")
+
+
+def topic_objects(raw_tags: list | None) -> list[dict[str, str]]:
+    tags = raw_tags or []
+    cleaned: list[str] = []
+    for tag in tags:
+        value = str(tag).strip()
+        if value and value not in cleaned:
+            cleaned.append(value)
+    return [{"topic_id": tag, "name": humanize_slug(tag)} for tag in cleaned]
 
 
 def nav_items() -> list[dict[str, str]]:
@@ -61,6 +80,7 @@ def main() -> None:
         paradigm_counter: Counter[str] = Counter()
         field_counter: Counter[str] = Counter()
         theme_counter: Counter[str] = Counter()
+        topic_counter: Counter[str] = Counter()
         theme_name_map: dict[str, str] = {}
 
         paper_rows = conn.execute(
@@ -96,6 +116,8 @@ def main() -> None:
 
         for row in paper_rows:
             work_id = row["work_id"]
+            frontmatter = parse_card_frontmatter(row["markdown_path"])
+            topics = topic_objects(frontmatter.get("tags"))
             themes = [
                 {
                     "theme_id": t["theme_id"],
@@ -115,6 +137,8 @@ def main() -> None:
             for theme in themes:
                 theme_counter[theme["theme_id"]] += 1
                 theme_name_map[theme["theme_id"]] = theme["name"]
+            for topic in topics:
+                topic_counter[topic["topic_id"]] += 1
 
             excerpts = [
                 {
@@ -197,6 +221,7 @@ def main() -> None:
                 "why_in_my_db": row["why_in_my_db"],
                 "created_at": row["created_at"],
                 "one_line_judgment": row["one_line_judgment"],
+                "topics": topics,
                 "ratings": {
                     "dao": row["dao"],
                     "fa": row["fa"],
@@ -256,7 +281,73 @@ def main() -> None:
                     "status": "linked_without_theme_file",
                     "paper_count": count,
                 }
-        theme_rows = sorted(theme_records.values(), key=lambda item: str(item["name"]).lower())
+        theme_rows = sorted(
+            [item for item in theme_records.values() if int(item["paper_count"]) > 0],
+            key=lambda item: (-int(item["paper_count"]), str(item["name"]).lower()),
+        )
+
+        theme_node_map: dict[str, dict] = {}
+        for theme in theme_rows:
+            theme_id = str(theme["theme_id"])
+            linked_papers = [paper for paper in papers if any(item["theme_id"] == theme_id for item in paper["themes"])]
+            topic_counts: Counter[str] = Counter()
+            for paper in linked_papers:
+                for topic in paper["topics"]:
+                    topic_counts[topic["topic_id"]] += 1
+            theme_node_map[theme_id] = {
+                "id": theme_id,
+                "name": theme["name"],
+                "paper_count": theme["paper_count"],
+                "paper_ids": [paper["work_id"] for paper in linked_papers],
+                "top_topics": [
+                    {"topic_id": topic_id, "name": humanize_slug(topic_id), "paper_count": count}
+                    for topic_id, count in topic_counts.most_common(6)
+                ],
+            }
+
+        theme_edge_map: dict[tuple[str, str], dict] = {}
+        for paper in papers:
+            theme_ids = sorted({theme["theme_id"] for theme in paper["themes"]})
+            for source, target in combinations(theme_ids, 2):
+                key = (source, target)
+                if key not in theme_edge_map:
+                    theme_edge_map[key] = {
+                        "source": source,
+                        "target": target,
+                        "weight": 0,
+                        "paper_ids": [],
+                    }
+                theme_edge_map[key]["weight"] += 1
+                theme_edge_map[key]["paper_ids"].append(paper["work_id"])
+
+        paper_nodes = [
+            {
+                "id": paper["work_id"],
+                "title": paper["title"],
+                "year": paper["year"],
+                "field": paper["field"],
+                "paper_paradigm": paper["paper_paradigm"],
+                "overall": paper["ratings"]["overall"],
+                "primary_theme_id": paper["themes"][0]["theme_id"] if paper["themes"] else "",
+                "theme_ids": [theme["theme_id"] for theme in paper["themes"]],
+                "topics": paper["topics"],
+            }
+            for paper in papers
+        ]
+        paper_edges = []
+        for left, right in combinations(papers, 2):
+            left_ids = {theme["theme_id"] for theme in left["themes"]}
+            right_ids = {theme["theme_id"] for theme in right["themes"]}
+            shared = sorted(left_ids & right_ids)
+            if shared:
+                paper_edges.append(
+                    {
+                        "source": left["work_id"],
+                        "target": right["work_id"],
+                        "weight": len(shared),
+                        "shared_theme_ids": shared,
+                    }
+                )
 
         site_index = {
             "brand": {
@@ -278,6 +369,7 @@ def main() -> None:
             "meta": {
                 "paper_count": len(papers),
                 "theme_count": len(theme_rows),
+                "topic_count": len(topic_counter),
                 "excerpt_count": sum(len(paper["excerpts"]) for paper in papers),
                 "lens_count": sum(len(paper["lenses"]) for paper in papers),
                 "updated_from_local_db": True,
@@ -302,6 +394,7 @@ def main() -> None:
                     "journal_or_series": paper["journal_or_series"],
                     "doi": paper["doi"],
                     "one_line_judgment": paper["one_line_judgment"],
+                    "topics": paper["topics"],
                     "ratings": paper["ratings"],
                     "themes": paper["themes"],
                     "excerpt_count": len(paper["excerpts"]),
@@ -311,11 +404,25 @@ def main() -> None:
             ],
             "themes": theme_rows,
             "theme_distribution": [
-                {"theme_id": theme_id, "name": theme_name_map.get(theme_id, theme_id), "paper_count": count}
-                for theme_id, count in theme_counter.most_common()
+                {
+                    "theme_id": theme["theme_id"],
+                    "name": theme["name"],
+                    "paper_count": theme["paper_count"],
+                }
+                for theme in theme_rows
+            ],
+            "topic_distribution": [
+                {"topic_id": topic_id, "name": humanize_slug(topic_id), "paper_count": count}
+                for topic_id, count in topic_counter.most_common()
             ],
             "field_distribution": [{"name": name, "paper_count": count} for name, count in field_counter.most_common()],
             "paradigm_distribution": [{"name": name, "paper_count": count} for name, count in paradigm_counter.most_common()],
+            "knowledge_graph": {
+                "theme_nodes": list(theme_node_map.values()),
+                "theme_edges": sorted(theme_edge_map.values(), key=lambda item: (-item["weight"], item["source"], item["target"])),
+                "paper_nodes": paper_nodes,
+                "paper_edges": sorted(paper_edges, key=lambda item: (-item["weight"], item["source"], item["target"])),
+            },
             "rankings": ranking_ids,
             "latest": latest_ids,
         }

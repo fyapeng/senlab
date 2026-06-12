@@ -38,7 +38,8 @@
   },
   "meta": {
     "paper_count": 26,
-    "theme_count": 95,
+    "theme_count": 10,
+    "topic_count": 126,
     "excerpt_count": 83,
     "lens_count": 81,
     "updated_from_local_db": true
@@ -87,6 +88,28 @@
       "journal_or_series": "Journal of Political Economy",
       "doi": "10.1086/734134",
       "one_line_judgment": "事前授权胜过追缴诉讼：首篇大规模实证证明行政监管比司法执法更有效遏制 Medicare 救护车欺诈。",
+      "topics": [
+        {
+          "topic_id": "medicare-fraud",
+          "name": "medicare fraud"
+        },
+        {
+          "topic_id": "ambulance-fraud",
+          "name": "ambulance fraud"
+        },
+        {
+          "topic_id": "prior-authorization",
+          "name": "prior authorization"
+        },
+        {
+          "topic_id": "dialysis",
+          "name": "dialysis"
+        },
+        {
+          "topic_id": "regulation-vs-litigation",
+          "name": "regulation vs litigation"
+        }
+      ],
       "ratings": {
         "dao": 9,
         "fa": 8,
@@ -98,28 +121,12 @@
       },
       "themes": [
         {
-          "theme_id": "medicare-fraud",
-          "name": "Medicare 欺诈"
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
         },
         {
-          "theme_id": "prior-authorization",
-          "name": "事前授权"
-        },
-        {
-          "theme_id": "healthcare-fraud",
-          "name": "医疗欺诈"
-        },
-        {
-          "theme_id": "ambulance-regulation",
-          "name": "救护车服务监管"
-        },
-        {
-          "theme_id": "monitoring-enforcement",
-          "name": "监测与执法"
-        },
-        {
-          "theme_id": "regulation-vs-litigation",
-          "name": "监管与诉讼的工具比较"
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
         }
       ],
       "excerpt_count": 3,
@@ -136,6 +143,32 @@
       "journal_or_series": "arXiv working paper (arXiv:2505.09942)",
       "doi": "10.48550/arXiv.2505.09942",
       "one_line_judgment": "将 DDD 方法论从两期无协变量的理想世界推进到协变量调整与交错采纳的现实世界，是 DDD 应用的新标准参考。",
+      "topics": [
+        {
+          "topic_id": "triple-difference",
+          "name": "triple difference"
+        },
+        {
+          "topic_id": "DDD",
+          "name": "DDD"
+        },
+        {
+          "topic_id": "staggered-adoption",
+          "name": "staggered adoption"
+        },
+        {
+          "topic_id": "doubly-robust",
+          "name": "doubly robust"
+        },
+        {
+          "topic_id": "covariate-adjustment",
+          "name": "covariate adjustment"
+        },
+        {
+          "topic_id": "causal-inference",
+          "name": "causal inference"
+        }
+      ],
       "ratings": {
         "dao": 8,
         "fa": 10,
@@ -147,24 +180,8 @@
       },
       "themes": [
         {
-          "theme_id": "triple-difference-estimator",
-          "name": "三重差分估计量"
-        },
-        {
-          "theme_id": "staggered-adoption-DiD",
-          "name": "交错采用双重差分"
-        },
-        {
-          "theme_id": "covariate-adjusted-identification",
-          "name": "协变量调整识别"
-        },
-        {
-          "theme_id": "doubly-robust-estimator",
-          "name": "双重鲁棒估计量"
-        },
-        {
-          "theme_id": "causal-inference-methods",
-          "name": "因果推断方法"
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
         }
       ],
       "excerpt_count": 3,
@@ -181,6 +198,28 @@
       "journal_or_series": "NBER Working Paper 34115",
       "doi": null,
       "one_line_judgment": "诉讼的恐惧比经济损失更能扭曲医生行为：一篇将非理性预期确立为防御性医疗主机制的实证研究。",
+      "topics": [
+        {
+          "topic_id": "malpractice-lawsuits",
+          "name": "malpractice lawsuits"
+        },
+        {
+          "topic_id": "defensive-medicine",
+          "name": "defensive medicine"
+        },
+        {
+          "topic_id": "physician-behavior",
+          "name": "physician behavior"
+        },
+        {
+          "topic_id": "salience",
+          "name": "salience"
+        },
+        {
+          "topic_id": "behavioral-health-economics",
+          "name": "behavioral health economics"
+        }
+      ],
       "ratings": {
         "dao": 8,
         "fa": 8,
@@ -192,24 +231,12 @@
       },
       "themes": [
         {
-          "theme_id": "physician-behavior",
-          "name": "医生行为与激励"
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
         },
         {
-          "theme_id": "malpractice-risk",
-          "name": "医疗事故诉讼风险"
-        },
-        {
-          "theme_id": "monitoring-enforcement",
-          "name": "监测与执法"
-        },
-        {
-          "theme_id": "behavioral-health-economics",
-          "name": "行为健康经济学"
-        },
-        {
-          "theme_id": "defensive-medicine",
-          "name": "防御性医疗"
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
         }
       ],
       "excerpt_count": 3,
@@ -226,6 +253,28 @@
       "journal_or_series": "Quarterly Journal of Economics",
       "doi": "10.1093/qje/qjad049",
       "one_line_judgment": "一篇将威慑效应主体化、同时证明监察不伤患者的 Medicare 浪费治理基准实证研究。",
+      "topics": [
+        {
+          "topic_id": "medicare-audits",
+          "name": "medicare audits"
+        },
+        {
+          "topic_id": "healthcare-waste",
+          "name": "healthcare waste"
+        },
+        {
+          "topic_id": "monitoring-enforcement",
+          "name": "monitoring enforcement"
+        },
+        {
+          "topic_id": "deterrence",
+          "name": "deterrence"
+        },
+        {
+          "topic_id": "hospital-behavior",
+          "name": "hospital behavior"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 10,
@@ -237,24 +286,12 @@
       },
       "themes": [
         {
-          "theme_id": "medicare-waste",
-          "name": "Medicare 浪费"
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
         },
         {
-          "theme_id": "hospital-behavior-incentives",
-          "name": "hospital behavior incentives"
-        },
-        {
-          "theme_id": "healthcare-fraud",
-          "name": "医疗欺诈"
-        },
-        {
-          "theme_id": "deterrence-effects",
-          "name": "威慑效应"
-        },
-        {
-          "theme_id": "monitoring-enforcement",
-          "name": "监测与执法"
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
         }
       ],
       "excerpt_count": 3,
@@ -271,6 +308,28 @@
       "journal_or_series": "Quarterly Journal of Economics",
       "doi": "10.1093/qje/qjae015",
       "one_line_judgment": "成本分担不是在削减浪费，而是在逼迫最需要药物的患者停药致死——这篇文章用$11,321每生命年的代价算清了这笔账。",
+      "topics": [
+        {
+          "topic_id": "cost-sharing",
+          "name": "cost sharing"
+        },
+        {
+          "topic_id": "drug-interruption",
+          "name": "drug interruption"
+        },
+        {
+          "topic_id": "mortality",
+          "name": "mortality"
+        },
+        {
+          "topic_id": "Medicare-Part-D",
+          "name": "Medicare Part D"
+        },
+        {
+          "topic_id": "donut-hole",
+          "name": "donut hole"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 10,
@@ -282,24 +341,12 @@
       },
       "themes": [
         {
-          "theme_id": "health-insurance-market-design",
-          "name": "健康保险市场设计"
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
         },
         {
-          "theme_id": "patient-cost-sharing",
-          "name": "患者自付费用设计"
-        },
-        {
-          "theme_id": "cost-sharing-demand",
-          "name": "成本分担与医疗需求"
-        },
-        {
-          "theme_id": "drug-adherence-health-outcomes",
-          "name": "药物依从性与健康结果"
-        },
-        {
-          "theme_id": "moral-hazard-health",
-          "name": "道德风险与医疗利用"
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
         }
       ],
       "excerpt_count": 3,
@@ -316,6 +363,28 @@
       "journal_or_series": "Quarterly Journal of Economics",
       "doi": "10.1093/qje/qjab048",
       "one_line_judgment": "一篇用放射科医生漏诊数据彻底拆解偏好与技能异质性、并对 judges design 发出方法论警告的里程碑文献。",
+      "topics": [
+        {
+          "topic_id": "diagnostic-skill",
+          "name": "diagnostic skill"
+        },
+        {
+          "topic_id": "radiologists",
+          "name": "radiologists"
+        },
+        {
+          "topic_id": "pneumonia",
+          "name": "pneumonia"
+        },
+        {
+          "topic_id": "judges-design",
+          "name": "judges design"
+        },
+        {
+          "topic_id": "physician-heterogeneity",
+          "name": "physician heterogeneity"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 10,
@@ -327,24 +396,12 @@
       },
       "themes": [
         {
-          "theme_id": "physician-skill-heterogeneity",
-          "name": "医生技能异质性"
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
         },
         {
-          "theme_id": "physician-behavior",
-          "name": "医生行为与激励"
-        },
-        {
-          "theme_id": "practice-variation",
-          "name": "医疗实践变异"
-        },
-        {
-          "theme_id": "judges-design-IV",
-          "name": "法官设计工具变量"
-        },
-        {
-          "theme_id": "diagnostic-accuracy",
-          "name": "诊断准确性"
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
         }
       ],
       "excerpt_count": 3,
@@ -361,6 +418,32 @@
       "journal_or_series": "Econometrics Journal",
       "doi": "10.1093/ectj/utac010",
       "one_line_judgment": "首次将三重差分估计量的识别假设形式化推导清楚，证明它只需一个差分上的平行趋势，而非两个。",
+      "topics": [
+        {
+          "topic_id": "triple-difference",
+          "name": "triple difference"
+        },
+        {
+          "topic_id": "DDD",
+          "name": "DDD"
+        },
+        {
+          "topic_id": "difference-in-differences",
+          "name": "difference in differences"
+        },
+        {
+          "topic_id": "parallel-trends",
+          "name": "parallel trends"
+        },
+        {
+          "topic_id": "causal-inference",
+          "name": "causal inference"
+        },
+        {
+          "topic_id": "identification",
+          "name": "identification"
+        }
+      ],
       "ratings": {
         "dao": 8,
         "fa": 10,
@@ -372,24 +455,8 @@
       },
       "themes": [
         {
-          "theme_id": "triple-difference-estimator",
-          "name": "三重差分估计量"
-        },
-        {
-          "theme_id": "difference-in-differences",
-          "name": "双重差分"
-        },
-        {
-          "theme_id": "causal-inference-methods",
-          "name": "因果推断方法"
-        },
-        {
-          "theme_id": "parallel-trends-assumption",
-          "name": "平行趋势假设"
-        },
-        {
-          "theme_id": "identification-in-applied-micro",
-          "name": "应用微观识别策略"
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
         }
       ],
       "excerpt_count": 3,
@@ -406,6 +473,28 @@
       "journal_or_series": "American Economic Journal: Economic Policy",
       "doi": "10.1257/pol.20180501",
       "one_line_judgment": "一篇用住院医师准随机数据打开医疗团队决策\"黑箱\"、揭示影响力集中背后信息聚合逻辑的重要实证研究。",
+      "topics": [
+        {
+          "topic_id": "team-decisions",
+          "name": "team decisions"
+        },
+        {
+          "topic_id": "physician-training",
+          "name": "physician training"
+        },
+        {
+          "topic_id": "practice-variation",
+          "name": "practice variation"
+        },
+        {
+          "topic_id": "information-aggregation",
+          "name": "information aggregation"
+        },
+        {
+          "topic_id": "residency",
+          "name": "residency"
+        }
+      ],
       "ratings": {
         "dao": 9,
         "fa": 9,
@@ -417,28 +506,16 @@
       },
       "themes": [
         {
-          "theme_id": "physician-teams",
-          "name": "医生团队协作"
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
         },
         {
-          "theme_id": "practice-variation",
-          "name": "医疗实践变异"
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
         },
         {
-          "theme_id": "organizational-economics-health",
-          "name": "医疗组织经济学"
-        },
-        {
-          "theme_id": "human-capital-teams",
-          "name": "团队专属人力资本"
-        },
-        {
-          "theme_id": "information-aggregation-teams",
-          "name": "团队内信息汇聚"
-        },
-        {
-          "theme_id": "team-production",
-          "name": "团队生产"
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
         }
       ],
       "excerpt_count": 3,
@@ -455,6 +532,28 @@
       "journal_or_series": "American Economic Review",
       "doi": "10.1257/aer.20201238",
       "one_line_judgment": "用急诊准随机配对证明医生之间的合作历史是一种可以救命的团队特定人力资本。",
+      "topics": [
+        {
+          "topic_id": "team-specific-human-capital",
+          "name": "team specific human capital"
+        },
+        {
+          "topic_id": "physician-teams",
+          "name": "physician teams"
+        },
+        {
+          "topic_id": "cardiac-care",
+          "name": "cardiac care"
+        },
+        {
+          "topic_id": "collaboration",
+          "name": "collaboration"
+        },
+        {
+          "topic_id": "patient-outcomes",
+          "name": "patient outcomes"
+        }
+      ],
       "ratings": {
         "dao": 9,
         "fa": 9,
@@ -466,28 +565,8 @@
       },
       "themes": [
         {
-          "theme_id": "physician-teams",
-          "name": "医生团队协作"
-        },
-        {
-          "theme_id": "organizational-economics-health",
-          "name": "医疗组织经济学"
-        },
-        {
-          "theme_id": "human-capital-teams",
-          "name": "团队专属人力资本"
-        },
-        {
-          "theme_id": "team-specific-human-capital",
-          "name": "团队专属人力资本积累"
-        },
-        {
-          "theme_id": "team-production",
-          "name": "团队生产"
-        },
-        {
-          "theme_id": "cardiac-care-quality",
-          "name": "心脏病治疗质量"
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
         }
       ],
       "excerpt_count": 3,
@@ -504,6 +583,28 @@
       "journal_or_series": "Quarterly Journal of Economics",
       "doi": "10.1093/qje/qjz040",
       "one_line_judgment": "一篇用广义 Roy 模型将医疗变异中的分配无效率与比较优势真正拆开的方法论基准文献，44%可提升空间令人警醒。",
+      "topics": [
+        {
+          "topic_id": "allocative-inefficiency",
+          "name": "allocative inefficiency"
+        },
+        {
+          "topic_id": "comparative-advantage",
+          "name": "comparative advantage"
+        },
+        {
+          "topic_id": "treatment-variation",
+          "name": "treatment variation"
+        },
+        {
+          "topic_id": "hospital-productivity",
+          "name": "hospital productivity"
+        },
+        {
+          "topic_id": "heart-attack",
+          "name": "heart attack"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 10,
@@ -515,28 +616,8 @@
       },
       "themes": [
         {
-          "theme_id": "healthcare-inefficiency",
-          "name": "医疗低效率"
-        },
-        {
-          "theme_id": "organizational-economics-health",
-          "name": "医疗组织经济学"
-        },
-        {
-          "theme_id": "empirical-structural-health",
-          "name": "医疗结构估计"
-        },
-        {
-          "theme_id": "comparative-advantage-hospitals",
-          "name": "医院比较优势"
-        },
-        {
-          "theme_id": "treatment-variation",
-          "name": "治疗变异"
-        },
-        {
-          "theme_id": "allocative-efficiency",
-          "name": "配置效率"
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
         }
       ],
       "excerpt_count": 3,
@@ -553,6 +634,28 @@
       "journal_or_series": "Econometrica",
       "doi": "10.3982/ECTA16591",
       "one_line_judgment": "一篇将诊断技能引入医生处方决策框架、揭示试验价值依赖技能水平的开创性文献。",
+      "topics": [
+        {
+          "topic_id": "physician-skill",
+          "name": "physician skill"
+        },
+        {
+          "topic_id": "practice-style",
+          "name": "practice style"
+        },
+        {
+          "topic_id": "antidepressant-prescribing",
+          "name": "antidepressant prescribing"
+        },
+        {
+          "topic_id": "decision-making",
+          "name": "decision making"
+        },
+        {
+          "topic_id": "guidelines",
+          "name": "guidelines"
+        }
+      ],
       "ratings": {
         "dao": 8,
         "fa": 6,
@@ -564,24 +667,12 @@
       },
       "themes": [
         {
-          "theme_id": "practice-style",
-          "name": "医生实践风格"
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
         },
         {
-          "theme_id": "physician-skill-heterogeneity",
-          "name": "医生技能异质性"
-        },
-        {
-          "theme_id": "physician-behavior",
-          "name": "医生行为与激励"
-        },
-        {
-          "theme_id": "quality-guidelines",
-          "name": "医疗质量指南"
-        },
-        {
-          "theme_id": "learning-and-experimentation",
-          "name": "学习与试验性治疗"
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
         }
       ],
       "excerpt_count": 3,
@@ -598,6 +689,28 @@
       "journal_or_series": "American Economic Review",
       "doi": "10.1257/aer.20171455",
       "one_line_judgment": "大额补贴换不来全覆盖，因为低收入人群对保险的支付意愿本身就系统性地低于他们自己的医疗成本——这篇文章把这一不便的真相量化得清清楚楚。",
+      "topics": [
+        {
+          "topic_id": "health-insurance-demand",
+          "name": "health insurance demand"
+        },
+        {
+          "topic_id": "willingness-to-pay",
+          "name": "willingness to pay"
+        },
+        {
+          "topic_id": "adverse-selection",
+          "name": "adverse selection"
+        },
+        {
+          "topic_id": "subsidies",
+          "name": "subsidies"
+        },
+        {
+          "topic_id": "low-income",
+          "name": "low income"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 10,
@@ -609,24 +722,12 @@
       },
       "themes": [
         {
-          "theme_id": "insurance-subsidies-low-income",
-          "name": "低收入群体保险补贴"
+          "theme_id": "insurance-choice-and-information-frictions",
+          "name": "保险选择与信息摩擦"
         },
         {
-          "theme_id": "health-insurance-market-design",
-          "name": "健康保险市场设计"
-        },
-        {
-          "theme_id": "health-insurance-demand",
-          "name": "健康保险需求"
-        },
-        {
-          "theme_id": "cost-sharing-demand",
-          "name": "成本分担与医疗需求"
-        },
-        {
-          "theme_id": "adverse-selection-insurance",
-          "name": "逆向选择与保险市场"
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
         }
       ],
       "excerpt_count": 3,
@@ -643,6 +744,32 @@
       "journal_or_series": "The Review of Economics and Statistics",
       "doi": "10.1162/rest_a_00704",
       "one_line_judgment": "一篇把“属性基准监管”从直觉争论推进到可理论化、可识别、可反事实比较层面的高价值论文，结论明确指向：不能把分段属性标准误当成交易制度的无成本替代品。",
+      "topics": [
+        {
+          "topic_id": "attribute-based-regulation",
+          "name": "attribute based regulation"
+        },
+        {
+          "topic_id": "fuel-economy-standards",
+          "name": "fuel economy standards"
+        },
+        {
+          "topic_id": "bunching",
+          "name": "bunching"
+        },
+        {
+          "topic_id": "notches",
+          "name": "notches"
+        },
+        {
+          "topic_id": "compliance-trading",
+          "name": "compliance trading"
+        },
+        {
+          "topic_id": "japan",
+          "name": "japan"
+        }
+      ],
       "ratings": {
         "dao": 9,
         "fa": 9,
@@ -654,16 +781,12 @@
       },
       "themes": [
         {
-          "theme_id": "attribute-based-regulation",
-          "name": "属性基准监管"
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
         },
         {
-          "theme_id": "fuel-economy-standards",
-          "name": "燃油经济性标准"
-        },
-        {
-          "theme_id": "bunching-and-notches",
-          "name": "阈值响应与 Bunching"
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
         }
       ],
       "excerpt_count": 5,
@@ -680,6 +803,28 @@
       "journal_or_series": "American Economic Review",
       "doi": "10.1257/aer.20160349",
       "one_line_judgment": "用物理时间约束揭示可疑过度计费：一把简洁有力的 Medicare 欺诈初筛工具。",
+      "topics": [
+        {
+          "topic_id": "medicare-overbilling",
+          "name": "medicare overbilling"
+        },
+        {
+          "topic_id": "physician-billing",
+          "name": "physician billing"
+        },
+        {
+          "topic_id": "fraud-detection",
+          "name": "fraud detection"
+        },
+        {
+          "topic_id": "hours-worked",
+          "name": "hours worked"
+        },
+        {
+          "topic_id": "methodology",
+          "name": "methodology"
+        }
+      ],
       "ratings": {
         "dao": 7,
         "fa": 6,
@@ -691,24 +836,12 @@
       },
       "themes": [
         {
-          "theme_id": "medicare-waste",
-          "name": "Medicare 浪费"
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
         },
         {
-          "theme_id": "medicare-claims-methodology",
-          "name": "Medicare 索赔方法"
-        },
-        {
-          "theme_id": "physician-overbilling",
-          "name": "医生过度计费"
-        },
-        {
-          "theme_id": "healthcare-fraud",
-          "name": "医疗欺诈"
-        },
-        {
-          "theme_id": "fraud-detection",
-          "name": "欺诈识别"
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
         }
       ],
       "excerpt_count": 3,
@@ -725,6 +858,28 @@
       "journal_or_series": "Quarterly Journal of Economics",
       "doi": "10.1093/qje/qjx013",
       "one_line_judgment": "高免赔额计划砍掉的不是\"水分\"而是\"肉\"——这篇文章用数量分解和价格信号分析彻底重新定义了我们对成本分担机制的理解。",
+      "topics": [
+        {
+          "topic_id": "cost-sharing",
+          "name": "cost sharing"
+        },
+        {
+          "topic_id": "high-deductible-health-plan",
+          "name": "high deductible health plan"
+        },
+        {
+          "topic_id": "moral-hazard",
+          "name": "moral hazard"
+        },
+        {
+          "topic_id": "price-responsiveness",
+          "name": "price responsiveness"
+        },
+        {
+          "topic_id": "spending-decomposition",
+          "name": "spending decomposition"
+        }
+      ],
       "ratings": {
         "dao": 9,
         "fa": 9,
@@ -736,24 +891,8 @@
       },
       "themes": [
         {
-          "theme_id": "health-insurance-market-design",
-          "name": "健康保险市场设计"
-        },
-        {
-          "theme_id": "patient-cost-sharing",
-          "name": "患者自付费用设计"
-        },
-        {
-          "theme_id": "cost-sharing-demand",
-          "name": "成本分担与医疗需求"
-        },
-        {
-          "theme_id": "moral-hazard-health",
-          "name": "道德风险与医疗利用"
-        },
-        {
-          "theme_id": "nonlinear-contract-behavior",
-          "name": "非线性合同中的消费者行为"
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
         }
       ],
       "excerpt_count": 3,
@@ -770,6 +909,32 @@
       "journal_or_series": "Quarterly Journal of Economics",
       "doi": "10.1093/qje/qjw023",
       "one_line_judgment": "用患者迁移剥离需求与供给贡献，重新定标了\"医疗地区差异主要由供给侧驱动\"这一既有共识。",
+      "topics": [
+        {
+          "topic_id": "geographic-variation",
+          "name": "geographic variation"
+        },
+        {
+          "topic_id": "healthcare-utilization",
+          "name": "healthcare utilization"
+        },
+        {
+          "topic_id": "Medicare",
+          "name": "Medicare"
+        },
+        {
+          "topic_id": "patient-migration",
+          "name": "patient migration"
+        },
+        {
+          "topic_id": "demand-supply-decomposition",
+          "name": "demand supply decomposition"
+        },
+        {
+          "topic_id": "place-effects",
+          "name": "place effects"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 10,
@@ -781,24 +946,8 @@
       },
       "themes": [
         {
-          "theme_id": "medicare-utilization",
-          "name": "Medicare 医疗利用"
-        },
-        {
-          "theme_id": "geographic-variation-healthcare",
-          "name": "医疗利用地域差异"
-        },
-        {
-          "theme_id": "place-effects-health",
-          "name": "地点效应与健康"
-        },
-        {
-          "theme_id": "patient-migration-identification",
-          "name": "患者迁移识别策略"
-        },
-        {
-          "theme_id": "demand-supply-decomposition",
-          "name": "需求与供给分解"
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
         }
       ],
       "excerpt_count": 3,
@@ -815,6 +964,28 @@
       "journal_or_series": "Journal of Political Economy",
       "doi": "10.1086/685910",
       "one_line_judgment": "一篇用急诊室自然实验证明团队自我管理可以打败经典道德风险预言的组织经济学力作。",
+      "topics": [
+        {
+          "topic_id": "teamwork",
+          "name": "teamwork"
+        },
+        {
+          "topic_id": "moral-hazard",
+          "name": "moral hazard"
+        },
+        {
+          "topic_id": "emergency-department",
+          "name": "emergency department"
+        },
+        {
+          "topic_id": "physician-productivity",
+          "name": "physician productivity"
+        },
+        {
+          "topic_id": "organizational-design",
+          "name": "organizational design"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 9,
@@ -826,28 +997,12 @@
       },
       "themes": [
         {
-          "theme_id": "foot-dragging-information",
-          "name": "信息隐藏与工作拖延"
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
         },
         {
-          "theme_id": "physician-teams",
-          "name": "医生团队协作"
-        },
-        {
-          "theme_id": "organizational-economics-health",
-          "name": "医疗组织经济学"
-        },
-        {
-          "theme_id": "moral-hazard-teams",
-          "name": "团队内道德风险"
-        },
-        {
-          "theme_id": "team-production",
-          "name": "团队生产"
-        },
-        {
-          "theme_id": "mutual-monitoring",
-          "name": "相互监督机制"
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
         }
       ],
       "excerpt_count": 3,
@@ -864,6 +1019,28 @@
       "journal_or_series": "American Economic Review",
       "doi": "10.1257/aer.20131126",
       "one_line_judgment": "一篇把风险偏好、信息摩擦与福利分析真正拆开的健康保险选择基准文献。",
+      "topics": [
+        {
+          "topic_id": "health-insurance",
+          "name": "health insurance"
+        },
+        {
+          "topic_id": "information-frictions",
+          "name": "information frictions"
+        },
+        {
+          "topic_id": "plan-choice",
+          "name": "plan choice"
+        },
+        {
+          "topic_id": "consumer-welfare",
+          "name": "consumer welfare"
+        },
+        {
+          "topic_id": "structural-demand",
+          "name": "structural demand"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 10,
@@ -875,16 +1052,12 @@
       },
       "themes": [
         {
-          "theme_id": "information-frictions-in-insurance",
-          "name": "保险选择中的信息摩擦"
+          "theme_id": "insurance-choice-and-information-frictions",
+          "name": "保险选择与信息摩擦"
         },
         {
-          "theme_id": "health-insurance-choice",
-          "name": "健康保险计划选择"
-        },
-        {
-          "theme_id": "consumer-welfare-under-choice-frictions",
-          "name": "选择摩擦下的消费者福利"
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
         }
       ],
       "excerpt_count": 4,
@@ -901,6 +1074,28 @@
       "journal_or_series": "Quarterly Journal of Economics",
       "doi": "10.1093/qje/qjv005",
       "one_line_judgment": "一篇关于非线性保险合同与健康政策反事实分析的基准型论文。",
+      "topics": [
+        {
+          "topic_id": "nonlinear-pricing",
+          "name": "nonlinear pricing"
+        },
+        {
+          "topic_id": "medicare-part-d",
+          "name": "medicare part d"
+        },
+        {
+          "topic_id": "health-insurance",
+          "name": "health insurance"
+        },
+        {
+          "topic_id": "bunching",
+          "name": "bunching"
+        },
+        {
+          "topic_id": "counterfactual",
+          "name": "counterfactual"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 8,
@@ -912,16 +1107,12 @@
       },
       "themes": [
         {
-          "theme_id": "drug-demand-under-insurance",
-          "name": "保险下的药品需求"
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
         },
         {
-          "theme_id": "policy-counterfactuals-in-health",
-          "name": "健康政策反事实分析"
-        },
-        {
-          "theme_id": "nonlinear-insurance-contracts",
-          "name": "非线性保险合同"
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
         }
       ],
       "excerpt_count": 4,
@@ -938,6 +1129,28 @@
       "journal_or_series": "American Economic Review",
       "doi": "10.1257/aer.104.7.2152",
       "one_line_judgment": "日本70岁的一刀切政策断点，为健康经济学提供了迄今最干净的老年成本分担弹性估计，顺带给出了财务保护效应的可信证据。",
+      "topics": [
+        {
+          "topic_id": "cost-sharing",
+          "name": "cost sharing"
+        },
+        {
+          "topic_id": "regression-discontinuity",
+          "name": "regression discontinuity"
+        },
+        {
+          "topic_id": "elderly-health",
+          "name": "elderly health"
+        },
+        {
+          "topic_id": "utilization-elasticity",
+          "name": "utilization elasticity"
+        },
+        {
+          "topic_id": "financial-risk-protection",
+          "name": "financial risk protection"
+        }
+      ],
       "ratings": {
         "dao": 9,
         "fa": 9,
@@ -949,24 +1162,12 @@
       },
       "themes": [
         {
-          "theme_id": "patient-cost-sharing",
-          "name": "患者自付费用设计"
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
         },
         {
-          "theme_id": "cost-sharing-demand",
-          "name": "成本分担与医疗需求"
-        },
-        {
-          "theme_id": "health-insurance-elderly",
-          "name": "老年人健康保险"
-        },
-        {
-          "theme_id": "financial-risk-protection",
-          "name": "财务风险保护"
-        },
-        {
-          "theme_id": "moral-hazard-health",
-          "name": "道德风险与医疗利用"
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
         }
       ],
       "excerpt_count": 3,
@@ -983,6 +1184,28 @@
       "journal_or_series": "American Economic Review",
       "doi": "10.1257/aer.103.7.2875",
       "one_line_judgment": "一篇用宾夕法尼亚手术报告卡干净地证明内在激励是医生质量改善主要驱动力的基准文献。",
+      "topics": [
+        {
+          "topic_id": "quality-reporting",
+          "name": "quality reporting"
+        },
+        {
+          "topic_id": "intrinsic-motivation",
+          "name": "intrinsic motivation"
+        },
+        {
+          "topic_id": "surgeon-behavior",
+          "name": "surgeon behavior"
+        },
+        {
+          "topic_id": "report-cards",
+          "name": "report cards"
+        },
+        {
+          "topic_id": "physician-incentives",
+          "name": "physician incentives"
+        }
+      ],
       "ratings": {
         "dao": 9,
         "fa": 9,
@@ -994,24 +1217,16 @@
       },
       "themes": [
         {
-          "theme_id": "information-and-incentives",
-          "name": "信息与激励"
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
         },
         {
-          "theme_id": "intrinsic-motivation-physicians",
-          "name": "医生内在激励"
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
         },
         {
-          "theme_id": "physician-behavior",
-          "name": "医生行为与激励"
-        },
-        {
-          "theme_id": "empirical-structural-health",
-          "name": "医疗结构估计"
-        },
-        {
-          "theme_id": "quality-reporting",
-          "name": "质量信息披露"
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
         }
       ],
       "excerpt_count": 3,
@@ -1028,6 +1243,28 @@
       "journal_or_series": "American Economic Review",
       "doi": "10.1257/aer.101.6.2590",
       "one_line_judgment": "一篇长期复用价值极高的经典信息设计框架论文。",
+      "topics": [
+        {
+          "topic_id": "information-design",
+          "name": "information design"
+        },
+        {
+          "topic_id": "persuasion",
+          "name": "persuasion"
+        },
+        {
+          "topic_id": "sender-receiver",
+          "name": "sender receiver"
+        },
+        {
+          "topic_id": "posterior-beliefs",
+          "name": "posterior beliefs"
+        },
+        {
+          "topic_id": "mechanism",
+          "name": "mechanism"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 10,
@@ -1039,16 +1276,8 @@
       },
       "themes": [
         {
-          "theme_id": "belief-manipulation-and-disclosure",
-          "name": "信念操纵与信息披露"
-        },
-        {
-          "theme_id": "information-design-persuasion",
-          "name": "信息设计与劝服"
-        },
-        {
-          "theme_id": "strategic-communication",
-          "name": "策略性沟通"
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
         }
       ],
       "excerpt_count": 4,
@@ -1065,6 +1294,28 @@
       "journal_or_series": "Journal of Political Economy",
       "doi": "10.1086/512249",
       "one_line_judgment": "用含溢出效应的 Roy 模型一举颠覆\"地理变异等于浪费\"叙事的健康经济学理论与实证标杆。",
+      "topics": [
+        {
+          "topic_id": "geographic-variation",
+          "name": "geographic variation"
+        },
+        {
+          "topic_id": "productivity-spillovers",
+          "name": "productivity spillovers"
+        },
+        {
+          "topic_id": "heart-attacks",
+          "name": "heart attacks"
+        },
+        {
+          "topic_id": "Roy-model",
+          "name": "Roy model"
+        },
+        {
+          "topic_id": "treatment-intensity",
+          "name": "treatment intensity"
+        }
+      ],
       "ratings": {
         "dao": 10,
         "fa": 8,
@@ -1076,24 +1327,12 @@
       },
       "themes": [
         {
-          "theme_id": "practice-style",
-          "name": "医生实践风格"
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
         },
         {
-          "theme_id": "physician-skill-heterogeneity",
-          "name": "医生技能异质性"
-        },
-        {
-          "theme_id": "geographic-variation",
-          "name": "医疗地域变异"
-        },
-        {
-          "theme_id": "treatment-intensity",
-          "name": "治疗强度"
-        },
-        {
-          "theme_id": "productivity-spillovers",
-          "name": "生产率溢出"
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
         }
       ],
       "excerpt_count": 3,
@@ -1110,6 +1349,32 @@
       "journal_or_series": "Journal of Economic Perspectives",
       "doi": "10.1257/jep.20.3.97",
       "one_line_judgment": "一篇从历史、国际与国内三维度系统梳理死亡率决定因素的权威综述，是进入健康经济学文献的必要背景读物。",
+      "topics": [
+        {
+          "topic_id": "mortality",
+          "name": "mortality"
+        },
+        {
+          "topic_id": "health-history",
+          "name": "health history"
+        },
+        {
+          "topic_id": "income-health-gradient",
+          "name": "income health gradient"
+        },
+        {
+          "topic_id": "public-health",
+          "name": "public health"
+        },
+        {
+          "topic_id": "medical-technology",
+          "name": "medical technology"
+        },
+        {
+          "topic_id": "health-inequality",
+          "name": "health inequality"
+        }
+      ],
       "ratings": {
         "dao": 8,
         "fa": 6,
@@ -1121,24 +1386,8 @@
       },
       "themes": [
         {
-          "theme_id": "health-inequality",
-          "name": "health inequality"
-        },
-        {
-          "theme_id": "income-health-gradient",
-          "name": "income health gradient"
-        },
-        {
-          "theme_id": "medical-technology-mortality",
-          "name": "medical technology mortality"
-        },
-        {
-          "theme_id": "mortality-determinants",
-          "name": "mortality determinants"
-        },
-        {
-          "theme_id": "public-health-infrastructure",
-          "name": "public health infrastructure"
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
         }
       ],
       "excerpt_count": 3,
@@ -1155,6 +1404,32 @@
       "journal_or_series": "Handbook of Health Economics, Volume 1",
       "doi": "10.1016/S1574-0064(00)80166-3",
       "one_line_judgment": "将健康需求与医疗需求从理论上彻底分离，奠定健康经济学核心理论框架的半世纪之作。",
+      "topics": [
+        {
+          "topic_id": "health-capital",
+          "name": "health capital"
+        },
+        {
+          "topic_id": "demand-for-health",
+          "name": "demand for health"
+        },
+        {
+          "topic_id": "human-capital",
+          "name": "human capital"
+        },
+        {
+          "topic_id": "household-production",
+          "name": "household production"
+        },
+        {
+          "topic_id": "health-investment",
+          "name": "health investment"
+        },
+        {
+          "topic_id": "education-health",
+          "name": "education health"
+        }
+      ],
       "ratings": {
         "dao": 9,
         "fa": 8,
@@ -1166,24 +1441,8 @@
       },
       "themes": [
         {
-          "theme_id": "human-capital-health",
-          "name": "健康人力资本"
-        },
-        {
-          "theme_id": "demand-for-health",
-          "name": "健康需求理论"
-        },
-        {
-          "theme_id": "household-production-theory",
-          "name": "家庭生产理论"
-        },
-        {
-          "theme_id": "education-health-gradient",
-          "name": "教育与健康梯度"
-        },
-        {
-          "theme_id": "health-investment-lifecycle",
-          "name": "生命周期健康投资"
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
         }
       ],
       "excerpt_count": 3,
@@ -1200,6 +1459,28 @@
       "journal_or_series": "American Economic Review",
       "doi": "10.2307/1809376",
       "one_line_judgment": "重新定义经济问题为知识利用问题，为价格机制与去中央化提供了最深刻的理论辩护，也是理解医疗信息不对称之根源的思想底色。",
+      "topics": [
+        {
+          "topic_id": "information-decentralization",
+          "name": "information decentralization"
+        },
+        {
+          "topic_id": "price-system",
+          "name": "price system"
+        },
+        {
+          "topic_id": "knowledge-dispersion",
+          "name": "knowledge dispersion"
+        },
+        {
+          "topic_id": "market-mechanism",
+          "name": "market mechanism"
+        },
+        {
+          "topic_id": "central-planning",
+          "name": "central planning"
+        }
+      ],
       "ratings": {
         "dao": 9,
         "fa": 8,
@@ -1211,24 +1492,8 @@
       },
       "themes": [
         {
-          "theme_id": "price-system-information",
-          "name": "价格系统与信息传递"
-        },
-        {
-          "theme_id": "health-insurance-information-asymmetry",
-          "name": "健康保险信息不对称"
-        },
-        {
-          "theme_id": "information-decentralization",
-          "name": "分散信息"
-        },
-        {
-          "theme_id": "knowledge-dispersion",
-          "name": "知识分散"
-        },
-        {
-          "theme_id": "central-planning-vs-markets",
-          "name": "计划与市场的协调比较"
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
         }
       ],
       "excerpt_count": 3,
@@ -1237,1145 +1502,757 @@
   ],
   "themes": [
     {
-      "theme_id": "health-inequality",
-      "name": "health inequality",
-      "field": "",
-      "status": "linked_without_theme_file",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "hospital-behavior-incentives",
-      "name": "hospital behavior incentives",
-      "field": "",
-      "status": "linked_without_theme_file",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "income-health-gradient",
-      "name": "income health gradient",
-      "field": "",
-      "status": "linked_without_theme_file",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "medical-technology-mortality",
-      "name": "medical technology mortality",
-      "field": "",
-      "status": "linked_without_theme_file",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "medicare-utilization",
-      "name": "Medicare 医疗利用",
+      "theme_id": "physician-behavior-and-clinical-decision-making",
+      "name": "医生行为与临床决策",
       "field": "health-economics",
       "status": "draft_completed",
-      "paper_count": 1
+      "paper_count": 7
     },
     {
-      "theme_id": "medicare-fraud",
-      "name": "Medicare 欺诈",
+      "theme_id": "health-insurance-and-cost-sharing",
+      "name": "健康保险与成本分担",
       "field": "health-economics",
       "status": "draft_completed",
-      "paper_count": 1
+      "paper_count": 6
     },
     {
-      "theme_id": "medicare-waste",
-      "name": "Medicare 浪费",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 2
-    },
-    {
-      "theme_id": "medicare-claims-methodology",
-      "name": "Medicare 索赔方法",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "mortality-determinants",
-      "name": "mortality determinants",
-      "field": "",
-      "status": "linked_without_theme_file",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "public-health-infrastructure",
-      "name": "public health infrastructure",
-      "field": "",
-      "status": "linked_without_theme_file",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "triple-difference-estimator",
-      "name": "三重差分估计量",
-      "field": "econometrics",
-      "status": "draft_completed",
-      "paper_count": 2
-    },
-    {
-      "theme_id": "prior-authorization",
-      "name": "事前授权",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "staggered-adoption-DiD",
-      "name": "交错采用双重差分",
-      "field": "econometrics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "price-system-information",
-      "name": "价格系统与信息传递",
-      "field": "economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "insurance-subsidies-low-income",
-      "name": "低收入群体保险补贴",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "drug-demand-under-insurance",
-      "name": "保险下的药品需求",
-      "field": "health-economics",
-      "status": "seeded_demo",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "information-frictions-in-insurance",
-      "name": "保险选择中的信息摩擦",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "belief-manipulation-and-disclosure",
-      "name": "信念操纵与信息披露",
-      "field": "microeconomic-theory",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "information-and-incentives",
-      "name": "信息与激励",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "information-design-persuasion",
-      "name": "信息设计与劝服",
-      "field": "microeconomic-theory",
-      "status": "seeded_demo",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "foot-dragging-information",
-      "name": "信息隐藏与工作拖延",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "human-capital-health",
-      "name": "健康人力资本",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "health-insurance-information-asymmetry",
-      "name": "健康保险信息不对称",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "health-insurance-market-design",
-      "name": "健康保险市场设计",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 3
-    },
-    {
-      "theme_id": "health-insurance-choice",
-      "name": "健康保险计划选择",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "health-insurance-demand",
-      "name": "健康保险需求",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "policy-counterfactuals-in-health",
-      "name": "健康政策反事实分析",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "demand-for-health",
-      "name": "健康需求理论",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "information-decentralization",
-      "name": "分散信息",
-      "field": "economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "intrinsic-motivation-physicians",
-      "name": "医生内在激励",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "physician-teams",
-      "name": "医生团队协作",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 3
-    },
-    {
-      "theme_id": "practice-style",
-      "name": "医生实践风格",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 2
-    },
-    {
-      "theme_id": "physician-skill-heterogeneity",
-      "name": "医生技能异质性",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 3
-    },
-    {
-      "theme_id": "physician-behavior",
-      "name": "医生行为与激励",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 4
-    },
-    {
-      "theme_id": "physician-overbilling",
-      "name": "医生过度计费",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "malpractice-risk",
-      "name": "医疗事故诉讼风险",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "healthcare-inefficiency",
-      "name": "医疗低效率",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "geographic-variation-healthcare",
-      "name": "医疗利用地域差异",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "geographic-variation",
-      "name": "医疗地域变异",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "practice-variation",
-      "name": "医疗实践变异",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 2
-    },
-    {
-      "theme_id": "healthcare-fraud",
-      "name": "医疗欺诈",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 3
-    },
-    {
-      "theme_id": "organizational-economics-health",
-      "name": "医疗组织经济学",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 4
-    },
-    {
-      "theme_id": "empirical-structural-health",
-      "name": "医疗结构估计",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 2
-    },
-    {
-      "theme_id": "quality-guidelines",
-      "name": "医疗质量指南",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "comparative-advantage-hospitals",
-      "name": "医院比较优势",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "covariate-adjusted-identification",
-      "name": "协变量调整识别",
-      "field": "econometrics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "difference-in-differences",
-      "name": "双重差分",
-      "field": "econometrics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "doubly-robust-estimator",
-      "name": "双重鲁棒估计量",
-      "field": "econometrics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "causal-inference-methods",
-      "name": "因果推断方法",
-      "field": "econometrics",
-      "status": "draft_completed",
-      "paper_count": 2
-    },
-    {
-      "theme_id": "human-capital-teams",
-      "name": "团队专属人力资本",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 2
-    },
-    {
-      "theme_id": "team-specific-human-capital",
-      "name": "团队专属人力资本积累",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "information-aggregation-teams",
-      "name": "团队内信息汇聚",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "moral-hazard-teams",
-      "name": "团队内道德风险",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "team-production",
-      "name": "团队生产",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 3
-    },
-    {
-      "theme_id": "place-effects-health",
-      "name": "地点效应与健康",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "deterrence-effects",
-      "name": "威慑效应",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "learning-and-experimentation",
-      "name": "学习与试验性治疗",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "household-production-theory",
-      "name": "家庭生产理论",
-      "field": "economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "attribute-based-regulation",
-      "name": "属性基准监管",
+      "theme_id": "regulation-design-and-policy-incentives",
+      "name": "监管设计与政策激励",
       "field": "public-economics",
       "status": "draft_completed",
-      "paper_count": 1
+      "paper_count": 6
     },
     {
-      "theme_id": "parallel-trends-assumption",
-      "name": "平行趋势假设",
-      "field": "econometrics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "identification-in-applied-micro",
-      "name": "应用微观识别策略",
-      "field": "econometrics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "cardiac-care-quality",
-      "name": "心脏病治疗质量",
+      "theme_id": "healthcare-productivity-variation-and-inefficiency",
+      "name": "医疗生产率、差异与低效率",
       "field": "health-economics",
       "status": "draft_completed",
-      "paper_count": 1
+      "paper_count": 5
     },
     {
-      "theme_id": "patient-cost-sharing",
-      "name": "患者自付费用设计",
-      "field": "health-economics",
+      "theme_id": "information-economics-and-persuasion",
+      "name": "信息经济学与说服",
+      "field": "economics",
       "status": "draft_completed",
-      "paper_count": 3
+      "paper_count": 4
     },
     {
-      "theme_id": "patient-migration-identification",
-      "name": "患者迁移识别策略",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "cost-sharing-demand",
-      "name": "成本分担与医疗需求",
+      "theme_id": "health-capital-mortality-and-health-production",
+      "name": "健康资本、死亡率与健康生产",
       "field": "health-economics",
       "status": "draft_completed",
       "paper_count": 4
     },
     {
-      "theme_id": "ambulance-regulation",
-      "name": "救护车服务监管",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "education-health-gradient",
-      "name": "教育与健康梯度",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "fraud-detection",
-      "name": "欺诈识别",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "treatment-variation",
-      "name": "治疗变异",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "treatment-intensity",
-      "name": "治疗强度",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "judges-design-IV",
-      "name": "法官设计工具变量",
+      "theme_id": "causal-inference-and-program-evaluation",
+      "name": "因果识别与政策评估",
       "field": "econometrics",
       "status": "draft_completed",
-      "paper_count": 1
+      "paper_count": 4
     },
     {
-      "theme_id": "fuel-economy-standards",
-      "name": "燃油经济性标准",
-      "field": "environmental-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "productivity-spillovers",
-      "name": "生产率溢出",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "health-investment-lifecycle",
-      "name": "生命周期健康投资",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "monitoring-enforcement",
-      "name": "监测与执法",
+      "theme_id": "healthcare-teams-and-organizational-design",
+      "name": "医疗团队与组织设计",
       "field": "health-economics",
       "status": "draft_completed",
       "paper_count": 3
     },
     {
-      "theme_id": "regulation-vs-litigation",
-      "name": "监管与诉讼的工具比较",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "mutual-monitoring",
-      "name": "相互监督机制",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "knowledge-dispersion",
-      "name": "知识分散",
-      "field": "economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "strategic-communication",
-      "name": "策略性沟通",
-      "field": "microeconomic-theory",
-      "status": "seeded_demo",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "health-insurance-elderly",
-      "name": "老年人健康保险",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "drug-adherence-health-outcomes",
-      "name": "药物依从性与健康结果",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "behavioral-health-economics",
-      "name": "行为健康经济学",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "central-planning-vs-markets",
-      "name": "计划与市场的协调比较",
-      "field": "economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "diagnostic-accuracy",
-      "name": "诊断准确性",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "financial-risk-protection",
-      "name": "财务风险保护",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "quality-reporting",
-      "name": "质量信息披露",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "adverse-selection-insurance",
-      "name": "逆向选择与保险市场",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "consumer-welfare-under-choice-frictions",
-      "name": "选择摩擦下的消费者福利",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "moral-hazard-health",
-      "name": "道德风险与医疗利用",
+      "theme_id": "healthcare-fraud-waste-and-enforcement",
+      "name": "医疗欺诈、浪费与执法",
       "field": "health-economics",
       "status": "draft_completed",
       "paper_count": 3
     },
     {
-      "theme_id": "allocative-efficiency",
-      "name": "配置效率",
+      "theme_id": "insurance-choice-and-information-frictions",
+      "name": "保险选择与信息摩擦",
       "field": "health-economics",
       "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "bunching-and-notches",
-      "name": "阈值响应与 Bunching",
-      "field": "public-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "defensive-medicine",
-      "name": "防御性医疗",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "demand-supply-decomposition",
-      "name": "需求与供给分解",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "nonlinear-insurance-contracts",
-      "name": "非线性保险合同",
-      "field": "health-economics",
-      "status": "seeded_demo",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "nonlinear-contract-behavior",
-      "name": "非线性合同中的消费者行为",
-      "field": "health-economics",
-      "status": "draft_completed",
-      "paper_count": 1
+      "paper_count": 2
     }
   ],
   "theme_distribution": [
     {
-      "theme_id": "physician-behavior",
-      "name": "医生行为与激励",
+      "theme_id": "physician-behavior-and-clinical-decision-making",
+      "name": "医生行为与临床决策",
+      "paper_count": 7
+    },
+    {
+      "theme_id": "health-insurance-and-cost-sharing",
+      "name": "健康保险与成本分担",
+      "paper_count": 6
+    },
+    {
+      "theme_id": "regulation-design-and-policy-incentives",
+      "name": "监管设计与政策激励",
+      "paper_count": 6
+    },
+    {
+      "theme_id": "healthcare-productivity-variation-and-inefficiency",
+      "name": "医疗生产率、差异与低效率",
+      "paper_count": 5
+    },
+    {
+      "theme_id": "information-economics-and-persuasion",
+      "name": "信息经济学与说服",
       "paper_count": 4
     },
     {
-      "theme_id": "cost-sharing-demand",
-      "name": "成本分担与医疗需求",
+      "theme_id": "health-capital-mortality-and-health-production",
+      "name": "健康资本、死亡率与健康生产",
       "paper_count": 4
     },
     {
-      "theme_id": "organizational-economics-health",
-      "name": "医疗组织经济学",
+      "theme_id": "causal-inference-and-program-evaluation",
+      "name": "因果识别与政策评估",
       "paper_count": 4
     },
     {
-      "theme_id": "healthcare-fraud",
-      "name": "医疗欺诈",
+      "theme_id": "healthcare-teams-and-organizational-design",
+      "name": "医疗团队与组织设计",
       "paper_count": 3
     },
     {
-      "theme_id": "monitoring-enforcement",
-      "name": "监测与执法",
+      "theme_id": "healthcare-fraud-waste-and-enforcement",
+      "name": "医疗欺诈、浪费与执法",
       "paper_count": 3
     },
     {
-      "theme_id": "health-insurance-market-design",
-      "name": "健康保险市场设计",
+      "theme_id": "insurance-choice-and-information-frictions",
+      "name": "保险选择与信息摩擦",
+      "paper_count": 2
+    }
+  ],
+  "topic_distribution": [
+    {
+      "topic_id": "cost-sharing",
+      "name": "cost sharing",
       "paper_count": 3
     },
     {
-      "theme_id": "patient-cost-sharing",
-      "name": "患者自付费用设计",
-      "paper_count": 3
-    },
-    {
-      "theme_id": "moral-hazard-health",
-      "name": "道德风险与医疗利用",
-      "paper_count": 3
-    },
-    {
-      "theme_id": "physician-skill-heterogeneity",
-      "name": "医生技能异质性",
-      "paper_count": 3
-    },
-    {
-      "theme_id": "physician-teams",
-      "name": "医生团队协作",
-      "paper_count": 3
-    },
-    {
-      "theme_id": "team-production",
-      "name": "团队生产",
-      "paper_count": 3
-    },
-    {
-      "theme_id": "triple-difference-estimator",
-      "name": "三重差分估计量",
+      "topic_id": "triple-difference",
+      "name": "triple difference",
       "paper_count": 2
     },
     {
-      "theme_id": "causal-inference-methods",
-      "name": "因果推断方法",
+      "topic_id": "DDD",
+      "name": "DDD",
       "paper_count": 2
     },
     {
-      "theme_id": "medicare-waste",
-      "name": "Medicare 浪费",
+      "topic_id": "causal-inference",
+      "name": "causal inference",
       "paper_count": 2
     },
     {
-      "theme_id": "practice-variation",
-      "name": "医疗实践变异",
+      "topic_id": "mortality",
+      "name": "mortality",
       "paper_count": 2
     },
     {
-      "theme_id": "human-capital-teams",
-      "name": "团队专属人力资本",
+      "topic_id": "bunching",
+      "name": "bunching",
       "paper_count": 2
     },
     {
-      "theme_id": "empirical-structural-health",
-      "name": "医疗结构估计",
+      "topic_id": "moral-hazard",
+      "name": "moral hazard",
       "paper_count": 2
     },
     {
-      "theme_id": "practice-style",
-      "name": "医生实践风格",
+      "topic_id": "geographic-variation",
+      "name": "geographic variation",
       "paper_count": 2
     },
     {
-      "theme_id": "medicare-fraud",
-      "name": "Medicare 欺诈",
+      "topic_id": "health-insurance",
+      "name": "health insurance",
+      "paper_count": 2
+    },
+    {
+      "topic_id": "medicare-fraud",
+      "name": "medicare fraud",
       "paper_count": 1
     },
     {
-      "theme_id": "prior-authorization",
-      "name": "事前授权",
+      "topic_id": "ambulance-fraud",
+      "name": "ambulance fraud",
       "paper_count": 1
     },
     {
-      "theme_id": "ambulance-regulation",
-      "name": "救护车服务监管",
+      "topic_id": "prior-authorization",
+      "name": "prior authorization",
       "paper_count": 1
     },
     {
-      "theme_id": "regulation-vs-litigation",
-      "name": "监管与诉讼的工具比较",
+      "topic_id": "dialysis",
+      "name": "dialysis",
       "paper_count": 1
     },
     {
-      "theme_id": "staggered-adoption-DiD",
-      "name": "交错采用双重差分",
+      "topic_id": "regulation-vs-litigation",
+      "name": "regulation vs litigation",
       "paper_count": 1
     },
     {
-      "theme_id": "covariate-adjusted-identification",
-      "name": "协变量调整识别",
+      "topic_id": "staggered-adoption",
+      "name": "staggered adoption",
       "paper_count": 1
     },
     {
-      "theme_id": "doubly-robust-estimator",
-      "name": "双重鲁棒估计量",
+      "topic_id": "doubly-robust",
+      "name": "doubly robust",
       "paper_count": 1
     },
     {
-      "theme_id": "malpractice-risk",
-      "name": "医疗事故诉讼风险",
+      "topic_id": "covariate-adjustment",
+      "name": "covariate adjustment",
       "paper_count": 1
     },
     {
-      "theme_id": "behavioral-health-economics",
-      "name": "行为健康经济学",
+      "topic_id": "malpractice-lawsuits",
+      "name": "malpractice lawsuits",
       "paper_count": 1
     },
     {
-      "theme_id": "defensive-medicine",
-      "name": "防御性医疗",
+      "topic_id": "defensive-medicine",
+      "name": "defensive medicine",
       "paper_count": 1
     },
     {
-      "theme_id": "hospital-behavior-incentives",
-      "name": "hospital behavior incentives",
+      "topic_id": "physician-behavior",
+      "name": "physician behavior",
       "paper_count": 1
     },
     {
-      "theme_id": "deterrence-effects",
-      "name": "威慑效应",
+      "topic_id": "salience",
+      "name": "salience",
       "paper_count": 1
     },
     {
-      "theme_id": "drug-adherence-health-outcomes",
-      "name": "药物依从性与健康结果",
+      "topic_id": "behavioral-health-economics",
+      "name": "behavioral health economics",
       "paper_count": 1
     },
     {
-      "theme_id": "judges-design-IV",
-      "name": "法官设计工具变量",
+      "topic_id": "medicare-audits",
+      "name": "medicare audits",
       "paper_count": 1
     },
     {
-      "theme_id": "diagnostic-accuracy",
-      "name": "诊断准确性",
+      "topic_id": "healthcare-waste",
+      "name": "healthcare waste",
       "paper_count": 1
     },
     {
-      "theme_id": "difference-in-differences",
-      "name": "双重差分",
+      "topic_id": "monitoring-enforcement",
+      "name": "monitoring enforcement",
       "paper_count": 1
     },
     {
-      "theme_id": "parallel-trends-assumption",
-      "name": "平行趋势假设",
+      "topic_id": "deterrence",
+      "name": "deterrence",
       "paper_count": 1
     },
     {
-      "theme_id": "identification-in-applied-micro",
-      "name": "应用微观识别策略",
+      "topic_id": "hospital-behavior",
+      "name": "hospital behavior",
       "paper_count": 1
     },
     {
-      "theme_id": "information-aggregation-teams",
-      "name": "团队内信息汇聚",
+      "topic_id": "drug-interruption",
+      "name": "drug interruption",
       "paper_count": 1
     },
     {
-      "theme_id": "team-specific-human-capital",
-      "name": "团队专属人力资本积累",
+      "topic_id": "Medicare-Part-D",
+      "name": "Medicare Part D",
       "paper_count": 1
     },
     {
-      "theme_id": "cardiac-care-quality",
-      "name": "心脏病治疗质量",
+      "topic_id": "donut-hole",
+      "name": "donut hole",
       "paper_count": 1
     },
     {
-      "theme_id": "healthcare-inefficiency",
-      "name": "医疗低效率",
+      "topic_id": "diagnostic-skill",
+      "name": "diagnostic skill",
       "paper_count": 1
     },
     {
-      "theme_id": "comparative-advantage-hospitals",
-      "name": "医院比较优势",
+      "topic_id": "radiologists",
+      "name": "radiologists",
       "paper_count": 1
     },
     {
-      "theme_id": "treatment-variation",
-      "name": "治疗变异",
+      "topic_id": "pneumonia",
+      "name": "pneumonia",
       "paper_count": 1
     },
     {
-      "theme_id": "allocative-efficiency",
-      "name": "配置效率",
+      "topic_id": "judges-design",
+      "name": "judges design",
       "paper_count": 1
     },
     {
-      "theme_id": "quality-guidelines",
-      "name": "医疗质量指南",
+      "topic_id": "physician-heterogeneity",
+      "name": "physician heterogeneity",
       "paper_count": 1
     },
     {
-      "theme_id": "learning-and-experimentation",
-      "name": "学习与试验性治疗",
+      "topic_id": "difference-in-differences",
+      "name": "difference in differences",
       "paper_count": 1
     },
     {
-      "theme_id": "insurance-subsidies-low-income",
-      "name": "低收入群体保险补贴",
+      "topic_id": "parallel-trends",
+      "name": "parallel trends",
       "paper_count": 1
     },
     {
-      "theme_id": "health-insurance-demand",
-      "name": "健康保险需求",
+      "topic_id": "identification",
+      "name": "identification",
       "paper_count": 1
     },
     {
-      "theme_id": "adverse-selection-insurance",
-      "name": "逆向选择与保险市场",
+      "topic_id": "team-decisions",
+      "name": "team decisions",
       "paper_count": 1
     },
     {
-      "theme_id": "attribute-based-regulation",
-      "name": "属性基准监管",
+      "topic_id": "physician-training",
+      "name": "physician training",
       "paper_count": 1
     },
     {
-      "theme_id": "fuel-economy-standards",
-      "name": "燃油经济性标准",
+      "topic_id": "practice-variation",
+      "name": "practice variation",
       "paper_count": 1
     },
     {
-      "theme_id": "bunching-and-notches",
-      "name": "阈值响应与 Bunching",
+      "topic_id": "information-aggregation",
+      "name": "information aggregation",
       "paper_count": 1
     },
     {
-      "theme_id": "medicare-claims-methodology",
-      "name": "Medicare 索赔方法",
+      "topic_id": "residency",
+      "name": "residency",
       "paper_count": 1
     },
     {
-      "theme_id": "physician-overbilling",
-      "name": "医生过度计费",
+      "topic_id": "team-specific-human-capital",
+      "name": "team specific human capital",
       "paper_count": 1
     },
     {
-      "theme_id": "fraud-detection",
-      "name": "欺诈识别",
+      "topic_id": "physician-teams",
+      "name": "physician teams",
       "paper_count": 1
     },
     {
-      "theme_id": "nonlinear-contract-behavior",
-      "name": "非线性合同中的消费者行为",
+      "topic_id": "cardiac-care",
+      "name": "cardiac care",
       "paper_count": 1
     },
     {
-      "theme_id": "medicare-utilization",
-      "name": "Medicare 医疗利用",
+      "topic_id": "collaboration",
+      "name": "collaboration",
       "paper_count": 1
     },
     {
-      "theme_id": "geographic-variation-healthcare",
-      "name": "医疗利用地域差异",
+      "topic_id": "patient-outcomes",
+      "name": "patient outcomes",
       "paper_count": 1
     },
     {
-      "theme_id": "place-effects-health",
-      "name": "地点效应与健康",
+      "topic_id": "allocative-inefficiency",
+      "name": "allocative inefficiency",
       "paper_count": 1
     },
     {
-      "theme_id": "patient-migration-identification",
-      "name": "患者迁移识别策略",
+      "topic_id": "comparative-advantage",
+      "name": "comparative advantage",
       "paper_count": 1
     },
     {
-      "theme_id": "demand-supply-decomposition",
-      "name": "需求与供给分解",
+      "topic_id": "treatment-variation",
+      "name": "treatment variation",
       "paper_count": 1
     },
     {
-      "theme_id": "foot-dragging-information",
-      "name": "信息隐藏与工作拖延",
+      "topic_id": "hospital-productivity",
+      "name": "hospital productivity",
       "paper_count": 1
     },
     {
-      "theme_id": "moral-hazard-teams",
-      "name": "团队内道德风险",
+      "topic_id": "heart-attack",
+      "name": "heart attack",
       "paper_count": 1
     },
     {
-      "theme_id": "mutual-monitoring",
-      "name": "相互监督机制",
+      "topic_id": "physician-skill",
+      "name": "physician skill",
       "paper_count": 1
     },
     {
-      "theme_id": "information-frictions-in-insurance",
-      "name": "保险选择中的信息摩擦",
+      "topic_id": "practice-style",
+      "name": "practice style",
       "paper_count": 1
     },
     {
-      "theme_id": "health-insurance-choice",
-      "name": "健康保险计划选择",
+      "topic_id": "antidepressant-prescribing",
+      "name": "antidepressant prescribing",
       "paper_count": 1
     },
     {
-      "theme_id": "consumer-welfare-under-choice-frictions",
-      "name": "选择摩擦下的消费者福利",
+      "topic_id": "decision-making",
+      "name": "decision making",
       "paper_count": 1
     },
     {
-      "theme_id": "drug-demand-under-insurance",
-      "name": "保险下的药品需求",
+      "topic_id": "guidelines",
+      "name": "guidelines",
       "paper_count": 1
     },
     {
-      "theme_id": "policy-counterfactuals-in-health",
-      "name": "健康政策反事实分析",
+      "topic_id": "health-insurance-demand",
+      "name": "health insurance demand",
       "paper_count": 1
     },
     {
-      "theme_id": "nonlinear-insurance-contracts",
-      "name": "非线性保险合同",
+      "topic_id": "willingness-to-pay",
+      "name": "willingness to pay",
       "paper_count": 1
     },
     {
-      "theme_id": "health-insurance-elderly",
-      "name": "老年人健康保险",
+      "topic_id": "adverse-selection",
+      "name": "adverse selection",
       "paper_count": 1
     },
     {
-      "theme_id": "financial-risk-protection",
-      "name": "财务风险保护",
+      "topic_id": "subsidies",
+      "name": "subsidies",
       "paper_count": 1
     },
     {
-      "theme_id": "information-and-incentives",
-      "name": "信息与激励",
+      "topic_id": "low-income",
+      "name": "low income",
       "paper_count": 1
     },
     {
-      "theme_id": "intrinsic-motivation-physicians",
-      "name": "医生内在激励",
+      "topic_id": "attribute-based-regulation",
+      "name": "attribute based regulation",
       "paper_count": 1
     },
     {
-      "theme_id": "quality-reporting",
-      "name": "质量信息披露",
+      "topic_id": "fuel-economy-standards",
+      "name": "fuel economy standards",
       "paper_count": 1
     },
     {
-      "theme_id": "belief-manipulation-and-disclosure",
-      "name": "信念操纵与信息披露",
+      "topic_id": "notches",
+      "name": "notches",
       "paper_count": 1
     },
     {
-      "theme_id": "information-design-persuasion",
-      "name": "信息设计与劝服",
+      "topic_id": "compliance-trading",
+      "name": "compliance trading",
       "paper_count": 1
     },
     {
-      "theme_id": "strategic-communication",
-      "name": "策略性沟通",
+      "topic_id": "japan",
+      "name": "japan",
       "paper_count": 1
     },
     {
-      "theme_id": "geographic-variation",
-      "name": "医疗地域变异",
+      "topic_id": "medicare-overbilling",
+      "name": "medicare overbilling",
       "paper_count": 1
     },
     {
-      "theme_id": "treatment-intensity",
-      "name": "治疗强度",
+      "topic_id": "physician-billing",
+      "name": "physician billing",
       "paper_count": 1
     },
     {
-      "theme_id": "productivity-spillovers",
-      "name": "生产率溢出",
+      "topic_id": "fraud-detection",
+      "name": "fraud detection",
       "paper_count": 1
     },
     {
-      "theme_id": "health-inequality",
-      "name": "health inequality",
+      "topic_id": "hours-worked",
+      "name": "hours worked",
       "paper_count": 1
     },
     {
-      "theme_id": "income-health-gradient",
+      "topic_id": "methodology",
+      "name": "methodology",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "high-deductible-health-plan",
+      "name": "high deductible health plan",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "price-responsiveness",
+      "name": "price responsiveness",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "spending-decomposition",
+      "name": "spending decomposition",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "healthcare-utilization",
+      "name": "healthcare utilization",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "Medicare",
+      "name": "Medicare",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "patient-migration",
+      "name": "patient migration",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "demand-supply-decomposition",
+      "name": "demand supply decomposition",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "place-effects",
+      "name": "place effects",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "teamwork",
+      "name": "teamwork",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "emergency-department",
+      "name": "emergency department",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "physician-productivity",
+      "name": "physician productivity",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "organizational-design",
+      "name": "organizational design",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "information-frictions",
+      "name": "information frictions",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "plan-choice",
+      "name": "plan choice",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "consumer-welfare",
+      "name": "consumer welfare",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "structural-demand",
+      "name": "structural demand",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "nonlinear-pricing",
+      "name": "nonlinear pricing",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "medicare-part-d",
+      "name": "medicare part d",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "counterfactual",
+      "name": "counterfactual",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "regression-discontinuity",
+      "name": "regression discontinuity",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "elderly-health",
+      "name": "elderly health",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "utilization-elasticity",
+      "name": "utilization elasticity",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "financial-risk-protection",
+      "name": "financial risk protection",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "quality-reporting",
+      "name": "quality reporting",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "intrinsic-motivation",
+      "name": "intrinsic motivation",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "surgeon-behavior",
+      "name": "surgeon behavior",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "report-cards",
+      "name": "report cards",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "physician-incentives",
+      "name": "physician incentives",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "information-design",
+      "name": "information design",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "persuasion",
+      "name": "persuasion",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "sender-receiver",
+      "name": "sender receiver",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "posterior-beliefs",
+      "name": "posterior beliefs",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "mechanism",
+      "name": "mechanism",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "productivity-spillovers",
+      "name": "productivity spillovers",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "heart-attacks",
+      "name": "heart attacks",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "Roy-model",
+      "name": "Roy model",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "treatment-intensity",
+      "name": "treatment intensity",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "health-history",
+      "name": "health history",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "income-health-gradient",
       "name": "income health gradient",
       "paper_count": 1
     },
     {
-      "theme_id": "medical-technology-mortality",
-      "name": "medical technology mortality",
+      "topic_id": "public-health",
+      "name": "public health",
       "paper_count": 1
     },
     {
-      "theme_id": "mortality-determinants",
-      "name": "mortality determinants",
+      "topic_id": "medical-technology",
+      "name": "medical technology",
       "paper_count": 1
     },
     {
-      "theme_id": "public-health-infrastructure",
-      "name": "public health infrastructure",
+      "topic_id": "health-inequality",
+      "name": "health inequality",
       "paper_count": 1
     },
     {
-      "theme_id": "human-capital-health",
-      "name": "健康人力资本",
+      "topic_id": "health-capital",
+      "name": "health capital",
       "paper_count": 1
     },
     {
-      "theme_id": "demand-for-health",
-      "name": "健康需求理论",
+      "topic_id": "demand-for-health",
+      "name": "demand for health",
       "paper_count": 1
     },
     {
-      "theme_id": "household-production-theory",
-      "name": "家庭生产理论",
+      "topic_id": "human-capital",
+      "name": "human capital",
       "paper_count": 1
     },
     {
-      "theme_id": "education-health-gradient",
-      "name": "教育与健康梯度",
+      "topic_id": "household-production",
+      "name": "household production",
       "paper_count": 1
     },
     {
-      "theme_id": "health-investment-lifecycle",
-      "name": "生命周期健康投资",
+      "topic_id": "health-investment",
+      "name": "health investment",
       "paper_count": 1
     },
     {
-      "theme_id": "price-system-information",
-      "name": "价格系统与信息传递",
+      "topic_id": "education-health",
+      "name": "education health",
       "paper_count": 1
     },
     {
-      "theme_id": "health-insurance-information-asymmetry",
-      "name": "健康保险信息不对称",
+      "topic_id": "information-decentralization",
+      "name": "information decentralization",
       "paper_count": 1
     },
     {
-      "theme_id": "information-decentralization",
-      "name": "分散信息",
+      "topic_id": "price-system",
+      "name": "price system",
       "paper_count": 1
     },
     {
-      "theme_id": "knowledge-dispersion",
-      "name": "知识分散",
+      "topic_id": "knowledge-dispersion",
+      "name": "knowledge dispersion",
       "paper_count": 1
     },
     {
-      "theme_id": "central-planning-vs-markets",
-      "name": "计划与市场的协调比较",
+      "topic_id": "market-mechanism",
+      "name": "market mechanism",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "central-planning",
+      "name": "central planning",
       "paper_count": 1
     }
   ],
@@ -2431,6 +2308,2105 @@
       "paper_count": 1
     }
   ],
+  "knowledge_graph": {
+    "theme_nodes": [
+      {
+        "id": "physician-behavior-and-clinical-decision-making",
+        "name": "医生行为与临床决策",
+        "paper_count": 7,
+        "paper_ids": [
+          "fang-2025-fear-risk-perception",
+          "chan-2022-selection-variation-diagnostic",
+          "chan-2021-influence-information-team",
+          "currie-2020-understanding-doctor-decision",
+          "chan-2016-teamwork-moral-hazard",
+          "kolstad-2013-information-quality-when",
+          "chandra-2007-productivity-spillovers-health"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "malpractice-lawsuits",
+            "name": "malpractice lawsuits",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "defensive-medicine",
+            "name": "defensive medicine",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "physician-behavior",
+            "name": "physician behavior",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "salience",
+            "name": "salience",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "behavioral-health-economics",
+            "name": "behavioral health economics",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "diagnostic-skill",
+            "name": "diagnostic skill",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "health-insurance-and-cost-sharing",
+        "name": "健康保险与成本分担",
+        "paper_count": 6,
+        "paper_ids": [
+          "chandra-2024-health-costs-cost",
+          "finkelstein-2019-subsidizing-health-insurance",
+          "brot-goldberg-2017-what-does-deductible",
+          "handel-2015-health-insurance-humans",
+          "einav-2015-response-drug-expenditure",
+          "shigeoka-2014-effect-patient-cost"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "cost-sharing",
+            "name": "cost sharing",
+            "paper_count": 3
+          },
+          {
+            "topic_id": "health-insurance",
+            "name": "health insurance",
+            "paper_count": 2
+          },
+          {
+            "topic_id": "drug-interruption",
+            "name": "drug interruption",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "mortality",
+            "name": "mortality",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "Medicare-Part-D",
+            "name": "Medicare Part D",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "donut-hole",
+            "name": "donut hole",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "regulation-design-and-policy-incentives",
+        "name": "监管设计与政策激励",
+        "paper_count": 6,
+        "paper_ids": [
+          "eliason-2025-ambulance-taxis-impact",
+          "fang-2025-fear-risk-perception",
+          "shi-2024-monitoring-waste-medicare",
+          "ito-2018-economics-attribute-based-regulation",
+          "einav-2015-response-drug-expenditure",
+          "kolstad-2013-information-quality-when"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "bunching",
+            "name": "bunching",
+            "paper_count": 2
+          },
+          {
+            "topic_id": "medicare-fraud",
+            "name": "medicare fraud",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "ambulance-fraud",
+            "name": "ambulance fraud",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "prior-authorization",
+            "name": "prior authorization",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "dialysis",
+            "name": "dialysis",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "regulation-vs-litigation",
+            "name": "regulation vs litigation",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "healthcare-productivity-variation-and-inefficiency",
+        "name": "医疗生产率、差异与低效率",
+        "paper_count": 5,
+        "paper_ids": [
+          "chan-2022-selection-variation-diagnostic",
+          "chandra-2020-identifying-sources-inefficiency",
+          "currie-2020-understanding-doctor-decision",
+          "finkelstein-2016-sources-geographic-variation",
+          "chandra-2007-productivity-spillovers-health"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "geographic-variation",
+            "name": "geographic variation",
+            "paper_count": 2
+          },
+          {
+            "topic_id": "diagnostic-skill",
+            "name": "diagnostic skill",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "radiologists",
+            "name": "radiologists",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "pneumonia",
+            "name": "pneumonia",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "judges-design",
+            "name": "judges design",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "physician-heterogeneity",
+            "name": "physician heterogeneity",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "information-economics-and-persuasion",
+        "name": "信息经济学与说服",
+        "paper_count": 4,
+        "paper_ids": [
+          "chan-2021-influence-information-team",
+          "kolstad-2013-information-quality-when",
+          "kamenica-2011-bayesian-persuasion",
+          "hayek-1945-use-knowledge-society"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "team-decisions",
+            "name": "team decisions",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "physician-training",
+            "name": "physician training",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "practice-variation",
+            "name": "practice variation",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "information-aggregation",
+            "name": "information aggregation",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "residency",
+            "name": "residency",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "quality-reporting",
+            "name": "quality reporting",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "health-capital-mortality-and-health-production",
+        "name": "健康资本、死亡率与健康生产",
+        "paper_count": 4,
+        "paper_ids": [
+          "chandra-2024-health-costs-cost",
+          "shigeoka-2014-effect-patient-cost",
+          "cutler-2006-determinants-mortality",
+          "grossman-2000-human-capital-model"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "cost-sharing",
+            "name": "cost sharing",
+            "paper_count": 2
+          },
+          {
+            "topic_id": "mortality",
+            "name": "mortality",
+            "paper_count": 2
+          },
+          {
+            "topic_id": "drug-interruption",
+            "name": "drug interruption",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "Medicare-Part-D",
+            "name": "Medicare Part D",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "donut-hole",
+            "name": "donut hole",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "regression-discontinuity",
+            "name": "regression discontinuity",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "causal-inference-and-program-evaluation",
+        "name": "因果识别与政策评估",
+        "paper_count": 4,
+        "paper_ids": [
+          "ortiz-2025-better-understanding-triple",
+          "olden-2022-triple-difference-estimator",
+          "ito-2018-economics-attribute-based-regulation",
+          "fang-2017-detecting-potential-overbilling"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "triple-difference",
+            "name": "triple difference",
+            "paper_count": 2
+          },
+          {
+            "topic_id": "DDD",
+            "name": "DDD",
+            "paper_count": 2
+          },
+          {
+            "topic_id": "causal-inference",
+            "name": "causal inference",
+            "paper_count": 2
+          },
+          {
+            "topic_id": "staggered-adoption",
+            "name": "staggered adoption",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "doubly-robust",
+            "name": "doubly robust",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "covariate-adjustment",
+            "name": "covariate adjustment",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "healthcare-teams-and-organizational-design",
+        "name": "医疗团队与组织设计",
+        "paper_count": 3,
+        "paper_ids": [
+          "chan-2021-influence-information-team",
+          "chen-2021-team-specific-human",
+          "chan-2016-teamwork-moral-hazard"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "team-decisions",
+            "name": "team decisions",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "physician-training",
+            "name": "physician training",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "practice-variation",
+            "name": "practice variation",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "information-aggregation",
+            "name": "information aggregation",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "residency",
+            "name": "residency",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "team-specific-human-capital",
+            "name": "team specific human capital",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "healthcare-fraud-waste-and-enforcement",
+        "name": "医疗欺诈、浪费与执法",
+        "paper_count": 3,
+        "paper_ids": [
+          "eliason-2025-ambulance-taxis-impact",
+          "shi-2024-monitoring-waste-medicare",
+          "fang-2017-detecting-potential-overbilling"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "medicare-fraud",
+            "name": "medicare fraud",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "ambulance-fraud",
+            "name": "ambulance fraud",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "prior-authorization",
+            "name": "prior authorization",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "dialysis",
+            "name": "dialysis",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "regulation-vs-litigation",
+            "name": "regulation vs litigation",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "medicare-audits",
+            "name": "medicare audits",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "insurance-choice-and-information-frictions",
+        "name": "保险选择与信息摩擦",
+        "paper_count": 2,
+        "paper_ids": [
+          "finkelstein-2019-subsidizing-health-insurance",
+          "handel-2015-health-insurance-humans"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "health-insurance-demand",
+            "name": "health insurance demand",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "willingness-to-pay",
+            "name": "willingness to pay",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "adverse-selection",
+            "name": "adverse selection",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "subsidies",
+            "name": "subsidies",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "low-income",
+            "name": "low income",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "health-insurance",
+            "name": "health insurance",
+            "paper_count": 1
+          }
+        ]
+      }
+    ],
+    "theme_edges": [
+      {
+        "source": "healthcare-productivity-variation-and-inefficiency",
+        "target": "physician-behavior-and-clinical-decision-making",
+        "weight": 3,
+        "paper_ids": [
+          "chan-2022-selection-variation-diagnostic",
+          "currie-2020-understanding-doctor-decision",
+          "chandra-2007-productivity-spillovers-health"
+        ]
+      },
+      {
+        "source": "health-capital-mortality-and-health-production",
+        "target": "health-insurance-and-cost-sharing",
+        "weight": 2,
+        "paper_ids": [
+          "chandra-2024-health-costs-cost",
+          "shigeoka-2014-effect-patient-cost"
+        ]
+      },
+      {
+        "source": "health-insurance-and-cost-sharing",
+        "target": "insurance-choice-and-information-frictions",
+        "weight": 2,
+        "paper_ids": [
+          "finkelstein-2019-subsidizing-health-insurance",
+          "handel-2015-health-insurance-humans"
+        ]
+      },
+      {
+        "source": "healthcare-fraud-waste-and-enforcement",
+        "target": "regulation-design-and-policy-incentives",
+        "weight": 2,
+        "paper_ids": [
+          "eliason-2025-ambulance-taxis-impact",
+          "shi-2024-monitoring-waste-medicare"
+        ]
+      },
+      {
+        "source": "healthcare-teams-and-organizational-design",
+        "target": "physician-behavior-and-clinical-decision-making",
+        "weight": 2,
+        "paper_ids": [
+          "chan-2021-influence-information-team",
+          "chan-2016-teamwork-moral-hazard"
+        ]
+      },
+      {
+        "source": "information-economics-and-persuasion",
+        "target": "physician-behavior-and-clinical-decision-making",
+        "weight": 2,
+        "paper_ids": [
+          "chan-2021-influence-information-team",
+          "kolstad-2013-information-quality-when"
+        ]
+      },
+      {
+        "source": "physician-behavior-and-clinical-decision-making",
+        "target": "regulation-design-and-policy-incentives",
+        "weight": 2,
+        "paper_ids": [
+          "fang-2025-fear-risk-perception",
+          "kolstad-2013-information-quality-when"
+        ]
+      },
+      {
+        "source": "causal-inference-and-program-evaluation",
+        "target": "healthcare-fraud-waste-and-enforcement",
+        "weight": 1,
+        "paper_ids": [
+          "fang-2017-detecting-potential-overbilling"
+        ]
+      },
+      {
+        "source": "causal-inference-and-program-evaluation",
+        "target": "regulation-design-and-policy-incentives",
+        "weight": 1,
+        "paper_ids": [
+          "ito-2018-economics-attribute-based-regulation"
+        ]
+      },
+      {
+        "source": "health-insurance-and-cost-sharing",
+        "target": "regulation-design-and-policy-incentives",
+        "weight": 1,
+        "paper_ids": [
+          "einav-2015-response-drug-expenditure"
+        ]
+      },
+      {
+        "source": "healthcare-teams-and-organizational-design",
+        "target": "information-economics-and-persuasion",
+        "weight": 1,
+        "paper_ids": [
+          "chan-2021-influence-information-team"
+        ]
+      },
+      {
+        "source": "information-economics-and-persuasion",
+        "target": "regulation-design-and-policy-incentives",
+        "weight": 1,
+        "paper_ids": [
+          "kolstad-2013-information-quality-when"
+        ]
+      }
+    ],
+    "paper_nodes": [
+      {
+        "id": "eliason-2025-ambulance-taxis-impact",
+        "title": "Ambulance Taxis: The Impact of Regulation and Litigation on Health-Care Fraud",
+        "year": 2025,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_DD",
+        "overall": 52,
+        "primary_theme_id": "healthcare-fraud-waste-and-enforcement",
+        "theme_ids": [
+          "healthcare-fraud-waste-and-enforcement",
+          "regulation-design-and-policy-incentives"
+        ],
+        "topics": [
+          {
+            "topic_id": "medicare-fraud",
+            "name": "medicare fraud"
+          },
+          {
+            "topic_id": "ambulance-fraud",
+            "name": "ambulance fraud"
+          },
+          {
+            "topic_id": "prior-authorization",
+            "name": "prior authorization"
+          },
+          {
+            "topic_id": "dialysis",
+            "name": "dialysis"
+          },
+          {
+            "topic_id": "regulation-vs-litigation",
+            "name": "regulation vs litigation"
+          }
+        ]
+      },
+      {
+        "id": "ortiz-2025-better-understanding-triple",
+        "title": "Better Understanding Triple Differences Estimators",
+        "year": 2025,
+        "field": "econometrics",
+        "paper_paradigm": "methodology",
+        "overall": 53,
+        "primary_theme_id": "causal-inference-and-program-evaluation",
+        "theme_ids": [
+          "causal-inference-and-program-evaluation"
+        ],
+        "topics": [
+          {
+            "topic_id": "triple-difference",
+            "name": "triple difference"
+          },
+          {
+            "topic_id": "DDD",
+            "name": "DDD"
+          },
+          {
+            "topic_id": "staggered-adoption",
+            "name": "staggered adoption"
+          },
+          {
+            "topic_id": "doubly-robust",
+            "name": "doubly robust"
+          },
+          {
+            "topic_id": "covariate-adjustment",
+            "name": "covariate adjustment"
+          },
+          {
+            "topic_id": "causal-inference",
+            "name": "causal inference"
+          }
+        ]
+      },
+      {
+        "id": "fang-2025-fear-risk-perception",
+        "title": "Fear and Risk Perception: Understanding Physicians' Dynamic Responses to Malpractice Lawsuits",
+        "year": 2025,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_DD",
+        "overall": 45,
+        "primary_theme_id": "physician-behavior-and-clinical-decision-making",
+        "theme_ids": [
+          "physician-behavior-and-clinical-decision-making",
+          "regulation-design-and-policy-incentives"
+        ],
+        "topics": [
+          {
+            "topic_id": "malpractice-lawsuits",
+            "name": "malpractice lawsuits"
+          },
+          {
+            "topic_id": "defensive-medicine",
+            "name": "defensive medicine"
+          },
+          {
+            "topic_id": "physician-behavior",
+            "name": "physician behavior"
+          },
+          {
+            "topic_id": "salience",
+            "name": "salience"
+          },
+          {
+            "topic_id": "behavioral-health-economics",
+            "name": "behavioral health economics"
+          }
+        ]
+      },
+      {
+        "id": "shi-2024-monitoring-waste-medicare",
+        "title": "Monitoring for Waste: Evidence from Medicare Audits",
+        "year": 2024,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_DD",
+        "overall": 58,
+        "primary_theme_id": "healthcare-fraud-waste-and-enforcement",
+        "theme_ids": [
+          "healthcare-fraud-waste-and-enforcement",
+          "regulation-design-and-policy-incentives"
+        ],
+        "topics": [
+          {
+            "topic_id": "medicare-audits",
+            "name": "medicare audits"
+          },
+          {
+            "topic_id": "healthcare-waste",
+            "name": "healthcare waste"
+          },
+          {
+            "topic_id": "monitoring-enforcement",
+            "name": "monitoring enforcement"
+          },
+          {
+            "topic_id": "deterrence",
+            "name": "deterrence"
+          },
+          {
+            "topic_id": "hospital-behavior",
+            "name": "hospital behavior"
+          }
+        ]
+      },
+      {
+        "id": "chandra-2024-health-costs-cost",
+        "title": "The Health Costs of Cost Sharing",
+        "year": 2024,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_IV",
+        "overall": 58,
+        "primary_theme_id": "health-insurance-and-cost-sharing",
+        "theme_ids": [
+          "health-insurance-and-cost-sharing",
+          "health-capital-mortality-and-health-production"
+        ],
+        "topics": [
+          {
+            "topic_id": "cost-sharing",
+            "name": "cost sharing"
+          },
+          {
+            "topic_id": "drug-interruption",
+            "name": "drug interruption"
+          },
+          {
+            "topic_id": "mortality",
+            "name": "mortality"
+          },
+          {
+            "topic_id": "Medicare-Part-D",
+            "name": "Medicare Part D"
+          },
+          {
+            "topic_id": "donut-hole",
+            "name": "donut hole"
+          }
+        ]
+      },
+      {
+        "id": "chan-2022-selection-variation-diagnostic",
+        "title": "Selection with Variation in Diagnostic Skill: Evidence from Radiologists",
+        "year": 2022,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_structural",
+        "overall": 59,
+        "primary_theme_id": "physician-behavior-and-clinical-decision-making",
+        "theme_ids": [
+          "physician-behavior-and-clinical-decision-making",
+          "healthcare-productivity-variation-and-inefficiency"
+        ],
+        "topics": [
+          {
+            "topic_id": "diagnostic-skill",
+            "name": "diagnostic skill"
+          },
+          {
+            "topic_id": "radiologists",
+            "name": "radiologists"
+          },
+          {
+            "topic_id": "pneumonia",
+            "name": "pneumonia"
+          },
+          {
+            "topic_id": "judges-design",
+            "name": "judges design"
+          },
+          {
+            "topic_id": "physician-heterogeneity",
+            "name": "physician heterogeneity"
+          }
+        ]
+      },
+      {
+        "id": "olden-2022-triple-difference-estimator",
+        "title": "The Triple Difference Estimator",
+        "year": 2022,
+        "field": "econometrics",
+        "paper_paradigm": "methodology",
+        "overall": 52,
+        "primary_theme_id": "causal-inference-and-program-evaluation",
+        "theme_ids": [
+          "causal-inference-and-program-evaluation"
+        ],
+        "topics": [
+          {
+            "topic_id": "triple-difference",
+            "name": "triple difference"
+          },
+          {
+            "topic_id": "DDD",
+            "name": "DDD"
+          },
+          {
+            "topic_id": "difference-in-differences",
+            "name": "difference in differences"
+          },
+          {
+            "topic_id": "parallel-trends",
+            "name": "parallel trends"
+          },
+          {
+            "topic_id": "causal-inference",
+            "name": "causal inference"
+          },
+          {
+            "topic_id": "identification",
+            "name": "identification"
+          }
+        ]
+      },
+      {
+        "id": "chan-2021-influence-information-team",
+        "title": "Influence and Information in Team Decisions: Evidence from Medical Residency",
+        "year": 2021,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_IV",
+        "overall": 51,
+        "primary_theme_id": "information-economics-and-persuasion",
+        "theme_ids": [
+          "information-economics-and-persuasion",
+          "physician-behavior-and-clinical-decision-making",
+          "healthcare-teams-and-organizational-design"
+        ],
+        "topics": [
+          {
+            "topic_id": "team-decisions",
+            "name": "team decisions"
+          },
+          {
+            "topic_id": "physician-training",
+            "name": "physician training"
+          },
+          {
+            "topic_id": "practice-variation",
+            "name": "practice variation"
+          },
+          {
+            "topic_id": "information-aggregation",
+            "name": "information aggregation"
+          },
+          {
+            "topic_id": "residency",
+            "name": "residency"
+          }
+        ]
+      },
+      {
+        "id": "chen-2021-team-specific-human",
+        "title": "Team-Specific Human Capital and Team Performance: Evidence from Doctors",
+        "year": 2021,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_IV",
+        "overall": 53,
+        "primary_theme_id": "healthcare-teams-and-organizational-design",
+        "theme_ids": [
+          "healthcare-teams-and-organizational-design"
+        ],
+        "topics": [
+          {
+            "topic_id": "team-specific-human-capital",
+            "name": "team specific human capital"
+          },
+          {
+            "topic_id": "physician-teams",
+            "name": "physician teams"
+          },
+          {
+            "topic_id": "cardiac-care",
+            "name": "cardiac care"
+          },
+          {
+            "topic_id": "collaboration",
+            "name": "collaboration"
+          },
+          {
+            "topic_id": "patient-outcomes",
+            "name": "patient outcomes"
+          }
+        ]
+      },
+      {
+        "id": "chandra-2020-identifying-sources-inefficiency",
+        "title": "Identifying Sources of Inefficiency in Healthcare",
+        "year": 2020,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_structural",
+        "overall": 58,
+        "primary_theme_id": "healthcare-productivity-variation-and-inefficiency",
+        "theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency"
+        ],
+        "topics": [
+          {
+            "topic_id": "allocative-inefficiency",
+            "name": "allocative inefficiency"
+          },
+          {
+            "topic_id": "comparative-advantage",
+            "name": "comparative advantage"
+          },
+          {
+            "topic_id": "treatment-variation",
+            "name": "treatment variation"
+          },
+          {
+            "topic_id": "hospital-productivity",
+            "name": "hospital productivity"
+          },
+          {
+            "topic_id": "heart-attack",
+            "name": "heart attack"
+          }
+        ]
+      },
+      {
+        "id": "currie-2020-understanding-doctor-decision",
+        "title": "Understanding Doctor Decision Making: The Case of Depression Treatment",
+        "year": 2020,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_structural",
+        "overall": 44,
+        "primary_theme_id": "physician-behavior-and-clinical-decision-making",
+        "theme_ids": [
+          "physician-behavior-and-clinical-decision-making",
+          "healthcare-productivity-variation-and-inefficiency"
+        ],
+        "topics": [
+          {
+            "topic_id": "physician-skill",
+            "name": "physician skill"
+          },
+          {
+            "topic_id": "practice-style",
+            "name": "practice style"
+          },
+          {
+            "topic_id": "antidepressant-prescribing",
+            "name": "antidepressant prescribing"
+          },
+          {
+            "topic_id": "decision-making",
+            "name": "decision making"
+          },
+          {
+            "topic_id": "guidelines",
+            "name": "guidelines"
+          }
+        ]
+      },
+      {
+        "id": "finkelstein-2019-subsidizing-health-insurance",
+        "title": "Subsidizing Health Insurance for Low-Income Adults: Evidence from Massachusetts",
+        "year": 2019,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_IV",
+        "overall": 57,
+        "primary_theme_id": "insurance-choice-and-information-frictions",
+        "theme_ids": [
+          "insurance-choice-and-information-frictions",
+          "health-insurance-and-cost-sharing"
+        ],
+        "topics": [
+          {
+            "topic_id": "health-insurance-demand",
+            "name": "health insurance demand"
+          },
+          {
+            "topic_id": "willingness-to-pay",
+            "name": "willingness to pay"
+          },
+          {
+            "topic_id": "adverse-selection",
+            "name": "adverse selection"
+          },
+          {
+            "topic_id": "subsidies",
+            "name": "subsidies"
+          },
+          {
+            "topic_id": "low-income",
+            "name": "low income"
+          }
+        ]
+      },
+      {
+        "id": "ito-2018-economics-attribute-based-regulation",
+        "title": "The Economics of Attribute-Based Regulation: Theory and Evidence from Fuel Economy Standards",
+        "year": 2018,
+        "field": "environmental-economics",
+        "paper_paradigm": "mixed",
+        "overall": 55,
+        "primary_theme_id": "causal-inference-and-program-evaluation",
+        "theme_ids": [
+          "causal-inference-and-program-evaluation",
+          "regulation-design-and-policy-incentives"
+        ],
+        "topics": [
+          {
+            "topic_id": "attribute-based-regulation",
+            "name": "attribute based regulation"
+          },
+          {
+            "topic_id": "fuel-economy-standards",
+            "name": "fuel economy standards"
+          },
+          {
+            "topic_id": "bunching",
+            "name": "bunching"
+          },
+          {
+            "topic_id": "notches",
+            "name": "notches"
+          },
+          {
+            "topic_id": "compliance-trading",
+            "name": "compliance trading"
+          },
+          {
+            "topic_id": "japan",
+            "name": "japan"
+          }
+        ]
+      },
+      {
+        "id": "fang-2017-detecting-potential-overbilling",
+        "title": "Detecting Potential Overbilling in Medicare Reimbursement via Hours Worked",
+        "year": 2017,
+        "field": "health-economics",
+        "paper_paradigm": "methodology",
+        "overall": 44,
+        "primary_theme_id": "healthcare-fraud-waste-and-enforcement",
+        "theme_ids": [
+          "healthcare-fraud-waste-and-enforcement",
+          "causal-inference-and-program-evaluation"
+        ],
+        "topics": [
+          {
+            "topic_id": "medicare-overbilling",
+            "name": "medicare overbilling"
+          },
+          {
+            "topic_id": "physician-billing",
+            "name": "physician billing"
+          },
+          {
+            "topic_id": "fraud-detection",
+            "name": "fraud detection"
+          },
+          {
+            "topic_id": "hours-worked",
+            "name": "hours worked"
+          },
+          {
+            "topic_id": "methodology",
+            "name": "methodology"
+          }
+        ]
+      },
+      {
+        "id": "brot-goldberg-2017-what-does-deductible",
+        "title": "What Does a Deductible Do? The Impact of Cost-Sharing on Health Care Prices, Quantities, and Spending Dynamics",
+        "year": 2017,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_DD",
+        "overall": 52,
+        "primary_theme_id": "health-insurance-and-cost-sharing",
+        "theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ],
+        "topics": [
+          {
+            "topic_id": "cost-sharing",
+            "name": "cost sharing"
+          },
+          {
+            "topic_id": "high-deductible-health-plan",
+            "name": "high deductible health plan"
+          },
+          {
+            "topic_id": "moral-hazard",
+            "name": "moral hazard"
+          },
+          {
+            "topic_id": "price-responsiveness",
+            "name": "price responsiveness"
+          },
+          {
+            "topic_id": "spending-decomposition",
+            "name": "spending decomposition"
+          }
+        ]
+      },
+      {
+        "id": "finkelstein-2016-sources-geographic-variation",
+        "title": "Sources of Geographic Variation in Health Care: Evidence from Patient Migration",
+        "year": 2016,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_IV",
+        "overall": 57,
+        "primary_theme_id": "healthcare-productivity-variation-and-inefficiency",
+        "theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency"
+        ],
+        "topics": [
+          {
+            "topic_id": "geographic-variation",
+            "name": "geographic variation"
+          },
+          {
+            "topic_id": "healthcare-utilization",
+            "name": "healthcare utilization"
+          },
+          {
+            "topic_id": "Medicare",
+            "name": "Medicare"
+          },
+          {
+            "topic_id": "patient-migration",
+            "name": "patient migration"
+          },
+          {
+            "topic_id": "demand-supply-decomposition",
+            "name": "demand supply decomposition"
+          },
+          {
+            "topic_id": "place-effects",
+            "name": "place effects"
+          }
+        ]
+      },
+      {
+        "id": "chan-2016-teamwork-moral-hazard",
+        "title": "Teamwork and Moral Hazard: Evidence from the Emergency Department",
+        "year": 2016,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_DD",
+        "overall": 56,
+        "primary_theme_id": "physician-behavior-and-clinical-decision-making",
+        "theme_ids": [
+          "physician-behavior-and-clinical-decision-making",
+          "healthcare-teams-and-organizational-design"
+        ],
+        "topics": [
+          {
+            "topic_id": "teamwork",
+            "name": "teamwork"
+          },
+          {
+            "topic_id": "moral-hazard",
+            "name": "moral hazard"
+          },
+          {
+            "topic_id": "emergency-department",
+            "name": "emergency department"
+          },
+          {
+            "topic_id": "physician-productivity",
+            "name": "physician productivity"
+          },
+          {
+            "topic_id": "organizational-design",
+            "name": "organizational design"
+          }
+        ]
+      },
+      {
+        "id": "handel-2015-health-insurance-humans",
+        "title": "Health Insurance for \"Humans\": Information Frictions, Plan Choice, and Consumer Welfare",
+        "year": 2015,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_structural",
+        "overall": 59,
+        "primary_theme_id": "insurance-choice-and-information-frictions",
+        "theme_ids": [
+          "insurance-choice-and-information-frictions",
+          "health-insurance-and-cost-sharing"
+        ],
+        "topics": [
+          {
+            "topic_id": "health-insurance",
+            "name": "health insurance"
+          },
+          {
+            "topic_id": "information-frictions",
+            "name": "information frictions"
+          },
+          {
+            "topic_id": "plan-choice",
+            "name": "plan choice"
+          },
+          {
+            "topic_id": "consumer-welfare",
+            "name": "consumer welfare"
+          },
+          {
+            "topic_id": "structural-demand",
+            "name": "structural demand"
+          }
+        ]
+      },
+      {
+        "id": "einav-2015-response-drug-expenditure",
+        "title": "The Response of Drug Expenditure to Nonlinear Contract Design: Evidence from Medicare Part D",
+        "year": 2015,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_structural",
+        "overall": 56,
+        "primary_theme_id": "health-insurance-and-cost-sharing",
+        "theme_ids": [
+          "health-insurance-and-cost-sharing",
+          "regulation-design-and-policy-incentives"
+        ],
+        "topics": [
+          {
+            "topic_id": "nonlinear-pricing",
+            "name": "nonlinear pricing"
+          },
+          {
+            "topic_id": "medicare-part-d",
+            "name": "medicare part d"
+          },
+          {
+            "topic_id": "health-insurance",
+            "name": "health insurance"
+          },
+          {
+            "topic_id": "bunching",
+            "name": "bunching"
+          },
+          {
+            "topic_id": "counterfactual",
+            "name": "counterfactual"
+          }
+        ]
+      },
+      {
+        "id": "shigeoka-2014-effect-patient-cost",
+        "title": "The Effect of Patient Cost Sharing on Utilization, Health, and Risk Protection",
+        "year": 2014,
+        "field": "health-economics",
+        "paper_paradigm": "reduced_form_IV",
+        "overall": 52,
+        "primary_theme_id": "health-insurance-and-cost-sharing",
+        "theme_ids": [
+          "health-insurance-and-cost-sharing",
+          "health-capital-mortality-and-health-production"
+        ],
+        "topics": [
+          {
+            "topic_id": "cost-sharing",
+            "name": "cost sharing"
+          },
+          {
+            "topic_id": "regression-discontinuity",
+            "name": "regression discontinuity"
+          },
+          {
+            "topic_id": "elderly-health",
+            "name": "elderly health"
+          },
+          {
+            "topic_id": "utilization-elasticity",
+            "name": "utilization elasticity"
+          },
+          {
+            "topic_id": "financial-risk-protection",
+            "name": "financial risk protection"
+          }
+        ]
+      },
+      {
+        "id": "kolstad-2013-information-quality-when",
+        "title": "Information and Quality When Motivation is Intrinsic: Evidence from Surgeon Report Cards",
+        "year": 2013,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_structural",
+        "overall": 52,
+        "primary_theme_id": "information-economics-and-persuasion",
+        "theme_ids": [
+          "information-economics-and-persuasion",
+          "physician-behavior-and-clinical-decision-making",
+          "regulation-design-and-policy-incentives"
+        ],
+        "topics": [
+          {
+            "topic_id": "quality-reporting",
+            "name": "quality reporting"
+          },
+          {
+            "topic_id": "intrinsic-motivation",
+            "name": "intrinsic motivation"
+          },
+          {
+            "topic_id": "surgeon-behavior",
+            "name": "surgeon behavior"
+          },
+          {
+            "topic_id": "report-cards",
+            "name": "report cards"
+          },
+          {
+            "topic_id": "physician-incentives",
+            "name": "physician incentives"
+          }
+        ]
+      },
+      {
+        "id": "kamenica-2011-bayesian-persuasion",
+        "title": "Bayesian Persuasion",
+        "year": 2011,
+        "field": "microeconomic-theory",
+        "paper_paradigm": "theory",
+        "overall": 56,
+        "primary_theme_id": "information-economics-and-persuasion",
+        "theme_ids": [
+          "information-economics-and-persuasion"
+        ],
+        "topics": [
+          {
+            "topic_id": "information-design",
+            "name": "information design"
+          },
+          {
+            "topic_id": "persuasion",
+            "name": "persuasion"
+          },
+          {
+            "topic_id": "sender-receiver",
+            "name": "sender receiver"
+          },
+          {
+            "topic_id": "posterior-beliefs",
+            "name": "posterior beliefs"
+          },
+          {
+            "topic_id": "mechanism",
+            "name": "mechanism"
+          }
+        ]
+      },
+      {
+        "id": "chandra-2007-productivity-spillovers-health",
+        "title": "Productivity Spillovers in Health Care: Evidence from the Treatment of Heart Attacks",
+        "year": 2007,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_structural",
+        "overall": 55,
+        "primary_theme_id": "physician-behavior-and-clinical-decision-making",
+        "theme_ids": [
+          "physician-behavior-and-clinical-decision-making",
+          "healthcare-productivity-variation-and-inefficiency"
+        ],
+        "topics": [
+          {
+            "topic_id": "geographic-variation",
+            "name": "geographic variation"
+          },
+          {
+            "topic_id": "productivity-spillovers",
+            "name": "productivity spillovers"
+          },
+          {
+            "topic_id": "heart-attacks",
+            "name": "heart attacks"
+          },
+          {
+            "topic_id": "Roy-model",
+            "name": "Roy model"
+          },
+          {
+            "topic_id": "treatment-intensity",
+            "name": "treatment intensity"
+          }
+        ]
+      },
+      {
+        "id": "cutler-2006-determinants-mortality",
+        "title": "The Determinants of Mortality",
+        "year": 2006,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_review",
+        "overall": 44,
+        "primary_theme_id": "health-capital-mortality-and-health-production",
+        "theme_ids": [
+          "health-capital-mortality-and-health-production"
+        ],
+        "topics": [
+          {
+            "topic_id": "mortality",
+            "name": "mortality"
+          },
+          {
+            "topic_id": "health-history",
+            "name": "health history"
+          },
+          {
+            "topic_id": "income-health-gradient",
+            "name": "income health gradient"
+          },
+          {
+            "topic_id": "public-health",
+            "name": "public health"
+          },
+          {
+            "topic_id": "medical-technology",
+            "name": "medical technology"
+          },
+          {
+            "topic_id": "health-inequality",
+            "name": "health inequality"
+          }
+        ]
+      },
+      {
+        "id": "grossman-2000-human-capital-model",
+        "title": "The Human Capital Model",
+        "year": 2000,
+        "field": "health-economics",
+        "paper_paradigm": "theory",
+        "overall": 48,
+        "primary_theme_id": "health-capital-mortality-and-health-production",
+        "theme_ids": [
+          "health-capital-mortality-and-health-production"
+        ],
+        "topics": [
+          {
+            "topic_id": "health-capital",
+            "name": "health capital"
+          },
+          {
+            "topic_id": "demand-for-health",
+            "name": "demand for health"
+          },
+          {
+            "topic_id": "human-capital",
+            "name": "human capital"
+          },
+          {
+            "topic_id": "household-production",
+            "name": "household production"
+          },
+          {
+            "topic_id": "health-investment",
+            "name": "health investment"
+          },
+          {
+            "topic_id": "education-health",
+            "name": "education health"
+          }
+        ]
+      },
+      {
+        "id": "hayek-1945-use-knowledge-society",
+        "title": "The Use of Knowledge in Society",
+        "year": 1945,
+        "field": "economics",
+        "paper_paradigm": "theory",
+        "overall": 48,
+        "primary_theme_id": "information-economics-and-persuasion",
+        "theme_ids": [
+          "information-economics-and-persuasion"
+        ],
+        "topics": [
+          {
+            "topic_id": "information-decentralization",
+            "name": "information decentralization"
+          },
+          {
+            "topic_id": "price-system",
+            "name": "price system"
+          },
+          {
+            "topic_id": "knowledge-dispersion",
+            "name": "knowledge dispersion"
+          },
+          {
+            "topic_id": "market-mechanism",
+            "name": "market mechanism"
+          },
+          {
+            "topic_id": "central-planning",
+            "name": "central planning"
+          }
+        ]
+      }
+    ],
+    "paper_edges": [
+      {
+        "source": "chan-2021-influence-information-team",
+        "target": "chan-2016-teamwork-moral-hazard",
+        "weight": 2,
+        "shared_theme_ids": [
+          "healthcare-teams-and-organizational-design",
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chan-2021-influence-information-team",
+        "target": "kolstad-2013-information-quality-when",
+        "weight": 2,
+        "shared_theme_ids": [
+          "information-economics-and-persuasion",
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chan-2022-selection-variation-diagnostic",
+        "target": "chandra-2007-productivity-spillovers-health",
+        "weight": 2,
+        "shared_theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency",
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chan-2022-selection-variation-diagnostic",
+        "target": "currie-2020-understanding-doctor-decision",
+        "weight": 2,
+        "shared_theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency",
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chandra-2024-health-costs-cost",
+        "target": "shigeoka-2014-effect-patient-cost",
+        "weight": 2,
+        "shared_theme_ids": [
+          "health-capital-mortality-and-health-production",
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "currie-2020-understanding-doctor-decision",
+        "target": "chandra-2007-productivity-spillovers-health",
+        "weight": 2,
+        "shared_theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency",
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "eliason-2025-ambulance-taxis-impact",
+        "target": "shi-2024-monitoring-waste-medicare",
+        "weight": 2,
+        "shared_theme_ids": [
+          "healthcare-fraud-waste-and-enforcement",
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "fang-2025-fear-risk-perception",
+        "target": "kolstad-2013-information-quality-when",
+        "weight": 2,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making",
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "finkelstein-2019-subsidizing-health-insurance",
+        "target": "handel-2015-health-insurance-humans",
+        "weight": 2,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing",
+          "insurance-choice-and-information-frictions"
+        ]
+      },
+      {
+        "source": "brot-goldberg-2017-what-does-deductible",
+        "target": "einav-2015-response-drug-expenditure",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "brot-goldberg-2017-what-does-deductible",
+        "target": "handel-2015-health-insurance-humans",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "brot-goldberg-2017-what-does-deductible",
+        "target": "shigeoka-2014-effect-patient-cost",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "chan-2016-teamwork-moral-hazard",
+        "target": "chandra-2007-productivity-spillovers-health",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chan-2016-teamwork-moral-hazard",
+        "target": "kolstad-2013-information-quality-when",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chan-2021-influence-information-team",
+        "target": "chandra-2007-productivity-spillovers-health",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chan-2021-influence-information-team",
+        "target": "chen-2021-team-specific-human",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-teams-and-organizational-design"
+        ]
+      },
+      {
+        "source": "chan-2021-influence-information-team",
+        "target": "currie-2020-understanding-doctor-decision",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chan-2021-influence-information-team",
+        "target": "hayek-1945-use-knowledge-society",
+        "weight": 1,
+        "shared_theme_ids": [
+          "information-economics-and-persuasion"
+        ]
+      },
+      {
+        "source": "chan-2021-influence-information-team",
+        "target": "kamenica-2011-bayesian-persuasion",
+        "weight": 1,
+        "shared_theme_ids": [
+          "information-economics-and-persuasion"
+        ]
+      },
+      {
+        "source": "chan-2022-selection-variation-diagnostic",
+        "target": "chan-2016-teamwork-moral-hazard",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chan-2022-selection-variation-diagnostic",
+        "target": "chan-2021-influence-information-team",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chan-2022-selection-variation-diagnostic",
+        "target": "chandra-2020-identifying-sources-inefficiency",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency"
+        ]
+      },
+      {
+        "source": "chan-2022-selection-variation-diagnostic",
+        "target": "finkelstein-2016-sources-geographic-variation",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency"
+        ]
+      },
+      {
+        "source": "chan-2022-selection-variation-diagnostic",
+        "target": "kolstad-2013-information-quality-when",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "chandra-2020-identifying-sources-inefficiency",
+        "target": "chandra-2007-productivity-spillovers-health",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency"
+        ]
+      },
+      {
+        "source": "chandra-2020-identifying-sources-inefficiency",
+        "target": "currie-2020-understanding-doctor-decision",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency"
+        ]
+      },
+      {
+        "source": "chandra-2020-identifying-sources-inefficiency",
+        "target": "finkelstein-2016-sources-geographic-variation",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency"
+        ]
+      },
+      {
+        "source": "chandra-2024-health-costs-cost",
+        "target": "brot-goldberg-2017-what-does-deductible",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "chandra-2024-health-costs-cost",
+        "target": "cutler-2006-determinants-mortality",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-capital-mortality-and-health-production"
+        ]
+      },
+      {
+        "source": "chandra-2024-health-costs-cost",
+        "target": "einav-2015-response-drug-expenditure",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "chandra-2024-health-costs-cost",
+        "target": "finkelstein-2019-subsidizing-health-insurance",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "chandra-2024-health-costs-cost",
+        "target": "grossman-2000-human-capital-model",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-capital-mortality-and-health-production"
+        ]
+      },
+      {
+        "source": "chandra-2024-health-costs-cost",
+        "target": "handel-2015-health-insurance-humans",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "chen-2021-team-specific-human",
+        "target": "chan-2016-teamwork-moral-hazard",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-teams-and-organizational-design"
+        ]
+      },
+      {
+        "source": "currie-2020-understanding-doctor-decision",
+        "target": "chan-2016-teamwork-moral-hazard",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "currie-2020-understanding-doctor-decision",
+        "target": "finkelstein-2016-sources-geographic-variation",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency"
+        ]
+      },
+      {
+        "source": "currie-2020-understanding-doctor-decision",
+        "target": "kolstad-2013-information-quality-when",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "cutler-2006-determinants-mortality",
+        "target": "grossman-2000-human-capital-model",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-capital-mortality-and-health-production"
+        ]
+      },
+      {
+        "source": "einav-2015-response-drug-expenditure",
+        "target": "kolstad-2013-information-quality-when",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "einav-2015-response-drug-expenditure",
+        "target": "shigeoka-2014-effect-patient-cost",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "eliason-2025-ambulance-taxis-impact",
+        "target": "einav-2015-response-drug-expenditure",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "eliason-2025-ambulance-taxis-impact",
+        "target": "fang-2017-detecting-potential-overbilling",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-fraud-waste-and-enforcement"
+        ]
+      },
+      {
+        "source": "eliason-2025-ambulance-taxis-impact",
+        "target": "fang-2025-fear-risk-perception",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "eliason-2025-ambulance-taxis-impact",
+        "target": "ito-2018-economics-attribute-based-regulation",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "eliason-2025-ambulance-taxis-impact",
+        "target": "kolstad-2013-information-quality-when",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "fang-2025-fear-risk-perception",
+        "target": "chan-2016-teamwork-moral-hazard",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "fang-2025-fear-risk-perception",
+        "target": "chan-2021-influence-information-team",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "fang-2025-fear-risk-perception",
+        "target": "chan-2022-selection-variation-diagnostic",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "fang-2025-fear-risk-perception",
+        "target": "chandra-2007-productivity-spillovers-health",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "fang-2025-fear-risk-perception",
+        "target": "currie-2020-understanding-doctor-decision",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "fang-2025-fear-risk-perception",
+        "target": "einav-2015-response-drug-expenditure",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "fang-2025-fear-risk-perception",
+        "target": "ito-2018-economics-attribute-based-regulation",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "fang-2025-fear-risk-perception",
+        "target": "shi-2024-monitoring-waste-medicare",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "finkelstein-2016-sources-geographic-variation",
+        "target": "chandra-2007-productivity-spillovers-health",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-productivity-variation-and-inefficiency"
+        ]
+      },
+      {
+        "source": "finkelstein-2019-subsidizing-health-insurance",
+        "target": "brot-goldberg-2017-what-does-deductible",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "finkelstein-2019-subsidizing-health-insurance",
+        "target": "einav-2015-response-drug-expenditure",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "finkelstein-2019-subsidizing-health-insurance",
+        "target": "shigeoka-2014-effect-patient-cost",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "handel-2015-health-insurance-humans",
+        "target": "einav-2015-response-drug-expenditure",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "handel-2015-health-insurance-humans",
+        "target": "shigeoka-2014-effect-patient-cost",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-insurance-and-cost-sharing"
+        ]
+      },
+      {
+        "source": "ito-2018-economics-attribute-based-regulation",
+        "target": "einav-2015-response-drug-expenditure",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "ito-2018-economics-attribute-based-regulation",
+        "target": "fang-2017-detecting-potential-overbilling",
+        "weight": 1,
+        "shared_theme_ids": [
+          "causal-inference-and-program-evaluation"
+        ]
+      },
+      {
+        "source": "ito-2018-economics-attribute-based-regulation",
+        "target": "kolstad-2013-information-quality-when",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "kamenica-2011-bayesian-persuasion",
+        "target": "hayek-1945-use-knowledge-society",
+        "weight": 1,
+        "shared_theme_ids": [
+          "information-economics-and-persuasion"
+        ]
+      },
+      {
+        "source": "kolstad-2013-information-quality-when",
+        "target": "chandra-2007-productivity-spillovers-health",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "kolstad-2013-information-quality-when",
+        "target": "hayek-1945-use-knowledge-society",
+        "weight": 1,
+        "shared_theme_ids": [
+          "information-economics-and-persuasion"
+        ]
+      },
+      {
+        "source": "kolstad-2013-information-quality-when",
+        "target": "kamenica-2011-bayesian-persuasion",
+        "weight": 1,
+        "shared_theme_ids": [
+          "information-economics-and-persuasion"
+        ]
+      },
+      {
+        "source": "olden-2022-triple-difference-estimator",
+        "target": "fang-2017-detecting-potential-overbilling",
+        "weight": 1,
+        "shared_theme_ids": [
+          "causal-inference-and-program-evaluation"
+        ]
+      },
+      {
+        "source": "olden-2022-triple-difference-estimator",
+        "target": "ito-2018-economics-attribute-based-regulation",
+        "weight": 1,
+        "shared_theme_ids": [
+          "causal-inference-and-program-evaluation"
+        ]
+      },
+      {
+        "source": "ortiz-2025-better-understanding-triple",
+        "target": "fang-2017-detecting-potential-overbilling",
+        "weight": 1,
+        "shared_theme_ids": [
+          "causal-inference-and-program-evaluation"
+        ]
+      },
+      {
+        "source": "ortiz-2025-better-understanding-triple",
+        "target": "ito-2018-economics-attribute-based-regulation",
+        "weight": 1,
+        "shared_theme_ids": [
+          "causal-inference-and-program-evaluation"
+        ]
+      },
+      {
+        "source": "ortiz-2025-better-understanding-triple",
+        "target": "olden-2022-triple-difference-estimator",
+        "weight": 1,
+        "shared_theme_ids": [
+          "causal-inference-and-program-evaluation"
+        ]
+      },
+      {
+        "source": "shi-2024-monitoring-waste-medicare",
+        "target": "einav-2015-response-drug-expenditure",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "shi-2024-monitoring-waste-medicare",
+        "target": "fang-2017-detecting-potential-overbilling",
+        "weight": 1,
+        "shared_theme_ids": [
+          "healthcare-fraud-waste-and-enforcement"
+        ]
+      },
+      {
+        "source": "shi-2024-monitoring-waste-medicare",
+        "target": "ito-2018-economics-attribute-based-regulation",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "shi-2024-monitoring-waste-medicare",
+        "target": "kolstad-2013-information-quality-when",
+        "weight": 1,
+        "shared_theme_ids": [
+          "regulation-design-and-policy-incentives"
+        ]
+      },
+      {
+        "source": "shigeoka-2014-effect-patient-cost",
+        "target": "cutler-2006-determinants-mortality",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-capital-mortality-and-health-production"
+        ]
+      },
+      {
+        "source": "shigeoka-2014-effect-patient-cost",
+        "target": "grossman-2000-human-capital-model",
+        "weight": 1,
+        "shared_theme_ids": [
+          "health-capital-mortality-and-health-production"
+        ]
+      }
+    ]
+  },
   "rankings": {
     "overall": [
       "chan-2022-selection-variation-diagnostic",

@@ -16,6 +16,28 @@
   "why_in_my_db": "这是研究 Medicare 废物监察、公共支出合规与威慑效应最直接的参照文献之一。其识别策略（跨 RAC 管辖边界 DD + 两午夜规则 DD）具有高度可迁移性；对\"威慑 vs. 直接追回\"的拆分框架和\"合规技术投资 vs. 行政摩擦\"的区分对研究 Medicare 执法的任何人都是必读。",
   "created_at": "2026-06-12T06:05:06.690309+00:00",
   "one_line_judgment": "一篇将威慑效应主体化、同时证明监察不伤患者的 Medicare 浪费治理基准实证研究。",
+  "topics": [
+    {
+      "topic_id": "medicare-audits",
+      "name": "medicare audits"
+    },
+    {
+      "topic_id": "healthcare-waste",
+      "name": "healthcare waste"
+    },
+    {
+      "topic_id": "monitoring-enforcement",
+      "name": "monitoring enforcement"
+    },
+    {
+      "topic_id": "deterrence",
+      "name": "deterrence"
+    },
+    {
+      "topic_id": "hospital-behavior",
+      "name": "hospital behavior"
+    }
+  ],
   "ratings": {
     "dao": 10,
     "fa": 10,
@@ -35,24 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "medicare-waste",
-      "name": "Medicare 浪费"
+      "theme_id": "healthcare-fraud-waste-and-enforcement",
+      "name": "医疗欺诈、浪费与执法"
     },
     {
-      "theme_id": "hospital-behavior-incentives",
-      "name": "hospital behavior incentives"
-    },
-    {
-      "theme_id": "healthcare-fraud",
-      "name": "医疗欺诈"
-    },
-    {
-      "theme_id": "deterrence-effects",
-      "name": "威慑效应"
-    },
-    {
-      "theme_id": "monitoring-enforcement",
-      "name": "监测与执法"
+      "theme_id": "regulation-design-and-policy-incentives",
+      "name": "监管设计与政策激励"
     }
   ],
   "excerpts": [
@@ -141,7 +151,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.（文章提供了一个医院行为的简约理论模型作为实证分析的基础，但实证因果分析是主干。）",
     "Limitations": "识别依赖跨 RAC 管辖边界的 DD 设计，一定程度上受限于 RAC 管辖边界并非完全外生（虽非医院可以影响）；患者健康结果仅能由 30 天再访率近似代理，无法排除某些更长期或更隐性的健康影响；样本仅覆盖 Medicare 住院人群，结论外推至门诊或私保领域需谨慎；两午夜规则样本窗口较窄（仅包含时间临界附近的患者），代表性有限。",
-    "Theme Links": "- `medicare-waste`\n- `monitoring-enforcement`\n- `healthcare-fraud`\n- `deterrence-effects`\n- `hospital-behavior-incentives`",
+    "Theme Links": "- `healthcare-fraud-waste-and-enforcement`\n- `regulation-design-and-policy-incentives`",
     "Ratings": "",
     "Dao": "- Score: 10\n- Note: 直接回答\"监察公共医疗浪费是否值得\"这一核心政策问题，研究问题的战略价值极高。",
     "Fa": "- Score: 10\n- Note: 两套相互印证的 DD 策略（RAC 管辖边界 + 两午夜规则）识别力强，且对威慑与追回的拆分具有方法论创新价值。",

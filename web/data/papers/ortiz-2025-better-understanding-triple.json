@@ -16,6 +16,32 @@
   "why_in_my_db": "这是目前关于 DDD 方法论最前沿、最完整的参考文献，直接弥补了 Olden and Møen (2022) 未涉及的协变量调整和交错采纳两大问题。对于任何打算在有协变量调整需求或多期交错采纳设计中使用 DDD 的应用研究者，这篇文章是必要的方法论依据。配套 R 包使其可直接操作。",
   "created_at": "2026-06-12T06:05:12.010810+00:00",
   "one_line_judgment": "将 DDD 方法论从两期无协变量的理想世界推进到协变量调整与交错采纳的现实世界，是 DDD 应用的新标准参考。",
+  "topics": [
+    {
+      "topic_id": "triple-difference",
+      "name": "triple difference"
+    },
+    {
+      "topic_id": "DDD",
+      "name": "DDD"
+    },
+    {
+      "topic_id": "staggered-adoption",
+      "name": "staggered adoption"
+    },
+    {
+      "topic_id": "doubly-robust",
+      "name": "doubly robust"
+    },
+    {
+      "topic_id": "covariate-adjustment",
+      "name": "covariate adjustment"
+    },
+    {
+      "topic_id": "causal-inference",
+      "name": "causal inference"
+    }
+  ],
   "ratings": {
     "dao": 8,
     "fa": 10,
@@ -35,24 +61,8 @@
   },
   "themes": [
     {
-      "theme_id": "triple-difference-estimator",
-      "name": "三重差分估计量"
-    },
-    {
-      "theme_id": "staggered-adoption-DiD",
-      "name": "交错采用双重差分"
-    },
-    {
-      "theme_id": "covariate-adjusted-identification",
-      "name": "协变量调整识别"
-    },
-    {
-      "theme_id": "doubly-robust-estimator",
-      "name": "双重鲁棒估计量"
-    },
-    {
-      "theme_id": "causal-inference-methods",
-      "name": "因果推断方法"
+      "theme_id": "causal-inference-and-program-evaluation",
+      "name": "因果识别与政策评估"
     }
   ],
   "excerpts": [
@@ -143,7 +153,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "论文主要关注两个扩展维度（协变量调整与交错采纳），尚未系统处理连续处理强度、部分识别或敏感性分析框架。推断的渐近理论在固定 T、大 n 框架下建立，对 T 较大时的有限样本性质尚待探索。配套 R 包尚为工作论文阶段（2025 年 7 月），稳定性有待观察。此外，论文覆盖的 DDD 定义较为特定（两个条件缺一不可才受处理），与某些将 DDD 用于异质性分析的应用有所不同。",
-    "Theme Links": "- `triple-difference-estimator`\n- `causal-inference-methods`\n- `staggered-adoption-DiD`\n- `doubly-robust-estimator`\n- `covariate-adjusted-identification`",
+    "Theme Links": "- `causal-inference-and-program-evaluation`",
     "Ratings": "",
     "Dao": "- Score: 8\n- Note: 直接解决了应用研究者在使用 DDD 时面临的两个最常见的现实障碍（协变量调整与交错采纳），问题定位精准且具有广泛影响。",
     "Fa": "- Score: 10\n- Note: 识别条件推导严格，在潜在结果框架下证明了朴素估计量的偏误，并给出双重稳健估计量的形式化保证。",

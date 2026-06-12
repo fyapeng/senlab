@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章直接测量了低收入人群的保险需求曲线，是该领域为数不多在\"真实市场价格变化\"而非假设问卷下估计WTP的文章。它将Einav-Finkelstein-Cullen的竞争选择框架应用于政策最相关的低收入人群，同时对大型补贴计划的政策有效性给出了清醒的实证约束。",
   "created_at": "2026-06-12T06:04:52.198131+00:00",
   "one_line_judgment": "大额补贴换不来全覆盖，因为低收入人群对保险的支付意愿本身就系统性地低于他们自己的医疗成本——这篇文章把这一不便的真相量化得清清楚楚。",
+  "topics": [
+    {
+      "topic_id": "health-insurance-demand",
+      "name": "health insurance demand"
+    },
+    {
+      "topic_id": "willingness-to-pay",
+      "name": "willingness to pay"
+    },
+    {
+      "topic_id": "adverse-selection",
+      "name": "adverse selection"
+    },
+    {
+      "topic_id": "subsidies",
+      "name": "subsidies"
+    },
+    {
+      "topic_id": "low-income",
+      "name": "low income"
+    }
+  ],
   "ratings": {
     "dao": 10,
     "fa": 10,
@@ -35,24 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "insurance-subsidies-low-income",
-      "name": "低收入群体保险补贴"
+      "theme_id": "insurance-choice-and-information-frictions",
+      "name": "保险选择与信息摩擦"
     },
     {
-      "theme_id": "health-insurance-market-design",
-      "name": "健康保险市场设计"
-    },
-    {
-      "theme_id": "health-insurance-demand",
-      "name": "健康保险需求"
-    },
-    {
-      "theme_id": "cost-sharing-demand",
-      "name": "成本分担与医疗需求"
-    },
-    {
-      "theme_id": "adverse-selection-insurance",
-      "name": "逆向选择与保险市场"
+      "theme_id": "health-insurance-and-cost-sharing",
+      "name": "健康保险与成本分担"
     }
   ],
   "excerpts": [
@@ -141,7 +151,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "研究场景为马萨诸塞州单一市场，结果的可外推性取决于其他地区无偿医疗可及性、保险市场竞争程度等制度因素是否相似。WTP估计内涵了麻烦成本，不完全等同于对保险本身的价值判断。样本仅覆盖WTP分布约第6至第70百分位（能被观测到的参保/退出人群），最高WTP人群始终参保、最低WTP人群（从未参保）均无法被直接观测，需依赖模型外推。如果无偿医疗的可得性随政策变化（如医院行为响应大规模参保扩张），则反事实估计可能有偏。此外，CommCare于2014年随ACA实施而结构性调整，直接外推至ACA语境需谨慎。",
-    "Theme Links": "- `health-insurance-demand`\n- `health-insurance-market-design`\n- `adverse-selection-insurance`\n- `cost-sharing-demand`\n- `insurance-subsidies-low-income`",
+    "Theme Links": "- `health-insurance-and-cost-sharing`\n- `insurance-choice-and-information-frictions`",
     "Ratings": "",
     "Dao": "- Score: 10\n- Note: 直接测量低收入人群WTP与成本之间的差距，回答了公共保险补贴政策的核心问题，学术与政策价值均极高。",
     "Fa": "- Score: 10\n- Note: 利用制度性补贴断点的RD设计干净可信，与Einav-Finkelstein-Cullen框架的结合使弹性估计与福利含义之间的转化严谨透明。",

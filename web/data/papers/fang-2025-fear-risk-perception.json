@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章将医疗事故诉讼的行为反应与防御性医疗的非理性机制相连，是理解医生激励与医疗监管的重要互补视角。与 Shi（2024）和 Eliason et al.（2025）关注支出侧监察不同，本文关注责任威慑对临床行为的间接扭曲，并提供了中国医疗情境下的独特证据，对设计监管工具与医生支持政策均有参考价值。",
   "created_at": "2026-06-12T06:05:07.934998+00:00",
   "one_line_judgment": "诉讼的恐惧比经济损失更能扭曲医生行为：一篇将非理性预期确立为防御性医疗主机制的实证研究。",
+  "topics": [
+    {
+      "topic_id": "malpractice-lawsuits",
+      "name": "malpractice lawsuits"
+    },
+    {
+      "topic_id": "defensive-medicine",
+      "name": "defensive medicine"
+    },
+    {
+      "topic_id": "physician-behavior",
+      "name": "physician behavior"
+    },
+    {
+      "topic_id": "salience",
+      "name": "salience"
+    },
+    {
+      "topic_id": "behavioral-health-economics",
+      "name": "behavioral health economics"
+    }
+  ],
   "ratings": {
     "dao": 8,
     "fa": 8,
@@ -35,24 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "physician-behavior",
-      "name": "医生行为与激励"
+      "theme_id": "physician-behavior-and-clinical-decision-making",
+      "name": "医生行为与临床决策"
     },
     {
-      "theme_id": "malpractice-risk",
-      "name": "医疗事故诉讼风险"
-    },
-    {
-      "theme_id": "monitoring-enforcement",
-      "name": "监测与执法"
-    },
-    {
-      "theme_id": "behavioral-health-economics",
-      "name": "行为健康经济学"
-    },
-    {
-      "theme_id": "defensive-medicine",
-      "name": "防御性医疗"
+      "theme_id": "regulation-design-and-policy-incentives",
+      "name": "监管设计与政策激励"
     }
   ],
   "excerpts": [
@@ -143,7 +153,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.（文章有一个简约的理论框架，对比理性贝叶斯更新与短记忆学习/凸显机制的不同预测，用于导出可辨别的实证含义，但实证分析是主干。）",
     "Limitations": "研究基于中国单一城市，外部有效性依赖于对中国制度特征（极低财务赔偿、高暴力风险）的了解；诉讼数量较少（64 件），样本规模有限，部分异质性分析统计功效不足；患者层面的健康结果依赖 30 天再入院率，无法追踪更长期影响；无法完全排除医院管理层在诉讼期间采取院级统一协议变更的可能性（虽经检验后该解释证据较弱）；识别依赖诉讼发生的准随机性，不能完全排除诉讼聚集在某些医疗条件特别差或特别好的医院的担忧。",
-    "Theme Links": "- `malpractice-risk`\n- `defensive-medicine`\n- `physician-behavior`\n- `monitoring-enforcement`\n- `behavioral-health-economics`",
+    "Theme Links": "- `physician-behavior-and-clinical-decision-making`\n- `regulation-design-and-policy-incentives`",
     "Ratings": "",
     "Dao": "- Score: 8\n- Note: 医疗事故诉讼的行为扭曲与防御性医疗是重要政策议题，将非理性预期作为核心机制的识别是方法论上的增量贡献。",
     "Fa": "- Score: 8\n- Note: Stacked DID 设计合理，多重机制检验设计巧妙，但诉讼准随机性假设的可信度依赖于对中国制度特征的深度了解。",

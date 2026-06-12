@@ -56,6 +56,8 @@ Mark genuinely uncertain fields as `TODO_VERIFY` rather than guessing.
 
 - All analytical prose in paper cards is written in **Chinese (Simplified)**.
 - Ratings (道法势术器主观) use integers **1–10** only.
+- `Theme Links` should contain only **mid-level cross-paper themes** suitable for aggregation and network views.
+- Fine-grained concepts belong in frontmatter `tags` as **topics/keywords**, not in `Theme Links`.
 - `work_id` format: `{first-author-lastname}-{year}-{title-keywords}` (slugified).
 - `version_id` format: `{work_id}-{label}` where label is `uploaded`, `working-paper`, `published`, etc.
 - After any canonical edit, always re-run sync + export before committing.

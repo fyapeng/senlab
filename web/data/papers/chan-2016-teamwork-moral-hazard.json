@@ -16,6 +16,28 @@
   "why_in_my_db": "这是研究医疗卫生部门团队生产与道德风险的核心文献之一，利用急诊科高频自然实验将团队互相管理这一具体制度特征单独识别出来，并与足拖机制的理论模型紧密衔接。对于研究医疗组织经济学、团队激励与信息不对称的研究者来说，此文既有可复用的制度环境，也有清晰的机制识别路径。",
   "created_at": "2026-06-12T06:05:13.132603+00:00",
   "one_line_judgment": "一篇用急诊室自然实验证明团队自我管理可以打败经典道德风险预言的组织经济学力作。",
+  "topics": [
+    {
+      "topic_id": "teamwork",
+      "name": "teamwork"
+    },
+    {
+      "topic_id": "moral-hazard",
+      "name": "moral hazard"
+    },
+    {
+      "topic_id": "emergency-department",
+      "name": "emergency department"
+    },
+    {
+      "topic_id": "physician-productivity",
+      "name": "physician productivity"
+    },
+    {
+      "topic_id": "organizational-design",
+      "name": "organizational design"
+    }
+  ],
   "ratings": {
     "dao": 10,
     "fa": 9,
@@ -35,28 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "foot-dragging-information",
-      "name": "信息隐藏与工作拖延"
+      "theme_id": "physician-behavior-and-clinical-decision-making",
+      "name": "医生行为与临床决策"
     },
     {
-      "theme_id": "physician-teams",
-      "name": "医生团队协作"
-    },
-    {
-      "theme_id": "organizational-economics-health",
-      "name": "医疗组织经济学"
-    },
-    {
-      "theme_id": "moral-hazard-teams",
-      "name": "团队内道德风险"
-    },
-    {
-      "theme_id": "team-production",
-      "name": "团队生产"
-    },
-    {
-      "theme_id": "mutual-monitoring",
-      "name": "相互监督机制"
+      "theme_id": "healthcare-teams-and-organizational-design",
+      "name": "医疗团队与组织设计"
     }
   ],
   "excerpts": [
@@ -154,7 +160,7 @@
     "Comparative Statics": "足拖程度随未来工作量预期的增大而增大；随同伴观察概率 w 增大而减小（自我管理的关键机制）；随医生对新患者的成本差 K^P - K̲^P 的增大而增大。",
     "Applications": "该模型可推广至一般性\"工人相互管理\"情景，任何存在管理者信息劣势且工人之间信息优势可被利用的联合生产环境均可适用。",
     "Limitations": "1. 研究来自单一医院的单一急诊科，外部有效性有待讨论，尤其是其他医院或非急诊科场景未必具备相同的诊区结构。2. 死亡率等质量结果的估计精度较低，无法完全排除质量变化。3. 制度切换并非随机指派，尽管差分设计可以控制医生固定效应，但仍无法完全排除切换时机与某些未观测诊区特征同期变化的可能性。4. 理论模型做了若干简化假设（如单一新患者到达、医生只关心避免新工作），现实医疗环境更为复杂。",
-    "Theme Links": "- `team-production`\n- `moral-hazard-teams`\n- `physician-teams`\n- `organizational-economics-health`\n- `mutual-monitoring`\n- `foot-dragging-information`",
+    "Theme Links": "- `healthcare-teams-and-organizational-design`\n- `physician-behavior-and-clinical-decision-making`",
     "Ratings": "",
     "Dao": "- Score: 10\n- Note: 把\"团队合作能否降低道德风险\"这个经典理论问题放在可识别的自然实验中直接检验，研究问题极具原创性与理论价值。",
     "Fa": "- Score: 9\n- Note: 差分-差分设计利用医生跨诊区轮换与制度切换时点，识别策略简洁清晰，平行趋势检验与安慰剂测试均完整，足拖机制证据也形成多层次支撑。",

@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章是信息设计、机制直觉和跨领域主题搭建时最值得保留的理论锚点之一。",
   "created_at": "2026-06-11T15:07:45.548704+00:00",
   "one_line_judgment": "一篇长期复用价值极高的经典信息设计框架论文。",
+  "topics": [
+    {
+      "topic_id": "information-design",
+      "name": "information design"
+    },
+    {
+      "topic_id": "persuasion",
+      "name": "persuasion"
+    },
+    {
+      "topic_id": "sender-receiver",
+      "name": "sender receiver"
+    },
+    {
+      "topic_id": "posterior-beliefs",
+      "name": "posterior beliefs"
+    },
+    {
+      "topic_id": "mechanism",
+      "name": "mechanism"
+    }
+  ],
   "ratings": {
     "dao": 10,
     "fa": 10,
@@ -35,16 +57,8 @@
   },
   "themes": [
     {
-      "theme_id": "belief-manipulation-and-disclosure",
-      "name": "信念操纵与信息披露"
-    },
-    {
-      "theme_id": "information-design-persuasion",
-      "name": "信息设计与劝服"
-    },
-    {
-      "theme_id": "strategic-communication",
-      "name": "策略性沟通"
+      "theme_id": "information-economics-and-persuasion",
+      "name": "信息经济学与说服"
     }
   ],
   "excerpts": [
@@ -143,7 +157,7 @@
     "Institutional Setting": "Not the primary branch for this paper.",
     "Empirical Translation Value": "这个框架可以非常自然地迁移到信息披露、推荐系统、平台信息设计、政治竞选、法律论证以及受监管 persuasion 场景中。",
     "Limitations": "模型抽象掉了事后 misreporting、重复沟通、内生承诺摩擦，以及 cheap talk 与更广义机制设计里强调的一些激励相容问题。",
-    "Theme Links": "- `information-design-persuasion`\n- `strategic-communication`\n- `belief-manipulation-and-disclosure`",
+    "Theme Links": "- `information-economics-and-persuasion`",
     "Ratings": "",
     "Dao": "- Score: 10\n- Note: 这是一个基础性、定义了后续研究方向的问题。",
     "Fa": "- Score: 10\n- Note: 模型逻辑和后验分布重写都非常干净，是理论文章里罕见的高完成度。",

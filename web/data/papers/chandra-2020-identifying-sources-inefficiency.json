@@ -16,6 +16,28 @@
   "why_in_my_db": "本文为医疗效率研究建立了一个可以同时处理分配无效率与比较优势的双维识别框架，是理解跨医院治疗变异根源的方法论基准文献。对于关注医疗组织经济学、医院生产率与政策评估的研究者，此文提供了概念工具与实证方法，可直接应用于其他治疗的效率分析。",
   "created_at": "2026-06-12T06:04:59.289363+00:00",
   "one_line_judgment": "一篇用广义 Roy 模型将医疗变异中的分配无效率与比较优势真正拆开的方法论基准文献，44%可提升空间令人警醒。",
+  "topics": [
+    {
+      "topic_id": "allocative-inefficiency",
+      "name": "allocative inefficiency"
+    },
+    {
+      "topic_id": "comparative-advantage",
+      "name": "comparative advantage"
+    },
+    {
+      "topic_id": "treatment-variation",
+      "name": "treatment variation"
+    },
+    {
+      "topic_id": "hospital-productivity",
+      "name": "hospital productivity"
+    },
+    {
+      "topic_id": "heart-attack",
+      "name": "heart attack"
+    }
+  ],
   "ratings": {
     "dao": 10,
     "fa": 10,
@@ -35,28 +57,8 @@
   },
   "themes": [
     {
-      "theme_id": "healthcare-inefficiency",
-      "name": "医疗低效率"
-    },
-    {
-      "theme_id": "organizational-economics-health",
-      "name": "医疗组织经济学"
-    },
-    {
-      "theme_id": "empirical-structural-health",
-      "name": "医疗结构估计"
-    },
-    {
-      "theme_id": "comparative-advantage-hospitals",
-      "name": "医院比较优势"
-    },
-    {
-      "theme_id": "treatment-variation",
-      "name": "治疗变异"
-    },
-    {
-      "theme_id": "allocative-efficiency",
-      "name": "配置效率"
+      "theme_id": "healthcare-productivity-variation-and-inefficiency",
+      "name": "医疗生产率、差异与低效率"
     }
   ],
   "excerpts": [
@@ -145,7 +147,7 @@
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
     "Limitations": "1. 数据来自1994–1995年，尽管作者提供了近年 Medicare 数据佐证（医院间变异高度持续），但具体治疗技术与激励环境已发生变化，外推需谨慎。2. CCP 数据虽详尽，仍无法排除所有未观测临床混淆因素；倾向得分估计依赖于观测变量的充分性。3. 识别框架要求的\"倾向得分充分统计量\"假设较强，实际上治疗效益的分布可能与倾向得分存在非参数相关。4. 福利计算假设比较优势差异本身是合理的而非另一种低质量的根源，但比较优势的来源（基础设施、人员技能、团队协作等）本身未被识别。5. 分析单元是医院而非医生团队，无法分解团队层面的机制。",
-    "Theme Links": "- `healthcare-inefficiency`\n- `treatment-variation`\n- `allocative-efficiency`\n- `comparative-advantage-hospitals`\n- `organizational-economics-health`\n- `empirical-structural-health`",
+    "Theme Links": "- `healthcare-productivity-variation-and-inefficiency`",
     "Ratings": "",
     "Dao": "- Score: 10\n- Note: 将医疗实践变异研究中\"浪费vs.合理差异\"这一核心两难用严格经济学框架拆开，具有极强的方法论与政策价值。",
     "Fa": "- Score: 10\n- Note: 基于广义 Roy 模型的分配有效性识别条件逻辑清晰，利用 CCP 丰富临床数据复制 RCT 效益估计这一做法大大增强了识别的可信度，两层分解（无效率 vs. 比较优势）执行严谨。",

@@ -16,6 +16,28 @@
   "why_in_my_db": "这篇文章是健康经济学中将理论模型与地理变异实证相结合的经典范本，也是 Chan et al. (2022) 所直接引用的\"异质生产率\"解释的起点。它对理解医疗资源配置效率、区域专业化与政策评估具有基础性意义，是任何研究医疗支出变异或医生实践风格的学者必读的参考文献。",
   "created_at": "2026-06-12T06:04:52.617938+00:00",
   "one_line_judgment": "用含溢出效应的 Roy 模型一举颠覆\"地理变异等于浪费\"叙事的健康经济学理论与实证标杆。",
+  "topics": [
+    {
+      "topic_id": "geographic-variation",
+      "name": "geographic variation"
+    },
+    {
+      "topic_id": "productivity-spillovers",
+      "name": "productivity spillovers"
+    },
+    {
+      "topic_id": "heart-attacks",
+      "name": "heart attacks"
+    },
+    {
+      "topic_id": "Roy-model",
+      "name": "Roy model"
+    },
+    {
+      "topic_id": "treatment-intensity",
+      "name": "treatment intensity"
+    }
+  ],
   "ratings": {
     "dao": 10,
     "fa": 8,
@@ -35,24 +57,12 @@
   },
   "themes": [
     {
-      "theme_id": "practice-style",
-      "name": "医生实践风格"
+      "theme_id": "physician-behavior-and-clinical-decision-making",
+      "name": "医生行为与临床决策"
     },
     {
-      "theme_id": "physician-skill-heterogeneity",
-      "name": "医生技能异质性"
-    },
-    {
-      "theme_id": "geographic-variation",
-      "name": "医疗地域变异"
-    },
-    {
-      "theme_id": "treatment-intensity",
-      "name": "治疗强度"
-    },
-    {
-      "theme_id": "productivity-spillovers",
-      "name": "生产率溢出"
+      "theme_id": "healthcare-productivity-variation-and-inefficiency",
+      "name": "医疗生产率、差异与低效率"
     }
   ],
   "excerpts": [
@@ -143,7 +153,7 @@
     "Players": "患者（或其代理人医生）在集约型与非集约型治疗之间进行选择，以最大化预期效用（生存率减去成本的加权组合）。",
     "Key Propositions": "Roy 模型均衡条件为方程 (6) 的不动点：地区集约型治疗比例 P₂ 必须与该比例下患者最优选择所产生的需求相等。溢出效应（参数 a > 0）使得均衡可以是多重的：集约均衡和非集约均衡都可能稳定，小的患者构成差异可能通过溢出效应被放大为大的地区专业化差异（\"锁定\"效应）。",
     "Limitations": "核心因果识别依赖于模型一致性检验而非单一干净工具变量，若存在模型设定错误，检验可能失效。溢出效应的具体机制（学习溢出 vs. 基础设施可用性 vs. 医生选择）在数据中无法区分，而不同机制的福利含义不同。研究以 AMI 为例，能否推广至其他疾病和干预类型需额外验证。Medicare 人群（主要为 65 岁以上老年人）不代表全人群。2007 年之后心脏病诊疗技术和报销政策发生了较大变化，结果的时效性需注意。",
-    "Theme Links": "- `productivity-spillovers`\n- `geographic-variation`\n- `physician-skill-heterogeneity`\n- `practice-style`\n- `treatment-intensity`",
+    "Theme Links": "- `healthcare-productivity-variation-and-inefficiency`\n- `physician-behavior-and-clinical-decision-making`",
     "Ratings": "",
     "Dao": "- Score: 10\n- Note: 直接挑战了\"医疗支出变异 = 低效浪费\"这一长期主导政策讨论的诊断，提出了对地理变异文献整体性的替代解释框架。",
     "Fa": "- Score: 8\n- Note: 通过一组模型预测与数据的系统对比来区分假说，逻辑严密；但缺乏单一干净的工具变量，识别效力依赖模型正确设定。",
