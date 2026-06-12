@@ -160,7 +160,7 @@ function buildShell(site, activePage) {
     <header class="topbar">
       <div class="topbar-inner">
         <a href="./index.html" class="brand-lockup">
-          <img class="brand-logo intro" src="${site.brand.logo_intro_url}?v=20260612e" alt="Sencium Lab" />
+          <img class="brand-logo intro" src="${site.brand.logo_intro_url}?v=20260612f" alt="Sencium Lab" />
         </a>
         <nav class="nav">${navLinks}</nav>
       </div>
@@ -330,8 +330,8 @@ async function renderDashboard(site) {
             <p class="intro-note-text">把题目、作者、期刊、DOI 与核心判断整理为稳定可回查的论文案卡。</p>
           </div>
           <div class="intro-note">
-            <h3 class="intro-note-title">棱镜</h3>
-            <p class="intro-note-text">把可复用的观点、证据与更稳妥的引文写法沉淀为 Citation Lens。</p>
+            <h3 class="intro-note-title">视角</h3>
+            <p class="intro-note-text">把可复用的观点、证据与更稳妥的引文写法整理为稳定可调用的引用视角。</p>
           </div>
           <div class="intro-note">
             <h3 class="intro-note-title">脉络</h3>
@@ -354,14 +354,14 @@ async function renderDashboard(site) {
       ${statCard("论文总数", site.meta.paper_count, "已进入公开索引的论文")}
       ${statCard("主题总数", site.meta.theme_count, "主题级知识节点")}
       ${statCard("证据片段", site.meta.excerpt_count, "可回链到论文位置的证据块")}
-      ${statCard("引文棱镜", site.meta.lens_count, "可复用的引用接口")}
+      ${statCard("引用视角", site.meta.lens_count, "可复用的引用接口")}
     </section>
 
     <section class="panel section">
       <div class="section-head">
         <div>
           <div class="eyebrow">评议体系</div>
-          <h2 class="section-title">衡镜六维</h2>
+          <h2 class="section-title">六维评估</h2>
         </div>
       </div>
       <div class="grid-3">
@@ -683,10 +683,10 @@ async function renderAbout(site) {
             <h1 class="section-title">Sencium Lab 是什么</h1>
           </div>
         </div>
-        <p class="intro-text">Sencium Lab 是一套本地优先的研究文献系统。原始 PDF、规范化 Paper Card、证据片段、引文棱镜与六维评议先在本地沉淀，再导出公开网页用于检索、比较与展示。</p>
+        <p class="intro-text">Sencium Lab 是一套本地优先的研究文献系统。原始 PDF、规范化 Paper Card、证据片段、引用视角与六维评估先在本地沉淀，再导出公开网页用于检索、比较与展示。</p>
         <div class="stack-list">
           <div class="stack-item"><strong>索引层</strong><div class="muted">展示标题、作者、期刊、评分、主题与可公开的摘要性信息。</div></div>
-          <div class="stack-item"><strong>分析层</strong><div class="muted">展示论文案卡、脉络展开、证据摘录与引文棱镜。</div></div>
+          <div class="stack-item"><strong>分析层</strong><div class="muted">展示论文案卡、脉络展开、证据摘录与引用视角。</div></div>
           <div class="stack-item"><strong>本地层</strong><div class="muted">保留 PDF 原文、SQLite 数据库、工作草稿与长文笔记。</div></div>
         </div>
       </div>
@@ -694,7 +694,7 @@ async function renderAbout(site) {
         <div class="section-head">
           <div>
             <div class="eyebrow">评议方法</div>
-            <h2 class="section-title">衡镜六维</h2>
+            <h2 class="section-title">六维评估</h2>
           </div>
         </div>
         <div class="stack-list">
@@ -754,8 +754,8 @@ async function renderPaper(site) {
       <article class="panel score-panel">
         <div class="section-head compact">
           <div>
-            <div class="eyebrow">评议图谱</div>
-            <h2 class="section-title">衡镜六维</h2>
+            <div class="eyebrow">评分图谱</div>
+            <h2 class="section-title">六维评估</h2>
           </div>
         </div>
         <div class="radar-wrap">${radarSvg(paper.ratings)}</div>
@@ -802,8 +802,8 @@ async function renderPaper(site) {
         <article class="detail-card panel">
           <div class="section-head compact">
             <div>
-              <div class="eyebrow">棱镜</div>
-              <h2 class="section-title">引文棱镜</h2>
+              <div class="eyebrow">视角</div>
+              <h2 class="section-title">引用视角</h2>
             </div>
           </div>
           <div class="stack-list">
