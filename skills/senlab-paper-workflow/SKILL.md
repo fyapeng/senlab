@@ -1,15 +1,24 @@
 ---
 name: senlab-paper-workflow
-description: Ingest academic papers into the SenLab local research database with strict, standardized outputs. Use when Codex needs to process a paper PDF into SenLab objects, including work/version identification, extracted full text, a normalized paper card, Dao-Fa-Shi-Shu-Qi plus subjective ratings, excerpts, citation lenses, and theme links. Use for paper intake, version updates, structured markdown generation, lens drafting, and database-backed research-note maintenance.
+description: Orchestrate multi-step SenLab paper processing across modular skills. Use when Codex needs to decide or coordinate the full pipeline for a paper, including intake, paper-card construction, lens drafting, or later maintenance updates. Prefer the narrower SenLab skills for direct execution of each stage.
 ---
 
 # SenLab Paper Workflow
 
-Follow this skill only for SenLab database work. Do not use it for free-form paper summaries, blog articles, or loose deep-reading notes.
+Use this skill only as the umbrella coordinator for SenLab database work. Do not use it for free-form paper summaries, blog articles, or loose deep-reading notes.
+
+Prefer these modular skills for direct execution:
+
+- `senlab-ingest-paper`
+- `senlab-build-paper-card`
+- `senlab-build-lenses`
+- `senlab-revise-paper-card`
+- `senlab-revise-lenses`
+- `senlab-update-taxonomy`
 
 ## Output Contract
 
-Produce or update the following SenLab objects for each paper:
+When the task spans multiple stages, produce or update the following SenLab objects as needed:
 
 1. One `work` identity.
 2. One `paper_version` identity.
@@ -29,6 +38,19 @@ Keep outputs deterministic and template-driven. Do not invent fields. Leave unkn
 - Mark older versions as superseded in the database or metadata instead of removing them.
 - Prefer the published version as canonical when publication metadata is confirmed.
 
+## Routing Rules
+
+Choose the narrowest skill that fits the request:
+
+- new PDF or new version intake -> `senlab-ingest-paper`
+- first-pass normalized card -> `senlab-build-paper-card`
+- first-pass excerpts and lenses -> `senlab-build-lenses`
+- patch or replace card fields -> `senlab-revise-paper-card`
+- patch or replace excerpts / lenses -> `senlab-revise-lenses`
+- patch themes / keywords / theme links -> `senlab-update-taxonomy`
+
+Use this umbrella skill only when the user asks for a full end-to-end pipeline or when multiple stages must be sequenced in one turn.
+
 ## Mandatory Workflow
 
 ### 1. Identify the paper mode
@@ -44,7 +66,7 @@ Choose one:
 
 This choice controls which sections deserve detail, but never changes the top-level template.
 
-### 2. Ingest deterministically first
+### 2. Ingest deterministically first when the paper is not already in the system
 
 Use the SenLab scripts before drafting analysis:
 
@@ -55,7 +77,7 @@ Use the SenLab scripts before drafting analysis:
 
 If deterministic ingestion fails, report the failure precisely and continue only with clearly marked manual placeholders.
 
-### 3. Fill the normalized paper card
+### 3. Fill or revise the normalized paper card
 
 Always complete the common fields:
 
@@ -130,7 +152,7 @@ Interpret them as:
 
 Add one short justification sentence for each dimension. Do not collapse them into a single total score.
 
-### 5. Draft excerpts
+### 5. Draft or revise excerpts
 
 Extract only high-value evidence blocks. Favor:
 
@@ -144,7 +166,7 @@ Extract only high-value evidence blocks. Favor:
 
 Every excerpt must include a location reference.
 
-### 6. Draft citation lenses
+### 6. Draft or revise citation lenses
 
 Citation lenses are required when the paper is reusable for future writing, argumentation, or theme construction.
 
@@ -169,7 +191,7 @@ For each lens, answer:
 
 Do not create vague or generic lenses.
 
-### 7. Link to themes
+### 7. Link or revise themes
 
 Add theme links only when a theme is genuinely identified. Do not fabricate broad themes. Prefer a small number of precise theme links.
 
@@ -180,6 +202,8 @@ Add theme links only when a theme is genuinely identified. Do not fabricate broa
 - Keep PDFs under the work/version path chosen by the ingestion script.
 - Do not write free-form summaries into canonical files.
 - Put speculative thoughts in `scratch\` only.
+- For partial updates, edit only the targeted canonical objects and preserve stable IDs.
+- After canonical edits, resync the SQLite database and regenerate website JSON.
 
 ## Validation Checklist
 
