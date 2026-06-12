@@ -101,6 +101,16 @@ def slugify(text: str) -> str:
     return text or "unknown"
 
 
+def yaml_quote(value: str) -> str:
+    """Return value safely quoted for YAML frontmatter if it contains special characters."""
+    if not value:
+        return ""
+    safe = str(value).replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ").replace("\r", "")
+    if any(c in safe for c in (':', '#', '[', ']', '{', '}', '&', '*', '|', '>', '!', '%', '@', '`')):
+        return f'"{safe}"'
+    return safe
+
+
 def sha256_file(path: Path) -> str:
     digest = hashlib.sha256()
     with path.open("rb") as fh:
@@ -157,6 +167,16 @@ def extract_metadata(pdf_path: Path) -> ExtractedMetadata:
 def ensure_db() -> None:
     if not DB_PATH.exists():
         raise SystemExit(f"Database not found: {DB_PATH}. Run scripts/init_db.py first.")
+
+
+def find_existing_fingerprint(fingerprint: str) -> tuple[str, str] | None:
+    """Return (version_id, work_id) if this SHA-256 is already in the database."""
+    with sqlite3.connect(DB_PATH) as conn:
+        row = conn.execute(
+            "SELECT version_id, work_id FROM paper_versions WHERE fingerprint_sha256=?",
+            (fingerprint,),
+        ).fetchone()
+    return (row[0], row[1]) if row else None
 
 
 def parse_author_slug(authors: str) -> str:
@@ -225,12 +245,12 @@ def write_paper_card(work_id: str, version_id: str, meta: ExtractedMetadata) -> 
     filled = (
         template.replace("work_id:", f"work_id: {work_id}", 1)
         .replace("canonical_version_id:", f"canonical_version_id: {version_id}", 1)
-        .replace("title:", f"title: {meta.title}", 1)
-        .replace("authors:", f"authors: {meta.authors}", 1)
+        .replace("title:", f"title: {yaml_quote(meta.title)}", 1)
+        .replace("authors:", f"authors: {yaml_quote(meta.authors)}", 1)
         .replace("year:", f"year: {meta.year or ''}", 1)
-        .replace("publication_status:", f"publication_status: {meta.publication_status}", 1)
-        .replace("journal_or_series:", f"journal_or_series: {meta.journal_or_series}", 1)
-        .replace("doi:", f"doi: {meta.doi}", 1)
+        .replace("publication_status:", f"publication_status: {yaml_quote(meta.publication_status)}", 1)
+        .replace("journal_or_series:", f"journal_or_series: {yaml_quote(meta.journal_or_series)}", 1)
+        .replace("doi:", f"doi: {yaml_quote(meta.doi)}", 1)
     )
     path.write_text(filled, encoding="utf-8")
     return path
@@ -367,6 +387,15 @@ def main() -> None:
         raise SystemExit(f"PDF not found: {src}")
 
     fingerprint = sha256_file(src)
+    duplicate = find_existing_fingerprint(fingerprint)
+    if duplicate and not args.work_id:
+        version_id, work_id = duplicate
+        raise SystemExit(
+            f"This PDF has already been ingested.\n"
+            f"  work_id:    {work_id}\n"
+            f"  version_id: {version_id}\n"
+            f"Pass --work-id to ingest it again under a different work."
+        )
     meta = extract_metadata(src)
     work_id = args.work_id or build_work_id(meta.title, meta.authors, meta.year)
     version_label = args.version_label or detect_version_label(src)

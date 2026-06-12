@@ -45,17 +45,32 @@ const LOCATION_LABELS = {
 };
 
 const SECTION_LABELS = {
+  // Common core
   "Research Question": "研究问题",
   "Why It Matters": "问题分量",
   "Core Object": "研究对象",
   Approach: "研究路径",
   "Main Claim": "核心判断",
+  // Empirical branch
   "Institutional Setting": "制度背景",
   "Data Source": "数据来源",
   "Identification Logic": "识别逻辑",
   "Main Results": "主要结果",
   "Mechanism Evidence": "机制证据",
   "Counterfactual Or Policy Exercise": "反事实推演",
+  // Theory branch
+  Players: "参与者",
+  "State Space": "状态空间",
+  "Action Space": "行动空间",
+  "Information Structure": "信息结构",
+  Timing: "博弈时序",
+  "Objective Functions": "目标函数",
+  "Solution Concept": "均衡概念",
+  "Key Propositions": "核心命题",
+  Conditions: "成立条件",
+  "Comparative Statics": "比较静态",
+  Applications: "应用场景",
+  // Shared
   Limitations: "边界与局限",
 };
 
@@ -76,6 +91,15 @@ const DAILY_QUOTES = [
 
 function qs(name) {
   return new URLSearchParams(window.location.search).get(name);
+}
+
+function escHtml(str) {
+  if (str == null) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
 function formatField(value) {
@@ -198,7 +222,7 @@ function scoreStrip(ratings) {
       ${dims
         .map(
           ([label, value]) => `
-            <div class="score-pill">
+            <div class="score-pill" ${value != null ? `data-score="${value}"` : ""}>
               <strong>${value ?? "—"}</strong>
               <span>${label}</span>
             </div>
@@ -212,13 +236,14 @@ function scoreStrip(ratings) {
 function paperCard(paper) {
   return `
     <article class="paper-card">
-      <div class="paper-meta">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
-      <h3><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a></h3>
-      <div class="muted">${paper.authors || ""}</div>
-      <div class="muted">${paper.journal_or_series || "期刊信息待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</div>
+      <div class="paper-meta">${escHtml(paper.year || "—")} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
+      <h3><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${escHtml(paper.title)}</a></h3>
+      <div class="muted">${escHtml(paper.authors || "")}</div>
+      ${paper.one_line_judgment ? `<p class="card-judgment">${escHtml(paper.one_line_judgment)}</p>` : ""}
+      <div class="muted small">${escHtml(paper.journal_or_series || "期刊信息待补充")}${paper.doi ? ` · DOI: ${escHtml(paper.doi)}` : ""}</div>
       ${scoreStrip(paper.ratings)}
       <div class="chip-row">
-        ${paper.themes.map((theme) => `<span class="chip">${theme.name}</span>`).join("")}
+        ${paper.themes.map((theme) => `<span class="chip">${escHtml(theme.name)}</span>`).join("")}
       </div>
       <div class="tag-row">
         <a class="button-link" href="./paper.html?work=${encodeURIComponent(paper.work_id)}">查看详情</a>
@@ -462,7 +487,7 @@ async function renderRankings(site) {
           <h1 class="section-title">评分排序</h1>
         </div>
         <div class="chip-row">
-          ${Object.entries(metricLabels).map(([key, label]) => `<a class="chip" href="./rankings.html?metric=${key}">${label}</a>`).join("")}
+          ${Object.entries(metricLabels).map(([key, label]) => `<a class="chip${key === metric ? " active" : ""}" href="./rankings.html?metric=${key}">${label}</a>`).join("")}
         </div>
       </div>
       <div class="list-mode">
@@ -473,16 +498,17 @@ async function renderRankings(site) {
               <article class="paper-row">
                 <div class="paper-row-head">
                   <div>
-                    <div class="paper-meta">#${(currentPage - 1) * pageSize + index + 1} · ${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
-                    <h3 class="paper-row-title"><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a></h3>
-                    <div class="muted">${paper.authors || ""}</div>
-                    <div class="muted">${paper.journal_or_series || "期刊信息待补充"}</div>
+                    <div class="paper-meta">#${(currentPage - 1) * pageSize + index + 1} · ${escHtml(String(paper.year || "—"))} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
+                    <h3 class="paper-row-title"><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${escHtml(paper.title)}</a></h3>
+                    <div class="muted">${escHtml(paper.authors || "")}</div>
+                    ${paper.one_line_judgment ? `<p class="row-judgment">${escHtml(paper.one_line_judgment)}</p>` : ""}
                   </div>
                   <div class="paper-row-actions">
-                    <span class="chip">${metricLabels[metric] || "综合"} ${value ?? "—"}</span>
+                    <span class="chip rank-chip" ${value != null ? `data-score="${value}"` : ""}>${metricLabels[metric] || "综合"} <strong>${value ?? "—"}</strong></span>
                     <a class="button-link secondary" href="./paper.html?work=${encodeURIComponent(paper.work_id)}">详情</a>
                   </div>
                 </div>
+                ${scoreStrip(paper.ratings)}
               </article>
             `;
           })
@@ -632,8 +658,8 @@ async function renderCompare(site) {
         <thead>
           <tr>
             <th>维度</th>
-            <th>${leftPaper.title}</th>
-            <th>${rightPaper.title}</th>
+            <th>${escHtml(leftPaper.title)}</th>
+            <th>${escHtml(rightPaper.title)}</th>
           </tr>
         </thead>
         <tbody>
@@ -646,6 +672,7 @@ async function renderCompare(site) {
             ["研究问题", leftPaper.research_question, rightPaper.research_question],
             ["研究路径", leftPaper.approach, rightPaper.approach],
             ["核心判断", leftPaper.main_claim, rightPaper.main_claim],
+            ["一句判断", leftPaper.one_line_judgment, rightPaper.one_line_judgment],
             ["道", leftPaper.ratings.dao, rightPaper.ratings.dao],
             ["法", leftPaper.ratings.fa, rightPaper.ratings.fa],
             ["势", leftPaper.ratings.shi, rightPaper.ratings.shi],
@@ -656,9 +683,9 @@ async function renderCompare(site) {
             .map(
               ([label, a, b]) => `
                 <tr>
-                  <th>${label}</th>
-                  <td>${a ?? "—"}</td>
-                  <td>${b ?? "—"}</td>
+                  <th>${escHtml(label)}</th>
+                  <td>${escHtml(a) || "—"}</td>
+                  <td>${escHtml(b) || "—"}</td>
                 </tr>
               `
             )
@@ -668,8 +695,13 @@ async function renderCompare(site) {
     `;
   };
 
-  document.getElementById("compare-go").addEventListener("click", buildTable);
-  buildTable();
+  const runBuildTable = () => {
+    buildTable().catch((err) => {
+      document.getElementById("compare-host").innerHTML = `<div class="empty">加载失败：${escHtml(err.message)}</div>`;
+    });
+  };
+  document.getElementById("compare-go").addEventListener("click", runBuildTable);
+  runBuildTable();
 }
 
 async function renderAbout(site) {
@@ -734,7 +766,7 @@ async function renderPaper(site) {
   const sections = paper.sections || {};
   const detailFields = [
     ["领域", formatField(paper.field)],
-    ["子领域", formatField(paper.subfield)],
+    ["子领域", paper.subfield || ""],
     ["范式", formatParadigm(paper.paper_paradigm)],
     ["期刊", paper.journal_or_series],
     ["DOI", paper.doi],
@@ -780,7 +812,7 @@ async function renderPaper(site) {
             </div>
           </div>
           <dl>
-            ${detailFields.map(([label, value]) => `<dt>${label}</dt><dd>${value || "—"}</dd>`).join("")}
+            ${detailFields.map(([label, value]) => `<dt>${escHtml(label)}</dt><dd>${escHtml(value) || "—"}</dd>`).join("")}
           </dl>
         </article>
 

@@ -67,6 +67,7 @@ def main() -> None:
                 w.subfield,
                 w.paper_paradigm,
                 w.canonical_version_id,
+                w.created_at,
                 pc.markdown_path,
                 pc.authors,
                 pc.research_question,
@@ -164,6 +165,7 @@ def main() -> None:
                 "approach": row["approach"],
                 "main_claim": row["main_claim"],
                 "why_in_my_db": row["why_in_my_db"],
+                "created_at": row["created_at"],
                 "one_line_judgment": row["one_line_judgment"],
                 "ratings": {
                     "dao": row["dao"],
@@ -204,7 +206,7 @@ def main() -> None:
             "subjective": sorted(papers, key=lambda item: (item["ratings"]["subjective"] or 0, item["year"] or 0), reverse=True),
         }
         ranking_ids = {key: [paper["work_id"] for paper in value] for key, value in rankings.items()}
-        latest_ids = [paper["work_id"] for paper in sorted(papers, key=lambda item: (item["year"] or 0, item["work_id"]), reverse=True)[:6]]
+        latest_ids = [paper["work_id"] for paper in sorted(papers, key=lambda item: item.get("created_at") or "", reverse=True)[:6]]
 
         theme_rows = [
             {

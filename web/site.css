@@ -237,17 +237,17 @@ img {
 }
 
 .quote-en {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   font-family: Georgia, "Times New Roman", serif;
   color: var(--ink);
-  font-size: 29px;
-  line-height: 1.45;
+  font-size: 20px;
+  line-height: 1.55;
 }
 
 .quote-zh {
-  margin: 0 0 18px;
+  margin: 0 0 14px;
   color: var(--ink);
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.8;
   font-weight: 600;
 }
@@ -273,6 +273,13 @@ img {
   border: 1px solid var(--line);
   color: var(--chip-ink);
   font-size: 13px;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.chip.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
 }
 
 .grid-4,
@@ -338,6 +345,12 @@ img {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.paper-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 54px rgba(67, 46, 27, 0.13);
 }
 
 .paper-card h3,
@@ -345,6 +358,18 @@ img {
 .detail-card h3 {
   margin: 0;
   font-size: 19px;
+}
+
+.card-judgment {
+  margin: 0;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+.small {
+  font-size: 13px;
 }
 
 .paper-meta,
@@ -362,14 +387,22 @@ img {
 .score-pill {
   padding: 8px 10px;
   border-radius: 12px;
-  background: #fff;
-  border: 1px solid var(--line);
+  background: var(--pill-bg, #fff);
+  border: 1px solid var(--pill-bd, var(--line));
   text-align: center;
+  transition: transform 0.12s ease;
 }
+
+.score-pill[data-score="5"] { --pill-bg: #fef0e0; --pill-bd: #d4834a; --pill-ink: #7a3e10; }
+.score-pill[data-score="4"] { --pill-bg: #fff5ec; --pill-bd: #e0a87a; --pill-ink: #955a2a; }
+.score-pill[data-score="3"] { --pill-bg: #f9f6f2; --pill-bd: #c8b9a4; --pill-ink: #6a5a4a; }
+.score-pill[data-score="2"] { --pill-bg: #f3f1ee; --pill-bd: #bfb4a7; --pill-ink: #7a7068; }
+.score-pill[data-score="1"] { --pill-bg: #edebea; --pill-bd: #b8ada2; --pill-ink: #806e64; }
 
 .score-pill strong {
   display: block;
   font-size: 16px;
+  color: var(--pill-ink, var(--ink));
 }
 
 .score-pill span {
@@ -387,6 +420,15 @@ img {
   background: var(--ink);
   color: #fff;
   font-size: 14px;
+  transition: opacity 0.15s ease, transform 0.12s ease;
+}
+
+.button-link:hover {
+  opacity: 0.84;
+}
+
+.button-link:active {
+  transform: scale(0.97);
 }
 
 .button-link.secondary {
@@ -438,6 +480,15 @@ img {
   border-radius: 14px;
   padding: 12px 14px;
   font-size: 14px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.search-input:focus,
+.select:focus,
+.compare-select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(160, 83, 42, 0.12);
 }
 
 .paper-layout {
@@ -524,26 +575,29 @@ img {
 }
 
 .section-block {
-  border-top: 1px dashed var(--line);
-  padding-top: 14px;
-  margin-top: 14px;
+  border-left: 2px solid var(--line);
+  padding-left: 16px;
+  margin-top: 18px;
 }
 
 .section-block:first-child {
-  border-top: 0;
-  padding-top: 0;
   margin-top: 0;
 }
 
 .section-block h4 {
-  margin: 0 0 8px;
-  font-size: 17px;
+  margin: 0 0 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
 }
 
 .section-block p {
   margin: 0;
-  color: var(--muted);
-  line-height: 1.7;
+  font-size: 15px;
+  color: var(--ink);
+  line-height: 1.72;
 }
 
 .list-mode {
@@ -556,6 +610,35 @@ img {
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.72);
   padding: 18px 20px;
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.paper-row:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 46px rgba(67, 46, 27, 0.11);
+}
+
+.row-judgment {
+  margin: 5px 0 0;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.rank-chip {
+  font-size: 14px;
+  padding: 10px 16px;
+  white-space: nowrap;
+}
+
+.rank-chip strong {
+  margin-left: 4px;
+  font-size: 17px;
+}
+
+.paper-row .score-strip {
+  margin-top: 14px;
 }
 
 .paper-row-head {

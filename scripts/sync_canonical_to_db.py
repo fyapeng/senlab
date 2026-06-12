@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
@@ -22,6 +23,14 @@ def now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def _first_author(authors: str) -> str:
+    if not authors:
+        return ""
+    first = re.split(r",| and |\band\b", authors, maxsplit=1)[0]
+    parts = first.strip().split()
+    return parts[-1].lower() if parts else ""
+
+
 def sync_papers(conn: sqlite3.Connection) -> None:
     timestamp = now()
     for path in sorted((ROOT / "canonical" / "papers").glob("*.md")):
@@ -32,19 +41,31 @@ def sync_papers(conn: sqlite3.Connection) -> None:
         title = fm.get("title", "")
         conn.execute(
             """
-            UPDATE works
-            SET title=?, year=?, field=?, subfield=?, paper_paradigm=?, canonical_version_id=?, updated_at=?
-            WHERE work_id=?
+            INSERT INTO works (
+                work_id, title, normalized_title, first_author, year, field, subfield,
+                paper_paradigm, canonical_version_id, created_at, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+            ON CONFLICT(work_id) DO UPDATE SET
+                title=excluded.title,
+                year=excluded.year,
+                field=excluded.field,
+                subfield=excluded.subfield,
+                paper_paradigm=excluded.paper_paradigm,
+                canonical_version_id=excluded.canonical_version_id,
+                updated_at=excluded.updated_at
             """,
             (
+                work_id,
                 title,
+                title.lower().strip(),
+                _first_author(fm.get("authors", "")),
                 fm.get("year"),
                 fm.get("field", ""),
                 fm.get("subfield", ""),
                 fm.get("paper_paradigm", ""),
                 fm.get("canonical_version_id", ""),
                 timestamp,
-                work_id,
+                timestamp,
             ),
         )
         conn.execute(
