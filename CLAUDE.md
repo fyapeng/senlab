@@ -61,3 +61,12 @@ Mark genuinely uncertain fields as `TODO_VERIFY` rather than guessing.
 - `work_id` format: `{first-author-lastname}-{year}-{title-keywords}` (slugified).
 - `version_id` format: `{work_id}-{label}` where label is `uploaded`, `working-paper`, `published`, etc.
 - After any canonical edit, always re-run sync + export before committing.
+
+## Windows PowerShell Notes
+
+- Prefer PowerShell-native commands and syntax. Do not assume Bash-style range or quoting behavior works.
+- `Select-Object -Index 260..390` is invalid in Windows PowerShell because the range is parsed as a string argument. Use `Select-Object -Skip 260 -First 131`, or wrap the range as `(260..390)` when an index array is actually needed.
+- Avoid editing UTF-8 project files with plain `Set-Content` because it can change encoding or display mojibake in the terminal. Prefer `apply_patch` for manual edits. If scripting is unavoidable, read and write with explicit UTF-8, e.g. `[System.IO.File]::ReadAllText($path, [System.Text.Encoding]::UTF8)` and `New-Object System.Text.UTF8Encoding($false)`.
+- PowerShell terminal output may render Chinese as mojibake even when the file is valid UTF-8. Verify JavaScript with Node (`node --check web/site.js`) and inspect `git diff` before assuming file corruption.
+- When filtering lines, match stable ASCII tokens such as `data-knowledge-rotate` instead of localized labels, since terminal encoding can make Chinese text unreliable for exact command-line matching.
+- Do not chain destructive or cross-shell file operations. Keep file edits in one shell, prefer `apply_patch`, and check `git diff` plus `git status --short` before committing.
