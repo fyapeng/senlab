@@ -1,8 +1,77 @@
 const SITE_INDEX_URL = "./web/data/site-index.json";
 const PAPER_DATA_BASE = "./web/data/papers/";
 
+const FIELD_LABELS = {
+  "health-economics": "健康经济学",
+  "applied-micro": "应用微观",
+  "microeconomic-theory": "微观理论",
+  "information-design": "信息设计",
+};
+
+const PARADIGM_LABELS = {
+  empirical_structural: "实证 / 结构",
+  empirical_reduced_form: "实证 / 简约式",
+  theory: "理论",
+  econometrics: "计量",
+  review: "综述",
+  mixed: "混合",
+};
+
+const DAILY_QUOTES = [
+  { text: "The important thing is not to stop questioning.", zh: "重要的是不要停止发问。", author: "Albert Einstein" },
+  { text: "Read not to contradict and confute, but to weigh and consider.", zh: "读书不是为了反驳，而是为了权衡与思考。", author: "Francis Bacon" },
+  { text: "Research is formalized curiosity.", zh: "研究是被形式化了的好奇心。", author: "Zora Neale Hurston" },
+  { text: "Everything should be made as simple as possible, but not simpler.", zh: "一切都应尽量简单，但不能过度简化。", author: "Albert Einstein" },
+  { text: "Ideas come from previous ideas.", zh: "思想常常来自更早的思想。", author: "Mark Koyama" },
+  { text: "What we know is a drop, what we do not know is an ocean.", zh: "我们所知如水滴，未知如海洋。", author: "Isaac Newton" },
+];
+
 function qs(name) {
   return new URLSearchParams(window.location.search).get(name);
+}
+
+function formatField(value) {
+  return FIELD_LABELS[value] || value || "未分类";
+}
+
+function formatParadigm(value) {
+  return PARADIGM_LABELS[value] || value || "未判定";
+}
+
+function formatSolarNow() {
+  return new Intl.DateTimeFormat("zh-CN", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    weekday: "long",
+  }).format(new Date());
+}
+
+function formatClockNow() {
+  return new Intl.DateTimeFormat("zh-CN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: false,
+  }).format(new Date());
+}
+
+function formatLunarNow() {
+  try {
+    return new Intl.DateTimeFormat("zh-CN-u-ca-chinese", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(new Date());
+  } catch {
+    return "农历信息不可用";
+  }
+}
+
+function quoteForToday() {
+  const now = new Date();
+  const dayIndex = Math.floor((Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()) - Date.UTC(now.getFullYear(), 0, 0)) / 86400000);
+  return DAILY_QUOTES[dayIndex % DAILY_QUOTES.length];
 }
 
 async function getJson(url) {
@@ -81,8 +150,10 @@ function scoreStrip(ratings) {
 function paperCard(paper) {
   return `
     <article class="paper-card">
-      <div class="paper-meta">${paper.year || "—"} · ${paper.field || "未分类"} · ${paper.paper_paradigm || "未判定"}</div>
+      <div class="paper-meta">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
       <h3><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a></h3>
+      <div class="muted">${paper.authors || ""}</div>
+      <div class="muted">${paper.journal_or_series || "期刊待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</div>
       <div class="muted">${paper.one_line_judgment || ""}</div>
       ${scoreStrip(paper.ratings)}
       <div class="chip-row">
@@ -152,12 +223,13 @@ function statCard(label, value, note) {
 async function renderDashboard(site) {
   const main = document.getElementById("page-main");
   const topPapers = site.rankings.overall.slice(0, 4).map((id) => site.papers.find((paper) => paper.work_id === id)).filter(Boolean);
+  const quote = quoteForToday();
   main.innerHTML = `
     <section class="hero">
       <div class="hero-copy panel">
-        <div class="eyebrow">Local-first Research Database</div>
-        <h1>Sencium Lab</h1>
-        <p>${site.brand.tagline}</p>
+        <div class="eyebrow">Intro</div>
+        <img src="${site.brand.logo_intro_url}" alt="Sencium Lab intro" />
+        <p style="margin-top:18px">${site.brand.tagline}</p>
         <div class="tag-row">
           <span class="tag">SQLite backed</span>
           <span class="tag">Canonical paper cards</span>
@@ -166,19 +238,26 @@ async function renderDashboard(site) {
         </div>
       </div>
       <div class="hero-side panel">
-        <div>
-          <div class="eyebrow">System Overview</div>
-          <p class="intro-text">Sencium Lab 以本地数据库为真源，网页仅展示导出的公开快照。论文、评分、证据片段、citation lens 与主题链接都围绕可复用研究判断组织。</p>
+        <div id="time-widget">
+          <div class="eyebrow">Now</div>
+          <h2 class="section-title" id="clock-now">${formatClockNow()}</h2>
+          <p class="intro-text" id="solar-now">${formatSolarNow()}</p>
+          <p class="intro-text" id="lunar-now">${formatLunarNow()}</p>
         </div>
-        <img src="${site.brand.logo_intro_url}" alt="Sencium Lab intro" />
+        <div class="info-card">
+          <div class="eyebrow">Quote of the Day</div>
+          <p class="intro-text">“${quote.text}”</p>
+          <p class="muted">${quote.zh}</p>
+          <p class="muted">— ${quote.author}</p>
+        </div>
       </div>
     </section>
 
     <section class="grid-4">
       ${statCard("论文总数", site.meta.paper_count, "已进入公开索引的论文")}
       ${statCard("主题总数", site.meta.theme_count, "主题级知识节点")}
-      ${statCard("Excerpts", site.meta.excerpt_count, "证据片段总量")}
-      ${statCard("Lenses", site.meta.lens_count, "可复用引用接口")}
+      ${statCard("证据片段", site.meta.excerpt_count, "可回链到论文位置的证据块")}
+      ${statCard("引用接口", site.meta.lens_count, "可复用的 citation lenses")}
     </section>
 
     <section class="panel section">
@@ -252,7 +331,8 @@ async function renderDashboard(site) {
               (paper) => `
                 <div class="stack-item">
                   <a href="./paper.html?work=${encodeURIComponent(paper.work_id)}"><strong>${paper.title}</strong></a>
-                  <div class="muted">${paper.year || "—"} · ${paper.field || "未分类"} · ${paper.paper_paradigm || ""}</div>
+                  <div class="muted">${paper.authors || ""}</div>
+                  <div class="muted">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
                 </div>
               `
             )
@@ -261,6 +341,18 @@ async function renderDashboard(site) {
       </div>
     </section>
   `;
+  const clock = document.getElementById("clock-now");
+  const solar = document.getElementById("solar-now");
+  const lunar = document.getElementById("lunar-now");
+  if (clock && solar && lunar) {
+    const updateTime = () => {
+      clock.textContent = formatClockNow();
+      solar.textContent = formatSolarNow();
+      lunar.textContent = formatLunarNow();
+    };
+    updateTime();
+    window.setInterval(updateTime, 1000);
+  }
 }
 
 async function renderRankings(site) {
@@ -275,9 +367,13 @@ async function renderRankings(site) {
       return `
         <tr>
           <td>${index + 1}</td>
-          <td><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a></td>
-          <td>${paper.field || "未分类"}</td>
-          <td>${paper.paper_paradigm || "—"}</td>
+          <td>
+            <a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a>
+            <div class="muted">${paper.authors || ""}</div>
+            <div class="muted">${paper.journal_or_series || ""}</div>
+          </td>
+          <td>${formatField(paper.field)}</td>
+          <td>${formatParadigm(paper.paper_paradigm)}</td>
           <td>${value ?? "—"}</td>
           <td>${paper.one_line_judgment || ""}</td>
         </tr>
@@ -333,14 +429,14 @@ async function renderSearch(site) {
         </div>
       </div>
       <div class="search-toolbar">
-        <input id="query" class="search-input" type="search" placeholder="按标题、主题、领域、判断关键词搜索" />
+        <input id="query" class="search-input" type="search" placeholder="按标题、作者、主题、判断关键词搜索" />
         <select id="field-filter" class="select">
           <option value="">全部领域</option>
-          ${[...new Set(site.papers.map((paper) => paper.field).filter(Boolean))].map((field) => `<option value="${field}">${field}</option>`).join("")}
+          ${[...new Set(site.papers.map((paper) => paper.field).filter(Boolean))].map((field) => `<option value="${field}">${formatField(field)}</option>`).join("")}
         </select>
         <select id="paradigm-filter" class="select">
           <option value="">全部范式</option>
-          ${[...new Set(site.papers.map((paper) => paper.paper_paradigm).filter(Boolean))].map((item) => `<option value="${item}">${item}</option>`).join("")}
+          ${[...new Set(site.papers.map((paper) => paper.paper_paradigm).filter(Boolean))].map((item) => `<option value="${item}">${formatParadigm(item)}</option>`).join("")}
         </select>
       </div>
       <div id="search-results" class="grid-2"></div>
@@ -358,6 +454,7 @@ async function renderSearch(site) {
     const filtered = site.papers.filter((paper) => {
       const haystack = [
         paper.title,
+        paper.authors,
         paper.field,
         paper.subfield,
         paper.paper_paradigm,
@@ -415,8 +512,10 @@ async function renderCompare(site) {
         </thead>
         <tbody>
           ${[
-            ["领域", leftPaper.field, rightPaper.field],
-            ["范式", leftPaper.paper_paradigm, rightPaper.paper_paradigm],
+            ["作者", leftPaper.authors, rightPaper.authors],
+            ["期刊", leftPaper.journal_or_series, rightPaper.journal_or_series],
+            ["领域", formatField(leftPaper.field), formatField(rightPaper.field)],
+            ["范式", formatParadigm(leftPaper.paper_paradigm), formatParadigm(rightPaper.paper_paradigm)],
             ["研究问题", leftPaper.research_question, rightPaper.research_question],
             ["方法/路径", leftPaper.approach, rightPaper.approach],
             ["主结论", leftPaper.main_claim, rightPaper.main_claim],
@@ -451,12 +550,16 @@ async function renderAbout(site) {
     <section class="hero">
       <div class="hero-copy panel">
         <div class="eyebrow">About</div>
-        <h1>Sencium Lab</h1>
-        <p>${site.brand.tagline}</p>
+        <img src="${site.brand.logo_intro_url}" alt="Sencium Lab intro" />
+        <p style="margin-top:18px">${site.brand.tagline}</p>
         <p class="intro-text">这个站点展示的是从本地 SQLite 研究数据库导出的公开快照。完整 PDF、全文提取、私有笔记和 live database 仍保留在本地工作区，不直接暴露在 GitHub 仓库中。</p>
       </div>
       <div class="hero-side panel">
-        <img src="${site.brand.logo_intro_url}" alt="Sencium Lab intro" />
+        <div class="info-card">
+          <div class="eyebrow">Contact</div>
+          <p class="intro-text">如果你有推荐文献、纠错建议或合作想法，欢迎直接来信。</p>
+          <p class="muted"><a href="mailto:${site.brand.contact_email}">${site.brand.contact_email}</a></p>
+        </div>
       </div>
     </section>
     <section class="grid-2">
@@ -481,8 +584,8 @@ async function renderAbout(site) {
           </div>
         </div>
         <div class="stack-list">
-          <div class="stack-item"><strong>索引层</strong><div class="muted">标题、评分、主题、摘要与排序可公开展示。</div></div>
-          <div class="stack-item"><strong>详情层</strong><div class="muted">论文详情页按需加载结构化信息和选定 excerpt / lens。</div></div>
+          <div class="stack-item"><strong>索引层</strong><div class="muted">标题、作者、期刊、评分、主题、摘要与排序可公开展示。</div></div>
+          <div class="stack-item"><strong>详情层</strong><div class="muted">论文详情页按需加载结构化信息与选定 excerpt / lens。</div></div>
           <div class="stack-item"><strong>本地层</strong><div class="muted">原始 PDF、live SQLite、未公开长文笔记保留在本地工作区。</div></div>
         </div>
       </div>
@@ -500,15 +603,15 @@ async function renderPaper(site) {
   const paper = await getJson(`${PAPER_DATA_BASE}${encodeURIComponent(workId)}.json`);
   document.title = `Sencium Lab · ${paper.title}`;
   const detailFields = [
-    ["领域", paper.field],
-    ["子领域", paper.subfield],
-    ["范式", paper.paper_paradigm],
-    ["期刊/系列", paper.journal_or_series],
+    ["领域", formatField(paper.field)],
+    ["子领域", formatField(paper.subfield)],
+    ["范式", formatParadigm(paper.paper_paradigm)],
+    ["期刊", paper.journal_or_series],
     ["DOI", paper.doi],
     ["研究问题", paper.research_question],
     ["为什么重要", paper.why_it_matters],
     ["研究对象", paper.core_object],
-    ["路径", paper.approach],
+    ["方法 / 路径", paper.approach],
     ["主结论", paper.main_claim],
     ["为什么进入我的库", paper.why_in_my_db],
   ];
@@ -517,7 +620,9 @@ async function renderPaper(site) {
       <div class="hero-copy panel">
         <div class="eyebrow">Paper Detail</div>
         <h1>${paper.title}</h1>
-        <p>${paper.year || "—"} · ${paper.field || "未分类"} · ${paper.paper_paradigm || "未判定"}</p>
+        <p>${paper.authors || ""}</p>
+        <p>${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</p>
+        <p>${paper.journal_or_series || "期刊待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</p>
         <div class="tag-row">
           ${paper.themes.map((theme) => `<span class="tag">${theme.name}</span>`).join("")}
         </div>
@@ -557,7 +662,7 @@ async function renderPaper(site) {
                   <div class="stack-item">
                     <strong>${lens.lens_type.toUpperCase()} · ${lens.theme_id || "unlinked"}</strong>
                     <div class="muted">${lens.claim || ""}</div>
-                    <div class="muted">Safer formulation: ${lens.safer_formulation || "—"}</div>
+                    <div class="muted">更安全的表述：${lens.safer_formulation || "—"}</div>
                   </div>
                 `
               )
@@ -578,7 +683,7 @@ async function renderPaper(site) {
                   <div class="stack-item">
                     <strong>${excerpt.location} · ${excerpt.topic}</strong>
                     <div class="muted">${excerpt.quote_or_paraphrase}</div>
-                    <div class="muted">Why this matters: ${excerpt.why_this_matters}</div>
+                    <div class="muted">为何重要：${excerpt.why_this_matters}</div>
                   </div>
                 `
               )

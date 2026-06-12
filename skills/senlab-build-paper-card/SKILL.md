@@ -11,6 +11,14 @@ Use this skill only after the paper has been ingested.
 
 Produce a normalized paper card that follows the SenLab template exactly.
 
+Write all analytical fields in Chinese by default. Keep original-language values only for:
+
+- title
+- authors
+- journal or series names
+- DOI
+- technical terms that are substantially clearer in English
+
 ## Common Fields
 
 Always complete:
@@ -73,3 +81,4 @@ Add one short justification sentence for each score.
 - Distinguish author claims from your interpretation.
 - Do not invent facts absent from the paper.
 - Mark uncertain metadata or claims as `TODO_VERIFY`.
+- Prefer Chinese field content that reads naturally on the public website rather than raw translation fragments.

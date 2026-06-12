@@ -2,18 +2,19 @@
   "work_id": "kamenica-2011-bayesian-persuasion",
   "title": "Bayesian Persuasion",
   "year": 2011,
+  "authors": "Emir Kamenica and Matthew Gentzkow",
   "field": "microeconomic-theory",
   "subfield": "information-design",
   "paper_paradigm": "theory",
   "journal_or_series": "American Economic Review",
   "doi": "10.1257/aer.101.6.2590",
-  "research_question": "When can a sender manipulate a receiver's action by optimally designing the information she sees?",
-  "why_it_matters": "The paper establishes the baseline theory of information design and persuasion with rational Bayesian receivers.",
-  "core_object": "Signal design in a sender-receiver game with common priors and conflicting preferences.",
-  "approach": "The paper reformulates the sender's problem as a search over feasible distributions of posterior beliefs whose expectation equals the prior, turning signal design into a tractable geometric optimization problem.",
-  "main_claim": "Even with full awareness of the sender's motives, a Bayesian receiver can be profitably persuaded through the sender's choice of signal structure.",
-  "why_in_my_db": "It is a canonical theory anchor for information design, mechanism intuition, and theme-building across many subfields.",
-  "one_line_judgment": "A canonical information-design framework with unusually high long-run reuse value.",
+  "research_question": "一个信息发送者在什么条件下能够通过设计接收者所看到的信息结构，改变接收者的行动选择？",
+  "why_it_matters": "这篇文章奠定了现代信息设计与 persuasion 理论的基础框架，是理解“控制信息环境如何改变行为”的经典起点。",
+  "core_object": "共同先验且偏好不完全一致的 sender-receiver 博弈中的信号设计问题。",
+  "approach": "文章把发送者的问题重写为：在满足“后验分布的期望等于先验”这一 Bayes plausibility 约束下，寻找最优的后验分布。这样就把信号设计转化为一个可处理的几何优化问题。",
+  "main_claim": "即便接收者完全知道发送者有操纵动机，只要发送者能够控制信息结构，他依然可能通过 persuasion 获益。",
+  "why_in_my_db": "这篇文章是信息设计、机制直觉和跨领域主题搭建时最值得保留的理论锚点之一。",
+  "one_line_judgment": "一篇长期复用价值极高的经典信息设计框架论文。",
   "ratings": {
     "dao": 5,
     "fa": 5,
@@ -24,25 +25,25 @@
     "overall": 24
   },
   "rating_notes": {
-    "dao": "The question is foundational and field-defining.",
-    "fa": "The model logic and posterior reformulation are exceptionally clean.",
-    "shi": "Its value comes from conceptual reach more than one institutional opportunity.",
-    "shu": "The execution is elegant and highly disciplined.",
-    "qi": "The framework is broadly reusable across many settings.",
-    "subjective": "It is especially valuable when theory and mechanism framing matter."
+    "dao": "这是一个基础性、定义了后续研究方向的问题。",
+    "fa": "模型逻辑和后验分布重写都非常干净，是理论文章里罕见的高完成度。",
+    "shi": "它的优势不在某个单一制度窗口，而在于概念上的广泛可迁移性。",
+    "shu": "证明路径、例子设计和整体组织都非常优雅。",
+    "qi": "这个框架在很多理论和应用问题中都能直接复用。",
+    "subjective": "当我需要机制表达、理论框架或选题迁移时，这篇文章特别有价值。"
   },
   "themes": [
     {
       "theme_id": "belief-manipulation-and-disclosure",
-      "name": "Belief Manipulation and Disclosure"
+      "name": "信念操纵与信息披露"
     },
     {
       "theme_id": "information-design-persuasion",
-      "name": "Information Design and Persuasion"
+      "name": "信息设计与劝服"
     },
     {
       "theme_id": "strategic-communication",
-      "name": "Strategic Communication"
+      "name": "策略性沟通"
     }
   ],
   "excerpts": [
@@ -50,15 +51,15 @@
       "excerpt_id": "kamenica-2011-bayesian-persuasion-ex-001",
       "location": "Abstract",
       "topic": "core_claim",
-      "quote_or_paraphrase": "A sender can strictly benefit from choosing the receiver's information structure even when the receiver is fully rational and aware of the sender's motives.",
-      "why_this_matters": "This is the canonical high-level claim of Bayesian persuasion."
+      "quote_or_paraphrase": "即便接收者完全理性并清楚发送者的动机，发送者仍可能通过选择信息结构而严格获益。",
+      "why_this_matters": "这是 Bayesian Persuasion 最经典的高层结论表述。"
     },
     {
       "excerpt_id": "kamenica-2011-bayesian-persuasion-ex-002",
       "location": "Introduction",
       "topic": "method",
-      "quote_or_paraphrase": "The sender's problem can be reformulated as a search over posterior belief distributions whose expectation equals the prior.",
-      "why_this_matters": "This is the key geometric insight that made the framework portable and powerful."
+      "quote_or_paraphrase": "发送者的问题可以重写为：在“后验信念分布的期望等于先验”这一约束下，寻找最优后验分布。",
+      "why_this_matters": "这就是该框架之所以强大且可迁移的几何核心。"
     },
     {
       "excerpt_id": "kamenica-2011-bayesian-persuasion-ex-003",
@@ -98,48 +99,48 @@
       "lens_id": "kamenica-2011-bayesian-persuasion-lens-theory",
       "theme_id": "information-design-persuasion",
       "lens_type": "theory",
-      "claim": "Strategic control of information can change actions even without changing preferences or making transfers.",
-      "interpretation": "Use the paper as the canonical theory reference for information-design-based persuasion.",
-      "overclaim_risk": "Do not confuse persuasion through experiment design with cheap talk or ex post deception models.",
-      "safer_formulation": "In the Bayesian persuasion framework, a sender can benefit by choosing an information structure that shifts receiver posteriors."
+      "claim": "即便不改变偏好、也不做转移支付，策略性地控制信息也能改变行动选择。",
+      "interpretation": "它最重要的用途，是为“通过控制信息环境来改变行为”提供一个标准化理论框架。",
+      "overclaim_risk": "不要把“通过实验设计进行 persuasion”与 cheap talk 或事后欺骗模型混为一谈。",
+      "safer_formulation": "在 Bayesian persuasion 框架中，发送者可以通过选择信息结构来改变接收者后验，并由此获益。"
     }
   ],
   "sections": {
     "Identity": "- Work ID: `kamenica-2011-bayesian-persuasion`\n- Canonical Version ID: `kamenica-2011-bayesian-persuasion-uploaded`",
     "Common Core": "",
-    "Research Question": "When can a sender manipulate a receiver's action by optimally designing the information she sees?",
-    "Why It Matters": "The paper establishes the baseline theory of information design and persuasion with rational Bayesian receivers.",
-    "Core Object": "Signal design in a sender-receiver game with common priors and conflicting preferences.",
-    "Approach": "The paper reformulates the sender's problem as a search over feasible distributions of posterior beliefs whose expectation equals the prior, turning signal design into a tractable geometric optimization problem.",
-    "Main Claim": "Even with full awareness of the sender's motives, a Bayesian receiver can be profitably persuaded through the sender's choice of signal structure.",
-    "Why In My Database": "It is a canonical theory anchor for information design, mechanism intuition, and theme-building across many subfields.",
+    "Research Question": "一个信息发送者在什么条件下能够通过设计接收者所看到的信息结构，改变接收者的行动选择？",
+    "Why It Matters": "这篇文章奠定了现代信息设计与 persuasion 理论的基础框架，是理解“控制信息环境如何改变行为”的经典起点。",
+    "Core Object": "共同先验且偏好不完全一致的 sender-receiver 博弈中的信号设计问题。",
+    "Approach": "文章把发送者的问题重写为：在满足“后验分布的期望等于先验”这一 Bayes plausibility 约束下，寻找最优的后验分布。这样就把信号设计转化为一个可处理的几何优化问题。",
+    "Main Claim": "即便接收者完全知道发送者有操纵动机，只要发送者能够控制信息结构，他依然可能通过 persuasion 获益。",
+    "Why In My Database": "这篇文章是信息设计、机制直觉和跨领域主题搭建时最值得保留的理论锚点之一。",
     "Paradigm-Specific Analysis": "",
     "Theory Branch": "",
-    "Players": "A sender who chooses a signal structure and a receiver who takes an action after observing a signal realization.",
-    "State Space": "An arbitrary state space with a common prior shared by sender and receiver.",
-    "Action Space": "An arbitrary action space available to the receiver after she updates beliefs.",
-    "Information Structure": "The sender chooses an experiment or signal that induces posterior beliefs over the state.",
-    "Timing": "The state is drawn, the sender commits to an information structure, the receiver observes the signal realization, and then acts.",
-    "Objective Functions": "The sender and receiver both care about the receiver's action, but their preferences need not align. The sender therefore chooses an information structure to tilt the receiver's posterior-dependent action in his favor.",
-    "Solution Concept": "Optimal persuasion is characterized as an optimization over feasible distributions of posterior beliefs satisfying Bayes plausibility.",
-    "Key Propositions": "The paper characterizes when persuasion can strictly benefit the sender and how sender-optimal signals can be constructed by solving an optimization over posterior distributions subject to Bayes plausibility.",
-    "Conditions": "The sender cannot lie about realized signals once the signal structure is chosen.",
-    "Comparative Statics": "The value of persuasion depends on preference alignment, the receiver's decision rule, and the curvature or nonconcavity of the sender's induced value as a function of beliefs.",
-    "Applications": "The paper discusses prosecutors, litigators, lobbyists, salespeople, and other settings where one side can shape the informational environment but cannot directly dictate the final action.",
+    "Players": "模型中有一个选择信号结构的发送者，以及一个在观察到信号 realizations 后做出行动的接收者。",
+    "State Space": "状态空间可以是任意的，发送者和接收者共享同一个先验分布。",
+    "Action Space": "接收者在更新信念之后，可以从任意行动空间中选择行动。",
+    "Information Structure": "发送者选择一个实验或信号结构，从而诱导接收者形成某种关于状态的后验信念分布。",
+    "Timing": "时序是：状态实现，发送者承诺信息结构，接收者观察到信号 realization，随后做出行动。",
+    "Objective Functions": "发送者和接收者都关心最终行动，但偏好未必一致。因此，发送者会选择一种信息结构，让接收者在不同后验下更倾向于做出对发送者有利的行动。",
+    "Solution Concept": "最优 persuasion 被刻画为：在满足 Bayes plausibility 的可行后验分布集合上求解一个优化问题。",
+    "Key Propositions": "文章给出了两个核心结果：何时 persuasion 会严格提升发送者收益，以及如何通过求解后验分布优化问题来构造发送者最优信号。",
+    "Conditions": "一个关键条件是：一旦信号结构选定，发送者不能在 realization 发生后再撒谎或篡改信号内容。",
+    "Comparative Statics": "persuasion 的价值取决于双方偏好的一致程度、接收者的决策规则，以及发送者价值函数相对于信念的曲率或非凹性。",
+    "Applications": "文章讨论了检察官、诉讼代理人、游说者、销售者等场景，这些场景都满足：一方可以塑造信息环境，但不能直接命令另一方采取行动。",
     "Empirical Branch": "",
     "Institutional Setting": "Not the primary branch for this paper.",
-    "Empirical Translation Value": "The framework is highly portable to disclosure regimes, recommendation systems, platform information design, political campaigns, legal advocacy, and regulated persuasion problems.",
-    "Limitations": "The model abstracts from ex post misreporting, repeated communication, endogenous commitment frictions, and some incentive-compatibility issues emphasized in cheap-talk and broader mechanism-design settings.",
+    "Empirical Translation Value": "这个框架可以非常自然地迁移到信息披露、推荐系统、平台信息设计、政治竞选、法律论证以及受监管 persuasion 场景中。",
+    "Limitations": "模型抽象掉了事后 misreporting、重复沟通、内生承诺摩擦，以及 cheap talk 与更广义机制设计里强调的一些激励相容问题。",
     "Theme Links": "- `information-design-persuasion`\n- `strategic-communication`\n- `belief-manipulation-and-disclosure`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: The question is foundational and field-defining.",
-    "Fa": "- Score: 5\n- Note: The model logic and posterior reformulation are exceptionally clean.",
-    "Shi": "- Score: 4\n- Note: Its value comes from conceptual reach more than one institutional opportunity.",
-    "Shu": "- Score: 5\n- Note: The execution is elegant and highly disciplined.",
-    "Qi": "- Score: 5\n- Note: The framework is broadly reusable across many settings.",
-    "Subjective": "- Score: 4\n- Note: It is especially valuable when theory and mechanism framing matter.",
-    "One-Line Judgment": "A canonical information-design framework with unusually high long-run reuse value.",
+    "Dao": "- Score: 5\n- Note: 这是一个基础性、定义了后续研究方向的问题。",
+    "Fa": "- Score: 5\n- Note: 模型逻辑和后验分布重写都非常干净，是理论文章里罕见的高完成度。",
+    "Shi": "- Score: 4\n- Note: 它的优势不在某个单一制度窗口，而在于概念上的广泛可迁移性。",
+    "Shu": "- Score: 5\n- Note: 证明路径、例子设计和整体组织都非常优雅。",
+    "Qi": "- Score: 5\n- Note: 这个框架在很多理论和应用问题中都能直接复用。",
+    "Subjective": "- Score: 4\n- Note: 当我需要机制表达、理论框架或选题迁移时，这篇文章特别有价值。",
+    "One-Line Judgment": "一篇长期复用价值极高的经典信息设计框架论文。",
     "TODO_VERIFY": "- Confirm whether the uploaded PDF is the final AER version or a mirrored copy.\n- Confirm how much of the later information-design literature should be treated as direct extension versus parallel development for theme-note purposes."
   },
-  "markdown": "---\nwork_id: kamenica-2011-bayesian-persuasion\ncanonical_version_id: kamenica-2011-bayesian-persuasion-uploaded\ntitle: Bayesian Persuasion\nauthors: Emir Kamenica and Matthew Gentzkow\nyear: 2011\npublication_status: published_version\njournal_or_series: American Economic Review\ndoi: 10.1257/aer.101.6.2590\nfield: microeconomic-theory\nsubfield: information-design\npaper_paradigm: theory\nstatus: seeded_demo\ntags: [information-design, persuasion, sender-receiver, posterior-beliefs, mechanism]\n---\n\n# Paper Card\n\n## Identity\n\n- Work ID: `kamenica-2011-bayesian-persuasion`\n- Canonical Version ID: `kamenica-2011-bayesian-persuasion-uploaded`\n\n## Common Core\n\n### Research Question\nWhen can a sender manipulate a receiver's action by optimally designing the information she sees?\n\n### Why It Matters\nThe paper establishes the baseline theory of information design and persuasion with rational Bayesian receivers.\n\n### Core Object\nSignal design in a sender-receiver game with common priors and conflicting preferences.\n\n### Approach\nThe paper reformulates the sender's problem as a search over feasible distributions of posterior beliefs whose expectation equals the prior, turning signal design into a tractable geometric optimization problem.\n\n### Main Claim\nEven with full awareness of the sender's motives, a Bayesian receiver can be profitably persuaded through the sender's choice of signal structure.\n\n### Why In My Database\nIt is a canonical theory anchor for information design, mechanism intuition, and theme-building across many subfields.\n\n## Paradigm-Specific Analysis\n\n### Theory Branch\n\n#### Players\nA sender who chooses a signal structure and a receiver who takes an action after observing a signal realization.\n\n#### State Space\nAn arbitrary state space with a common prior shared by sender and receiver.\n\n#### Action Space\nAn arbitrary action space available to the receiver after she updates beliefs.\n\n#### Information Structure\nThe sender chooses an experiment or signal that induces posterior beliefs over the state.\n\n#### Timing\nThe state is drawn, the sender commits to an information structure, the receiver observes the signal realization, and then acts.\n\n#### Objective Functions\nThe sender and receiver both care about the receiver's action, but their preferences need not align. The sender therefore chooses an information structure to tilt the receiver's posterior-dependent action in his favor.\n\n#### Solution Concept\nOptimal persuasion is characterized as an optimization over feasible distributions of posterior beliefs satisfying Bayes plausibility.\n\n#### Key Propositions\nThe paper characterizes when persuasion can strictly benefit the sender and how sender-optimal signals can be constructed by solving an optimization over posterior distributions subject to Bayes plausibility.\n\n#### Conditions\nThe sender cannot lie about realized signals once the signal structure is chosen.\n\n#### Comparative Statics\nThe value of persuasion depends on preference alignment, the receiver's decision rule, and the curvature or nonconcavity of the sender's induced value as a function of beliefs.\n\n#### Applications\nThe paper discusses prosecutors, litigators, lobbyists, salespeople, and other settings where one side can shape the informational environment but cannot directly dictate the final action.\n\n### Empirical Branch\n\n#### Institutional Setting\nNot the primary branch for this paper.\n\n#### Empirical Translation Value\nThe framework is highly portable to disclosure regimes, recommendation systems, platform information design, political campaigns, legal advocacy, and regulated persuasion problems.\n\n## Limitations\nThe model abstracts from ex post misreporting, repeated communication, endogenous commitment frictions, and some incentive-compatibility issues emphasized in cheap-talk and broader mechanism-design settings.\n\n## Theme Links\n- `information-design-persuasion`\n- `strategic-communication`\n- `belief-manipulation-and-disclosure`\n\n## Ratings\n\n### Dao\n- Score: 5\n- Note: The question is foundational and field-defining.\n\n### Fa\n- Score: 5\n- Note: The model logic and posterior reformulation are exceptionally clean.\n\n### Shi\n- Score: 4\n- Note: Its value comes from conceptual reach more than one institutional opportunity.\n\n### Shu\n- Score: 5\n- Note: The execution is elegant and highly disciplined.\n\n### Qi\n- Score: 5\n- Note: The framework is broadly reusable across many settings.\n\n### Subjective\n- Score: 4\n- Note: It is especially valuable when theory and mechanism framing matter.\n\n### One-Line Judgment\nA canonical information-design framework with unusually high long-run reuse value.\n\n## TODO_VERIFY\n- Confirm whether the uploaded PDF is the final AER version or a mirrored copy.\n- Confirm how much of the later information-design literature should be treated as direct extension versus parallel development for theme-note purposes.\n"
+  "markdown": "---\nwork_id: kamenica-2011-bayesian-persuasion\ncanonical_version_id: kamenica-2011-bayesian-persuasion-uploaded\ntitle: Bayesian Persuasion\nauthors: Emir Kamenica and Matthew Gentzkow\nyear: 2011\npublication_status: published_version\njournal_or_series: American Economic Review\ndoi: 10.1257/aer.101.6.2590\nfield: microeconomic-theory\nsubfield: information-design\npaper_paradigm: theory\nstatus: seeded_demo\ntags: [information-design, persuasion, sender-receiver, posterior-beliefs, mechanism]\n---\n\n# Paper Card\n\n## Identity\n\n- Work ID: `kamenica-2011-bayesian-persuasion`\n- Canonical Version ID: `kamenica-2011-bayesian-persuasion-uploaded`\n\n## Common Core\n\n### Research Question\n一个信息发送者在什么条件下能够通过设计接收者所看到的信息结构，改变接收者的行动选择？\n\n### Why It Matters\n这篇文章奠定了现代信息设计与 persuasion 理论的基础框架，是理解“控制信息环境如何改变行为”的经典起点。\n\n### Core Object\n共同先验且偏好不完全一致的 sender-receiver 博弈中的信号设计问题。\n\n### Approach\n文章把发送者的问题重写为：在满足“后验分布的期望等于先验”这一 Bayes plausibility 约束下，寻找最优的后验分布。这样就把信号设计转化为一个可处理的几何优化问题。\n\n### Main Claim\n即便接收者完全知道发送者有操纵动机，只要发送者能够控制信息结构，他依然可能通过 persuasion 获益。\n\n### Why In My Database\n这篇文章是信息设计、机制直觉和跨领域主题搭建时最值得保留的理论锚点之一。\n\n## Paradigm-Specific Analysis\n\n### Theory Branch\n\n#### Players\n模型中有一个选择信号结构的发送者，以及一个在观察到信号 realizations 后做出行动的接收者。\n\n#### State Space\n状态空间可以是任意的，发送者和接收者共享同一个先验分布。\n\n#### Action Space\n接收者在更新信念之后，可以从任意行动空间中选择行动。\n\n#### Information Structure\n发送者选择一个实验或信号结构，从而诱导接收者形成某种关于状态的后验信念分布。\n\n#### Timing\n时序是：状态实现，发送者承诺信息结构，接收者观察到信号 realization，随后做出行动。\n\n#### Objective Functions\n发送者和接收者都关心最终行动，但偏好未必一致。因此，发送者会选择一种信息结构，让接收者在不同后验下更倾向于做出对发送者有利的行动。\n\n#### Solution Concept\n最优 persuasion 被刻画为：在满足 Bayes plausibility 的可行后验分布集合上求解一个优化问题。\n\n#### Key Propositions\n文章给出了两个核心结果：何时 persuasion 会严格提升发送者收益，以及如何通过求解后验分布优化问题来构造发送者最优信号。\n\n#### Conditions\n一个关键条件是：一旦信号结构选定，发送者不能在 realization 发生后再撒谎或篡改信号内容。\n\n#### Comparative Statics\npersuasion 的价值取决于双方偏好的一致程度、接收者的决策规则，以及发送者价值函数相对于信念的曲率或非凹性。\n\n#### Applications\n文章讨论了检察官、诉讼代理人、游说者、销售者等场景，这些场景都满足：一方可以塑造信息环境，但不能直接命令另一方采取行动。\n\n### Empirical Branch\n\n#### Institutional Setting\nNot the primary branch for this paper.\n\n#### Empirical Translation Value\n这个框架可以非常自然地迁移到信息披露、推荐系统、平台信息设计、政治竞选、法律论证以及受监管 persuasion 场景中。\n\n## Limitations\n模型抽象掉了事后 misreporting、重复沟通、内生承诺摩擦，以及 cheap talk 与更广义机制设计里强调的一些激励相容问题。\n\n## Theme Links\n- `information-design-persuasion`\n- `strategic-communication`\n- `belief-manipulation-and-disclosure`\n\n## Ratings\n\n### Dao\n- Score: 5\n- Note: 这是一个基础性、定义了后续研究方向的问题。\n\n### Fa\n- Score: 5\n- Note: 模型逻辑和后验分布重写都非常干净，是理论文章里罕见的高完成度。\n\n### Shi\n- Score: 4\n- Note: 它的优势不在某个单一制度窗口，而在于概念上的广泛可迁移性。\n\n### Shu\n- Score: 5\n- Note: 证明路径、例子设计和整体组织都非常优雅。\n\n### Qi\n- Score: 5\n- Note: 这个框架在很多理论和应用问题中都能直接复用。\n\n### Subjective\n- Score: 4\n- Note: 当我需要机制表达、理论框架或选题迁移时，这篇文章特别有价值。\n\n### One-Line Judgment\n一篇长期复用价值极高的经典信息设计框架论文。\n\n## TODO_VERIFY\n- Confirm whether the uploaded PDF is the final AER version or a mirrored copy.\n- Confirm how much of the later information-design literature should be treated as direct extension versus parallel development for theme-note purposes.\n"
 }

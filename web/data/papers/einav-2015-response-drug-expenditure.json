@@ -2,18 +2,19 @@
   "work_id": "einav-2015-response-drug-expenditure",
   "title": "THE RESPONSE OF DRUG EXPENDITURE TO NONLINEAR CONTRACT DESIGN: EVIDENCE FROM MEDICARE PART D*",
   "year": 2015,
+  "authors": "Liran Einav, Amy Finkelstein, Paul Schrimpf",
   "field": "health-economics",
   "subfield": "applied-micro",
   "paper_paradigm": "empirical_structural",
   "journal_or_series": "Quarterly Journal of Economics",
   "doi": "10.1093/qje/qjv005",
-  "research_question": "How do beneficiaries respond to nonlinear out-of-pocket prices in Medicare Part D, and how much spending would rise if the donut hole were filled?",
-  "why_it_matters": "The paper identifies how contract design affects utilization in health insurance, a core issue for both positive analysis and policy design.",
-  "core_object": "Drug spending choices under nonlinear insurance coverage.",
-  "approach": "The paper combines descriptive evidence around the donut hole kink with a dynamic model that quantifies responses over the full budget set.",
-  "main_claim": "Filling the donut hole increases spending, but the gross increase partly reflects anticipatory behavior and cross-year substitution.",
-  "why_in_my_db": "It is a reusable benchmark for nonlinear price response, insurance design, bunching around a contract kink, and policy counterfactual reasoning.",
-  "one_line_judgment": "A benchmark paper on nonlinear insurance contracts and counterfactual health-policy analysis.",
+  "research_question": "在 Medicare Part D 中，受益人会如何回应非线性的自付价格？如果把 donut hole 补上，药品支出会增加多少？",
+  "why_it_matters": "这篇文章讨论的是健康保险里一个非常核心的问题：合同设计如何影响医疗利用，以及政策扩张带来的支出变化到底有多大。",
+  "core_object": "非线性保险保障结构下的药品支出选择。",
+  "approach": "文章先利用 donut hole 所形成的预算集折点周围的描述性证据识别行为反应，再构建一个动态药品使用模型，把局部反应推广到整个非线性预算集，并据此做政策反事实分析。",
+  "main_claim": "填补 donut hole 会提高年度药品支出，但观察到的总增加中，有一部分来自预期行为和跨年替代，而不全是净新增消费。",
+  "why_in_my_db": "这篇文章可以同时作为非线性价格反应、保险合同设计、折点附近 bunching 现象以及政策反事实分析的基准文献。",
+  "one_line_judgment": "一篇关于非线性保险合同与健康政策反事实分析的基准型论文。",
   "ratings": {
     "dao": 5,
     "fa": 4,
@@ -24,25 +25,25 @@
     "overall": 24
   },
   "rating_notes": {
-    "dao": "The question is policy-relevant and conceptually central for insurance design.",
-    "fa": "The descriptive evidence is strong, though some conclusions depend on model structure.",
-    "shi": "The institutional setting provides unusually strong leverage.",
-    "shu": "The paper executes the empirical and model-based parts with discipline.",
-    "qi": "The setting, data logic, and contract design are highly reusable.",
-    "subjective": "It is directly useful for health-economics and policy-evaluation work."
+    "dao": "问题本身兼具政策重要性和理论核心性，直接指向保险合同设计。",
+    "fa": "描述性证据很扎实，但部分结论的强度依赖于模型结构与扩展设定。",
+    "shi": "制度环境极强，Part D 的非线性合同天然提供了非常好的识别窗口。",
+    "shu": "描述证据、动态模型与政策反事实的衔接非常完整，执行质量很高。",
+    "qi": "制度背景、数据结构和合同设计都具有高度复用价值。",
+    "subjective": "对健康经济学、保险设计和政策评估都具有直接用途。"
   },
   "themes": [
     {
       "theme_id": "drug-demand-under-insurance",
-      "name": "Drug Demand Under Insurance"
-    },
-    {
-      "theme_id": "nonlinear-insurance-contracts",
-      "name": "Nonlinear Insurance Contracts"
+      "name": "保险下的药品需求"
     },
     {
       "theme_id": "policy-counterfactuals-in-health",
-      "name": "Policy Counterfactuals in Health"
+      "name": "健康政策反事实分析"
+    },
+    {
+      "theme_id": "nonlinear-insurance-contracts",
+      "name": "非线性保险合同"
     }
   ],
   "excerpts": [
@@ -50,15 +51,15 @@
       "excerpt_id": "einav-2015-response-drug-expenditure-ex-001",
       "location": "Abstract",
       "topic": "counterfactual",
-      "quote_or_paraphrase": "The baseline model implies that filling the donut hole raises annual drug spending by about $150, or about 8 percent.",
-      "why_this_matters": "This is the headline quantitative policy result and anchors later citation lenses."
+      "quote_or_paraphrase": "基准模型表明，填补 donut hole 会使年度药品支出增加大约 150 美元，约为 8%。",
+      "why_this_matters": "这是文章最核心的政策数量结果，也是后续多个 citation lens 的证据锚点。"
     },
     {
       "excerpt_id": "einav-2015-response-drug-expenditure-ex-002",
       "location": "Introduction",
       "topic": "identification_logic",
-      "quote_or_paraphrase": "The paper exploits the kink created by the donut hole to document excess mass and changes in claim timing around the threshold.",
-      "why_this_matters": "This excerpt captures the empirical logic behind the descriptive response evidence."
+      "quote_or_paraphrase": "文章利用 donut hole 所造成的折点，展示了阈值附近的 excess mass 以及索赔时点变化。",
+      "why_this_matters": "这条 excerpt 概括了文章描述性识别的核心逻辑。"
     },
     {
       "excerpt_id": "einav-2015-response-drug-expenditure-ex-003",
@@ -107,47 +108,47 @@
       "lens_id": "einav-2015-response-drug-expenditure-lens-policy",
       "theme_id": "nonlinear-insurance-contracts",
       "lens_type": "policy",
-      "claim": "Nonlinear insurance contracts can meaningfully distort the timing and level of medical spending.",
-      "interpretation": "Use the paper as evidence that beneficiaries respond to sharp changes in marginal price created by coverage design.",
-      "overclaim_risk": "Do not generalize the exact magnitude outside the Medicare Part D institutional setting.",
-      "safer_formulation": "In Medicare Part D, beneficiaries exhibit economically meaningful responses to the donut-hole price increase."
+      "claim": "非线性保险合同会实质性地改变医疗支出的时点与水平。",
+      "interpretation": "这篇文章说明，保险覆盖结构本身就能通过边际价格变化改变受益人的行为。",
+      "overclaim_risk": "不要把这里的精确数量级直接外推到 Medicare Part D 之外的制度环境。",
+      "safer_formulation": "在 Medicare Part D 中，受益人对 donut-hole 所带来的价格上升表现出经济上显著的行为反应。"
     }
   ],
   "sections": {
     "Identity": "- Work ID: `einav-2015-response-drug-expenditure`\n- Canonical Version ID: `einav-2015-response-drug-expenditure-uploaded`",
     "Common Core": "",
-    "Research Question": "How do beneficiaries respond to nonlinear out-of-pocket prices in Medicare Part D, and how much spending would rise if the donut hole were filled?",
-    "Why It Matters": "The paper identifies how contract design affects utilization in health insurance, a core issue for both positive analysis and policy design.",
-    "Core Object": "Drug spending choices under nonlinear insurance coverage.",
-    "Approach": "The paper combines descriptive evidence around the donut hole kink with a dynamic model that quantifies responses over the full budget set.",
-    "Main Claim": "Filling the donut hole increases spending, but the gross increase partly reflects anticipatory behavior and cross-year substitution.",
-    "Why In My Database": "It is a reusable benchmark for nonlinear price response, insurance design, bunching around a contract kink, and policy counterfactual reasoning.",
+    "Research Question": "在 Medicare Part D 中，受益人会如何回应非线性的自付价格？如果把 donut hole 补上，药品支出会增加多少？",
+    "Why It Matters": "这篇文章讨论的是健康保险里一个非常核心的问题：合同设计如何影响医疗利用，以及政策扩张带来的支出变化到底有多大。",
+    "Core Object": "非线性保险保障结构下的药品支出选择。",
+    "Approach": "文章先利用 donut hole 所形成的预算集折点周围的描述性证据识别行为反应，再构建一个动态药品使用模型，把局部反应推广到整个非线性预算集，并据此做政策反事实分析。",
+    "Main Claim": "填补 donut hole 会提高年度药品支出，但观察到的总增加中，有一部分来自预期行为和跨年替代，而不全是净新增消费。",
+    "Why In My Database": "这篇文章可以同时作为非线性价格反应、保险合同设计、折点附近 bunching 现象以及政策反事实分析的基准文献。",
     "Paradigm-Specific Analysis": "",
     "Empirical Branch": "",
-    "Institutional Setting": "Medicare Part D creates a nonlinear coverage schedule with a well-known donut hole where marginal prices rise sharply.",
-    "Data Source": "Detailed microdata from a 20 percent random sample of Medicare Part D beneficiaries from 2007 to 2009.",
-    "Unit of Observation": "Individual beneficiaries and their prescription-drug claims over the plan year.",
-    "Sample": "Medicare Part D enrollees in a 20 percent random sample from 2007 to 2009 with observed plan characteristics and prescription claims.",
-    "Outcome Variables": "Annual total drug spending, location relative to the donut-hole threshold, monthly or end-of-year claim timing, and branded versus generic purchase patterns.",
-    "Treatment Or Variation": "The key variation comes from the nonlinear coverage schedule, especially the sharp increase in marginal out-of-pocket price at the initial coverage limit where the donut hole begins.",
-    "Identification Logic": "The descriptive analysis uses bunching around the kink and claim timing near the end of the year to infer behavioral responses to changing expected marginal prices. The model-based layer maps these within-year responses into counterfactual policy effects over the entire nonlinear budget set.",
-    "Main Results": "The paper finds clear evidence that beneficiaries reduce or delay claims when facing the donut-hole price increase. In the baseline model, filling the donut hole raises annual drug spending by roughly $150, around 8 percent.",
-    "Mechanism Evidence": "The decline in claiming is stronger later in the year and is visible earlier as beneficiaries update expectations. The response is more pronounced for branded drugs. The extension suggests that some observed response reflects intertemporal substitution across years rather than only contemporaneous moral hazard.",
-    "Counterfactual Or Policy Exercise": "The paper studies the spending effects of closing the donut hole, as required under the Affordable Care Act.",
-    "External Validity": "The setting is unusually policy-rich and uses administrative claims data, but the exact magnitudes depend on Medicare Part D contract design, beneficiary information, and pharmaceutical demand conditions.",
+    "Institutional Setting": "Medicare Part D 的标准合同具有明显的非线性保障结构，其中最著名的是 donut hole：一旦进入 coverage gap，边际自付价格会显著上升。",
+    "Data Source": "作者使用 2007 至 2009 年 Medicare Part D 受益人 20% 随机样本的详细微观数据，既包括保险合同信息，也包括处方药索赔记录。",
+    "Unit of Observation": "观察单位主要是个人受益人及其在计划年度内的处方药索赔行为。",
+    "Sample": "样本是 2007 至 2009 年间 Medicare Part D 参保者中可观察到计划特征与处方药索赔记录的 20% 随机样本。",
+    "Outcome Variables": "主要结果变量包括年度总药品支出、相对于 donut-hole 阈值的位置、月度或年末的索赔时点，以及品牌药与仿制药的购买模式。",
+    "Treatment Or Variation": "核心变异来自保险合同的非线性保障结构，尤其是初始保障上限处边际自付价格的离散上升，也就是进入 donut hole 的那一刻。",
+    "Identification Logic": "识别逻辑分两层。第一层是描述性的：利用折点附近的 bunching 以及接近年末时索赔时点的变化，识别受益人对预期边际价格变化的行为反应。第二层是模型化的：把这些年度内反应映射到整个非线性预算集上，从而评估政策反事实。",
+    "Main Results": "文章发现，当受益人面临 donut hole 所带来的价格上升时，会明显减少或推迟索赔。在基准模型下，填补 donut hole 会使年度药品支出增加约 150 美元，大约对应 8%。",
+    "Mechanism Evidence": "索赔下降在年末更明显，但在更早月份也能观察到，这和受益人逐步更新对年末价格预期的机制一致。品牌药的反应比仿制药更强。此外，扩展模型表明，观察到的一部分行为反应其实反映的是跨年替代，而不只是当期道德风险。",
+    "Counterfactual Or Policy Exercise": "文章研究的是《Affordable Care Act》要求逐步填补 donut hole 后，对药品支出的反事实影响。",
+    "External Validity": "这个设定本身具有很强的政策相关性，而且使用的是行政索赔数据，但具体数值大小仍然依赖于 Medicare Part D 的合同设计、受益人的信息掌握程度以及药品需求环境。",
     "Theory Branch": "",
     "Players": "Not the primary branch for this paper.",
-    "Limitations": "The counterfactual magnitudes depend on the dynamic specification, the stylized treatment of cross-year substitution, and the mapping from observed claiming behavior to welfare-relevant drug consumption.",
+    "Limitations": "文章的反事实数量级依赖于动态模型设定、对跨年替代的简化处理，以及如何把“索赔行为变化”映射为真正具有福利含义的药品消费变化。",
     "Theme Links": "- `nonlinear-insurance-contracts`\n- `drug-demand-under-insurance`\n- `policy-counterfactuals-in-health`",
     "Ratings": "",
-    "Dao": "- Score: 5\n- Note: The question is policy-relevant and conceptually central for insurance design.",
-    "Fa": "- Score: 4\n- Note: The descriptive evidence is strong, though some conclusions depend on model structure.",
-    "Shi": "- Score: 5\n- Note: The institutional setting provides unusually strong leverage.",
-    "Shu": "- Score: 5\n- Note: The paper executes the empirical and model-based parts with discipline.",
-    "Qi": "- Score: 5\n- Note: The setting, data logic, and contract design are highly reusable.",
-    "Subjective": "- Score: 5\n- Note: It is directly useful for health-economics and policy-evaluation work.",
-    "One-Line Judgment": "A benchmark paper on nonlinear insurance contracts and counterfactual health-policy analysis.",
+    "Dao": "- Score: 5\n- Note: 问题本身兼具政策重要性和理论核心性，直接指向保险合同设计。",
+    "Fa": "- Score: 4\n- Note: 描述性证据很扎实，但部分结论的强度依赖于模型结构与扩展设定。",
+    "Shi": "- Score: 5\n- Note: 制度环境极强，Part D 的非线性合同天然提供了非常好的识别窗口。",
+    "Shu": "- Score: 5\n- Note: 描述证据、动态模型与政策反事实的衔接非常完整，执行质量很高。",
+    "Qi": "- Score: 5\n- Note: 制度背景、数据结构和合同设计都具有高度复用价值。",
+    "Subjective": "- Score: 5\n- Note: 对健康经济学、保险设计和政策评估都具有直接用途。",
+    "One-Line Judgment": "一篇关于非线性保险合同与健康政策反事实分析的基准型论文。",
     "TODO_VERIFY": "- Confirm exact sample construction details from the body of the paper.\n- Confirm whether the uploaded PDF is the final published formatting or a post-processed copy.\n- Confirm the exact interpretation of the catastrophic-coverage marginal price in the sample plans versus the standard contract illustration."
   },
-  "markdown": "---\nwork_id: einav-2015-response-drug-expenditure\ncanonical_version_id: einav-2015-response-drug-expenditure-uploaded\ntitle: THE RESPONSE OF DRUG EXPENDITURE TO NONLINEAR CONTRACT DESIGN: EVIDENCE FROM MEDICARE PART D*\nauthors: Liran Einav, Amy Finkelstein, Paul Schrimpf\nyear: 2015\npublication_status: published_version\njournal_or_series: Quarterly Journal of Economics\ndoi: 10.1093/qje/qjv005\nfield: health-economics\nsubfield: applied-micro\npaper_paradigm: empirical_structural\nstatus: seeded_demo\ntags: [nonlinear-pricing, medicare-part-d, health-insurance, bunching, counterfactual]\n---\n\n# Paper Card\n\n## Identity\n\n- Work ID: `einav-2015-response-drug-expenditure`\n- Canonical Version ID: `einav-2015-response-drug-expenditure-uploaded`\n\n## Common Core\n\n### Research Question\nHow do beneficiaries respond to nonlinear out-of-pocket prices in Medicare Part D, and how much spending would rise if the donut hole were filled?\n\n### Why It Matters\nThe paper identifies how contract design affects utilization in health insurance, a core issue for both positive analysis and policy design.\n\n### Core Object\nDrug spending choices under nonlinear insurance coverage.\n\n### Approach\nThe paper combines descriptive evidence around the donut hole kink with a dynamic model that quantifies responses over the full budget set.\n\n### Main Claim\nFilling the donut hole increases spending, but the gross increase partly reflects anticipatory behavior and cross-year substitution.\n\n### Why In My Database\nIt is a reusable benchmark for nonlinear price response, insurance design, bunching around a contract kink, and policy counterfactual reasoning.\n\n## Paradigm-Specific Analysis\n\n### Empirical Branch\n\n#### Institutional Setting\nMedicare Part D creates a nonlinear coverage schedule with a well-known donut hole where marginal prices rise sharply.\n\n#### Data Source\nDetailed microdata from a 20 percent random sample of Medicare Part D beneficiaries from 2007 to 2009.\n\n#### Unit of Observation\nIndividual beneficiaries and their prescription-drug claims over the plan year.\n\n#### Sample\nMedicare Part D enrollees in a 20 percent random sample from 2007 to 2009 with observed plan characteristics and prescription claims.\n\n#### Outcome Variables\nAnnual total drug spending, location relative to the donut-hole threshold, monthly or end-of-year claim timing, and branded versus generic purchase patterns.\n\n#### Treatment Or Variation\nThe key variation comes from the nonlinear coverage schedule, especially the sharp increase in marginal out-of-pocket price at the initial coverage limit where the donut hole begins.\n\n#### Identification Logic\nThe descriptive analysis uses bunching around the kink and claim timing near the end of the year to infer behavioral responses to changing expected marginal prices. The model-based layer maps these within-year responses into counterfactual policy effects over the entire nonlinear budget set.\n\n#### Main Results\nThe paper finds clear evidence that beneficiaries reduce or delay claims when facing the donut-hole price increase. In the baseline model, filling the donut hole raises annual drug spending by roughly $150, around 8 percent.\n\n#### Mechanism Evidence\nThe decline in claiming is stronger later in the year and is visible earlier as beneficiaries update expectations. The response is more pronounced for branded drugs. The extension suggests that some observed response reflects intertemporal substitution across years rather than only contemporaneous moral hazard.\n\n#### Counterfactual Or Policy Exercise\nThe paper studies the spending effects of closing the donut hole, as required under the Affordable Care Act.\n\n#### External Validity\nThe setting is unusually policy-rich and uses administrative claims data, but the exact magnitudes depend on Medicare Part D contract design, beneficiary information, and pharmaceutical demand conditions.\n\n### Theory Branch\n\n#### Players\nNot the primary branch for this paper.\n\n## Limitations\nThe counterfactual magnitudes depend on the dynamic specification, the stylized treatment of cross-year substitution, and the mapping from observed claiming behavior to welfare-relevant drug consumption.\n\n## Theme Links\n- `nonlinear-insurance-contracts`\n- `drug-demand-under-insurance`\n- `policy-counterfactuals-in-health`\n\n## Ratings\n\n### Dao\n- Score: 5\n- Note: The question is policy-relevant and conceptually central for insurance design.\n\n### Fa\n- Score: 4\n- Note: The descriptive evidence is strong, though some conclusions depend on model structure.\n\n### Shi\n- Score: 5\n- Note: The institutional setting provides unusually strong leverage.\n\n### Shu\n- Score: 5\n- Note: The paper executes the empirical and model-based parts with discipline.\n\n### Qi\n- Score: 5\n- Note: The setting, data logic, and contract design are highly reusable.\n\n### Subjective\n- Score: 5\n- Note: It is directly useful for health-economics and policy-evaluation work.\n\n### One-Line Judgment\nA benchmark paper on nonlinear insurance contracts and counterfactual health-policy analysis.\n\n## TODO_VERIFY\n- Confirm exact sample construction details from the body of the paper.\n- Confirm whether the uploaded PDF is the final published formatting or a post-processed copy.\n- Confirm the exact interpretation of the catastrophic-coverage marginal price in the sample plans versus the standard contract illustration.\n"
+  "markdown": "---\nwork_id: einav-2015-response-drug-expenditure\ncanonical_version_id: einav-2015-response-drug-expenditure-uploaded\ntitle: THE RESPONSE OF DRUG EXPENDITURE TO NONLINEAR CONTRACT DESIGN: EVIDENCE FROM MEDICARE PART D*\nauthors: Liran Einav, Amy Finkelstein, Paul Schrimpf\nyear: 2015\npublication_status: published_version\njournal_or_series: Quarterly Journal of Economics\ndoi: 10.1093/qje/qjv005\nfield: health-economics\nsubfield: applied-micro\npaper_paradigm: empirical_structural\nstatus: seeded_demo\ntags: [nonlinear-pricing, medicare-part-d, health-insurance, bunching, counterfactual]\n---\n\n# Paper Card\n\n## Identity\n\n- Work ID: `einav-2015-response-drug-expenditure`\n- Canonical Version ID: `einav-2015-response-drug-expenditure-uploaded`\n\n## Common Core\n\n### Research Question\n在 Medicare Part D 中，受益人会如何回应非线性的自付价格？如果把 donut hole 补上，药品支出会增加多少？\n\n### Why It Matters\n这篇文章讨论的是健康保险里一个非常核心的问题：合同设计如何影响医疗利用，以及政策扩张带来的支出变化到底有多大。\n\n### Core Object\n非线性保险保障结构下的药品支出选择。\n\n### Approach\n文章先利用 donut hole 所形成的预算集折点周围的描述性证据识别行为反应，再构建一个动态药品使用模型，把局部反应推广到整个非线性预算集，并据此做政策反事实分析。\n\n### Main Claim\n填补 donut hole 会提高年度药品支出，但观察到的总增加中，有一部分来自预期行为和跨年替代，而不全是净新增消费。\n\n### Why In My Database\n这篇文章可以同时作为非线性价格反应、保险合同设计、折点附近 bunching 现象以及政策反事实分析的基准文献。\n\n## Paradigm-Specific Analysis\n\n### Empirical Branch\n\n#### Institutional Setting\nMedicare Part D 的标准合同具有明显的非线性保障结构，其中最著名的是 donut hole：一旦进入 coverage gap，边际自付价格会显著上升。\n\n#### Data Source\n作者使用 2007 至 2009 年 Medicare Part D 受益人 20% 随机样本的详细微观数据，既包括保险合同信息，也包括处方药索赔记录。\n\n#### Unit of Observation\n观察单位主要是个人受益人及其在计划年度内的处方药索赔行为。\n\n#### Sample\n样本是 2007 至 2009 年间 Medicare Part D 参保者中可观察到计划特征与处方药索赔记录的 20% 随机样本。\n\n#### Outcome Variables\n主要结果变量包括年度总药品支出、相对于 donut-hole 阈值的位置、月度或年末的索赔时点，以及品牌药与仿制药的购买模式。\n\n#### Treatment Or Variation\n核心变异来自保险合同的非线性保障结构，尤其是初始保障上限处边际自付价格的离散上升，也就是进入 donut hole 的那一刻。\n\n#### Identification Logic\n识别逻辑分两层。第一层是描述性的：利用折点附近的 bunching 以及接近年末时索赔时点的变化，识别受益人对预期边际价格变化的行为反应。第二层是模型化的：把这些年度内反应映射到整个非线性预算集上，从而评估政策反事实。\n\n#### Main Results\n文章发现，当受益人面临 donut hole 所带来的价格上升时，会明显减少或推迟索赔。在基准模型下，填补 donut hole 会使年度药品支出增加约 150 美元，大约对应 8%。\n\n#### Mechanism Evidence\n索赔下降在年末更明显，但在更早月份也能观察到，这和受益人逐步更新对年末价格预期的机制一致。品牌药的反应比仿制药更强。此外，扩展模型表明，观察到的一部分行为反应其实反映的是跨年替代，而不只是当期道德风险。\n\n#### Counterfactual Or Policy Exercise\n文章研究的是《Affordable Care Act》要求逐步填补 donut hole 后，对药品支出的反事实影响。\n\n#### External Validity\n这个设定本身具有很强的政策相关性，而且使用的是行政索赔数据，但具体数值大小仍然依赖于 Medicare Part D 的合同设计、受益人的信息掌握程度以及药品需求环境。\n\n### Theory Branch\n\n#### Players\nNot the primary branch for this paper.\n\n## Limitations\n文章的反事实数量级依赖于动态模型设定、对跨年替代的简化处理，以及如何把“索赔行为变化”映射为真正具有福利含义的药品消费变化。\n\n## Theme Links\n- `nonlinear-insurance-contracts`\n- `drug-demand-under-insurance`\n- `policy-counterfactuals-in-health`\n\n## Ratings\n\n### Dao\n- Score: 5\n- Note: 问题本身兼具政策重要性和理论核心性，直接指向保险合同设计。\n\n### Fa\n- Score: 4\n- Note: 描述性证据很扎实，但部分结论的强度依赖于模型结构与扩展设定。\n\n### Shi\n- Score: 5\n- Note: 制度环境极强，Part D 的非线性合同天然提供了非常好的识别窗口。\n\n### Shu\n- Score: 5\n- Note: 描述证据、动态模型与政策反事实的衔接非常完整，执行质量很高。\n\n### Qi\n- Score: 5\n- Note: 制度背景、数据结构和合同设计都具有高度复用价值。\n\n### Subjective\n- Score: 5\n- Note: 对健康经济学、保险设计和政策评估都具有直接用途。\n\n### One-Line Judgment\n一篇关于非线性保险合同与健康政策反事实分析的基准型论文。\n\n## TODO_VERIFY\n- Confirm exact sample construction details from the body of the paper.\n- Confirm whether the uploaded PDF is the final published formatting or a post-processed copy.\n- Confirm the exact interpretation of the catastrophic-coverage marginal price in the sample plans versus the standard contract illustration.\n"
 }

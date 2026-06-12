@@ -74,11 +74,12 @@
       "work_id": "einav-2015-response-drug-expenditure",
       "title": "THE RESPONSE OF DRUG EXPENDITURE TO NONLINEAR CONTRACT DESIGN: EVIDENCE FROM MEDICARE PART D*",
       "year": 2015,
+      "authors": "Liran Einav, Amy Finkelstein, Paul Schrimpf",
       "field": "health-economics",
       "subfield": "applied-micro",
       "paper_paradigm": "empirical_structural",
       "journal_or_series": "Quarterly Journal of Economics",
-      "one_line_judgment": "A benchmark paper on nonlinear insurance contracts and counterfactual health-policy analysis.",
+      "one_line_judgment": "一篇关于非线性保险合同与健康政策反事实分析的基准型论文。",
       "ratings": {
         "dao": 5,
         "fa": 4,
@@ -91,15 +92,15 @@
       "themes": [
         {
           "theme_id": "drug-demand-under-insurance",
-          "name": "Drug Demand Under Insurance"
-        },
-        {
-          "theme_id": "nonlinear-insurance-contracts",
-          "name": "Nonlinear Insurance Contracts"
+          "name": "保险下的药品需求"
         },
         {
           "theme_id": "policy-counterfactuals-in-health",
-          "name": "Policy Counterfactuals in Health"
+          "name": "健康政策反事实分析"
+        },
+        {
+          "theme_id": "nonlinear-insurance-contracts",
+          "name": "非线性保险合同"
         }
       ],
       "excerpt_count": 4,
@@ -109,11 +110,12 @@
       "work_id": "kamenica-2011-bayesian-persuasion",
       "title": "Bayesian Persuasion",
       "year": 2011,
+      "authors": "Emir Kamenica and Matthew Gentzkow",
       "field": "microeconomic-theory",
       "subfield": "information-design",
       "paper_paradigm": "theory",
       "journal_or_series": "American Economic Review",
-      "one_line_judgment": "A canonical information-design framework with unusually high long-run reuse value.",
+      "one_line_judgment": "一篇长期复用价值极高的经典信息设计框架论文。",
       "ratings": {
         "dao": 5,
         "fa": 5,
@@ -126,15 +128,15 @@
       "themes": [
         {
           "theme_id": "belief-manipulation-and-disclosure",
-          "name": "Belief Manipulation and Disclosure"
+          "name": "信念操纵与信息披露"
         },
         {
           "theme_id": "information-design-persuasion",
-          "name": "Information Design and Persuasion"
+          "name": "信息设计与劝服"
         },
         {
           "theme_id": "strategic-communication",
-          "name": "Strategic Communication"
+          "name": "策略性沟通"
         }
       ],
       "excerpt_count": 4,
@@ -143,44 +145,44 @@
   ],
   "themes": [
     {
+      "theme_id": "drug-demand-under-insurance",
+      "name": "保险下的药品需求",
+      "field": "health-economics",
+      "status": "seeded_demo",
+      "paper_count": 1
+    },
+    {
       "theme_id": "belief-manipulation-and-disclosure",
-      "name": "Belief Manipulation and Disclosure",
+      "name": "信念操纵与信息披露",
       "field": "microeconomic-theory",
       "status": "draft_completed",
       "paper_count": 1
     },
     {
-      "theme_id": "drug-demand-under-insurance",
-      "name": "Drug Demand Under Insurance",
-      "field": "health-economics",
-      "status": "seeded_demo",
-      "paper_count": 1
-    },
-    {
       "theme_id": "information-design-persuasion",
-      "name": "Information Design and Persuasion",
+      "name": "信息设计与劝服",
       "field": "microeconomic-theory",
       "status": "seeded_demo",
       "paper_count": 1
     },
     {
-      "theme_id": "nonlinear-insurance-contracts",
-      "name": "Nonlinear Insurance Contracts",
-      "field": "health-economics",
-      "status": "seeded_demo",
-      "paper_count": 1
-    },
-    {
       "theme_id": "policy-counterfactuals-in-health",
-      "name": "Policy Counterfactuals in Health",
+      "name": "健康政策反事实分析",
       "field": "health-economics",
       "status": "draft_completed",
       "paper_count": 1
     },
     {
       "theme_id": "strategic-communication",
-      "name": "Strategic Communication",
+      "name": "策略性沟通",
       "field": "microeconomic-theory",
+      "status": "seeded_demo",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "nonlinear-insurance-contracts",
+      "name": "非线性保险合同",
+      "field": "health-economics",
       "status": "seeded_demo",
       "paper_count": 1
     }
@@ -188,32 +190,32 @@
   "theme_distribution": [
     {
       "theme_id": "drug-demand-under-insurance",
-      "name": "Drug Demand Under Insurance",
-      "paper_count": 1
-    },
-    {
-      "theme_id": "nonlinear-insurance-contracts",
-      "name": "Nonlinear Insurance Contracts",
+      "name": "保险下的药品需求",
       "paper_count": 1
     },
     {
       "theme_id": "policy-counterfactuals-in-health",
-      "name": "Policy Counterfactuals in Health",
+      "name": "健康政策反事实分析",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "nonlinear-insurance-contracts",
+      "name": "非线性保险合同",
       "paper_count": 1
     },
     {
       "theme_id": "belief-manipulation-and-disclosure",
-      "name": "Belief Manipulation and Disclosure",
+      "name": "信念操纵与信息披露",
       "paper_count": 1
     },
     {
       "theme_id": "information-design-persuasion",
-      "name": "Information Design and Persuasion",
+      "name": "信息设计与劝服",
       "paper_count": 1
     },
     {
       "theme_id": "strategic-communication",
-      "name": "Strategic Communication",
+      "name": "策略性沟通",
       "paper_count": 1
     }
   ],

@@ -26,6 +26,8 @@ Every excerpt must include:
 - `quote_or_paraphrase`
 - `why_this_matters`
 
+Write excerpt explanations in Chinese by default. Preserve original English wording only when quoting the paper title, journal name, equation notation, or a technical expression that should remain exact.
+
 ## Lens Types
 
 Use only:
@@ -48,6 +50,8 @@ Each lens must answer:
 - which excerpts support that claim
 - what the overclaim risk is
 - what the safer formulation is
+
+Write lens prose in Chinese by default so the public-facing database remains linguistically consistent.
 
 ## Theme Discipline
 
