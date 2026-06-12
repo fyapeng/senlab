@@ -77,6 +77,8 @@ Use the SenLab scripts before drafting analysis:
 
 If deterministic ingestion fails, report the failure precisely and continue only with clearly marked manual placeholders.
 
+Do not proceed to paper-card, excerpt, or lens drafting when the extracted full text is empty, placeholder-only, or obviously truncated by extractor failure.
+
 ### 3. Fill or revise the normalized paper card
 
 Always complete the common fields:

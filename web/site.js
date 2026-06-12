@@ -724,6 +724,13 @@ async function renderPaper(site) {
 
   const paper = await getJson(`${PAPER_DATA_BASE}${encodeURIComponent(workId)}.json`);
   document.title = `Sencium Lab · ${paper.title}`;
+  const titleLength = (paper.title || "").trim().length;
+  const titleClass =
+    titleLength >= 90
+      ? "paper-title paper-title-xlong"
+      : titleLength >= 48
+        ? "paper-title paper-title-long"
+        : "paper-title";
   const sections = paper.sections || {};
   const detailFields = [
     ["领域", formatField(paper.field)],
@@ -743,7 +750,7 @@ async function renderPaper(site) {
     <section class="paper-hero">
       <article class="panel paper-head">
         <div class="eyebrow">论文档案</div>
-        <h1 class="paper-title">${paper.title}</h1>
+        <h1 class="${titleClass}">${paper.title}</h1>
         <div class="paper-byline">${paper.authors || ""}</div>
         <div class="paper-meta-line">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
         <div class="paper-meta-line">${paper.journal_or_series || "期刊信息待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</div>

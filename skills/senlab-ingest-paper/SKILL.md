@@ -9,10 +9,19 @@ Use this skill only for the deterministic intake stage.
 
 ## Required Steps
 
+0. Verify the extraction environment before intake.
 1. Initialize the SenLab database if it does not exist.
 2. Run the ingestion script on the source PDF.
 3. Capture `work_id`, `version_id`, canonical storage path, and full-text path.
 4. Do not draft free-form analysis before the intake step succeeds.
+
+## Environment Gate
+
+- Prefer `pypdf` as the first extraction backend when the local Python environment provides it.
+- If `pypdf` is unavailable or fails on the PDF, fall back to local `pdftotext` if present.
+- If both extraction backends fail, stop the intake and report the blocker clearly instead of continuing with an empty placeholder fulltext.
+- Record which extractor was used when the result may need later review.
+- For journal PDFs with noisy first pages, manually verify the first-page title, authors, journal, and year before freezing canonical metadata.
 
 ## Rules
 
@@ -26,6 +35,8 @@ Use this skill only for the deterministic intake stage.
 - Remove layout artifacts from titles, including trailing `*`, dagger markers, footnote numerals, and line-break noise, unless the symbol is genuinely part of the title.
 - Normalize author names to standard English name form rather than OCR casing or punctuation artifacts.
 - Preserve the official publication title and author spelling when they can be verified from the paper first page or journal metadata.
+- Treat all-caps titles, running headers, and broken line wraps as extraction noise unless the paper itself clearly uses that form.
+- Do not let downstream paper-card or lens generation start from a `TODO_VERIFY` placeholder body, empty fulltext, or obviously truncated extraction.
 
 ## Validation
 
@@ -33,5 +44,6 @@ Confirm all of the following:
 
 - the PDF exists under `library/pdfs/`
 - the extracted text exists under `library/fulltext/`
+- the extracted text is substantive and not just a fallback placeholder or error note
 - the paper card draft exists under `canonical/papers/`
 - the database has one `works` row and one `paper_versions` row for the ingested file

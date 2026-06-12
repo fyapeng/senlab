@@ -91,3 +91,4 @@ Add one short justification sentence for each score.
 - Mark uncertain metadata or claims as `TODO_VERIFY`.
 - Prefer Chinese field content that reads naturally on the public website rather than raw translation fragments.
 - If publication metadata and PDF OCR conflict, prefer the verified publication-style title, author list, and journal formatting.
+- If the extracted full text is only a placeholder, extraction error note, or obviously incomplete, stop and send the paper back to the ingestion stage instead of drafting a false-complete card.
