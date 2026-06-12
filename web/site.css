@@ -905,6 +905,7 @@ img {
   touch-action: none;
   user-select: none;
   cursor: grab;
+  perspective: 900px;
 }
 
 .knowledge-stage.dragging {
@@ -914,7 +915,12 @@ img {
 .knowledge-stage-inner {
   width: 100%;
   transform-origin: center center;
+  transform-style: preserve-3d;
   transition: transform 0.16s ease;
+}
+
+.knowledge-stage.dragging .knowledge-stage-inner {
+  transition: none;
 }
 
 .knowledge-svg {

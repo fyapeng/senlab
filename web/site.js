@@ -287,8 +287,6 @@ function renderKnowledgeMapSection(site) {
         <button type="button" class="chip chip-toggle active" data-map-mode="themes">主题网络</button>
         <button type="button" class="chip chip-toggle" data-map-mode="papers">文献网络</button>
         <div class="knowledge-controls" id="knowledge-controls">
-          <button type="button" class="chip chip-control" data-knowledge-rotate="left" title="向左旋转">↶</button>
-          <button type="button" class="chip chip-control" data-knowledge-rotate="right" title="向右旋转">↷</button>
           <button type="button" class="chip chip-control" data-knowledge-zoom="out" title="缩小">-</button>
           <button type="button" class="chip chip-control" data-knowledge-zoom="in" title="放大">+</button>
           <button type="button" class="chip chip-control" data-knowledge-zoom="reset" title="重置视图">重置</button>
@@ -336,8 +334,12 @@ function activateKnowledgeMap(site) {
   let currentZoom = 1;
   let themeRotation = -Math.PI / 2;
   let paperRotation = -Math.PI / 2;
-  let dragStartAngle = 0;
-  let dragStartRotation = 0;
+  let dragStartX = 0;
+  let dragStartY = 0;
+  let dragStartTiltX = 0;
+  let dragStartTiltY = 0;
+  let viewTiltX = 0;
+  let viewTiltY = 0;
   let isDragging = false;
   let movedDuringDrag = false;
 
@@ -590,18 +592,48 @@ function activateKnowledgeMap(site) {
     });
   }
 
-  function pointerAngle(event) {
-    const rect = stage.getBoundingClientRect();
-    return Math.atan2(event.clientY - (rect.top + rect.height / 2), event.clientX - (rect.left + rect.width / 2));
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
+
+  function stageTransform() {
+    return `perspective(900px) rotateX(${viewTiltX}deg) rotateY(${viewTiltY}deg) scale(${currentZoom})`;
+  }
+
+  function updateStageTransform() {
+    const inner = stage.querySelector(".knowledge-stage-inner");
+    if (inner) inner.style.transform = stageTransform();
   }
 
   function bindStageGestures() {
     if (!stage) return;
-    stage.onpointerdown = (event) => { isDragging = true; movedDuringDrag = false; dragStartAngle = pointerAngle(event); dragStartRotation = mode === "themes" ? themeRotation : paperRotation; stage.classList.add("dragging"); stage.setPointerCapture?.(event.pointerId); };
-    stage.onpointermove = (event) => { if (!isDragging) return; const angleDelta = pointerAngle(event) - dragStartAngle; if (Math.abs(angleDelta) > 0.02) movedDuringDrag = true; if (mode === "themes") themeRotation = dragStartRotation + angleDelta; else paperRotation = dragStartRotation + angleDelta; render(); };
-    const stopDragging = () => { isDragging = false; stage.classList.remove("dragging"); window.setTimeout(() => { movedDuringDrag = false; }, 0); };
+    stage.onpointerdown = (event) => {
+      isDragging = true;
+      movedDuringDrag = false;
+      dragStartX = event.clientX;
+      dragStartY = event.clientY;
+      dragStartTiltX = viewTiltX;
+      dragStartTiltY = viewTiltY;
+      stage.classList.add("dragging");
+      stage.setPointerCapture?.(event.pointerId);
+    };
+    stage.onpointermove = (event) => {
+      if (!isDragging) return;
+      const dx = event.clientX - dragStartX;
+      const dy = event.clientY - dragStartY;
+      if (Math.hypot(dx, dy) > 4) movedDuringDrag = true;
+      viewTiltY = clamp(dragStartTiltY + dx * 0.12, -34, 34);
+      viewTiltX = clamp(dragStartTiltX - dy * 0.12, -28, 28);
+      updateStageTransform();
+    };
+    const stopDragging = () => {
+      isDragging = false;
+      stage.classList.remove("dragging");
+      window.setTimeout(() => { movedDuringDrag = false; }, 0);
+    };
     stage.onpointerup = stopDragging;
     stage.onpointerleave = stopDragging;
+    stage.onpointercancel = stopDragging;
   }
 
   function bindControls() {
@@ -611,24 +643,20 @@ function activateKnowledgeMap(site) {
         const action = button.getAttribute("data-knowledge-zoom");
         if (action === "in") currentZoom = Math.min(1.45, currentZoom + 0.12);
         if (action === "out") currentZoom = Math.max(0.82, currentZoom - 0.12);
-        if (action === "reset") { currentZoom = 1; themeRotation = -Math.PI / 2; paperRotation = -Math.PI / 2; }
-        render();
-      };
-    });
-    controls.querySelectorAll("[data-knowledge-rotate]").forEach((button) => {
-      button.onclick = () => {
-        const direction = button.getAttribute("data-knowledge-rotate") === "left" ? -1 : 1;
-        if (mode === "themes") themeRotation += direction * 0.28;
-        else paperRotation += direction * 0.28;
-        render();
+        if (action === "reset") {
+          currentZoom = 1;
+          viewTiltX = 0;
+          viewTiltY = 0;
+        }
+        updateStageTransform();
       };
     });
   }
 
   function render() {
     toggles.forEach((button) => button.classList.toggle("active", button.getAttribute("data-map-mode") === mode));
-    if (mode === "themes") { stage.innerHTML = `<div class="knowledge-stage-inner" style="transform:scale(${currentZoom})">${themeSvg(selectedThemeId)}</div>`; detail.innerHTML = themeDetail(selectedThemeId); if (related) related.innerHTML = themeRelatedPanel(selectedThemeId); }
-    else { stage.innerHTML = `<div class="knowledge-stage-inner" style="transform:scale(${currentZoom})">${paperSvg(selectedPaperId)}</div>`; detail.innerHTML = paperDetail(selectedPaperId); if (related) related.innerHTML = paperRelatedPanel(selectedPaperId); }
+    if (mode === "themes") { stage.innerHTML = `<div class="knowledge-stage-inner" style="transform:${stageTransform()}">${themeSvg(selectedThemeId)}</div>`; detail.innerHTML = themeDetail(selectedThemeId); if (related) related.innerHTML = themeRelatedPanel(selectedThemeId); }
+    else { stage.innerHTML = `<div class="knowledge-stage-inner" style="transform:${stageTransform()}">${paperSvg(selectedPaperId)}</div>`; detail.innerHTML = paperDetail(selectedPaperId); if (related) related.innerHTML = paperRelatedPanel(selectedPaperId); }
     bindStageActions();
     bindStageGestures();
     bindDetailActions();
