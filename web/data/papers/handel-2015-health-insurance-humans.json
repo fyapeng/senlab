@@ -1,0 +1,152 @@
+{
+  "work_id": "handel-2015-health-insurance-humans",
+  "title": "Health Insurance for \"Humans\": Information Frictions, Plan Choice, and Consumer Welfare",
+  "year": 2015,
+  "authors": "Benjamin R. Handel and Jonathan T. Kolstad",
+  "field": "health-economics",
+  "subfield": "applied-micro",
+  "paper_paradigm": "empirical_structural",
+  "journal_or_series": "American Economic Review",
+  "doi": "10.1257/aer.20131126",
+  "research_question": "在健康保险计划选择中，消费者的选择究竟反映了真实的风险偏好，还是掺杂了信息摩擦、认知误差与计划使用 hassle costs？如果把这些因素区分开来，会如何改变我们对消费者福利与保险设计的判断？",
+  "why_it_matters": "这篇文章直指健康经济学和产业组织里一个很核心的问题：当消费者面对复杂合同做选择时，观察到的 demand 到底有多少是“偏好”，又有多少是“信息与摩擦”。如果这两者混在一起，福利分析和政策推演就会系统性偏误。",
+  "core_object": "具有复杂条款的雇主健康保险菜单下的消费者计划选择行为。",
+  "approach": "文章把详细的行政数据与个体层面的 survey 信息结合起来，估计一个保险选择结构模型；在传统的风险偏好与医疗支出风险之外，显式引入信息摩擦与时间/麻烦成本，并比较加入这些摩擦前后的风险偏好估计与福利结论。",
+  "main_claim": "如果忽略信息摩擦与 hassle costs，研究者会高估消费者的风险厌恶程度；而一旦把这些额外摩擦显式纳入，消费者对高保障计划的支付意愿中有相当一部分其实并非来自经典风险厌恶，这会显著改变 counterfactual welfare analysis 的结论。",
+  "why_in_my_db": "这篇文章是“复杂合同选择 + 信息摩擦 + 结构化福利分析”这一条研究路径上的基准文献。它既能服务于健康保险选择问题，也能服务于更一般的复杂产品市场、行为摩擦识别和 welfare decomposition。",
+  "one_line_judgment": "一篇把风险偏好、信息摩擦与福利分析真正拆开的健康保险选择基准文献。",
+  "ratings": {
+    "dao": 5,
+    "fa": 5,
+    "shi": 5,
+    "shu": 5,
+    "qi": 5,
+    "subjective": 5,
+    "overall": 25
+  },
+  "rating_notes": {
+    "dao": "它问的是保险选择研究里最关键的基础问题之一：观察到的选择究竟代表偏好，还是代表摩擦。",
+    "fa": "行政数据与 survey 的组合显著增强了识别力，使得风险偏好与信息摩擦的分离更有说服力。",
+    "shi": "雇主保险环境、详细 claims 数据与个体调查链接的组合提供了很强的制度与数据窗口。",
+    "shu": "描述性分析、结构估计和 welfare counterfactual 之间衔接完整，执行质量很高。",
+    "qi": "文章的可复用价值很强，既有复杂合同选择框架，也有“survey + admin”识别路径和 welfare decomposition 思路。",
+    "subjective": "对健康保险、复杂产品选择、行为摩擦识别和政策福利评估都高度有用。"
+  },
+  "themes": [
+    {
+      "theme_id": "information-frictions-in-insurance",
+      "name": "保险选择中的信息摩擦"
+    },
+    {
+      "theme_id": "health-insurance-choice",
+      "name": "健康保险计划选择"
+    },
+    {
+      "theme_id": "consumer-welfare-under-choice-frictions",
+      "name": "选择摩擦下的消费者福利"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "handel-2015-health-insurance-humans-ex-001",
+      "location": "Abstract",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "作者将行政选择与 claims 数据和独特的 consumer information survey 结合起来，识别风险偏好、信息摩擦与 hassle costs，并指出这些额外摩擦会显著影响风险偏好估计与 welfare analysis。",
+      "why_this_matters": "这条 excerpt 直接概括了文章的核心贡献：不是单纯估计 demand，而是把 choice micro-foundations 拆开。"
+    },
+    {
+      "excerpt_id": "handel-2015-health-insurance-humans-ex-002",
+      "location": "Introduction",
+      "topic": "mechanism_evidence",
+      "quote_or_paraphrase": "那些错误认为 PPO 提供更好 provider access，或者不确定两个计划医疗网络是否相同的消费者，更倾向于选择 PPO，即便两个计划实际上可以使用相同的医生与治疗。",
+      "why_this_matters": "这条证据说明，计划选择中观察到的 PPO 偏好并不全是风险厌恶，也来自信息误解与认知摩擦。"
+    },
+    {
+      "excerpt_id": "handel-2015-health-insurance-humans-ex-003",
+      "location": "Counterfactual welfare analysis",
+      "topic": "counterfactual",
+      "quote_or_paraphrase": "若把所有消费者都配置到 HDHP，在包含信息摩擦的完整模型中，平均 welfare loss 明显低于忽略这些摩擦的 baseline model。",
+      "why_this_matters": "这条 excerpt 展示出 choice foundation 的识别如何直接影响反事实政策评估，而不是只影响学术上的偏好解释。"
+    },
+    {
+      "excerpt_id": "handel-2015-health-insurance-humans-ex-004",
+      "location": "Introduction and model motivation",
+      "topic": "method",
+      "quote_or_paraphrase": "如果研究者把信息摩擦、信念偏差与 plan hassle costs 全都忽略掉，那么行政数据中的 observed choice 会把这些因素误识别成风险偏好。",
+      "why_this_matters": "这是文章方法论上的关键提醒：不能把“需求曲线里的一切”都解释为经典偏好。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "handel-2015-health-insurance-humans-lens-mechanism",
+      "theme_id": "health-insurance-choice",
+      "lens_type": "mechanism",
+      "claim": "消费者对计划网络、财务条款或使用复杂度的认知偏差，会系统性改变他们对健康保险计划的选择。",
+      "interpretation": "文章最有说服力的机制证据之一，就是那些错误理解 provider access 的消费者会更偏好 PPO，这恰好说明 choice 里有显著的 information friction component。",
+      "overclaim_risk": "不要把所有 PPO 选择都解释成认知偏差；风险偏好仍然重要，这篇文章说的是分解而不是替代。",
+      "safer_formulation": "证据表明，健康保险计划选择中观察到的高保障偏好，至少部分反映了信息摩擦与认知误解，而不只是风险厌恶。"
+    },
+    {
+      "lens_id": "handel-2015-health-insurance-humans-lens-method",
+      "theme_id": "information-frictions-in-insurance",
+      "lens_type": "method",
+      "claim": "在复杂保险计划选择中，如果只依赖 observed choice 与行政数据，研究者很容易把信息摩擦误估为风险偏好。",
+      "interpretation": "这篇文章的核心方法价值在于，它不是简单往 demand model 里多塞几个控制变量，而是给“消费者知道什么”提供了额外测量，从而改变了偏好估计本身。",
+      "overclaim_risk": "不要把这篇文章说成“完全识别了真实偏好”；survey measures 本身也有 measurement error 和解释空间。",
+      "safer_formulation": "文章表明，在健康保险这类复杂合同选择中，引入 individually linked survey information 能显著改善风险偏好与信息摩擦的区分。"
+    },
+    {
+      "lens_id": "handel-2015-health-insurance-humans-lens-policy",
+      "theme_id": "health-insurance-choice",
+      "lens_type": "policy",
+      "claim": "在复杂保险菜单中，监管者或雇主在设计 plan menu 时，必须考虑消费者信息摩擦，否则 menu simplification 的福利效果可能被误判。",
+      "interpretation": "从 policy 角度看，这篇文章告诉我们：限制 choice set 或把人推向高 deductible plan 的效果，不能只用传统 risk protection trade-off 来理解。",
+      "overclaim_risk": "不要把它写成“应该取消 PPO”或“应该统一推 HDHP”；文章真正展示的是评估框架的敏感性，而不是单一政策结论。",
+      "safer_formulation": "这篇文章提示，保险菜单设计与高 deductible 计划推广的政策评估，必须显式考虑消费者信息摩擦与计划理解偏差。"
+    },
+    {
+      "lens_id": "handel-2015-health-insurance-humans-lens-welfare",
+      "theme_id": "consumer-welfare-under-choice-frictions",
+      "lens_type": "counterfactual",
+      "claim": "如果不区分风险偏好与信息摩擦，反事实政策评估可能会系统性高估消费者因风险暴露增加而遭受的福利损失。",
+      "interpretation": "这篇文章的重要性不仅在于估计了“真实风险厌恶更低”，更在于它把这一差异与反事实政策分析直接连起来了。",
+      "overclaim_risk": "不要把文中的 welfare result 当成一般性的保险市场结论；它高度依赖具体雇主环境、建模设定和 friction relevance 的 welfare assumption。",
+      "safer_formulation": "文章表明，在复杂保险选择环境中，若把信息摩擦误当成偏好，政策反事实中的 welfare loss 往往会被高估。"
+    }
+  ],
+  "sections": {
+    "Identity": "- Work ID: `handel-2015-health-insurance-humans`\n- Canonical Version ID: `handel-2015-health-insurance-humans-uploaded`",
+    "Common Core": "",
+    "Research Question": "在健康保险计划选择中，消费者的选择究竟反映了真实的风险偏好，还是掺杂了信息摩擦、认知误差与计划使用 hassle costs？如果把这些因素区分开来，会如何改变我们对消费者福利与保险设计的判断？",
+    "Why It Matters": "这篇文章直指健康经济学和产业组织里一个很核心的问题：当消费者面对复杂合同做选择时，观察到的 demand 到底有多少是“偏好”，又有多少是“信息与摩擦”。如果这两者混在一起，福利分析和政策推演就会系统性偏误。",
+    "Core Object": "具有复杂条款的雇主健康保险菜单下的消费者计划选择行为。",
+    "Approach": "文章把详细的行政数据与个体层面的 survey 信息结合起来，估计一个保险选择结构模型；在传统的风险偏好与医疗支出风险之外，显式引入信息摩擦与时间/麻烦成本，并比较加入这些摩擦前后的风险偏好估计与福利结论。",
+    "Main Claim": "如果忽略信息摩擦与 hassle costs，研究者会高估消费者的风险厌恶程度；而一旦把这些额外摩擦显式纳入，消费者对高保障计划的支付意愿中有相当一部分其实并非来自经典风险厌恶，这会显著改变 counterfactual welfare analysis 的结论。",
+    "Why In My Database": "这篇文章是“复杂合同选择 + 信息摩擦 + 结构化福利分析”这一条研究路径上的基准文献。它既能服务于健康保险选择问题，也能服务于更一般的复杂产品市场、行为摩擦识别和 welfare decomposition。",
+    "Paradigm-Specific Analysis": "",
+    "Empirical Branch": "",
+    "Institutional Setting": "研究场景是一个大型雇主提供的员工健康保险市场，员工在两个计划之间选择：一个保障更全面的 PPO，以及一个高 deductible 的 HDHP。两者在医疗服务网络上相同，但财务结构、前端保费与风险暴露不同。",
+    "Data Source": "作者使用某大型企业五万多名员工的行政数据，包括保险计划选择、后续医疗 claims、人口学与雇佣信息；同时结合对 4,500 名员工实施的 survey，测量他们对计划条款、provider access、自身医疗风险以及时间/麻烦成本的认知。",
+    "Unit of Observation": "个体员工或家庭在开放 enrollment 时的保险计划选择。",
+    "Sample": "样本来自单一大型雇主的员工保险选择环境，并有一组随机抽取员工的问卷与行政数据相链接。",
+    "Outcome Variables": "核心结果包括：PPO 与 HDHP 的选择、消费者对不同计划属性的 willingness to pay、结构估计得到的风险偏好参数，以及在反事实计划配置下的 welfare loss。",
+    "Treatment Or Variation": "识别所依赖的关键 variation 来自：不同消费者的预期医疗风险、计划 financial attributes、survey 所揭示的异质性信息摩擦，以及对计划使用 hassle costs 的感知差异。",
+    "Identification Logic": "传统行政数据往往只能通过 observed choice 去识别风险偏好，因此其他未观测因素容易被“压进”风险厌恶参数中。本文通过把 individually linked survey 引入模型，为“消费者知道什么、误解什么、主观上觉得哪个计划更麻烦”提供额外工具，从而把风险偏好与信息摩擦、hassle costs 分开识别。",
+    "Main Results": "在只使用行政数据的 baseline 模型中，消费者看起来非常风险厌恶；但加入 survey 所测得的信息摩擦与 hassle costs 后，估计出的风险厌恶程度明显下降。换言之，消费者偏好 PPO 并不只是因为风险规避，也因为他们对 HDHP 的 provider access、计划条款或使用复杂度存在误解或额外顾虑。",
+    "Mechanism Evidence": "文中的描述性证据显示：对计划网络、financial characteristics 或相对 provider access 认知不足的消费者，更容易选择 PPO。尤其是那些错误认为 PPO 具有更好 provider access 的人，会表现出显著更高的 PPO 支付意愿，尽管两个计划实际上覆盖同一组医生与治疗。",
+    "Counterfactual Or Policy Exercise": "作者考察一个重要反事实：把所有人都配置到 HDHP，相当于移除 PPO 选项。若使用忽略摩擦的 baseline 模型，政策带来的 welfare loss 会被估计得更大；而在包含摩擦的完整模型中，因额外风险暴露导致的人均 welfare loss 明显更低。这说明对 choice micro-foundations 的刻画会直接改变政策评估。",
+    "Theory Branch": "",
+    "Players": "Not the primary branch for this paper.",
+    "Limitations": "这篇文章的识别高度依赖问卷所测得的 friction measures，而问卷本身可能受到回答选择、事后 rationalization 与 measurement error 的影响。此外，研究环境是单一大型雇主，外部有效性仍需谨慎；结构模型虽然能分解不同 choice foundation，但 counterfactual choice menu 的外推仍需要额外假设。",
+    "Theme Links": "- `health-insurance-choice`\n- `information-frictions-in-insurance`\n- `consumer-welfare-under-choice-frictions`",
+    "Ratings": "",
+    "Dao": "- Score: 5\n- Note: 它问的是保险选择研究里最关键的基础问题之一：观察到的选择究竟代表偏好，还是代表摩擦。",
+    "Fa": "- Score: 5\n- Note: 行政数据与 survey 的组合显著增强了识别力，使得风险偏好与信息摩擦的分离更有说服力。",
+    "Shi": "- Score: 5\n- Note: 雇主保险环境、详细 claims 数据与个体调查链接的组合提供了很强的制度与数据窗口。",
+    "Shu": "- Score: 5\n- Note: 描述性分析、结构估计和 welfare counterfactual 之间衔接完整，执行质量很高。",
+    "Qi": "- Score: 5\n- Note: 文章的可复用价值很强，既有复杂合同选择框架，也有“survey + admin”识别路径和 welfare decomposition 思路。",
+    "Subjective": "- Score: 5\n- Note: 对健康保险、复杂产品选择、行为摩擦识别和政策福利评估都高度有用。",
+    "One-Line Judgment": "一篇把风险偏好、信息摩擦与福利分析真正拆开的健康保险选择基准文献。",
+    "TODO_VERIFY": "- Confirm the exact employer context description if later writing a more detailed note.\n- Confirm the exact baseline versus full-model welfare-loss numbers when citing quantitatively."
+  }
+}

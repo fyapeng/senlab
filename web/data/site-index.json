@@ -31,10 +31,10 @@
     }
   ],
   "meta": {
-    "paper_count": 2,
-    "theme_count": 6,
-    "excerpt_count": 8,
-    "lens_count": 7,
+    "paper_count": 3,
+    "theme_count": 9,
+    "excerpt_count": 12,
+    "lens_count": 11,
     "updated_from_local_db": true
   },
   "score_dimensions": [
@@ -70,6 +70,43 @@
     }
   ],
   "papers": [
+    {
+      "work_id": "handel-2015-health-insurance-humans",
+      "title": "Health Insurance for \"Humans\": Information Frictions, Plan Choice, and Consumer Welfare",
+      "year": 2015,
+      "authors": "Benjamin R. Handel and Jonathan T. Kolstad",
+      "field": "health-economics",
+      "subfield": "applied-micro",
+      "paper_paradigm": "empirical_structural",
+      "journal_or_series": "American Economic Review",
+      "doi": "10.1257/aer.20131126",
+      "one_line_judgment": "一篇把风险偏好、信息摩擦与福利分析真正拆开的健康保险选择基准文献。",
+      "ratings": {
+        "dao": 5,
+        "fa": 5,
+        "shi": 5,
+        "shu": 5,
+        "qi": 5,
+        "subjective": 5,
+        "overall": 25
+      },
+      "themes": [
+        {
+          "theme_id": "information-frictions-in-insurance",
+          "name": "保险选择中的信息摩擦"
+        },
+        {
+          "theme_id": "health-insurance-choice",
+          "name": "健康保险计划选择"
+        },
+        {
+          "theme_id": "consumer-welfare-under-choice-frictions",
+          "name": "选择摩擦下的消费者福利"
+        }
+      ],
+      "excerpt_count": 4,
+      "lens_count": 4
+    },
     {
       "work_id": "einav-2015-response-drug-expenditure",
       "title": "The Response of Drug Expenditure to Nonlinear Contract Design: Evidence from Medicare Part D",
@@ -154,6 +191,13 @@
       "paper_count": 1
     },
     {
+      "theme_id": "information-frictions-in-insurance",
+      "name": "保险选择中的信息摩擦",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
       "theme_id": "belief-manipulation-and-disclosure",
       "name": "信念操纵与信息披露",
       "field": "microeconomic-theory",
@@ -165,6 +209,13 @@
       "name": "信息设计与劝服",
       "field": "microeconomic-theory",
       "status": "seeded_demo",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-insurance-choice",
+      "name": "健康保险计划选择",
+      "field": "health-economics",
+      "status": "draft_completed",
       "paper_count": 1
     },
     {
@@ -182,6 +233,13 @@
       "paper_count": 1
     },
     {
+      "theme_id": "consumer-welfare-under-choice-frictions",
+      "name": "选择摩擦下的消费者福利",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
       "theme_id": "nonlinear-insurance-contracts",
       "name": "非线性保险合同",
       "field": "health-economics",
@@ -190,6 +248,21 @@
     }
   ],
   "theme_distribution": [
+    {
+      "theme_id": "information-frictions-in-insurance",
+      "name": "保险选择中的信息摩擦",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "health-insurance-choice",
+      "name": "健康保险计划选择",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "consumer-welfare-under-choice-frictions",
+      "name": "选择摩擦下的消费者福利",
+      "paper_count": 1
+    },
     {
       "theme_id": "drug-demand-under-insurance",
       "name": "保险下的药品需求",
@@ -224,7 +297,7 @@
   "field_distribution": [
     {
       "name": "health-economics",
-      "paper_count": 1
+      "paper_count": 2
     },
     {
       "name": "microeconomic-theory",
@@ -234,7 +307,7 @@
   "paradigm_distribution": [
     {
       "name": "empirical_structural",
-      "paper_count": 1
+      "paper_count": 2
     },
     {
       "name": "theory",
@@ -243,35 +316,43 @@
   ],
   "rankings": {
     "overall": [
+      "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion"
     ],
     "dao": [
+      "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion"
     ],
     "fa": [
+      "handel-2015-health-insurance-humans",
       "kamenica-2011-bayesian-persuasion",
       "einav-2015-response-drug-expenditure"
     ],
     "shi": [
+      "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion"
     ],
     "shu": [
+      "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion"
     ],
     "qi": [
+      "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion"
     ],
     "subjective": [
+      "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion"
     ]
   },
   "latest": [
+    "handel-2015-health-insurance-humans",
     "einav-2015-response-drug-expenditure",
     "kamenica-2011-bayesian-persuasion"
   ]
