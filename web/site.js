@@ -287,6 +287,8 @@ function renderKnowledgeMapSection(site) {
         <button type="button" class="chip chip-toggle active" data-map-mode="themes">主题网络</button>
         <button type="button" class="chip chip-toggle" data-map-mode="papers">文献网络</button>
         <div class="knowledge-controls" id="knowledge-controls">
+          <button type="button" class="chip chip-control" data-knowledge-rotate="left" title="向左旋转">↶</button>
+          <button type="button" class="chip chip-control" data-knowledge-rotate="right" title="向右旋转">↷</button>
           <button type="button" class="chip chip-control" data-knowledge-zoom="out" title="缩小">-</button>
           <button type="button" class="chip chip-control" data-knowledge-zoom="in" title="放大">+</button>
           <button type="button" class="chip chip-control" data-knowledge-zoom="reset" title="重置视图">重置</button>
@@ -334,7 +336,7 @@ function activateKnowledgeMap(site) {
   let currentZoom = 1;
   let themeRotation = -Math.PI / 2;
   let paperRotation = -Math.PI / 2;
-  let dragStartX = 0;
+  let dragStartAngle = 0;
   let dragStartRotation = 0;
   let isDragging = false;
   let movedDuringDrag = false;
@@ -575,21 +577,28 @@ function activateKnowledgeMap(site) {
 
   function bindStageActions() {
     stage.querySelectorAll("[data-theme-id]").forEach((node) => {
+      node.addEventListener("pointerdown", (event) => event.stopPropagation());
       const jump = () => { if (movedDuringDrag) return; selectedThemeId = node.getAttribute("data-theme-id") || selectedThemeId; render(); };
       node.addEventListener("click", jump);
       node.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); jump(); } });
     });
     stage.querySelectorAll("[data-paper-id]").forEach((node) => {
+      node.addEventListener("pointerdown", (event) => event.stopPropagation());
       const jump = () => { if (movedDuringDrag) return; selectedPaperId = node.getAttribute("data-paper-id") || selectedPaperId; render(); };
       node.addEventListener("click", jump);
       node.addEventListener("keydown", (event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); jump(); } });
     });
   }
 
+  function pointerAngle(event) {
+    const rect = stage.getBoundingClientRect();
+    return Math.atan2(event.clientY - (rect.top + rect.height / 2), event.clientX - (rect.left + rect.width / 2));
+  }
+
   function bindStageGestures() {
     if (!stage) return;
-    stage.onpointerdown = (event) => { isDragging = true; movedDuringDrag = false; dragStartX = event.clientX; dragStartRotation = mode === "themes" ? themeRotation : paperRotation; stage.classList.add("dragging"); stage.setPointerCapture?.(event.pointerId); };
-    stage.onpointermove = (event) => { if (!isDragging) return; const delta = event.clientX - dragStartX; if (Math.abs(delta) > 3) movedDuringDrag = true; if (mode === "themes") themeRotation = dragStartRotation + delta * 0.0085; else paperRotation = dragStartRotation + delta * 0.0085; render(); };
+    stage.onpointerdown = (event) => { isDragging = true; movedDuringDrag = false; dragStartAngle = pointerAngle(event); dragStartRotation = mode === "themes" ? themeRotation : paperRotation; stage.classList.add("dragging"); stage.setPointerCapture?.(event.pointerId); };
+    stage.onpointermove = (event) => { if (!isDragging) return; const angleDelta = pointerAngle(event) - dragStartAngle; if (Math.abs(angleDelta) > 0.02) movedDuringDrag = true; if (mode === "themes") themeRotation = dragStartRotation + angleDelta; else paperRotation = dragStartRotation + angleDelta; render(); };
     const stopDragging = () => { isDragging = false; stage.classList.remove("dragging"); window.setTimeout(() => { movedDuringDrag = false; }, 0); };
     stage.onpointerup = stopDragging;
     stage.onpointerleave = stopDragging;
@@ -603,6 +612,14 @@ function activateKnowledgeMap(site) {
         if (action === "in") currentZoom = Math.min(1.45, currentZoom + 0.12);
         if (action === "out") currentZoom = Math.max(0.82, currentZoom - 0.12);
         if (action === "reset") { currentZoom = 1; themeRotation = -Math.PI / 2; paperRotation = -Math.PI / 2; }
+        render();
+      };
+    });
+    controls.querySelectorAll("[data-knowledge-rotate]").forEach((button) => {
+      button.onclick = () => {
+        const direction = button.getAttribute("data-knowledge-rotate") === "left" ? -1 : 1;
+        if (mode === "themes") themeRotation += direction * 0.28;
+        else paperRotation += direction * 0.28;
         render();
       };
     });

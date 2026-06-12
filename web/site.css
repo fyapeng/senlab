@@ -1216,11 +1216,74 @@ img {
   }
 
   .knowledge-controls {
-    width: 100%;
+    width: auto;
     margin-left: 0;
+    flex-wrap: wrap;
+  }
+
+  .knowledge-layout {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+  }
+
+  .knowledge-stage-column {
+    flex: 0 0 min(82vw, 520px);
+    scroll-snap-align: start;
+  }
+
+  .knowledge-detail {
+    flex: 0 0 min(76vw, 340px);
+    min-height: 0;
+    scroll-snap-align: start;
+  }
+
+  .knowledge-stage-wrap {
+    min-height: 0;
+    padding: 12px;
+  }
+
+  .knowledge-caption {
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .knowledge-stage {
+    min-height: 320px;
+  }
+
+  .knowledge-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .knowledge-card h3,
+  .knowledge-subtitle {
+    font-size: 19px;
+  }
+
+  .knowledge-legend {
+    max-height: 92px;
+    overflow-y: auto;
   }
 
   .knowledge-related-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scroll-snap-type: x proximity;
+  }
+
+  .knowledge-mini-card {
+    flex: 0 0 min(78vw, 300px);
+    padding: 14px;
+    scroll-snap-align: start;
+  }
+
+  .knowledge-mini-card strong {
+    font-size: 16px;
   }
 }
