@@ -37,10 +37,10 @@
     "overall_max": 60
   },
   "meta": {
-    "paper_count": 25,
-    "theme_count": 92,
-    "excerpt_count": 78,
-    "lens_count": 77,
+    "paper_count": 26,
+    "theme_count": 95,
+    "excerpt_count": 83,
+    "lens_count": 81,
     "updated_from_local_db": true
   },
   "score_dimensions": [
@@ -631,6 +631,43 @@
       ],
       "excerpt_count": 3,
       "lens_count": 3
+    },
+    {
+      "work_id": "ito-2018-economics-attribute-based-regulation",
+      "title": "The Economics of Attribute-Based Regulation: Theory and Evidence from Fuel Economy Standards",
+      "year": 2018,
+      "authors": "Koichiro Ito, James M. Sallee",
+      "field": "environmental-economics",
+      "subfield": "energy-environmental-policy",
+      "paper_paradigm": "mixed",
+      "journal_or_series": "The Review of Economics and Statistics",
+      "doi": "10.1162/rest_a_00704",
+      "one_line_judgment": "一篇把“属性基准监管”从直觉争论推进到可理论化、可识别、可反事实比较层面的高价值论文，结论明确指向：不能把分段属性标准误当成交易制度的无成本替代品。",
+      "ratings": {
+        "dao": 9,
+        "fa": 9,
+        "shi": 10,
+        "shu": 9,
+        "qi": 10,
+        "subjective": 8,
+        "overall": 55
+      },
+      "themes": [
+        {
+          "theme_id": "attribute-based-regulation",
+          "name": "属性基准监管"
+        },
+        {
+          "theme_id": "fuel-economy-standards",
+          "name": "燃油经济性标准"
+        },
+        {
+          "theme_id": "bunching-and-notches",
+          "name": "阈值响应与 Bunching"
+        }
+      ],
+      "excerpt_count": 5,
+      "lens_count": 4
     },
     {
       "work_id": "fang-2017-detecting-potential-overbilling",
@@ -1606,6 +1643,13 @@
       "paper_count": 1
     },
     {
+      "theme_id": "attribute-based-regulation",
+      "name": "属性基准监管",
+      "field": "public-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
       "theme_id": "parallel-trends-assumption",
       "name": "平行趋势假设",
       "field": "econometrics",
@@ -1686,6 +1730,13 @@
       "theme_id": "judges-design-IV",
       "name": "法官设计工具变量",
       "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "fuel-economy-standards",
+      "name": "燃油经济性标准",
+      "field": "environmental-economics",
       "status": "draft_completed",
       "paper_count": 1
     },
@@ -1812,6 +1863,13 @@
       "theme_id": "allocative-efficiency",
       "name": "配置效率",
       "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "bunching-and-notches",
+      "name": "阈值响应与 Bunching",
+      "field": "public-economics",
       "status": "draft_completed",
       "paper_count": 1
     },
@@ -2086,6 +2144,21 @@
       "paper_count": 1
     },
     {
+      "theme_id": "attribute-based-regulation",
+      "name": "属性基准监管",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "fuel-economy-standards",
+      "name": "燃油经济性标准",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "bunching-and-notches",
+      "name": "阈值响应与 Bunching",
+      "paper_count": 1
+    },
+    {
       "theme_id": "medicare-claims-methodology",
       "name": "Medicare 索赔方法",
       "paper_count": 1
@@ -2316,6 +2389,10 @@
       "paper_count": 2
     },
     {
+      "name": "environmental-economics",
+      "paper_count": 1
+    },
+    {
       "name": "microeconomic-theory",
       "paper_count": 1
     },
@@ -2346,6 +2423,10 @@
       "paper_count": 3
     },
     {
+      "name": "mixed",
+      "paper_count": 1
+    },
+    {
       "name": "empirical_review",
       "paper_count": 1
     }
@@ -2363,6 +2444,7 @@
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion",
       "chandra-2007-productivity-spillovers-health",
+      "ito-2018-economics-attribute-based-regulation",
       "ortiz-2025-better-understanding-triple",
       "chen-2021-team-specific-human",
       "eliason-2025-ambulance-taxis-impact",
@@ -2393,6 +2475,7 @@
       "eliason-2025-ambulance-taxis-impact",
       "chan-2021-influence-information-team",
       "chen-2021-team-specific-human",
+      "ito-2018-economics-attribute-based-regulation",
       "brot-goldberg-2017-what-does-deductible",
       "shigeoka-2014-effect-patient-cost",
       "kolstad-2013-information-quality-when",
@@ -2418,6 +2501,7 @@
       "kamenica-2011-bayesian-persuasion",
       "chan-2021-influence-information-team",
       "chen-2021-team-specific-human",
+      "ito-2018-economics-attribute-based-regulation",
       "brot-goldberg-2017-what-does-deductible",
       "chan-2016-teamwork-moral-hazard",
       "shigeoka-2014-effect-patient-cost",
@@ -2435,6 +2519,7 @@
     "shi": [
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
+      "ito-2018-economics-attribute-based-regulation",
       "eliason-2025-ambulance-taxis-impact",
       "chan-2022-selection-variation-diagnostic",
       "chandra-2020-identifying-sources-inefficiency",
@@ -2471,6 +2556,7 @@
       "olden-2022-triple-difference-estimator",
       "chen-2021-team-specific-human",
       "finkelstein-2019-subsidizing-health-insurance",
+      "ito-2018-economics-attribute-based-regulation",
       "brot-goldberg-2017-what-does-deductible",
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
@@ -2488,6 +2574,7 @@
     ],
     "qi": [
       "chan-2022-selection-variation-diagnostic",
+      "ito-2018-economics-attribute-based-regulation",
       "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion",
@@ -2534,6 +2621,7 @@
       "kolstad-2013-information-quality-when",
       "fang-2025-fear-risk-perception",
       "currie-2020-understanding-doctor-decision",
+      "ito-2018-economics-attribute-based-regulation",
       "fang-2017-detecting-potential-overbilling",
       "kamenica-2011-bayesian-persuasion",
       "cutler-2006-determinants-mortality",
@@ -2542,11 +2630,11 @@
     ]
   },
   "latest": [
+    "ito-2018-economics-attribute-based-regulation",
     "brot-goldberg-2017-what-does-deductible",
     "chandra-2024-health-costs-cost",
     "shigeoka-2014-effect-patient-cost",
     "hayek-1945-use-knowledge-society",
-    "grossman-2000-human-capital-model",
-    "chan-2016-teamwork-moral-hazard"
+    "grossman-2000-human-capital-model"
   ]
 }
