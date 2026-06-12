@@ -1,7 +1,7 @@
 {
   "brand": {
     "title": "Sencium Lab",
-    "tagline": "一个用于结构化阅读、评价与复用的本地优先研究文献数据库。",
+    "tagline": "为长期研究积累而建的本地优先文献系统。",
     "github_url": "https://github.com/fyapeng/senlab",
     "contact_email": "contact@fyapeng.com",
     "wechat_name": "申椿",
@@ -79,6 +79,7 @@
       "subfield": "applied-micro",
       "paper_paradigm": "empirical_structural",
       "journal_or_series": "Quarterly Journal of Economics",
+      "doi": "10.1093/qje/qjv005",
       "one_line_judgment": "一篇关于非线性保险合同与健康政策反事实分析的基准型论文。",
       "ratings": {
         "dao": 5,
@@ -115,6 +116,7 @@
       "subfield": "information-design",
       "paper_paradigm": "theory",
       "journal_or_series": "American Economic Review",
+      "doi": "10.1257/aer.101.6.2590",
       "one_line_judgment": "一篇长期复用价值极高的经典信息设计框架论文。",
       "ratings": {
         "dao": 5,

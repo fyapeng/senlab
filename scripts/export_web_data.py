@@ -220,7 +220,7 @@ def main() -> None:
         site_index = {
             "brand": {
                 "title": "Sencium Lab",
-                "tagline": "一个用于结构化阅读、评价与复用的本地优先研究文献数据库。",
+                "tagline": "为长期研究积累而建的本地优先文献系统。",
                 "github_url": "https://github.com/fyapeng/senlab",
                 "contact_email": "contact@fyapeng.com",
                 "wechat_name": "申椿",
@@ -253,6 +253,7 @@ def main() -> None:
                     "subfield": paper["subfield"],
                     "paper_paradigm": paper["paper_paradigm"],
                     "journal_or_series": paper["journal_or_series"],
+                    "doi": paper["doi"],
                     "one_line_judgment": paper["one_line_judgment"],
                     "ratings": paper["ratings"],
                     "themes": paper["themes"],

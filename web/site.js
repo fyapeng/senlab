@@ -23,7 +23,7 @@ const LENS_LABELS = {
   method: "方法",
   policy: "政策",
   theory: "理论",
-  opportunity: "问题延展",
+  opportunity: "延展",
 };
 
 const TOPIC_LABELS = {
@@ -46,17 +46,17 @@ const LOCATION_LABELS = {
 
 const SECTION_LABELS = {
   "Research Question": "研究问题",
-  "Why It Matters": "为什么重要",
+  "Why It Matters": "问题分量",
   "Core Object": "研究对象",
   Approach: "研究路径",
-  "Main Claim": "核心结论",
+  "Main Claim": "核心判断",
   "Institutional Setting": "制度背景",
   "Data Source": "数据来源",
   "Identification Logic": "识别逻辑",
   "Main Results": "主要结果",
   "Mechanism Evidence": "机制证据",
-  "Counterfactual Or Policy Exercise": "反事实 / 政策分析",
-  Limitations: "局限",
+  "Counterfactual Or Policy Exercise": "反事实推演",
+  Limitations: "边界与局限",
 };
 
 const DAILY_QUOTES = [
@@ -66,6 +66,12 @@ const DAILY_QUOTES = [
   { text: "Everything should be made as simple as possible, but not simpler.", zh: "一切都应尽量简单，但不能过度简化。", author: "Albert Einstein" },
   { text: "Ideas come from previous ideas.", zh: "思想常常来自更早的思想。", author: "Mark Koyama" },
   { text: "What we know is a drop, what we do not know is an ocean.", zh: "我们所知如水滴，未知如海洋。", author: "Isaac Newton" },
+  { text: "The true sign of intelligence is not knowledge but imagination.", zh: "智慧真正的标志不是知识，而是想象力。", author: "Albert Einstein" },
+  { text: "Science is organized knowledge. Wisdom is organized life.", zh: "科学是被组织起来的知识，智慧是被组织起来的生活。", author: "Immanuel Kant" },
+  { text: "To understand is to perceive patterns.", zh: "理解，就是看见其中的模式。", author: "Isaiah Berlin" },
+  { text: "A problem well stated is a problem half solved.", zh: "一个问题若被准确表述，就已经解决了一半。", author: "Charles Kettering" },
+  { text: "We are drowning in information, while starving for wisdom.", zh: "我们淹没在信息里，却匮乏于判断。", author: "E. O. Wilson" },
+  { text: "The voyage of discovery is not in seeking new landscapes, but in having new eyes.", zh: "发现之旅不在于寻找新风景，而在于拥有新的眼睛。", author: "Marcel Proust" },
 ];
 
 function qs(name) {
@@ -149,6 +155,7 @@ function buildShell(site, activePage) {
       return `<a class="nav-link ${isActive ? "active" : ""}" href="${item.href}">${item.label}</a>`;
     })
     .join("");
+
   shell.innerHTML = `
     <header class="topbar">
       <div class="topbar-inner">
@@ -163,16 +170,17 @@ function buildShell(site, activePage) {
       <div class="footer-inner">
         <div class="footer-copy">
           <strong>Sencium Lab</strong><br />
-          本地优先的研究文献数据库。公众号：${site.brand.wechat_name}
+          本地优先的研究文献系统。公众号：${site.brand.wechat_name}
         </div>
         <div class="footer-links">
           <a href="${site.brand.github_url}" target="_blank" rel="noreferrer">GitHub</a>
           <a href="mailto:${site.brand.contact_email}">${site.brand.contact_email}</a>
-          <span>欢迎来信推荐文献或指出问题</span>
+          <span>欢迎来信推荐文献与主题</span>
         </div>
       </div>
     </footer>
   `;
+
   return shell;
 }
 
@@ -208,7 +216,6 @@ function paperCard(paper) {
       <h3><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a></h3>
       <div class="muted">${paper.authors || ""}</div>
       <div class="muted">${paper.journal_or_series || "期刊信息待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</div>
-      <div class="muted">${paper.one_line_judgment || ""}</div>
       ${scoreStrip(paper.ratings)}
       <div class="chip-row">
         ${paper.themes.map((theme) => `<span class="chip">${theme.name}</span>`).join("")}
@@ -247,6 +254,7 @@ function radarSvg(ratings) {
       .join(" ");
     return `<polygon points="${points}" fill="none" stroke="rgba(104,120,133,0.16)"/>`;
   }).join("");
+
   const axes = dims
     .map((dim, i) => {
       const angle = -Math.PI / 2 + step * i;
@@ -257,6 +265,7 @@ function radarSvg(ratings) {
       return `<line x1="${center}" y1="${center}" x2="${x}" y2="${y}" stroke="rgba(104,120,133,0.24)"/><text x="${lx}" y="${ly}" text-anchor="middle" dominant-baseline="middle" font-size="13" fill="#16202a">${dim.label}</text>`;
     })
     .join("");
+
   const filled = dims
     .map((dim, i) => {
       const score = Number(ratings[dim.key] || 0);
@@ -267,11 +276,37 @@ function radarSvg(ratings) {
       return `${x},${y}`;
     })
     .join(" ");
+
   return `<svg viewBox="0 0 ${size} ${size}" width="100%" height="300">${polygons}${axes}<polygon points="${filled}" fill="rgba(160,83,42,0.22)" stroke="#a0532a" stroke-width="3"/></svg>`;
 }
 
 function statCard(label, value, note) {
   return `<div class="metric-card panel"><div class="eyebrow">${label}</div><div class="metric-value">${value}</div><div class="metric-label">${note}</div></div>`;
+}
+
+function renderTimeWidget() {
+  return `
+    <div id="time-widget">
+      <div class="eyebrow">此刻</div>
+      <h2 class="section-title" id="clock-now">${formatClockNow()}</h2>
+      <p class="intro-text" id="solar-now">${formatSolarNow()}</p>
+      <p class="intro-text" id="lunar-now">${formatLunarNow()}</p>
+    </div>
+  `;
+}
+
+function activateClock() {
+  const clock = document.getElementById("clock-now");
+  const solar = document.getElementById("solar-now");
+  const lunar = document.getElementById("lunar-now");
+  if (!clock || !solar || !lunar) return;
+  const updateTime = () => {
+    clock.textContent = formatClockNow();
+    solar.textContent = formatSolarNow();
+    lunar.textContent = formatLunarNow();
+  };
+  updateTime();
+  window.setInterval(updateTime, 1000);
 }
 
 async function renderDashboard(site) {
@@ -281,32 +316,22 @@ async function renderDashboard(site) {
     .map((id) => site.papers.find((paper) => paper.work_id === id))
     .filter(Boolean);
   const quote = quoteForToday();
+
   main.innerHTML = `
-    <section class="hero">
+    <section class="hero hero-dashboard">
       <div class="hero-copy panel">
-        <div class="eyebrow">系统引言</div>
+        <div class="eyebrow">序言</div>
         <h1>Sencium Lab</h1>
-        <p>${site.brand.tagline}</p>
-        <p class="intro-text">这里展示的是从本地数据库导出的公开索引层，用来组织论文卡片、六维评分、证据片段、引用接口与主题连接，服务于长期积累、比较、检索与引用复用。</p>
-        <div class="tag-row">
-          <span class="tag">SQLite 数据底座</span>
-          <span class="tag">规范化 Paper Card</span>
-          <span class="tag">Citation Lens</span>
-          <span class="tag">道法势术器 + 主观</span>
-        </div>
+        <p class="lead">${site.brand.tagline}</p>
+        <p class="intro-text">Sencium Lab 将题目、作者、期刊、评分、证据片段与主题脉络整理为统一档案，让检索、比较、选题与写作引用在同一套本地文献系统中完成。</p>
       </div>
       <div class="hero-side panel">
-        <div id="time-widget">
-          <div class="eyebrow">此刻</div>
-          <h2 class="section-title" id="clock-now">${formatClockNow()}</h2>
-          <p class="intro-text" id="solar-now">${formatSolarNow()}</p>
-          <p class="intro-text" id="lunar-now">${formatLunarNow()}</p>
-        </div>
-        <div class="info-card">
+        ${renderTimeWidget()}
+        <div class="info-card quote-card">
           <div class="eyebrow">今日引句</div>
-          <p class="intro-text">“${quote.text}”</p>
-          <p class="muted">${quote.zh}</p>
-          <p class="muted">—— ${quote.author}</p>
+          <p class="quote-en">“${quote.text}”</p>
+          <p class="quote-zh">${quote.zh}</p>
+          <p class="quote-author">—— ${quote.author}</p>
         </div>
       </div>
     </section>
@@ -315,14 +340,14 @@ async function renderDashboard(site) {
       ${statCard("论文总数", site.meta.paper_count, "已进入公开索引的论文")}
       ${statCard("主题总数", site.meta.theme_count, "主题级知识节点")}
       ${statCard("证据片段", site.meta.excerpt_count, "可回链到论文位置的证据块")}
-      ${statCard("引用接口", site.meta.lens_count, "可复用的 Citation Lens")}
+      ${statCard("引文棱镜", site.meta.lens_count, "可复用的引用接口")}
     </section>
 
     <section class="panel section">
       <div class="section-head">
         <div>
-          <div class="eyebrow">评分框架</div>
-          <h2 class="section-title">道法势术器 + 主观</h2>
+          <div class="eyebrow">评议体系</div>
+          <h2 class="section-title">衡镜六维</h2>
         </div>
       </div>
       <div class="grid-3">
@@ -357,7 +382,7 @@ async function renderDashboard(site) {
         <div class="section-head">
           <div>
             <div class="eyebrow">主题分布</div>
-            <h2 class="section-title">当前知识地图</h2>
+            <h2 class="section-title">知识地图</h2>
           </div>
         </div>
         <div class="stack-list">
@@ -377,8 +402,8 @@ async function renderDashboard(site) {
       <div class="panel">
         <div class="section-head">
           <div>
-            <div class="eyebrow">最新入库</div>
-            <h2 class="section-title">最近导出的论文</h2>
+            <div class="eyebrow">最近入库</div>
+            <h2 class="section-title">新近档案</h2>
           </div>
         </div>
         <div class="stack-list">
@@ -399,18 +424,8 @@ async function renderDashboard(site) {
       </div>
     </section>
   `;
-  const clock = document.getElementById("clock-now");
-  const solar = document.getElementById("solar-now");
-  const lunar = document.getElementById("lunar-now");
-  if (clock && solar && lunar) {
-    const updateTime = () => {
-      clock.textContent = formatClockNow();
-      solar.textContent = formatSolarNow();
-      lunar.textContent = formatLunarNow();
-    };
-    updateTime();
-    window.setInterval(updateTime, 1000);
-  }
+
+  activateClock();
 }
 
 async function renderRankings(site) {
@@ -419,21 +434,12 @@ async function renderRankings(site) {
   const page = Number(qs("page") || "1");
   const pageSize = 12;
   const rankingIds = site.rankings[metric] || site.rankings.overall;
-  const rankingPapers = rankingIds
-    .map((id) => site.papers.find((paper) => paper.work_id === id))
-    .filter(Boolean);
+  const rankingPapers = rankingIds.map((id) => site.papers.find((paper) => paper.work_id === id)).filter(Boolean);
   const totalPages = Math.max(1, Math.ceil(rankingPapers.length / pageSize));
   const currentPage = Math.min(Math.max(page, 1), totalPages);
   const visible = rankingPapers.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-  const metricLabels = {
-    overall: "综合",
-    dao: "道",
-    fa: "法",
-    shi: "势",
-    shu: "术",
-    qi: "器",
-    subjective: "主观",
-  };
+  const metricLabels = { overall: "综合", dao: "道", fa: "法", shi: "势", shu: "术", qi: "器", subjective: "主观" };
+
   main.innerHTML = `
     <section class="panel">
       <div class="section-head">
@@ -442,9 +448,7 @@ async function renderRankings(site) {
           <h1 class="section-title">评分排序</h1>
         </div>
         <div class="chip-row">
-          ${Object.entries(metricLabels)
-            .map(([key, label]) => `<a class="chip" href="./rankings.html?metric=${key}">${label}</a>`)
-            .join("")}
+          ${Object.entries(metricLabels).map(([key, label]) => `<a class="chip" href="./rankings.html?metric=${key}">${label}</a>`).join("")}
         </div>
       </div>
       <div class="list-mode">
@@ -465,7 +469,6 @@ async function renderRankings(site) {
                     <a class="button-link secondary" href="./paper.html?work=${encodeURIComponent(paper.work_id)}">详情</a>
                   </div>
                 </div>
-                <div class="paper-row-summary">${paper.one_line_judgment || ""}</div>
               </article>
             `;
           })
@@ -491,7 +494,7 @@ async function renderSearch(site) {
         </div>
       </div>
       <div class="search-toolbar">
-        <input id="query" class="search-input" type="search" placeholder="按标题、作者、主题、判断语句搜索" />
+        <input id="query" class="search-input" type="search" placeholder="按标题、作者、主题搜索" />
         <select id="field-filter" class="select">
           <option value="">全部领域</option>
           ${[...new Set(site.papers.map((paper) => paper.field).filter(Boolean))].map((field) => `<option value="${field}">${formatField(field)}</option>`).join("")}
@@ -505,6 +508,7 @@ async function renderSearch(site) {
       <div id="search-pager" class="pager"></div>
     </section>
   `;
+
   const queryInput = document.getElementById("query");
   const fieldFilter = document.getElementById("field-filter");
   const paradigmFilter = document.getElementById("paradigm-filter");
@@ -531,9 +535,11 @@ async function renderSearch(site) {
         .toLowerCase();
       return (!q || haystack.includes(q)) && (!field || paper.field === field) && (!paradigm || paper.paper_paradigm === paradigm);
     });
+
     const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
     currentPage = Math.min(currentPage, totalPages);
     const visible = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+
     host.innerHTML = filtered.length
       ? visible
           .map(
@@ -551,12 +557,12 @@ async function renderSearch(site) {
                     <a class="button-link secondary" href="./compare.html?left=${encodeURIComponent(paper.work_id)}">加入对比</a>
                   </div>
                 </div>
-                <div class="paper-row-summary">${paper.one_line_judgment || ""}</div>
               </article>
             `
           )
           .join("")
       : '<div class="empty">没有符合条件的论文。</div>';
+
     pager.innerHTML = filtered.length
       ? `
           <a class="button-link secondary" href="#" id="search-prev">上一页</a>
@@ -564,6 +570,7 @@ async function renderSearch(site) {
           <a class="button-link secondary" href="#" id="search-next">下一页</a>
         `
       : "";
+
     const prev = document.getElementById("search-prev");
     const next = document.getElementById("search-next");
     if (prev) prev.onclick = (event) => { event.preventDefault(); currentPage = Math.max(1, currentPage - 1); renderResults(); };
@@ -580,6 +587,7 @@ async function renderCompare(site) {
   const main = document.getElementById("page-main");
   const left = qs("left") || site.papers[0]?.work_id || "";
   const right = qs("right") || site.papers[1]?.work_id || site.papers[0]?.work_id || "";
+
   main.innerHTML = `
     <section class="panel">
       <div class="section-head">
@@ -604,6 +612,7 @@ async function renderCompare(site) {
   const buildTable = async () => {
     const leftPaper = await getJson(`${PAPER_DATA_BASE}${encodeURIComponent(document.getElementById("left-paper").value)}.json`);
     const rightPaper = await getJson(`${PAPER_DATA_BASE}${encodeURIComponent(document.getElementById("right-paper").value)}.json`);
+
     document.getElementById("compare-host").innerHTML = `
       <table class="compare-table">
         <thead>
@@ -622,7 +631,7 @@ async function renderCompare(site) {
             ["范式", formatParadigm(leftPaper.paper_paradigm), formatParadigm(rightPaper.paper_paradigm)],
             ["研究问题", leftPaper.research_question, rightPaper.research_question],
             ["研究路径", leftPaper.approach, rightPaper.approach],
-            ["核心结论", leftPaper.main_claim, rightPaper.main_claim],
+            ["核心判断", leftPaper.main_claim, rightPaper.main_claim],
             ["道", leftPaper.ratings.dao, rightPaper.ratings.dao],
             ["法", leftPaper.ratings.fa, rightPaper.ratings.fa],
             ["势", leftPaper.ratings.shi, rightPaper.ratings.shi],
@@ -660,18 +669,18 @@ async function renderAbout(site) {
             <h1 class="section-title">Sencium Lab 是什么</h1>
           </div>
         </div>
-        <p class="intro-text">Sencium Lab 是一个本地优先的研究文献数据库系统。原始 PDF、规范化论文卡片、主题节点、证据片段、Citation Lens 与六维评分先在本地沉淀，再导出网页索引层用于检索、比较与展示。</p>
+        <p class="intro-text">Sencium Lab 是一套本地优先的研究文献系统。原始 PDF、规范化 Paper Card、证据片段、引文棱镜与六维评议先在本地沉淀，再导出公开网页用于检索、比较与展示。</p>
         <div class="stack-list">
-          <div class="stack-item"><strong>标题层</strong><div class="muted">展示标题、作者、期刊、DOI、评分、主题与摘要级判断。</div></div>
-          <div class="stack-item"><strong>分析层</strong><div class="muted">展示结构化论文卡、证据片段、引用接口与六维评分解释。</div></div>
-          <div class="stack-item"><strong>本地层</strong><div class="muted">保留 PDF 原文、SQLite 数据库、工作草稿与未公开长文笔记。</div></div>
+          <div class="stack-item"><strong>索引层</strong><div class="muted">展示标题、作者、期刊、评分、主题与可公开的摘要性信息。</div></div>
+          <div class="stack-item"><strong>分析层</strong><div class="muted">展示论文案卡、脉络展开、证据摘录与引文棱镜。</div></div>
+          <div class="stack-item"><strong>本地层</strong><div class="muted">保留 PDF 原文、SQLite 数据库、工作草稿与长文笔记。</div></div>
         </div>
       </div>
       <div class="panel">
         <div class="section-head">
           <div>
-            <div class="eyebrow">评分方法</div>
-            <h2 class="section-title">道法势术器 + 主观</h2>
+            <div class="eyebrow">评议方法</div>
+            <h2 class="section-title">衡镜六维</h2>
           </div>
         </div>
         <div class="stack-list">
@@ -688,35 +697,6 @@ async function renderAbout(site) {
         </div>
       </div>
     </section>
-
-    <section class="grid-2">
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">联系与来源</div>
-            <h2 class="section-title">公开信息</h2>
-          </div>
-        </div>
-        <div class="stack-list">
-          <div class="stack-item"><strong>GitHub</strong><div class="muted"><a href="${site.brand.github_url}" target="_blank" rel="noreferrer">${site.brand.github_url}</a></div></div>
-          <div class="stack-item"><strong>联系邮箱</strong><div class="muted"><a href="mailto:${site.brand.contact_email}">${site.brand.contact_email}</a></div></div>
-          <div class="stack-item"><strong>公众号</strong><div class="muted">${site.brand.wechat_name}</div></div>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">发布策略</div>
-            <h2 class="section-title">同步链条</h2>
-          </div>
-        </div>
-        <div class="stack-list">
-          <div class="stack-item"><strong>入库</strong><div class="muted">PDF 与规范化 markdown 先进入本地 canonical 目录与 SQLite。</div></div>
-          <div class="stack-item"><strong>同步</strong><div class="muted">通过构建脚本把数据库导出为网页所需的 JSON 快照。</div></div>
-          <div class="stack-item"><strong>发布</strong><div class="muted">GitHub Pages 只承载公开索引层，不直接暴露原始 markdown 与 PDF。</div></div>
-        </div>
-      </div>
-    </section>
   `;
 }
 
@@ -727,6 +707,7 @@ async function renderPaper(site) {
     main.innerHTML = '<div class="empty">没有可展示的论文。</div>';
     return;
   }
+
   const paper = await getJson(`${PAPER_DATA_BASE}${encodeURIComponent(workId)}.json`);
   document.title = `Sencium Lab · ${paper.title}`;
   const sections = paper.sections || {};
@@ -737,90 +718,101 @@ async function renderPaper(site) {
     ["期刊", paper.journal_or_series],
     ["DOI", paper.doi],
     ["研究问题", paper.research_question],
-    ["为什么重要", paper.why_it_matters],
+    ["问题分量", paper.why_it_matters],
     ["研究对象", paper.core_object],
     ["方法 / 路径", paper.approach],
-    ["核心结论", paper.main_claim],
-    ["为何进入我的库", paper.why_in_my_db],
+    ["核心判断", paper.main_claim],
+    ["收录理由", paper.why_in_my_db],
   ];
+
   main.innerHTML = `
-    <section class="hero">
-      <div class="hero-copy panel">
-        <div class="eyebrow">论文详情</div>
-        <h1>${paper.title}</h1>
-        <p>${paper.authors || ""}</p>
-        <p>${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</p>
-        <p>${paper.journal_or_series || "期刊信息待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</p>
-        <div class="tag-row">
-          ${paper.themes.map((theme) => `<span class="tag">${theme.name}</span>`).join("")}
+    <section class="paper-hero">
+      <article class="panel paper-head">
+        <div class="eyebrow">论文档案</div>
+        <h1 class="paper-title">${paper.title}</h1>
+        <div class="paper-byline">${paper.authors || ""}</div>
+        <div class="paper-meta-line">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
+        <div class="paper-meta-line">${paper.journal_or_series || "期刊信息待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</div>
+        <div class="chip-row">
+          ${paper.themes.map((theme) => `<span class="chip">${theme.name}</span>`).join("")}
         </div>
-      </div>
-      <div class="hero-side panel">
-        <div>
-          <div class="eyebrow">一句判断</div>
-          <p class="intro-text">${paper.one_line_judgment || ""}</p>
+      </article>
+      <article class="panel score-panel">
+        <div class="section-head compact">
+          <div>
+            <div class="eyebrow">评议图谱</div>
+            <h2 class="section-title">衡镜六维</h2>
+          </div>
         </div>
+        <div class="radar-wrap">${radarSvg(paper.ratings)}</div>
         ${scoreStrip(paper.ratings)}
-      </div>
+      </article>
     </section>
+
     <section class="paper-layout">
       <div class="detail-stack">
         <article class="detail-card panel">
-          <div class="section-head">
+          <div class="section-head compact">
             <div>
-              <div class="eyebrow">结构化卡片</div>
-              <h2 class="section-title">论文卡片</h2>
+              <div class="eyebrow">案卡</div>
+              <h2 class="section-title">论文案卡</h2>
             </div>
           </div>
           <dl>
             ${detailFields.map(([label, value]) => `<dt>${label}</dt><dd>${value || "—"}</dd>`).join("")}
           </dl>
         </article>
+
         <article class="detail-card panel">
-          <div class="section-head">
+          <div class="section-head compact">
             <div>
-              <div class="eyebrow">结构化内容</div>
-              <h2 class="section-title">关键信息展开</h2>
+              <div class="eyebrow">脉络</div>
+              <h2 class="section-title">论旨展开</h2>
             </div>
           </div>
-          ${Object.keys(SECTION_LABELS)
-            .filter((key) => sections[key])
+          ${Object.keys(sections)
+            .filter((key) => SECTION_LABELS[key] && sections[key])
             .map(
               (key) => `
                 <section class="section-block">
-                  <h4>${SECTION_LABELS[key]}</h4>
+                  <h4>${SECTION_LABELS[key] || key}</h4>
                   <p>${sections[key]}</p>
                 </section>
               `
             )
             .join("")}
         </article>
+      </div>
+
+      <div class="detail-stack">
         <article class="detail-card panel">
-          <div class="section-head">
+          <div class="section-head compact">
             <div>
-              <div class="eyebrow">引用接口</div>
-              <h2 class="section-title">Citation Lenses</h2>
+              <div class="eyebrow">棱镜</div>
+              <h2 class="section-title">引文棱镜</h2>
             </div>
           </div>
           <div class="stack-list">
             ${paper.lenses
-              .map(
-                (lens) => `
+              .map((lens) => {
+                const linkedTheme = paper.themes.find((theme) => theme.theme_id === lens.theme_id);
+                return `
                   <div class="stack-item">
-                    <strong>${formatLensType(lens.lens_type)} · ${paper.themes.find((theme) => theme.theme_id === lens.theme_id)?.name || lens.theme_id || "未链接主题"}</strong>
+                    <strong>${formatLensType(lens.lens_type)} · ${linkedTheme?.name || lens.theme_id || "未链接主题"}</strong>
                     <div class="muted">${lens.claim || ""}</div>
-                    <div class="muted">更安全的表述：${lens.safer_formulation || "—"}</div>
+                    <div class="muted">更稳妥的说法：${lens.safer_formulation || "—"}</div>
                   </div>
-                `
-              )
+                `;
+              })
               .join("")}
           </div>
         </article>
+
         <article class="detail-card panel">
-          <div class="section-head">
+          <div class="section-head compact">
             <div>
-              <div class="eyebrow">证据片段</div>
-              <h2 class="section-title">Excerpts</h2>
+              <div class="eyebrow">摘录</div>
+              <h2 class="section-title">证据摘录</h2>
             </div>
           </div>
           <div class="stack-list">
@@ -829,38 +821,36 @@ async function renderPaper(site) {
                 (excerpt) => `
                   <div class="stack-item">
                     <strong>${formatLocation(excerpt.location)} · ${formatTopic(excerpt.topic)}</strong>
-                    <div class="muted">${excerpt.quote_or_paraphrase}</div>
-                    <div class="muted">为什么重要：${excerpt.why_this_matters}</div>
+                    <div class="muted">${excerpt.quote_or_paraphrase || "—"}</div>
+                    <div class="muted">为何重要：${excerpt.why_this_matters || "—"}</div>
                   </div>
                 `
               )
               .join("")}
           </div>
         </article>
-      </div>
-      <div class="detail-stack">
+
         <article class="detail-card panel">
-          <div class="section-head">
+          <div class="section-head compact">
             <div>
-              <div class="eyebrow">评分图</div>
-              <h2 class="section-title">六维图</h2>
+              <div class="eyebrow">注记</div>
+              <h2 class="section-title">评分眉批</h2>
             </div>
           </div>
-          <div class="radar-wrap">${radarSvg(paper.ratings)}</div>
           <div class="legend-list">
             ${Object.entries({
-              道: paper.rating_notes.dao,
-              法: paper.rating_notes.fa,
-              势: paper.rating_notes.shi,
-              术: paper.rating_notes.shu,
-              器: paper.rating_notes.qi,
-              主观: paper.rating_notes.subjective,
+              道: paper.rating_notes?.dao,
+              法: paper.rating_notes?.fa,
+              势: paper.rating_notes?.shi,
+              术: paper.rating_notes?.shu,
+              器: paper.rating_notes?.qi,
+              主观: paper.rating_notes?.subjective,
             })
               .map(
                 ([label, value]) => `
                   <div class="legend-item">
                     <strong>${label}</strong>
-                    <div class="muted">${value || ""}</div>
+                    <div class="muted">${value || "—"}</div>
                   </div>
                 `
               )
@@ -877,6 +867,7 @@ async function bootstrap() {
   const site = await getJson(SITE_INDEX_URL);
   const shell = buildShell(site, page);
   document.getElementById("site-shell").replaceWith(shell);
+
   if (page === "dashboard") return renderDashboard(site);
   if (page === "rankings") return renderRankings(site);
   if (page === "search") return renderSearch(site);
