@@ -222,7 +222,7 @@ def main() -> None:
         site_index = {
             "brand": {
                 "title": "Sencium Lab",
-                "tagline": "为长期研究积累而建的本地优先文献系统。",
+                "tagline": "将精读化为可用研究资产的私人文献档案。",
                 "github_url": "https://github.com/fyapeng/senlab",
                 "contact_email": "contact@fyapeng.com",
                 "wechat_name": "申椿",
@@ -238,12 +238,12 @@ def main() -> None:
                 "updated_from_local_db": True,
             },
             "score_dimensions": [
-                {"key": "dao", "label": "道", "desc": "研究问题的重要性与方向感。"},
-                {"key": "fa", "label": "法", "desc": "识别、理论或论证逻辑的可信度。"},
-                {"key": "shi", "label": "势", "desc": "制度、数据、时代与文献窗口的优势。"},
-                {"key": "shu", "label": "术", "desc": "执行质量、推导组织与实证实现。"},
-                {"key": "qi", "label": "器", "desc": "数据、模型、制度与工具的复用价值。"},
-                {"key": "subjective", "label": "主观", "desc": "对当前研究议程的个人价值判断。"},
+                {"key": "dao", "label": "道", "desc": "研究问题的重要程度与战略意义。"},
+                {"key": "fa", "label": "法", "desc": "识别策略或论证逻辑的严密程度。"},
+                {"key": "shi", "label": "势", "desc": "制度背景、数据条件与文献时机的质量。"},
+                {"key": "shu", "label": "术", "desc": "研究执行的严谨程度与实现质量。"},
+                {"key": "qi", "label": "器", "desc": "数据、设计与工具对他人研究的复用潜力。"},
+                {"key": "subjective", "label": "主观", "desc": "与个人当前研究议题的关联程度。"},
             ],
             "papers": [
                 {

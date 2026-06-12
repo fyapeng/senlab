@@ -18,11 +18,13 @@ const PARADIGM_LABELS = {
 };
 
 const LENS_LABELS = {
-  counterfactual: "反事实",
+  fact: "事实",
   mechanism: "机制",
   method: "方法",
-  policy: "政策",
+  data: "数据",
   theory: "理论",
+  policy: "政策",
+  counterfactual: "反事实",
   opportunity: "延展",
 };
 
@@ -194,7 +196,7 @@ function buildShell(site, activePage) {
       <div class="footer-inner">
         <div class="footer-copy">
           <strong>Sencium Lab</strong><br />
-          本地优先的研究文献系统。公众号：${site.brand.wechat_name}
+          私人文献档案，精读沉淀，引用可用。公众号：${site.brand.wechat_name}
         </div>
         <div class="footer-links">
           <a href="${site.brand.github_url}" target="_blank" rel="noreferrer">GitHub</a>
@@ -240,7 +242,7 @@ function paperCard(paper) {
       <h3><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${escHtml(paper.title)}</a></h3>
       <div class="muted">${escHtml(paper.authors || "")}</div>
       ${paper.one_line_judgment ? `<p class="card-judgment">${escHtml(paper.one_line_judgment)}</p>` : ""}
-      <div class="muted small">${escHtml(paper.journal_or_series || "期刊信息待补充")}${paper.doi ? ` · DOI: ${escHtml(paper.doi)}` : ""}</div>
+      <div class="muted small">${escHtml(paper.journal_or_series || "期刊待补充")}${paper.doi ? ` · DOI: ${escHtml(paper.doi)}` : ""}</div>
       ${scoreStrip(paper.ratings)}
       <div class="chip-row">
         ${paper.themes.map((theme) => `<span class="chip">${escHtml(theme.name)}</span>`).join("")}
@@ -348,19 +350,19 @@ async function renderDashboard(site) {
         <div class="eyebrow">序言</div>
         <h1>Sencium Lab</h1>
         <p class="lead">${site.brand.tagline}</p>
-        <p class="intro-text">Sencium Lab 将题目、作者、期刊、评分、证据片段与主题脉络整理为统一档案，让检索、比较、选题与写作引用在同一套本地文献系统中完成。</p>
+        <p class="intro-text">Sencium Lab 将题目、作者、期刊、评分、证据摘录与主题脉络整理为结构化档案，让检索、比较、引用与选题在同一个研究系统内完成。</p>
         <div class="intro-shelf">
           <div class="intro-note">
             <h3 class="intro-note-title">档案</h3>
-            <p class="intro-note-text">把题目、作者、期刊、DOI 与核心判断整理为稳定可回查的论文案卡。</p>
+            <p class="intro-note-text">将题目、作者、期刊、DOI 与核心判断整理为结构化的论文案卡，经年可查。</p>
           </div>
           <div class="intro-note">
             <h3 class="intro-note-title">视角</h3>
-            <p class="intro-note-text">把可复用的观点、证据与更稳妥的引文写法整理为稳定可调用的引用视角。</p>
+            <p class="intro-note-text">从每篇论文中提炼可复用的论断、支撑证据与安全引用边界，构成引用视角。</p>
           </div>
           <div class="intro-note">
             <h3 class="intro-note-title">脉络</h3>
-            <p class="intro-note-text">把主题链接、评分体系与证据摘录串成长期研究可持续扩展的知识网络。</p>
+            <p class="intro-note-text">以主题、评分与摘录为基础，逐步积累长期研究可持续扩展的知识脉络。</p>
           </div>
         </div>
       </div>
@@ -376,10 +378,10 @@ async function renderDashboard(site) {
     </section>
 
     <section class="grid-4">
-      ${statCard("论文总数", site.meta.paper_count, "已进入公开索引的论文")}
-      ${statCard("主题总数", site.meta.theme_count, "主题级知识节点")}
-      ${statCard("证据片段", site.meta.excerpt_count, "可回链到论文位置的证据块")}
-      ${statCard("引用视角", site.meta.lens_count, "可复用的引用接口")}
+      ${statCard("收录论文", site.meta.paper_count, "已建立案卡并完成评分")}
+      ${statCard("研究主题", site.meta.theme_count, "跨论文的主题聚合节点")}
+      ${statCard("证据摘录", site.meta.excerpt_count, "可溯源至原文位置的证据块")}
+      ${statCard("引用视角", site.meta.lens_count, "可复用的论断与引文边界")}
     </section>
 
     <section class="panel section">
@@ -590,7 +592,7 @@ async function renderSearch(site) {
                     <div class="paper-meta">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
                     <h3 class="paper-row-title"><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a></h3>
                     <div class="muted">${paper.authors || ""}</div>
-                    <div class="muted">${paper.journal_or_series || "期刊信息待补充"}</div>
+                    <div class="muted">${paper.journal_or_series || "期刊待补充"}</div>
                   </div>
                   <div class="paper-row-actions">
                     <a class="button-link" href="./paper.html?work=${encodeURIComponent(paper.work_id)}">查看详情</a>
@@ -643,7 +645,7 @@ async function renderCompare(site) {
         <select id="right-paper" class="compare-select">
           ${site.papers.map((paper) => `<option value="${paper.work_id}" ${paper.work_id === right ? "selected" : ""}>${paper.title}</option>`).join("")}
         </select>
-        <button id="compare-go" class="button-link">更新对比</button>
+        <button id="compare-go" class="button-link">对比</button>
       </div>
       <div id="compare-host"></div>
     </section>
@@ -715,11 +717,11 @@ async function renderAbout(site) {
             <h1 class="section-title">Sencium Lab 是什么</h1>
           </div>
         </div>
-        <p class="intro-text">Sencium Lab 是一套本地优先的研究文献系统。原始 PDF、规范化 Paper Card、证据片段、引用视角与六维评估先在本地沉淀，再导出公开网页用于检索、比较与展示。</p>
+        <p class="intro-text">Sencium Lab 是一套私人学术文献系统，将精读转化为结构化的论文案卡、证据摘录与引用视角，并以六维框架对每篇论文做出持续可用的研究判断。本地存储，公开可检索。</p>
         <div class="stack-list">
-          <div class="stack-item"><strong>索引层</strong><div class="muted">展示标题、作者、期刊、评分、主题与可公开的摘要性信息。</div></div>
-          <div class="stack-item"><strong>分析层</strong><div class="muted">展示论文案卡、脉络展开、证据摘录与引用视角。</div></div>
-          <div class="stack-item"><strong>本地层</strong><div class="muted">保留 PDF 原文、SQLite 数据库、工作草稿与长文笔记。</div></div>
+          <div class="stack-item"><strong>索引层</strong><div class="muted">展示题目、作者、期刊、评分与主题，是对外公开的论文目录。</div></div>
+          <div class="stack-item"><strong>分析层</strong><div class="muted">展示结构化案卡、论旨展开、证据摘录与引用视角，是主要的分析界面。</div></div>
+          <div class="stack-item"><strong>本地层</strong><div class="muted">存储原始 PDF、数据库与工作草稿，不对外公开。</div></div>
         </div>
       </div>
       <div class="panel">
@@ -785,7 +787,7 @@ async function renderPaper(site) {
         <h1 class="${titleClass}">${paper.title}</h1>
         <div class="paper-byline">${paper.authors || ""}</div>
         <div class="paper-meta-line">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
-        <div class="paper-meta-line">${paper.journal_or_series || "期刊信息待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</div>
+        <div class="paper-meta-line">${paper.journal_or_series || "期刊待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</div>
         <div class="chip-row">
           ${paper.themes.map((theme) => `<span class="chip">${theme.name}</span>`).join("")}
         </div>
