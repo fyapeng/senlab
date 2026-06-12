@@ -372,15 +372,15 @@ img {
 }
 
 .grid-4 {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
 }
 
 .grid-3 {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .grid-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .metric-card,
@@ -1145,9 +1145,6 @@ img {
 @media (max-width: 1100px) {
   .hero,
   .paper-hero,
-  .grid-4,
-  .grid-3,
-  .grid-2,
   .paper-layout,
   .search-toolbar {
     grid-template-columns: 1fr;
@@ -1193,12 +1190,130 @@ img {
 }
 
 @media (max-width: 720px) {
+  .topbar-inner,
+  .main,
+  .footer-inner {
+    width: min(var(--max), calc(100% - 24px));
+  }
+
+  .main {
+    padding: 20px 0 34px;
+  }
+
+  .hero {
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .hero-copy,
+  .hero-side,
+  .panel,
+  .metric-card,
+  .paper-card,
+  .theme-card,
+  .info-card,
+  .compare-card,
+  .detail-card {
+    padding: 16px;
+  }
+
+  .panel {
+    border-radius: 20px;
+  }
+
+  .hero h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-size: 24px;
+  }
+
+  .lead {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .intro-text,
+  .muted {
+    line-height: 1.55;
+  }
+
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+
+  .grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .metric-value {
+    font-size: 26px;
+    margin: 4px 0;
+  }
+
+  .metric-label,
+  .intro-note-text,
+  .card-judgment,
+  .paper-meta,
+  .theme-meta {
+    font-size: 13px;
+  }
+
+  .paper-card,
+  .theme-card {
+    gap: 9px;
+  }
+
+  .paper-card h3,
+  .theme-card h3,
+  .detail-card h3 {
+    font-size: 16px;
+    line-height: 1.35;
+  }
+
+  .score-strip {
+    gap: 6px;
+  }
+
+  .score-pill {
+    padding: 6px 7px;
+  }
+
+  .score-pill strong {
+    font-size: 14px;
+  }
+
+  .tag,
+  .chip {
+    padding: 6px 9px;
+    font-size: 12px;
+  }
+
+  .section-head {
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
   .quote-en {
-    font-size: 23px;
+    font-size: 18px;
   }
 
   .quote-zh {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .detail-card dl {
