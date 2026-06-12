@@ -160,7 +160,7 @@ function buildShell(site, activePage) {
     <header class="topbar">
       <div class="topbar-inner">
         <a href="./index.html" class="brand-lockup">
-          <img class="brand-logo intro" src="${site.brand.logo_intro_url}" alt="Sencium Lab" />
+          <img class="brand-logo intro" src="${site.brand.logo_intro_url}?v=20260612e" alt="Sencium Lab" />
         </a>
         <nav class="nav">${navLinks}</nav>
       </div>
@@ -324,6 +324,20 @@ async function renderDashboard(site) {
         <h1>Sencium Lab</h1>
         <p class="lead">${site.brand.tagline}</p>
         <p class="intro-text">Sencium Lab 将题目、作者、期刊、评分、证据片段与主题脉络整理为统一档案，让检索、比较、选题与写作引用在同一套本地文献系统中完成。</p>
+        <div class="intro-shelf">
+          <div class="intro-note">
+            <h3 class="intro-note-title">档案</h3>
+            <p class="intro-note-text">把题目、作者、期刊、DOI 与核心判断整理为稳定可回查的论文案卡。</p>
+          </div>
+          <div class="intro-note">
+            <h3 class="intro-note-title">棱镜</h3>
+            <p class="intro-note-text">把可复用的观点、证据与更稳妥的引文写法沉淀为 Citation Lens。</p>
+          </div>
+          <div class="intro-note">
+            <h3 class="intro-note-title">脉络</h3>
+            <p class="intro-note-text">把主题链接、评分体系与证据摘录串成长期研究可持续扩展的知识网络。</p>
+          </div>
+        </div>
       </div>
       <div class="hero-side panel">
         ${renderTimeWidget()}

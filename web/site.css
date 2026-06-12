@@ -71,7 +71,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 28px;
-  min-height: 78px;
+  min-height: 72px;
 }
 
 .brand-lockup {
@@ -86,8 +86,11 @@ img {
 }
 
 .brand-logo.intro {
-  width: 300px;
-  max-width: 48vw;
+  width: 210px;
+  max-width: 32vw;
+  max-height: 60px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 .nav {
@@ -188,6 +191,45 @@ img {
   flex-direction: column;
   justify-content: space-between;
   gap: 18px;
+}
+
+.hero-dashboard {
+  align-items: stretch;
+}
+
+.hero-dashboard .hero-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.intro-shelf {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.intro-note {
+  padding: 16px 16px 14px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.intro-note-title {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.intro-note-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
 }
 
 .quote-card {
@@ -612,6 +654,16 @@ img {
 
   .brand-logo {
     width: 220px;
+  }
+
+  .brand-logo.intro {
+    width: 220px;
+    max-width: 58vw;
+    max-height: none;
+  }
+
+  .intro-shelf {
+    grid-template-columns: 1fr;
   }
 
   .paper-title {
