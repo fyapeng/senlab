@@ -376,7 +376,7 @@ img {
 }
 
 .grid-3 {
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .grid-2 {
@@ -905,7 +905,6 @@ img {
   touch-action: none;
   user-select: none;
   cursor: grab;
-  perspective: 900px;
 }
 
 .knowledge-stage.dragging {
@@ -915,12 +914,6 @@ img {
 .knowledge-stage-inner {
   width: 100%;
   transform-origin: center center;
-  transform-style: preserve-3d;
-  transition: transform 0.16s ease;
-}
-
-.knowledge-stage.dragging .knowledge-stage-inner {
-  transition: none;
 }
 
 .knowledge-svg {
@@ -1258,7 +1251,7 @@ img {
   }
 
   .grid-3 {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .grid-2 {

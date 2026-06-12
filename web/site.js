@@ -336,10 +336,10 @@ function activateKnowledgeMap(site) {
   let paperRotation = -Math.PI / 2;
   let dragStartX = 0;
   let dragStartY = 0;
-  let dragStartTiltX = 0;
-  let dragStartTiltY = 0;
-  let viewTiltX = 0;
-  let viewTiltY = 0;
+  let dragStartRotX = 0;
+  let dragStartRotY = 0;
+  let rotAngleX = 0.48;
+  let rotAngleY = 0;
   let isDragging = false;
   let movedDuringDrag = false;
 
@@ -406,68 +406,86 @@ function activateKnowledgeMap(site) {
     `;
   }
 
+  function project3D(x, y, z) {
+    const cosY = Math.cos(rotAngleY), sinY = Math.sin(rotAngleY);
+    const cosX = Math.cos(rotAngleX), sinX = Math.sin(rotAngleX);
+    const xR = x * cosY - z * sinY;
+    const zR = x * sinY + z * cosY;
+    const yF = y * cosX + zR * sinX;
+    const zF = -y * sinX + zR * cosX;
+    const focal = 1400;
+    const sc = focal / (focal + zF);
+    return { sx: xR * sc, sy: -yF * sc, depth: zF, sc };
+  }
+
   function themeSvg(selectedId) {
-    const nodes = [...graph.theme_nodes];
     const width = 920;
     const height = 580;
     const cx = width / 2;
     const cy = height / 2;
-    const sorted = nodes.sort((left, right) =>
-      (themeCentrality.get(right.id) || 0) - (themeCentrality.get(left.id) || 0) ||
-      right.paper_count - left.paper_count ||
-      left.name.localeCompare(right.name)
+    const nodes = [...graph.theme_nodes];
+    const sorted = nodes.sort((a, b) =>
+      (themeCentrality.get(b.id) || 0) - (themeCentrality.get(a.id) || 0) ||
+      b.paper_count - a.paper_count ||
+      a.name.localeCompare(b.name)
     );
-    const positions = new Map();
     const rings = [
-      { key: "core", rx: 92, ry: 58, jitter: 18 },
-      { key: "bridge", rx: 242, ry: 152, jitter: 30 },
-      { key: "edge", rx: 362, ry: 216, jitter: 38 },
+      { key: "core",   r: 90,  hy: 28 },
+      { key: "bridge", r: 228, hy: 56 },
+      { key: "edge",   r: 356, hy: 84 },
     ];
 
-    rings.forEach((ring) => {
-      const ringNodes = sorted.filter((node) => themeTier(node.id) === ring.key);
-      ringNodes.forEach((node, index) => {
-        const ratio = centralityRatio(themeCentrality.get(node.id) || 0, themeCentralityMax);
-        const angle = themeRotation + (Math.PI * 2 * index) / Math.max(ringNodes.length, 1) + (index % 2 === 0 ? -0.1 : 0.12);
-        const radialShift = (1 - ratio) * ring.jitter;
-        positions.set(node.id, {
-          x: cx + Math.cos(angle) * (ring.rx + radialShift),
-          y: cy + Math.sin(angle) * (ring.ry + radialShift * 0.65),
-        });
+    const positions = new Map();
+    rings.forEach((ring, ri) => {
+      const ringNodes = sorted.filter((n) => themeTier(n.id) === ring.key);
+      ringNodes.forEach((node, i) => {
+        const angle = themeRotation + (Math.PI * 2 * i) / Math.max(ringNodes.length, 1) + (i % 2 === 0 ? -0.1 : 0.12);
+        const x3 = ring.r * Math.cos(angle);
+        const y3 = Math.sin(angle * 1.7 + ri * 0.62) * ring.hy;
+        const z3 = ring.r * Math.sin(angle);
+        const proj = project3D(x3, y3, z3);
+        positions.set(node.id, { x: cx + proj.sx, y: cy + proj.sy, depth: proj.depth, sc: proj.sc });
       });
     });
 
+    const guides = rings.map((ring) => {
+      const pts = Array.from({ length: 64 }, (_, i) => {
+        const a = (Math.PI * 2 * i) / 64;
+        const p = project3D(ring.r * Math.cos(a), 0, ring.r * Math.sin(a));
+        return `${(cx + p.sx).toFixed(1)},${(cy + p.sy).toFixed(1)}`;
+      }).join(" ");
+      return `<polygon points="${pts}" class="knowledge-orbit" />`;
+    }).join("");
+
     const edges = (graph.theme_edges || [])
       .map((edge) => {
-        const source = positions.get(edge.source);
-        const target = positions.get(edge.target);
-        if (!source || !target) return "";
+        const s = positions.get(edge.source);
+        const t = positions.get(edge.target);
+        if (!s || !t) return "";
         const isActive = edge.source === selectedId || edge.target === selectedId;
-        return `<line x1="${source.x}" y1="${source.y}" x2="${target.x}" y2="${target.y}" stroke="rgba(104,120,133,${isActive ? 0.44 : 0.12})" stroke-width="${1 + (edge.weight / themeEdgeMax) * 4}" />`;
+        const depthAlpha = isActive ? 0.46 : Math.max(0.06, 0.16 - Math.max(0, (s.depth + t.depth) / 2) * 0.0004);
+        return `<line x1="${s.x.toFixed(1)}" y1="${s.y.toFixed(1)}" x2="${t.x.toFixed(1)}" y2="${t.y.toFixed(1)}" stroke="rgba(104,120,133,${depthAlpha.toFixed(2)})" stroke-width="${(1 + (edge.weight / themeEdgeMax) * 3.5).toFixed(1)}" />`;
       })
       .join("");
 
-    const guides = `
-      <ellipse cx="${cx}" cy="${cy}" rx="92" ry="58" class="knowledge-orbit" />
-      <ellipse cx="${cx}" cy="${cy}" rx="242" ry="152" class="knowledge-orbit" />
-      <ellipse cx="${cx}" cy="${cy}" rx="362" ry="216" class="knowledge-orbit" />
-    `;
-
-    const nodeMarkup = sorted
+    const byDepth = [...sorted].sort((a, b) => (positions.get(b.id)?.depth || 0) - (positions.get(a.id)?.depth || 0));
+    const nodeMarkup = byDepth
       .map((node) => {
         const pos = positions.get(node.id);
-        const radius = 14 + node.paper_count * 5;
+        if (!pos) return "";
         const isActive = node.id === selectedId;
         const tier = themeTier(node.id);
         const showLabel = isActive || tier !== "edge";
+        const baseR = 14 + node.paper_count * 4.5;
+        const r = Math.max(6, baseR * clamp(pos.sc, 0.54, 1.24));
+        const depthOpacity = Math.max(0.52, 1 - Math.max(0, pos.depth) * 0.0008);
         return `
           <g class="knowledge-node-group ${isActive ? "active" : ""} tier-${tier}" data-theme-id="${node.id}" tabindex="0">
             <title>${escHtml(node.name)}</title>
-            <circle cx="${pos.x}" cy="${pos.y}" r="${radius}" fill="${colorMap[node.id] || "#a0532a"}" fill-opacity="${isActive ? 0.96 : 0.82}" stroke="${isActive ? "#16202a" : "rgba(22,32,42,0.16)"}" stroke-width="${isActive ? 2.4 : 1.2}" />
-            ${showLabel ? `<text x="${pos.x}" y="${pos.y + radius + 20}" text-anchor="middle" class="knowledge-label">${escHtml(truncateLabel(node.name, 14))}</text>` : ""}
-            <text x="${pos.x}" y="${pos.y + 5}" text-anchor="middle" class="knowledge-count">${node.paper_count}</text>
-          </g>
-        `;
+            <circle cx="${pos.x.toFixed(1)}" cy="${pos.y.toFixed(1)}" r="${r.toFixed(1)}" fill="${colorMap[node.id] || "#a0532a"}" fill-opacity="${((isActive ? 0.96 : 0.82) * depthOpacity).toFixed(2)}" stroke="${isActive ? "#16202a" : "rgba(22,32,42,0.16)"}" stroke-width="${isActive ? 2.4 : 1.2}" />
+            ${showLabel ? `<text x="${pos.x.toFixed(1)}" y="${(pos.y + r + 18).toFixed(1)}" text-anchor="middle" class="knowledge-label">${escHtml(truncateLabel(node.name, 14))}</text>` : ""}
+            <text x="${pos.x.toFixed(1)}" y="${(pos.y + 5).toFixed(1)}" text-anchor="middle" class="knowledge-count">${node.paper_count}</text>
+          </g>`;
       })
       .join("");
 
@@ -482,31 +500,35 @@ function activateKnowledgeMap(site) {
     const themeOrder = (graph.theme_nodes || []).map((item) => item.id);
     const grouped = themeOrder.flatMap((themeId) =>
       (graph.paper_nodes || [])
-        .filter((paper) => paper.primary_theme_id === themeId)
-        .sort((left, right) => (right.overall || 0) - (left.overall || 0) || (right.year || 0) - (left.year || 0))
+        .filter((p) => p.primary_theme_id === themeId)
+        .sort((a, b) => (b.overall || 0) - (a.overall || 0) || (b.year || 0) - (a.year || 0))
     );
-    const leftovers = (graph.paper_nodes || []).filter((paper) => !grouped.find((item) => item.id === paper.id)).sort((left, right) => (right.overall || 0) - (left.overall || 0));
+    const leftovers = (graph.paper_nodes || []).filter((p) => !grouped.find((g) => g.id === p.id)).sort((a, b) => (b.overall || 0) - (a.overall || 0));
     const nodes = [...grouped, ...leftovers];
-    const positions = new Map();
+
+    const clusterR = 202;
     const themeAnchors = new Map();
-    themeOrder.forEach((themeId, index) => {
-      const angle = paperRotation + (Math.PI * 2 * index) / Math.max(themeOrder.length, 1);
-      themeAnchors.set(themeId, { angle, x: cx + Math.cos(angle) * 214, y: cy + Math.sin(angle) * 156 });
+    themeOrder.forEach((themeId, i) => {
+      const angle = paperRotation + (Math.PI * 2 * i) / Math.max(themeOrder.length, 1);
+      themeAnchors.set(themeId, { ax: clusterR * Math.cos(angle), ay: 0, az: clusterR * Math.sin(angle), angle });
     });
 
+    const positions = new Map();
     nodes.forEach((paper) => {
-      const cluster = nodes.filter((item) => item.primary_theme_id === paper.primary_theme_id).sort((left, right) =>
-        (paperCentrality.get(right.id) || 0) - (paperCentrality.get(left.id) || 0) ||
-        (right.overall || 0) - (left.overall || 0)
-      );
-      const anchor = themeAnchors.get(paper.primary_theme_id) || { angle: paperRotation, x: cx, y: cy };
-      const index = cluster.findIndex((item) => item.id === paper.id);
+      const anchor = themeAnchors.get(paper.primary_theme_id) || { ax: 0, ay: 0, az: 0, angle: paperRotation };
+      const cluster = nodes.filter((p) => p.primary_theme_id === paper.primary_theme_id)
+        .sort((a, b) => (paperCentrality.get(b.id) || 0) - (paperCentrality.get(a.id) || 0) || (b.overall || 0) - (a.overall || 0));
+      const idx = cluster.findIndex((p) => p.id === paper.id);
       const tier = paperTier(paper.id);
-      const band = tier === "core" ? 56 : tier === "bridge" ? 110 : 174;
-      const spread = tier === "core" ? 0.18 : tier === "bridge" ? 0.4 : 0.64;
-      const offset = cluster.length > 1 ? ((index / (cluster.length - 1 || 1)) - 0.5) * spread : 0;
-      const angle = anchor.angle + offset;
-      positions.set(paper.id, { x: anchor.x + Math.cos(angle) * band, y: anchor.y + Math.sin(angle) * band * 0.78 });
+      const band = tier === "core" ? 56 : tier === "bridge" ? 110 : 172;
+      const spread = tier === "core" ? 0.18 : tier === "bridge" ? 0.4 : 0.62;
+      const offset = cluster.length > 1 ? ((idx / (cluster.length - 1 || 1)) - 0.5) * spread : 0;
+      const spreadAngle = anchor.angle + offset;
+      const x3 = anchor.ax + Math.cos(spreadAngle) * band;
+      const y3 = anchor.ay + Math.sin(offset * Math.PI) * 44;
+      const z3 = anchor.az + Math.sin(spreadAngle) * band;
+      const proj = project3D(x3, y3, z3);
+      positions.set(paper.id, { x: cx + proj.sx, y: cy + proj.sy, depth: proj.depth, sc: proj.sc });
     });
 
     const edges = (graph.paper_edges || [])
@@ -515,24 +537,28 @@ function activateKnowledgeMap(site) {
         const target = positions.get(edge.target);
         if (!source || !target) return "";
         const isActive = edge.source === selectedId || edge.target === selectedId;
-        return `<line x1="${source.x}" y1="${source.y}" x2="${target.x}" y2="${target.y}" stroke="rgba(104,120,133,${isActive ? 0.38 : 0.1})" stroke-width="${0.8 + (edge.weight / paperEdgeMax) * 2.8}" />`;
+        const depthAlpha = isActive ? 0.38 : Math.max(0.04, 0.12 - Math.max(0, (source.depth + target.depth) / 2) * 0.0003);
+        return `<line x1="${source.x.toFixed(1)}" y1="${source.y.toFixed(1)}" x2="${target.x.toFixed(1)}" y2="${target.y.toFixed(1)}" stroke="rgba(104,120,133,${depthAlpha.toFixed(2)})" stroke-width="${(0.8 + (edge.weight / paperEdgeMax) * 2.6).toFixed(1)}" />`;
       })
       .join("");
 
-    const nodeMarkup = nodes.map((paper) => {
+    const byDepth = [...nodes].sort((a, b) => (positions.get(b.id)?.depth || 0) - (positions.get(a.id)?.depth || 0));
+    const nodeMarkup = byDepth.map((paper) => {
       const pos = positions.get(paper.id);
+      if (!pos) return "";
       const isActive = paper.id === selectedId;
       const color = colorMap[paper.primary_theme_id] || "#a0532a";
       const tier = paperTier(paper.id);
-      const radius = 8 + Math.max(0, (paper.overall || 0) - 40) * 0.35;
+      const baseR = 8 + Math.max(0, (paper.overall || 0) - 40) * 0.35;
+      const radius = Math.max(5, baseR * clamp(pos.sc, 0.54, 1.24));
       const showLabel = isActive || tier === "core";
+      const depthOpacity = Math.max(0.52, 1 - Math.max(0, pos.depth) * 0.0008);
       return `
         <g class="knowledge-node-group ${isActive ? "active" : ""} tier-${tier}" data-paper-id="${paper.id}" tabindex="0">
           <title>${escHtml(paper.title || "")}</title>
-          <circle cx="${pos.x}" cy="${pos.y}" r="${radius}" fill="${color}" fill-opacity="${isActive ? 0.96 : 0.8}" stroke="${isActive ? "#16202a" : "rgba(22,32,42,0.12)"}" stroke-width="${isActive ? 2.2 : 1}" />
-          ${showLabel ? `<text x="${pos.x}" y="${pos.y + radius + 16}" text-anchor="middle" class="knowledge-paper-label">${escHtml(shortPaperTitle(paper.title || ""))}</text>` : ""}
-        </g>
-      `;
+          <circle cx="${pos.x.toFixed(1)}" cy="${pos.y.toFixed(1)}" r="${radius.toFixed(1)}" fill="${color}" fill-opacity="${((isActive ? 0.96 : 0.8) * depthOpacity).toFixed(2)}" stroke="${isActive ? "#16202a" : "rgba(22,32,42,0.12)"}" stroke-width="${isActive ? 2.2 : 1}" />
+          ${showLabel ? `<text x="${pos.x.toFixed(1)}" y="${(pos.y + radius + 16).toFixed(1)}" text-anchor="middle" class="knowledge-paper-label">${escHtml(shortPaperTitle(paper.title || ""))}</text>` : ""}
+        </g>`;
     }).join("");
 
     return `<svg class="knowledge-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="文献关系图">${edges}${nodeMarkup}</svg>`;
@@ -596,13 +622,9 @@ function activateKnowledgeMap(site) {
     return Math.max(min, Math.min(max, value));
   }
 
-  function stageTransform() {
-    return `perspective(900px) rotateX(${viewTiltX}deg) rotateY(${viewTiltY}deg) scale(${currentZoom})`;
-  }
-
-  function updateStageTransform() {
+  function applyZoom() {
     const inner = stage.querySelector(".knowledge-stage-inner");
-    if (inner) inner.style.transform = stageTransform();
+    if (inner) inner.style.transform = `scale(${currentZoom})`;
   }
 
   function bindStageGestures() {
@@ -612,8 +634,8 @@ function activateKnowledgeMap(site) {
       movedDuringDrag = false;
       dragStartX = event.clientX;
       dragStartY = event.clientY;
-      dragStartTiltX = viewTiltX;
-      dragStartTiltY = viewTiltY;
+      dragStartRotX = rotAngleX;
+      dragStartRotY = rotAngleY;
       stage.classList.add("dragging");
       stage.setPointerCapture?.(event.pointerId);
     };
@@ -622,13 +644,16 @@ function activateKnowledgeMap(site) {
       const dx = event.clientX - dragStartX;
       const dy = event.clientY - dragStartY;
       if (Math.hypot(dx, dy) > 4) movedDuringDrag = true;
-      viewTiltY = clamp(dragStartTiltY + dx * 0.12, -34, 34);
-      viewTiltX = clamp(dragStartTiltX - dy * 0.12, -28, 28);
-      updateStageTransform();
+      rotAngleY = dragStartRotY + dx * 0.007;
+      rotAngleX = clamp(dragStartRotX - dy * 0.007, -Math.PI / 2, Math.PI / 2);
+      const svg = mode === "themes" ? themeSvg(selectedThemeId) : paperSvg(selectedPaperId);
+      stage.innerHTML = `<div class="knowledge-stage-inner" style="transform:scale(${currentZoom})">${svg}</div>`;
     };
     const stopDragging = () => {
+      if (!isDragging) return;
       isDragging = false;
       stage.classList.remove("dragging");
+      render();
       window.setTimeout(() => { movedDuringDrag = false; }, 0);
     };
     stage.onpointerup = stopDragging;
@@ -641,22 +666,26 @@ function activateKnowledgeMap(site) {
     controls.querySelectorAll("[data-knowledge-zoom]").forEach((button) => {
       button.onclick = () => {
         const action = button.getAttribute("data-knowledge-zoom");
-        if (action === "in") currentZoom = Math.min(1.45, currentZoom + 0.12);
-        if (action === "out") currentZoom = Math.max(0.82, currentZoom - 0.12);
+        if (action === "in") currentZoom = Math.min(1.6, currentZoom + 0.15);
+        if (action === "out") currentZoom = Math.max(0.7, currentZoom - 0.15);
         if (action === "reset") {
           currentZoom = 1;
-          viewTiltX = 0;
-          viewTiltY = 0;
+          rotAngleX = 0.48;
+          rotAngleY = 0;
+          render();
+          return;
         }
-        updateStageTransform();
+        applyZoom();
       };
     });
   }
 
   function render() {
     toggles.forEach((button) => button.classList.toggle("active", button.getAttribute("data-map-mode") === mode));
-    if (mode === "themes") { stage.innerHTML = `<div class="knowledge-stage-inner" style="transform:${stageTransform()}">${themeSvg(selectedThemeId)}</div>`; detail.innerHTML = themeDetail(selectedThemeId); if (related) related.innerHTML = themeRelatedPanel(selectedThemeId); }
-    else { stage.innerHTML = `<div class="knowledge-stage-inner" style="transform:${stageTransform()}">${paperSvg(selectedPaperId)}</div>`; detail.innerHTML = paperDetail(selectedPaperId); if (related) related.innerHTML = paperRelatedPanel(selectedPaperId); }
+    const svg = mode === "themes" ? themeSvg(selectedThemeId) : paperSvg(selectedPaperId);
+    stage.innerHTML = `<div class="knowledge-stage-inner" style="transform:scale(${currentZoom})">${svg}</div>`;
+    if (mode === "themes") { detail.innerHTML = themeDetail(selectedThemeId); if (related) related.innerHTML = themeRelatedPanel(selectedThemeId); }
+    else { detail.innerHTML = paperDetail(selectedPaperId); if (related) related.innerHTML = paperRelatedPanel(selectedPaperId); }
     bindStageActions();
     bindStageGestures();
     bindDetailActions();
