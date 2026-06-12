@@ -53,7 +53,7 @@ python .\scripts\export_web_data.py
 
 ### 5. Open the demo web page
 
-Open [index.html](E:\SenLab\web\index.html).
+Open [index.html](E:\SenLab\index.html).
 
 ## GitHub Repository Setup
 
@@ -69,11 +69,13 @@ Create the empty repository first, then push the local project so there is no ex
 
 ## Demo Features
 
-- search papers
-- inspect structured summaries
-- view raw markdown paper cards
-- inspect six-dimension ratings
-- compare two papers side by side
+- dashboard overview
+- ranking page
+- search page
+- paper detail page
+- compare page
+- six-dimension ratings
+- locally synchronized canonical content
 
 ## Current Demo Papers
 

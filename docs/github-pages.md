@@ -9,7 +9,7 @@ For the current repository layout, configure GitHub Pages as:
 5. Choose folder `/ (root)`.
 6. Save and wait for deployment.
 
-The repository now has a root-level `index.html` that redirects to `web/index.html`, so Pages does not require moving the web app into the root folder itself.
+The repository now serves the dashboard directly from the root-level `index.html`. Static assets and exported JSON remain under `web/`.
 
 Expected URL:
 

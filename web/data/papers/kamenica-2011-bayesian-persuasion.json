@@ -1,0 +1,145 @@
+{
+  "work_id": "kamenica-2011-bayesian-persuasion",
+  "title": "Bayesian Persuasion",
+  "year": 2011,
+  "field": "microeconomic-theory",
+  "subfield": "information-design",
+  "paper_paradigm": "theory",
+  "journal_or_series": "American Economic Review",
+  "doi": "10.1257/aer.101.6.2590",
+  "research_question": "When can a sender manipulate a receiver's action by optimally designing the information she sees?",
+  "why_it_matters": "The paper establishes the baseline theory of information design and persuasion with rational Bayesian receivers.",
+  "core_object": "Signal design in a sender-receiver game with common priors and conflicting preferences.",
+  "approach": "The paper reformulates the sender's problem as a search over feasible distributions of posterior beliefs whose expectation equals the prior, turning signal design into a tractable geometric optimization problem.",
+  "main_claim": "Even with full awareness of the sender's motives, a Bayesian receiver can be profitably persuaded through the sender's choice of signal structure.",
+  "why_in_my_db": "It is a canonical theory anchor for information design, mechanism intuition, and theme-building across many subfields.",
+  "one_line_judgment": "A canonical information-design framework with unusually high long-run reuse value.",
+  "ratings": {
+    "dao": 5,
+    "fa": 5,
+    "shi": 4,
+    "shu": 5,
+    "qi": 5,
+    "subjective": 4,
+    "overall": 24
+  },
+  "rating_notes": {
+    "dao": "The question is foundational and field-defining.",
+    "fa": "The model logic and posterior reformulation are exceptionally clean.",
+    "shi": "Its value comes from conceptual reach more than one institutional opportunity.",
+    "shu": "The execution is elegant and highly disciplined.",
+    "qi": "The framework is broadly reusable across many settings.",
+    "subjective": "It is especially valuable when theory and mechanism framing matter."
+  },
+  "themes": [
+    {
+      "theme_id": "belief-manipulation-and-disclosure",
+      "name": "Belief Manipulation and Disclosure"
+    },
+    {
+      "theme_id": "information-design-persuasion",
+      "name": "Information Design and Persuasion"
+    },
+    {
+      "theme_id": "strategic-communication",
+      "name": "Strategic Communication"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "kamenica-2011-bayesian-persuasion-ex-001",
+      "location": "Abstract",
+      "topic": "core_claim",
+      "quote_or_paraphrase": "A sender can strictly benefit from choosing the receiver's information structure even when the receiver is fully rational and aware of the sender's motives.",
+      "why_this_matters": "This is the canonical high-level claim of Bayesian persuasion."
+    },
+    {
+      "excerpt_id": "kamenica-2011-bayesian-persuasion-ex-002",
+      "location": "Introduction",
+      "topic": "method",
+      "quote_or_paraphrase": "The sender's problem can be reformulated as a search over posterior belief distributions whose expectation equals the prior.",
+      "why_this_matters": "This is the key geometric insight that made the framework portable and powerful."
+    },
+    {
+      "excerpt_id": "kamenica-2011-bayesian-persuasion-ex-003",
+      "location": "Introduction, prosecutor example",
+      "topic": "application_example",
+      "quote_or_paraphrase": "The prosecutor example shows that a rational judge can convict far more often under an optimally designed binary signal than under either no information or fully revealing information.",
+      "why_this_matters": "This is the paper's most intuitive demonstration that persuasion works through information design rather than deception."
+    },
+    {
+      "excerpt_id": "kamenica-2011-bayesian-persuasion-ex-004",
+      "location": "Model overview",
+      "topic": "bayes_plausibility",
+      "quote_or_paraphrase": "The sender's optimization can be reexpressed over posterior distributions constrained only by the requirement that the expected posterior equals the prior.",
+      "why_this_matters": "This is the transportable technical core of the framework and the reason the paper became foundational in information design."
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "kamenica-2011-bayesian-persuasion-lens-mechanism",
+      "theme_id": "belief-manipulation-and-disclosure",
+      "lens_type": "mechanism",
+      "claim": "The mechanism of persuasion operates by reshaping the distribution of receiver posteriors while preserving Bayes plausibility.",
+      "interpretation": "The key mechanism is geometric: the sender chooses a distribution over posterior beliefs that changes action frequencies without violating Bayesian consistency.",
+      "overclaim_risk": "This mechanism applies to committed signal design, not to every form of strategic communication.",
+      "safer_formulation": "In the Bayesian persuasion framework, action change occurs because the sender can choose how posterior beliefs are distributed subject to Bayes plausibility."
+    },
+    {
+      "lens_id": "kamenica-2011-bayesian-persuasion-lens-opportunity",
+      "theme_id": "strategic-communication",
+      "lens_type": "opportunity",
+      "claim": "The framework offers a reusable template for importing information design into applied institutional settings.",
+      "interpretation": "Use the paper when generating new questions about disclosure, recommendation systems, litigation, or regulated information environments.",
+      "overclaim_risk": "The paper is a framework paper, not direct evidence about any one empirical institution.",
+      "safer_formulation": "The paper provides a tractable theory template that can be adapted to applied settings where agents control informational environments."
+    },
+    {
+      "lens_id": "kamenica-2011-bayesian-persuasion-lens-theory",
+      "theme_id": "information-design-persuasion",
+      "lens_type": "theory",
+      "claim": "Strategic control of information can change actions even without changing preferences or making transfers.",
+      "interpretation": "Use the paper as the canonical theory reference for information-design-based persuasion.",
+      "overclaim_risk": "Do not confuse persuasion through experiment design with cheap talk or ex post deception models.",
+      "safer_formulation": "In the Bayesian persuasion framework, a sender can benefit by choosing an information structure that shifts receiver posteriors."
+    }
+  ],
+  "sections": {
+    "Identity": "- Work ID: `kamenica-2011-bayesian-persuasion`\n- Canonical Version ID: `kamenica-2011-bayesian-persuasion-uploaded`",
+    "Common Core": "",
+    "Research Question": "When can a sender manipulate a receiver's action by optimally designing the information she sees?",
+    "Why It Matters": "The paper establishes the baseline theory of information design and persuasion with rational Bayesian receivers.",
+    "Core Object": "Signal design in a sender-receiver game with common priors and conflicting preferences.",
+    "Approach": "The paper reformulates the sender's problem as a search over feasible distributions of posterior beliefs whose expectation equals the prior, turning signal design into a tractable geometric optimization problem.",
+    "Main Claim": "Even with full awareness of the sender's motives, a Bayesian receiver can be profitably persuaded through the sender's choice of signal structure.",
+    "Why In My Database": "It is a canonical theory anchor for information design, mechanism intuition, and theme-building across many subfields.",
+    "Paradigm-Specific Analysis": "",
+    "Theory Branch": "",
+    "Players": "A sender who chooses a signal structure and a receiver who takes an action after observing a signal realization.",
+    "State Space": "An arbitrary state space with a common prior shared by sender and receiver.",
+    "Action Space": "An arbitrary action space available to the receiver after she updates beliefs.",
+    "Information Structure": "The sender chooses an experiment or signal that induces posterior beliefs over the state.",
+    "Timing": "The state is drawn, the sender commits to an information structure, the receiver observes the signal realization, and then acts.",
+    "Objective Functions": "The sender and receiver both care about the receiver's action, but their preferences need not align. The sender therefore chooses an information structure to tilt the receiver's posterior-dependent action in his favor.",
+    "Solution Concept": "Optimal persuasion is characterized as an optimization over feasible distributions of posterior beliefs satisfying Bayes plausibility.",
+    "Key Propositions": "The paper characterizes when persuasion can strictly benefit the sender and how sender-optimal signals can be constructed by solving an optimization over posterior distributions subject to Bayes plausibility.",
+    "Conditions": "The sender cannot lie about realized signals once the signal structure is chosen.",
+    "Comparative Statics": "The value of persuasion depends on preference alignment, the receiver's decision rule, and the curvature or nonconcavity of the sender's induced value as a function of beliefs.",
+    "Applications": "The paper discusses prosecutors, litigators, lobbyists, salespeople, and other settings where one side can shape the informational environment but cannot directly dictate the final action.",
+    "Empirical Branch": "",
+    "Institutional Setting": "Not the primary branch for this paper.",
+    "Empirical Translation Value": "The framework is highly portable to disclosure regimes, recommendation systems, platform information design, political campaigns, legal advocacy, and regulated persuasion problems.",
+    "Limitations": "The model abstracts from ex post misreporting, repeated communication, endogenous commitment frictions, and some incentive-compatibility issues emphasized in cheap-talk and broader mechanism-design settings.",
+    "Theme Links": "- `information-design-persuasion`\n- `strategic-communication`\n- `belief-manipulation-and-disclosure`",
+    "Ratings": "",
+    "Dao": "- Score: 5\n- Note: The question is foundational and field-defining.",
+    "Fa": "- Score: 5\n- Note: The model logic and posterior reformulation are exceptionally clean.",
+    "Shi": "- Score: 4\n- Note: Its value comes from conceptual reach more than one institutional opportunity.",
+    "Shu": "- Score: 5\n- Note: The execution is elegant and highly disciplined.",
+    "Qi": "- Score: 5\n- Note: The framework is broadly reusable across many settings.",
+    "Subjective": "- Score: 4\n- Note: It is especially valuable when theory and mechanism framing matter.",
+    "One-Line Judgment": "A canonical information-design framework with unusually high long-run reuse value.",
+    "TODO_VERIFY": "- Confirm whether the uploaded PDF is the final AER version or a mirrored copy.\n- Confirm how much of the later information-design literature should be treated as direct extension versus parallel development for theme-note purposes."
+  },
+  "markdown": "---\nwork_id: kamenica-2011-bayesian-persuasion\ncanonical_version_id: kamenica-2011-bayesian-persuasion-uploaded\ntitle: Bayesian Persuasion\nauthors: Emir Kamenica and Matthew Gentzkow\nyear: 2011\npublication_status: published_version\njournal_or_series: American Economic Review\ndoi: 10.1257/aer.101.6.2590\nfield: microeconomic-theory\nsubfield: information-design\npaper_paradigm: theory\nstatus: seeded_demo\ntags: [information-design, persuasion, sender-receiver, posterior-beliefs, mechanism]\n---\n\n# Paper Card\n\n## Identity\n\n- Work ID: `kamenica-2011-bayesian-persuasion`\n- Canonical Version ID: `kamenica-2011-bayesian-persuasion-uploaded`\n\n## Common Core\n\n### Research Question\nWhen can a sender manipulate a receiver's action by optimally designing the information she sees?\n\n### Why It Matters\nThe paper establishes the baseline theory of information design and persuasion with rational Bayesian receivers.\n\n### Core Object\nSignal design in a sender-receiver game with common priors and conflicting preferences.\n\n### Approach\nThe paper reformulates the sender's problem as a search over feasible distributions of posterior beliefs whose expectation equals the prior, turning signal design into a tractable geometric optimization problem.\n\n### Main Claim\nEven with full awareness of the sender's motives, a Bayesian receiver can be profitably persuaded through the sender's choice of signal structure.\n\n### Why In My Database\nIt is a canonical theory anchor for information design, mechanism intuition, and theme-building across many subfields.\n\n## Paradigm-Specific Analysis\n\n### Theory Branch\n\n#### Players\nA sender who chooses a signal structure and a receiver who takes an action after observing a signal realization.\n\n#### State Space\nAn arbitrary state space with a common prior shared by sender and receiver.\n\n#### Action Space\nAn arbitrary action space available to the receiver after she updates beliefs.\n\n#### Information Structure\nThe sender chooses an experiment or signal that induces posterior beliefs over the state.\n\n#### Timing\nThe state is drawn, the sender commits to an information structure, the receiver observes the signal realization, and then acts.\n\n#### Objective Functions\nThe sender and receiver both care about the receiver's action, but their preferences need not align. The sender therefore chooses an information structure to tilt the receiver's posterior-dependent action in his favor.\n\n#### Solution Concept\nOptimal persuasion is characterized as an optimization over feasible distributions of posterior beliefs satisfying Bayes plausibility.\n\n#### Key Propositions\nThe paper characterizes when persuasion can strictly benefit the sender and how sender-optimal signals can be constructed by solving an optimization over posterior distributions subject to Bayes plausibility.\n\n#### Conditions\nThe sender cannot lie about realized signals once the signal structure is chosen.\n\n#### Comparative Statics\nThe value of persuasion depends on preference alignment, the receiver's decision rule, and the curvature or nonconcavity of the sender's induced value as a function of beliefs.\n\n#### Applications\nThe paper discusses prosecutors, litigators, lobbyists, salespeople, and other settings where one side can shape the informational environment but cannot directly dictate the final action.\n\n### Empirical Branch\n\n#### Institutional Setting\nNot the primary branch for this paper.\n\n#### Empirical Translation Value\nThe framework is highly portable to disclosure regimes, recommendation systems, platform information design, political campaigns, legal advocacy, and regulated persuasion problems.\n\n## Limitations\nThe model abstracts from ex post misreporting, repeated communication, endogenous commitment frictions, and some incentive-compatibility issues emphasized in cheap-talk and broader mechanism-design settings.\n\n## Theme Links\n- `information-design-persuasion`\n- `strategic-communication`\n- `belief-manipulation-and-disclosure`\n\n## Ratings\n\n### Dao\n- Score: 5\n- Note: The question is foundational and field-defining.\n\n### Fa\n- Score: 5\n- Note: The model logic and posterior reformulation are exceptionally clean.\n\n### Shi\n- Score: 4\n- Note: Its value comes from conceptual reach more than one institutional opportunity.\n\n### Shu\n- Score: 5\n- Note: The execution is elegant and highly disciplined.\n\n### Qi\n- Score: 5\n- Note: The framework is broadly reusable across many settings.\n\n### Subjective\n- Score: 4\n- Note: It is especially valuable when theory and mechanism framing matter.\n\n### One-Line Judgment\nA canonical information-design framework with unusually high long-run reuse value.\n\n## TODO_VERIFY\n- Confirm whether the uploaded PDF is the final AER version or a mirrored copy.\n- Confirm how much of the later information-design literature should be treated as direct extension versus parallel development for theme-note purposes.\n"
+}

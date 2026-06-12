@@ -16,6 +16,7 @@ def run(script_name: str) -> None:
 def main() -> None:
     run("init_db.py")
     run("seed_demo_content.py")
+    run("sync_canonical_to_db.py")
     run("export_web_data.py")
     print("Built SenLab demo artifacts.")
 

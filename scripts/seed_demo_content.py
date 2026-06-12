@@ -478,7 +478,8 @@ status: seeded_demo
 def seed_work(conn: sqlite3.Connection, work_id: str, payload: dict) -> None:
     timestamp = now()
     card_path = ROOT / "canonical" / "papers" / f"{work_id}.md"
-    write_text(card_path, payload["markdown"])
+    if not card_path.exists():
+        write_text(card_path, payload["markdown"])
 
     work_exists = conn.execute("SELECT 1 FROM works WHERE work_id=?", (work_id,)).fetchone()
     version_exists = conn.execute("SELECT 1 FROM paper_versions WHERE version_id=?", (payload["version_id"],)).fetchone()
@@ -574,9 +575,10 @@ def seed_work(conn: sqlite3.Connection, work_id: str, payload: dict) -> None:
 
     for excerpt in payload["excerpts"]:
         excerpt_path = ROOT / "canonical" / "excerpts" / f"{excerpt['excerpt_id']}.md"
-        write_text(
-            excerpt_path,
-            f"""---
+        if not excerpt_path.exists():
+            write_text(
+                excerpt_path,
+                f"""---
 excerpt_id: {excerpt['excerpt_id']}
 work_id: {work_id}
 version_id: {payload['version_id']}
@@ -600,7 +602,7 @@ status: {excerpt['status']}
 
 ## TODO_VERIFY
 """,
-        )
+            )
         conn.execute(
             """
             INSERT OR REPLACE INTO excerpts (
@@ -624,9 +626,10 @@ status: {excerpt['status']}
 
     for lens in payload["lenses"]:
         lens_path = ROOT / "canonical" / "lenses" / f"{lens['lens_id']}.md"
-        write_text(
-            lens_path,
-            f"""---
+        if not lens_path.exists():
+            write_text(
+                lens_path,
+                f"""---
 lens_id: {lens['lens_id']}
 work_id: {work_id}
 theme_id: {lens['theme_id']}
@@ -659,7 +662,7 @@ status: seeded_demo
 
 ## TODO_VERIFY
 """,
-        )
+            )
         conn.execute(
             """
             INSERT OR REPLACE INTO lenses (
