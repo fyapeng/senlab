@@ -37,11 +37,11 @@
     "overall_max": 60
   },
   "meta": {
-    "paper_count": 26,
-    "theme_count": 10,
-    "topic_count": 126,
-    "excerpt_count": 83,
-    "lens_count": 81,
+    "paper_count": 27,
+    "theme_count": 13,
+    "topic_count": 136,
+    "excerpt_count": 88,
+    "lens_count": 85,
     "updated_from_local_db": true
   },
   "score_dimensions": [
@@ -77,6 +77,89 @@
     }
   ],
   "papers": [
+    {
+      "work_id": "marquardt-2026-physician-decision-adhd",
+      "title": "Mis(sed) Diagnosis: Physician Decision Making and ADHD",
+      "year": 2026,
+      "authors": "Kelli Marquardt",
+      "field": "health-economics",
+      "subfield": "applied-micro",
+      "paper_paradigm": "empirical_structural",
+      "journal_or_series": "Journal of Political Economy",
+      "doi": "10.1086/742421",
+      "one_line_judgment": "用临床笔记文本把\"不可观测的诊断信号\"接入双侧结构模型，证明 ADHD 男女诊断差异的大头不是患病率而是医生对男孩使用了更低的诊断阈值。",
+      "topics": [
+        {
+          "topic_id": "adhd",
+          "name": "adhd"
+        },
+        {
+          "topic_id": "mental-health",
+          "name": "mental health"
+        },
+        {
+          "topic_id": "health-disparities",
+          "name": "health disparities"
+        },
+        {
+          "topic_id": "physician-decision-making",
+          "name": "physician decision making"
+        },
+        {
+          "topic_id": "diagnostic-thresholds",
+          "name": "diagnostic thresholds"
+        },
+        {
+          "topic_id": "bayesian-learning",
+          "name": "bayesian learning"
+        },
+        {
+          "topic_id": "selection-into-care",
+          "name": "selection into care"
+        },
+        {
+          "topic_id": "clinical-notes-nlp",
+          "name": "clinical notes nlp"
+        },
+        {
+          "topic_id": "gender-gap",
+          "name": "gender gap"
+        },
+        {
+          "topic_id": "electronic-health-records",
+          "name": "electronic health records"
+        }
+      ],
+      "ratings": {
+        "dao": 9,
+        "fa": 8,
+        "shi": 8,
+        "shu": 9,
+        "qi": 9,
+        "subjective": 9,
+        "overall": 52
+      },
+      "themes": [
+        {
+          "theme_id": "health-disparities-and-discrimination",
+          "name": "健康不平等与差别对待"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "empirical-structural-health",
+          "name": "医疗结构估计"
+        },
+        {
+          "theme_id": "diagnostic-accuracy",
+          "name": "诊断准确性"
+        }
+      ],
+      "excerpt_count": 5,
+      "lens_count": 4
+    },
     {
       "work_id": "eliason-2025-ambulance-taxis-impact",
       "title": "Ambulance Taxis: The Impact of Regulation and Litigation on Health-Care Fraud",
@@ -1506,7 +1589,7 @@
       "name": "医生行为与临床决策",
       "field": "health-economics",
       "status": "draft_completed",
-      "paper_count": 7
+      "paper_count": 8
     },
     {
       "theme_id": "health-insurance-and-cost-sharing",
@@ -1570,13 +1653,34 @@
       "field": "health-economics",
       "status": "draft_completed",
       "paper_count": 2
+    },
+    {
+      "theme_id": "health-disparities-and-discrimination",
+      "name": "健康不平等与差别对待",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "empirical-structural-health",
+      "name": "医疗结构估计",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "diagnostic-accuracy",
+      "name": "诊断准确性",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
     }
   ],
   "theme_distribution": [
     {
       "theme_id": "physician-behavior-and-clinical-decision-making",
       "name": "医生行为与临床决策",
-      "paper_count": 7
+      "paper_count": 8
     },
     {
       "theme_id": "health-insurance-and-cost-sharing",
@@ -1622,6 +1726,21 @@
       "theme_id": "insurance-choice-and-information-frictions",
       "name": "保险选择与信息摩擦",
       "paper_count": 2
+    },
+    {
+      "theme_id": "health-disparities-and-discrimination",
+      "name": "健康不平等与差别对待",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "empirical-structural-health",
+      "name": "医疗结构估计",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "diagnostic-accuracy",
+      "name": "诊断准确性",
+      "paper_count": 1
     }
   ],
   "topic_distribution": [
@@ -1669,6 +1788,56 @@
       "topic_id": "health-insurance",
       "name": "health insurance",
       "paper_count": 2
+    },
+    {
+      "topic_id": "adhd",
+      "name": "adhd",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "mental-health",
+      "name": "mental health",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "health-disparities",
+      "name": "health disparities",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "physician-decision-making",
+      "name": "physician decision making",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "diagnostic-thresholds",
+      "name": "diagnostic thresholds",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "bayesian-learning",
+      "name": "bayesian learning",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "selection-into-care",
+      "name": "selection into care",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "clinical-notes-nlp",
+      "name": "clinical notes nlp",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "gender-gap",
+      "name": "gender gap",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "electronic-health-records",
+      "name": "electronic health records",
+      "paper_count": 1
     },
     {
       "topic_id": "medicare-fraud",
@@ -2259,7 +2428,7 @@
   "field_distribution": [
     {
       "name": "health-economics",
-      "paper_count": 21
+      "paper_count": 22
     },
     {
       "name": "econometrics",
@@ -2281,7 +2450,7 @@
   "paradigm_distribution": [
     {
       "name": "empirical_structural",
-      "paper_count": 7
+      "paper_count": 8
     },
     {
       "name": "reduced_form_IV",
@@ -2313,8 +2482,9 @@
       {
         "id": "physician-behavior-and-clinical-decision-making",
         "name": "医生行为与临床决策",
-        "paper_count": 7,
+        "paper_count": 8,
         "paper_ids": [
+          "marquardt-2026-physician-decision-adhd",
           "fang-2025-fear-risk-perception",
           "chan-2022-selection-variation-diagnostic",
           "chan-2021-influence-information-team",
@@ -2325,33 +2495,33 @@
         ],
         "top_topics": [
           {
-            "topic_id": "malpractice-lawsuits",
-            "name": "malpractice lawsuits",
+            "topic_id": "adhd",
+            "name": "adhd",
             "paper_count": 1
           },
           {
-            "topic_id": "defensive-medicine",
-            "name": "defensive medicine",
+            "topic_id": "mental-health",
+            "name": "mental health",
             "paper_count": 1
           },
           {
-            "topic_id": "physician-behavior",
-            "name": "physician behavior",
+            "topic_id": "health-disparities",
+            "name": "health disparities",
             "paper_count": 1
           },
           {
-            "topic_id": "salience",
-            "name": "salience",
+            "topic_id": "physician-decision-making",
+            "name": "physician decision making",
             "paper_count": 1
           },
           {
-            "topic_id": "behavioral-health-economics",
-            "name": "behavioral health economics",
+            "topic_id": "diagnostic-thresholds",
+            "name": "diagnostic thresholds",
             "paper_count": 1
           },
           {
-            "topic_id": "diagnostic-skill",
-            "name": "diagnostic skill",
+            "topic_id": "bayesian-learning",
+            "name": "bayesian learning",
             "paper_count": 1
           }
         ]
@@ -2743,6 +2913,126 @@
             "paper_count": 1
           }
         ]
+      },
+      {
+        "id": "health-disparities-and-discrimination",
+        "name": "健康不平等与差别对待",
+        "paper_count": 1,
+        "paper_ids": [
+          "marquardt-2026-physician-decision-adhd"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "adhd",
+            "name": "adhd",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "mental-health",
+            "name": "mental health",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "health-disparities",
+            "name": "health disparities",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "physician-decision-making",
+            "name": "physician decision making",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "diagnostic-thresholds",
+            "name": "diagnostic thresholds",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "bayesian-learning",
+            "name": "bayesian learning",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "empirical-structural-health",
+        "name": "医疗结构估计",
+        "paper_count": 1,
+        "paper_ids": [
+          "marquardt-2026-physician-decision-adhd"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "adhd",
+            "name": "adhd",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "mental-health",
+            "name": "mental health",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "health-disparities",
+            "name": "health disparities",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "physician-decision-making",
+            "name": "physician decision making",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "diagnostic-thresholds",
+            "name": "diagnostic thresholds",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "bayesian-learning",
+            "name": "bayesian learning",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "diagnostic-accuracy",
+        "name": "诊断准确性",
+        "paper_count": 1,
+        "paper_ids": [
+          "marquardt-2026-physician-decision-adhd"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "adhd",
+            "name": "adhd",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "mental-health",
+            "name": "mental health",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "health-disparities",
+            "name": "health disparities",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "physician-decision-making",
+            "name": "physician decision making",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "diagnostic-thresholds",
+            "name": "diagnostic thresholds",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "bayesian-learning",
+            "name": "bayesian learning",
+            "paper_count": 1
+          }
+        ]
       }
     ],
     "theme_edges": [
@@ -2827,6 +3117,54 @@
         ]
       },
       {
+        "source": "diagnostic-accuracy",
+        "target": "empirical-structural-health",
+        "weight": 1,
+        "paper_ids": [
+          "marquardt-2026-physician-decision-adhd"
+        ]
+      },
+      {
+        "source": "diagnostic-accuracy",
+        "target": "health-disparities-and-discrimination",
+        "weight": 1,
+        "paper_ids": [
+          "marquardt-2026-physician-decision-adhd"
+        ]
+      },
+      {
+        "source": "diagnostic-accuracy",
+        "target": "physician-behavior-and-clinical-decision-making",
+        "weight": 1,
+        "paper_ids": [
+          "marquardt-2026-physician-decision-adhd"
+        ]
+      },
+      {
+        "source": "empirical-structural-health",
+        "target": "health-disparities-and-discrimination",
+        "weight": 1,
+        "paper_ids": [
+          "marquardt-2026-physician-decision-adhd"
+        ]
+      },
+      {
+        "source": "empirical-structural-health",
+        "target": "physician-behavior-and-clinical-decision-making",
+        "weight": 1,
+        "paper_ids": [
+          "marquardt-2026-physician-decision-adhd"
+        ]
+      },
+      {
+        "source": "health-disparities-and-discrimination",
+        "target": "physician-behavior-and-clinical-decision-making",
+        "weight": 1,
+        "paper_ids": [
+          "marquardt-2026-physician-decision-adhd"
+        ]
+      },
+      {
         "source": "health-insurance-and-cost-sharing",
         "target": "regulation-design-and-policy-incentives",
         "weight": 1,
@@ -2852,6 +3190,63 @@
       }
     ],
     "paper_nodes": [
+      {
+        "id": "marquardt-2026-physician-decision-adhd",
+        "title": "Mis(sed) Diagnosis: Physician Decision Making and ADHD",
+        "year": 2026,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_structural",
+        "overall": 52,
+        "primary_theme_id": "health-disparities-and-discrimination",
+        "theme_ids": [
+          "health-disparities-and-discrimination",
+          "physician-behavior-and-clinical-decision-making",
+          "empirical-structural-health",
+          "diagnostic-accuracy"
+        ],
+        "topics": [
+          {
+            "topic_id": "adhd",
+            "name": "adhd"
+          },
+          {
+            "topic_id": "mental-health",
+            "name": "mental health"
+          },
+          {
+            "topic_id": "health-disparities",
+            "name": "health disparities"
+          },
+          {
+            "topic_id": "physician-decision-making",
+            "name": "physician decision making"
+          },
+          {
+            "topic_id": "diagnostic-thresholds",
+            "name": "diagnostic thresholds"
+          },
+          {
+            "topic_id": "bayesian-learning",
+            "name": "bayesian learning"
+          },
+          {
+            "topic_id": "selection-into-care",
+            "name": "selection into care"
+          },
+          {
+            "topic_id": "clinical-notes-nlp",
+            "name": "clinical notes nlp"
+          },
+          {
+            "topic_id": "gender-gap",
+            "name": "gender gap"
+          },
+          {
+            "topic_id": "electronic-health-records",
+            "name": "electronic health records"
+          }
+        ]
+      },
       {
         "id": "eliason-2025-ambulance-taxis-impact",
         "title": "Ambulance Taxis: The Impact of Regulation and Litigation on Health-Care Fraud",
@@ -4318,6 +4713,62 @@
         ]
       },
       {
+        "source": "marquardt-2026-physician-decision-adhd",
+        "target": "chan-2016-teamwork-moral-hazard",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "marquardt-2026-physician-decision-adhd",
+        "target": "chan-2021-influence-information-team",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "marquardt-2026-physician-decision-adhd",
+        "target": "chan-2022-selection-variation-diagnostic",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "marquardt-2026-physician-decision-adhd",
+        "target": "chandra-2007-productivity-spillovers-health",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "marquardt-2026-physician-decision-adhd",
+        "target": "currie-2020-understanding-doctor-decision",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "marquardt-2026-physician-decision-adhd",
+        "target": "fang-2025-fear-risk-perception",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
+        "source": "marquardt-2026-physician-decision-adhd",
+        "target": "kolstad-2013-information-quality-when",
+        "weight": 1,
+        "shared_theme_ids": [
+          "physician-behavior-and-clinical-decision-making"
+        ]
+      },
+      {
         "source": "olden-2022-triple-difference-estimator",
         "target": "fang-2017-detecting-potential-overbilling",
         "weight": 1,
@@ -4423,6 +4874,7 @@
       "ito-2018-economics-attribute-based-regulation",
       "ortiz-2025-better-understanding-triple",
       "chen-2021-team-specific-human",
+      "marquardt-2026-physician-decision-adhd",
       "eliason-2025-ambulance-taxis-impact",
       "olden-2022-triple-difference-estimator",
       "brot-goldberg-2017-what-does-deductible",
@@ -4448,6 +4900,7 @@
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion",
       "chandra-2007-productivity-spillovers-health",
+      "marquardt-2026-physician-decision-adhd",
       "eliason-2025-ambulance-taxis-impact",
       "chan-2021-influence-information-team",
       "chen-2021-team-specific-human",
@@ -4482,6 +4935,7 @@
       "chan-2016-teamwork-moral-hazard",
       "shigeoka-2014-effect-patient-cost",
       "kolstad-2013-information-quality-when",
+      "marquardt-2026-physician-decision-adhd",
       "eliason-2025-ambulance-taxis-impact",
       "fang-2025-fear-risk-perception",
       "einav-2015-response-drug-expenditure",
@@ -4506,6 +4960,7 @@
       "einav-2015-response-drug-expenditure",
       "shigeoka-2014-effect-patient-cost",
       "chandra-2007-productivity-spillovers-health",
+      "marquardt-2026-physician-decision-adhd",
       "ortiz-2025-better-understanding-triple",
       "chan-2021-influence-information-team",
       "chen-2021-team-specific-human",
@@ -4527,6 +4982,7 @@
       "chandra-2020-identifying-sources-inefficiency",
       "handel-2015-health-insurance-humans",
       "kamenica-2011-bayesian-persuasion",
+      "marquardt-2026-physician-decision-adhd",
       "eliason-2025-ambulance-taxis-impact",
       "ortiz-2025-better-understanding-triple",
       "olden-2022-triple-difference-estimator",
@@ -4554,6 +5010,7 @@
       "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion",
+      "marquardt-2026-physician-decision-adhd",
       "ortiz-2025-better-understanding-triple",
       "olden-2022-triple-difference-estimator",
       "chen-2021-team-specific-human",
@@ -4587,6 +5044,7 @@
       "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
       "chandra-2007-productivity-spillovers-health",
+      "marquardt-2026-physician-decision-adhd",
       "eliason-2025-ambulance-taxis-impact",
       "ortiz-2025-better-understanding-triple",
       "olden-2022-triple-difference-estimator",
@@ -4606,11 +5064,11 @@
     ]
   },
   "latest": [
+    "marquardt-2026-physician-decision-adhd",
     "ito-2018-economics-attribute-based-regulation",
     "brot-goldberg-2017-what-does-deductible",
     "chandra-2024-health-costs-cost",
     "shigeoka-2014-effect-patient-cost",
-    "hayek-1945-use-knowledge-society",
-    "grossman-2000-human-capital-model"
+    "hayek-1945-use-knowledge-society"
   ]
 }
