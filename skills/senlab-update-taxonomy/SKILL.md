@@ -17,6 +17,9 @@ Use this skill only for themes, keywords, and theme-link maintenance.
 ## Taxonomy Rules
 
 - `Theme Links` are for mid-level cross-paper themes that organize the library, not for one-paper-specific topics.
+- Each paper should normally have 1-3 theme links.
+- Prefer an existing theme before proposing a new one.
+- Create a new theme only when it can plausibly aggregate at least three papers or represents a durable part of the user's research agenda.
 - Fine-grained concepts should usually live in paper-level `tags` / keywords rather than as standalone themes.
 - Prefer themes that can plausibly group multiple papers and support site-level navigation or network views.
 - Do not create near-duplicate themes that differ only in wording.
@@ -26,7 +29,8 @@ Use this skill only for themes, keywords, and theme-link maintenance.
 ## Keyword Rules
 
 - Keywords should improve future search and reuse, not merely repeat the title.
-- Prefer 4 to 8 high-information keywords.
+- Prefer 5 to 10 high-information keywords.
+- Normalize synonyms through `config/topic-aliases.json` rather than keeping duplicate topic identities.
 - Keep original-language technical terms only when translation would reduce precision.
 
 ## Update Procedure

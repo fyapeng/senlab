@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import re
 import sqlite3
 from datetime import datetime, timezone
@@ -13,10 +14,12 @@ from senlab_markdown import (
     parse_frontmatter_and_body,
     parse_heading_sections,
 )
+from migrate_db import migrate
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DB_PATH = ROOT / "data" / "senlab.db"
+TOPIC_ALIASES_PATH = ROOT / "config" / "topic-aliases.json"
 
 
 def now() -> str:
@@ -31,8 +34,54 @@ def _first_author(authors: str) -> str:
     return parts[-1].lower() if parts else ""
 
 
+def _slug(value: str) -> str:
+    value = value.strip().lower().replace("_", " ")
+    return re.sub(r"[^a-z0-9\u4e00-\u9fff]+", "-", value).strip("-")
+
+
+def _topic_aliases() -> dict[str, str]:
+    if not TOPIC_ALIASES_PATH.exists():
+        return {}
+    payload = json.loads(TOPIC_ALIASES_PATH.read_text(encoding="utf-8"))
+    return {_slug(alias): _slug(topic_id) for alias, topic_id in payload.items()}
+
+
+def _normalize_topic(value: str, aliases: dict[str, str]) -> str:
+    topic_id = _slug(value)
+    return aliases.get(topic_id, topic_id)
+
+
+def _sync_topics(
+    conn: sqlite3.Connection,
+    work_id: str,
+    tags: list | None,
+    timestamp: str,
+    aliases: dict[str, str],
+) -> None:
+    conn.execute("DELETE FROM paper_topic_links WHERE work_id=?", (work_id,))
+    seen: set[str] = set()
+    for raw_tag in tags or []:
+        topic_id = _normalize_topic(str(raw_tag), aliases)
+        if not topic_id or topic_id in seen:
+            continue
+        seen.add(topic_id)
+        conn.execute(
+            """
+            INSERT INTO topics (topic_id, name, topic_group, created_at, updated_at)
+            VALUES (?, ?, '', ?, ?)
+            ON CONFLICT(topic_id) DO UPDATE SET updated_at=excluded.updated_at
+            """,
+            (topic_id, topic_id.replace("-", " "), timestamp, timestamp),
+        )
+        conn.execute(
+            "INSERT OR REPLACE INTO paper_topic_links (work_id, topic_id) VALUES (?, ?)",
+            (work_id, topic_id),
+        )
+
+
 def sync_papers(conn: sqlite3.Connection) -> None:
     timestamp = now()
+    aliases = _topic_aliases()
     for path in sorted((ROOT / "canonical" / "papers").glob("*.md")):
         text = load_text(path)
         fm, body = parse_frontmatter_and_body(text)
@@ -74,8 +123,8 @@ def sync_papers(conn: sqlite3.Connection) -> None:
                 work_id, markdown_path, title, authors, year, publication_status,
                 journal_or_series, doi, field, subfield, paper_paradigm,
                 research_question, why_it_matters, core_object, approach, main_claim,
-                why_in_my_db, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                why_in_my_db, visibility, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(work_id) DO UPDATE SET
                 markdown_path=excluded.markdown_path,
                 title=excluded.title,
@@ -93,6 +142,7 @@ def sync_papers(conn: sqlite3.Connection) -> None:
                 approach=excluded.approach,
                 main_claim=excluded.main_claim,
                 why_in_my_db=excluded.why_in_my_db,
+                visibility=excluded.visibility,
                 updated_at=excluded.updated_at
             """,
             (
@@ -113,9 +163,12 @@ def sync_papers(conn: sqlite3.Connection) -> None:
                 compact_text(sections.get("Approach", "")),
                 compact_text(sections.get("Main Claim", "")),
                 compact_text(sections.get("Why In My Database", "")),
+                fm.get("visibility", "public"),
                 timestamp,
             ),
         )
+
+        _sync_topics(conn, work_id, fm.get("tags"), timestamp, aliases)
 
         dao, dao_note = extract_score_and_note(sections.get("Dao", ""))
         fa, fa_note = extract_score_and_note(sections.get("Fa", ""))
@@ -202,6 +255,7 @@ def sync_excerpts(conn: sqlite3.Connection) -> None:
 
 def sync_lenses(conn: sqlite3.Connection) -> None:
     timestamp = now()
+    aliases = _topic_aliases()
     for path in sorted((ROOT / "canonical" / "lenses").glob("*.md")):
         text = load_text(path)
         fm, body = parse_frontmatter_and_body(text)
@@ -210,9 +264,10 @@ def sync_lenses(conn: sqlite3.Connection) -> None:
         conn.execute(
             """
             INSERT OR REPLACE INTO lenses (
-                lens_id, work_id, theme_id, markdown_path, lens_type, claim, interpretation,
-                overclaim_risk, safer_formulation, updated_at
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                lens_id, work_id, theme_id, markdown_path, lens_type, title, claim,
+                interpretation, use_when, overclaim_risk, safer_formulation,
+                source_locator, keywords, updated_at
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """,
             (
                 lens_id,
@@ -220,10 +275,14 @@ def sync_lenses(conn: sqlite3.Connection) -> None:
                 fm.get("theme_id", ""),
                 str(path),
                 fm.get("lens_type", ""),
+                compact_text(sections.get("Citation Point Title", "")),
                 compact_text(sections.get("Claim I Want To Support", "")) or compact_text(sections.get("Claim I Want to Use", "")),
                 compact_text(sections.get("My Interpretation", "")) or compact_text(sections.get("Why I Am Using This Paper Here", "")),
+                compact_text(sections.get("Use When", "")) or compact_text(sections.get("Why I Am Using This Paper Here", "")),
                 compact_text(sections.get("Overclaim Risk", "")),
                 compact_text(sections.get("Safer Formulation", "")),
+                compact_text(sections.get("Source Locator", "")),
+                json.dumps(extract_list_items(sections.get("Keywords", "")), ensure_ascii=False),
                 timestamp,
             ),
         )
@@ -235,6 +294,26 @@ def sync_lenses(conn: sqlite3.Connection) -> None:
                     "INSERT OR REPLACE INTO lens_excerpt_links (lens_id, excerpt_id) VALUES (?, ?)",
                     (lens_id, excerpt_id),
                 )
+        conn.execute("DELETE FROM lens_topic_links WHERE lens_id=?", (lens_id,))
+        keyword_items = extract_list_items(sections.get("Keywords", ""))
+        if not keyword_items:
+            keyword_items = [fm.get("lens_type", "")]
+        for keyword in keyword_items:
+            topic_id = _normalize_topic(str(keyword), aliases)
+            if not topic_id:
+                continue
+            conn.execute(
+                """
+                INSERT INTO topics (topic_id, name, topic_group, created_at, updated_at)
+                VALUES (?, ?, '', ?, ?)
+                ON CONFLICT(topic_id) DO UPDATE SET updated_at=excluded.updated_at
+                """,
+                (topic_id, topic_id.replace("-", " "), timestamp, timestamp),
+            )
+            conn.execute(
+                "INSERT OR REPLACE INTO lens_topic_links (lens_id, topic_id) VALUES (?, ?)",
+                (lens_id, topic_id),
+            )
 
 
 def sync_themes(conn: sqlite3.Connection) -> None:
@@ -263,6 +342,7 @@ def main() -> None:
         raise SystemExit(f"Database not found: {DB_PATH}")
     with sqlite3.connect(DB_PATH) as conn:
         conn.row_factory = sqlite3.Row
+        migrate(conn)
         sync_papers(conn)
         sync_excerpts(conn)
         sync_lenses(conn)

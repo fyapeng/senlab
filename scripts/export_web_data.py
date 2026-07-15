@@ -70,6 +70,15 @@ def write_json(path: Path, payload: dict) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
+def citation_title(title: str | None, claim: str | None, lens_type: str | None) -> str:
+    if title and title.strip():
+        return title.strip()
+    text = (claim or "").strip()
+    if text:
+        return text[:34] + ("…" if len(text) > 34 else "")
+    return humanize_slug(lens_type) or "引用点"
+
+
 def main() -> None:
     if not DB_PATH.exists():
         raise SystemExit(f"Database not found: {DB_PATH}")
@@ -77,6 +86,7 @@ def main() -> None:
     with sqlite3.connect(DB_PATH) as conn:
         conn.row_factory = sqlite3.Row
         papers = []
+        citation_points = []
         paradigm_counter: Counter[str] = Counter()
         field_counter: Counter[str] = Counter()
         theme_counter: Counter[str] = Counter()
@@ -104,20 +114,33 @@ def main() -> None:
                 pc.why_in_my_db,
                 pc.journal_or_series,
                 pc.doi,
+                pc.visibility,
                 r.dao, r.fa, r.shi, r.shu, r.qi, r.subjective,
                 r.dao_note, r.fa_note, r.shi_note, r.shu_note, r.qi_note, r.subjective_note,
                 r.one_line_judgment
             FROM works w
             LEFT JOIN paper_cards pc ON pc.work_id = w.work_id
             LEFT JOIN ratings r ON r.work_id = w.work_id
+            WHERE COALESCE(pc.visibility, 'public') = 'public'
             ORDER BY w.year DESC, w.title
             """
         ).fetchall()
 
         for row in paper_rows:
             work_id = row["work_id"]
-            frontmatter = parse_card_frontmatter(row["markdown_path"])
-            topics = topic_objects(frontmatter.get("tags"))
+            topics = [
+                {"topic_id": t["topic_id"], "name": t["name"] or humanize_slug(t["topic_id"])}
+                for t in conn.execute(
+                    """
+                    SELECT ptl.topic_id, t.name
+                    FROM paper_topic_links ptl
+                    JOIN topics t ON t.topic_id = ptl.topic_id
+                    WHERE ptl.work_id = ?
+                    ORDER BY t.name
+                    """,
+                    (work_id,),
+                )
+            ]
             themes = [
                 {
                     "theme_id": t["theme_id"],
@@ -164,10 +187,14 @@ def main() -> None:
                     "lens_id": l["lens_id"],
                     "theme_id": l["theme_id"],
                     "lens_type": l["lens_type"],
+                    "title": citation_title(l["title"], l["claim"], l["lens_type"]),
                     "claim": l["claim"],
                     "interpretation": l["interpretation"],
+                    "use_when": l["use_when"],
                     "overclaim_risk": l["overclaim_risk"],
                     "safer_formulation": l["safer_formulation"],
+                    "source_locator": l["source_locator"],
+                    "keywords": json.loads(l["keywords"] or "[]"),
                     "evidence_excerpt_ids": [
                         row["excerpt_id"]
                         for row in conn.execute(
@@ -183,7 +210,8 @@ def main() -> None:
                 }
                 for l in conn.execute(
                     """
-                    SELECT lens_id, theme_id, lens_type, claim, interpretation, overclaim_risk, safer_formulation
+                    SELECT lens_id, theme_id, lens_type, title, claim, interpretation,
+                           use_when, overclaim_risk, safer_formulation, source_locator, keywords
                     FROM lenses
                     WHERE work_id = ?
                     ORDER BY lens_id
@@ -191,6 +219,20 @@ def main() -> None:
                     (work_id,),
                 )
             ]
+
+            for lens in lenses:
+                citation_points.append(
+                    {
+                        **lens,
+                        "work_id": work_id,
+                        "paper_title": row["title"],
+                        "authors": row["authors"],
+                        "year": row["year"],
+                        "field": row["field"],
+                        "paper_paradigm": row["paper_paradigm"],
+                        "themes": themes,
+                    }
+                )
 
             sections = parse_card_sections(row["markdown_path"])
             overall_score = sum(
@@ -242,6 +284,7 @@ def main() -> None:
                 "themes": themes,
                 "excerpts": excerpts,
                 "lenses": lenses,
+                "citation_points": lenses,
                 "sections": sections,
             }
             papers.append(paper_detail)
@@ -372,6 +415,7 @@ def main() -> None:
                 "topic_count": len(topic_counter),
                 "excerpt_count": sum(len(paper["excerpts"]) for paper in papers),
                 "lens_count": sum(len(paper["lenses"]) for paper in papers),
+                "citation_count": len(citation_points),
                 "updated_from_local_db": True,
             },
             "score_dimensions": [
@@ -399,6 +443,7 @@ def main() -> None:
                     "themes": paper["themes"],
                     "excerpt_count": len(paper["excerpts"]),
                     "lens_count": len(paper["lenses"]),
+                    "citation_count": len(paper["lenses"]),
                 }
                 for paper in papers
             ],
@@ -428,6 +473,13 @@ def main() -> None:
         }
 
     write_json(WEB_DATA / "site-index.json", site_index)
+    write_json(
+        WEB_DATA / "citations.json",
+        {
+            "meta": {"citation_count": len(citation_points)},
+            "citation_points": citation_points,
+        },
+    )
     print(f"Exported site index and {len(papers)} paper detail files to {WEB_DATA}")
 
 

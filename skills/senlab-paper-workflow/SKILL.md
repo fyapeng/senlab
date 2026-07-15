@@ -24,8 +24,8 @@ When the task spans multiple stages, produce or update the following SenLab obje
 2. One `paper_version` identity.
 3. One extracted full-text markdown file.
 4. One normalized paper card markdown file.
-5. Zero or more excerpt markdown files.
-6. One or more citation lens markdown files when the paper has identifiable reusable functions.
+5. Zero or more excerpt markdown files when a precise evidence anchor is useful.
+6. Roughly 6-15 distinct citation-point markdown files when the paper has reusable writing functions.
 7. One database update through the project ingestion scripts when possible.
 
 Keep outputs deterministic and template-driven. Do not invent fields. Leave unknown fields blank or mark them as `TODO_VERIFY`.
@@ -141,7 +141,7 @@ Every paper card must contain the following ratings:
 - `qi`
 - `subjective`
 
-Use integers from 1 to 5 only.
+Use integers from 1 to 10 only.
 
 Interpret them as:
 
@@ -154,7 +154,7 @@ Interpret them as:
 
 Add one short justification sentence for each dimension. Do not collapse them into a single total score.
 
-### 5. Draft or revise excerpts
+### 5. Draft or revise optional excerpts
 
 Extract only high-value evidence blocks. Favor:
 
@@ -166,36 +166,42 @@ Extract only high-value evidence blocks. Favor:
 - mechanism or counterfactual claims
 - explicit limitations
 
-Every excerpt must include a location reference.
+Every created excerpt must include a location reference. Do not create excerpt files merely to satisfy a quota; the full paper Markdown remains available as AI evidence context.
 
 ### 6. Draft or revise citation lenses
 
-Citation lenses are required when the paper is reusable for future writing, argumentation, or theme construction.
+Citation points are required when the paper is reusable for future writing, argumentation, or theme construction. Generate multiple distinct points across results, mechanisms, identification, methods, policy, theory, limitations, and research gaps when supported.
 
 Use one of these `lens_type` values only:
 
 - `fact`
+- `result`
 - `mechanism`
+- `identification`
 - `method`
 - `data`
 - `theory`
 - `policy`
 - `counterfactual`
+- `limitation`
+- `research_gap`
 - `opportunity`
 
 For each lens, answer:
 
 - why the paper is being used here
 - which claim is supported
-- which excerpt(s) support the claim
+- when the point is useful
+- which excerpt(s) or source location support the claim when available
 - whether there is an overclaim risk
 - what the safer formulation is
+- which keywords improve retrieval
 
 Do not create vague or generic lenses.
 
 ### 7. Link or revise themes
 
-Add theme links only when a theme is genuinely identified. Do not fabricate broad themes. Prefer a small number of precise theme links.
+Add 1-3 theme links only when genuinely identified. Reuse existing themes before creating new ones. Put one-paper-specific concepts in topics rather than themes.
 
 ## File Discipline
 

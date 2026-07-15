@@ -1,0 +1,11 @@
+{
+  "DDD": "triple-difference",
+  "difference-in-difference-in-differences": "triple-difference",
+  "difference-in-differences-in-differences": "triple-difference",
+  "triple-differences": "triple-difference",
+  "doctor-decision-making": "physician-decision-making",
+  "physician-behavior": "physician-decision-making",
+  "medical-provider-behavior": "provider-behavior",
+  "cost-sharing-design": "cost-sharing",
+  "health-insurance-choice": "insurance-choice"
+}
