@@ -133,6 +133,34 @@ function escHtml(str) {
     .replace(/"/g, "&quot;");
 }
 
+function renderMath(root) {
+  if (!root || typeof window.renderMathInElement !== "function") return;
+  window.renderMathInElement(root, {
+    delimiters: [
+      { left: "$$", right: "$$", display: true },
+      { left: "\\[", right: "\\]", display: true },
+      { left: "\\(", right: "\\)", display: false },
+      { left: "$", right: "$", display: false },
+    ],
+    throwOnError: false,
+    strict: "ignore",
+    trust: false,
+  });
+}
+
+function bindDisclosureGroup(root, groupName) {
+  const button = root.querySelector(`[data-toggle-details="${groupName}"]`);
+  if (!button) return;
+  const items = Array.from(root.querySelectorAll(`[data-detail-group="${groupName}"]`));
+  button.addEventListener("click", () => {
+    const shouldOpen = !items.every((item) => item.open);
+    items.forEach((item) => { item.open = shouldOpen; });
+    button.textContent = shouldOpen ? "全部收起" : "展开全部";
+    button.setAttribute("aria-expanded", String(shouldOpen));
+    if (shouldOpen) renderMath(root);
+  });
+}
+
 function formatField(value) {
   return FIELD_LABELS[value] || value || "未分类";
 }
@@ -261,13 +289,25 @@ async function getApiJson(path, timeoutMs = 3500) {
 }
 
 async function getPaperData(workId) {
+  const localPromise = getJson(`${PAPER_DATA_BASE}${encodeURIComponent(workId)}.json`).catch(() => null);
   try {
-    const paper = await getApiJson(`/api/papers/${encodeURIComponent(workId)}`);
-    paper.lenses = paper.citation_points || [];
-    paper.excerpts = paper.excerpts || [];
-    return paper;
+    const [paper, localPaper] = await Promise.all([
+      getApiJson(`/api/papers/${encodeURIComponent(workId)}`),
+      localPromise,
+    ]);
+    const apiLenses = paper.citation_points || paper.lenses || [];
+    const apiExcerpts = paper.excerpts || [];
+    return {
+      ...(localPaper || {}),
+      ...paper,
+      sections: { ...(localPaper?.sections || {}), ...(paper.sections || {}) },
+      lenses: apiLenses.length ? apiLenses : localPaper?.lenses || [],
+      excerpts: apiExcerpts.length ? apiExcerpts : localPaper?.excerpts || [],
+    };
   } catch {
-    return getJson(`${PAPER_DATA_BASE}${encodeURIComponent(workId)}.json`);
+    const localPaper = await localPromise;
+    if (!localPaper) throw new Error(`Failed to load paper ${workId}`);
+    return localPaper;
   }
 }
 
@@ -1609,13 +1649,74 @@ async function renderPaper(site) {
     ["核心判断", paper.main_claim],
     ["收录理由", paper.why_in_my_db],
   ];
+  const lensTypeCounts = Object.entries(
+    paper.lenses.reduce((counts, lens) => {
+      const type = lens.lens_type || lens.point_type || "other";
+      counts[type] = (counts[type] || 0) + 1;
+      return counts;
+    }, {})
+  );
+  const lensMarkup = paper.lenses.length
+    ? paper.lenses
+        .map((lens, index) => {
+          const linkedTheme = paper.themes.find((theme) => theme.theme_id === lens.theme_id);
+          const evidenceItems = (lens.evidence_excerpt_ids || [])
+            .map((excerptId) => {
+              const excerpt = paper.excerpts.find((item) => item.excerpt_id === excerptId);
+              const label = excerpt
+                ? `${formatTopic(excerpt.topic)} · ${formatLocation(excerpt.location)}`
+                : excerptId;
+              return `<span class="chip">${escHtml(label)}</span>`;
+            })
+            .join("");
+          const title = lens.title || formatThemeName(linkedTheme || lens);
+          return `
+            <details class="research-item" data-detail-group="lenses" ${index === 0 ? "open" : ""}>
+              <summary>
+                <span class="research-type">${escHtml(formatLensType(lens.lens_type || lens.point_type))}</span>
+                <strong>${escHtml(title)}</strong>
+              </summary>
+              <div class="research-item-body">
+                <div class="research-primary"><span>可直接使用</span><p>${escHtml(lens.safer_formulation || lens.claim || "—")}</p></div>
+                <dl class="research-fields">
+                  <dt>支持论点</dt><dd>${escHtml(lens.claim || "—")}</dd>
+                  <dt>适用场景</dt><dd>${escHtml(lens.use_when || lens.interpretation || "—")}</dd>
+                  <dt>使用边界</dt><dd>${escHtml(lens.boundary || lens.overclaim_risk || "—")}</dd>
+                  ${lens.source_locator ? `<dt>原文定位</dt><dd>${escHtml(lens.source_locator)}</dd>` : ""}
+                </dl>
+                ${evidenceItems ? `<div class="chip-row research-evidence-links">${evidenceItems}</div>` : ""}
+              </div>
+            </details>`;
+        })
+        .join("")
+    : '<div class="empty compact-empty">该论文的引用视角尚未补完。</div>';
+  const excerptMarkup = paper.excerpts.length
+    ? paper.excerpts
+        .map(
+          (excerpt, index) => `
+            <details class="research-item evidence-item" data-detail-group="excerpts" ${index === 0 ? "open" : ""}>
+              <summary>
+                <span class="research-type">证据</span>
+                <strong>${escHtml(formatTopic(excerpt.topic))} · ${escHtml(formatLocation(excerpt.location))}</strong>
+              </summary>
+              <div class="research-item-body">
+                <div class="research-primary evidence-primary"><span>证据内容</span><p>${escHtml(excerpt.quote_or_paraphrase || "—")}</p></div>
+                <dl class="research-fields">
+                  <dt>为何重要</dt><dd>${escHtml(excerpt.why_this_matters || "—")}</dd>
+                  <dt>摘录编号</dt><dd class="research-id">${escHtml(excerpt.excerpt_id || "—")}</dd>
+                </dl>
+              </div>
+            </details>`
+        )
+        .join("")
+    : '<div class="empty compact-empty">该论文的证据摘录尚未补完。</div>';
 
   main.innerHTML = `
     <section class="paper-hero">
       <article class="panel paper-head">
         <div class="eyebrow">论文档案</div>
-        <h1 class="${titleClass}">${paper.title}</h1>
-        <div class="paper-byline">${paper.authors || ""}</div>
+        <h1 class="${titleClass}">${escHtml(paper.title)}</h1>
+        <div class="paper-byline">${escHtml(paper.authors || "")}</div>
         <div class="paper-meta-line">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
         <div class="paper-meta-line">${paper.journal_or_series || "期刊待补充"}${paper.doi ? ` · DOI: ${paper.doi}` : ""}</div>
         <div class="chip-row">
@@ -1662,7 +1763,7 @@ async function renderPaper(site) {
               (key) => `
                 <section class="section-block">
                   <h4>${SECTION_LABELS[key] || key}</h4>
-                  <p>${sections[key]}</p>
+                  <p>${escHtml(sections[key])}</p>
                 </section>
               `
             )
@@ -1670,68 +1771,30 @@ async function renderPaper(site) {
         </article>
       </div>
 
-      <div class="detail-stack">
-        <article class="detail-card panel">
-          <div class="section-head compact">
+      <aside class="detail-stack paper-aside">
+        <article class="detail-card panel research-panel">
+          <div class="section-head compact research-panel-head">
             <div>
               <div class="eyebrow">视角</div>
-              <h2 class="section-title">引用视角</h2>
+              <h2 class="section-title">引用点 <span class="section-count">${paper.lenses.length}</span></h2>
             </div>
+            <button type="button" class="text-button" data-toggle-details="lenses" aria-expanded="false">展开全部</button>
           </div>
-          <div class="stack-list">
-            ${paper.lenses.length
-              ? paper.lenses
-                  .map((lens) => {
-                const linkedTheme = paper.themes.find((theme) => theme.theme_id === lens.theme_id);
-                const evidenceItems = (lens.evidence_excerpt_ids || [])
-                  .map((excerptId) => {
-                    const excerpt = paper.excerpts.find((item) => item.excerpt_id === excerptId);
-                    const label = excerpt
-                      ? `${formatTopic(excerpt.topic)} · ${formatLocation(excerpt.location)}`
-                      : excerptId;
-                    return `<span class="chip">${escHtml(label)}</span>`;
-                  })
-                  .join("");
-                return `
-                  <div class="stack-item">
-                    <strong>${formatLensType(lens.lens_type || lens.point_type)} · ${escHtml(lens.title || formatThemeName(linkedTheme || lens))}</strong>
-                    <div class="muted"><strong>支持论点：</strong>${escHtml(lens.claim || "—")}</div>
-                    <div class="muted"><strong>适用场景：</strong>${escHtml(lens.use_when || lens.interpretation || "—")}</div>
-                    <div class="muted"><strong>使用边界：</strong>${escHtml(lens.boundary || lens.overclaim_risk || "—")}</div>
-                    <div class="muted"><strong>更稳妥的说法：</strong>${escHtml(lens.safer_formulation || "—")}</div>
-                    ${lens.source_locator ? `<div class="muted"><strong>原文定位：</strong>${escHtml(lens.source_locator)}</div>` : ""}
-                    ${evidenceItems ? `<div class="chip-row">${evidenceItems}</div>` : ""}
-                  </div>
-                `;
-                  })
-                  .join("")
-              : '<div class="empty">该论文的引用视角尚未补完。</div>'}
+          <div class="research-summary-row">
+            ${lensTypeCounts.map(([type, count]) => `<span>${escHtml(formatLensType(type))} ${count}</span>`).join("")}
           </div>
+          <div class="research-list">${lensMarkup}</div>
         </article>
 
-        <article class="detail-card panel">
-          <div class="section-head compact">
+        <article class="detail-card panel research-panel">
+          <div class="section-head compact research-panel-head">
             <div>
               <div class="eyebrow">摘录</div>
-              <h2 class="section-title">证据摘录</h2>
+              <h2 class="section-title">证据摘录 <span class="section-count">${paper.excerpts.length}</span></h2>
             </div>
+            <button type="button" class="text-button" data-toggle-details="excerpts" aria-expanded="false">展开全部</button>
           </div>
-          <div class="stack-list">
-            ${paper.excerpts.length
-              ? paper.excerpts
-                  .map(
-                (excerpt) => `
-                  <div class="stack-item">
-                    <strong>${formatTopic(excerpt.topic)} · ${formatLocation(excerpt.location)}</strong>
-                    <div class="muted"><strong>证据内容：</strong>${escHtml(excerpt.quote_or_paraphrase || "—")}</div>
-                    <div class="muted"><strong>为何重要：</strong>${escHtml(excerpt.why_this_matters || "—")}</div>
-                    <div class="muted"><strong>摘录编号：</strong>${escHtml(excerpt.excerpt_id || "—")}</div>
-                  </div>
-                `
-              )
-                  .join("")
-              : '<div class="empty">该论文的证据摘录尚未补完。</div>'}
-          </div>
+          <div class="research-list evidence-list">${excerptMarkup}</div>
         </article>
 
         <article class="detail-card panel">
@@ -1761,9 +1824,15 @@ async function renderPaper(site) {
               .join("")}
           </div>
         </article>
-      </div>
+      </aside>
     </section>
   `;
+  bindDisclosureGroup(main, "lenses");
+  bindDisclosureGroup(main, "excerpts");
+  main.querySelectorAll("details.research-item").forEach((item) => {
+    item.addEventListener("toggle", () => { if (item.open) renderMath(item); });
+  });
+  renderMath(main);
 }
 
 async function bootstrap() {
