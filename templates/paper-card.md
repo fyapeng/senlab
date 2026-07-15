@@ -11,6 +11,7 @@ field:
 subfield:
 paper_paradigm:
 status: draft
+visibility: public
 tags: []
 ---
 

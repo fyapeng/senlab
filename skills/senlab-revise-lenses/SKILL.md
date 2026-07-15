@@ -14,6 +14,7 @@ Use this skill only after the paper card already exists.
 - add, replace, split, merge, or delete a lens
 - relink a lens to different excerpts
 - rewrite overclaim risk or safer formulation
+- add or revise citation-point title, use-when guidance, source locator, or retrieval keywords
 - revise lens-theme linkage after taxonomy changes
 
 ## Excerpt Rules
@@ -29,9 +30,11 @@ Use this skill only after the paper card already exists.
 - Create a new lens ID when the reusable function changes materially.
 - Delete a lens only if it is redundant, unsupported, or misclassified.
 - Every lens must still state:
+  - a recognizable citation-point title
   - why this paper is used here
   - which claim is supported
-  - which excerpts support it
+  - when it is useful
+  - which excerpts or source location support it when available
   - what the overclaim risk is
   - what the safer formulation is
 
@@ -45,7 +48,7 @@ Use this skill only after the paper card already exists.
 
 Before finishing:
 
-1. Confirm every retained lens points to explicit excerpt evidence.
+1. Confirm quantitative or delicate claims have an excerpt or source locator when available.
 2. Confirm no excerpt or lens ID was changed unnecessarily.
 3. Resync canonical markdown into SQLite.
 4. Re-export website data if the paper is public on the site.

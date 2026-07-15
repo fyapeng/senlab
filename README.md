@@ -8,9 +8,9 @@ It combines:
 - stable work/version identity management
 - structured paper cards
 - Dao-Fa-Shi-Shu-Qi plus subjective 10-point ratings
-- citation lenses for reusable claims
+- citation points for claims that can be searched, reused, and safely quoted
 - SQLite-backed indexing
-- a static demo web interface for search, detail, and comparison
+- a static web interface backed by a Cloudflare Worker + D1 public API
 
 ## Repository Scope
 
@@ -45,37 +45,42 @@ python .\scripts\ingest_paper.py "D:\path\to\paper.pdf"
 python .\scripts\seed_demo_content.py
 ```
 
-### 4. Export demo web data
+### 4. Export the local web fallback
 
 ```powershell
 python .\scripts\export_web_data.py
 ```
 
-### 5. Open the demo web page
+### 5. Export the public Cloudflare dataset
+
+```powershell
+python .\scripts\export_cloudflare_data.py
+```
+
+The generated SQL is written to `output/senlab-public.sql` and is deliberately ignored by Git.
+
+### 6. Open the web page
 
 Open [index.html](E:\SenLab\index.html).
 
-## GitHub Repository Setup
+## Data Boundaries
 
-When creating `fyapeng/senlab`:
+- `data/senlab.db`, PDFs, full Markdown notes, excerpts, and local paths stay local.
+- Only records marked `visibility: public` are exported to D1.
+- The public API contains bibliographic fields, themes/topics, ratings, and citation points; it contains no PDFs or full-text notes.
+- The API source lives in the private `fyapeng/senlab-api` repository.
 
-- Repository name: `senlab`
-- Visibility: `Private` recommended for now
-- Add README: `Off`
-- Add .gitignore: `No .gitignore`
-- Add license: `No license`
-
-Create the empty repository first, then push the local project so there is no extra merge step.
+See [docs/architecture.md](docs/architecture.md) for the system design and [docs/publishing.md](docs/publishing.md) for the update workflow.
 
 ## Demo Features
 
 - dashboard overview
 - ranking page
-- search page
+- citation-first search page and citation basket
 - paper detail page
 - compare page
 - six-dimension 10-point ratings
-- locally synchronized canonical content
+- API-first loading with local static fallback
 
 ## Current Demo Papers
 

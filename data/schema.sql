@@ -48,6 +48,7 @@ CREATE TABLE IF NOT EXISTS paper_cards (
     approach TEXT,
     main_claim TEXT,
     why_in_my_db TEXT,
+    visibility TEXT NOT NULL DEFAULT 'public',
     updated_at TEXT NOT NULL,
     FOREIGN KEY (work_id) REFERENCES works(work_id)
 );
@@ -92,10 +93,14 @@ CREATE TABLE IF NOT EXISTS lenses (
     theme_id TEXT,
     markdown_path TEXT NOT NULL,
     lens_type TEXT NOT NULL,
+    title TEXT,
     claim TEXT,
     interpretation TEXT,
+    use_when TEXT,
     overclaim_risk TEXT,
     safer_formulation TEXT,
+    source_locator TEXT,
+    keywords TEXT,
     updated_at TEXT NOT NULL,
     FOREIGN KEY (work_id) REFERENCES works(work_id)
 );
@@ -124,3 +129,39 @@ CREATE TABLE IF NOT EXISTS paper_theme_links (
     FOREIGN KEY (work_id) REFERENCES works(work_id),
     FOREIGN KEY (theme_id) REFERENCES themes(theme_id)
 );
+
+CREATE TABLE IF NOT EXISTS topics (
+    topic_id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    topic_group TEXT,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS topic_aliases (
+    alias TEXT PRIMARY KEY,
+    topic_id TEXT NOT NULL,
+    FOREIGN KEY (topic_id) REFERENCES topics(topic_id)
+);
+
+CREATE TABLE IF NOT EXISTS paper_topic_links (
+    work_id TEXT NOT NULL,
+    topic_id TEXT NOT NULL,
+    PRIMARY KEY (work_id, topic_id),
+    FOREIGN KEY (work_id) REFERENCES works(work_id),
+    FOREIGN KEY (topic_id) REFERENCES topics(topic_id)
+);
+
+CREATE TABLE IF NOT EXISTS lens_topic_links (
+    lens_id TEXT NOT NULL,
+    topic_id TEXT NOT NULL,
+    PRIMARY KEY (lens_id, topic_id),
+    FOREIGN KEY (lens_id) REFERENCES lenses(lens_id),
+    FOREIGN KEY (topic_id) REFERENCES topics(topic_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_paper_theme_theme ON paper_theme_links(theme_id);
+CREATE INDEX IF NOT EXISTS idx_paper_topic_topic ON paper_topic_links(topic_id);
+CREATE INDEX IF NOT EXISTS idx_lenses_work_type ON lenses(work_id, lens_type);
+CREATE INDEX IF NOT EXISTS idx_lenses_theme ON lenses(theme_id);
+CREATE INDEX IF NOT EXISTS idx_lens_topic_topic ON lens_topic_links(topic_id);

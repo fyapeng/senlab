@@ -1,5 +1,14 @@
 const SITE_INDEX_URL = "./web/data/site-index.json";
 const PAPER_DATA_BASE = "./web/data/papers/";
+const CITATION_DATA_URL = "./web/data/citations.json";
+const API_SETTING_KEY = "senlab.apiBase";
+const DEFAULT_API_BASE = "https://senlabapi.fyapeng.com";
+const apiOverride = new URLSearchParams(window.location.search).get("api");
+if (apiOverride !== null) {
+  if (apiOverride === "off") localStorage.setItem(API_SETTING_KEY, "");
+  else localStorage.setItem(API_SETTING_KEY, apiOverride);
+}
+const API_BASE = (window.SENLAB_API_BASE ?? localStorage.getItem(API_SETTING_KEY) ?? DEFAULT_API_BASE).replace(/\/$/, "");
 
 const FIELD_LABELS = {
   "health-economics": "健康经济学",
@@ -35,12 +44,16 @@ const PARADIGM_LABELS = {
 
 const LENS_LABELS = {
   fact: "事实",
+  result: "结果",
   mechanism: "机制",
+  identification: "识别",
   method: "方法",
   data: "数据",
   theory: "理论",
   policy: "政策",
   counterfactual: "反事实",
+  limitation: "边界",
+  research_gap: "研究缺口",
   opportunity: "延展",
 };
 
@@ -231,6 +244,33 @@ async function getJson(url) {
   return response.json();
 }
 
+async function getApiJson(path, timeoutMs = 3500) {
+  if (!API_BASE) throw new Error("API disabled");
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(`${API_BASE}${path}`, {
+      cache: "no-store",
+      signal: controller.signal,
+    });
+    if (!response.ok) throw new Error(`API returned HTTP ${response.status}`);
+    return response.json();
+  } finally {
+    window.clearTimeout(timeout);
+  }
+}
+
+async function getPaperData(workId) {
+  try {
+    const paper = await getApiJson(`/api/papers/${encodeURIComponent(workId)}`);
+    paper.lenses = paper.citation_points || [];
+    paper.excerpts = paper.excerpts || [];
+    return paper;
+  } catch {
+    return getJson(`${PAPER_DATA_BASE}${encodeURIComponent(workId)}.json`);
+  }
+}
+
 function el(tag, className, html) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -295,7 +335,7 @@ function renderKnowledgeMapSection(site) {
       <div class="knowledge-layout">
         <div class="knowledge-stage-column">
           <div class="knowledge-stage-wrap">
-            <div class="knowledge-caption">节点大小表示覆盖文献数或综合分，位置由网络中心性决定。拖动图面可旋转网络，使用右上角按钮缩放。</div>
+            <div class="knowledge-caption">节点大小表示覆盖文献数或综合分，位置由网络中心性决定。文献增多后，文献模式只展示当前文献及其高关联近邻；点击节点即可继续探索。</div>
             <div id="knowledge-stage" class="knowledge-stage"></div>
             <div id="knowledge-legend" class="knowledge-legend"></div>
           </div>
@@ -497,13 +537,34 @@ function activateKnowledgeMap(site) {
     const height = 580;
     const cx = width / 2;
     const cy = height / 2;
-    const themeOrder = (graph.theme_nodes || []).map((item) => item.id);
+    const allPaperNodes = graph.paper_nodes || [];
+    const allPaperEdges = graph.paper_edges || [];
+    const visibleIds = new Set();
+    if (allPaperNodes.length <= 24) {
+      allPaperNodes.forEach((paper) => visibleIds.add(paper.id));
+    } else {
+      visibleIds.add(selectedId);
+      allPaperEdges
+        .filter((edge) => edge.source === selectedId || edge.target === selectedId)
+        .sort((a, b) => (b.weight || 0) - (a.weight || 0))
+        .slice(0, 17)
+        .forEach((edge) => visibleIds.add(edge.source === selectedId ? edge.target : edge.source));
+      allPaperNodes
+        .filter((paper) => !visibleIds.has(paper.id))
+        .sort((a, b) => (paperCentrality.get(b.id) || 0) - (paperCentrality.get(a.id) || 0))
+        .slice(0, Math.max(0, 24 - visibleIds.size))
+        .forEach((paper) => visibleIds.add(paper.id));
+    }
+    const visiblePaperNodes = allPaperNodes.filter((paper) => visibleIds.has(paper.id));
+    const visiblePaperEdges = allPaperEdges.filter((edge) => visibleIds.has(edge.source) && visibleIds.has(edge.target));
+    const visibleThemeIds = new Set(visiblePaperNodes.map((paper) => paper.primary_theme_id));
+    const themeOrder = (graph.theme_nodes || []).map((item) => item.id).filter((id) => visibleThemeIds.has(id));
     const grouped = themeOrder.flatMap((themeId) =>
-      (graph.paper_nodes || [])
+      visiblePaperNodes
         .filter((p) => p.primary_theme_id === themeId)
         .sort((a, b) => (b.overall || 0) - (a.overall || 0) || (b.year || 0) - (a.year || 0))
     );
-    const leftovers = (graph.paper_nodes || []).filter((p) => !grouped.find((g) => g.id === p.id)).sort((a, b) => (b.overall || 0) - (a.overall || 0));
+    const leftovers = visiblePaperNodes.filter((p) => !grouped.find((g) => g.id === p.id)).sort((a, b) => (b.overall || 0) - (a.overall || 0));
     const nodes = [...grouped, ...leftovers];
 
     const clusterR = 202;
@@ -531,7 +592,7 @@ function activateKnowledgeMap(site) {
       positions.set(paper.id, { x: cx + proj.sx, y: cy + proj.sy, depth: proj.depth, sc: proj.sc });
     });
 
-    const edges = (graph.paper_edges || [])
+    const edges = visiblePaperEdges
       .map((edge) => {
         const source = positions.get(edge.source);
         const target = positions.get(edge.target);
@@ -1195,102 +1256,203 @@ async function renderRankings(site) {
 async function renderSearch(site) {
   const main = document.getElementById("page-main");
   main.innerHTML = `
-    <section class="panel">
+    <section class="panel search-intro-panel">
       <div class="section-head">
         <div>
           <div class="eyebrow">检索</div>
-          <h1 class="section-title">论文搜索</h1>
+          <h1 class="section-title">寻找能够支撑写作的文献观点</h1>
+          <p class="muted">默认检索可复用的 citation points，也可以切换到论文目录。</p>
         </div>
       </div>
-      <div class="search-toolbar">
-        <input id="query" class="search-input" type="search" placeholder="按标题、作者、主题搜索" />
-        <select id="field-filter" class="select">
-          <option value="">全部领域</option>
-          ${[...new Set(site.papers.map((paper) => paper.field).filter(Boolean))].map((field) => `<option value="${field}">${formatField(field)}</option>`).join("")}
-        </select>
-        <select id="paradigm-filter" class="select">
-          <option value="">全部范式</option>
-          ${[...new Set(site.papers.map((paper) => paper.paper_paradigm).filter(Boolean))].map((item) => `<option value="${item}">${formatParadigm(item)}</option>`).join("")}
-        </select>
+      <div class="search-mode-switch" role="tablist" aria-label="检索对象">
+        <button type="button" class="chip chip-toggle active" data-search-mode="citations">引用点</button>
+        <button type="button" class="chip chip-toggle" data-search-mode="papers">论文</button>
       </div>
-      <div id="search-results" class="list-mode"></div>
-      <div id="search-pager" class="pager"></div>
+    </section>
+
+    <section id="citation-search-panel">
+      <div class="panel citation-toolbar-panel">
+        <div class="citation-toolbar">
+          <input id="citation-query" class="search-input" type="search" value="${escHtml(qs("q") || "")}" placeholder="搜索机制、结果、方法、政策含义或想支持的论点" aria-label="搜索引用点" />
+          <select id="citation-type" class="select" aria-label="引用点类型">
+            <option value="">全部类型</option>
+            ${Object.entries(LENS_LABELS).map(([value, label]) => `<option value="${value}">${label}</option>`).join("")}
+          </select>
+          <select id="citation-theme" class="select" aria-label="研究主题">
+            <option value="">全部主题</option>
+            ${(site.themes || []).map((theme) => `<option value="${escHtml(theme.theme_id)}">${escHtml(theme.name)}</option>`).join("")}
+          </select>
+        </div>
+      </div>
+      <div class="citation-layout">
+        <div>
+          <div id="citation-summary" class="citation-summary muted"></div>
+          <div id="citation-results" class="citation-results"></div>
+          <div id="citation-pager" class="pager"></div>
+        </div>
+        <aside class="panel citation-basket" aria-label="引用篮">
+          <div class="section-head compact">
+            <div><div class="eyebrow">临时工作区</div><h2 class="citation-basket-title">引用篮</h2></div>
+            <span id="citation-basket-count" class="chip">0</span>
+          </div>
+          <div id="citation-basket-items" class="citation-basket-items"></div>
+          <div class="citation-basket-actions">
+            <button type="button" id="citation-copy-bundle" class="button-link">复制为 AI 上下文</button>
+            <button type="button" id="citation-clear-basket" class="button-link secondary">清空</button>
+          </div>
+          <div id="citation-copy-status" class="muted citation-copy-status" aria-live="polite"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="paper-search-panel" class="panel" hidden>
+      <div class="search-toolbar">
+        <input id="paper-query" class="search-input" type="search" placeholder="按标题、作者、主题搜索" />
+        <select id="field-filter" class="select"><option value="">全部领域</option>${[...new Set(site.papers.map((paper) => paper.field).filter(Boolean))].map((field) => `<option value="${field}">${formatField(field)}</option>`).join("")}</select>
+        <select id="paradigm-filter" class="select"><option value="">全部范式</option>${[...new Set(site.papers.map((paper) => paper.paper_paradigm).filter(Boolean))].map((item) => `<option value="${item}">${formatParadigm(item)}</option>`).join("")}</select>
+      </div>
+      <div id="paper-search-results" class="list-mode"></div>
     </section>
   `;
 
-  const queryInput = document.getElementById("query");
-  const fieldFilter = document.getElementById("field-filter");
-  const paradigmFilter = document.getElementById("paradigm-filter");
-  const host = document.getElementById("search-results");
-  const pager = document.getElementById("search-pager");
-  let currentPage = 1;
-  const pageSize = 10;
+  const basketKey = "senlab.citationBasket";
+  const queryInput = document.getElementById("citation-query");
+  const typeFilter = document.getElementById("citation-type");
+  const themeFilter = document.getElementById("citation-theme");
+  const resultsHost = document.getElementById("citation-results");
+  const summaryHost = document.getElementById("citation-summary");
+  const pagerHost = document.getElementById("citation-pager");
+  let offset = 0;
+  const limit = 10;
+  let visibleItems = [];
+  let staticCitationCache = null;
+  let basket = [];
+  try { basket = JSON.parse(localStorage.getItem(basketKey) || "[]"); } catch { basket = []; }
 
-  const renderResults = () => {
-    const q = queryInput.value.trim().toLowerCase();
-    const field = fieldFilter.value;
-    const paradigm = paradigmFilter.value;
-    const filtered = site.papers.filter((paper) => {
-      const haystack = [
-        paper.title,
-        paper.authors,
-        paper.field,
-        paper.subfield,
-        paper.paper_paradigm,
-        paper.one_line_judgment,
-        ...paper.themes.map((theme) => theme.name),
-        ...(paper.topics || []).map((topic) => topic.name),
-      ]
-        .join(" ")
-        .toLowerCase();
-      return (!q || haystack.includes(q)) && (!field || paper.field === field) && (!paradigm || paper.paper_paradigm === paradigm);
-    });
-
-    const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
-    currentPage = Math.min(currentPage, totalPages);
-    const visible = filtered.slice((currentPage - 1) * pageSize, currentPage * pageSize);
-
-    host.innerHTML = filtered.length
-      ? visible
-          .map(
-            (paper) => `
-              <article class="paper-row">
-                <div class="paper-row-head">
-                  <div>
-                    <div class="paper-meta">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div>
-                    <h3 class="paper-row-title"><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${paper.title}</a></h3>
-                    <div class="muted">${paper.authors || ""}</div>
-                    <div class="muted">${paper.journal_or_series || "期刊待补充"}</div>
-                  </div>
-                  <div class="paper-row-actions">
-                    <a class="button-link" href="./paper.html?work=${encodeURIComponent(paper.work_id)}">查看详情</a>
-                    <a class="button-link secondary" href="./compare.html?left=${encodeURIComponent(paper.work_id)}">加入对比</a>
-                  </div>
-                </div>
-              </article>
-            `
-          )
-          .join("")
-      : '<div class="empty">没有符合条件的论文。</div>';
-
-    pager.innerHTML = filtered.length
-      ? `
-          <a class="button-link secondary" href="#" id="search-prev">上一页</a>
-          <span class="muted">第 ${currentPage} / ${totalPages} 页</span>
-          <a class="button-link secondary" href="#" id="search-next">下一页</a>
-        `
-      : "";
-
-    const prev = document.getElementById("search-prev");
-    const next = document.getElementById("search-next");
-    if (prev) prev.onclick = (event) => { event.preventDefault(); currentPage = Math.max(1, currentPage - 1); renderResults(); };
-    if (next) next.onclick = (event) => { event.preventDefault(); currentPage = Math.min(totalPages, currentPage + 1); renderResults(); };
+  const copyText = async (text) => {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand("copy");
+    textarea.remove();
   };
 
-  queryInput.addEventListener("input", () => { currentPage = 1; renderResults(); });
-  fieldFilter.addEventListener("change", () => { currentPage = 1; renderResults(); });
-  paradigmFilter.addEventListener("change", () => { currentPage = 1; renderResults(); });
-  renderResults();
+  const citationContext = (item) => `### ${item.paper_title || "文献"} (${item.year || "—"})\n- 引用点：${item.title || ""}\n- 可支持：${item.claim || ""}\n- 安全表述：${item.safer_formulation || ""}\n- 适用场景：${item.use_when || ""}\n- 使用边界：${item.boundary || item.overclaim_risk || ""}\n- 原文定位：${item.source_locator || ""}`;
+
+  const saveBasket = () => localStorage.setItem(basketKey, JSON.stringify(basket));
+  const renderBasket = () => {
+    document.getElementById("citation-basket-count").textContent = String(basket.length);
+    document.getElementById("citation-basket-items").innerHTML = basket.length
+      ? basket.map((item) => `<div class="citation-basket-item"><strong>${escHtml(item.title)}</strong><span class="muted">${escHtml(item.paper_title || "")}</span><button type="button" class="citation-remove" data-remove-citation="${escHtml(item.lens_id || item.citation_id)}" aria-label="移除引用点">×</button></div>`).join("")
+      : '<div class="empty compact-empty">从左侧加入观点，随后可一次复制给 AI。</div>';
+  };
+
+  const normalizeCitation = (item) => ({ ...item, lens_id: item.lens_id || item.citation_id, boundary: item.boundary || item.overclaim_risk || "" });
+
+  const loadStaticCitations = async () => {
+    if (!staticCitationCache) staticCitationCache = (await getJson(CITATION_DATA_URL)).citation_points.map(normalizeCitation);
+    return staticCitationCache;
+  };
+
+  const fetchCitationResults = async () => {
+    const params = new URLSearchParams({ limit: String(limit), offset: String(offset) });
+    if (queryInput.value.trim()) params.set("q", queryInput.value.trim());
+    if (typeFilter.value) params.set("type", typeFilter.value);
+    if (themeFilter.value) params.set("theme", themeFilter.value);
+    try {
+      const response = await getApiJson(`/api/citations?${params}`);
+      return { items: response.items.map(normalizeCitation), total: response.total, source: "API" };
+    } catch {
+      const all = await loadStaticCitations();
+      const q = queryInput.value.trim().toLowerCase();
+      const filtered = all.filter((item) => {
+        const text = [item.title, item.claim, item.interpretation, item.use_when, item.safer_formulation, item.overclaim_risk, item.paper_title, ...(item.keywords || []), ...(item.themes || []).map((theme) => theme.name)].join(" ").toLowerCase();
+        return (!q || text.includes(q)) && (!typeFilter.value || item.lens_type === typeFilter.value) && (!themeFilter.value || item.theme_id === themeFilter.value);
+      });
+      return { items: filtered.slice(offset, offset + limit), total: filtered.length, source: "本地镜像" };
+    }
+  };
+
+  const renderCitationResults = async () => {
+    resultsHost.innerHTML = '<div class="empty">正在检索引用点…</div>';
+    const response = await fetchCitationResults();
+    visibleItems = response.items;
+    summaryHost.textContent = `找到 ${response.total} 个引用点 · ${response.source}`;
+    resultsHost.innerHTML = visibleItems.length
+      ? visibleItems.map((item) => `
+          <article class="panel citation-card">
+            <div class="citation-card-head">
+              <div><span class="chip citation-type-chip">${escHtml(formatLensType(item.lens_type || item.point_type))}</span><h2>${escHtml(item.title || item.claim)}</h2></div>
+              <button type="button" class="button-link secondary" data-add-citation="${escHtml(item.lens_id)}">加入引用篮</button>
+            </div>
+            <div class="citation-paper-line"><a href="./paper.html?work=${encodeURIComponent(item.work_id)}">${escHtml(item.paper_title)}</a><span>${escHtml(item.authors || "")} · ${escHtml(item.year || "—")}</span></div>
+            <div class="citation-primary"><div class="eyebrow">可直接使用</div><p>${escHtml(item.safer_formulation || item.claim || "—")}</p></div>
+            ${item.claim ? `<div class="citation-field"><strong>可支持</strong><p>${escHtml(item.claim)}</p></div>` : ""}
+            ${item.use_when ? `<div class="citation-field"><strong>适用场景</strong><p>${escHtml(item.use_when)}</p></div>` : ""}
+            ${item.boundary ? `<div class="citation-field"><strong>使用边界</strong><p>${escHtml(item.boundary)}</p></div>` : ""}
+            ${item.source_locator ? `<div class="citation-source">原文定位：${escHtml(item.source_locator)}</div>` : ""}
+            <div class="citation-card-actions"><button type="button" class="text-button" data-copy-citation="${escHtml(item.lens_id)}">复制这一条</button><a class="text-button" href="./paper.html?work=${encodeURIComponent(item.work_id)}">查看论文档案</a></div>
+          </article>`).join("")
+      : '<div class="empty">没有找到符合条件的引用点。</div>';
+    const page = Math.floor(offset / limit) + 1;
+    const pages = Math.max(1, Math.ceil(response.total / limit));
+    pagerHost.innerHTML = `<button type="button" class="button-link secondary" id="citation-prev" ${offset === 0 ? "disabled" : ""}>上一页</button><span class="muted">第 ${page} / ${pages} 页</span><button type="button" class="button-link secondary" id="citation-next" ${offset + limit >= response.total ? "disabled" : ""}>下一页</button>`;
+    document.getElementById("citation-prev").onclick = () => { offset = Math.max(0, offset - limit); renderCitationResults(); };
+    document.getElementById("citation-next").onclick = () => { offset += limit; renderCitationResults(); };
+  };
+
+  let searchTimer;
+  const scheduleSearch = () => { window.clearTimeout(searchTimer); offset = 0; searchTimer = window.setTimeout(renderCitationResults, 220); };
+  queryInput.addEventListener("input", scheduleSearch);
+  typeFilter.addEventListener("change", scheduleSearch);
+  themeFilter.addEventListener("change", scheduleSearch);
+  resultsHost.addEventListener("click", async (event) => {
+    const addButton = event.target.closest("[data-add-citation]");
+    const copyButton = event.target.closest("[data-copy-citation]");
+    if (addButton) {
+      const item = visibleItems.find((entry) => entry.lens_id === addButton.dataset.addCitation);
+      if (item && !basket.some((entry) => entry.lens_id === item.lens_id)) { basket.push(item); saveBasket(); renderBasket(); }
+    }
+    if (copyButton) {
+      const item = visibleItems.find((entry) => entry.lens_id === copyButton.dataset.copyCitation);
+      if (item) { await copyText(citationContext(item)); copyButton.textContent = "已复制"; }
+    }
+  });
+  document.getElementById("citation-basket-items").addEventListener("click", (event) => {
+    const button = event.target.closest("[data-remove-citation]");
+    if (!button) return;
+    basket = basket.filter((item) => item.lens_id !== button.dataset.removeCitation); saveBasket(); renderBasket();
+  });
+  document.getElementById("citation-copy-bundle").onclick = async () => {
+    const status = document.getElementById("citation-copy-status");
+    if (!basket.length) { status.textContent = "引用篮还是空的。"; return; }
+    await copyText(`# SenLab 引用上下文\n\n${basket.map(citationContext).join("\n\n")}`);
+    status.textContent = `已复制 ${basket.length} 个引用点。`;
+  };
+  document.getElementById("citation-clear-basket").onclick = () => { basket = []; saveBasket(); renderBasket(); };
+
+  const renderPaperResults = () => {
+    const q = document.getElementById("paper-query").value.trim().toLowerCase();
+    const field = document.getElementById("field-filter").value;
+    const paradigm = document.getElementById("paradigm-filter").value;
+    const filtered = site.papers.filter((paper) => [paper.title, paper.authors, paper.one_line_judgment, ...paper.themes.map((theme) => theme.name), ...(paper.topics || []).map((topic) => topic.name)].join(" ").toLowerCase().includes(q) && (!field || paper.field === field) && (!paradigm || paper.paper_paradigm === paradigm));
+    document.getElementById("paper-search-results").innerHTML = filtered.length ? filtered.map((paper) => `<article class="paper-row"><div class="paper-row-head"><div><div class="paper-meta">${paper.year || "—"} · ${formatField(paper.field)} · ${formatParadigm(paper.paper_paradigm)}</div><h3 class="paper-row-title"><a href="./paper.html?work=${encodeURIComponent(paper.work_id)}">${escHtml(paper.title)}</a></h3><div class="muted">${escHtml(paper.authors || "")}</div><p class="row-judgment">${escHtml(paper.one_line_judgment || "")}</p></div><div class="paper-row-actions"><a class="button-link" href="./paper.html?work=${encodeURIComponent(paper.work_id)}">查看详情</a></div></div></article>`).join("") : '<div class="empty">没有符合条件的论文。</div>';
+  };
+  ["paper-query", "field-filter", "paradigm-filter"].forEach((id) => document.getElementById(id).addEventListener(id === "paper-query" ? "input" : "change", renderPaperResults));
+  document.querySelectorAll("[data-search-mode]").forEach((button) => button.addEventListener("click", () => {
+    const citations = button.dataset.searchMode === "citations";
+    document.getElementById("citation-search-panel").hidden = !citations;
+    document.getElementById("paper-search-panel").hidden = citations;
+    document.querySelectorAll("[data-search-mode]").forEach((item) => item.classList.toggle("active", item === button));
+  }));
+
+  renderBasket();
+  renderPaperResults();
+  await renderCitationResults();
 }
 
 async function renderCompare(site) {
@@ -1320,8 +1482,8 @@ async function renderCompare(site) {
   `;
 
   const buildTable = async () => {
-    const leftPaper = await getJson(`${PAPER_DATA_BASE}${encodeURIComponent(document.getElementById("left-paper").value)}.json`);
-    const rightPaper = await getJson(`${PAPER_DATA_BASE}${encodeURIComponent(document.getElementById("right-paper").value)}.json`);
+    const leftPaper = await getPaperData(document.getElementById("left-paper").value);
+    const rightPaper = await getPaperData(document.getElementById("right-paper").value);
 
     document.getElementById("compare-host").innerHTML = `
       <table class="compare-table">
@@ -1424,7 +1586,7 @@ async function renderPaper(site) {
     return;
   }
 
-  const paper = await getJson(`${PAPER_DATA_BASE}${encodeURIComponent(workId)}.json`);
+  const paper = await getPaperData(workId);
   document.title = `Sencium Lab · ${paper.title}`;
   const titleLength = (paper.title || "").trim().length;
   const titleClass =
@@ -1532,11 +1694,12 @@ async function renderPaper(site) {
                   .join("");
                 return `
                   <div class="stack-item">
-                    <strong>${formatLensType(lens.lens_type)} · ${escHtml(formatThemeName(linkedTheme || lens))}</strong>
+                    <strong>${formatLensType(lens.lens_type || lens.point_type)} · ${escHtml(lens.title || formatThemeName(linkedTheme || lens))}</strong>
                     <div class="muted"><strong>支持论点：</strong>${escHtml(lens.claim || "—")}</div>
-                    <div class="muted"><strong>为何使用：</strong>${escHtml(lens.interpretation || "—")}</div>
-                    <div class="muted"><strong>过度延伸风险：</strong>${escHtml(lens.overclaim_risk || "—")}</div>
+                    <div class="muted"><strong>适用场景：</strong>${escHtml(lens.use_when || lens.interpretation || "—")}</div>
+                    <div class="muted"><strong>使用边界：</strong>${escHtml(lens.boundary || lens.overclaim_risk || "—")}</div>
                     <div class="muted"><strong>更稳妥的说法：</strong>${escHtml(lens.safer_formulation || "—")}</div>
+                    ${lens.source_locator ? `<div class="muted"><strong>原文定位：</strong>${escHtml(lens.source_locator)}</div>` : ""}
                     ${evidenceItems ? `<div class="chip-row">${evidenceItems}</div>` : ""}
                   </div>
                 `;

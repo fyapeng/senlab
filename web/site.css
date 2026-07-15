@@ -1141,6 +1141,209 @@ img {
   margin-bottom: 14px;
 }
 
+.search-intro-panel {
+  margin-bottom: 18px;
+}
+
+.search-mode-switch {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.citation-toolbar-panel {
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+.citation-toolbar {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) minmax(150px, 0.25fr) minmax(210px, 0.35fr);
+  gap: 12px;
+}
+
+.citation-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 18px;
+  align-items: start;
+}
+
+.citation-summary {
+  padding: 2px 4px 12px;
+  font-size: 14px;
+}
+
+.citation-results {
+  display: grid;
+  gap: 14px;
+}
+
+.citation-card {
+  padding: 22px;
+  border-radius: 22px;
+}
+
+.citation-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.citation-card-head h2 {
+  margin: 10px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.citation-card-head .button-link {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.citation-type-chip {
+  color: var(--accent);
+  background: rgba(160, 83, 42, 0.1);
+}
+
+.citation-paper-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin: 14px 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.citation-paper-line a {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.citation-primary {
+  padding: 16px 18px;
+  border: 1px solid rgba(160, 83, 42, 0.26);
+  border-radius: 16px;
+  background: rgba(237, 217, 202, 0.32);
+}
+
+.citation-primary p,
+.citation-field p {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.citation-primary p {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.citation-field {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.citation-field strong {
+  color: var(--ink);
+}
+
+.citation-source {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.citation-card-actions {
+  display: flex;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.text-button,
+button.text-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.citation-basket {
+  position: sticky;
+  top: 92px;
+  padding: 20px;
+  border-radius: 22px;
+}
+
+.citation-basket-title {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+}
+
+.citation-basket-items {
+  display: grid;
+  gap: 10px;
+  max-height: 54vh;
+  overflow-y: auto;
+}
+
+.citation-basket-item {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  padding: 12px 34px 12px 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.62);
+  font-size: 13px;
+}
+
+.citation-remove {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.citation-basket-actions {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.citation-basket-actions .button-link {
+  width: 100%;
+  justify-content: center;
+}
+
+.citation-copy-status {
+  min-height: 20px;
+  margin-top: 9px;
+  font-size: 12px;
+}
+
+.compact-empty {
+  padding: 18px 8px;
+}
+
+.button-link:disabled {
+  opacity: 0.42;
+  cursor: default;
+}
+
 @media (max-width: 1100px) {
   .hero,
   .paper-hero,
@@ -1185,6 +1388,14 @@ img {
 
   .knowledge-related-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .citation-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .citation-basket {
+    position: static;
   }
 }
 
@@ -1399,5 +1610,23 @@ img {
 
   .knowledge-mini-card strong {
     font-size: 16px;
+  }
+
+  .citation-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .citation-card-head,
+  .citation-paper-line {
+    display: grid;
+  }
+
+  .citation-card-head .button-link {
+    justify-self: start;
+  }
+
+  .citation-field {
+    grid-template-columns: 1fr;
+    gap: 5px;
   }
 }
