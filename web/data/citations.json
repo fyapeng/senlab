@@ -1,0 +1,3261 @@
+{
+  "meta": {
+    "citation_count": 98
+  },
+  "citation_points": [
+    {
+      "lens_id": "marquardt-2026-physician-decision-adhd-lens-fact",
+      "theme_id": "health-disparities-and-discrimination",
+      "lens_type": "fact",
+      "title": "精神健康诊断的群体差异（此处为 ADHD 男女差异）主要由医生差异化…",
+      "claim": "精神健康诊断的群体差异（此处为 ADHD 男女差异）主要由医生差异化的诊断阈值驱动，而非真实症状患病率差异。",
+      "interpretation": "本文把诊断差距分解到四个结构参数，结果显示仅约 1/4 来自患病率，约 2/3 来自医生对男孩使用更低的诊断阈值（τm<τf）。这把\"诊断差异即患病率差异\"的默认解释直接证伪。",
+      "use_when": "我在这里用这篇文章，是为了支撑一个基础事实：在一个对性别中性的统一诊断标准下，观测到的群体诊断差距大头并不来自真实患病率，而来自医生供给侧的决策。",
+      "overclaim_risk": "不要把它读成\"性别诊断差异完全是歧视/医生造成的\"。患病率与就医选择仍解释了相当一部分；且阈值差异本身可能有外部性/不确定性的理性成分（见 mechanism lens）。也不要把单一亚利桑那系统的点估计当作全国普适数值。",
+      "safer_formulation": "在 ADHD 这一性别中性诊断标准的设定下，观测到的男女诊断差距中，真实患病率差异只占约 1/4，其余大部分可归因于医生的供给侧决策，尤其是对男孩适用的更低诊断阈值。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "marquardt-2026-physician-decision-adhd-ex-001",
+        "marquardt-2026-physician-decision-adhd-ex-004"
+      ],
+      "work_id": "marquardt-2026-physician-decision-adhd",
+      "paper_title": "Mis(sed) Diagnosis: Physician Decision Making and ADHD",
+      "authors": "Kelli Marquardt",
+      "year": 2026,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "health-disparities-and-discrimination",
+          "name": "健康不平等与差别对待"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "empirical-structural-health",
+          "name": "医疗结构估计"
+        },
+        {
+          "theme_id": "diagnostic-accuracy",
+          "name": "诊断准确性"
+        }
+      ]
+    },
+    {
+      "lens_id": "marquardt-2026-physician-decision-adhd-lens-mechanism",
+      "theme_id": "physician-behavior-and-clinical-decision-making",
+      "lens_type": "mechanism",
+      "title": "当真实状态不可观测、诊断结果带有异质外部性时，医生对不同群体采用不同…",
+      "claim": "当真实状态不可观测、诊断结果带有异质外部性时，医生对不同群体采用不同诊断阈值可以是效用最优的，即便这偏离了对群体中性的临床指南。",
+      "interpretation": "本文用三条机制（男孩更高的诊断不确定性、多动/冲动型症状的社会外部性、女孩内化型共病使过诊成本更高）说明 τm<τf 可能反映理性的成本-收益权衡，而非单纯偏见。这为\"指南偏离是错误还是合理裁量\"的争论提供了一个带结构的中间立场。",
+      "use_when": "我在这里用这篇文章，是为了说明医生偏离统一临床指南并不必然等于错误或歧视——在不确定性、外部性与共病存在时，差异化裁量可能是经济理性的。",
+      "overclaim_risk": "关键风险是把\"可能理性\"误读为\"因而正当/无害\"。作者本人强调，即便个体理性，这些偏离仍可能在系统层面强化不平等（如系统性少诊断女孩）。机制证据多为论证与补充分析，非因果识别。",
+      "safer_formulation": "本文表明，医生对不同性别采用不同诊断阈值的行为，至少部分可由不确定性与异质外部性带来的理性权衡解释；但\"理性\"不等于\"福利或公平最优\"，二者需分开评估。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "marquardt-2026-physician-decision-adhd-ex-004",
+        "marquardt-2026-physician-decision-adhd-ex-005"
+      ],
+      "work_id": "marquardt-2026-physician-decision-adhd",
+      "paper_title": "Mis(sed) Diagnosis: Physician Decision Making and ADHD",
+      "authors": "Kelli Marquardt",
+      "year": 2026,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "health-disparities-and-discrimination",
+          "name": "健康不平等与差别对待"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "empirical-structural-health",
+          "name": "医疗结构估计"
+        },
+        {
+          "theme_id": "diagnostic-accuracy",
+          "name": "诊断准确性"
+        }
+      ]
+    },
+    {
+      "lens_id": "marquardt-2026-physician-decision-adhd-lens-method",
+      "theme_id": "empirical-structural-health",
+      "lens_type": "method",
+      "title": "在真实健康状态不可观测的精神健康（或一般主观判断）场景中，可以用文本…",
+      "claim": "在真实健康状态不可观测的精神健康（或一般主观判断）场景中，可以用文本数据构造代理信号，并结合选择校正与矩估计，识别患者选择、诊断不确定性与医生偏好等结构参数。",
+      "interpretation": "本文的两步识别——用初始 PCP 转诊率作为排他性约束 + Arnold et al. (2022) 式外推得到选择校正的人群均值，再用条件诊断 probit 分离 ρθ 与 τθ——提供了一套可迁移的模板，适用于任何\"基于访谈/笔记的代理决策且真实结果不可观测\"的设定（法官、教师、社工等）。",
+      "use_when": "我在这里用这篇文章，是作为方法论范本：当决策所依赖的\"真实状态\"和\"信号\"都不可直接观测时，如何用临床笔记文本（ML/NLP 构造）把它们接入一个可识别的结构模型。",
+      "overclaim_risk": "不要把该方法当作无假设的黑箱：识别高度依赖\"PCP 选择与症状发展正交\"\"εi⊥vi\"\"医生知道真实风险分布\"等不可直接检验的假设，以及 ML/NLP 构造变量的质量。",
+      "safer_formulation": "本文展示了一条用文本构造不可观测信号、并以选择校正 + 矩估计接入结构模型的识别路径；其可信度取决于一组明确陈述但难以直接检验的身份假设。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "marquardt-2026-physician-decision-adhd-ex-002",
+        "marquardt-2026-physician-decision-adhd-ex-003"
+      ],
+      "work_id": "marquardt-2026-physician-decision-adhd",
+      "paper_title": "Mis(sed) Diagnosis: Physician Decision Making and ADHD",
+      "authors": "Kelli Marquardt",
+      "year": 2026,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "health-disparities-and-discrimination",
+          "name": "健康不平等与差别对待"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "empirical-structural-health",
+          "name": "医疗结构估计"
+        },
+        {
+          "theme_id": "diagnostic-accuracy",
+          "name": "诊断准确性"
+        }
+      ]
+    },
+    {
+      "lens_id": "marquardt-2026-physician-decision-adhd-lens-policy",
+      "theme_id": "health-disparities-and-discrimination",
+      "lens_type": "policy",
+      "title": "针对群体诊断差距的政策应明确区分\"患病率/需求驱动\"与\"医生决策驱动…",
+      "claim": "针对群体诊断差距的政策应明确区分\"患病率/需求驱动\"与\"医生决策驱动\"的部分；只有后者（在性别中性指南下的供给侧偏离）才是政策应优先纠正的\"不正当不平等\"。",
+      "interpretation": "本文的分解表明缩小 ADHD 男女差距的着力点在医生决策环节而非单纯患病率。但作者审慎地指出，若阈值差异有外部性/共病的理性成分，简单强制统一阈值未必福利最优，甚至可能提示需要重新审视 DSM-V 对性别效应的处理。",
+      "use_when": "我在这里用这篇文章，是为了论证：要设计纠正健康不平等的政策，必须先把诊断差距分解到需求侧与供给侧，否则容易把工具用错地方。",
+      "overclaim_risk": "不要据此主张\"应强制医生对男女使用相同阈值\"。本文恰恰说明这类一刀切政策在存在异质外部性时可能降低福利；政策含义是\"识别并审视来源\"，而非直接均一化。",
+      "safer_formulation": "本文为面向诊断不平等的政策提供了一个分解框架：先量化各机制贡献，再针对\"医学上不正当\"的供给侧部分设计干预，同时权衡异质外部性带来的福利取舍。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "marquardt-2026-physician-decision-adhd-ex-001",
+        "marquardt-2026-physician-decision-adhd-ex-005"
+      ],
+      "work_id": "marquardt-2026-physician-decision-adhd",
+      "paper_title": "Mis(sed) Diagnosis: Physician Decision Making and ADHD",
+      "authors": "Kelli Marquardt",
+      "year": 2026,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "health-disparities-and-discrimination",
+          "name": "健康不平等与差别对待"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "empirical-structural-health",
+          "name": "医疗结构估计"
+        },
+        {
+          "theme_id": "diagnostic-accuracy",
+          "name": "诊断准确性"
+        }
+      ]
+    },
+    {
+      "lens_id": "eliason-2025-ambulance-taxis-impact-lens-mechanism",
+      "theme_id": "monitoring-enforcement",
+      "lens_type": "mechanism",
+      "title": "当违规者面临有限责任且被查概率很低时，事后诉讼难以形成足够威慑；直接…",
+      "claim": "当违规者面临有限责任且被查概率很低时，事后诉讼难以形成足够威慑；直接卡住报销入口的前端审查更有效。",
+      "interpretation": "这篇文章不仅展示了 prior authorization 的强效果，还明确给出诉讼失效的双重机制解释：罚款即使很高，也可能因为有限责任而无法真正内部化；而侦查覆盖不足又使预期惩罚本身偏低。这使它成为“监测与执法机制设计”主题下很有穿透力的一篇文献。",
+      "use_when": "我在这里使用这篇文章，是为了说明为什么后端诉讼在某些欺诈市场里天然偏弱，而前端审查更具约束力。",
+      "overclaim_risk": "不要把机制说成已经被完全结构识别。文章提供的是强有力的机制解释与市场层证据，而不是对有限责任和侦查概率参数的完全分离估计。",
+      "safer_formulation": "这篇文章的证据与一种清晰机制相一致：在有限责任和低侦查概率并存的医疗欺诈市场里，后端诉讼威慑往往不足，而前端报销审查更容易起作用。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "eliason-2025-ambulance-taxis-impact-ex-002"
+      ],
+      "work_id": "eliason-2025-ambulance-taxis-impact",
+      "paper_title": "Ambulance Taxis: The Impact of Regulation and Litigation on Health-Care Fraud",
+      "authors": "Paul Eliason, Riley League, Jetson Leder-Luis, Ryan C. McDevitt, and James W. Roberts",
+      "year": 2025,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "eliason-2025-ambulance-taxis-impact-lens-policy",
+      "theme_id": "prior-authorization",
+      "lens_type": "policy",
+      "title": "如果授权规则针对的是可验证性强、必要性标准明确的服务，事前授权可以在…",
+      "claim": "如果授权规则针对的是可验证性强、必要性标准明确的服务，事前授权可以在几乎零健康代价下显著节省公共医保支出。",
+      "interpretation": "很多对 prior authorization 的批评都担心它会阻断必要治疗。但在这篇文章研究的场景里，政策切掉的是明显偏离医疗必要性的乘车需求，患者透析完成率、住院率和死亡率都没有恶化，因此它提供了一个“前端筛查可以高效且低伤害”的清晰案例。",
+      "use_when": "我在这里使用这篇文章，是为了支持一条关于事前授权净福利的政策论点：精准的事前授权可以在不伤害患者的情况下大幅减少浪费和欺诈。",
+      "overclaim_risk": "不要把文章表述成“所有 prior authorization 都无害”。这篇文章研究的是医疗必要性较容易核验的运输服务，而不是复杂临床治疗决策。",
+      "safer_formulation": "这篇文章说明，在医疗必要性相对容易验证的服务上，事前授权有可能以很小的患者健康代价大幅压缩 Medicare 的欺诈性或低价值支出。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "eliason-2025-ambulance-taxis-impact-ex-001",
+        "eliason-2025-ambulance-taxis-impact-ex-003"
+      ],
+      "work_id": "eliason-2025-ambulance-taxis-impact",
+      "paper_title": "Ambulance Taxis: The Impact of Regulation and Litigation on Health-Care Fraud",
+      "authors": "Paul Eliason, Riley League, Jetson Leder-Luis, Ryan C. McDevitt, and James W. Roberts",
+      "year": 2025,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "eliason-2025-ambulance-taxis-impact-lens-regulation-vs-litigation",
+      "theme_id": "regulation-vs-litigation",
+      "lens_type": "policy",
+      "title": "对于高频、小额、分散且侦查难度高的医疗欺诈，事前授权式监管比刑事或民…",
+      "claim": "对于高频、小额、分散且侦查难度高的医疗欺诈，事前授权式监管比刑事或民事追诉更有效。",
+      "interpretation": "这篇文章最强的地方在于，它不是抽象比较“监管”和“诉讼”，而是在同一类 Medicare 救护车欺诈市场里，直接比较两种工具的实证结果。68% 的乘车量压缩、有限的诉讼溢出效应和零健康代价，共同构成了对前端监管的强支持。",
+      "use_when": "我在这里使用这篇文章，是为了支持一个工具比较判断：在医疗欺诈治理中，事前监管可以显著优于事后诉讼。",
+      "overclaim_risk": "不要把这篇文章写成“监管总是优于诉讼”。它识别的是一个具有有限责任、低侦查概率和高报销诱因的特定市场，外推到其他行业或其他医疗服务时仍需谨慎。",
+      "safer_formulation": "这篇文章表明，在 Medicare 透析患者非急救救护车这一高欺诈风险场景中，事前授权式监管比单纯依赖刑事和民事诉讼更能有效压缩不必要服务。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "eliason-2025-ambulance-taxis-impact-ex-001",
+        "eliason-2025-ambulance-taxis-impact-ex-002",
+        "eliason-2025-ambulance-taxis-impact-ex-003"
+      ],
+      "work_id": "eliason-2025-ambulance-taxis-impact",
+      "paper_title": "Ambulance Taxis: The Impact of Regulation and Litigation on Health-Care Fraud",
+      "authors": "Paul Eliason, Riley League, Jetson Leder-Luis, Ryan C. McDevitt, and James W. Roberts",
+      "year": 2025,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "ortiz-2025-better-understanding-triple-lens-application",
+      "theme_id": "doubly-robust-estimator",
+      "lens_type": "opportunity",
+      "title": "与其继续沿用朴素三重差分回归，不如采用作者提出的回归调整、IPW 或…",
+      "claim": "与其继续沿用朴素三重差分回归，不如采用作者提出的回归调整、IPW 或双重稳健 DDD 估计量，并按“从未处理组”分组构造对照后再聚合。",
+      "interpretation": "这篇文章的强处在于它不只指出旧方法的问题，还把修正方案做成了能落地的估计器与软件工具。对于健康经济学里大量使用 DDD 的政策评估，这几乎是可以直接嵌入实证流程的操作手册。",
+      "use_when": "我在这里用这篇文章，是为了给实际应用者一个可操作的建议：若你的 DDD 设计涉及协变量或交错采用，这篇文章提供了新的标准做法。",
+      "overclaim_risk": "不要把本文写成“用了 DR 就万无一失”。双重稳健改善的是设定风险与偏误，不代表研究者可以忽略样本支持、处理定义或平行趋势条件本身。",
+      "safer_formulation": "这篇文章为应用研究者提供了一套更稳健的 DDD 实现路径，尤其适合需要协变量调整或处理时点交错的政策评估场景。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "ortiz-2025-better-understanding-triple-ex-001",
+        "ortiz-2025-better-understanding-triple-ex-002"
+      ],
+      "work_id": "ortiz-2025-better-understanding-triple",
+      "paper_title": "Better Understanding Triple Differences Estimators",
+      "authors": "Marcelo Ortiz-Villavicencio, Pedro H. C. Sant'Anna",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "methodology",
+      "themes": [
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        }
+      ]
+    },
+    {
+      "lens_id": "ortiz-2025-better-understanding-triple-lens-fact",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "fact",
+      "title": "DDD 的具体实现不是技术性小修小补，估计框架的改变足以改变政策效果…",
+      "claim": "DDD 的具体实现不是技术性小修小补，估计框架的改变足以改变政策效果是否显著的判断。",
+      "interpretation": "这篇文章最大的说服力之一，是它把抽象偏误问题落回了应用结果本身：方法错了，结论就可能反过来。",
+      "use_when": "我在这里用这篇文章，是为了强调新旧 DDD 实现方式在实证结论上可能差异很大。",
+      "overclaim_risk": "不要把它写成旧文献一律失效。更准确的是，在复杂设计下，旧实现方式的风险很高。",
+      "safer_formulation": "这篇文章表明，在协变量调整或交错采用场景中，DDD 的实现方式会显著影响实证结论，因此研究者应认真选择估计框架。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "ortiz-2025-better-understanding-triple-ex-002",
+        "ortiz-2025-better-understanding-triple-ex-003"
+      ],
+      "work_id": "ortiz-2025-better-understanding-triple",
+      "paper_title": "Better Understanding Triple Differences Estimators",
+      "authors": "Marcelo Ortiz-Villavicencio, Pedro H. C. Sant'Anna",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "methodology",
+      "themes": [
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        }
+      ]
+    },
+    {
+      "lens_id": "ortiz-2025-better-understanding-triple-lens-method",
+      "theme_id": "triple-difference-estimator",
+      "lens_type": "method",
+      "title": "在有协变量调整需求或交错采用设计时，朴素 DDD 往往有偏，应用研究…",
+      "claim": "在有协变量调整需求或交错采用设计时，朴素 DDD 往往有偏，应用研究需要转向条件化、加权或双重稳健的 DDD 估计量。",
+      "interpretation": "这篇文章把 DDD 从一个常被随手套用的回归配方，重新拉回到潜在结果与识别条件的框架里。它的价值不只是“改进估计效率”，而是纠正很多场景下本来就不成立的估计对象。",
+      "use_when": "我在这里使用这篇文章，是为了支持一个方法论提醒：现实应用中的 DDD 不能再按老式三向固定效应或“两次 DiD 之差”那样机械处理。",
+      "overclaim_risk": "不要把本文写成“旧有 DDD 全都无效”。更准确的是：在简单两期、无协变量等特定条件下，旧方法可以成立；但现实中这些条件经常不满足。",
+      "safer_formulation": "这篇文章表明，DDD 的正确实现高度依赖设计细节；当存在协变量调整或 staggered adoption 时，研究者通常需要比传统三向固定效应更严格的估计框架。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "ortiz-2025-better-understanding-triple-ex-001",
+        "ortiz-2025-better-understanding-triple-ex-002"
+      ],
+      "work_id": "ortiz-2025-better-understanding-triple",
+      "paper_title": "Better Understanding Triple Differences Estimators",
+      "authors": "Marcelo Ortiz-Villavicencio, Pedro H. C. Sant'Anna",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "methodology",
+      "themes": [
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        }
+      ]
+    },
+    {
+      "lens_id": "fang-2025-fear-risk-perception-lens-fact",
+      "theme_id": "physician-behavior",
+      "lens_type": "fact",
+      "title": "医疗诉讼会显著改变医生的临床决策模式，而且这种变化并未带来患者健康改…",
+      "claim": "医疗诉讼会显著改变医生的临床决策模式，而且这种变化并未带来患者健康改善。",
+      "interpretation": "这篇文章之所以重要，是因为它把“防御性医疗”从抽象概念变成了可观测的行为包：少做手术、少接高风险病人、多做检查，但结果并没更好。",
+      "use_when": "我在这里用这篇文章，是为了提供一个关于医生行为扭曲的直接事实描述。",
+      "overclaim_risk": "不要写成所有诉讼都会长期扭曲行为。本文强调的是短期、强烈但会消退的反应。",
+      "safer_formulation": "这篇文章表明，医疗诉讼会显著推动短期防御性医疗行为，而这些行为并未对应患者健康改善。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "fang-2025-fear-risk-perception-ex-001",
+        "fang-2025-fear-risk-perception-ex-003"
+      ],
+      "work_id": "fang-2025-fear-risk-perception",
+      "paper_title": "Fear and Risk Perception: Understanding Physicians' Dynamic Responses to Malpractice Lawsuits",
+      "authors": "Hanming Fang, Ming Li, and Jia Xiang",
+      "year": 2025,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "fang-2025-fear-risk-perception-lens-mechanism",
+      "theme_id": "malpractice-risk",
+      "lens_type": "mechanism",
+      "title": "医生面对诉讼后的过度反应，很大程度上是心理成本和风险感知扭曲驱动的，…",
+      "claim": "医生面对诉讼后的过度反应，很大程度上是心理成本和风险感知扭曲驱动的，而不只是理性纠错或经济惩罚。",
+      "interpretation": "本文最有价值的地方，是把医疗责任风险拆成了“经济上的赔偿后果”和“心理上的恐惧冲击”两部分。胜诉与败诉反应接近、暴力事件反应更强，这些证据都更支持后者。",
+      "use_when": "我在这里使用这篇文章，是为了支撑“防御性医疗并不只来自赔偿激励，也可能来自恐惧与显著性”这一机制判断。",
+      "overclaim_risk": "不要把结论写成“经济激励完全不重要”。本文强调的是在中国这一低财务赔偿、高心理压力环境中，非经济成本尤其关键。",
+      "safer_formulation": "这篇文章表明，在中国公立医院的诉讼环境下，医生的防御性反应与其说是对赔偿概率的精细更新，不如说更像对显著风险事件的短期恐惧性调整。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "fang-2025-fear-risk-perception-ex-001",
+        "fang-2025-fear-risk-perception-ex-002"
+      ],
+      "work_id": "fang-2025-fear-risk-perception",
+      "paper_title": "Fear and Risk Perception: Understanding Physicians' Dynamic Responses to Malpractice Lawsuits",
+      "authors": "Hanming Fang, Ming Li, and Jia Xiang",
+      "year": 2025,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "fang-2025-fear-risk-perception-lens-policy",
+      "theme_id": "defensive-medicine",
+      "lens_type": "policy",
+      "title": "医疗责任改革若只处理财务赔偿，而忽略医生的心理压力、暴力威胁和风险显…",
+      "claim": "医疗责任改革若只处理财务赔偿，而忽略医生的心理压力、暴力威胁和风险显著性，往往难以根治防御性医疗。",
+      "interpretation": "文章显示，诉讼冲击带来的行为变化并没有改善患者健康，却短期扭曲了临床决策。既然主要驱动不是纯粹的财务惩罚，那么政策就不能只靠 tort reform，还需要考虑医生支持体系、沟通与风险缓释机制。",
+      "use_when": "我在这里用这篇文章，是为了支持一个政策含义：如果防御性医疗主要由恐惧驱动，那么只改赔偿规则并不足以解决问题。",
+      "overclaim_risk": "不要把本文扩展成“诉讼制度改革无效”。更准确的说法是，单独依靠财务责任规则很可能不够。",
+      "safer_formulation": "这篇文章提示，若防御性医疗包含显著的心理与情绪成分，仅靠赔偿责任改革未必足够，还需要配套的医生支持与风险管理机制。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "fang-2025-fear-risk-perception-ex-001",
+        "fang-2025-fear-risk-perception-ex-002"
+      ],
+      "work_id": "fang-2025-fear-risk-perception",
+      "paper_title": "Fear and Risk Perception: Understanding Physicians' Dynamic Responses to Malpractice Lawsuits",
+      "authors": "Hanming Fang, Ming Li, and Jia Xiang",
+      "year": 2025,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-china-twfe-prevalence",
+      "theme_id": "difference-in-differences",
+      "lens_type": "fact",
+      "title": "广义 TWFE 在中国旗舰期刊中的使用远多于经典 DID",
+      "claim": "2019—2021 年五本中国经济学旗舰期刊中，473 篇文章主要使用 TWFE，占发文约 22%，而近似经典 $2\\times2$ DID 的应用只有 100 篇。",
+      "interpretation": "大部分 TWFE 使用发生在需要额外识别条件的推广环境，因此方法更新具有直接的实证规范意义。",
+      "use_when": "用于 DID 方法综述的研究动机、说明中国实证论文为何需要重新审查 TWFE、或论证方法培训的重要性。",
+      "overclaim_risk": "样本只覆盖五本期刊和 2019—2021 年，且“主要使用 TWFE”不等于每篇文章都存在严重偏误。",
+      "safer_formulation": "林梦芸等（2025）的人工核查显示，2019—2021 年五本中国经济学旗舰期刊中约 22% 的论文主要使用 TWFE，而多数应用超出了经典 $2\\times2$ DID 的范围。",
+      "source_locator": "正文第 228 页，图 1。",
+      "keywords": [
+        "TWFE",
+        "中国经济学期刊",
+        "DID 应用",
+        "实证规范",
+        "文献统计"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-002"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-conditional-parallel-trends",
+      "theme_id": "covariate-adjusted-identification",
+      "lens_type": "identification",
+      "title": "协变量调整应由条件平行趋势而非固定系数惯例驱动",
+      "claim": "在条件平行趋势下，可使用结果回归调整、逆概率加权或双重稳健方法；回归模型应允许协变量作用随时期变化，而不是默认一个恒定系数。",
+      "interpretation": "先写清“给定什么变量后趋势可比”，再决定模型与权重，能够把协变量选择转化为可审查的识别陈述。",
+      "use_when": "用于书写含协变量 DID 的识别假设、选择 OR/IPW/DR 估计量或解释时间交互项。",
+      "overclaim_risk": "条件平行趋势本身不可由数据完全验证，且需要重叠与正确的协变量时序。",
+      "safer_formulation": "含协变量 DID 的可信度应建立在明确的条件平行趋势与重叠条件上，并采用允许协变量效应随时间变化的调整方式。",
+      "source_locator": "正文第 241—242 页，假设 4 及其后讨论。",
+      "keywords": [
+        "conditional parallel trends",
+        "outcome regression",
+        "inverse probability weighting",
+        "doubly robust",
+        "covariate time interaction"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-005"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-controls-not-automatic-fix",
+      "theme_id": "covariate-adjusted-identification",
+      "lens_type": "limitation",
+      "title": "在 TWFE 中增加控制变量不一定改善识别",
+      "claim": "时变协变量若受处理影响会成为坏控制；即使外生，把其作用错误限制为跨时期恒定也会造成模型误设。",
+      "interpretation": "协变量调整需要从因果时序和条件平行趋势出发，而不是机械扩充回归右侧变量。",
+      "use_when": "用于讨论地区面板控制变量、处理后变量、时变混杂或 TWFE 稳健性规格。",
+      "overclaim_risk": "不能写成 DID 不应使用协变量；正确的回归调整、重加权或双重稳健方法可以在条件平行趋势下改善识别或效率。",
+      "safer_formulation": "在 DID 中加入协变量只有在其因果时序和函数形式与条件平行趋势相容时才有助于识别，机械控制甚至可能引入新的误设。",
+      "source_locator": "正文第 241—242 页，假设 4。",
+      "keywords": [
+        "bad controls",
+        "covariate adjustment",
+        "time-varying confounding",
+        "conditional parallel trends",
+        "functional form"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-005"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-design-before-command",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "opportunity",
+      "title": "复杂 DID 应先定义目标参数和处理路径，再选择命令",
+      "claim": "处理效应异质性维度越高，统计模型越需要基于现实背景和经济机制有所取舍；估计器选择不能替代研究设计。",
+      "interpretation": "图 3 最重要的不是命令列表，而是从数据结构和识别假设通往估计器的决策顺序。",
+      "use_when": "用于制定实证预分析计划、教学 DID 工作流、审稿或重构已有 TWFE 规格。",
+      "overclaim_risk": "不能把这一规范性建议写成只有结构模型才可信；文章讨论的多数修正方法仍属于简化式因果推断。",
+      "safer_formulation": "复杂 DID 的稳健实践应先明确处理路径、目标参数和合法控制组，再据此选择估计器及聚合方式，而不是从现成回归命令反推因果解释。",
+      "source_locator": "正文第 243—244 页，结语与图 3。",
+      "keywords": [
+        "research design",
+        "target parameter",
+        "estimator choice",
+        "treatment path visualization",
+        "pre-analysis",
+        "workflow"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-006"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-event-study-contamination",
+      "theme_id": "difference-in-differences",
+      "lens_type": "limitation",
+      "title": "传统事件研究系数可能混入其他相对时期效应",
+      "claim": "在队列和时间处理效应异质时，某一事件时间系数可能同时聚合目标相对时期和其他相对时期的处理效应，事前系数也可能被事后效应污染。",
+      "interpretation": "事件研究图的形状可能部分由回归权重生成，而不是政策动态本身。",
+      "use_when": "用于审查动态 DID 图、讨论 lead/lag 系数、或解释为何要使用异质效应稳健事件研究。",
+      "overclaim_risk": "不能因此断言所有传统事件研究图都错误；污染程度取决于处理时点分布和效应异质性。",
+      "safer_formulation": "在交错采纳且效应异质时，传统 TWFE 事件研究系数可能受到其他相对时期处理效应的污染，因此不宜直接逐点解释为动态 ATT。",
+      "source_locator": "正文第 234—235 页，方程 (10)—(12)。",
+      "keywords": [
+        "event study",
+        "lead lag",
+        "dynamic effects",
+        "contamination",
+        "pre-trends",
+        "relative time"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-003"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-forbidden-comparisons",
+      "theme_id": "difference-in-differences",
+      "lens_type": "mechanism",
+      "title": "负权重的实质是把已受处理观测当作控制",
+      "claim": "当早处理组被用作晚处理组的控制时，DID 会减去早处理组已经获得的处理效应，从而把该效应以负号带入估计量。",
+      "interpretation": "负权重首先是控制组资格问题；处理效应异质性决定这种禁止对比是否实际造成偏误。",
+      "use_when": "用于讲解 Bacon decomposition、审查交错政策控制组、或解释符号反转。",
+      "overclaim_risk": "禁止比较并不意味着任何包含负权重的估计都必然严重偏误；若相关效应同质，污染可能抵消。",
+      "safer_formulation": "交错 TWFE 的负权重通常源于已处理组被用作其他组的控制；当处理效应随组别或暴露时间变化时，这类禁止对比会污染目标 ATT。",
+      "source_locator": "正文第 231—234 页，表 2、方程 (7)—(9)。",
+      "keywords": [
+        "forbidden comparisons",
+        "negative weights",
+        "Bacon decomposition",
+        "staggered adoption",
+        "已处理控制组"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-003"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-mostly-harmless-boundary",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "theory",
+      "title": "“无伤大雅”依赖凸组合，而不是常系数形式本身",
+      "claim": "在条件独立和饱和控制下，常系数 OLS 的权重非负且和为 1；在广义 DID 中，仅靠未处理潜在结果平行趋势不能保证这一性质。",
+      "interpretation": "“简单回归可以近似平均效应”不是跨识别设计通用的结论，其成立依赖权重结构。",
+      "use_when": "用于解释为什么不能把 Angrist 式线性投影直觉机械移植到交错 DID、连续处理或多重处理。",
+      "overclaim_risk": "不能写成所有负权重估计都无意义；在同质处理效应等特殊情形下，TWFE 仍可能识别目标效应。",
+      "safer_formulation": "林梦芸等（2025）指出，常系数回归的“无伤大雅”解释依赖其系数仍是异质处理效应的凸组合，而这一性质在广义 DID 中仅凭平行趋势并不成立。",
+      "source_locator": "正文第 229—231 页，表 1、方程 (3)—(6)。",
+      "keywords": [
+        "mostly harmless",
+        "凸组合",
+        "条件独立",
+        "平行趋势",
+        "常系数回归"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-001"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-multiple-treatments",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "identification",
+      "title": "多重处理下控制组必须在其他处理路径上可比",
+      "claim": "若其他处理在组间或时期上变化，其异质效应会进入目标处理的 DID；稳健比较应尽量限定在其他处理路径相同的组之间。",
+      "interpretation": "多政策环境中的关键不是“是否把政策变量放进回归”，而是是否存在对主处理有效、且其他处理历史一致的反事实组。",
+      "use_when": "用于同期政策控制、政策组合、竞争性处理或多重事件研究设计。",
+      "overclaim_risk": "其他处理路径完全相同是较强要求；结构限制或其他研究设计有时也能识别目标效应。",
+      "safer_formulation": "在多重处理环境下，目标政策的 DID 解释通常要求处理组与控制组在其他相关处理路径上具有足够可比性，单纯加入额外政策变量并不保证消除污染。",
+      "source_locator": "正文第 242—243 页，表 6、假设 5。",
+      "keywords": [
+        "multiple treatments",
+        "concurrent policies",
+        "treatment paths",
+        "omitted policy",
+        "forbidden comparison"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-005"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-no-universal-estimator",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "research_gap",
+      "title": "异质性维度上升后不存在无代价的通用 DID 修正",
+      "claim": "交错二元处理已有较成熟的饱和估计方法，但非二元处理与额外协变量会显著增加异质性维度；现有方法往往依赖特殊同质性、稳定路径或函数形式假设，并提高数据要求。",
+      "interpretation": "新方法把不可解释偏误转化为透明假设和数据支持限制，但没有消除识别与精度之间的权衡。",
+      "use_when": "用于方法局限、研究展望、连续处理或高维异质效应的文献综述。",
+      "overclaim_risk": "不能说这些方法无用；其价值正是明确了在何种条件下可以识别哪些参数。",
+      "safer_formulation": "在非二元处理和高维协变量环境中，现代 DID 方法并未提供无条件通用解，而是以更透明但更具体的同质性、重叠和处理路径假设换取可解释识别。",
+      "source_locator": "正文第 243—244 页，结语。",
+      "keywords": [
+        "high-dimensional heterogeneity",
+        "no free lunch",
+        "overlap",
+        "functional form",
+        "treatment path",
+        "research gap"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-006"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-nonbinary-data-requirements",
+      "theme_id": "difference-in-differences",
+      "lens_type": "limitation",
+      "title": "多时点非二元 DID 的瓶颈是稳定控制路径",
+      "claim": "当处理强度随时间变化时，识别需要在比较起点具有相同强度并在相关时期保持稳定的控制组；缺少相应路径时，一部分动态效应不可识别。",
+      "interpretation": "处理越连续、路径越复杂，理论上可定义的异质效应越多，但数据能支持的干净比较反而越少。",
+      "use_when": "用于评估 `did_multiplegt_dyn` 等方法是否适合现有面板，或说明为何需要先画处理路径。",
+      "overclaim_risk": "稳定组不是所有非二元 DID 方法唯一可能的识别策略；这里对应本文重点讨论的方法族。",
+      "safer_formulation": "对本文讨论的多时点非二元 DID 方法而言，能否找到同基线且在相关窗口保持稳定的控制路径，是动态效应可识别性的关键限制。",
+      "source_locator": "正文第 239—241 页；网络附录五至六。",
+      "keywords": [
+        "treatment path",
+        "stable control",
+        "overlap",
+        "multi-period dose",
+        "did_multiplegt_dyn",
+        "identification support"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-004"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-nonbinary-iv-ratio",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "method",
+      "title": "单时点非二元 DID 可用约化式与第一阶段的比率识别",
+      "claim": "在存在同基期强度稳定组和平行趋势时，可用结果变化的 DID 除以处理强度变化的 DID，识别变化者的平均每单位处理效应。",
+      "interpretation": "该方法把处理是否变化作为工具变量，目标参数更接近局部的每单位变化效应，而不是普遍边际效应。",
+      "use_when": "用于政策强度在共同时间点变化、且能找到同基线稳定组的研究设计。",
+      "overclaim_risk": "不能把比率直接解释为所有组的结构性边际效应；弱第一阶段、异质效应和稳定组缺失都会破坏解释。",
+      "safer_formulation": "在同基线稳定组和平行趋势等条件下，单时点非二元 DID 可以用结果 DID 与处理强度 DID 的比率识别特定处理变化者的平均每单位效应。",
+      "source_locator": "正文第 238—239 页，方程 (17)、表 4。",
+      "keywords": [
+        "nonbinary treatment",
+        "continuous treatment",
+        "IV ratio",
+        "treatment intensity",
+        "stable group",
+        "dose response"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-004"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-staggered-estimators",
+      "theme_id": "difference-in-differences",
+      "lens_type": "identification",
+      "title": "交错 DID 稳健估计器的共同原则是先估细分效应再聚合",
+      "claim": "这些估计器都避免把已处理观测作为控制，先识别队列—时期或个体—时期处理效应，再按明确目标权重聚合。",
+      "interpretation": "方法选择应从目标参数和合法控制组出发，而不是从软件命令出发。",
+      "use_when": "用于选择 `csdid`、`eventstudyinteract` 或 `did_imputation`，以及说明三者为何可能给出不同结果。",
+      "overclaim_risk": "三类估计器的假设、样本保留规则、效率和聚合权重并不完全相同，不能视为可互换命令。",
+      "safer_formulation": "现代交错 DID 方法的共同做法是限定干净控制组、先估计细分处理效应，再根据研究目标进行透明聚合。",
+      "source_locator": "正文第 235—237 页，方程 (13)—(14)；网络附录六。",
+      "keywords": [
+        "Callaway Sant'Anna",
+        "Sun Abraham",
+        "imputation",
+        "cohort ATT",
+        "aggregation",
+        "staggered DID"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-003"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-unified-framework",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "method",
+      "title": "用饱和模型与 OVB/FWL 分解诊断常系数误设",
+      "claim": "把常系数模型对应到允许异质效应的饱和模型，再用 OVB/FWL 将常系数写成异质效应的线性组合，可以统一定位负权重和估计污染的来源。",
+      "interpretation": "这一框架的价值是把“估计器清单”转换成模型限制、控制组和聚合权重的比较。",
+      "use_when": "用于审查新回归规格、解释某个系数的伪真参数、或组织方法综述。",
+      "overclaim_risk": "该线性框架不能自动覆盖溢出、非加性效应、一般均衡或选择进入等问题。",
+      "safer_formulation": "一个可操作的 DID 误设诊断是：先写出允许处理效应异质的饱和模型，再用 OVB/FWL 检查常系数究竟聚合了哪些效应及其权重。",
+      "source_locator": "正文第 229—231 页，表 1。",
+      "keywords": [
+        "模型误设",
+        "饱和模型",
+        "OVB",
+        "FWL",
+        "伪真参数",
+        "权重分解"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-001"
+      ],
+      "work_id": "lin-2025-did-model-misspecification",
+      "paper_title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "year": 2025,
+      "field": "econometrics",
+      "paper_paradigm": "review",
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ]
+    },
+    {
+      "lens_id": "shi-2024-monitoring-waste-medicare-lens-deterrence",
+      "theme_id": "monitoring-enforcement",
+      "lens_type": "mechanism",
+      "title": "对 Medicare 浪费性支出的审计监察，其绝大部分社会收益来自对…",
+      "claim": "对 Medicare 浪费性支出的审计监察，其绝大部分社会收益来自对未来不必要入院的威慑，而非对历史款项的直接追回；仅凭追回金额评估监察项目会严重低估其真实价值。",
+      "interpretation": "文章最有说服力的发现之一是威慑效应占总节省的 89%，远超追回的 11%。这一结论依赖管辖边界 DD 识别医院层面入院率的下降，并通过入院削减集中于高错误率诊断和短住院的模式，证明威慑靶向的正是低价值入院。监察力度缩减后效果的持续性（因为医院已采用了新技术）进一步支持了这一机制。",
+      "use_when": "我在这里使用这篇文章，是为了说明 Medicare 审计监察的主要价值来源于事前威慑而非事后追回，威慑效应在政策评估中被系统性低估。",
+      "overclaim_risk": "不要将\"威慑效应远大于追回效应\"直接外推为\"追回无意义\"——追回既能弥补历史损失，也向医院传递信号，是威慑效应得以发生的制度前提。另外，本文的威慑估算建立在特定的 RAC 制度背景下，直接移植到其他监察项目需考虑激励结构差异。",
+      "safer_formulation": "证据表明，在设计监察项目的成本效益分析时，若仅计入追回款项将严重低估项目总价值；完整的评估应同时核算因威慑效应引致的未来支出减少，RAC 项目的经验提供了这一框架的实证基准。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "shi-2024-monitoring-waste-medicare-ex-001 shi-2024-monitoring-waste-medicare-ex-002"
+      ],
+      "work_id": "shi-2024-monitoring-waste-medicare",
+      "paper_title": "Monitoring for Waste: Evidence from Medicare Audits",
+      "authors": "Maggie Shi",
+      "year": 2024,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "shi-2024-monitoring-waste-medicare-lens-mechanism",
+      "theme_id": "hospital-behavior-incentives",
+      "lens_type": "mechanism",
+      "title": "Medicare 审计的主要作用渠道是事前威慑和医院一次性合规投资，…",
+      "claim": "Medicare 审计的主要作用渠道是事前威慑和医院一次性合规投资，而不是持续性的行政摩擦或事后追款。",
+      "interpretation": "这篇文章的机制含义很强：监管并不是每次都要抓到作弊才有效，只要改变未来的报销预期和核查技术，行为就会先变。",
+      "use_when": "我在这里使用这篇文章，是为了说明审计为何能带来巨大节省，关键不在追回，而在威慑和合规技术调整。",
+      "overclaim_risk": "不要把本文外推成所有审计都高回报。其结果依赖于目标支出项目中确实存在大量低价值利用。",
+      "safer_formulation": "这篇文章表明，Medicare 监察的主要节省来自对未来低价值入院的威慑，以及医院为满足合规要求进行的前期技术投资。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "shi-2024-monitoring-waste-medicare-ex-002",
+        "shi-2024-monitoring-waste-medicare-ex-003"
+      ],
+      "work_id": "shi-2024-monitoring-waste-medicare",
+      "paper_title": "Monitoring for Waste: Evidence from Medicare Audits",
+      "authors": "Maggie Shi",
+      "year": 2024,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "shi-2024-monitoring-waste-medicare-lens-policy",
+      "theme_id": "medicare-waste",
+      "lens_type": "policy",
+      "title": "加强 Medicare 住院审计监察可在不损害患者健康的前提下显著节…",
+      "claim": "加强 Medicare 住院审计监察可在不损害患者健康的前提下显著节省公共支出，$1 监察支出可带来 $24–$29 的政府节省，成本效益比优于绝大多数公共支出改革工具。",
+      "interpretation": "文章提供了三层相互支撑的政策论据：（1）极高的投资回报率（$1:$24–$29）量化了监察的财政价值；（2）患者健康结果无恶化排除了\"监察压缩必要医疗\"的最主要社会成本担忧；（3）合规成本以一次性固定技术投资为主（而非持续行政摩擦），意味着长期边际合规成本低。三者共同构成支持扩大监察力度的完整政策论证。",
+      "use_when": "我在这里使用这篇文章，是为了支持\"加强 Medicare 监察是高性价比公共支出治理工具\"这一政策主张，并提供其不伤患者健康的实证佐证。",
+      "overclaim_risk": "不要用这篇文章论证\"任何监察都是好监察\"——本文的高性价比依赖于 RAC 项目的激励设计（按追回比例付佣）；若监察机构缺乏筛选目标的激励，监察成本可能上升而效益下降。此外，本文聚焦 Medicare 住院，结论外推至门诊、Medicare Advantage 或私保领域需审慎。",
+      "safer_formulation": "在 Medicare 住院监察的具体制度设计下，证据支持扩大审计投入；政策讨论的焦点应从\"是否监察\"转向\"如何设计监察激励机制\"，以实现高性价比的浪费治理。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "shi-2024-monitoring-waste-medicare-ex-001 shi-2024-monitoring-waste-medicare-ex-003"
+      ],
+      "work_id": "shi-2024-monitoring-waste-medicare",
+      "paper_title": "Monitoring for Waste: Evidence from Medicare Audits",
+      "authors": "Maggie Shi",
+      "year": 2024,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "chandra-2024-health-costs-cost-lens-fact",
+      "theme_id": "cost-sharing-demand",
+      "lens_type": "fact",
+      "title": "在 Medicare Part D 场景下，患者成本分担不仅减少用药…",
+      "claim": "在 Medicare Part D 场景下，患者成本分担不仅减少用药，还会提高死亡风险。",
+      "interpretation": "这篇文章最强的一点，是它把成本分担、停药和死亡率放进了同一条因果链，并且给出了可比较的政策数量级。",
+      "use_when": "我在这里用这篇文章，是为了给“成本分担会带来真实健康代价”这一事实提供直接证据。",
+      "overclaim_risk": "不要把本文扩展成“所有成本分担都会致命”。更准确的说法是，在高价值慢病药物场景下，风险尤其突出。",
+      "safer_formulation": "这篇文章表明，在 Medicare Part D 的关键药物保障场景中，较高患者成本分担会带来可观的健康代价，而非仅仅压缩低价值需求。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chandra-2024-health-costs-cost-ex-001",
+        "chandra-2024-health-costs-cost-ex-003"
+      ],
+      "work_id": "chandra-2024-health-costs-cost",
+      "paper_title": "The Health Costs of Cost Sharing",
+      "authors": "Amitabh Chandra, Evan Flack, Ziad Obermeyer",
+      "year": 2024,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        },
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "chandra-2024-health-costs-cost-lens-mechanism",
+      "theme_id": "drug-adherence-health-outcomes",
+      "lens_type": "mechanism",
+      "title": "成本分担的健康代价主要来自关键药物依从性下降，而且这种下降并不完全是…",
+      "claim": "成本分担的健康代价主要来自关键药物依从性下降，而且这种下降并不完全是理性优化，常常伴随风险感知偏差。",
+      "interpretation": "如果高风险患者恰恰削减了更多高价值药物，同时多数人又低估停药风险，那么“患者会自动把有限预算配置到最重要药物上”的假设就站不住了。本文因此把药物依从性、信息认知与保险设计连在了一起。",
+      "use_when": "我在这里使用这篇文章，是为了支撑“价格冲击通过停药而非其他渠道伤害健康”这一机制判断，并强调行为偏差在其中的重要性。",
+      "overclaim_risk": "不要把这篇文章写成已经完全区分了所有行为机制。它强烈支持信息不足或行为偏差，但并不能排除流动性约束、认知负担等其他伴随机制共同作用。",
+      "safer_formulation": "这篇文章的证据与一种清晰机制相一致：预算收紧会诱发高风险患者停用高价值药物，而患者对停药后果的系统性低估放大了这种健康损失。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chandra-2024-health-costs-cost-ex-001",
+        "chandra-2024-health-costs-cost-ex-002"
+      ],
+      "work_id": "chandra-2024-health-costs-cost",
+      "paper_title": "The Health Costs of Cost Sharing",
+      "authors": "Amitabh Chandra, Evan Flack, Ziad Obermeyer",
+      "year": 2024,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        },
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "chandra-2024-health-costs-cost-lens-policy",
+      "theme_id": "patient-cost-sharing",
+      "lens_type": "policy",
+      "title": "在慢病管理与高风险患者场景中，提高自付比例未必只是减少浪费，反而可能…",
+      "claim": "在慢病管理与高风险患者场景中，提高自付比例未必只是减少浪费，反而可能通过停用关键药物直接损害健康。",
+      "interpretation": "这篇文章的重要性在于，它不再只停留在“成本分担影响利用率”这一层，而是直接把预算收紧、停药和死亡率上升连成了一条因果链。这样一来，成本分担的政策评估就必须同时考虑健康损失，而不能只看财政节约。",
+      "use_when": "我在这里用这篇文章，是为了支持一个比“价格会抑制需求”更强的政策判断：对高价值慢病药物而言，患者成本分担本身可能就是低效率甚至有害的保险设计。",
+      "overclaim_risk": "不要把本文写成“所有自付都是坏的”。它识别的是 Medicare Part D 特定合同结构下、特定高价值药物中断导致的健康后果，外推到普通门诊小额共付或短期低风险用药时需要谨慎。",
+      "safer_formulation": "这篇文章表明，在 Medicare Part D 的药品保障场景中，对高风险慢病患者提高自付可能不仅减少用药，还会造成可观的健康损失，因此成本分担不能被简单视为提升效率的工具。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chandra-2024-health-costs-cost-ex-001",
+        "chandra-2024-health-costs-cost-ex-002"
+      ],
+      "work_id": "chandra-2024-health-costs-cost",
+      "paper_title": "The Health Costs of Cost Sharing",
+      "authors": "Amitabh Chandra, Evan Flack, Ziad Obermeyer",
+      "year": 2024,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        },
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "chan-2022-selection-variation-diagnostic-lens-fact",
+      "theme_id": "physician-skill-heterogeneity",
+      "lens_type": "fact",
+      "title": "医疗提供者异质性应被理解为“技能 + 偏好”的复合体，而不能简化成单…",
+      "claim": "医疗提供者异质性应被理解为“技能 + 偏好”的复合体，而不能简化成单一风格差异。",
+      "interpretation": "本文的贡献在于把“实践风格”重新拆开。很多经验研究把高利用率与低利用率直接映射成偏好，但本文表明，这里面往往还混着重要的能力差异。",
+      "use_when": "我在这里用这篇文章，是为了支撑一个基础事实：医生之间的实践差异并不只是偏好差异，其中相当一部分来自诊断技能差异。",
+      "overclaim_risk": "不要把本文扩展成“偏好差异不重要”。更准确的说法是，技能差异重要到不能被忽略。",
+      "safer_formulation": "这篇文章表明，在医疗决策变异中，诊断技能异质性占有显著比重，因此实践差异不能被简单理解为偏好差异。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chan-2022-selection-variation-diagnostic-ex-001",
+        "chan-2022-selection-variation-diagnostic-ex-002"
+      ],
+      "work_id": "chan-2022-selection-variation-diagnostic",
+      "paper_title": "Selection with Variation in Diagnostic Skill: Evidence from Radiologists",
+      "authors": "David C. Chan, Matthew Gentzkow, Chuan Yu",
+      "year": 2022,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "chan-2022-selection-variation-diagnostic-lens-method",
+      "theme_id": "judges-design-IV",
+      "lens_type": "method",
+      "title": "当代理人分配同时改变处理概率和处理质量时，judges design…",
+      "claim": "当代理人分配同时改变处理概率和处理质量时，judges design 一类 IV 设计可能不再可信。",
+      "interpretation": "本文最有穿透力的一点，是它不仅提出了理论担忧，还给出了明显荒谬的经验后果，逼着研究者重新审视“随机分到不同医生”这一识别想象。",
+      "use_when": "我在这里使用这篇文章，是为了提醒任何基于医生分配做 IV 的研究，都必须正面处理技能异质性问题。",
+      "overclaim_risk": "不要把它写成“所有 judges design 都失效”。更准确地说，是在技能异质性与单调性失败严重时风险很大。",
+      "safer_formulation": "这篇文章提示，若医生异质性同时体现在是否治疗和治疗质量上，简单依赖医生分配作为工具变量可能会产生严重偏误。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chan-2022-selection-variation-diagnostic-ex-003"
+      ],
+      "work_id": "chan-2022-selection-variation-diagnostic",
+      "paper_title": "Selection with Variation in Diagnostic Skill: Evidence from Radiologists",
+      "authors": "David C. Chan, Matthew Gentzkow, Chuan Yu",
+      "year": 2022,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "chan-2022-selection-variation-diagnostic-lens-policy",
+      "theme_id": "practice-variation",
+      "lens_type": "policy",
+      "title": "若实践差异中包含大量技能差异，政策重点应放在提高诊断准确率，而不是单…",
+      "claim": "若实践差异中包含大量技能差异，政策重点应放在提高诊断准确率，而不是单纯压平医生之间的诊断率差异。",
+      "interpretation": "本文的重要政策含义是，减少差异不等于改善质量。如果把所有医生都推向同一诊断率，反而可能把高技能医生向低技能水平拉平。",
+      "use_when": "我在这里用这篇文章，是为了说明统一化利用率或统一化风格未必提升福利，关键要看背后是偏好差异还是技能差异。",
+      "overclaim_risk": "不要写成“任何标准化政策都不好”。问题不在标准化本身，而在它是否误把技能差异当成偏好差异。",
+      "safer_formulation": "这篇文章表明，在存在显著技能异质性的诊断场景中，提高准确率通常比压平诊断率本身更有政策价值。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chan-2022-selection-variation-diagnostic-ex-001",
+        "chan-2022-selection-variation-diagnostic-ex-002"
+      ],
+      "work_id": "chan-2022-selection-variation-diagnostic",
+      "paper_title": "Selection with Variation in Diagnostic Skill: Evidence from Radiologists",
+      "authors": "David C. Chan, Matthew Gentzkow, Chuan Yu",
+      "year": 2022,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "olden-2022-triple-difference-estimator-lens-application",
+      "theme_id": "identification-in-applied-micro",
+      "lens_type": "opportunity",
+      "title": "应用研究在使用 DDD 时，应明确报告“相对趋势一致”这一假设，并把…",
+      "claim": "应用研究在使用 DDD 时，应明确报告“相对趋势一致”这一假设，并把 DDD 理解为偏误修正工具，而不是默认更强识别。",
+      "interpretation": "对很多实证论文来说，这篇文章的价值不在新增一个估计器，而在于纠正了 DDD 的叙述方式和识别习惯。",
+      "use_when": "我在这里用这篇文章，是为了改进应用论文对 DDD 的识别写法和方法自觉。",
+      "overclaim_risk": "不要把它写成对所有 DDD 实证都给出最终操作手册。更复杂的协变量和交错采用问题还要看后续扩展文献。",
+      "safer_formulation": "这篇文章为应用研究者提供了一个更精确的 DDD 表述框架，可作为书写识别假设和解释三重差分逻辑的基础参考。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "olden-2022-triple-difference-estimator-ex-001",
+        "olden-2022-triple-difference-estimator-ex-003"
+      ],
+      "work_id": "olden-2022-triple-difference-estimator",
+      "paper_title": "The Triple Difference Estimator",
+      "authors": "Andreas Olden, Jarle Møen",
+      "year": 2022,
+      "field": "econometrics",
+      "paper_paradigm": "methodology",
+      "themes": [
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        }
+      ]
+    },
+    {
+      "lens_id": "olden-2022-triple-difference-estimator-lens-fact",
+      "theme_id": "triple-difference-estimator",
+      "lens_type": "fact",
+      "title": "DDD 的因果识别并不要求两个独立平行趋势假设，而依赖一个关于相对趋…",
+      "claim": "DDD 的因果识别并不要求两个独立平行趋势假设，而依赖一个关于相对趋势的单一平行趋势假设。",
+      "interpretation": "本文的重要性在于，它把很多应用研究里含混的 DDD 说法收紧成了一个更清楚、更可检视的识别命题。",
+      "use_when": "我在这里使用这篇文章，是为了给 DDD 的识别假设提供一个最简明但严格的表述。",
+      "overclaim_risk": "不要把本文写成“DDD 很容易用”。它只是更清楚地说明了该满足什么条件。",
+      "safer_formulation": "这篇文章表明，DDD 的核心识别条件是一个关于相对趋势的平行趋势假设，而不是两个彼此独立的 DiD 假设。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "olden-2022-triple-difference-estimator-ex-001"
+      ],
+      "work_id": "olden-2022-triple-difference-estimator",
+      "paper_title": "The Triple Difference Estimator",
+      "authors": "Andreas Olden, Jarle Møen",
+      "year": 2022,
+      "field": "econometrics",
+      "paper_paradigm": "methodology",
+      "themes": [
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        }
+      ]
+    },
+    {
+      "lens_id": "olden-2022-triple-difference-estimator-lens-method",
+      "theme_id": "difference-in-differences",
+      "lens_type": "method",
+      "title": "DDD 的有效性取决于两个 DiD 偏误是否共享同一结构，而不是取决…",
+      "claim": "DDD 的有效性取决于两个 DiD 偏误是否共享同一结构，而不是取决于每个 DiD 单独是否已经无偏。",
+      "interpretation": "本文最值得保留的地方，是它让 DDD 从回归配方变回识别逻辑。研究者必须解释为什么偏误可以被差掉，而不是只展示一个三向交互项。",
+      "use_when": "我在这里使用这篇文章，是为了强调 DDD 的方法直觉是“偏误抵消”，而不是简单多做一层差分。",
+      "overclaim_risk": "不要把本文扩展成 DDD 在任何复杂面板下都足够。它处理的是更基础的识别逻辑，而不是所有扩展设计。",
+      "safer_formulation": "这篇文章提醒研究者，DDD 的关键在于共享偏误的消除逻辑，因此应用时应优先说明偏误结构而非仅报告三重交互项系数。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "olden-2022-triple-difference-estimator-ex-002"
+      ],
+      "work_id": "olden-2022-triple-difference-estimator",
+      "paper_title": "The Triple Difference Estimator",
+      "authors": "Andreas Olden, Jarle Møen",
+      "year": 2022,
+      "field": "econometrics",
+      "paper_paradigm": "methodology",
+      "themes": [
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        }
+      ]
+    },
+    {
+      "lens_id": "chan-2021-influence-information-team-lens-fact",
+      "theme_id": "physician-teams",
+      "lens_type": "fact",
+      "title": "在医疗团队中，层级结构会显著影响谁的判断真正进入最终决策，高年资成员…",
+      "claim": "在医疗团队中，层级结构会显著影响谁的判断真正进入最终决策，高年资成员的影响力远高于低年资成员。",
+      "interpretation": "这篇文章的重要贡献是把团队决策中的“影响力”从模糊印象变成了可识别的经验对象。它说明团队不是简单求平均，而是会把更大权重交给某些成员。",
+      "use_when": "我在这里使用这篇文章，是为了给“团队决策并不平均分权，而是高度集中在高年资成员身上”这一事实判断提供证据。",
+      "overclaim_risk": "不要把本文写成“低年资成员没有作用”。更准确地说，是他们对最终决策的边际影响较小，而不是完全被排除。",
+      "safer_formulation": "这篇文章表明，在住院医团队中，决策影响力显著向高年资成员集中，这种集中本身就是医疗实践差异的重要来源之一。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chan-2021-influence-information-team-ex-001"
+      ],
+      "work_id": "chan-2021-influence-information-team",
+      "paper_title": "Influence and Information in Team Decisions: Evidence from Medical Residency",
+      "authors": "David C. Chan",
+      "year": 2021,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
+        }
+      ]
+    },
+    {
+      "lens_id": "chan-2021-influence-information-team-lens-method",
+      "theme_id": "information-aggregation-teams",
+      "lens_type": "method",
+      "title": "团队决策中的层级差异，不应仅理解为组织命令链，还应理解为团队依据成员…",
+      "claim": "团队决策中的层级差异，不应仅理解为组织命令链，还应理解为团队依据成员判断质量重新分配决策权重的信息聚合过程。",
+      "interpretation": "作者并没有把“高年资更有权”停留在描述层面，而是进一步论证这种权力集中为何可能是理性的，因为团队在用经验和判断质量给成员加权。这让本文能跨出医疗组织研究，进入团队生产与信息经济学主题。",
+      "use_when": "我在这里使用这篇文章，是为了支撑“团队层级既是权力结构，也是信息聚合机制”这一更深一层的方法和机制视角。",
+      "overclaim_risk": "不要把本文写成已经完全证明“信息聚合优于命令层级”或“层级总是有效率”。它识别的是一个特定教学医院中的机制，更广泛组织环境可能不同。",
+      "safer_formulation": "这篇文章的证据与一种信息聚合解释相一致：医疗团队会把更多决策权重交给更有经验、判断更可靠的成员，而不仅仅是机械地遵循行政层级。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chan-2021-influence-information-team-ex-001",
+        "chan-2021-influence-information-team-ex-002"
+      ],
+      "work_id": "chan-2021-influence-information-team",
+      "paper_title": "Influence and Information in Team Decisions: Evidence from Medical Residency",
+      "authors": "David C. Chan",
+      "year": 2021,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
+        }
+      ]
+    },
+    {
+      "lens_id": "chan-2021-influence-information-team-lens-opportunity",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "opportunity",
+      "title": "医疗团队中决策权重的配置未必自动最优，上级监督、培训结构和角色分工都…",
+      "claim": "医疗团队中决策权重的配置未必自动最优，上级监督、培训结构和角色分工都可能影响团队效率。",
+      "interpretation": "本文并不是简单赞成“资深者说了算”，它实际上提出了一个更有组织含义的问题：团队如何在学习、监督和效率之间配置决策权。",
+      "use_when": "我在这里用这篇文章，是为了把团队层级问题连接到医院组织设计和监督机制上。",
+      "overclaim_risk": "不要把本文写成已经证明了当前监督一定不足。它更像是在提出一个有根据的组织改进方向。",
+      "safer_formulation": "这篇文章提示，医疗团队中的影响力配置与上级监督结构可能仍有优化空间，因此团队层级本身应被视为组织设计问题。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chan-2021-influence-information-team-ex-002",
+        "chan-2021-influence-information-team-ex-003"
+      ],
+      "work_id": "chan-2021-influence-information-team",
+      "paper_title": "Influence and Information in Team Decisions: Evidence from Medical Residency",
+      "authors": "David C. Chan",
+      "year": 2021,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
+        }
+      ]
+    },
+    {
+      "lens_id": "chen-2021-team-specific-human-lens-fact",
+      "theme_id": "team-specific-human-capital",
+      "lens_type": "fact",
+      "title": "医疗团队的历史合作经验会形成可观测、可积累、且对质量有实质影响的团队…",
+      "claim": "医疗团队的历史合作经验会形成可观测、可积累、且对质量有实质影响的团队特定人力资本。",
+      "interpretation": "本文把团队磨合从一种经验常识变成了可因果识别的生产要素。对医疗团队研究来说，这是非常关键的事实锚点。",
+      "use_when": "我在这里用这篇文章，是为了支撑“团队特定人力资本真实存在，而且能改善患者结果”这一基础事实。",
+      "overclaim_risk": "不要写成“所有合作经验都同样有价值”。文章识别的是特定类型高技能团队中的历史协作经验。",
+      "safer_formulation": "这篇文章表明，在心脏介入和外科团队中，成员之间累积的共同工作经历会显著改善患者结果。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chen-2021-team-specific-human-ex-001"
+      ],
+      "work_id": "chen-2021-team-specific-human",
+      "paper_title": "Team-Specific Human Capital and Team Performance: Evidence from Doctors",
+      "authors": "Yiqun Chen",
+      "year": 2021,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
+        }
+      ]
+    },
+    {
+      "lens_id": "chen-2021-team-specific-human-lens-mechanism",
+      "theme_id": "human-capital-teams",
+      "lens_type": "mechanism",
+      "title": "团队特定人力资本改善结果的主要渠道是更高的协同效率，而不是更多资源消…",
+      "claim": "团队特定人力资本改善结果的主要渠道是更高的协同效率，而不是更多资源消耗。",
+      "interpretation": "文章中“结果更好且投入更省”的组合非常关键，因为它把团队经验与真正的生产率提升联系了起来。",
+      "use_when": "我在这里使用这篇文章，是为了支撑“团队经验提升的是协同生产率，而不只是投入强度”这一机制判断。",
+      "overclaim_risk": "不要把机制写成已经完全分离。它强烈支持生产率解释，但并不排除部分流程规范或沟通成本下降共同作用。",
+      "safer_formulation": "这篇文章的证据与一种清晰机制相一致：团队共同经历通过提升协同效率改善质量，而不是通过增加资源投入。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chen-2021-team-specific-human-ex-002"
+      ],
+      "work_id": "chen-2021-team-specific-human",
+      "paper_title": "Team-Specific Human Capital and Team Performance: Evidence from Doctors",
+      "authors": "Yiqun Chen",
+      "year": 2021,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
+        }
+      ]
+    },
+    {
+      "lens_id": "chen-2021-team-specific-human-lens-policy",
+      "theme_id": "team-production",
+      "lens_type": "policy",
+      "title": "医院在排班、团队稳定性和人员重组上的组织决策，会通过团队特定人力资本…",
+      "claim": "医院在排班、团队稳定性和人员重组上的组织决策，会通过团队特定人力资本影响患者结果。",
+      "interpretation": "如果团队经验不能被通用个人经验完全替代，那么医院把成员当作完全可替换零件来排班，就会低估重组成本。",
+      "use_when": "我在这里用这篇文章，是为了说明频繁重组团队未必免费，组织结构本身会影响医疗质量。",
+      "overclaim_risk": "不要把结论写成“团队永远不要轮换”。轮换可能有培训收益，文章强调的是稳定性的价值不能被忽略。",
+      "safer_formulation": "这篇文章提示，医院在团队配置和排班设计中需要权衡培训与灵活性收益，以及团队特定人力资本流失的质量成本。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chen-2021-team-specific-human-ex-001",
+        "chen-2021-team-specific-human-ex-003"
+      ],
+      "work_id": "chen-2021-team-specific-human",
+      "paper_title": "Team-Specific Human Capital and Team Performance: Evidence from Doctors",
+      "authors": "Yiqun Chen",
+      "year": 2021,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
+        }
+      ]
+    },
+    {
+      "lens_id": "chandra-2020-identifying-sources-inefficiency-lens-fact",
+      "theme_id": "healthcare-inefficiency",
+      "lens_type": "fact",
+      "title": "跨医院治疗差异很大一部分来自错误配置，尤其是对低收益患者的过度治疗。",
+      "claim": "跨医院治疗差异很大一部分来自错误配置，尤其是对低收益患者的过度治疗。",
+      "interpretation": "本文的重要性在于，它把“治疗差异”翻译成了更有政策含义的“配置无效率”。这让医疗组织效率问题从描述统计走向福利分析。",
+      "use_when": "我在这里用这篇文章，是为了支撑一个事实判断：医院间治疗差异中确实包含实质性的低效率，而不是纯粹无害的风格差异。",
+      "overclaim_risk": "不要写成“所有高治疗率医院都低效”。文章同时强调比较优势差异的存在。",
+      "safer_formulation": "这篇文章表明，医院间治疗差异中包含显著的配置无效率，尤其表现为某些医院对低收益患者的过度治疗。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chandra-2020-identifying-sources-inefficiency-ex-001"
+      ],
+      "work_id": "chandra-2020-identifying-sources-inefficiency",
+      "paper_title": "Identifying Sources of Inefficiency in Healthcare",
+      "authors": "Amitabh Chandra and Douglas O. Staiger",
+      "year": 2020,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "chandra-2020-identifying-sources-inefficiency-lens-mechanism",
+      "theme_id": "comparative-advantage-hospitals",
+      "lens_type": "mechanism",
+      "title": "医院间治疗差异不仅来自是否治疗的阈值不同，也来自医院本身对同一治疗的…",
+      "claim": "医院间治疗差异不仅来自是否治疗的阈值不同，也来自医院本身对同一治疗的真实回报不同。",
+      "interpretation": "本文把比较优势这个贸易和组织经济学概念，真正落到了医院治疗回报异质性上。这使得“哪家医院来做”变成与“是否做治疗”同等重要的问题。",
+      "use_when": "我在这里使用这篇文章，是为了连接“组织能力差异”与“比较优势”这条机制线索。",
+      "overclaim_risk": "不要把本文写成完全识别了所有能力来源。它识别了比较优势存在，但未必完全解释其形成机制。",
+      "safer_formulation": "这篇文章表明，医院之间存在显著的比较优势差异，因此治疗效率不仅取决于治疗是否实施，也取决于由谁实施。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chandra-2020-identifying-sources-inefficiency-ex-002"
+      ],
+      "work_id": "chandra-2020-identifying-sources-inefficiency",
+      "paper_title": "Identifying Sources of Inefficiency in Healthcare",
+      "authors": "Amitabh Chandra and Douglas O. Staiger",
+      "year": 2020,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "chandra-2020-identifying-sources-inefficiency-lens-policy",
+      "theme_id": "allocative-efficiency",
+      "lens_type": "policy",
+      "title": "提高医疗福利的关键，往往不是统一压低或抬高治疗率，而是改善患者与医院…",
+      "claim": "提高医疗福利的关键，往往不是统一压低或抬高治疗率，而是改善患者与医院之间的匹配配置。",
+      "interpretation": "如果消除配置无效率就能释放 44% 的额外生存收益，那么政策重点显然不该只是争论“做得太多还是太少”，而应转向“做给了谁”。",
+      "use_when": "我在这里用这篇文章，是为了说明医疗改革若只盯平均治疗率，可能抓不住真正的效率改进空间。",
+      "overclaim_risk": "不要把本文写成“支付制度微调就能解决一切”。作者强调的还包括组织信念和比较优势识别问题。",
+      "safer_formulation": "这篇文章提示，医疗效率改革应更多聚焦于改善治疗配置与患者匹配，而不是仅仅压平医院间平均治疗差异。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chandra-2020-identifying-sources-inefficiency-ex-001",
+        "chandra-2020-identifying-sources-inefficiency-ex-003"
+      ],
+      "work_id": "chandra-2020-identifying-sources-inefficiency",
+      "paper_title": "Identifying Sources of Inefficiency in Healthcare",
+      "authors": "Amitabh Chandra and Douglas O. Staiger",
+      "year": 2020,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "currie-2020-understanding-doctor-decision-lens-fact",
+      "theme_id": "practice-style",
+      "lens_type": "fact",
+      "title": "更分散的处方风格并不天然更好，它只有在高技能医生手中才更可能转化为更…",
+      "claim": "更分散的处方风格并不天然更好，它只有在高技能医生手中才更可能转化为更好结果。",
+      "interpretation": "这篇文章非常适合用来反驳“风格差异就是坏事”或“更多个性化一定更好”这两种对立的简单叙事。",
+      "use_when": "我在这里用这篇文章，是为了给“处方风格差异的价值取决于医生技能”这一事实提供证据。",
+      "overclaim_risk": "不要把本文写成反指南或反多样性。它强调的是技能条件下的权衡。",
+      "safer_formulation": "这篇文章表明，医生处方风格的多样性是否改善结果，取决于医生本身的诊断和学习能力。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "currie-2020-understanding-doctor-decision-ex-001",
+        "currie-2020-understanding-doctor-decision-ex-002"
+      ],
+      "work_id": "currie-2020-understanding-doctor-decision",
+      "paper_title": "Understanding Doctor Decision Making: The Case of Depression Treatment",
+      "authors": "Janet M. Currie, W. Bentley MacLeod",
+      "year": 2020,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "currie-2020-understanding-doctor-decision-lens-mechanism",
+      "theme_id": "physician-skill-heterogeneity",
+      "lens_type": "mechanism",
+      "title": "医生的处方多样性不能脱离其诊断技能单独评价；技能越高，试验性处方越可…",
+      "claim": "医生的处方多样性不能脱离其诊断技能单独评价；技能越高，试验性处方越可能改善患者结果。",
+      "interpretation": "Currie 和 MacLeod 的关键贡献，不是简单说“多开几种药更好”或“更守指南更好”，而是把多样性行为放进一个技能调节的 bandit 决策框架里。这样一来，实践风格差异就不再只是一种偏好现象，而成为技能异质性在学习过程中的行为投影。",
+      "use_when": "我在这里使用这篇文章，是为了支持一个关于医生行为机制的更细判断：同样看起来“更分散”的处方风格，只有在高技能医生手里才更可能代表有价值的试验性学习，而不是噪声或失误。",
+      "overclaim_risk": "不要把文章说成“高熵处方一定更好”。文中的结论明确依赖医生技能水平，而且实证部分主要是条件相关与模型一致性检验，并非严格因果识别。",
+      "safer_formulation": "这篇文章表明，在抑郁症处方场景中，更分散的处方风格只有在高技能医生那里才与更好的患者结果相关，这与“技能越高，试验性学习价值越大”的行为机制相一致。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "currie-2020-understanding-doctor-decision-ex-001",
+        "currie-2020-understanding-doctor-decision-ex-002"
+      ],
+      "work_id": "currie-2020-understanding-doctor-decision",
+      "paper_title": "Understanding Doctor Decision Making: The Case of Depression Treatment",
+      "authors": "Janet M. Currie, W. Bentley MacLeod",
+      "year": 2020,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "currie-2020-understanding-doctor-decision-lens-policy",
+      "theme_id": "quality-guidelines",
+      "lens_type": "policy",
+      "title": "当医生技能高度异质时，处方指南或有限选择集可能优于完全放开选择空间，…",
+      "claim": "当医生技能高度异质时，处方指南或有限选择集可能优于完全放开选择空间，因为它能约束低技能医生的有害试验。",
+      "interpretation": "这篇文章把“是否应当给医生更多自由裁量”这个常见直觉翻了过来。它告诉我们，选择空间的价值不是普遍的，而是取决于决策者是否有足够技能把试验转化成学习收益。对于技能分布广、错误代价高的场景，指南限制可以是福利改进工具。",
+      "use_when": "我在这里使用这篇文章，是为了支持一个关于指南设计的政策判断：限制选择集的统一指南并不总是压制创新，它也可能在有限治疗窗口内提高平均福利。",
+      "overclaim_risk": "不要把这篇文章解读成“指南永远优于自由裁量”。文中强调的是有限治疗窗口与技能异质性下的权衡，而不是一条普遍的反自由裁量结论。",
+      "safer_formulation": "这篇文章提示，在医生技能异质性显著且错误试验代价较高的治疗场景中，限制选择集的处方指南可能比完全放开更有利于平均患者福利。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "currie-2020-understanding-doctor-decision-ex-001",
+        "currie-2020-understanding-doctor-decision-ex-003"
+      ],
+      "work_id": "currie-2020-understanding-doctor-decision",
+      "paper_title": "Understanding Doctor Decision Making: The Case of Depression Treatment",
+      "authors": "Janet M. Currie, W. Bentley MacLeod",
+      "year": 2020,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "finkelstein-2019-subsidizing-health-insurance-lens-fact",
+      "theme_id": "health-insurance-demand",
+      "lens_type": "fact",
+      "title": "低收入群体对健康保险的真实支付意愿可能远低于保险成本，这本身就是不完…",
+      "claim": "低收入群体对健康保险的真实支付意愿可能远低于保险成本，这本身就是不完全覆盖的重要原因。",
+      "interpretation": "这篇文章让“保险需求弱”从推测变成了直接测量结果。它提醒我们，不完全覆盖并不总是市场失灵的单一后果，也可能包含真实需求不足。",
+      "use_when": "我在这里用这篇文章，是为了给低收入成年人保险需求提供一个非常硬的数量级锚点。",
+      "overclaim_risk": "不要把本文写成“低收入人群不需要保险”。WTP 低并不等于福利收益低，尤其在流动性约束和行为偏差存在时更是如此。",
+      "safer_formulation": "这篇文章表明，在现实补贴制度下，低收入成年人对健康保险的支付意愿显著低于保险成本，这对理解不完全覆盖至关重要。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "finkelstein-2019-subsidizing-health-insurance-ex-001"
+      ],
+      "work_id": "finkelstein-2019-subsidizing-health-insurance",
+      "paper_title": "Subsidizing Health Insurance for Low-Income Adults: Evidence from Massachusetts",
+      "authors": "Amy Finkelstein, Nathaniel Hendren, Mark Shepard",
+      "year": 2019,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "insurance-choice-and-information-frictions",
+          "name": "保险选择与信息摩擦"
+        },
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        }
+      ]
+    },
+    {
+      "lens_id": "finkelstein-2019-subsidizing-health-insurance-lens-mechanism",
+      "theme_id": "adverse-selection-insurance",
+      "lens_type": "mechanism",
+      "title": "逆向选择存在，但无法单独解释低收入保险市场的低参保率，更大的缺口来自…",
+      "claim": "逆向选择存在，但无法单独解释低收入保险市场的低参保率，更大的缺口来自支付意愿本身偏低。",
+      "interpretation": "本文的机制意义在于，它把“选择问题”和“需求问题”拆开了。很多政策讨论把二者混为一谈，而这篇文章明确告诉我们，需求弱本身是独立问题。",
+      "use_when": "我在这里使用这篇文章，是为了重新定位逆向选择在低覆盖问题中的解释份额。",
+      "overclaim_risk": "不要写成“逆向选择无关紧要”。更准确的说法是，它重要但解释力有限。",
+      "safer_formulation": "这篇文章表明，逆向选择只能解释低收入人群保险支付意愿与成本缺口的一部分，需求不足本身同样关键。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "finkelstein-2019-subsidizing-health-insurance-ex-003"
+      ],
+      "work_id": "finkelstein-2019-subsidizing-health-insurance",
+      "paper_title": "Subsidizing Health Insurance for Low-Income Adults: Evidence from Massachusetts",
+      "authors": "Amy Finkelstein, Nathaniel Hendren, Mark Shepard",
+      "year": 2019,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "insurance-choice-and-information-frictions",
+          "name": "保险选择与信息摩擦"
+        },
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        }
+      ]
+    },
+    {
+      "lens_id": "finkelstein-2019-subsidizing-health-insurance-lens-policy",
+      "theme_id": "insurance-subsidies-low-income",
+      "lens_type": "policy",
+      "title": "保费补贴固然提高参保率，但单靠补贴未必能实现接近完全覆盖，尤其在低收…",
+      "claim": "保费补贴固然提高参保率，但单靠补贴未必能实现接近完全覆盖，尤其在低收入群体中更是如此。",
+      "interpretation": "本文的政策价值在于，它把补贴政策从“多补一点就能接近全覆盖”的想象中拉回现实。补贴有效，但需求曲线本身并不够陡。",
+      "use_when": "我在这里用这篇文章，是为了提醒大型补贴政策的覆盖效果存在明显上限。",
+      "overclaim_risk": "不要把本文变成反补贴论证。更准确的是，补贴需要与自动参保、默认选项或信息干预等工具配合。",
+      "safer_formulation": "这篇文章提示，针对低收入人群的保险补贴政策虽能提升参保率，但若目标是接近全覆盖，往往还需要补贴之外的制度工具。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "finkelstein-2019-subsidizing-health-insurance-ex-001",
+        "finkelstein-2019-subsidizing-health-insurance-ex-002"
+      ],
+      "work_id": "finkelstein-2019-subsidizing-health-insurance",
+      "paper_title": "Subsidizing Health Insurance for Low-Income Adults: Evidence from Massachusetts",
+      "authors": "Amy Finkelstein, Nathaniel Hendren, Mark Shepard",
+      "year": 2019,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "insurance-choice-and-information-frictions",
+          "name": "保险选择与信息摩擦"
+        },
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        }
+      ]
+    },
+    {
+      "lens_id": "ito-2018-economics-attribute-based-regulation-lens-mechanism",
+      "theme_id": "bunching-and-notches",
+      "lens_type": "mechanism",
+      "title": "当监管目标随次级属性发生离散跳变时，企业不仅会改善被监管的目标变量，…",
+      "claim": "当监管目标随次级属性发生离散跳变时，企业不仅会改善被监管的目标变量，也会为了跨阈值而扭曲次级属性本身；这种操纵可以通过 bunching 直接观察到。",
+      "interpretation": "这篇论文最有力的机制证据，是把重量阈值附近的密度堆积解释为对隐性监管价格的响应，并进一步用 double-notch 面板展示产品如何沿着“最低成本合规路径”移动。它说明 ABR 的扭曲不是抽象可能性，而是会在产品设计维度上真实发生的行为反应。",
+      "use_when": "我在这里使用这篇文章，是为了支持“政策把门槛写进产品属性后，企业会直接操纵该属性本身”这一机制判断。",
+      "overclaim_risk": "不要把所有阈值附近的堆积都机械归因为政策操纵；在别的场景里，阈值附近也可能反映技术标准、市场偏好或离散分类本身。",
+      "safer_formulation": "在日本重量分段燃油经济标准这一制度环境下，阈值附近的 excess bunching 与政策诱导的重量操纵高度一致，并为“ABR 会扭曲次级属性”提供了直接证据。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "- ito-2018-economics-attribute-based-regulation-ex-003 - ito-2018-economics-attribute-based-regulation-ex-004"
+      ],
+      "work_id": "ito-2018-economics-attribute-based-regulation",
+      "paper_title": "The Economics of Attribute-Based Regulation: Theory and Evidence from Fuel Economy Standards",
+      "authors": "Koichiro Ito, James M. Sallee",
+      "year": 2018,
+      "field": "environmental-economics",
+      "paper_paradigm": "mixed",
+      "themes": [
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "ito-2018-economics-attribute-based-regulation-lens-method",
+      "theme_id": "bunching-and-notches",
+      "lens_type": "method",
+      "title": "在存在明确监管阈值的产品市场中，可以先用 bunching 识别是否…",
+      "claim": "在存在明确监管阈值的产品市场中，可以先用 bunching 识别是否存在属性操纵，再用政策前后的产品重设路径去估计损失函数，从而比较不同监管工具的反事实效率。",
+      "interpretation": "这篇文章的方法价值在于它没有停在 reduced-form 的“有没有 bunching”，而是进一步利用 double-notch 所提供的二维门槛，把产品如何在重量与燃油经济性之间权衡的信息转化为结构参数。对研究门槛政策、产品改造和监管设计的人来说，这是很值得模仿的路线。",
+      "use_when": "我在这里使用这篇文章，是因为它展示了如何把 notch-based bunching 与产品层面的 panel redesign 结合起来，形成既能识别响应、又能做结构化反事实的研究设计。",
+      "overclaim_risk": "不要把这套方法当成任何 notch 环境下都能直接复制。它之所以成立，依赖于高质量产品层监管数据、可匹配面板，以及相对清晰的 redesign 路径解释。",
+      "safer_formulation": "更稳妥的表述是：这篇文章提供了一个很强的示范，说明在数据足够细、门槛足够清楚的产品市场中，bunching 与 panel redesign 可以被组合成结构化政策评估工具。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "- ito-2018-economics-attribute-based-regulation-ex-004 - ito-2018-economics-attribute-based-regulation-ex-005"
+      ],
+      "work_id": "ito-2018-economics-attribute-based-regulation",
+      "paper_title": "The Economics of Attribute-Based Regulation: Theory and Evidence from Fuel Economy Standards",
+      "authors": "Koichiro Ito, James M. Sallee",
+      "year": 2018,
+      "field": "environmental-economics",
+      "paper_paradigm": "mixed",
+      "themes": [
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "ito-2018-economics-attribute-based-regulation-lens-policy",
+      "theme_id": "fuel-economy-standards",
+      "lens_type": "policy",
+      "title": "重量基准的燃油经济性标准虽然可能在无交易环境下部分均衡合规成本，但它…",
+      "claim": "重量基准的燃油经济性标准虽然可能在无交易环境下部分均衡合规成本，但它会诱导车辆增重，并因此带来显著的效率与安全外部性成本；若允许合规交易，平坦标准通常是更优替代。",
+      "interpretation": "这篇论文把燃油经济性标准的讨论从“weight-based 是否更公平/更现实”推进到“它究竟相对于哪些替代政策更优”的层次。最重要的政策信息不是简单地反对分段标准，而是指出：若监管者担心不同车型的合规成本差异，可以优先考虑 trading 或其他市场化协调机制，而不是默认用 ABR 去硬性分层。",
+      "use_when": "我在这里使用这篇文章，是为了支持一类具体的政策判断：燃油经济性标准如果按重量或尺寸分段，很可能把本想改善的能效目标与新的产品扭曲绑定在一起。",
+      "overclaim_risk": "不要把本文外推出“任何按属性分段的环境政策都应废除”。不同政策可能有更强的再分配目标、执行约束或测量限制。",
+      "safer_formulation": "更稳妥的说法是：在燃油经济性标准这一应用中，重量基准设计显著增加了属性扭曲；如果政策目标主要是效率而非再分配，那么引入更直接的交易或统一价格工具通常更有吸引力。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "- ito-2018-economics-attribute-based-regulation-ex-003 - ito-2018-economics-attribute-based-regulation-ex-005 - ito-2018-economics-attribute-based-regulation-ex-001"
+      ],
+      "work_id": "ito-2018-economics-attribute-based-regulation",
+      "paper_title": "The Economics of Attribute-Based Regulation: Theory and Evidence from Fuel Economy Standards",
+      "authors": "Koichiro Ito, James M. Sallee",
+      "year": 2018,
+      "field": "environmental-economics",
+      "paper_paradigm": "mixed",
+      "themes": [
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "ito-2018-economics-attribute-based-regulation-lens-theory",
+      "theme_id": "attribute-based-regulation",
+      "lens_type": "theory",
+      "title": "如果存在竞争性的合规交易并且监管者没有额外的再分配目标，那么 att…",
+      "claim": "如果存在竞争性的合规交易并且监管者没有额外的再分配目标，那么 attribute-based regulation 通常不应被视为高效工具；它相对于平坦标准加交易的主要差别，是额外诱导了对次级属性的扭曲。",
+      "interpretation": "本文最强的理论贡献不是简单说“属性分段会有问题”，而是明确指出问题出现的边界条件：一旦交易制度能够运行，ABR 在效率上的借口基本消失；其残余空间主要来自现实中的交易约束或再分配动机。这让 ABR 成为一个标准的 second-best 问题，而不是某种独立优越的监管范式。",
+      "use_when": "我在这里使用这篇文章，是为了给“属性基准监管与交易制度之间的理论排序”提供一个清晰的福利框架，而不是停留在制度直觉比较。",
+      "overclaim_risk": "不要把本文解读成“任何 attribute-based policy 都无效率”。作者明确承认，在不能交易、且属性与边际合规成本相关时，ABR 可能优于无交易的平坦标准。",
+      "safer_formulation": "更稳妥的说法是：在可行的合规交易存在时，ABR 通常不如平坦标准加交易；在交易不可行时，它可能作为第二最佳工具带来部分成本均衡收益，但仍伴随属性扭曲。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "- ito-2018-economics-attribute-based-regulation-ex-002 - ito-2018-economics-attribute-based-regulation-ex-001"
+      ],
+      "work_id": "ito-2018-economics-attribute-based-regulation",
+      "paper_title": "The Economics of Attribute-Based Regulation: Theory and Evidence from Fuel Economy Standards",
+      "authors": "Koichiro Ito, James M. Sallee",
+      "year": 2018,
+      "field": "environmental-economics",
+      "paper_paradigm": "mixed",
+      "themes": [
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "fang-2017-detecting-potential-overbilling-lens-fact",
+      "theme_id": "physician-overbilling",
+      "lens_type": "fact",
+      "title": "部分 Medicare 提供者的申报行为明显超出合理工作量约束，并与…",
+      "claim": "部分 Medicare 提供者的申报行为明显超出合理工作量约束，并与更强的收入驱动编码模式相一致。",
+      "interpretation": "本文不是在说“少数极端值无关紧要”，而是在用一个非常保守的规则指出：异常申报并非个别离群点，而是值得监管正视的系统现象。",
+      "use_when": "我在这里用这篇文章，是为了支持一个事实判断：Medicare 医生服务编码中确实存在大规模可疑的过度计费模式。",
+      "overclaim_risk": "不要把本文写成对所有被标记医生的行为已经完成司法判断。文章识别的是高可疑度模式。",
+      "safer_formulation": "这篇文章表明，Medicare 索赔中存在显著的可疑过度计费模式，且这些模式与更强的编码收入激励相一致。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "fang-2017-detecting-potential-overbilling-ex-001",
+        "fang-2017-detecting-potential-overbilling-ex-002"
+      ],
+      "work_id": "fang-2017-detecting-potential-overbilling",
+      "paper_title": "Detecting Potential Overbilling in Medicare Reimbursement via Hours Worked",
+      "authors": "Hanming Fang and Qing Gong",
+      "year": 2017,
+      "field": "health-economics",
+      "paper_paradigm": "methodology",
+      "themes": [
+        {
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
+        },
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        }
+      ]
+    },
+    {
+      "lens_id": "fang-2017-detecting-potential-overbilling-lens-method",
+      "theme_id": "fraud-detection",
+      "lens_type": "method",
+      "title": "利用索赔编码隐含的工作小时约束，可以构造出简单、可扩展、且较少受病例…",
+      "claim": "利用索赔编码隐含的工作小时约束，可以构造出简单、可扩展、且较少受病例结构混淆的过度计费识别工具。",
+      "interpretation": "本文的价值首先在方法层面。它把复杂的欺诈识别问题转成了一个很朴素但很强的可行性检验，因此特别适合作为第一层自动筛查。",
+      "use_when": "我在这里使用这篇文章，是为了提供一个非常实用的 Medicare 欺诈筛查方法。",
+      "overclaim_risk": "不要把标记结果写成“已证实欺诈”。它更适合被表述为高风险筛查，而不是最终定罪标准。",
+      "safer_formulation": "这篇文章表明，基于隐含工时的规则可以有效标记潜在过度计费对象，是 Medicare 欺诈识别的一种有用筛查工具。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "fang-2017-detecting-potential-overbilling-ex-001",
+        "fang-2017-detecting-potential-overbilling-ex-003"
+      ],
+      "work_id": "fang-2017-detecting-potential-overbilling",
+      "paper_title": "Detecting Potential Overbilling in Medicare Reimbursement via Hours Worked",
+      "authors": "Hanming Fang and Qing Gong",
+      "year": 2017,
+      "field": "health-economics",
+      "paper_paradigm": "methodology",
+      "themes": [
+        {
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
+        },
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        }
+      ]
+    },
+    {
+      "lens_id": "fang-2017-detecting-potential-overbilling-lens-policy",
+      "theme_id": "medicare-claims-methodology",
+      "lens_type": "policy",
+      "title": "在执法资源有限时，基于 claims 的自动化高风险筛查可以显著提高…",
+      "claim": "在执法资源有限时，基于 claims 的自动化高风险筛查可以显著提高 Medicare 审计与调查的 targeting 效率。",
+      "interpretation": "这篇文章的政策意义在于，它给出了一个低成本入口。监管者不必从零开始做复杂个案调查，而可以先用规则把最不可信的一批医生筛出来。",
+      "use_when": "我在这里用这篇文章，是为了支持监管上“先筛查、后深挖”的流程设计。",
+      "overclaim_risk": "不要写成“规则筛查可以替代正式调查”。它更适合作为资源配置工具，而不是独立执法结论。",
+      "safer_formulation": "这篇文章提示，Medicare 执法可以通过基于 claims 的自动化筛查显著提升目标识别效率，但后续仍需要更深入的核查程序。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "fang-2017-detecting-potential-overbilling-ex-003"
+      ],
+      "work_id": "fang-2017-detecting-potential-overbilling",
+      "paper_title": "Detecting Potential Overbilling in Medicare Reimbursement via Hours Worked",
+      "authors": "Hanming Fang and Qing Gong",
+      "year": 2017,
+      "field": "health-economics",
+      "paper_paradigm": "methodology",
+      "themes": [
+        {
+          "theme_id": "healthcare-fraud-waste-and-enforcement",
+          "name": "医疗欺诈、浪费与执法"
+        },
+        {
+          "theme_id": "causal-inference-and-program-evaluation",
+          "name": "因果识别与政策评估"
+        }
+      ]
+    },
+    {
+      "lens_id": "brot-goldberg-2017-what-does-deductible-lens-counterfactual",
+      "theme_id": "nonlinear-contract-behavior",
+      "lens_type": "counterfactual",
+      "title": "如果消费者能够根据真实影子价格（而非现货价格）调整就医决策，高免赔额…",
+      "claim": "如果消费者能够根据真实影子价格（而非现货价格）调整就医决策，高免赔额计划下的有益就医削减将大幅减少，福利代价将显著低于当前可观测水平。",
+      "interpretation": "文章通过两条证据线索支持这一反事实论证：（1）最高患病风险人群（其真实影子价格接近零，因为他们几乎肯定会在年末超过免赔额）在免赔额以下月份的支出削减幅度高达42%，这与理性预期模型的预测完全相悖；（2）两年内消费者未学会对影子价格做出响应，说明信息干预或合同简化（而非仅靠时间和经验）才是改善决策的路径。这两点共同指向：现行合同复杂性本身制造了可避免的福利损失。",
+      "use_when": "我在这里使用这篇文章，是为了构建一个反事实论证：如果消费者能够正确理解非线性合同的影子价格并做出前瞻性优化，高免赔额计划的福利代价会低得多——现实与这一反事实之间的差距，正是行为失灵造成的福利损失的度量。",
+      "overclaim_risk": "不要把这个反事实论证当作\"高免赔额计划在理想条件下一定有效\"的支持——文章只显示了行为偏误的额外代价，并未论证在无偏误条件下合同设计的净效率是否为正。",
+      "safer_formulation": "现有证据表明，高免赔额计划在消费者存在现货价格偏误的条件下产生了可量化的额外福利损失；政策干预若能帮助消费者更准确地预测年末真实影子价格，或简化合同结构以降低决策复杂度，有望在不增加道德风险的前提下减少这部分额外损失。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "- brot-goldberg-2017-what-does-deductible-ex-002 - brot-goldberg-2017-what-does-deductible-ex-001"
+      ],
+      "work_id": "brot-goldberg-2017-what-does-deductible",
+      "paper_title": "What Does a Deductible Do? The Impact of Cost-Sharing on Health Care Prices, Quantities, and Spending Dynamics",
+      "authors": "Zarek C. Brot-Goldberg, Amitabh Chandra, Benjamin R. Handel, Jonathan T. Kolstad",
+      "year": 2017,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        }
+      ]
+    },
+    {
+      "lens_id": "brot-goldberg-2017-what-does-deductible-lens-mechanism",
+      "theme_id": "nonlinear-contract-behavior",
+      "lens_type": "mechanism",
+      "title": "在高免赔额保险合同下，消费者对医疗服务的削减主要受当前现货价格驱动，…",
+      "claim": "在高免赔额保险合同下，消费者对医疗服务的削减主要受当前现货价格驱动，而非合同内嵌的真实影子价格，这导致就医决策与理性前瞻性优化严重偏离。",
+      "interpretation": "文章最有说服力的证据是：即便控制了真实影子价格，消费者处于免赔额以下状态仍解释了约42%的额外支出削减；最高患病风险人群（最应就医者）在低现货价格月份之外的月份削减更多。这两条证据形成了\"现货价格偏误\"的闭合论证——消费者并非在优化终生健康效用，而是在对每次就诊的账单价格做出即时反应。",
+      "use_when": "我在这里使用这篇文章，是为了说明消费者在高免赔额计划下对医疗价格的响应机制：不是理性动态优化，而是对就诊瞬间现货价格的近视性反应——这一\"现货价格偏误\"（spot price bias）才是支出削减的真实机制。",
+      "overclaim_risk": "不要将所有高免赔额计划下的就医减少都归因于现货价格偏误；道德风险（对真实价格变化的理性响应）仍然存在，这篇文章说的是偏误的叠加效应，而非否定全部价格响应。",
+      "safer_formulation": "在高免赔额计划下，消费者对医疗服务的削减不仅包含对真实成本上升的理性响应，还包含对非线性合同结构的系统性误解——后者导致了与理性预期模型相悖的行为模式，特别是高风险患者在低现货价格月份之外大幅削减有价值就医。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "- brot-goldberg-2017-what-does-deductible-ex-002 - brot-goldberg-2017-what-does-deductible-ex-001"
+      ],
+      "work_id": "brot-goldberg-2017-what-does-deductible",
+      "paper_title": "What Does a Deductible Do? The Impact of Cost-Sharing on Health Care Prices, Quantities, and Spending Dynamics",
+      "authors": "Zarek C. Brot-Goldberg, Amitabh Chandra, Benjamin R. Handel, Jonathan T. Kolstad",
+      "year": 2017,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        }
+      ]
+    },
+    {
+      "lens_id": "brot-goldberg-2017-what-does-deductible-lens-policy",
+      "theme_id": "health-insurance-market-design",
+      "lens_type": "policy",
+      "title": "高免赔额计划通过削减就医数量（而非价格比价）来降低医疗支出，且削减范…",
+      "claim": "高免赔额计划通过削减就医数量（而非价格比价）来降低医疗支出，且削减范围同时覆盖低价值和高价值医疗服务，意味着该政策工具的福利代价远高于其效率叙事所暗示的水平。",
+      "interpretation": "政策设计者推广高免赔额计划的核心论据是\"价格比价红利\"——消费者获得财务激励后会货比三家，倒逼提供方降价，实现效率改进。但这篇文章的分解结果显示，价格比价贡献接近于零，支出下降完全来自数量削减，且削减同时包含预防保健和慢性病管理等高价值服务。考虑到研究对象是受教育程度最高、最有能力价格比价的高收入员工群体，对普通人群而言该工具的效果只会更差。",
+      "use_when": "我在这里使用这篇文章，是为了评估高免赔额健康计划作为医疗费用控制工具的政策有效性——具体而言，其实现支出压缩的渠道是否是决策者所假设的那一条（价格比价带来的效率提升），还是一条福利代价更高的渠道（有益就医的无差别削减）。",
+      "overclaim_risk": "不要将这篇文章解读为\"高免赔额计划一定增加净社会成本\"；研究只能说削减中包含了高价值服务，但无法直接测量所削减服务的净健康损失，部分削减（如不必要的影像检查）可能确实是低价值的。",
+      "safer_formulation": "现有最优质的自然实验证据表明，高免赔额计划实现支出压缩的主要渠道是无差别的就医数量削减，而非效率提升性的价格比价；且在信息处理能力最强的消费者群体中亦如此，这对依赖消费者价格敏感性进行效率论证的政策叙事构成了严肃挑战。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "- brot-goldberg-2017-what-does-deductible-ex-001 - brot-goldberg-2017-what-does-deductible-ex-003"
+      ],
+      "work_id": "brot-goldberg-2017-what-does-deductible",
+      "paper_title": "What Does a Deductible Do? The Impact of Cost-Sharing on Health Care Prices, Quantities, and Spending Dynamics",
+      "authors": "Zarek C. Brot-Goldberg, Amitabh Chandra, Benjamin R. Handel, Jonathan T. Kolstad",
+      "year": 2017,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        }
+      ]
+    },
+    {
+      "lens_id": "finkelstein-2016-sources-geographic-variation-lens-fact",
+      "theme_id": "geographic-variation-healthcare",
+      "lens_type": "fact",
+      "title": "医疗利用的地区差异并非几乎全部由供给驱动，患者需求特征同样解释了相当…",
+      "claim": "医疗利用的地区差异并非几乎全部由供给驱动，患者需求特征同样解释了相当大比例。",
+      "interpretation": "本文最重要的事实贡献，是把原本偏向供给侧的叙事拉回到一个更对称的需求-供给分解框架里。",
+      "use_when": "我在这里用这篇文章，是为了给医疗地区差异来源做一个更平衡的事实分解。",
+      "overclaim_risk": "不要写成“需求和供给各占一半是普遍规律”。这个比例依赖样本、服务类型和识别口径。",
+      "safer_formulation": "这篇文章表明，在 Medicare 利用差异中，患者需求特征和地点供给环境都很重要，前者的解释力远高于早期文献常给出的印象。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "finkelstein-2016-sources-geographic-variation-ex-001"
+      ],
+      "work_id": "finkelstein-2016-sources-geographic-variation",
+      "paper_title": "Sources of Geographic Variation in Health Care: Evidence from Patient Migration",
+      "authors": "Amy Finkelstein, Matthew Gentzkow, Heidi Williams",
+      "year": 2016,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "finkelstein-2016-sources-geographic-variation-lens-method",
+      "theme_id": "patient-migration-identification",
+      "lens_type": "method",
+      "title": "利用个体迁移，可以较可信地识别地点本身对医疗利用的影响，而不仅仅是不…",
+      "claim": "利用个体迁移，可以较可信地识别地点本身对医疗利用的影响，而不仅仅是不同地区居民构成不同。",
+      "interpretation": "本文方法的优点在于，它不依赖横截面比较，而是利用同一个人跨地区移动后的利用变化，这使 place effect 的识别更加直观有力。",
+      "use_when": "我在这里使用这篇文章，是为了引用 movers design 作为分离个人与地点效应的经典做法。",
+      "overclaim_risk": "不要把迁移设计写成完全无选择偏误。搬家本身仍可能与生命周期变化、健康变化或家庭冲击相关。",
+      "safer_formulation": "这篇文章展示了一个有力的识别思路：通过观察同一 Medicare 受益人在不同地区的利用变化，研究者可以更清楚地分离个人因素与地点因素。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "finkelstein-2016-sources-geographic-variation-ex-002"
+      ],
+      "work_id": "finkelstein-2016-sources-geographic-variation",
+      "paper_title": "Sources of Geographic Variation in Health Care: Evidence from Patient Migration",
+      "authors": "Amy Finkelstein, Matthew Gentzkow, Heidi Williams",
+      "year": 2016,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "finkelstein-2016-sources-geographic-variation-lens-policy",
+      "theme_id": "medicare-utilization",
+      "lens_type": "policy",
+      "title": "针对地区差异的政策如果忽视患者需求和健康构成差异，容易把合理差异误判…",
+      "claim": "针对地区差异的政策如果忽视患者需求和健康构成差异，容易把合理差异误判为低效率。",
+      "interpretation": "这篇文章的政策含义是，地区治理既需要供给侧改革，也需要更细的风险调整和需求端理解，否则容易过度纠偏。",
+      "use_when": "我在这里用这篇文章，是为了说明地区高支出或高利用的治理不能只盯供给端。",
+      "overclaim_risk": "不要把本文理解成“供给改革不重要”。文章强调的是供给并非唯一来源。",
+      "safer_formulation": "这篇文章提示，针对 Medicare 地区利用差异的政策评估需要同时考虑患者构成与地方供给环境，而不能把所有差异都当成供给侧浪费。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "finkelstein-2016-sources-geographic-variation-ex-001",
+        "finkelstein-2016-sources-geographic-variation-ex-003"
+      ],
+      "work_id": "finkelstein-2016-sources-geographic-variation",
+      "paper_title": "Sources of Geographic Variation in Health Care: Evidence from Patient Migration",
+      "authors": "Amy Finkelstein, Matthew Gentzkow, Heidi Williams",
+      "year": 2016,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "chan-2016-teamwork-moral-hazard-lens-mechanism",
+      "theme_id": "foot-dragging-information",
+      "lens_type": "mechanism",
+      "title": "在联合生产中，允许工人相互管理而非依赖外部管理者，可以利用工人之间的…",
+      "claim": "在联合生产中，允许工人相互管理而非依赖外部管理者，可以利用工人之间的信息优势来显著降低道德风险，而无需依赖可观测的个人产出或外部激励合约。",
+      "interpretation": "文章最具说服力的机制论证，在于三层相互印证的证据：足拖行为只在护士管理制度下随预期工作量增加而增强、同伴物理在场减少足拖、自我管理制度下患者分配与工作量的负相关性更强。这三条线索共同指向同一个机制：同伴之间的信息优势在制度允许的情况下被转化为分配效率，而不是仅仅停留在\"社会压力\"层面。",
+      "use_when": "我在这里使用这篇文章，是为了说明团队生产中的道德风险并非不可避免：当工人之间拥有比外部管理者更优越的相互信息，且制度允许他们将这一信息用于互相管理时，团队可以内生性地消除足拖型道德风险。",
+      "overclaim_risk": "不要将结论推广为\"所有形式的团队合作都能降低道德风险\"。Chan（2016）的机制要求非常具体的条件：（1）同伴之间确实有更优越的信息；（2）制度性地赋予同伴分配权（自我管理）；（3）足拖均衡的存在性依赖于外部管理者无法观测真实工作量。缺乏任一条件，效率提升机制就可能失效甚至逆转（如自由骑手问题）。",
+      "safer_formulation": "在急诊科这一特定场景中，当同伴医生被赋予相互分配工作的权力时，他们利用比分诊护士更优越的工作量信息消除了足拖，使患者处理速度提高11%至15%，且医疗质量指标无显著变化。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chan-2016-teamwork-moral-hazard-ex-001 chan-2016-teamwork-moral-hazard-ex-002"
+      ],
+      "work_id": "chan-2016-teamwork-moral-hazard",
+      "paper_title": "Teamwork and Moral Hazard: Evidence from the Emergency Department",
+      "authors": "David C. Chan",
+      "year": 2016,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
+        }
+      ]
+    },
+    {
+      "lens_id": "chan-2016-teamwork-moral-hazard-lens-method",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "method",
+      "title": "研究医疗团队组织设计时，同一机构内的制度差异（如诊区级别的管理制度不…",
+      "claim": "研究医疗团队组织设计时，同一机构内的制度差异（如诊区级别的管理制度不同）可以提供优于跨医院比较的识别策略，因为可以在医生个体固定效应下控制选择性偏误，并利用高频观测数据检验平行趋势假设。",
+      "interpretation": "Chan（2016）设计的核心优势是医生同时在两个诊区工作，使研究者能够在同一医生内部比较制度效应，这比跨医院比较所面临的\"好医院同时有好制度\"的混淆问题要小得多。同时，每9分钟到达一名患者的高频数据使6年样本拥有充裕的统计功效，这在其他医疗组织经济学研究中并不多见。",
+      "use_when": "我在这里使用这篇文章，是为了展示如何在医院组织场景中利用同一机构内的制度差异构建干净的差分-差分自然实验，将单一管理特征（相互管理 vs. 外部管理）从其他组织变量中孤立出来。",
+      "overclaim_risk": "不要将这一识别框架直接推广到其他医院或场景，而不验证以下条件：（1）医生确实在两种制度下均工作（以支持个体固定效应识别）；（2）诊区级制度切换的时机不与未观测的患者或医生特征变化相关；（3）该诊区的信息结构（分诊护士作为外部管理者、同伴高度可观测）在其他场景中是否同样成立。",
+      "safer_formulation": "Chan（2016）的差分-差分设计为研究医院组织制度效应提供了一个方法论范本，但其可复制性依赖于同一机构内同期运行不同制度这一罕见条件。在缺乏类似自然实验的场景下，需要其他识别来源替代。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chan-2016-teamwork-moral-hazard-ex-003"
+      ],
+      "work_id": "chan-2016-teamwork-moral-hazard",
+      "paper_title": "Teamwork and Moral Hazard: Evidence from the Emergency Department",
+      "authors": "David C. Chan",
+      "year": 2016,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
+        }
+      ]
+    },
+    {
+      "lens_id": "chan-2016-teamwork-moral-hazard-lens-policy",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "policy",
+      "title": "急诊科的制度改革（将患者分配权从分诊护士转移到医生团队自身）可以使患…",
+      "claim": "急诊科的制度改革（将患者分配权从分诊护士转移到医生团队自身）可以使患者处理速度提升11%至15%，对应的年度医疗成本节约与患者等待时间改善具有实质性政策价值。",
+      "interpretation": "文章的政策含义在于：足拖这种道德风险的根本成因不是医生的个人品质或激励强度，而是制度性的信息不对称——护士作为外部管理者无法观测医生真实工作量，从而使足拖成为医生的理性均衡策略。因此，通过制度设计消除这种信息不对称（赋予同伴分配权），比试图通过绩效合约激励个体医生更有效率，也更易于实施。同时，死亡率、再就诊率和财务指标均无显著变化，表明速度提升来自减少不必要拖延而非压缩必要医疗时间。",
+      "use_when": "我在这里使用这篇文章，是为了支撑一个政策论点：在医疗机构中，重新设计工作分配的制度结构——而非依赖外部激励合约或绩效考核——可以显著提高生产效率，且不损害医疗质量。",
+      "overclaim_risk": "不要将\"自我管理一定优于外部管理\"作为普遍政策结论。文章的制度设置非常特殊（两名医生同在一个诊区、工作量高度可相互观察）。在工人信息优势较弱、或同伴之间存在严重利益冲突、或团队规模较大的场景下，自我管理可能不会消除道德风险，反而可能引入自由骑手问题（文章本身也承认了这一竞争机制的存在）。",
+      "safer_formulation": "在急诊科这一特定设置中，将患者分配权从外部护士管理者转移给同伴医生，有效减少了足拖型道德风险，支持了以制度重设计取代外部监控的政策路径。但该结论的可推广性依赖于同伴间信息优势真实存在、且制度赋权不引入新的合谋或自由骑手问题。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chan-2016-teamwork-moral-hazard-ex-001 chan-2016-teamwork-moral-hazard-ex-002"
+      ],
+      "work_id": "chan-2016-teamwork-moral-hazard",
+      "paper_title": "Teamwork and Moral Hazard: Evidence from the Emergency Department",
+      "authors": "David C. Chan",
+      "year": 2016,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_DD",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-teams-and-organizational-design",
+          "name": "医疗团队与组织设计"
+        }
+      ]
+    },
+    {
+      "lens_id": "handel-2015-health-insurance-humans-lens-mechanism",
+      "theme_id": "health-insurance-choice",
+      "lens_type": "mechanism",
+      "title": "消费者对计划网络、财务条款或使用复杂度的认知偏差，会系统性改变他们对…",
+      "claim": "消费者对计划网络、财务条款或使用复杂度的认知偏差，会系统性改变他们对健康保险计划的选择。",
+      "interpretation": "文章最有说服力的机制证据之一，就是那些错误理解 provider access 的消费者会更偏好 PPO，这恰好说明 choice 里有显著的 information friction component。",
+      "use_when": "我在这里使用这篇文章，是为了说明保险计划选择中的“高保障偏好”常常混杂了对计划属性的误解，而不只是经典风险厌恶。",
+      "overclaim_risk": "不要把所有 PPO 选择都解释成认知偏差；风险偏好仍然重要，这篇文章说的是分解而不是替代。",
+      "safer_formulation": "证据表明，健康保险计划选择中观察到的高保障偏好，至少部分反映了信息摩擦与认知误解，而不只是风险厌恶。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "handel-2015-health-insurance-humans-ex-002"
+      ],
+      "work_id": "handel-2015-health-insurance-humans",
+      "paper_title": "Health Insurance for \"Humans\": Information Frictions, Plan Choice, and Consumer Welfare",
+      "authors": "Benjamin R. Handel and Jonathan T. Kolstad",
+      "year": 2015,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "insurance-choice-and-information-frictions",
+          "name": "保险选择与信息摩擦"
+        },
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        }
+      ]
+    },
+    {
+      "lens_id": "handel-2015-health-insurance-humans-lens-method",
+      "theme_id": "information-frictions-in-insurance",
+      "lens_type": "method",
+      "title": "在复杂保险计划选择中，如果只依赖 observed choice 与…",
+      "claim": "在复杂保险计划选择中，如果只依赖 observed choice 与行政数据，研究者很容易把信息摩擦误估为风险偏好。",
+      "interpretation": "这篇文章的核心方法价值在于，它不是简单往 demand model 里多塞几个控制变量，而是给“消费者知道什么”提供了额外测量，从而改变了偏好估计本身。",
+      "use_when": "我在这里使用这篇文章，是把它作为一个方法例子：如何通过 survey 与行政数据的组合，把复杂合同选择中的风险偏好与信息摩擦分开识别。",
+      "overclaim_risk": "不要把这篇文章说成“完全识别了真实偏好”；survey measures 本身也有 measurement error 和解释空间。",
+      "safer_formulation": "文章表明，在健康保险这类复杂合同选择中，引入 individually linked survey information 能显著改善风险偏好与信息摩擦的区分。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "handel-2015-health-insurance-humans-ex-001",
+        "handel-2015-health-insurance-humans-ex-004"
+      ],
+      "work_id": "handel-2015-health-insurance-humans",
+      "paper_title": "Health Insurance for \"Humans\": Information Frictions, Plan Choice, and Consumer Welfare",
+      "authors": "Benjamin R. Handel and Jonathan T. Kolstad",
+      "year": 2015,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "insurance-choice-and-information-frictions",
+          "name": "保险选择与信息摩擦"
+        },
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        }
+      ]
+    },
+    {
+      "lens_id": "handel-2015-health-insurance-humans-lens-policy",
+      "theme_id": "health-insurance-choice",
+      "lens_type": "policy",
+      "title": "在复杂保险菜单中，监管者或雇主在设计 plan menu 时，必须考…",
+      "claim": "在复杂保险菜单中，监管者或雇主在设计 plan menu 时，必须考虑消费者信息摩擦，否则 menu simplification 的福利效果可能被误判。",
+      "interpretation": "从 policy 角度看，这篇文章告诉我们：限制 choice set 或把人推向高 deductible plan 的效果，不能只用传统 risk protection trade-off 来理解。",
+      "use_when": "我在这里使用这篇文章，是为了支持关于保险菜单设计与默认保单收缩的政策讨论。",
+      "overclaim_risk": "不要把它写成“应该取消 PPO”或“应该统一推 HDHP”；文章真正展示的是评估框架的敏感性，而不是单一政策结论。",
+      "safer_formulation": "这篇文章提示，保险菜单设计与高 deductible 计划推广的政策评估，必须显式考虑消费者信息摩擦与计划理解偏差。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "handel-2015-health-insurance-humans-ex-003"
+      ],
+      "work_id": "handel-2015-health-insurance-humans",
+      "paper_title": "Health Insurance for \"Humans\": Information Frictions, Plan Choice, and Consumer Welfare",
+      "authors": "Benjamin R. Handel and Jonathan T. Kolstad",
+      "year": 2015,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "insurance-choice-and-information-frictions",
+          "name": "保险选择与信息摩擦"
+        },
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        }
+      ]
+    },
+    {
+      "lens_id": "handel-2015-health-insurance-humans-lens-welfare",
+      "theme_id": "consumer-welfare-under-choice-frictions",
+      "lens_type": "counterfactual",
+      "title": "如果不区分风险偏好与信息摩擦，反事实政策评估可能会系统性高估消费者因…",
+      "claim": "如果不区分风险偏好与信息摩擦，反事实政策评估可能会系统性高估消费者因风险暴露增加而遭受的福利损失。",
+      "interpretation": "这篇文章的重要性不仅在于估计了“真实风险厌恶更低”，更在于它把这一差异与反事实政策分析直接连起来了。",
+      "use_when": "我在这里使用这篇文章，是因为它直接展示了 choice micro-foundations 的不同刻画会如何改变 welfare analysis。",
+      "overclaim_risk": "不要把文中的 welfare result 当成一般性的保险市场结论；它高度依赖具体雇主环境、建模设定和 friction relevance 的 welfare assumption。",
+      "safer_formulation": "文章表明，在复杂保险选择环境中，若把信息摩擦误当成偏好，政策反事实中的 welfare loss 往往会被高估。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "handel-2015-health-insurance-humans-ex-001",
+        "handel-2015-health-insurance-humans-ex-003"
+      ],
+      "work_id": "handel-2015-health-insurance-humans",
+      "paper_title": "Health Insurance for \"Humans\": Information Frictions, Plan Choice, and Consumer Welfare",
+      "authors": "Benjamin R. Handel and Jonathan T. Kolstad",
+      "year": 2015,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "insurance-choice-and-information-frictions",
+          "name": "保险选择与信息摩擦"
+        },
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        }
+      ]
+    },
+    {
+      "lens_id": "einav-2015-response-drug-expenditure-lens-counterfactual",
+      "theme_id": "policy-counterfactuals-in-health",
+      "lens_type": "counterfactual",
+      "title": "在分析保险慷慨度的政策反事实时，应区分总量反应与时点替代，而不是把二…",
+      "claim": "在分析保险慷慨度的政策反事实时，应区分总量反应与时点替代，而不是把二者混为一谈。",
+      "interpretation": "这篇文章的重要性不只在于给出一个 headline spending effect，更在于它提示其中相当一部分变化可能只是索赔时点前移，而不是年度净用药量真正上升。",
+      "use_when": "我在这里使用这篇文章，是因为它提醒我们：政策反事实效应不能直接等同于表面观察到的总支出变化，还要区分跨期替代带来的时间调整。",
+      "overclaim_risk": "不要把文中较低的净效应表述成完全无模型依赖的结论；它来自一个带有结构假设的扩展。",
+      "safer_formulation": "文章表明，填补 donut hole 所带来的表面支出增幅中，有相当一部分可能反映了跨期替代，而不一定是年度总用药需求的同比例上升。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "einav-2015-response-drug-expenditure-ex-001",
+        "einav-2015-response-drug-expenditure-ex-004"
+      ],
+      "work_id": "einav-2015-response-drug-expenditure",
+      "paper_title": "The Response of Drug Expenditure to Nonlinear Contract Design: Evidence from Medicare Part D",
+      "authors": "Liran Einav, Amy Finkelstein, Paul Schrimpf",
+      "year": 2015,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "einav-2015-response-drug-expenditure-lens-mechanism",
+      "theme_id": "drug-demand-under-insurance",
+      "lens_type": "mechanism",
+      "title": "非线性保险合同下的行为反应，不只是静态价格弹性的结果，还包含前瞻性的…",
+      "claim": "非线性保险合同下的行为反应，不只是静态价格弹性的结果，还包含前瞻性的动态调整。",
+      "interpretation": "文中的索赔时点证据说明，受益人会把合同隐含的未来价格路径纳入决策，而不是只在越过阈值的当下才机械反应。",
+      "use_when": "我在这里使用这篇文章，是为了支持一种机制叙述：在非线性保险合同下，受益人会根据预期未来价格路径动态调整用药与索赔行为。",
+      "overclaim_risk": "这篇文章提供的是有力但仍偏间接的动态证据，不应被引用为所有保险环境下完整行为机制的最终证明。",
+      "safer_formulation": "现有证据与一种前瞻性的索赔时点调整机制相一致，说明 Part D 合同下的行为反应包含动态因素。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "einav-2015-response-drug-expenditure-ex-002",
+        "einav-2015-response-drug-expenditure-ex-003"
+      ],
+      "work_id": "einav-2015-response-drug-expenditure",
+      "paper_title": "The Response of Drug Expenditure to Nonlinear Contract Design: Evidence from Medicare Part D",
+      "authors": "Liran Einav, Amy Finkelstein, Paul Schrimpf",
+      "year": 2015,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "einav-2015-response-drug-expenditure-lens-method",
+      "theme_id": "nonlinear-insurance-contracts",
+      "lens_type": "method",
+      "title": "围绕合同折点的 bunching 与索赔时点变化，可以识别个体对非线…",
+      "claim": "围绕合同折点的 bunching 与索赔时点变化，可以识别个体对非线性价格的行为反应。",
+      "interpretation": "这篇文章的可复用之处，在于它把折点附近的描述性证据与动态结构模型结合起来，而不是停留在单纯的 reduced-form 相关性。",
+      "use_when": "我在这里使用这篇文章，是把它作为一个方法案例：如何从非线性预算集与行政索赔时点数据中提取需求信息。",
+      "overclaim_risk": "不要把这篇文章误写成一个通用的 bunching 设计；其中的结构层对部分结论是关键的。",
+      "safer_formulation": "文章展示了如何把合同折点附近的描述性证据与动态模型结合，用来研究非线性价格下的行为反应。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "einav-2015-response-drug-expenditure-ex-002"
+      ],
+      "work_id": "einav-2015-response-drug-expenditure",
+      "paper_title": "The Response of Drug Expenditure to Nonlinear Contract Design: Evidence from Medicare Part D",
+      "authors": "Liran Einav, Amy Finkelstein, Paul Schrimpf",
+      "year": 2015,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "einav-2015-response-drug-expenditure-lens-policy",
+      "theme_id": "nonlinear-insurance-contracts",
+      "lens_type": "policy",
+      "title": "非线性保险合同会实质性改变医疗支出的时点与水平。",
+      "claim": "非线性保险合同会实质性改变医疗支出的时点与水平。",
+      "interpretation": "这篇文章说明，保险覆盖结构本身就能通过边际价格路径改变受益人的行为。",
+      "use_when": "我在这里使用这篇文章，是因为它提供了受益人会对合同设计引致的边际价格突变作出反应的直接证据。",
+      "overclaim_risk": "不要把这里的精确量级直接外推到 Medicare Part D 之外的制度环境。",
+      "safer_formulation": "在 Medicare Part D 中，受益人对 donut hole 带来的价格上升表现出经济上显著的行为反应。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "einav-2015-response-drug-expenditure-ex-001",
+        "einav-2015-response-drug-expenditure-ex-002"
+      ],
+      "work_id": "einav-2015-response-drug-expenditure",
+      "paper_title": "The Response of Drug Expenditure to Nonlinear Contract Design: Evidence from Medicare Part D",
+      "authors": "Liran Einav, Amy Finkelstein, Paul Schrimpf",
+      "year": 2015,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "shigeoka-2014-effect-patient-cost-lens-fact",
+      "theme_id": "cost-sharing-demand",
+      "lens_type": "fact",
+      "title": "在老年人群中，降低成本分担会显著提高门诊和住院利用，但短期内未必带来…",
+      "claim": "在老年人群中，降低成本分担会显著提高门诊和住院利用，但短期内未必带来可观测的健康改善。",
+      "interpretation": "Shigeoka 的价值在于把“利用增加”“健康改善不显著”“财务风险保护增强”这三件事放在同一识别框架里同时测量。这样一来，成本分担的福利评价就不能再只盯着利用量变化本身。",
+      "use_when": "我在这里使用这篇文章，是为了给出一个关于老年人医疗需求价格弹性的干净事实基准。",
+      "overclaim_risk": "不要把文章说成“成本分担对健康完全没有影响”。它识别的是 70 岁附近人群的短期效应，无法排除长期或更隐性的健康收益。",
+      "safer_formulation": "这篇文章表明，在日本老年人群体中，较低的成本分担显著提高了医疗利用并改善了财务风险保护，但在短期可观测健康指标上没有发现明显改善。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "shigeoka-2014-effect-patient-cost-ex-001"
+      ],
+      "work_id": "shigeoka-2014-effect-patient-cost",
+      "paper_title": "The Effect of Patient Cost Sharing on Utilization, Health, and Risk Protection",
+      "authors": "Hitoshi Shigeoka",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        },
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "shigeoka-2014-effect-patient-cost-lens-method",
+      "theme_id": "financial-risk-protection",
+      "lens_type": "method",
+      "title": "当供给侧报销规则不随患者年龄或保险类型变化时，年龄门槛 RD 可以为…",
+      "claim": "当供给侧报销规则不随患者年龄或保险类型变化时，年龄门槛 RD 可以为成本分担的需求弹性提供非常干净的识别。",
+      "interpretation": "很多医疗需求研究都难以把患者需求反应与医生供给反应分开。Shigeoka 借助日本统一费率表和 70 岁门槛，几乎把供给侧混淆全部排除了，这使它成为成本分担识别设计里非常值得反复调用的方法例子。",
+      "use_when": "我在这里使用这篇文章，是为了展示一种近乎“纯需求侧”的成本分担识别设计。",
+      "overclaim_risk": "不要把这个设计描述为“完全无外推问题”。它识别的是 70 岁门槛附近的局部效应，而且高度依赖日本制度环境。",
+      "safer_formulation": "这篇文章提供了一个极其干净的年龄门槛 RD 设计，用于识别老年人群体中成本分担变化对医疗利用和财务风险暴露的局部因果效应。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "shigeoka-2014-effect-patient-cost-ex-002"
+      ],
+      "work_id": "shigeoka-2014-effect-patient-cost",
+      "paper_title": "The Effect of Patient Cost Sharing on Utilization, Health, and Risk Protection",
+      "authors": "Hitoshi Shigeoka",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        },
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "shigeoka-2014-effect-patient-cost-lens-policy",
+      "theme_id": "patient-cost-sharing",
+      "lens_type": "policy",
+      "title": "成本分担改革的政策评估不能只看医疗利用和短期健康，还必须把高支出尾部…",
+      "claim": "成本分担改革的政策评估不能只看医疗利用和短期健康，还必须把高支出尾部人群的财务风险保护收益纳入福利比较。",
+      "interpretation": "这篇文章的重要政策启发在于，它让“成本分担降低是否值得”这个问题脱离了单纯的 moral hazard 框架。对老年高支出患者而言，风险保护本身就是一项实质福利收益，不能因为短期健康指标不显著就被忽略。",
+      "use_when": "我在这里使用这篇文章，是为了支持一个更平衡的成本分担政策表述：即使健康改善短期不明显，降低自付仍可能因财务风险保护而具有政策价值。",
+      "overclaim_risk": "不要把文章写成“所有降低自付都值得”。文中并没有完成完整的最优保险标定，只是清楚展示了风险保护收益不能被遗漏。",
+      "safer_formulation": "这篇文章提示，在老年人医疗保险设计中，即使降低成本分担没有带来短期可观测健康改善，其显著的财务风险保护效应仍应被纳入政策福利评估。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "shigeoka-2014-effect-patient-cost-ex-001",
+        "shigeoka-2014-effect-patient-cost-ex-002"
+      ],
+      "work_id": "shigeoka-2014-effect-patient-cost",
+      "paper_title": "The Effect of Patient Cost Sharing on Utilization, Health, and Risk Protection",
+      "authors": "Hitoshi Shigeoka",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "reduced_form_IV",
+      "themes": [
+        {
+          "theme_id": "health-insurance-and-cost-sharing",
+          "name": "健康保险与成本分担"
+        },
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "kolstad-2013-information-quality-when-lens-mechanism",
+      "theme_id": "intrinsic-motivation-physicians",
+      "lens_type": "mechanism",
+      "title": "在价格管制的医疗市场中，向供给者披露相对绩效信息所产生的质量激励，主…",
+      "claim": "在价格管制的医疗市场中，向供给者披露相对绩效信息所产生的质量激励，主要来自医生的内在动机（peer comparison），而非市场份额变化带来的利润激励。",
+      "interpretation": "文章最有力的机制证据是：在结构需求模型充分控制利润激励之后，信息更新量（外科医生事前信念偏差）对事后质量改善仍有强烈的正向预测力，且其效应量约为利润渠道的四倍。这说明医生内在的\"相对绩效关注\"是质量信息政策产生效果的主要渠道，而非通过需求端传导。",
+      "use_when": "我在这里使用这篇文章，是为了说明医生的质量改善行为并不单纯由利润驱动，信息冲击本身——通过改变医生对自身相对表现的认知——可以独立地、甚至更强烈地激励质量提升。",
+      "overclaim_risk": "不要将\"内在激励比利润激励大四倍\"解读为\"利润激励无关紧要\"。文章明确显示利润激励仍然显著，RAMR 下降约 3% 可归因于此；内在激励更大只意味着政策设计的重心应调整，而非完全放弃外部激励工具。",
+      "safer_formulation": "证据表明，质量报告卡带来的手术质量改善中，内在（非货币）激励贡献的绝对量级约为利润激励的四倍；因此，质量报告政策对供给者绩效的影响，不能单纯用消费者需求弹性来预测。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "kolstad-2013-information-quality-when-ex-001 kolstad-2013-information-quality-when-ex-002"
+      ],
+      "work_id": "kolstad-2013-information-quality-when",
+      "paper_title": "Information and Quality When Motivation is Intrinsic: Evidence from Surgeon Report Cards",
+      "authors": "Jonathan T. Kolstad",
+      "year": 2013,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "kolstad-2013-information-quality-when-lens-method",
+      "theme_id": "information-and-incentives",
+      "lens_type": "method",
+      "title": "在同一政策干预（质量报告卡）既影响需求侧激励又影响供给者信息集的场景…",
+      "claim": "在同一政策干预（质量报告卡）既影响需求侧激励又影响供给者信息集的场景中，可以通过结构需求模型\"净化\"出利润激励效应，再将总响应与之比较，从而识别非货币（内在）激励的贡献。",
+      "interpretation": "Kolstad 的识别两步走策略值得仔细学习：第一步，用 BLP 类随机系数需求模型估计患者对外科医生质量的需求弹性，并基于报告卡前后的市场结构变化模拟利润激励的边际变化；第二步，用风险调整方案隐含的信息更新量（个人先验与报告卡结果之差）作为内在激励冲击的代理变量，检验其对质量改善的额外解释力。两步均独立有据可依，组合起来可以在不依赖完全外生实验的情况下完成激励渠道的分解。",
+      "use_when": "我在这里使用这篇文章，是为了介绍一种将结构需求模型与信息冲击外生变异相结合来分解多种激励渠道的识别策略。",
+      "overclaim_risk": "这一识别策略的效力依赖结构需求模型对利润激励的正确刻画，以及风险调整方案\"信息更新量\"对内在激励冲击的有效代理。若需求模型设定偏误，或医生信念形成机制不符合假设，两步分解的精确性都会受到影响。",
+      "safer_formulation": "Kolstad (2013) 提供了一种将结构需求估计与信息冲击代理变量结合来分解外在/内在激励的识别框架；这一框架可推广至其他\"政策干预同时影响需求侧和供给者信息集\"的应用场景，但需满足需求模型设定正确和信息更新代理变量有效的前提条件。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "kolstad-2013-information-quality-when-ex-002"
+      ],
+      "work_id": "kolstad-2013-information-quality-when",
+      "paper_title": "Information and Quality When Motivation is Intrinsic: Evidence from Surgeon Report Cards",
+      "authors": "Jonathan T. Kolstad",
+      "year": 2013,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "kolstad-2013-information-quality-when-lens-policy",
+      "theme_id": "quality-reporting",
+      "lens_type": "policy",
+      "title": "当医生具有内在动机时，质量报告卡的最优形式不是简化版的公开排名，而是…",
+      "claim": "当医生具有内在动机时，质量报告卡的最优形式不是简化版的公开排名，而是向医生提供详尽的临床绩效数据；将信息简化为消费者友好格式可能削弱对供给者的激励效果。",
+      "interpretation": "Kolstad 的反事实分析显示，当质量改善主要来自内在激励时，报告卡的细节程度比其公开可读性更重要。外科医生需要足够精细的临床信息才能识别自身的质量短板，过度简化的报告卡反而消除了这一学习渠道。这与当前各国推行\"消费者友好型\"报告卡的政策趋势形成直接张力。",
+      "use_when": "我在这里使用这篇文章，是为了论证质量报告制度的最优设计不应以\"消费者易读性\"为唯一目标，而应同时考虑如何向供给者提供有效的绩效反馈信息。",
+      "overclaim_risk": "不要从这篇文章得出\"公开质量信息对消费者毫无价值\"的结论。文章分析的是 CABG 这一高度专业化手术，消费者本就难以评估质量；在消费者信息搜索成本更低、质量更易量化的其他医疗服务中，需求侧渠道可能更重要。",
+      "safer_formulation": "在外科医生具有强烈内在激励的场景（如 CABG 报告卡），质量报告制度向供给者提供详细临床反馈可能比简化公开排名对质量改善更有效；但这一结论的适用范围取决于供给者内在激励的强度以及消费者信息处理能力的高低。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "kolstad-2013-information-quality-when-ex-003"
+      ],
+      "work_id": "kolstad-2013-information-quality-when",
+      "paper_title": "Information and Quality When Motivation is Intrinsic: Evidence from Surgeon Report Cards",
+      "authors": "Jonathan T. Kolstad",
+      "year": 2013,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        },
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "regulation-design-and-policy-incentives",
+          "name": "监管设计与政策激励"
+        }
+      ]
+    },
+    {
+      "lens_id": "kamenica-2011-bayesian-persuasion-lens-mechanism",
+      "theme_id": "belief-manipulation-and-disclosure",
+      "lens_type": "mechanism",
+      "title": "persuasion 的机制，在于重新塑造接收者后验信念的分布，同时…",
+      "claim": "persuasion 的机制，在于重新塑造接收者后验信念的分布，同时保持 Bayes plausibility。",
+      "interpretation": "它最关键的机制是几何性的：发送者选择一个后验分布，使行动频率发生变化，但整体上仍满足贝叶斯一致性。",
+      "use_when": "我在这里使用这篇文章，是为了说明信息控制如何通过改变后验信念来改变行动，而不是通过改变偏好本身。",
+      "overclaim_risk": "这个机制适用于承诺型信号设计，并不自动覆盖所有 strategic communication 场景。",
+      "safer_formulation": "在 Bayesian persuasion 框架中，行动变化来自发送者对后验分布的设计能力，而这一设计仍受 Bayes plausibility 约束。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "kamenica-2011-bayesian-persuasion-ex-002",
+        "kamenica-2011-bayesian-persuasion-ex-004"
+      ],
+      "work_id": "kamenica-2011-bayesian-persuasion",
+      "paper_title": "Bayesian Persuasion",
+      "authors": "Emir Kamenica and Matthew Gentzkow",
+      "year": 2011,
+      "field": "microeconomic-theory",
+      "paper_paradigm": "theory",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        }
+      ]
+    },
+    {
+      "lens_id": "kamenica-2011-bayesian-persuasion-lens-opportunity",
+      "theme_id": "strategic-communication",
+      "lens_type": "opportunity",
+      "title": "这个框架为把 information design 引入具体制度场景…",
+      "claim": "这个框架为把 information design 引入具体制度场景提供了一个可复用模板。",
+      "interpretation": "它的价值不仅在于解释一个既有问题，更在于为应用研究提供一套“如何从信息环境设计切入”的问题生成器。",
+      "use_when": "我在这里使用这篇文章，是因为它能够持续生成关于信息披露、推荐系统、诉讼博弈与监管环境的新研究问题。",
+      "overclaim_risk": "这是一篇框架论文，不是对某个具体制度的直接经验性证据。",
+      "safer_formulation": "这篇文章提供了一个可迁移的理论模板，可用于分析那些由参与者控制信息环境的应用场景。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "kamenica-2011-bayesian-persuasion-ex-002"
+      ],
+      "work_id": "kamenica-2011-bayesian-persuasion",
+      "paper_title": "Bayesian Persuasion",
+      "authors": "Emir Kamenica and Matthew Gentzkow",
+      "year": 2011,
+      "field": "microeconomic-theory",
+      "paper_paradigm": "theory",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        }
+      ]
+    },
+    {
+      "lens_id": "kamenica-2011-bayesian-persuasion-lens-theory",
+      "theme_id": "information-design-persuasion",
+      "lens_type": "theory",
+      "title": "即便不改变偏好、也不做转移支付，策略性地控制信息结构仍然可以改变行动…",
+      "claim": "即便不改变偏好、也不做转移支付，策略性地控制信息结构仍然可以改变行动选择。",
+      "interpretation": "它最重要的用途，是为“通过控制信息环境来改变行为”提供一个标准化的理论框架。",
+      "use_when": "我在这里使用这篇文章，是把它当作 information design 与 persuasion 文献中的经典理论参照。",
+      "overclaim_risk": "不要把这里的 persuasion 与 cheap talk 或事后欺骗模型混为一谈。",
+      "safer_formulation": "在 Bayesian persuasion 框架中，发送者可以通过选择信息结构改变接收者后验，并由此影响行动。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "kamenica-2011-bayesian-persuasion-ex-001",
+        "kamenica-2011-bayesian-persuasion-ex-002"
+      ],
+      "work_id": "kamenica-2011-bayesian-persuasion",
+      "paper_title": "Bayesian Persuasion",
+      "authors": "Emir Kamenica and Matthew Gentzkow",
+      "year": 2011,
+      "field": "microeconomic-theory",
+      "paper_paradigm": "theory",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        }
+      ]
+    },
+    {
+      "lens_id": "chandra-2007-productivity-spillovers-health-lens-fact",
+      "theme_id": "geographic-variation",
+      "lens_type": "fact",
+      "title": "地区间医疗强度差异的含义不能只靠平均结果来判断，还必须考虑异质治疗收…",
+      "claim": "地区间医疗强度差异的含义不能只靠平均结果来判断，还必须考虑异质治疗收益与选择结构。",
+      "interpretation": "本文是对“平坦曲线医学”最有力的修正之一。它不否认浪费可能存在，但反对从平均结果不变直接跳到“边际治疗没有价值”。",
+      "use_when": "我在这里用这篇文章，是为了支撑一个基础判断：地区高利用率与平均结果无关，并不足以证明高利用率纯属浪费。",
+      "overclaim_risk": "不要把本文写成“高强度地区一定更好”。文章强调的是更复杂的结构解释，而不是简单赞成更多治疗。",
+      "safer_formulation": "这篇文章表明，地区治疗强度高并且平均结果相近，并不能单独证明额外治疗没有价值，因为最适合治疗的患者可能在高强度地区获得了更多收益。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chandra-2007-productivity-spillovers-health-ex-001",
+        "chandra-2007-productivity-spillovers-health-ex-003"
+      ],
+      "work_id": "chandra-2007-productivity-spillovers-health",
+      "paper_title": "Productivity Spillovers in Health Care: Evidence from the Treatment of Heart Attacks",
+      "authors": "Amitabh Chandra, Douglas O. Staiger",
+      "year": 2007,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "chandra-2007-productivity-spillovers-health-lens-mechanism",
+      "theme_id": "productivity-spillovers",
+      "lens_type": "mechanism",
+      "title": "医疗强度差异的背后可能是技术与组织生产率溢出，而不是单纯的供给诱导或…",
+      "claim": "医疗强度差异的背后可能是技术与组织生产率溢出，而不是单纯的供给诱导或低效率。",
+      "interpretation": "本文的关键，是把地理变异问题重新建模为一个带异质回报和溢出效应的选择问题。它为后来的医院比较优势与技能异质性文献打下了基础。",
+      "use_when": "我在这里使用这篇文章，是为了引入“生产率溢出 + 患者排序”这一机制解释。",
+      "overclaim_risk": "不要写成“生产率溢出已被直接观测到”。更准确地说，这是一个与核心事实高度一致的结构解释。",
+      "safer_formulation": "这篇文章提出并支持一种重要解释：地区高强度治疗可能伴随更强的生产率溢出和更好的患者匹配，因此其边际回报未必低。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chandra-2007-productivity-spillovers-health-ex-002"
+      ],
+      "work_id": "chandra-2007-productivity-spillovers-health",
+      "paper_title": "Productivity Spillovers in Health Care: Evidence from the Treatment of Heart Attacks",
+      "authors": "Amitabh Chandra, Douglas O. Staiger",
+      "year": 2007,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "chandra-2007-productivity-spillovers-health-lens-policy",
+      "theme_id": "treatment-intensity",
+      "lens_type": "policy",
+      "title": "政策若忽略异质治疗收益和生产率差异，简单压平治疗率可能损害真正高收益…",
+      "claim": "政策若忽略异质治疗收益和生产率差异，简单压平治疗率可能损害真正高收益患者。",
+      "interpretation": "本文的政策含义并不是“多治总比少治好”，而是“均值比较不足以指导削减政策”。正确的改革重点应是识别谁更该接受治疗、哪些提供者更擅长治疗。",
+      "use_when": "我在这里用这篇文章，是为了反对那种看到地区高支出就机械削减治疗强度的政策直觉。",
+      "overclaim_risk": "不要把本文变成对高支出地区的全面辩护。它只是说，粗暴的削减逻辑缺乏足够依据。",
+      "safer_formulation": "这篇文章提示，地区治疗强度的政策评估需要结合异质回报与生产率差异，而不是仅凭平均结果判断高强度地区存在浪费。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "chandra-2007-productivity-spillovers-health-ex-001",
+        "chandra-2007-productivity-spillovers-health-ex-003"
+      ],
+      "work_id": "chandra-2007-productivity-spillovers-health",
+      "paper_title": "Productivity Spillovers in Health Care: Evidence from the Treatment of Heart Attacks",
+      "authors": "Amitabh Chandra, Douglas O. Staiger",
+      "year": 2007,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "physician-behavior-and-clinical-decision-making",
+          "name": "医生行为与临床决策"
+        },
+        {
+          "theme_id": "healthcare-productivity-variation-and-inefficiency",
+          "name": "医疗生产率、差异与低效率"
+        }
+      ]
+    },
+    {
+      "lens_id": "cutler-2006-determinants-mortality-lens-fact",
+      "theme_id": "mortality-determinants",
+      "lens_type": "fact",
+      "title": "二十世纪死亡率的大幅下降是经济史上最重要的福利改善之一，其决定因素在…",
+      "claim": "二十世纪死亡率的大幅下降是经济史上最重要的福利改善之一，其决定因素在历史上以公共卫生基础设施和营养改善为主，在现代以医疗技术进步为主，且收入与健康之间存在稳健的正向梯度关系。",
+      "interpretation": "这篇文章最有说服力的贡献，是把横跨两百年的死亡率变化与跨国/国内不平等数据汇集在一起，提供了一张关于\"健康改善从哪里来\"的宏观图谱。每当需要说明\"医疗不仅仅是支出问题，而是历史上真正提升了寿命\"或\"收入与健康高度相关但因果不清\"时，这篇文章都是最合适的文献出处。",
+      "use_when": "我在这里使用这篇文章，是为了为任何涉及死亡率决定因素的论证提供权威的描述性背景——包括历史上死亡率为何下降、死亡率差异的量级有多大，以及收入—健康梯度的经验规律。",
+      "overclaim_risk": "不要把这篇综述文章中的描述性关联直接等同于因果估计——文章本身多次强调收入与健康之间的内生性问题。特别是，\"收入高→健康好\"这一梯度中有相当部分可能来自反向因果（健康好才能进入高收入职业）或教育的混淆效应。将文中数字当作纯粹的因果效应大小来引用是不当的。",
+      "safer_formulation": "根据 Cutler, Deaton and Lleras-Muney（2006）对历史死亡率趋势的系统综述，收入与预期寿命呈正相关，但这一关联同时反映了医疗技术进步、公共卫生投入和教育水平提升的综合效应，不能直接解读为收入对健康的纯因果影响。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "cutler-2006-determinants-mortality-ex-001 cutler-2006-determinants-mortality-ex-003"
+      ],
+      "work_id": "cutler-2006-determinants-mortality",
+      "paper_title": "The Determinants of Mortality",
+      "authors": "David Cutler, Angus Deaton, Adriana Lleras-Muney",
+      "year": 2006,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_review",
+      "themes": [
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "cutler-2006-determinants-mortality-lens-mechanism",
+      "theme_id": "medical-technology-mortality",
+      "lens_type": "mechanism",
+      "title": "1960 年代以来预期寿命的提升，很大程度上源于心血管疾病治疗技术的…",
+      "claim": "1960 年代以来预期寿命的提升，很大程度上源于心血管疾病治疗技术的进步，而非仅仅来自收入增长或生活方式改变。医疗干预具有独立于收入之外的健康改善效应。",
+      "interpretation": "文章记录了 Preston 曲线随时间上移这一关键事实——相同收入水平下，后期国家的预期寿命显著高于早期国家，这说明存在独立于收入之外的健康改善力量。在机制上，心血管疾病死亡率下降超过 50%，其中医疗技术贡献了三分之二，是最有说服力的现代案例。公共卫生基础设施（供水净化贡献美国早期死亡率下降约一半）则提供了历史上的对应证据。",
+      "use_when": "我在这里使用这篇文章，是为了说明医疗技术进步（而非单纯的经济增长或行为改变）是二十世纪后半叶死亡率下降的主要驱动力，尤其是心血管疾病死亡率的大幅下降。",
+      "overclaim_risk": "不要据此断言所有医疗支出都能有效降低死亡率——文章本身也指出高医疗利用率地区的健康结果并不必然更好（参见 Skinner 2011 的综述），且文章的证据主要来自历史趋势而非随机实验。将\"过去医疗技术进步降低了死亡率\"外推为\"当前增加医疗支出将提高健康\"需要额外的识别证据。",
+      "safer_formulation": "Cutler et al.（2006）的历史证据表明，医疗技术进步（尤其是心血管疾病治疗）是二十世纪中后期死亡率下降的重要独立驱动力，但这一历史性因果关联不能直接推断到当前边际医疗支出的健康效益。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "cutler-2006-determinants-mortality-ex-002"
+      ],
+      "work_id": "cutler-2006-determinants-mortality",
+      "paper_title": "The Determinants of Mortality",
+      "authors": "David Cutler, Angus Deaton, Adriana Lleras-Muney",
+      "year": 2006,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_review",
+      "themes": [
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "cutler-2006-determinants-mortality-lens-policy",
+      "theme_id": "public-health-infrastructure",
+      "lens_type": "policy",
+      "title": "公共卫生基础设施、行为改变和医疗技术进步在不同历史时期共同塑造了死亡…",
+      "claim": "公共卫生基础设施、行为改变和医疗技术进步在不同历史时期共同塑造了死亡率下降，因此健康政策需要组合视角。",
+      "interpretation": "这篇综述文献的价值在于提醒研究者，不要把死亡率下降归功于单一因素。不同阶段真正起作用的机制不同。",
+      "use_when": "我在这里用这篇文章，是为了支持一个综合性政策判断：死亡率改善从来不是单一政策工具的产物。",
+      "overclaim_risk": "不要把综述性结论当成单篇因果论文的硬估计。它更适合作为框架性引用。",
+      "safer_formulation": "这篇文章表明，死亡率变化通常由公共卫生、行为和医疗技术等多种因素共同驱动，因此政策评估需要历史和制度分期视角。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "cutler-2006-determinants-mortality-ex-001",
+        "cutler-2006-determinants-mortality-ex-003"
+      ],
+      "work_id": "cutler-2006-determinants-mortality",
+      "paper_title": "The Determinants of Mortality",
+      "authors": "David Cutler, Angus Deaton, Adriana Lleras-Muney",
+      "year": 2006,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_review",
+      "themes": [
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "grossman-2000-human-capital-model-lens-mechanism",
+      "theme_id": "education-health-gradient",
+      "lens_type": "mechanism",
+      "title": "教育通过提高健康生产效率改善健康，年龄通过提高健康折旧率削弱健康，这…",
+      "claim": "教育通过提高健康生产效率改善健康，年龄通过提高健康折旧率削弱健康，这两者共同塑造健康梯度。",
+      "interpretation": "Grossman 并没有把教育与健康的关系简单归因于收入，而是给出一个更深层的效率机制：受教育程度更高的人，可能更擅长把时间和资源转化为健康。",
+      "use_when": "我在这里使用这篇文章，是为了解释年龄和教育为何会系统性地影响健康水平与健康投入。",
+      "overclaim_risk": "不要把它写成教育对健康梯度的唯一解释。现实中收入、认知和制度环境也同样重要。",
+      "safer_formulation": "Grossman 模型提供了一种经典解释：教育通过提高健康生产效率，年龄通过加快折旧，共同塑造了个体的健康差异。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "grossman-2000-human-capital-model-ex-002"
+      ],
+      "work_id": "grossman-2000-human-capital-model",
+      "paper_title": "The Human Capital Model",
+      "authors": "Michael Grossman",
+      "year": 2000,
+      "field": "health-economics",
+      "paper_paradigm": "theory",
+      "themes": [
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "grossman-2000-human-capital-model-lens-opportunity",
+      "theme_id": "household-production-theory",
+      "lens_type": "opportunity",
+      "title": "很多现代实证问题都可以被重写为“什么改变了健康资本的生产函数、折旧率…",
+      "claim": "很多现代实证问题都可以被重写为“什么改变了健康资本的生产函数、折旧率或影子价格”。",
+      "interpretation": "Grossman 模型最适合作为主题搭桥工具。它未必能直接回答今天的每个经验问题，但能把医疗利用、教育、健康行为和保险设计放进同一逻辑系统。",
+      "use_when": "我在这里用这篇文章，是为了把现代健康经济学中的保险、行为与不平等问题重新连回一个共同理论底座。",
+      "overclaim_risk": "不要把它写成现代政策分析的直接工作模型。它更多是概念框架。",
+      "safer_formulation": "Grossman 模型为今天的很多健康经济学议题提供了共同语言：研究者可以把不同政策冲击理解为对健康投资激励、生产效率或折旧路径的改变。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "grossman-2000-human-capital-model-ex-001",
+        "grossman-2000-human-capital-model-ex-003"
+      ],
+      "work_id": "grossman-2000-human-capital-model",
+      "paper_title": "The Human Capital Model",
+      "authors": "Michael Grossman",
+      "year": 2000,
+      "field": "health-economics",
+      "paper_paradigm": "theory",
+      "themes": [
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "grossman-2000-human-capital-model-lens-theory",
+      "theme_id": "human-capital-health",
+      "lens_type": "theory",
+      "title": "健康应被建模为一种可投资、可折旧的人力资本，而不是把医疗消费直接等同…",
+      "claim": "健康应被建模为一种可投资、可折旧的人力资本，而不是把医疗消费直接等同于健康本身。",
+      "interpretation": "Grossman 的价值在于，他让健康成为一个动态资本概念，从而把时间、教育、医疗投入和生命周期都放进同一模型里。",
+      "use_when": "我在这里使用这篇文章，是为了给健康经济学中的“健康需求”提供最基础的理论锚点。",
+      "overclaim_risk": "不要把 Grossman 写成能解释所有现实健康行为。它是理论起点，不是现代行为事实的完整模型。",
+      "safer_formulation": "Grossman 模型为健康经济学提供了一个基础框架：健康是既带来效用、又能提高可用时间的资本，因此医疗需求应理解为健康生产过程的一部分。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "grossman-2000-human-capital-model-ex-001",
+        "grossman-2000-human-capital-model-ex-003"
+      ],
+      "work_id": "grossman-2000-human-capital-model",
+      "paper_title": "The Human Capital Model",
+      "authors": "Michael Grossman",
+      "year": 2000,
+      "field": "health-economics",
+      "paper_paradigm": "theory",
+      "themes": [
+        {
+          "theme_id": "health-capital-mortality-and-health-production",
+          "name": "健康资本、死亡率与健康生产"
+        }
+      ]
+    },
+    {
+      "lens_id": "hayek-1945-use-knowledge-society-lens-mechanism",
+      "theme_id": "price-system-information",
+      "lens_type": "mechanism",
+      "title": "价格的关键功能之一，是在无需集中汇总全部知识的情况下传递局部稀缺性与…",
+      "claim": "价格的关键功能之一，是在无需集中汇总全部知识的情况下传递局部稀缺性与协调信号。",
+      "interpretation": "这篇文章最强的地方，是把价格从“交换比率”重新定义成“压缩信息的装置”。这个思路对保险价格、共付设计和市场协调都很有启发。",
+      "use_when": "我在这里使用这篇文章，是为了解释价格体系为何能成为一种信息传递机制。",
+      "overclaim_risk": "不要写成“只要有价格就一定高效”。在信息扭曲和第三方支付场景中，价格信号可能并不完整。",
+      "safer_formulation": "Hayek 的论点表明，价格体系之所以重要，不仅因为它决定交易成本，还因为它能在分散知识环境下传递协调所需的关键信号。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "hayek-1945-use-knowledge-society-ex-002"
+      ],
+      "work_id": "hayek-1945-use-knowledge-society",
+      "paper_title": "The Use of Knowledge in Society",
+      "authors": "F. A. Hayek",
+      "year": 1945,
+      "field": "economics",
+      "paper_paradigm": "theory",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        }
+      ]
+    },
+    {
+      "lens_id": "hayek-1945-use-knowledge-society-lens-opportunity",
+      "theme_id": "health-insurance-information-asymmetry",
+      "lens_type": "opportunity",
+      "title": "医疗与健康保险中的很多制度问题，本质上都来自知识分散和集中决策能力受…",
+      "claim": "医疗与健康保险中的很多制度问题，本质上都来自知识分散和集中决策能力受限。",
+      "interpretation": "Hayek 不是在直接讨论医疗，但他的框架非常适合解释为什么患者、医生、保险人之间的私人信息会让医疗市场和保险设计变得复杂。",
+      "use_when": "我在这里用这篇文章，是为了把健康经济学中的信息不对称问题放进一个更根本的知识分散框架里。",
+      "overclaim_risk": "不要把本文直接当作医疗市场规范性结论。它更适合作为上游理论视角，而不是直接政策处方。",
+      "safer_formulation": "Hayek 1945 为理解医疗中的信息分散和集中监管局限提供了一个基础思想框架，可作为健康保险信息不对称研究的理论背景。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "hayek-1945-use-knowledge-society-ex-001",
+        "hayek-1945-use-knowledge-society-ex-003"
+      ],
+      "work_id": "hayek-1945-use-knowledge-society",
+      "paper_title": "The Use of Knowledge in Society",
+      "authors": "F. A. Hayek",
+      "year": 1945,
+      "field": "economics",
+      "paper_paradigm": "theory",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        }
+      ]
+    },
+    {
+      "lens_id": "hayek-1945-use-knowledge-society-lens-theory",
+      "theme_id": "information-decentralization",
+      "lens_type": "theory",
+      "title": "许多经济制度的核心任务不是替代个体知识，而是在知识分散的前提下实现协…",
+      "claim": "许多经济制度的核心任务不是替代个体知识，而是在知识分散的前提下实现协调。",
+      "interpretation": "Hayek 的贡献不在具体经验估计，而在提出了一个结构性难题：中央权威并不是因为不够聪明才失败，而是因为需要的信息本就不可能集中。",
+      "use_when": "我在这里使用这篇文章，是为了给“分散知识”这个主题提供最根本的理论来源。",
+      "overclaim_risk": "不要把本文写成对一切市场结果的无条件辩护。它强调的是知识问题，而不是否认所有市场失灵。",
+      "safer_formulation": "Hayek 1945 提供了一个重要理论视角：当关键知识分散在不同主体手中时，制度设计的核心问题是如何在不集中全部信息的情况下完成协调。",
+      "source_locator": "",
+      "keywords": [],
+      "evidence_excerpt_ids": [
+        "hayek-1945-use-knowledge-society-ex-001"
+      ],
+      "work_id": "hayek-1945-use-knowledge-society",
+      "paper_title": "The Use of Knowledge in Society",
+      "authors": "F. A. Hayek",
+      "year": 1945,
+      "field": "economics",
+      "paper_paradigm": "theory",
+      "themes": [
+        {
+          "theme_id": "information-economics-and-persuasion",
+          "name": "信息经济学与说服"
+        }
+      ]
+    }
+  ]
+}

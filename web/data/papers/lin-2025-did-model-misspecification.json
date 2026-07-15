@@ -1,0 +1,771 @@
+{
+  "work_id": "lin-2025-did-model-misspecification",
+  "title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+  "year": 2025,
+  "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+  "field": "econometrics",
+  "subfield": "causal-inference",
+  "paper_paradigm": "review",
+  "journal_or_series": "管理世界, 41(6), 227-264",
+  "doi": "10.19744/j.cnki.11-1235/f.2025.0084",
+  "research_question": "在处理效应具有异质性时，为什么从经典 $2\\times2$ DID 推广而来的常系数双重固定效应（TWFE）回归会发生模型误设？二元交错处理、非二元处理以及加入额外协变量这三类常见推广，分别通过什么“禁止的对比”产生负权重或其他估计污染，又应如何选择更合适的估计量？",
+  "why_it_matters": "TWFE 是中国经验研究中使用最广泛的回归工具之一。作者人工核查 2019—2021 年五本中国经济学旗舰期刊，发现 473 篇文章主要使用 TWFE，占同期发文约 22%；其中近似经典 $2\\times2$ DID 的只有 100 篇。若把经典 DID 下的平行趋势机械外推到更复杂的数据结构，回归系数可能不再是异质处理效应的凸组合，甚至会与所有组真实处理效应的符号相反。",
+  "core_object": "核心对象是常系数回归与允许处理效应异质的饱和模型之间的对应关系。文章用遗漏变量偏误（OVB）公式和 Frisch–Waugh–Lovell（FWL）定理，把 TWFE 系数写成组别、时期和处理强度特定处理效应的线性组合，并据此追踪权重何时为负、控制组何时被错误替换，以及额外协变量何时隐含未经论证的函数形式假设。",
+  "approach": "文章结合理论推导、方法文献综述、简化数值例子和应用操作指南。统一步骤是：（1）写出常系数 TWFE；（2）构造允许处理效应异质的饱和模型；（3）把常系数分解为异质效应的线性组合；（4）判断权重是否非负且和为 1；（5）识别造成误设的禁止对比；（6）将现有稳健估计量放回同一框架中比较其控制组、目标参数和附加假设。",
+  "main_claim": "“无伤大雅”的常系数近似并不能从条件独立设定自动延伸到广义 DID。经典 $2\\times2$ DID 中，未处理组是唯一控制组，TWFE 在平行趋势下是饱和的；但在三类推广中，已处理组、处理强度较低或变化不同的组、以及受到其他处理或时变作用影响的组都可能进入控制比较。仅凭未处理潜在结果的无条件平行趋势，TWFE 系数因而不保证是 ATT 的凸组合。方法选择必须围绕具体处理路径、目标参数、可用控制组和经济背景重新设计。",
+  "why_in_my_db": "这是一篇适合作为 DID 方法入口和应用检查表的中文综合文献。它把交错 DID、事件研究、连续或多值处理、协变量调整、多重处理和平行趋势诊断放进一个模型误设框架，既便于精读最新英文方法文献，也能直接用于审查实证设计、选择 Stata 命令和解释估计量。",
+  "created_at": "2026-07-15T15:47:27.302446+00:00",
+  "one_line_judgment": "用“受限常系数模型相对于异质效应饱和模型的误设”统一解释三类广义 DID 的负权重与禁止对比，并给出从研究设计到估计器选择的中文操作指南。",
+  "topics": [
+    {
+      "topic_id": "continuous-treatment",
+      "name": "continuous treatment"
+    },
+    {
+      "topic_id": "covariate-adjustment",
+      "name": "covariate adjustment"
+    },
+    {
+      "topic_id": "difference-in-differences",
+      "name": "difference in differences"
+    },
+    {
+      "topic_id": "event-study",
+      "name": "event study"
+    },
+    {
+      "topic_id": "forbidden-comparisons",
+      "name": "forbidden comparisons"
+    },
+    {
+      "topic_id": "heterogeneous-treatment-effects",
+      "name": "heterogeneous treatment effects"
+    },
+    {
+      "topic_id": "model-misspecification",
+      "name": "model misspecification"
+    },
+    {
+      "topic_id": "negative-weights",
+      "name": "negative weights"
+    },
+    {
+      "topic_id": "staggered-adoption",
+      "name": "staggered adoption"
+    },
+    {
+      "topic_id": "twfe",
+      "name": "twfe"
+    }
+  ],
+  "ratings": {
+    "dao": 9,
+    "fa": 8,
+    "shi": 9,
+    "shu": 9,
+    "qi": 10,
+    "subjective": 10,
+    "overall": 55
+  },
+  "rating_notes": {
+    "dao": "直接回应中国实证研究中极为普遍的 TWFE 解释问题，并把技术争论提升为模型设定与研究范式问题。",
+    "fa": "OVB/FWL 统一分解清晰有力，但部分推广的识别结论依赖所综述文献，统一框架更多是组织与解释贡献。",
+    "shi": "抓住交错 DID、连续处理和协变量调整快速发展的窗口，并以中国旗舰期刊使用状况强化现实动机。",
+    "shu": "正文、网络附录、示例、诊断工具、Stata 命令和教学材料衔接完整，具有很强的操作性。",
+    "qi": "可直接作为 DID 设计检查表、估计器选择入口和代码索引，复用价值极高。",
+    "subjective": "与当前方法文献库和未来应用研究高度相关，能够持续支持识别审查、教学和写作引用。"
+  },
+  "themes": [
+    {
+      "theme_id": "covariate-adjusted-identification",
+      "name": "协变量调整识别"
+    },
+    {
+      "theme_id": "difference-in-differences",
+      "name": "双重差分"
+    },
+    {
+      "theme_id": "causal-inference-methods",
+      "name": "因果推断方法"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "lin-2025-did-model-misspecification-ex-001",
+      "location": "摘要及正文第 227—231 页，表 1",
+      "topic": "model_misspecification",
+      "quote_or_paraphrase": "在条件独立和饱和控制下，常系数 OLS 虽不一定识别 ATE，却仍是异质处理效应的非负加权平均；但在平行趋势下的三类广义 DID 中，TWFE 系数不再保证是异质处理效应的凸组合，因此“无伤大雅”的解释不能直接外推。",
+      "why_this_matters": "这是文章统一框架的核心：关键不是回归是否简单，而是识别假设能否保证受限模型的伪真系数仍有明确、非负的聚合含义。"
+    },
+    {
+      "excerpt_id": "lin-2025-did-model-misspecification-ex-002",
+      "location": "正文第 228 页，图 1",
+      "topic": "twfe_usage_china",
+      "quote_or_paraphrase": "作者人工核查 2019—2021 年五本中国经济学旗舰期刊，发现 473 篇文章主要使用 TWFE，占同期发文约 22%；其中 100 篇近似经典 $2\\times2$ DID，109 篇属于二元交错处理，145 篇属于非二元处理，几乎所有文章都涉及额外协变量。",
+      "why_this_matters": "这组统计说明广义 DID 不是边缘技术问题，而是中国应用研究中普遍存在的模型解释风险。"
+    },
+    {
+      "excerpt_id": "lin-2025-did-model-misspecification-ex-003",
+      "location": "正文第 231—237 页，方程 (7)—(14)",
+      "topic": "staggered_did",
+      "quote_or_paraphrase": "在二元交错处理下，静态 TWFE 会把早处理组当作晚处理组的控制，动态事件研究还可能让某一相对时期系数混入其他时期的处理效应。队列 ATT、interaction-weighted 和插补估计量的共同修正是使用从未处理或尚未处理观测构造反事实，并在聚合前保留组—时期异质效应。",
+      "why_this_matters": "它把“负权重”从抽象代数问题还原为控制组选择问题，并说明替代估计器为何有效。"
+    },
+    {
+      "excerpt_id": "lin-2025-did-model-misspecification-ex-004",
+      "location": "正文第 237—241 页，方程 (17) 及表 4",
+      "topic": "nonbinary_treatment",
+      "quote_or_paraphrase": "对于单时点非二元处理，可以寻找基期处理强度相同且随后保持稳定的组作为控制，以处理强度是否变化构造工具变量，并用结果的 DID 除以处理强度的 DID，识别特定变化者的平均每单位处理效应。多时点时则必须按完整处理路径寻找同基线稳定组。",
+      "why_this_matters": "它说明连续或多值处理不能简单解释为 TWFE 的“每单位效应”，识别依赖稳定控制组和处理路径可比性。"
+    },
+    {
+      "excerpt_id": "lin-2025-did-model-misspecification-ex-005",
+      "location": "正文第 241—243 页，假设 4—5",
+      "topic": "covariates_and_multiple_treatments",
+      "quote_or_paraphrase": "直接向 TWFE 加入时变协变量要求协变量不是处理后形成的坏控制，并隐含协变量作用的函数形式限制；如果协变量对结果的影响随时间变化，固定系数控制仍会误设。多重处理时，控制组还必须在其他处理路径上与处理组可比。",
+      "why_this_matters": "这为“多加控制变量更可信”的常见做法划定边界，并把协变量选择与条件平行趋势、结果回归和重加权联系起来。"
+    },
+    {
+      "excerpt_id": "lin-2025-did-model-misspecification-ex-006",
+      "location": "正文第 243—244 页，结语与图 3",
+      "topic": "research_design_guidance",
+      "quote_or_paraphrase": "交错二元处理的异质性维度相对有限，饱和估计已有较成熟方案；非二元处理和额外协变量会迅速增加异质性维度，新方法往往依赖更特殊的假设且数据要求更高。研究者必须先理解现实背景、经济机制和处理路径，再决定哪些异质性需要进入统计模型。",
+      "why_this_matters": "这是文章超越“换估计器”的方法论结论：复杂 DID 的核心工作发生在回归之前的研究设计和目标参数定义阶段。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-china-twfe-prevalence",
+      "theme_id": "difference-in-differences",
+      "lens_type": "fact",
+      "title": "广义 TWFE 在中国旗舰期刊中的使用远多于经典 DID",
+      "claim": "2019—2021 年五本中国经济学旗舰期刊中，473 篇文章主要使用 TWFE，占发文约 22%，而近似经典 $2\\times2$ DID 的应用只有 100 篇。",
+      "interpretation": "大部分 TWFE 使用发生在需要额外识别条件的推广环境，因此方法更新具有直接的实证规范意义。",
+      "use_when": "用于 DID 方法综述的研究动机、说明中国实证论文为何需要重新审查 TWFE、或论证方法培训的重要性。",
+      "overclaim_risk": "样本只覆盖五本期刊和 2019—2021 年，且“主要使用 TWFE”不等于每篇文章都存在严重偏误。",
+      "safer_formulation": "林梦芸等（2025）的人工核查显示，2019—2021 年五本中国经济学旗舰期刊中约 22% 的论文主要使用 TWFE，而多数应用超出了经典 $2\\times2$ DID 的范围。",
+      "source_locator": "正文第 228 页，图 1。",
+      "keywords": [
+        "TWFE",
+        "中国经济学期刊",
+        "DID 应用",
+        "实证规范",
+        "文献统计"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-002"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-conditional-parallel-trends",
+      "theme_id": "covariate-adjusted-identification",
+      "lens_type": "identification",
+      "title": "协变量调整应由条件平行趋势而非固定系数惯例驱动",
+      "claim": "在条件平行趋势下，可使用结果回归调整、逆概率加权或双重稳健方法；回归模型应允许协变量作用随时期变化，而不是默认一个恒定系数。",
+      "interpretation": "先写清“给定什么变量后趋势可比”，再决定模型与权重，能够把协变量选择转化为可审查的识别陈述。",
+      "use_when": "用于书写含协变量 DID 的识别假设、选择 OR/IPW/DR 估计量或解释时间交互项。",
+      "overclaim_risk": "条件平行趋势本身不可由数据完全验证，且需要重叠与正确的协变量时序。",
+      "safer_formulation": "含协变量 DID 的可信度应建立在明确的条件平行趋势与重叠条件上，并采用允许协变量效应随时间变化的调整方式。",
+      "source_locator": "正文第 241—242 页，假设 4 及其后讨论。",
+      "keywords": [
+        "conditional parallel trends",
+        "outcome regression",
+        "inverse probability weighting",
+        "doubly robust",
+        "covariate time interaction"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-005"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-controls-not-automatic-fix",
+      "theme_id": "covariate-adjusted-identification",
+      "lens_type": "limitation",
+      "title": "在 TWFE 中增加控制变量不一定改善识别",
+      "claim": "时变协变量若受处理影响会成为坏控制；即使外生，把其作用错误限制为跨时期恒定也会造成模型误设。",
+      "interpretation": "协变量调整需要从因果时序和条件平行趋势出发，而不是机械扩充回归右侧变量。",
+      "use_when": "用于讨论地区面板控制变量、处理后变量、时变混杂或 TWFE 稳健性规格。",
+      "overclaim_risk": "不能写成 DID 不应使用协变量；正确的回归调整、重加权或双重稳健方法可以在条件平行趋势下改善识别或效率。",
+      "safer_formulation": "在 DID 中加入协变量只有在其因果时序和函数形式与条件平行趋势相容时才有助于识别，机械控制甚至可能引入新的误设。",
+      "source_locator": "正文第 241—242 页，假设 4。",
+      "keywords": [
+        "bad controls",
+        "covariate adjustment",
+        "time-varying confounding",
+        "conditional parallel trends",
+        "functional form"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-005"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-design-before-command",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "opportunity",
+      "title": "复杂 DID 应先定义目标参数和处理路径，再选择命令",
+      "claim": "处理效应异质性维度越高，统计模型越需要基于现实背景和经济机制有所取舍；估计器选择不能替代研究设计。",
+      "interpretation": "图 3 最重要的不是命令列表，而是从数据结构和识别假设通往估计器的决策顺序。",
+      "use_when": "用于制定实证预分析计划、教学 DID 工作流、审稿或重构已有 TWFE 规格。",
+      "overclaim_risk": "不能把这一规范性建议写成只有结构模型才可信；文章讨论的多数修正方法仍属于简化式因果推断。",
+      "safer_formulation": "复杂 DID 的稳健实践应先明确处理路径、目标参数和合法控制组，再据此选择估计器及聚合方式，而不是从现成回归命令反推因果解释。",
+      "source_locator": "正文第 243—244 页，结语与图 3。",
+      "keywords": [
+        "research design",
+        "target parameter",
+        "estimator choice",
+        "treatment path visualization",
+        "pre-analysis",
+        "workflow"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-006"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-event-study-contamination",
+      "theme_id": "difference-in-differences",
+      "lens_type": "limitation",
+      "title": "传统事件研究系数可能混入其他相对时期效应",
+      "claim": "在队列和时间处理效应异质时，某一事件时间系数可能同时聚合目标相对时期和其他相对时期的处理效应，事前系数也可能被事后效应污染。",
+      "interpretation": "事件研究图的形状可能部分由回归权重生成，而不是政策动态本身。",
+      "use_when": "用于审查动态 DID 图、讨论 lead/lag 系数、或解释为何要使用异质效应稳健事件研究。",
+      "overclaim_risk": "不能因此断言所有传统事件研究图都错误；污染程度取决于处理时点分布和效应异质性。",
+      "safer_formulation": "在交错采纳且效应异质时，传统 TWFE 事件研究系数可能受到其他相对时期处理效应的污染，因此不宜直接逐点解释为动态 ATT。",
+      "source_locator": "正文第 234—235 页，方程 (10)—(12)。",
+      "keywords": [
+        "event study",
+        "lead lag",
+        "dynamic effects",
+        "contamination",
+        "pre-trends",
+        "relative time"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-003"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-forbidden-comparisons",
+      "theme_id": "difference-in-differences",
+      "lens_type": "mechanism",
+      "title": "负权重的实质是把已受处理观测当作控制",
+      "claim": "当早处理组被用作晚处理组的控制时，DID 会减去早处理组已经获得的处理效应，从而把该效应以负号带入估计量。",
+      "interpretation": "负权重首先是控制组资格问题；处理效应异质性决定这种禁止对比是否实际造成偏误。",
+      "use_when": "用于讲解 Bacon decomposition、审查交错政策控制组、或解释符号反转。",
+      "overclaim_risk": "禁止比较并不意味着任何包含负权重的估计都必然严重偏误；若相关效应同质，污染可能抵消。",
+      "safer_formulation": "交错 TWFE 的负权重通常源于已处理组被用作其他组的控制；当处理效应随组别或暴露时间变化时，这类禁止对比会污染目标 ATT。",
+      "source_locator": "正文第 231—234 页，表 2、方程 (7)—(9)。",
+      "keywords": [
+        "forbidden comparisons",
+        "negative weights",
+        "Bacon decomposition",
+        "staggered adoption",
+        "已处理控制组"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-003"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-mostly-harmless-boundary",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "theory",
+      "title": "“无伤大雅”依赖凸组合，而不是常系数形式本身",
+      "claim": "在条件独立和饱和控制下，常系数 OLS 的权重非负且和为 1；在广义 DID 中，仅靠未处理潜在结果平行趋势不能保证这一性质。",
+      "interpretation": "“简单回归可以近似平均效应”不是跨识别设计通用的结论，其成立依赖权重结构。",
+      "use_when": "用于解释为什么不能把 Angrist 式线性投影直觉机械移植到交错 DID、连续处理或多重处理。",
+      "overclaim_risk": "不能写成所有负权重估计都无意义；在同质处理效应等特殊情形下，TWFE 仍可能识别目标效应。",
+      "safer_formulation": "林梦芸等（2025）指出，常系数回归的“无伤大雅”解释依赖其系数仍是异质处理效应的凸组合，而这一性质在广义 DID 中仅凭平行趋势并不成立。",
+      "source_locator": "正文第 229—231 页，表 1、方程 (3)—(6)。",
+      "keywords": [
+        "mostly harmless",
+        "凸组合",
+        "条件独立",
+        "平行趋势",
+        "常系数回归"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-001"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-multiple-treatments",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "identification",
+      "title": "多重处理下控制组必须在其他处理路径上可比",
+      "claim": "若其他处理在组间或时期上变化，其异质效应会进入目标处理的 DID；稳健比较应尽量限定在其他处理路径相同的组之间。",
+      "interpretation": "多政策环境中的关键不是“是否把政策变量放进回归”，而是是否存在对主处理有效、且其他处理历史一致的反事实组。",
+      "use_when": "用于同期政策控制、政策组合、竞争性处理或多重事件研究设计。",
+      "overclaim_risk": "其他处理路径完全相同是较强要求；结构限制或其他研究设计有时也能识别目标效应。",
+      "safer_formulation": "在多重处理环境下，目标政策的 DID 解释通常要求处理组与控制组在其他相关处理路径上具有足够可比性，单纯加入额外政策变量并不保证消除污染。",
+      "source_locator": "正文第 242—243 页，表 6、假设 5。",
+      "keywords": [
+        "multiple treatments",
+        "concurrent policies",
+        "treatment paths",
+        "omitted policy",
+        "forbidden comparison"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-005"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-no-universal-estimator",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "research_gap",
+      "title": "异质性维度上升后不存在无代价的通用 DID 修正",
+      "claim": "交错二元处理已有较成熟的饱和估计方法，但非二元处理与额外协变量会显著增加异质性维度；现有方法往往依赖特殊同质性、稳定路径或函数形式假设，并提高数据要求。",
+      "interpretation": "新方法把不可解释偏误转化为透明假设和数据支持限制，但没有消除识别与精度之间的权衡。",
+      "use_when": "用于方法局限、研究展望、连续处理或高维异质效应的文献综述。",
+      "overclaim_risk": "不能说这些方法无用；其价值正是明确了在何种条件下可以识别哪些参数。",
+      "safer_formulation": "在非二元处理和高维协变量环境中，现代 DID 方法并未提供无条件通用解，而是以更透明但更具体的同质性、重叠和处理路径假设换取可解释识别。",
+      "source_locator": "正文第 243—244 页，结语。",
+      "keywords": [
+        "high-dimensional heterogeneity",
+        "no free lunch",
+        "overlap",
+        "functional form",
+        "treatment path",
+        "research gap"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-006"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-nonbinary-data-requirements",
+      "theme_id": "difference-in-differences",
+      "lens_type": "limitation",
+      "title": "多时点非二元 DID 的瓶颈是稳定控制路径",
+      "claim": "当处理强度随时间变化时，识别需要在比较起点具有相同强度并在相关时期保持稳定的控制组；缺少相应路径时，一部分动态效应不可识别。",
+      "interpretation": "处理越连续、路径越复杂，理论上可定义的异质效应越多，但数据能支持的干净比较反而越少。",
+      "use_when": "用于评估 `did_multiplegt_dyn` 等方法是否适合现有面板，或说明为何需要先画处理路径。",
+      "overclaim_risk": "稳定组不是所有非二元 DID 方法唯一可能的识别策略；这里对应本文重点讨论的方法族。",
+      "safer_formulation": "对本文讨论的多时点非二元 DID 方法而言，能否找到同基线且在相关窗口保持稳定的控制路径，是动态效应可识别性的关键限制。",
+      "source_locator": "正文第 239—241 页；网络附录五至六。",
+      "keywords": [
+        "treatment path",
+        "stable control",
+        "overlap",
+        "multi-period dose",
+        "did_multiplegt_dyn",
+        "identification support"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-004"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-nonbinary-iv-ratio",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "method",
+      "title": "单时点非二元 DID 可用约化式与第一阶段的比率识别",
+      "claim": "在存在同基期强度稳定组和平行趋势时，可用结果变化的 DID 除以处理强度变化的 DID，识别变化者的平均每单位处理效应。",
+      "interpretation": "该方法把处理是否变化作为工具变量，目标参数更接近局部的每单位变化效应，而不是普遍边际效应。",
+      "use_when": "用于政策强度在共同时间点变化、且能找到同基线稳定组的研究设计。",
+      "overclaim_risk": "不能把比率直接解释为所有组的结构性边际效应；弱第一阶段、异质效应和稳定组缺失都会破坏解释。",
+      "safer_formulation": "在同基线稳定组和平行趋势等条件下，单时点非二元 DID 可以用结果 DID 与处理强度 DID 的比率识别特定处理变化者的平均每单位效应。",
+      "source_locator": "正文第 238—239 页，方程 (17)、表 4。",
+      "keywords": [
+        "nonbinary treatment",
+        "continuous treatment",
+        "IV ratio",
+        "treatment intensity",
+        "stable group",
+        "dose response"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-004"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-staggered-estimators",
+      "theme_id": "difference-in-differences",
+      "lens_type": "identification",
+      "title": "交错 DID 稳健估计器的共同原则是先估细分效应再聚合",
+      "claim": "这些估计器都避免把已处理观测作为控制，先识别队列—时期或个体—时期处理效应，再按明确目标权重聚合。",
+      "interpretation": "方法选择应从目标参数和合法控制组出发，而不是从软件命令出发。",
+      "use_when": "用于选择 `csdid`、`eventstudyinteract` 或 `did_imputation`，以及说明三者为何可能给出不同结果。",
+      "overclaim_risk": "三类估计器的假设、样本保留规则、效率和聚合权重并不完全相同，不能视为可互换命令。",
+      "safer_formulation": "现代交错 DID 方法的共同做法是限定干净控制组、先估计细分处理效应，再根据研究目标进行透明聚合。",
+      "source_locator": "正文第 235—237 页，方程 (13)—(14)；网络附录六。",
+      "keywords": [
+        "Callaway Sant'Anna",
+        "Sun Abraham",
+        "imputation",
+        "cohort ATT",
+        "aggregation",
+        "staggered DID"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-003"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-unified-framework",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "method",
+      "title": "用饱和模型与 OVB/FWL 分解诊断常系数误设",
+      "claim": "把常系数模型对应到允许异质效应的饱和模型，再用 OVB/FWL 将常系数写成异质效应的线性组合，可以统一定位负权重和估计污染的来源。",
+      "interpretation": "这一框架的价值是把“估计器清单”转换成模型限制、控制组和聚合权重的比较。",
+      "use_when": "用于审查新回归规格、解释某个系数的伪真参数、或组织方法综述。",
+      "overclaim_risk": "该线性框架不能自动覆盖溢出、非加性效应、一般均衡或选择进入等问题。",
+      "safer_formulation": "一个可操作的 DID 误设诊断是：先写出允许处理效应异质的饱和模型，再用 OVB/FWL 检查常系数究竟聚合了哪些效应及其权重。",
+      "source_locator": "正文第 229—231 页，表 1。",
+      "keywords": [
+        "模型误设",
+        "饱和模型",
+        "OVB",
+        "FWL",
+        "伪真参数",
+        "权重分解"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-001"
+      ]
+    }
+  ],
+  "citation_points": [
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-china-twfe-prevalence",
+      "theme_id": "difference-in-differences",
+      "lens_type": "fact",
+      "title": "广义 TWFE 在中国旗舰期刊中的使用远多于经典 DID",
+      "claim": "2019—2021 年五本中国经济学旗舰期刊中，473 篇文章主要使用 TWFE，占发文约 22%，而近似经典 $2\\times2$ DID 的应用只有 100 篇。",
+      "interpretation": "大部分 TWFE 使用发生在需要额外识别条件的推广环境，因此方法更新具有直接的实证规范意义。",
+      "use_when": "用于 DID 方法综述的研究动机、说明中国实证论文为何需要重新审查 TWFE、或论证方法培训的重要性。",
+      "overclaim_risk": "样本只覆盖五本期刊和 2019—2021 年，且“主要使用 TWFE”不等于每篇文章都存在严重偏误。",
+      "safer_formulation": "林梦芸等（2025）的人工核查显示，2019—2021 年五本中国经济学旗舰期刊中约 22% 的论文主要使用 TWFE，而多数应用超出了经典 $2\\times2$ DID 的范围。",
+      "source_locator": "正文第 228 页，图 1。",
+      "keywords": [
+        "TWFE",
+        "中国经济学期刊",
+        "DID 应用",
+        "实证规范",
+        "文献统计"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-002"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-conditional-parallel-trends",
+      "theme_id": "covariate-adjusted-identification",
+      "lens_type": "identification",
+      "title": "协变量调整应由条件平行趋势而非固定系数惯例驱动",
+      "claim": "在条件平行趋势下，可使用结果回归调整、逆概率加权或双重稳健方法；回归模型应允许协变量作用随时期变化，而不是默认一个恒定系数。",
+      "interpretation": "先写清“给定什么变量后趋势可比”，再决定模型与权重，能够把协变量选择转化为可审查的识别陈述。",
+      "use_when": "用于书写含协变量 DID 的识别假设、选择 OR/IPW/DR 估计量或解释时间交互项。",
+      "overclaim_risk": "条件平行趋势本身不可由数据完全验证，且需要重叠与正确的协变量时序。",
+      "safer_formulation": "含协变量 DID 的可信度应建立在明确的条件平行趋势与重叠条件上，并采用允许协变量效应随时间变化的调整方式。",
+      "source_locator": "正文第 241—242 页，假设 4 及其后讨论。",
+      "keywords": [
+        "conditional parallel trends",
+        "outcome regression",
+        "inverse probability weighting",
+        "doubly robust",
+        "covariate time interaction"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-005"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-controls-not-automatic-fix",
+      "theme_id": "covariate-adjusted-identification",
+      "lens_type": "limitation",
+      "title": "在 TWFE 中增加控制变量不一定改善识别",
+      "claim": "时变协变量若受处理影响会成为坏控制；即使外生，把其作用错误限制为跨时期恒定也会造成模型误设。",
+      "interpretation": "协变量调整需要从因果时序和条件平行趋势出发，而不是机械扩充回归右侧变量。",
+      "use_when": "用于讨论地区面板控制变量、处理后变量、时变混杂或 TWFE 稳健性规格。",
+      "overclaim_risk": "不能写成 DID 不应使用协变量；正确的回归调整、重加权或双重稳健方法可以在条件平行趋势下改善识别或效率。",
+      "safer_formulation": "在 DID 中加入协变量只有在其因果时序和函数形式与条件平行趋势相容时才有助于识别，机械控制甚至可能引入新的误设。",
+      "source_locator": "正文第 241—242 页，假设 4。",
+      "keywords": [
+        "bad controls",
+        "covariate adjustment",
+        "time-varying confounding",
+        "conditional parallel trends",
+        "functional form"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-005"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-design-before-command",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "opportunity",
+      "title": "复杂 DID 应先定义目标参数和处理路径，再选择命令",
+      "claim": "处理效应异质性维度越高，统计模型越需要基于现实背景和经济机制有所取舍；估计器选择不能替代研究设计。",
+      "interpretation": "图 3 最重要的不是命令列表，而是从数据结构和识别假设通往估计器的决策顺序。",
+      "use_when": "用于制定实证预分析计划、教学 DID 工作流、审稿或重构已有 TWFE 规格。",
+      "overclaim_risk": "不能把这一规范性建议写成只有结构模型才可信；文章讨论的多数修正方法仍属于简化式因果推断。",
+      "safer_formulation": "复杂 DID 的稳健实践应先明确处理路径、目标参数和合法控制组，再据此选择估计器及聚合方式，而不是从现成回归命令反推因果解释。",
+      "source_locator": "正文第 243—244 页，结语与图 3。",
+      "keywords": [
+        "research design",
+        "target parameter",
+        "estimator choice",
+        "treatment path visualization",
+        "pre-analysis",
+        "workflow"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-006"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-event-study-contamination",
+      "theme_id": "difference-in-differences",
+      "lens_type": "limitation",
+      "title": "传统事件研究系数可能混入其他相对时期效应",
+      "claim": "在队列和时间处理效应异质时，某一事件时间系数可能同时聚合目标相对时期和其他相对时期的处理效应，事前系数也可能被事后效应污染。",
+      "interpretation": "事件研究图的形状可能部分由回归权重生成，而不是政策动态本身。",
+      "use_when": "用于审查动态 DID 图、讨论 lead/lag 系数、或解释为何要使用异质效应稳健事件研究。",
+      "overclaim_risk": "不能因此断言所有传统事件研究图都错误；污染程度取决于处理时点分布和效应异质性。",
+      "safer_formulation": "在交错采纳且效应异质时，传统 TWFE 事件研究系数可能受到其他相对时期处理效应的污染，因此不宜直接逐点解释为动态 ATT。",
+      "source_locator": "正文第 234—235 页，方程 (10)—(12)。",
+      "keywords": [
+        "event study",
+        "lead lag",
+        "dynamic effects",
+        "contamination",
+        "pre-trends",
+        "relative time"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-003"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-forbidden-comparisons",
+      "theme_id": "difference-in-differences",
+      "lens_type": "mechanism",
+      "title": "负权重的实质是把已受处理观测当作控制",
+      "claim": "当早处理组被用作晚处理组的控制时，DID 会减去早处理组已经获得的处理效应，从而把该效应以负号带入估计量。",
+      "interpretation": "负权重首先是控制组资格问题；处理效应异质性决定这种禁止对比是否实际造成偏误。",
+      "use_when": "用于讲解 Bacon decomposition、审查交错政策控制组、或解释符号反转。",
+      "overclaim_risk": "禁止比较并不意味着任何包含负权重的估计都必然严重偏误；若相关效应同质，污染可能抵消。",
+      "safer_formulation": "交错 TWFE 的负权重通常源于已处理组被用作其他组的控制；当处理效应随组别或暴露时间变化时，这类禁止对比会污染目标 ATT。",
+      "source_locator": "正文第 231—234 页，表 2、方程 (7)—(9)。",
+      "keywords": [
+        "forbidden comparisons",
+        "negative weights",
+        "Bacon decomposition",
+        "staggered adoption",
+        "已处理控制组"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-003"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-mostly-harmless-boundary",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "theory",
+      "title": "“无伤大雅”依赖凸组合，而不是常系数形式本身",
+      "claim": "在条件独立和饱和控制下，常系数 OLS 的权重非负且和为 1；在广义 DID 中，仅靠未处理潜在结果平行趋势不能保证这一性质。",
+      "interpretation": "“简单回归可以近似平均效应”不是跨识别设计通用的结论，其成立依赖权重结构。",
+      "use_when": "用于解释为什么不能把 Angrist 式线性投影直觉机械移植到交错 DID、连续处理或多重处理。",
+      "overclaim_risk": "不能写成所有负权重估计都无意义；在同质处理效应等特殊情形下，TWFE 仍可能识别目标效应。",
+      "safer_formulation": "林梦芸等（2025）指出，常系数回归的“无伤大雅”解释依赖其系数仍是异质处理效应的凸组合，而这一性质在广义 DID 中仅凭平行趋势并不成立。",
+      "source_locator": "正文第 229—231 页，表 1、方程 (3)—(6)。",
+      "keywords": [
+        "mostly harmless",
+        "凸组合",
+        "条件独立",
+        "平行趋势",
+        "常系数回归"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-001"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-multiple-treatments",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "identification",
+      "title": "多重处理下控制组必须在其他处理路径上可比",
+      "claim": "若其他处理在组间或时期上变化，其异质效应会进入目标处理的 DID；稳健比较应尽量限定在其他处理路径相同的组之间。",
+      "interpretation": "多政策环境中的关键不是“是否把政策变量放进回归”，而是是否存在对主处理有效、且其他处理历史一致的反事实组。",
+      "use_when": "用于同期政策控制、政策组合、竞争性处理或多重事件研究设计。",
+      "overclaim_risk": "其他处理路径完全相同是较强要求；结构限制或其他研究设计有时也能识别目标效应。",
+      "safer_formulation": "在多重处理环境下，目标政策的 DID 解释通常要求处理组与控制组在其他相关处理路径上具有足够可比性，单纯加入额外政策变量并不保证消除污染。",
+      "source_locator": "正文第 242—243 页，表 6、假设 5。",
+      "keywords": [
+        "multiple treatments",
+        "concurrent policies",
+        "treatment paths",
+        "omitted policy",
+        "forbidden comparison"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-005"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-no-universal-estimator",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "research_gap",
+      "title": "异质性维度上升后不存在无代价的通用 DID 修正",
+      "claim": "交错二元处理已有较成熟的饱和估计方法，但非二元处理与额外协变量会显著增加异质性维度；现有方法往往依赖特殊同质性、稳定路径或函数形式假设，并提高数据要求。",
+      "interpretation": "新方法把不可解释偏误转化为透明假设和数据支持限制，但没有消除识别与精度之间的权衡。",
+      "use_when": "用于方法局限、研究展望、连续处理或高维异质效应的文献综述。",
+      "overclaim_risk": "不能说这些方法无用；其价值正是明确了在何种条件下可以识别哪些参数。",
+      "safer_formulation": "在非二元处理和高维协变量环境中，现代 DID 方法并未提供无条件通用解，而是以更透明但更具体的同质性、重叠和处理路径假设换取可解释识别。",
+      "source_locator": "正文第 243—244 页，结语。",
+      "keywords": [
+        "high-dimensional heterogeneity",
+        "no free lunch",
+        "overlap",
+        "functional form",
+        "treatment path",
+        "research gap"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-006"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-nonbinary-data-requirements",
+      "theme_id": "difference-in-differences",
+      "lens_type": "limitation",
+      "title": "多时点非二元 DID 的瓶颈是稳定控制路径",
+      "claim": "当处理强度随时间变化时，识别需要在比较起点具有相同强度并在相关时期保持稳定的控制组；缺少相应路径时，一部分动态效应不可识别。",
+      "interpretation": "处理越连续、路径越复杂，理论上可定义的异质效应越多，但数据能支持的干净比较反而越少。",
+      "use_when": "用于评估 `did_multiplegt_dyn` 等方法是否适合现有面板，或说明为何需要先画处理路径。",
+      "overclaim_risk": "稳定组不是所有非二元 DID 方法唯一可能的识别策略；这里对应本文重点讨论的方法族。",
+      "safer_formulation": "对本文讨论的多时点非二元 DID 方法而言，能否找到同基线且在相关窗口保持稳定的控制路径，是动态效应可识别性的关键限制。",
+      "source_locator": "正文第 239—241 页；网络附录五至六。",
+      "keywords": [
+        "treatment path",
+        "stable control",
+        "overlap",
+        "multi-period dose",
+        "did_multiplegt_dyn",
+        "identification support"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-004"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-nonbinary-iv-ratio",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "method",
+      "title": "单时点非二元 DID 可用约化式与第一阶段的比率识别",
+      "claim": "在存在同基期强度稳定组和平行趋势时，可用结果变化的 DID 除以处理强度变化的 DID，识别变化者的平均每单位处理效应。",
+      "interpretation": "该方法把处理是否变化作为工具变量，目标参数更接近局部的每单位变化效应，而不是普遍边际效应。",
+      "use_when": "用于政策强度在共同时间点变化、且能找到同基线稳定组的研究设计。",
+      "overclaim_risk": "不能把比率直接解释为所有组的结构性边际效应；弱第一阶段、异质效应和稳定组缺失都会破坏解释。",
+      "safer_formulation": "在同基线稳定组和平行趋势等条件下，单时点非二元 DID 可以用结果 DID 与处理强度 DID 的比率识别特定处理变化者的平均每单位效应。",
+      "source_locator": "正文第 238—239 页，方程 (17)、表 4。",
+      "keywords": [
+        "nonbinary treatment",
+        "continuous treatment",
+        "IV ratio",
+        "treatment intensity",
+        "stable group",
+        "dose response"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-004"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-staggered-estimators",
+      "theme_id": "difference-in-differences",
+      "lens_type": "identification",
+      "title": "交错 DID 稳健估计器的共同原则是先估细分效应再聚合",
+      "claim": "这些估计器都避免把已处理观测作为控制，先识别队列—时期或个体—时期处理效应，再按明确目标权重聚合。",
+      "interpretation": "方法选择应从目标参数和合法控制组出发，而不是从软件命令出发。",
+      "use_when": "用于选择 `csdid`、`eventstudyinteract` 或 `did_imputation`，以及说明三者为何可能给出不同结果。",
+      "overclaim_risk": "三类估计器的假设、样本保留规则、效率和聚合权重并不完全相同，不能视为可互换命令。",
+      "safer_formulation": "现代交错 DID 方法的共同做法是限定干净控制组、先估计细分处理效应，再根据研究目标进行透明聚合。",
+      "source_locator": "正文第 235—237 页，方程 (13)—(14)；网络附录六。",
+      "keywords": [
+        "Callaway Sant'Anna",
+        "Sun Abraham",
+        "imputation",
+        "cohort ATT",
+        "aggregation",
+        "staggered DID"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-003"
+      ]
+    },
+    {
+      "lens_id": "lin-2025-did-model-misspecification-lens-unified-framework",
+      "theme_id": "causal-inference-methods",
+      "lens_type": "method",
+      "title": "用饱和模型与 OVB/FWL 分解诊断常系数误设",
+      "claim": "把常系数模型对应到允许异质效应的饱和模型，再用 OVB/FWL 将常系数写成异质效应的线性组合，可以统一定位负权重和估计污染的来源。",
+      "interpretation": "这一框架的价值是把“估计器清单”转换成模型限制、控制组和聚合权重的比较。",
+      "use_when": "用于审查新回归规格、解释某个系数的伪真参数、或组织方法综述。",
+      "overclaim_risk": "该线性框架不能自动覆盖溢出、非加性效应、一般均衡或选择进入等问题。",
+      "safer_formulation": "一个可操作的 DID 误设诊断是：先写出允许处理效应异质的饱和模型，再用 OVB/FWL 检查常系数究竟聚合了哪些效应及其权重。",
+      "source_locator": "正文第 229—231 页，表 1。",
+      "keywords": [
+        "模型误设",
+        "饱和模型",
+        "OVB",
+        "FWL",
+        "伪真参数",
+        "权重分解"
+      ],
+      "evidence_excerpt_ids": [
+        "lin-2025-did-model-misspecification-ex-001"
+      ]
+    }
+  ],
+  "sections": {
+    "Identity": "- Work ID: `lin-2025-did-model-misspecification`\n- Canonical Version ID: `lin-2025-did-model-misspecification-published`",
+    "Common Core": "",
+    "Research Question": "在处理效应具有异质性时，为什么从经典 $2\\times2$ DID 推广而来的常系数双重固定效应（TWFE）回归会发生模型误设？二元交错处理、非二元处理以及加入额外协变量这三类常见推广，分别通过什么“禁止的对比”产生负权重或其他估计污染，又应如何选择更合适的估计量？",
+    "Why It Matters": "TWFE 是中国经验研究中使用最广泛的回归工具之一。作者人工核查 2019—2021 年五本中国经济学旗舰期刊，发现 473 篇文章主要使用 TWFE，占同期发文约 22%；其中近似经典 $2\\times2$ DID 的只有 100 篇。若把经典 DID 下的平行趋势机械外推到更复杂的数据结构，回归系数可能不再是异质处理效应的凸组合，甚至会与所有组真实处理效应的符号相反。",
+    "Core Object": "核心对象是常系数回归与允许处理效应异质的饱和模型之间的对应关系。文章用遗漏变量偏误（OVB）公式和 Frisch–Waugh–Lovell（FWL）定理，把 TWFE 系数写成组别、时期和处理强度特定处理效应的线性组合，并据此追踪权重何时为负、控制组何时被错误替换，以及额外协变量何时隐含未经论证的函数形式假设。",
+    "Approach": "文章结合理论推导、方法文献综述、简化数值例子和应用操作指南。统一步骤是：（1）写出常系数 TWFE；（2）构造允许处理效应异质的饱和模型；（3）把常系数分解为异质效应的线性组合；（4）判断权重是否非负且和为 1；（5）识别造成误设的禁止对比；（6）将现有稳健估计量放回同一框架中比较其控制组、目标参数和附加假设。",
+    "Main Claim": "“无伤大雅”的常系数近似并不能从条件独立设定自动延伸到广义 DID。经典 $2\\times2$ DID 中，未处理组是唯一控制组，TWFE 在平行趋势下是饱和的；但在三类推广中，已处理组、处理强度较低或变化不同的组、以及受到其他处理或时变作用影响的组都可能进入控制比较。仅凭未处理潜在结果的无条件平行趋势，TWFE 系数因而不保证是 ATT 的凸组合。方法选择必须围绕具体处理路径、目标参数、可用控制组和经济背景重新设计。",
+    "Why In My Database": "这是一篇适合作为 DID 方法入口和应用检查表的中文综合文献。它把交错 DID、事件研究、连续或多值处理、协变量调整、多重处理和平行趋势诊断放进一个模型误设框架，既便于精读最新英文方法文献，也能直接用于审查实证设计、选择 Stata 命令和解释估计量。",
+    "Paradigm-Specific Analysis": "",
+    "Empirical Branch": "",
+    "Institutional Setting": "文章不研究单一制度，而是以政策分期实施、处理强度变化、地区面板控制变量和多政策并行等常见应用场景为背景。说明性例子包括新农合分期实施、银行管制放松强度、空气污染治理与地区经济特征等。",
+    "Data Source": "主体是方法论推导。描述性证据来自作者对 2019—2021 年《经济研究》《管理世界》《经济学（季刊）》《世界经济》和 China Economic Review 中 TWFE 应用的人工核查；网络附录另汇集模拟、经典应用数据和 Stata 代码。",
+    "Unit of Observation": "理论框架的基本单元是个体 $i$、组 $g$ 与时期 $t$ 构成的观测值；处理通常在组—时期层面变化。文献核查的单位则是已发表论文。",
+    "Sample": "五本旗舰期刊 2019—2021 年间共有 473 篇文章主要使用 TWFE，其中 100 篇近似经典 $2\\times2$ DID，109 篇涉及二元交错处理，145 篇涉及非二元处理，几乎所有应用都加入额外协变量；另有 119 篇不属于因果推断框架而被列入其他类别。",
+    "Outcome Variables": "方法层面的结果变量为 $Y_{i,g,t}$ 及其未处理和已处理潜在结果。文章关心的不是某一具体政策系数，而是 TWFE 系数是否识别 ATT、事件时间效应、每单位处理强度变化的平均效应，或其他具有清晰因果含义的综合参数。",
+    "Treatment Or Variation": "讨论三类变异：（1）二元处理在不同组和不同时间交错发生；（2）处理为离散多值或连续强度，且可能随时间变化；（3）主处理之外还存在时变协变量或其他处理变量。",
+    "Identification Logic": "经典 $2\\times2$ DID 依赖未处理潜在结果的平行趋势：\n\n$$\nE\\!\\left[Y^0_{i,g,t}-Y^0_{i,g,t-1}\\mid g\\right]\n$$\n\n不随组 $g$ 变化。推广后，识别条件必须与实际控制组对应：交错处理需要从 never-treated 或 not-yet-treated 中构造对照；非二元处理需要相同基期强度且在相关时期保持稳定的组；协变量调整需要条件平行趋势、协变量外生性以及允许协变量作用随时间变化的模型；多重处理则需要在其他处理路径相同的组之间比较。",
+    "Main Results": "（1）常系数 OLS 在条件独立且饱和控制下虽通常不等于 ATE，但仍是非负且和为 1 的异质效应加权平均；（2）广义 DID 的 TWFE 权重可能为负，因为控制比较不再只使用未处理组；（3）交错处理的静态 TWFE 可分解为多个 $2\\times2$ DID，其中早处理组作为晚处理组控制会产生禁止对比；（4）传统事件研究系数可能混合其他相对时期的处理效应；（5）非二元处理的 TWFE 会混淆处理强度水平、变化与异质边际效应；（6）直接加入协变量隐含“不是坏控制”和“协变量系数恒定”等附加假设；（7）队列 ATT、interaction-weighted、imputation、`did_multiplegt_dyn`、回归调整、逆概率加权和双重稳健等方法分别通过重建控制组或显式建模来修正误设。",
+    "Mechanism Evidence": "偏误机制来自“禁止的对比”：被用作控制的观测本身已经受到处理，或者与目标处理同时发生其他变化。双重差分在相减时会把这些控制组的处理效应以负号带入；当处理效应跨组、跨期或跨强度异质时，这些负项不能抵消，因而污染目标参数。",
+    "Counterfactual Or Policy Exercise": "文章不做单一政策反事实，而是提供研究设计层面的决策树：先画清处理路径，确定目标参数与可用控制组，再根据二元交错、单时点或多时点非二元处理、时变协变量及多重处理选择相应估计量和 Stata 实现。",
+    "Theory Branch": "",
+    "Players": "研究者面对具有不同处理路径的组和时期，选择常系数模型或允许异质效应的饱和模型，并据此解释回归系数。",
+    "State Space": "状态由组别、时期、处理水平或处理历史、协变量以及相应潜在结果组成。",
+    "Action Space": "研究者可以选择控制组、目标参数、聚合权重、静态或动态模型，以及回归调整、重加权、插补或工具变量式估计。",
+    "Information Structure": "观测数据揭示处理路径和结果，但反事实潜在结果不可见。平行趋势及其条件版本把可观测对比转化为反事实识别。",
+    "Timing": "组可能从未处理、尚未处理、较早处理或较晚处理；非二元处理还允许强度在多个时期上升或下降。",
+    "Objective Functions": "不存在经济主体优化问题。统计目标是识别一个定义清晰、权重可解释的处理效应综合参数，并尽量避免由模型简化引入不可控偏误。",
+    "Solution Concept": "将常系数模型视为可能误设的受限模型，并用对应饱和模型及 OVB/FWL 分解揭示其伪真参数，而不是默认回归系数就是 ATT。",
+    "Key Propositions": "在条件独立和饱和控制下，常系数 OLS 是异质处理效应的凸组合；在广义 DID 中，仅有未处理潜在结果平行趋势不足以保证 TWFE 系数为凸组合。稳健估计量的共同原则是只采用与其识别假设相容的控制组，并先估计细分处理效应再按明确权重聚合。",
+    "Conditions": "不同方法分别需要无条件或条件平行趋势、无预期效应、适当重叠、稳定控制组、处理路径可比较、协变量不受处理影响，以及特定的函数形式或同质性条件。",
+    "Comparative Statics": "处理效应异质性的维度越多，常系数模型越可能遗漏关键交互项；处理路径越复杂，可用的干净控制组越少，稳健估计量的方差和数据要求通常越高。",
+    "Applications": "用于交错政策、事件研究、连续或多值政策强度、地区面板协变量控制、多政策并行和中国应用微观实证研究的方法审查。",
+    "Limitations": "文章的统一框架主要围绕线性回归、精准设计和加性处理效应展开；许多替代方法只在特定处理路径、重叠和函数形式下成立。正文更强调识别与估计，对有限样本推断、聚类层级、缺失数据和溢出效应讨论较少。期刊应用统计覆盖 2019—2021 年五本期刊，不能直接代表全部中国实证研究。文章关于经验主义范式与经济理论关系的规范性判断，也应与其具体的计量分解结论分开理解。",
+    "Theme Links": "- `difference-in-differences`\n- `causal-inference-methods`\n- `covariate-adjusted-identification`",
+    "Ratings": "",
+    "Dao": "- Score: 9\n- Note: 直接回应中国实证研究中极为普遍的 TWFE 解释问题，并把技术争论提升为模型设定与研究范式问题。",
+    "Fa": "- Score: 8\n- Note: OVB/FWL 统一分解清晰有力，但部分推广的识别结论依赖所综述文献，统一框架更多是组织与解释贡献。",
+    "Shi": "- Score: 9\n- Note: 抓住交错 DID、连续处理和协变量调整快速发展的窗口，并以中国旗舰期刊使用状况强化现实动机。",
+    "Shu": "- Score: 9\n- Note: 正文、网络附录、示例、诊断工具、Stata 命令和教学材料衔接完整，具有很强的操作性。",
+    "Qi": "- Score: 10\n- Note: 可直接作为 DID 设计检查表、估计器选择入口和代码索引，复用价值极高。",
+    "Subjective": "- Score: 10\n- Note: 与当前方法文献库和未来应用研究高度相关，能够持续支持识别审查、教学和写作引用。",
+    "One-Line Judgment": "用“受限常系数模型相对于异质效应饱和模型的误设”统一解释三类广义 DID 的负权重与禁止对比，并给出从研究设计到估计器选择的中文操作指南。",
+    "TODO_VERIFY": "- 无；题名、作者、期刊卷期页码和 DOI 已由 PDF 首页及厦门大学经济学院论文发表页面交叉核验。"
+  }
+}

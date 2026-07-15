@@ -51,6 +51,13 @@ def _normalize_topic(value: str, aliases: dict[str, str]) -> str:
     return aliases.get(topic_id, topic_id)
 
 
+def _keyword_items(value: str) -> list[str]:
+    items = extract_list_items(value)
+    if items:
+        return items
+    return [item.strip() for item in re.split(r"[,，;；\n]+", compact_text(value)) if item.strip()]
+
+
 def _sync_topics(
     conn: sqlite3.Connection,
     work_id: str,
@@ -96,6 +103,8 @@ def sync_papers(conn: sqlite3.Connection) -> None:
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             ON CONFLICT(work_id) DO UPDATE SET
                 title=excluded.title,
+                normalized_title=excluded.normalized_title,
+                first_author=excluded.first_author,
                 year=excluded.year,
                 field=excluded.field,
                 subfield=excluded.subfield,
@@ -167,6 +176,25 @@ def sync_papers(conn: sqlite3.Connection) -> None:
                 timestamp,
             ),
         )
+
+        canonical_version_id = fm.get("canonical_version_id", "")
+        if canonical_version_id:
+            conn.execute(
+                """
+                UPDATE paper_versions
+                SET publication_status=?, journal_or_series=?, doi=?,
+                    is_canonical=1, updated_at=?
+                WHERE version_id=? AND work_id=?
+                """,
+                (
+                    fm.get("publication_status", ""),
+                    fm.get("journal_or_series", ""),
+                    fm.get("doi", ""),
+                    timestamp,
+                    canonical_version_id,
+                    work_id,
+                ),
+            )
 
         _sync_topics(conn, work_id, fm.get("tags"), timestamp, aliases)
 
@@ -261,6 +289,7 @@ def sync_lenses(conn: sqlite3.Connection) -> None:
         fm, body = parse_frontmatter_and_body(text)
         sections = parse_heading_sections(body)
         lens_id = fm["lens_id"]
+        keyword_items = _keyword_items(sections.get("Keywords", ""))
         conn.execute(
             """
             INSERT OR REPLACE INTO lenses (
@@ -282,7 +311,7 @@ def sync_lenses(conn: sqlite3.Connection) -> None:
                 compact_text(sections.get("Overclaim Risk", "")),
                 compact_text(sections.get("Safer Formulation", "")),
                 compact_text(sections.get("Source Locator", "")),
-                json.dumps(extract_list_items(sections.get("Keywords", "")), ensure_ascii=False),
+                json.dumps(keyword_items, ensure_ascii=False),
                 timestamp,
             ),
         )
@@ -295,7 +324,6 @@ def sync_lenses(conn: sqlite3.Connection) -> None:
                     (lens_id, excerpt_id),
                 )
         conn.execute("DELETE FROM lens_topic_links WHERE lens_id=?", (lens_id,))
-        keyword_items = extract_list_items(sections.get("Keywords", ""))
         if not keyword_items:
             keyword_items = [fm.get("lens_type", "")]
         for keyword in keyword_items:

@@ -37,11 +37,12 @@
     "overall_max": 60
   },
   "meta": {
-    "paper_count": 27,
-    "theme_count": 13,
-    "topic_count": 136,
-    "excerpt_count": 88,
-    "lens_count": 85,
+    "paper_count": 28,
+    "theme_count": 16,
+    "topic_count": 140,
+    "excerpt_count": 94,
+    "lens_count": 98,
+    "citation_count": 98,
     "updated_from_local_db": true
   },
   "score_dimensions": [
@@ -94,40 +95,40 @@
           "name": "adhd"
         },
         {
-          "topic_id": "mental-health",
-          "name": "mental health"
-        },
-        {
-          "topic_id": "health-disparities",
-          "name": "health disparities"
-        },
-        {
-          "topic_id": "physician-decision-making",
-          "name": "physician decision making"
-        },
-        {
-          "topic_id": "diagnostic-thresholds",
-          "name": "diagnostic thresholds"
-        },
-        {
           "topic_id": "bayesian-learning",
           "name": "bayesian learning"
-        },
-        {
-          "topic_id": "selection-into-care",
-          "name": "selection into care"
         },
         {
           "topic_id": "clinical-notes-nlp",
           "name": "clinical notes nlp"
         },
         {
-          "topic_id": "gender-gap",
-          "name": "gender gap"
+          "topic_id": "diagnostic-thresholds",
+          "name": "diagnostic thresholds"
         },
         {
           "topic_id": "electronic-health-records",
           "name": "electronic health records"
+        },
+        {
+          "topic_id": "gender-gap",
+          "name": "gender gap"
+        },
+        {
+          "topic_id": "health-disparities",
+          "name": "health disparities"
+        },
+        {
+          "topic_id": "mental-health",
+          "name": "mental health"
+        },
+        {
+          "topic_id": "physician-decision-making",
+          "name": "physician decision making"
+        },
+        {
+          "topic_id": "selection-into-care",
+          "name": "selection into care"
         }
       ],
       "ratings": {
@@ -158,7 +159,8 @@
         }
       ],
       "excerpt_count": 5,
-      "lens_count": 4
+      "lens_count": 4,
+      "citation_count": 4
     },
     {
       "work_id": "eliason-2025-ambulance-taxis-impact",
@@ -173,20 +175,20 @@
       "one_line_judgment": "事前授权胜过追缴诉讼：首篇大规模实证证明行政监管比司法执法更有效遏制 Medicare 救护车欺诈。",
       "topics": [
         {
-          "topic_id": "medicare-fraud",
-          "name": "medicare fraud"
-        },
-        {
           "topic_id": "ambulance-fraud",
           "name": "ambulance fraud"
         },
         {
-          "topic_id": "prior-authorization",
-          "name": "prior authorization"
-        },
-        {
           "topic_id": "dialysis",
           "name": "dialysis"
+        },
+        {
+          "topic_id": "medicare-fraud",
+          "name": "medicare fraud"
+        },
+        {
+          "topic_id": "prior-authorization",
+          "name": "prior authorization"
         },
         {
           "topic_id": "regulation-vs-litigation",
@@ -213,7 +215,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "ortiz-2025-better-understanding-triple",
@@ -228,28 +231,24 @@
       "one_line_judgment": "将 DDD 方法论从两期无协变量的理想世界推进到协变量调整与交错采纳的现实世界，是 DDD 应用的新标准参考。",
       "topics": [
         {
-          "topic_id": "triple-difference",
-          "name": "triple difference"
-        },
-        {
-          "topic_id": "DDD",
-          "name": "DDD"
-        },
-        {
-          "topic_id": "staggered-adoption",
-          "name": "staggered adoption"
-        },
-        {
-          "topic_id": "doubly-robust",
-          "name": "doubly robust"
+          "topic_id": "causal-inference",
+          "name": "causal inference"
         },
         {
           "topic_id": "covariate-adjustment",
           "name": "covariate adjustment"
         },
         {
-          "topic_id": "causal-inference",
-          "name": "causal inference"
+          "topic_id": "doubly-robust",
+          "name": "doubly robust"
+        },
+        {
+          "topic_id": "staggered-adoption",
+          "name": "staggered adoption"
+        },
+        {
+          "topic_id": "triple-difference",
+          "name": "triple difference"
         }
       ],
       "ratings": {
@@ -268,7 +267,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "fang-2025-fear-risk-perception",
@@ -283,24 +283,24 @@
       "one_line_judgment": "诉讼的恐惧比经济损失更能扭曲医生行为：一篇将非理性预期确立为防御性医疗主机制的实证研究。",
       "topics": [
         {
-          "topic_id": "malpractice-lawsuits",
-          "name": "malpractice lawsuits"
+          "topic_id": "behavioral-health-economics",
+          "name": "behavioral health economics"
         },
         {
           "topic_id": "defensive-medicine",
           "name": "defensive medicine"
         },
         {
-          "topic_id": "physician-behavior",
-          "name": "physician behavior"
+          "topic_id": "malpractice-lawsuits",
+          "name": "malpractice lawsuits"
+        },
+        {
+          "topic_id": "physician-decision-making",
+          "name": "physician decision making"
         },
         {
           "topic_id": "salience",
           "name": "salience"
-        },
-        {
-          "topic_id": "behavioral-health-economics",
-          "name": "behavioral health economics"
         }
       ],
       "ratings": {
@@ -323,7 +323,88 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
+    },
+    {
+      "work_id": "lin-2025-did-model-misspecification",
+      "title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+      "year": 2025,
+      "authors": "林梦芸, 徐阳, 郭汝飞, 易君健",
+      "field": "econometrics",
+      "subfield": "causal-inference",
+      "paper_paradigm": "review",
+      "journal_or_series": "管理世界, 41(6), 227-264",
+      "doi": "10.19744/j.cnki.11-1235/f.2025.0084",
+      "one_line_judgment": "用“受限常系数模型相对于异质效应饱和模型的误设”统一解释三类广义 DID 的负权重与禁止对比，并给出从研究设计到估计器选择的中文操作指南。",
+      "topics": [
+        {
+          "topic_id": "continuous-treatment",
+          "name": "continuous treatment"
+        },
+        {
+          "topic_id": "covariate-adjustment",
+          "name": "covariate adjustment"
+        },
+        {
+          "topic_id": "difference-in-differences",
+          "name": "difference in differences"
+        },
+        {
+          "topic_id": "event-study",
+          "name": "event study"
+        },
+        {
+          "topic_id": "forbidden-comparisons",
+          "name": "forbidden comparisons"
+        },
+        {
+          "topic_id": "heterogeneous-treatment-effects",
+          "name": "heterogeneous treatment effects"
+        },
+        {
+          "topic_id": "model-misspecification",
+          "name": "model misspecification"
+        },
+        {
+          "topic_id": "negative-weights",
+          "name": "negative weights"
+        },
+        {
+          "topic_id": "staggered-adoption",
+          "name": "staggered adoption"
+        },
+        {
+          "topic_id": "twfe",
+          "name": "twfe"
+        }
+      ],
+      "ratings": {
+        "dao": 9,
+        "fa": 8,
+        "shi": 9,
+        "shu": 9,
+        "qi": 10,
+        "subjective": 10,
+        "overall": 55
+      },
+      "themes": [
+        {
+          "theme_id": "covariate-adjusted-identification",
+          "name": "协变量调整识别"
+        },
+        {
+          "theme_id": "difference-in-differences",
+          "name": "双重差分"
+        },
+        {
+          "theme_id": "causal-inference-methods",
+          "name": "因果推断方法"
+        }
+      ],
+      "excerpt_count": 6,
+      "lens_count": 13,
+      "citation_count": 13
     },
     {
       "work_id": "shi-2024-monitoring-waste-medicare",
@@ -338,24 +419,24 @@
       "one_line_judgment": "一篇将威慑效应主体化、同时证明监察不伤患者的 Medicare 浪费治理基准实证研究。",
       "topics": [
         {
-          "topic_id": "medicare-audits",
-          "name": "medicare audits"
+          "topic_id": "deterrence",
+          "name": "deterrence"
         },
         {
           "topic_id": "healthcare-waste",
           "name": "healthcare waste"
         },
         {
-          "topic_id": "monitoring-enforcement",
-          "name": "monitoring enforcement"
-        },
-        {
-          "topic_id": "deterrence",
-          "name": "deterrence"
-        },
-        {
           "topic_id": "hospital-behavior",
           "name": "hospital behavior"
+        },
+        {
+          "topic_id": "medicare-audits",
+          "name": "medicare audits"
+        },
+        {
+          "topic_id": "monitoring-enforcement",
+          "name": "monitoring enforcement"
         }
       ],
       "ratings": {
@@ -378,7 +459,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "chandra-2024-health-costs-cost",
@@ -397,20 +479,20 @@
           "name": "cost sharing"
         },
         {
+          "topic_id": "donut-hole",
+          "name": "donut hole"
+        },
+        {
           "topic_id": "drug-interruption",
           "name": "drug interruption"
         },
         {
+          "topic_id": "medicare-part-d",
+          "name": "medicare part d"
+        },
+        {
           "topic_id": "mortality",
           "name": "mortality"
-        },
-        {
-          "topic_id": "Medicare-Part-D",
-          "name": "Medicare Part D"
-        },
-        {
-          "topic_id": "donut-hole",
-          "name": "donut hole"
         }
       ],
       "ratings": {
@@ -433,7 +515,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "chan-2022-selection-variation-diagnostic",
@@ -452,20 +535,20 @@
           "name": "diagnostic skill"
         },
         {
-          "topic_id": "radiologists",
-          "name": "radiologists"
-        },
-        {
-          "topic_id": "pneumonia",
-          "name": "pneumonia"
-        },
-        {
           "topic_id": "judges-design",
           "name": "judges design"
         },
         {
           "topic_id": "physician-heterogeneity",
           "name": "physician heterogeneity"
+        },
+        {
+          "topic_id": "pneumonia",
+          "name": "pneumonia"
+        },
+        {
+          "topic_id": "radiologists",
+          "name": "radiologists"
         }
       ],
       "ratings": {
@@ -488,7 +571,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "olden-2022-triple-difference-estimator",
@@ -503,28 +587,24 @@
       "one_line_judgment": "首次将三重差分估计量的识别假设形式化推导清楚，证明它只需一个差分上的平行趋势，而非两个。",
       "topics": [
         {
-          "topic_id": "triple-difference",
-          "name": "triple difference"
-        },
-        {
-          "topic_id": "DDD",
-          "name": "DDD"
+          "topic_id": "causal-inference",
+          "name": "causal inference"
         },
         {
           "topic_id": "difference-in-differences",
           "name": "difference in differences"
         },
         {
+          "topic_id": "identification",
+          "name": "identification"
+        },
+        {
           "topic_id": "parallel-trends",
           "name": "parallel trends"
         },
         {
-          "topic_id": "causal-inference",
-          "name": "causal inference"
-        },
-        {
-          "topic_id": "identification",
-          "name": "identification"
+          "topic_id": "triple-difference",
+          "name": "triple difference"
         }
       ],
       "ratings": {
@@ -543,7 +623,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "chan-2021-influence-information-team",
@@ -558,8 +639,8 @@
       "one_line_judgment": "一篇用住院医师准随机数据打开医疗团队决策\"黑箱\"、揭示影响力集中背后信息聚合逻辑的重要实证研究。",
       "topics": [
         {
-          "topic_id": "team-decisions",
-          "name": "team decisions"
+          "topic_id": "information-aggregation",
+          "name": "information aggregation"
         },
         {
           "topic_id": "physician-training",
@@ -570,12 +651,12 @@
           "name": "practice variation"
         },
         {
-          "topic_id": "information-aggregation",
-          "name": "information aggregation"
-        },
-        {
           "topic_id": "residency",
           "name": "residency"
+        },
+        {
+          "topic_id": "team-decisions",
+          "name": "team decisions"
         }
       ],
       "ratings": {
@@ -602,7 +683,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "chen-2021-team-specific-human",
@@ -617,14 +699,6 @@
       "one_line_judgment": "用急诊准随机配对证明医生之间的合作历史是一种可以救命的团队特定人力资本。",
       "topics": [
         {
-          "topic_id": "team-specific-human-capital",
-          "name": "team specific human capital"
-        },
-        {
-          "topic_id": "physician-teams",
-          "name": "physician teams"
-        },
-        {
           "topic_id": "cardiac-care",
           "name": "cardiac care"
         },
@@ -635,6 +709,14 @@
         {
           "topic_id": "patient-outcomes",
           "name": "patient outcomes"
+        },
+        {
+          "topic_id": "physician-teams",
+          "name": "physician teams"
+        },
+        {
+          "topic_id": "team-specific-human-capital",
+          "name": "team specific human capital"
         }
       ],
       "ratings": {
@@ -653,7 +735,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "chandra-2020-identifying-sources-inefficiency",
@@ -676,16 +759,16 @@
           "name": "comparative advantage"
         },
         {
-          "topic_id": "treatment-variation",
-          "name": "treatment variation"
+          "topic_id": "heart-attack",
+          "name": "heart attack"
         },
         {
           "topic_id": "hospital-productivity",
           "name": "hospital productivity"
         },
         {
-          "topic_id": "heart-attack",
-          "name": "heart attack"
+          "topic_id": "treatment-variation",
+          "name": "treatment variation"
         }
       ],
       "ratings": {
@@ -704,7 +787,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "currie-2020-understanding-doctor-decision",
@@ -719,14 +803,6 @@
       "one_line_judgment": "一篇将诊断技能引入医生处方决策框架、揭示试验价值依赖技能水平的开创性文献。",
       "topics": [
         {
-          "topic_id": "physician-skill",
-          "name": "physician skill"
-        },
-        {
-          "topic_id": "practice-style",
-          "name": "practice style"
-        },
-        {
           "topic_id": "antidepressant-prescribing",
           "name": "antidepressant prescribing"
         },
@@ -737,6 +813,14 @@
         {
           "topic_id": "guidelines",
           "name": "guidelines"
+        },
+        {
+          "topic_id": "physician-skill",
+          "name": "physician skill"
+        },
+        {
+          "topic_id": "practice-style",
+          "name": "practice style"
         }
       ],
       "ratings": {
@@ -759,7 +843,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "finkelstein-2019-subsidizing-health-insurance",
@@ -774,24 +859,24 @@
       "one_line_judgment": "大额补贴换不来全覆盖，因为低收入人群对保险的支付意愿本身就系统性地低于他们自己的医疗成本——这篇文章把这一不便的真相量化得清清楚楚。",
       "topics": [
         {
+          "topic_id": "adverse-selection",
+          "name": "adverse selection"
+        },
+        {
           "topic_id": "health-insurance-demand",
           "name": "health insurance demand"
         },
         {
-          "topic_id": "willingness-to-pay",
-          "name": "willingness to pay"
-        },
-        {
-          "topic_id": "adverse-selection",
-          "name": "adverse selection"
+          "topic_id": "low-income",
+          "name": "low income"
         },
         {
           "topic_id": "subsidies",
           "name": "subsidies"
         },
         {
-          "topic_id": "low-income",
-          "name": "low income"
+          "topic_id": "willingness-to-pay",
+          "name": "willingness to pay"
         }
       ],
       "ratings": {
@@ -814,7 +899,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "ito-2018-economics-attribute-based-regulation",
@@ -833,24 +919,24 @@
           "name": "attribute based regulation"
         },
         {
-          "topic_id": "fuel-economy-standards",
-          "name": "fuel economy standards"
-        },
-        {
           "topic_id": "bunching",
           "name": "bunching"
-        },
-        {
-          "topic_id": "notches",
-          "name": "notches"
         },
         {
           "topic_id": "compliance-trading",
           "name": "compliance trading"
         },
         {
+          "topic_id": "fuel-economy-standards",
+          "name": "fuel economy standards"
+        },
+        {
           "topic_id": "japan",
           "name": "japan"
+        },
+        {
+          "topic_id": "notches",
+          "name": "notches"
         }
       ],
       "ratings": {
@@ -873,7 +959,8 @@
         }
       ],
       "excerpt_count": 5,
-      "lens_count": 4
+      "lens_count": 4,
+      "citation_count": 4
     },
     {
       "work_id": "fang-2017-detecting-potential-overbilling",
@@ -888,14 +975,6 @@
       "one_line_judgment": "用物理时间约束揭示可疑过度计费：一把简洁有力的 Medicare 欺诈初筛工具。",
       "topics": [
         {
-          "topic_id": "medicare-overbilling",
-          "name": "medicare overbilling"
-        },
-        {
-          "topic_id": "physician-billing",
-          "name": "physician billing"
-        },
-        {
           "topic_id": "fraud-detection",
           "name": "fraud detection"
         },
@@ -904,8 +983,16 @@
           "name": "hours worked"
         },
         {
+          "topic_id": "medicare-overbilling",
+          "name": "medicare overbilling"
+        },
+        {
           "topic_id": "methodology",
           "name": "methodology"
+        },
+        {
+          "topic_id": "physician-billing",
+          "name": "physician billing"
         }
       ],
       "ratings": {
@@ -928,7 +1015,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "brot-goldberg-2017-what-does-deductible",
@@ -979,7 +1067,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "finkelstein-2016-sources-geographic-variation",
@@ -994,6 +1083,10 @@
       "one_line_judgment": "用患者迁移剥离需求与供给贡献，重新定标了\"医疗地区差异主要由供给侧驱动\"这一既有共识。",
       "topics": [
         {
+          "topic_id": "demand-supply-decomposition",
+          "name": "demand supply decomposition"
+        },
+        {
           "topic_id": "geographic-variation",
           "name": "geographic variation"
         },
@@ -1002,16 +1095,12 @@
           "name": "healthcare utilization"
         },
         {
-          "topic_id": "Medicare",
-          "name": "Medicare"
+          "topic_id": "medicare",
+          "name": "medicare"
         },
         {
           "topic_id": "patient-migration",
           "name": "patient migration"
-        },
-        {
-          "topic_id": "demand-supply-decomposition",
-          "name": "demand supply decomposition"
         },
         {
           "topic_id": "place-effects",
@@ -1034,7 +1123,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "chan-2016-teamwork-moral-hazard",
@@ -1049,24 +1139,24 @@
       "one_line_judgment": "一篇用急诊室自然实验证明团队自我管理可以打败经典道德风险预言的组织经济学力作。",
       "topics": [
         {
-          "topic_id": "teamwork",
-          "name": "teamwork"
+          "topic_id": "emergency-department",
+          "name": "emergency department"
         },
         {
           "topic_id": "moral-hazard",
           "name": "moral hazard"
         },
         {
-          "topic_id": "emergency-department",
-          "name": "emergency department"
+          "topic_id": "organizational-design",
+          "name": "organizational design"
         },
         {
           "topic_id": "physician-productivity",
           "name": "physician productivity"
         },
         {
-          "topic_id": "organizational-design",
-          "name": "organizational design"
+          "topic_id": "teamwork",
+          "name": "teamwork"
         }
       ],
       "ratings": {
@@ -1089,7 +1179,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "handel-2015-health-insurance-humans",
@@ -1104,6 +1195,10 @@
       "one_line_judgment": "一篇把风险偏好、信息摩擦与福利分析真正拆开的健康保险选择基准文献。",
       "topics": [
         {
+          "topic_id": "consumer-welfare",
+          "name": "consumer welfare"
+        },
+        {
           "topic_id": "health-insurance",
           "name": "health insurance"
         },
@@ -1114,10 +1209,6 @@
         {
           "topic_id": "plan-choice",
           "name": "plan choice"
-        },
-        {
-          "topic_id": "consumer-welfare",
-          "name": "consumer welfare"
         },
         {
           "topic_id": "structural-demand",
@@ -1144,7 +1235,8 @@
         }
       ],
       "excerpt_count": 4,
-      "lens_count": 4
+      "lens_count": 4,
+      "citation_count": 4
     },
     {
       "work_id": "einav-2015-response-drug-expenditure",
@@ -1159,24 +1251,24 @@
       "one_line_judgment": "一篇关于非线性保险合同与健康政策反事实分析的基准型论文。",
       "topics": [
         {
-          "topic_id": "nonlinear-pricing",
-          "name": "nonlinear pricing"
-        },
-        {
-          "topic_id": "medicare-part-d",
-          "name": "medicare part d"
-        },
-        {
-          "topic_id": "health-insurance",
-          "name": "health insurance"
-        },
-        {
           "topic_id": "bunching",
           "name": "bunching"
         },
         {
           "topic_id": "counterfactual",
           "name": "counterfactual"
+        },
+        {
+          "topic_id": "health-insurance",
+          "name": "health insurance"
+        },
+        {
+          "topic_id": "medicare-part-d",
+          "name": "medicare part d"
+        },
+        {
+          "topic_id": "nonlinear-pricing",
+          "name": "nonlinear pricing"
         }
       ],
       "ratings": {
@@ -1199,7 +1291,8 @@
         }
       ],
       "excerpt_count": 4,
-      "lens_count": 4
+      "lens_count": 4,
+      "citation_count": 4
     },
     {
       "work_id": "shigeoka-2014-effect-patient-cost",
@@ -1218,20 +1311,20 @@
           "name": "cost sharing"
         },
         {
-          "topic_id": "regression-discontinuity",
-          "name": "regression discontinuity"
-        },
-        {
           "topic_id": "elderly-health",
           "name": "elderly health"
         },
         {
-          "topic_id": "utilization-elasticity",
-          "name": "utilization elasticity"
-        },
-        {
           "topic_id": "financial-risk-protection",
           "name": "financial risk protection"
+        },
+        {
+          "topic_id": "regression-discontinuity",
+          "name": "regression discontinuity"
+        },
+        {
+          "topic_id": "utilization-elasticity",
+          "name": "utilization elasticity"
         }
       ],
       "ratings": {
@@ -1254,7 +1347,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "kolstad-2013-information-quality-when",
@@ -1269,24 +1363,24 @@
       "one_line_judgment": "一篇用宾夕法尼亚手术报告卡干净地证明内在激励是医生质量改善主要驱动力的基准文献。",
       "topics": [
         {
-          "topic_id": "quality-reporting",
-          "name": "quality reporting"
-        },
-        {
           "topic_id": "intrinsic-motivation",
           "name": "intrinsic motivation"
         },
         {
-          "topic_id": "surgeon-behavior",
-          "name": "surgeon behavior"
+          "topic_id": "physician-incentives",
+          "name": "physician incentives"
+        },
+        {
+          "topic_id": "quality-reporting",
+          "name": "quality reporting"
         },
         {
           "topic_id": "report-cards",
           "name": "report cards"
         },
         {
-          "topic_id": "physician-incentives",
-          "name": "physician incentives"
+          "topic_id": "surgeon-behavior",
+          "name": "surgeon behavior"
         }
       ],
       "ratings": {
@@ -1313,7 +1407,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "kamenica-2011-bayesian-persuasion",
@@ -1332,20 +1427,20 @@
           "name": "information design"
         },
         {
-          "topic_id": "persuasion",
-          "name": "persuasion"
+          "topic_id": "mechanism",
+          "name": "mechanism"
         },
         {
-          "topic_id": "sender-receiver",
-          "name": "sender receiver"
+          "topic_id": "persuasion",
+          "name": "persuasion"
         },
         {
           "topic_id": "posterior-beliefs",
           "name": "posterior beliefs"
         },
         {
-          "topic_id": "mechanism",
-          "name": "mechanism"
+          "topic_id": "sender-receiver",
+          "name": "sender receiver"
         }
       ],
       "ratings": {
@@ -1364,7 +1459,8 @@
         }
       ],
       "excerpt_count": 4,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "chandra-2007-productivity-spillovers-health",
@@ -1383,16 +1479,16 @@
           "name": "geographic variation"
         },
         {
-          "topic_id": "productivity-spillovers",
-          "name": "productivity spillovers"
-        },
-        {
           "topic_id": "heart-attacks",
           "name": "heart attacks"
         },
         {
-          "topic_id": "Roy-model",
-          "name": "Roy model"
+          "topic_id": "productivity-spillovers",
+          "name": "productivity spillovers"
+        },
+        {
+          "topic_id": "roy-model",
+          "name": "roy model"
         },
         {
           "topic_id": "treatment-intensity",
@@ -1419,7 +1515,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "cutler-2006-determinants-mortality",
@@ -1434,28 +1531,28 @@
       "one_line_judgment": "一篇从历史、国际与国内三维度系统梳理死亡率决定因素的权威综述，是进入健康经济学文献的必要背景读物。",
       "topics": [
         {
-          "topic_id": "mortality",
-          "name": "mortality"
-        },
-        {
           "topic_id": "health-history",
           "name": "health history"
+        },
+        {
+          "topic_id": "health-inequality",
+          "name": "health inequality"
         },
         {
           "topic_id": "income-health-gradient",
           "name": "income health gradient"
         },
         {
-          "topic_id": "public-health",
-          "name": "public health"
-        },
-        {
           "topic_id": "medical-technology",
           "name": "medical technology"
         },
         {
-          "topic_id": "health-inequality",
-          "name": "health inequality"
+          "topic_id": "mortality",
+          "name": "mortality"
+        },
+        {
+          "topic_id": "public-health",
+          "name": "public health"
         }
       ],
       "ratings": {
@@ -1474,7 +1571,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "grossman-2000-human-capital-model",
@@ -1489,28 +1587,28 @@
       "one_line_judgment": "将健康需求与医疗需求从理论上彻底分离，奠定健康经济学核心理论框架的半世纪之作。",
       "topics": [
         {
-          "topic_id": "health-capital",
-          "name": "health capital"
-        },
-        {
           "topic_id": "demand-for-health",
           "name": "demand for health"
         },
         {
-          "topic_id": "human-capital",
-          "name": "human capital"
+          "topic_id": "education-health",
+          "name": "education health"
         },
         {
-          "topic_id": "household-production",
-          "name": "household production"
+          "topic_id": "health-capital",
+          "name": "health capital"
         },
         {
           "topic_id": "health-investment",
           "name": "health investment"
         },
         {
-          "topic_id": "education-health",
-          "name": "education health"
+          "topic_id": "household-production",
+          "name": "household production"
+        },
+        {
+          "topic_id": "human-capital",
+          "name": "human capital"
         }
       ],
       "ratings": {
@@ -1529,7 +1627,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     },
     {
       "work_id": "hayek-1945-use-knowledge-society",
@@ -1544,12 +1643,12 @@
       "one_line_judgment": "重新定义经济问题为知识利用问题，为价格机制与去中央化提供了最深刻的理论辩护，也是理解医疗信息不对称之根源的思想底色。",
       "topics": [
         {
-          "topic_id": "information-decentralization",
-          "name": "information decentralization"
+          "topic_id": "central-planning",
+          "name": "central planning"
         },
         {
-          "topic_id": "price-system",
-          "name": "price system"
+          "topic_id": "information-decentralization",
+          "name": "information decentralization"
         },
         {
           "topic_id": "knowledge-dispersion",
@@ -1560,8 +1659,8 @@
           "name": "market mechanism"
         },
         {
-          "topic_id": "central-planning",
-          "name": "central planning"
+          "topic_id": "price-system",
+          "name": "price system"
         }
       ],
       "ratings": {
@@ -1580,7 +1679,8 @@
         }
       ],
       "excerpt_count": 3,
-      "lens_count": 3
+      "lens_count": 3,
+      "citation_count": 3
     }
   ],
   "themes": [
@@ -1669,6 +1769,27 @@
       "paper_count": 1
     },
     {
+      "theme_id": "covariate-adjusted-identification",
+      "name": "协变量调整识别",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "difference-in-differences",
+      "name": "双重差分",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "causal-inference-methods",
+      "name": "因果推断方法",
+      "field": "econometrics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
       "theme_id": "diagnostic-accuracy",
       "name": "诊断准确性",
       "field": "health-economics",
@@ -1738,6 +1859,21 @@
       "paper_count": 1
     },
     {
+      "theme_id": "covariate-adjusted-identification",
+      "name": "协变量调整识别",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "difference-in-differences",
+      "name": "双重差分",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "causal-inference-methods",
+      "name": "因果推断方法",
+      "paper_count": 1
+    },
+    {
       "theme_id": "diagnostic-accuracy",
       "name": "诊断准确性",
       "paper_count": 1
@@ -1750,18 +1886,38 @@
       "paper_count": 3
     },
     {
-      "topic_id": "triple-difference",
-      "name": "triple difference",
-      "paper_count": 2
-    },
-    {
-      "topic_id": "DDD",
-      "name": "DDD",
+      "topic_id": "physician-decision-making",
+      "name": "physician decision making",
       "paper_count": 2
     },
     {
       "topic_id": "causal-inference",
       "name": "causal inference",
+      "paper_count": 2
+    },
+    {
+      "topic_id": "covariate-adjustment",
+      "name": "covariate adjustment",
+      "paper_count": 2
+    },
+    {
+      "topic_id": "staggered-adoption",
+      "name": "staggered adoption",
+      "paper_count": 2
+    },
+    {
+      "topic_id": "triple-difference",
+      "name": "triple difference",
+      "paper_count": 2
+    },
+    {
+      "topic_id": "difference-in-differences",
+      "name": "difference in differences",
+      "paper_count": 2
+    },
+    {
+      "topic_id": "medicare-part-d",
+      "name": "medicare part d",
       "paper_count": 2
     },
     {
@@ -1795,33 +1951,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "mental-health",
-      "name": "mental health",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "health-disparities",
-      "name": "health disparities",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "physician-decision-making",
-      "name": "physician decision making",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "diagnostic-thresholds",
-      "name": "diagnostic thresholds",
-      "paper_count": 1
-    },
-    {
       "topic_id": "bayesian-learning",
       "name": "bayesian learning",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "selection-into-care",
-      "name": "selection into care",
       "paper_count": 1
     },
     {
@@ -1830,8 +1961,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "gender-gap",
-      "name": "gender gap",
+      "topic_id": "diagnostic-thresholds",
+      "name": "diagnostic thresholds",
       "paper_count": 1
     },
     {
@@ -1840,8 +1971,23 @@
       "paper_count": 1
     },
     {
-      "topic_id": "medicare-fraud",
-      "name": "medicare fraud",
+      "topic_id": "gender-gap",
+      "name": "gender gap",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "health-disparities",
+      "name": "health disparities",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "mental-health",
+      "name": "mental health",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "selection-into-care",
+      "name": "selection into care",
       "paper_count": 1
     },
     {
@@ -1850,13 +1996,18 @@
       "paper_count": 1
     },
     {
-      "topic_id": "prior-authorization",
-      "name": "prior authorization",
+      "topic_id": "dialysis",
+      "name": "dialysis",
       "paper_count": 1
     },
     {
-      "topic_id": "dialysis",
-      "name": "dialysis",
+      "topic_id": "medicare-fraud",
+      "name": "medicare fraud",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "prior-authorization",
+      "name": "prior authorization",
       "paper_count": 1
     },
     {
@@ -1865,38 +2016,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "staggered-adoption",
-      "name": "staggered adoption",
-      "paper_count": 1
-    },
-    {
       "topic_id": "doubly-robust",
       "name": "doubly robust",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "covariate-adjustment",
-      "name": "covariate adjustment",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "malpractice-lawsuits",
-      "name": "malpractice lawsuits",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "defensive-medicine",
-      "name": "defensive medicine",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "physician-behavior",
-      "name": "physician behavior",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "salience",
-      "name": "salience",
       "paper_count": 1
     },
     {
@@ -1905,18 +2026,53 @@
       "paper_count": 1
     },
     {
-      "topic_id": "medicare-audits",
-      "name": "medicare audits",
+      "topic_id": "defensive-medicine",
+      "name": "defensive medicine",
       "paper_count": 1
     },
     {
-      "topic_id": "healthcare-waste",
-      "name": "healthcare waste",
+      "topic_id": "malpractice-lawsuits",
+      "name": "malpractice lawsuits",
       "paper_count": 1
     },
     {
-      "topic_id": "monitoring-enforcement",
-      "name": "monitoring enforcement",
+      "topic_id": "salience",
+      "name": "salience",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "continuous-treatment",
+      "name": "continuous treatment",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "event-study",
+      "name": "event study",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "forbidden-comparisons",
+      "name": "forbidden comparisons",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "heterogeneous-treatment-effects",
+      "name": "heterogeneous treatment effects",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "model-misspecification",
+      "name": "model misspecification",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "negative-weights",
+      "name": "negative weights",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "twfe",
+      "name": "twfe",
       "paper_count": 1
     },
     {
@@ -1925,18 +2081,23 @@
       "paper_count": 1
     },
     {
+      "topic_id": "healthcare-waste",
+      "name": "healthcare waste",
+      "paper_count": 1
+    },
+    {
       "topic_id": "hospital-behavior",
       "name": "hospital behavior",
       "paper_count": 1
     },
     {
-      "topic_id": "drug-interruption",
-      "name": "drug interruption",
+      "topic_id": "medicare-audits",
+      "name": "medicare audits",
       "paper_count": 1
     },
     {
-      "topic_id": "Medicare-Part-D",
-      "name": "Medicare Part D",
+      "topic_id": "monitoring-enforcement",
+      "name": "monitoring enforcement",
       "paper_count": 1
     },
     {
@@ -1945,18 +2106,13 @@
       "paper_count": 1
     },
     {
+      "topic_id": "drug-interruption",
+      "name": "drug interruption",
+      "paper_count": 1
+    },
+    {
       "topic_id": "diagnostic-skill",
       "name": "diagnostic skill",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "radiologists",
-      "name": "radiologists",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "pneumonia",
-      "name": "pneumonia",
       "paper_count": 1
     },
     {
@@ -1970,13 +2126,13 @@
       "paper_count": 1
     },
     {
-      "topic_id": "difference-in-differences",
-      "name": "difference in differences",
+      "topic_id": "pneumonia",
+      "name": "pneumonia",
       "paper_count": 1
     },
     {
-      "topic_id": "parallel-trends",
-      "name": "parallel trends",
+      "topic_id": "radiologists",
+      "name": "radiologists",
       "paper_count": 1
     },
     {
@@ -1985,8 +2141,13 @@
       "paper_count": 1
     },
     {
-      "topic_id": "team-decisions",
-      "name": "team decisions",
+      "topic_id": "parallel-trends",
+      "name": "parallel trends",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "information-aggregation",
+      "name": "information aggregation",
       "paper_count": 1
     },
     {
@@ -2000,23 +2161,13 @@
       "paper_count": 1
     },
     {
-      "topic_id": "information-aggregation",
-      "name": "information aggregation",
-      "paper_count": 1
-    },
-    {
       "topic_id": "residency",
       "name": "residency",
       "paper_count": 1
     },
     {
-      "topic_id": "team-specific-human-capital",
-      "name": "team specific human capital",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "physician-teams",
-      "name": "physician teams",
+      "topic_id": "team-decisions",
+      "name": "team decisions",
       "paper_count": 1
     },
     {
@@ -2035,6 +2186,16 @@
       "paper_count": 1
     },
     {
+      "topic_id": "physician-teams",
+      "name": "physician teams",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "team-specific-human-capital",
+      "name": "team specific human capital",
+      "paper_count": 1
+    },
+    {
       "topic_id": "allocative-inefficiency",
       "name": "allocative inefficiency",
       "paper_count": 1
@@ -2045,8 +2206,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "treatment-variation",
-      "name": "treatment variation",
+      "topic_id": "heart-attack",
+      "name": "heart attack",
       "paper_count": 1
     },
     {
@@ -2055,18 +2216,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "heart-attack",
-      "name": "heart attack",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "physician-skill",
-      "name": "physician skill",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "practice-style",
-      "name": "practice style",
+      "topic_id": "treatment-variation",
+      "name": "treatment variation",
       "paper_count": 1
     },
     {
@@ -2085,13 +2236,13 @@
       "paper_count": 1
     },
     {
-      "topic_id": "health-insurance-demand",
-      "name": "health insurance demand",
+      "topic_id": "physician-skill",
+      "name": "physician skill",
       "paper_count": 1
     },
     {
-      "topic_id": "willingness-to-pay",
-      "name": "willingness to pay",
+      "topic_id": "practice-style",
+      "name": "practice style",
       "paper_count": 1
     },
     {
@@ -2100,8 +2251,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "subsidies",
-      "name": "subsidies",
+      "topic_id": "health-insurance-demand",
+      "name": "health insurance demand",
       "paper_count": 1
     },
     {
@@ -2110,18 +2261,18 @@
       "paper_count": 1
     },
     {
+      "topic_id": "subsidies",
+      "name": "subsidies",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "willingness-to-pay",
+      "name": "willingness to pay",
+      "paper_count": 1
+    },
+    {
       "topic_id": "attribute-based-regulation",
       "name": "attribute based regulation",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "fuel-economy-standards",
-      "name": "fuel economy standards",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "notches",
-      "name": "notches",
       "paper_count": 1
     },
     {
@@ -2130,18 +2281,18 @@
       "paper_count": 1
     },
     {
+      "topic_id": "fuel-economy-standards",
+      "name": "fuel economy standards",
+      "paper_count": 1
+    },
+    {
       "topic_id": "japan",
       "name": "japan",
       "paper_count": 1
     },
     {
-      "topic_id": "medicare-overbilling",
-      "name": "medicare overbilling",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "physician-billing",
-      "name": "physician billing",
+      "topic_id": "notches",
+      "name": "notches",
       "paper_count": 1
     },
     {
@@ -2155,8 +2306,18 @@
       "paper_count": 1
     },
     {
+      "topic_id": "medicare-overbilling",
+      "name": "medicare overbilling",
+      "paper_count": 1
+    },
+    {
       "topic_id": "methodology",
       "name": "methodology",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "physician-billing",
+      "name": "physician billing",
       "paper_count": 1
     },
     {
@@ -2175,13 +2336,18 @@
       "paper_count": 1
     },
     {
+      "topic_id": "demand-supply-decomposition",
+      "name": "demand supply decomposition",
+      "paper_count": 1
+    },
+    {
       "topic_id": "healthcare-utilization",
       "name": "healthcare utilization",
       "paper_count": 1
     },
     {
-      "topic_id": "Medicare",
-      "name": "Medicare",
+      "topic_id": "medicare",
+      "name": "medicare",
       "paper_count": 1
     },
     {
@@ -2190,18 +2356,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "demand-supply-decomposition",
-      "name": "demand supply decomposition",
-      "paper_count": 1
-    },
-    {
       "topic_id": "place-effects",
       "name": "place effects",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "teamwork",
-      "name": "teamwork",
       "paper_count": 1
     },
     {
@@ -2210,13 +2366,23 @@
       "paper_count": 1
     },
     {
+      "topic_id": "organizational-design",
+      "name": "organizational design",
+      "paper_count": 1
+    },
+    {
       "topic_id": "physician-productivity",
       "name": "physician productivity",
       "paper_count": 1
     },
     {
-      "topic_id": "organizational-design",
-      "name": "organizational design",
+      "topic_id": "teamwork",
+      "name": "teamwork",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "consumer-welfare",
+      "name": "consumer welfare",
       "paper_count": 1
     },
     {
@@ -2230,23 +2396,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "consumer-welfare",
-      "name": "consumer welfare",
-      "paper_count": 1
-    },
-    {
       "topic_id": "structural-demand",
       "name": "structural demand",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "nonlinear-pricing",
-      "name": "nonlinear pricing",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "medicare-part-d",
-      "name": "medicare part d",
       "paper_count": 1
     },
     {
@@ -2255,8 +2406,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "regression-discontinuity",
-      "name": "regression discontinuity",
+      "topic_id": "nonlinear-pricing",
+      "name": "nonlinear pricing",
       "paper_count": 1
     },
     {
@@ -2265,18 +2416,18 @@
       "paper_count": 1
     },
     {
-      "topic_id": "utilization-elasticity",
-      "name": "utilization elasticity",
-      "paper_count": 1
-    },
-    {
       "topic_id": "financial-risk-protection",
       "name": "financial risk protection",
       "paper_count": 1
     },
     {
-      "topic_id": "quality-reporting",
-      "name": "quality reporting",
+      "topic_id": "regression-discontinuity",
+      "name": "regression discontinuity",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "utilization-elasticity",
+      "name": "utilization elasticity",
       "paper_count": 1
     },
     {
@@ -2285,8 +2436,13 @@
       "paper_count": 1
     },
     {
-      "topic_id": "surgeon-behavior",
-      "name": "surgeon behavior",
+      "topic_id": "physician-incentives",
+      "name": "physician incentives",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "quality-reporting",
+      "name": "quality reporting",
       "paper_count": 1
     },
     {
@@ -2295,8 +2451,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "physician-incentives",
-      "name": "physician incentives",
+      "topic_id": "surgeon-behavior",
+      "name": "surgeon behavior",
       "paper_count": 1
     },
     {
@@ -2305,13 +2461,13 @@
       "paper_count": 1
     },
     {
-      "topic_id": "persuasion",
-      "name": "persuasion",
+      "topic_id": "mechanism",
+      "name": "mechanism",
       "paper_count": 1
     },
     {
-      "topic_id": "sender-receiver",
-      "name": "sender receiver",
+      "topic_id": "persuasion",
+      "name": "persuasion",
       "paper_count": 1
     },
     {
@@ -2320,13 +2476,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "mechanism",
-      "name": "mechanism",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "productivity-spillovers",
-      "name": "productivity spillovers",
+      "topic_id": "sender-receiver",
+      "name": "sender receiver",
       "paper_count": 1
     },
     {
@@ -2335,8 +2486,13 @@
       "paper_count": 1
     },
     {
-      "topic_id": "Roy-model",
-      "name": "Roy model",
+      "topic_id": "productivity-spillovers",
+      "name": "productivity spillovers",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "roy-model",
+      "name": "roy model",
       "paper_count": 1
     },
     {
@@ -2350,13 +2506,13 @@
       "paper_count": 1
     },
     {
-      "topic_id": "income-health-gradient",
-      "name": "income health gradient",
+      "topic_id": "health-inequality",
+      "name": "health inequality",
       "paper_count": 1
     },
     {
-      "topic_id": "public-health",
-      "name": "public health",
+      "topic_id": "income-health-gradient",
+      "name": "income health gradient",
       "paper_count": 1
     },
     {
@@ -2365,13 +2521,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "health-inequality",
-      "name": "health inequality",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "health-capital",
-      "name": "health capital",
+      "topic_id": "public-health",
+      "name": "public health",
       "paper_count": 1
     },
     {
@@ -2380,13 +2531,13 @@
       "paper_count": 1
     },
     {
-      "topic_id": "human-capital",
-      "name": "human capital",
+      "topic_id": "education-health",
+      "name": "education health",
       "paper_count": 1
     },
     {
-      "topic_id": "household-production",
-      "name": "household production",
+      "topic_id": "health-capital",
+      "name": "health capital",
       "paper_count": 1
     },
     {
@@ -2395,18 +2546,23 @@
       "paper_count": 1
     },
     {
-      "topic_id": "education-health",
-      "name": "education health",
+      "topic_id": "household-production",
+      "name": "household production",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "human-capital",
+      "name": "human capital",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "central-planning",
+      "name": "central planning",
       "paper_count": 1
     },
     {
       "topic_id": "information-decentralization",
       "name": "information decentralization",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "price-system",
-      "name": "price system",
       "paper_count": 1
     },
     {
@@ -2420,8 +2576,8 @@
       "paper_count": 1
     },
     {
-      "topic_id": "central-planning",
-      "name": "central planning",
+      "topic_id": "price-system",
+      "name": "price system",
       "paper_count": 1
     }
   ],
@@ -2432,7 +2588,7 @@
     },
     {
       "name": "econometrics",
-      "paper_count": 2
+      "paper_count": 3
     },
     {
       "name": "environmental-economics",
@@ -2469,6 +2625,10 @@
       "paper_count": 3
     },
     {
+      "name": "review",
+      "paper_count": 1
+    },
+    {
       "name": "mixed",
       "paper_count": 1
     },
@@ -2495,23 +2655,23 @@
         ],
         "top_topics": [
           {
+            "topic_id": "physician-decision-making",
+            "name": "physician decision making",
+            "paper_count": 2
+          },
+          {
             "topic_id": "adhd",
             "name": "adhd",
             "paper_count": 1
           },
           {
-            "topic_id": "mental-health",
-            "name": "mental health",
+            "topic_id": "bayesian-learning",
+            "name": "bayesian learning",
             "paper_count": 1
           },
           {
-            "topic_id": "health-disparities",
-            "name": "health disparities",
-            "paper_count": 1
-          },
-          {
-            "topic_id": "physician-decision-making",
-            "name": "physician decision making",
+            "topic_id": "clinical-notes-nlp",
+            "name": "clinical notes nlp",
             "paper_count": 1
           },
           {
@@ -2520,8 +2680,8 @@
             "paper_count": 1
           },
           {
-            "topic_id": "bayesian-learning",
-            "name": "bayesian learning",
+            "topic_id": "electronic-health-records",
+            "name": "electronic health records",
             "paper_count": 1
           }
         ]
@@ -2545,9 +2705,19 @@
             "paper_count": 3
           },
           {
+            "topic_id": "medicare-part-d",
+            "name": "medicare part d",
+            "paper_count": 2
+          },
+          {
             "topic_id": "health-insurance",
             "name": "health insurance",
             "paper_count": 2
+          },
+          {
+            "topic_id": "donut-hole",
+            "name": "donut hole",
+            "paper_count": 1
           },
           {
             "topic_id": "drug-interruption",
@@ -2557,16 +2727,6 @@
           {
             "topic_id": "mortality",
             "name": "mortality",
-            "paper_count": 1
-          },
-          {
-            "topic_id": "Medicare-Part-D",
-            "name": "Medicare Part D",
-            "paper_count": 1
-          },
-          {
-            "topic_id": "donut-hole",
-            "name": "donut hole",
             "paper_count": 1
           }
         ]
@@ -2590,23 +2750,23 @@
             "paper_count": 2
           },
           {
-            "topic_id": "medicare-fraud",
-            "name": "medicare fraud",
-            "paper_count": 1
-          },
-          {
             "topic_id": "ambulance-fraud",
             "name": "ambulance fraud",
             "paper_count": 1
           },
           {
-            "topic_id": "prior-authorization",
-            "name": "prior authorization",
+            "topic_id": "dialysis",
+            "name": "dialysis",
             "paper_count": 1
           },
           {
-            "topic_id": "dialysis",
-            "name": "dialysis",
+            "topic_id": "medicare-fraud",
+            "name": "medicare fraud",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "prior-authorization",
+            "name": "prior authorization",
             "paper_count": 1
           },
           {
@@ -2639,8 +2799,13 @@
             "paper_count": 1
           },
           {
-            "topic_id": "radiologists",
-            "name": "radiologists",
+            "topic_id": "judges-design",
+            "name": "judges design",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "physician-heterogeneity",
+            "name": "physician heterogeneity",
             "paper_count": 1
           },
           {
@@ -2649,13 +2814,8 @@
             "paper_count": 1
           },
           {
-            "topic_id": "judges-design",
-            "name": "judges design",
-            "paper_count": 1
-          },
-          {
-            "topic_id": "physician-heterogeneity",
-            "name": "physician heterogeneity",
+            "topic_id": "radiologists",
+            "name": "radiologists",
             "paper_count": 1
           }
         ]
@@ -2672,8 +2832,8 @@
         ],
         "top_topics": [
           {
-            "topic_id": "team-decisions",
-            "name": "team decisions",
+            "topic_id": "information-aggregation",
+            "name": "information aggregation",
             "paper_count": 1
           },
           {
@@ -2687,18 +2847,18 @@
             "paper_count": 1
           },
           {
-            "topic_id": "information-aggregation",
-            "name": "information aggregation",
-            "paper_count": 1
-          },
-          {
             "topic_id": "residency",
             "name": "residency",
             "paper_count": 1
           },
           {
-            "topic_id": "quality-reporting",
-            "name": "quality reporting",
+            "topic_id": "team-decisions",
+            "name": "team decisions",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "intrinsic-motivation",
+            "name": "intrinsic motivation",
             "paper_count": 1
           }
         ]
@@ -2725,23 +2885,23 @@
             "paper_count": 2
           },
           {
-            "topic_id": "drug-interruption",
-            "name": "drug interruption",
-            "paper_count": 1
-          },
-          {
-            "topic_id": "Medicare-Part-D",
-            "name": "Medicare Part D",
-            "paper_count": 1
-          },
-          {
             "topic_id": "donut-hole",
             "name": "donut hole",
             "paper_count": 1
           },
           {
-            "topic_id": "regression-discontinuity",
-            "name": "regression discontinuity",
+            "topic_id": "drug-interruption",
+            "name": "drug interruption",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "medicare-part-d",
+            "name": "medicare part d",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "elderly-health",
+            "name": "elderly health",
             "paper_count": 1
           }
         ]
@@ -2758,23 +2918,18 @@
         ],
         "top_topics": [
           {
-            "topic_id": "triple-difference",
-            "name": "triple difference",
-            "paper_count": 2
-          },
-          {
-            "topic_id": "DDD",
-            "name": "DDD",
-            "paper_count": 2
-          },
-          {
             "topic_id": "causal-inference",
             "name": "causal inference",
             "paper_count": 2
           },
           {
-            "topic_id": "staggered-adoption",
-            "name": "staggered adoption",
+            "topic_id": "triple-difference",
+            "name": "triple difference",
+            "paper_count": 2
+          },
+          {
+            "topic_id": "covariate-adjustment",
+            "name": "covariate adjustment",
             "paper_count": 1
           },
           {
@@ -2783,8 +2938,13 @@
             "paper_count": 1
           },
           {
-            "topic_id": "covariate-adjustment",
-            "name": "covariate adjustment",
+            "topic_id": "staggered-adoption",
+            "name": "staggered adoption",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "difference-in-differences",
+            "name": "difference in differences",
             "paper_count": 1
           }
         ]
@@ -2800,8 +2960,8 @@
         ],
         "top_topics": [
           {
-            "topic_id": "team-decisions",
-            "name": "team decisions",
+            "topic_id": "information-aggregation",
+            "name": "information aggregation",
             "paper_count": 1
           },
           {
@@ -2815,18 +2975,18 @@
             "paper_count": 1
           },
           {
-            "topic_id": "information-aggregation",
-            "name": "information aggregation",
-            "paper_count": 1
-          },
-          {
             "topic_id": "residency",
             "name": "residency",
             "paper_count": 1
           },
           {
-            "topic_id": "team-specific-human-capital",
-            "name": "team specific human capital",
+            "topic_id": "team-decisions",
+            "name": "team decisions",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "cardiac-care",
+            "name": "cardiac care",
             "paper_count": 1
           }
         ]
@@ -2842,18 +3002,8 @@
         ],
         "top_topics": [
           {
-            "topic_id": "medicare-fraud",
-            "name": "medicare fraud",
-            "paper_count": 1
-          },
-          {
             "topic_id": "ambulance-fraud",
             "name": "ambulance fraud",
-            "paper_count": 1
-          },
-          {
-            "topic_id": "prior-authorization",
-            "name": "prior authorization",
             "paper_count": 1
           },
           {
@@ -2862,13 +3012,23 @@
             "paper_count": 1
           },
           {
+            "topic_id": "medicare-fraud",
+            "name": "medicare fraud",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "prior-authorization",
+            "name": "prior authorization",
+            "paper_count": 1
+          },
+          {
             "topic_id": "regulation-vs-litigation",
             "name": "regulation vs litigation",
             "paper_count": 1
           },
           {
-            "topic_id": "medicare-audits",
-            "name": "medicare audits",
+            "topic_id": "deterrence",
+            "name": "deterrence",
             "paper_count": 1
           }
         ]
@@ -2883,23 +3043,13 @@
         ],
         "top_topics": [
           {
-            "topic_id": "health-insurance-demand",
-            "name": "health insurance demand",
-            "paper_count": 1
-          },
-          {
-            "topic_id": "willingness-to-pay",
-            "name": "willingness to pay",
-            "paper_count": 1
-          },
-          {
             "topic_id": "adverse-selection",
             "name": "adverse selection",
             "paper_count": 1
           },
           {
-            "topic_id": "subsidies",
-            "name": "subsidies",
+            "topic_id": "health-insurance-demand",
+            "name": "health insurance demand",
             "paper_count": 1
           },
           {
@@ -2908,8 +3058,18 @@
             "paper_count": 1
           },
           {
-            "topic_id": "health-insurance",
-            "name": "health insurance",
+            "topic_id": "subsidies",
+            "name": "subsidies",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "willingness-to-pay",
+            "name": "willingness to pay",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "consumer-welfare",
+            "name": "consumer welfare",
             "paper_count": 1
           }
         ]
@@ -2928,18 +3088,13 @@
             "paper_count": 1
           },
           {
-            "topic_id": "mental-health",
-            "name": "mental health",
+            "topic_id": "bayesian-learning",
+            "name": "bayesian learning",
             "paper_count": 1
           },
           {
-            "topic_id": "health-disparities",
-            "name": "health disparities",
-            "paper_count": 1
-          },
-          {
-            "topic_id": "physician-decision-making",
-            "name": "physician decision making",
+            "topic_id": "clinical-notes-nlp",
+            "name": "clinical notes nlp",
             "paper_count": 1
           },
           {
@@ -2948,8 +3103,13 @@
             "paper_count": 1
           },
           {
-            "topic_id": "bayesian-learning",
-            "name": "bayesian learning",
+            "topic_id": "electronic-health-records",
+            "name": "electronic health records",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "gender-gap",
+            "name": "gender gap",
             "paper_count": 1
           }
         ]
@@ -2968,18 +3128,13 @@
             "paper_count": 1
           },
           {
-            "topic_id": "mental-health",
-            "name": "mental health",
+            "topic_id": "bayesian-learning",
+            "name": "bayesian learning",
             "paper_count": 1
           },
           {
-            "topic_id": "health-disparities",
-            "name": "health disparities",
-            "paper_count": 1
-          },
-          {
-            "topic_id": "physician-decision-making",
-            "name": "physician decision making",
+            "topic_id": "clinical-notes-nlp",
+            "name": "clinical notes nlp",
             "paper_count": 1
           },
           {
@@ -2988,8 +3143,133 @@
             "paper_count": 1
           },
           {
-            "topic_id": "bayesian-learning",
-            "name": "bayesian learning",
+            "topic_id": "electronic-health-records",
+            "name": "electronic health records",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "gender-gap",
+            "name": "gender gap",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "covariate-adjusted-identification",
+        "name": "协变量调整识别",
+        "paper_count": 1,
+        "paper_ids": [
+          "lin-2025-did-model-misspecification"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "continuous-treatment",
+            "name": "continuous treatment",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "covariate-adjustment",
+            "name": "covariate adjustment",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "difference-in-differences",
+            "name": "difference in differences",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "event-study",
+            "name": "event study",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "forbidden-comparisons",
+            "name": "forbidden comparisons",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "heterogeneous-treatment-effects",
+            "name": "heterogeneous treatment effects",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "difference-in-differences",
+        "name": "双重差分",
+        "paper_count": 1,
+        "paper_ids": [
+          "lin-2025-did-model-misspecification"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "continuous-treatment",
+            "name": "continuous treatment",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "covariate-adjustment",
+            "name": "covariate adjustment",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "difference-in-differences",
+            "name": "difference in differences",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "event-study",
+            "name": "event study",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "forbidden-comparisons",
+            "name": "forbidden comparisons",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "heterogeneous-treatment-effects",
+            "name": "heterogeneous treatment effects",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "causal-inference-methods",
+        "name": "因果推断方法",
+        "paper_count": 1,
+        "paper_ids": [
+          "lin-2025-did-model-misspecification"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "continuous-treatment",
+            "name": "continuous treatment",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "covariate-adjustment",
+            "name": "covariate adjustment",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "difference-in-differences",
+            "name": "difference in differences",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "event-study",
+            "name": "event study",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "forbidden-comparisons",
+            "name": "forbidden comparisons",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "heterogeneous-treatment-effects",
+            "name": "heterogeneous treatment effects",
             "paper_count": 1
           }
         ]
@@ -3008,18 +3288,13 @@
             "paper_count": 1
           },
           {
-            "topic_id": "mental-health",
-            "name": "mental health",
+            "topic_id": "bayesian-learning",
+            "name": "bayesian learning",
             "paper_count": 1
           },
           {
-            "topic_id": "health-disparities",
-            "name": "health disparities",
-            "paper_count": 1
-          },
-          {
-            "topic_id": "physician-decision-making",
-            "name": "physician decision making",
+            "topic_id": "clinical-notes-nlp",
+            "name": "clinical notes nlp",
             "paper_count": 1
           },
           {
@@ -3028,8 +3303,13 @@
             "paper_count": 1
           },
           {
-            "topic_id": "bayesian-learning",
-            "name": "bayesian learning",
+            "topic_id": "electronic-health-records",
+            "name": "electronic health records",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "gender-gap",
+            "name": "gender gap",
             "paper_count": 1
           }
         ]
@@ -3114,6 +3394,30 @@
         "weight": 1,
         "paper_ids": [
           "ito-2018-economics-attribute-based-regulation"
+        ]
+      },
+      {
+        "source": "causal-inference-methods",
+        "target": "covariate-adjusted-identification",
+        "weight": 1,
+        "paper_ids": [
+          "lin-2025-did-model-misspecification"
+        ]
+      },
+      {
+        "source": "causal-inference-methods",
+        "target": "difference-in-differences",
+        "weight": 1,
+        "paper_ids": [
+          "lin-2025-did-model-misspecification"
+        ]
+      },
+      {
+        "source": "covariate-adjusted-identification",
+        "target": "difference-in-differences",
+        "weight": 1,
+        "paper_ids": [
+          "lin-2025-did-model-misspecification"
         ]
       },
       {
@@ -3210,40 +3514,40 @@
             "name": "adhd"
           },
           {
-            "topic_id": "mental-health",
-            "name": "mental health"
-          },
-          {
-            "topic_id": "health-disparities",
-            "name": "health disparities"
-          },
-          {
-            "topic_id": "physician-decision-making",
-            "name": "physician decision making"
-          },
-          {
-            "topic_id": "diagnostic-thresholds",
-            "name": "diagnostic thresholds"
-          },
-          {
             "topic_id": "bayesian-learning",
             "name": "bayesian learning"
-          },
-          {
-            "topic_id": "selection-into-care",
-            "name": "selection into care"
           },
           {
             "topic_id": "clinical-notes-nlp",
             "name": "clinical notes nlp"
           },
           {
-            "topic_id": "gender-gap",
-            "name": "gender gap"
+            "topic_id": "diagnostic-thresholds",
+            "name": "diagnostic thresholds"
           },
           {
             "topic_id": "electronic-health-records",
             "name": "electronic health records"
+          },
+          {
+            "topic_id": "gender-gap",
+            "name": "gender gap"
+          },
+          {
+            "topic_id": "health-disparities",
+            "name": "health disparities"
+          },
+          {
+            "topic_id": "mental-health",
+            "name": "mental health"
+          },
+          {
+            "topic_id": "physician-decision-making",
+            "name": "physician decision making"
+          },
+          {
+            "topic_id": "selection-into-care",
+            "name": "selection into care"
           }
         ]
       },
@@ -3261,20 +3565,20 @@
         ],
         "topics": [
           {
-            "topic_id": "medicare-fraud",
-            "name": "medicare fraud"
-          },
-          {
             "topic_id": "ambulance-fraud",
             "name": "ambulance fraud"
           },
           {
-            "topic_id": "prior-authorization",
-            "name": "prior authorization"
-          },
-          {
             "topic_id": "dialysis",
             "name": "dialysis"
+          },
+          {
+            "topic_id": "medicare-fraud",
+            "name": "medicare fraud"
+          },
+          {
+            "topic_id": "prior-authorization",
+            "name": "prior authorization"
           },
           {
             "topic_id": "regulation-vs-litigation",
@@ -3295,28 +3599,24 @@
         ],
         "topics": [
           {
-            "topic_id": "triple-difference",
-            "name": "triple difference"
-          },
-          {
-            "topic_id": "DDD",
-            "name": "DDD"
-          },
-          {
-            "topic_id": "staggered-adoption",
-            "name": "staggered adoption"
-          },
-          {
-            "topic_id": "doubly-robust",
-            "name": "doubly robust"
+            "topic_id": "causal-inference",
+            "name": "causal inference"
           },
           {
             "topic_id": "covariate-adjustment",
             "name": "covariate adjustment"
           },
           {
-            "topic_id": "causal-inference",
-            "name": "causal inference"
+            "topic_id": "doubly-robust",
+            "name": "doubly robust"
+          },
+          {
+            "topic_id": "staggered-adoption",
+            "name": "staggered adoption"
+          },
+          {
+            "topic_id": "triple-difference",
+            "name": "triple difference"
           }
         ]
       },
@@ -3334,24 +3634,80 @@
         ],
         "topics": [
           {
-            "topic_id": "malpractice-lawsuits",
-            "name": "malpractice lawsuits"
+            "topic_id": "behavioral-health-economics",
+            "name": "behavioral health economics"
           },
           {
             "topic_id": "defensive-medicine",
             "name": "defensive medicine"
           },
           {
-            "topic_id": "physician-behavior",
-            "name": "physician behavior"
+            "topic_id": "malpractice-lawsuits",
+            "name": "malpractice lawsuits"
+          },
+          {
+            "topic_id": "physician-decision-making",
+            "name": "physician decision making"
           },
           {
             "topic_id": "salience",
             "name": "salience"
+          }
+        ]
+      },
+      {
+        "id": "lin-2025-did-model-misspecification",
+        "title": "在模型误设的统一框架下理解双重差分方法的最新发展",
+        "year": 2025,
+        "field": "econometrics",
+        "paper_paradigm": "review",
+        "overall": 55,
+        "primary_theme_id": "covariate-adjusted-identification",
+        "theme_ids": [
+          "covariate-adjusted-identification",
+          "difference-in-differences",
+          "causal-inference-methods"
+        ],
+        "topics": [
+          {
+            "topic_id": "continuous-treatment",
+            "name": "continuous treatment"
           },
           {
-            "topic_id": "behavioral-health-economics",
-            "name": "behavioral health economics"
+            "topic_id": "covariate-adjustment",
+            "name": "covariate adjustment"
+          },
+          {
+            "topic_id": "difference-in-differences",
+            "name": "difference in differences"
+          },
+          {
+            "topic_id": "event-study",
+            "name": "event study"
+          },
+          {
+            "topic_id": "forbidden-comparisons",
+            "name": "forbidden comparisons"
+          },
+          {
+            "topic_id": "heterogeneous-treatment-effects",
+            "name": "heterogeneous treatment effects"
+          },
+          {
+            "topic_id": "model-misspecification",
+            "name": "model misspecification"
+          },
+          {
+            "topic_id": "negative-weights",
+            "name": "negative weights"
+          },
+          {
+            "topic_id": "staggered-adoption",
+            "name": "staggered adoption"
+          },
+          {
+            "topic_id": "twfe",
+            "name": "twfe"
           }
         ]
       },
@@ -3369,24 +3725,24 @@
         ],
         "topics": [
           {
-            "topic_id": "medicare-audits",
-            "name": "medicare audits"
+            "topic_id": "deterrence",
+            "name": "deterrence"
           },
           {
             "topic_id": "healthcare-waste",
             "name": "healthcare waste"
           },
           {
-            "topic_id": "monitoring-enforcement",
-            "name": "monitoring enforcement"
-          },
-          {
-            "topic_id": "deterrence",
-            "name": "deterrence"
-          },
-          {
             "topic_id": "hospital-behavior",
             "name": "hospital behavior"
+          },
+          {
+            "topic_id": "medicare-audits",
+            "name": "medicare audits"
+          },
+          {
+            "topic_id": "monitoring-enforcement",
+            "name": "monitoring enforcement"
           }
         ]
       },
@@ -3408,20 +3764,20 @@
             "name": "cost sharing"
           },
           {
+            "topic_id": "donut-hole",
+            "name": "donut hole"
+          },
+          {
             "topic_id": "drug-interruption",
             "name": "drug interruption"
           },
           {
+            "topic_id": "medicare-part-d",
+            "name": "medicare part d"
+          },
+          {
             "topic_id": "mortality",
             "name": "mortality"
-          },
-          {
-            "topic_id": "Medicare-Part-D",
-            "name": "Medicare Part D"
-          },
-          {
-            "topic_id": "donut-hole",
-            "name": "donut hole"
           }
         ]
       },
@@ -3443,20 +3799,20 @@
             "name": "diagnostic skill"
           },
           {
-            "topic_id": "radiologists",
-            "name": "radiologists"
-          },
-          {
-            "topic_id": "pneumonia",
-            "name": "pneumonia"
-          },
-          {
             "topic_id": "judges-design",
             "name": "judges design"
           },
           {
             "topic_id": "physician-heterogeneity",
             "name": "physician heterogeneity"
+          },
+          {
+            "topic_id": "pneumonia",
+            "name": "pneumonia"
+          },
+          {
+            "topic_id": "radiologists",
+            "name": "radiologists"
           }
         ]
       },
@@ -3473,28 +3829,24 @@
         ],
         "topics": [
           {
-            "topic_id": "triple-difference",
-            "name": "triple difference"
-          },
-          {
-            "topic_id": "DDD",
-            "name": "DDD"
+            "topic_id": "causal-inference",
+            "name": "causal inference"
           },
           {
             "topic_id": "difference-in-differences",
             "name": "difference in differences"
           },
           {
+            "topic_id": "identification",
+            "name": "identification"
+          },
+          {
             "topic_id": "parallel-trends",
             "name": "parallel trends"
           },
           {
-            "topic_id": "causal-inference",
-            "name": "causal inference"
-          },
-          {
-            "topic_id": "identification",
-            "name": "identification"
+            "topic_id": "triple-difference",
+            "name": "triple difference"
           }
         ]
       },
@@ -3513,8 +3865,8 @@
         ],
         "topics": [
           {
-            "topic_id": "team-decisions",
-            "name": "team decisions"
+            "topic_id": "information-aggregation",
+            "name": "information aggregation"
           },
           {
             "topic_id": "physician-training",
@@ -3525,12 +3877,12 @@
             "name": "practice variation"
           },
           {
-            "topic_id": "information-aggregation",
-            "name": "information aggregation"
-          },
-          {
             "topic_id": "residency",
             "name": "residency"
+          },
+          {
+            "topic_id": "team-decisions",
+            "name": "team decisions"
           }
         ]
       },
@@ -3547,14 +3899,6 @@
         ],
         "topics": [
           {
-            "topic_id": "team-specific-human-capital",
-            "name": "team specific human capital"
-          },
-          {
-            "topic_id": "physician-teams",
-            "name": "physician teams"
-          },
-          {
             "topic_id": "cardiac-care",
             "name": "cardiac care"
           },
@@ -3565,6 +3909,14 @@
           {
             "topic_id": "patient-outcomes",
             "name": "patient outcomes"
+          },
+          {
+            "topic_id": "physician-teams",
+            "name": "physician teams"
+          },
+          {
+            "topic_id": "team-specific-human-capital",
+            "name": "team specific human capital"
           }
         ]
       },
@@ -3589,16 +3941,16 @@
             "name": "comparative advantage"
           },
           {
-            "topic_id": "treatment-variation",
-            "name": "treatment variation"
+            "topic_id": "heart-attack",
+            "name": "heart attack"
           },
           {
             "topic_id": "hospital-productivity",
             "name": "hospital productivity"
           },
           {
-            "topic_id": "heart-attack",
-            "name": "heart attack"
+            "topic_id": "treatment-variation",
+            "name": "treatment variation"
           }
         ]
       },
@@ -3616,14 +3968,6 @@
         ],
         "topics": [
           {
-            "topic_id": "physician-skill",
-            "name": "physician skill"
-          },
-          {
-            "topic_id": "practice-style",
-            "name": "practice style"
-          },
-          {
             "topic_id": "antidepressant-prescribing",
             "name": "antidepressant prescribing"
           },
@@ -3634,6 +3978,14 @@
           {
             "topic_id": "guidelines",
             "name": "guidelines"
+          },
+          {
+            "topic_id": "physician-skill",
+            "name": "physician skill"
+          },
+          {
+            "topic_id": "practice-style",
+            "name": "practice style"
           }
         ]
       },
@@ -3651,24 +4003,24 @@
         ],
         "topics": [
           {
+            "topic_id": "adverse-selection",
+            "name": "adverse selection"
+          },
+          {
             "topic_id": "health-insurance-demand",
             "name": "health insurance demand"
           },
           {
-            "topic_id": "willingness-to-pay",
-            "name": "willingness to pay"
-          },
-          {
-            "topic_id": "adverse-selection",
-            "name": "adverse selection"
+            "topic_id": "low-income",
+            "name": "low income"
           },
           {
             "topic_id": "subsidies",
             "name": "subsidies"
           },
           {
-            "topic_id": "low-income",
-            "name": "low income"
+            "topic_id": "willingness-to-pay",
+            "name": "willingness to pay"
           }
         ]
       },
@@ -3690,24 +4042,24 @@
             "name": "attribute based regulation"
           },
           {
-            "topic_id": "fuel-economy-standards",
-            "name": "fuel economy standards"
-          },
-          {
             "topic_id": "bunching",
             "name": "bunching"
-          },
-          {
-            "topic_id": "notches",
-            "name": "notches"
           },
           {
             "topic_id": "compliance-trading",
             "name": "compliance trading"
           },
           {
+            "topic_id": "fuel-economy-standards",
+            "name": "fuel economy standards"
+          },
+          {
             "topic_id": "japan",
             "name": "japan"
+          },
+          {
+            "topic_id": "notches",
+            "name": "notches"
           }
         ]
       },
@@ -3725,14 +4077,6 @@
         ],
         "topics": [
           {
-            "topic_id": "medicare-overbilling",
-            "name": "medicare overbilling"
-          },
-          {
-            "topic_id": "physician-billing",
-            "name": "physician billing"
-          },
-          {
             "topic_id": "fraud-detection",
             "name": "fraud detection"
           },
@@ -3741,8 +4085,16 @@
             "name": "hours worked"
           },
           {
+            "topic_id": "medicare-overbilling",
+            "name": "medicare overbilling"
+          },
+          {
             "topic_id": "methodology",
             "name": "methodology"
+          },
+          {
+            "topic_id": "physician-billing",
+            "name": "physician billing"
           }
         ]
       },
@@ -3793,6 +4145,10 @@
         ],
         "topics": [
           {
+            "topic_id": "demand-supply-decomposition",
+            "name": "demand supply decomposition"
+          },
+          {
             "topic_id": "geographic-variation",
             "name": "geographic variation"
           },
@@ -3801,16 +4157,12 @@
             "name": "healthcare utilization"
           },
           {
-            "topic_id": "Medicare",
-            "name": "Medicare"
+            "topic_id": "medicare",
+            "name": "medicare"
           },
           {
             "topic_id": "patient-migration",
             "name": "patient migration"
-          },
-          {
-            "topic_id": "demand-supply-decomposition",
-            "name": "demand supply decomposition"
           },
           {
             "topic_id": "place-effects",
@@ -3832,24 +4184,24 @@
         ],
         "topics": [
           {
-            "topic_id": "teamwork",
-            "name": "teamwork"
+            "topic_id": "emergency-department",
+            "name": "emergency department"
           },
           {
             "topic_id": "moral-hazard",
             "name": "moral hazard"
           },
           {
-            "topic_id": "emergency-department",
-            "name": "emergency department"
+            "topic_id": "organizational-design",
+            "name": "organizational design"
           },
           {
             "topic_id": "physician-productivity",
             "name": "physician productivity"
           },
           {
-            "topic_id": "organizational-design",
-            "name": "organizational design"
+            "topic_id": "teamwork",
+            "name": "teamwork"
           }
         ]
       },
@@ -3867,6 +4219,10 @@
         ],
         "topics": [
           {
+            "topic_id": "consumer-welfare",
+            "name": "consumer welfare"
+          },
+          {
             "topic_id": "health-insurance",
             "name": "health insurance"
           },
@@ -3877,10 +4233,6 @@
           {
             "topic_id": "plan-choice",
             "name": "plan choice"
-          },
-          {
-            "topic_id": "consumer-welfare",
-            "name": "consumer welfare"
           },
           {
             "topic_id": "structural-demand",
@@ -3902,24 +4254,24 @@
         ],
         "topics": [
           {
-            "topic_id": "nonlinear-pricing",
-            "name": "nonlinear pricing"
-          },
-          {
-            "topic_id": "medicare-part-d",
-            "name": "medicare part d"
-          },
-          {
-            "topic_id": "health-insurance",
-            "name": "health insurance"
-          },
-          {
             "topic_id": "bunching",
             "name": "bunching"
           },
           {
             "topic_id": "counterfactual",
             "name": "counterfactual"
+          },
+          {
+            "topic_id": "health-insurance",
+            "name": "health insurance"
+          },
+          {
+            "topic_id": "medicare-part-d",
+            "name": "medicare part d"
+          },
+          {
+            "topic_id": "nonlinear-pricing",
+            "name": "nonlinear pricing"
           }
         ]
       },
@@ -3941,20 +4293,20 @@
             "name": "cost sharing"
           },
           {
-            "topic_id": "regression-discontinuity",
-            "name": "regression discontinuity"
-          },
-          {
             "topic_id": "elderly-health",
             "name": "elderly health"
           },
           {
-            "topic_id": "utilization-elasticity",
-            "name": "utilization elasticity"
-          },
-          {
             "topic_id": "financial-risk-protection",
             "name": "financial risk protection"
+          },
+          {
+            "topic_id": "regression-discontinuity",
+            "name": "regression discontinuity"
+          },
+          {
+            "topic_id": "utilization-elasticity",
+            "name": "utilization elasticity"
           }
         ]
       },
@@ -3973,24 +4325,24 @@
         ],
         "topics": [
           {
-            "topic_id": "quality-reporting",
-            "name": "quality reporting"
-          },
-          {
             "topic_id": "intrinsic-motivation",
             "name": "intrinsic motivation"
           },
           {
-            "topic_id": "surgeon-behavior",
-            "name": "surgeon behavior"
+            "topic_id": "physician-incentives",
+            "name": "physician incentives"
+          },
+          {
+            "topic_id": "quality-reporting",
+            "name": "quality reporting"
           },
           {
             "topic_id": "report-cards",
             "name": "report cards"
           },
           {
-            "topic_id": "physician-incentives",
-            "name": "physician incentives"
+            "topic_id": "surgeon-behavior",
+            "name": "surgeon behavior"
           }
         ]
       },
@@ -4011,20 +4363,20 @@
             "name": "information design"
           },
           {
-            "topic_id": "persuasion",
-            "name": "persuasion"
+            "topic_id": "mechanism",
+            "name": "mechanism"
           },
           {
-            "topic_id": "sender-receiver",
-            "name": "sender receiver"
+            "topic_id": "persuasion",
+            "name": "persuasion"
           },
           {
             "topic_id": "posterior-beliefs",
             "name": "posterior beliefs"
           },
           {
-            "topic_id": "mechanism",
-            "name": "mechanism"
+            "topic_id": "sender-receiver",
+            "name": "sender receiver"
           }
         ]
       },
@@ -4046,16 +4398,16 @@
             "name": "geographic variation"
           },
           {
-            "topic_id": "productivity-spillovers",
-            "name": "productivity spillovers"
-          },
-          {
             "topic_id": "heart-attacks",
             "name": "heart attacks"
           },
           {
-            "topic_id": "Roy-model",
-            "name": "Roy model"
+            "topic_id": "productivity-spillovers",
+            "name": "productivity spillovers"
+          },
+          {
+            "topic_id": "roy-model",
+            "name": "roy model"
           },
           {
             "topic_id": "treatment-intensity",
@@ -4076,28 +4428,28 @@
         ],
         "topics": [
           {
-            "topic_id": "mortality",
-            "name": "mortality"
-          },
-          {
             "topic_id": "health-history",
             "name": "health history"
+          },
+          {
+            "topic_id": "health-inequality",
+            "name": "health inequality"
           },
           {
             "topic_id": "income-health-gradient",
             "name": "income health gradient"
           },
           {
-            "topic_id": "public-health",
-            "name": "public health"
-          },
-          {
             "topic_id": "medical-technology",
             "name": "medical technology"
           },
           {
-            "topic_id": "health-inequality",
-            "name": "health inequality"
+            "topic_id": "mortality",
+            "name": "mortality"
+          },
+          {
+            "topic_id": "public-health",
+            "name": "public health"
           }
         ]
       },
@@ -4114,28 +4466,28 @@
         ],
         "topics": [
           {
-            "topic_id": "health-capital",
-            "name": "health capital"
-          },
-          {
             "topic_id": "demand-for-health",
             "name": "demand for health"
           },
           {
-            "topic_id": "human-capital",
-            "name": "human capital"
+            "topic_id": "education-health",
+            "name": "education health"
           },
           {
-            "topic_id": "household-production",
-            "name": "household production"
+            "topic_id": "health-capital",
+            "name": "health capital"
           },
           {
             "topic_id": "health-investment",
             "name": "health investment"
           },
           {
-            "topic_id": "education-health",
-            "name": "education health"
+            "topic_id": "household-production",
+            "name": "household production"
+          },
+          {
+            "topic_id": "human-capital",
+            "name": "human capital"
           }
         ]
       },
@@ -4152,12 +4504,12 @@
         ],
         "topics": [
           {
-            "topic_id": "information-decentralization",
-            "name": "information decentralization"
+            "topic_id": "central-planning",
+            "name": "central planning"
           },
           {
-            "topic_id": "price-system",
-            "name": "price system"
+            "topic_id": "information-decentralization",
+            "name": "information decentralization"
           },
           {
             "topic_id": "knowledge-dispersion",
@@ -4168,8 +4520,8 @@
             "name": "market mechanism"
           },
           {
-            "topic_id": "central-planning",
-            "name": "central planning"
+            "topic_id": "price-system",
+            "name": "price system"
           }
         ]
       }
@@ -4870,6 +5222,7 @@
       "chan-2016-teamwork-moral-hazard",
       "einav-2015-response-drug-expenditure",
       "kamenica-2011-bayesian-persuasion",
+      "lin-2025-did-model-misspecification",
       "chandra-2007-productivity-spillovers-health",
       "ito-2018-economics-attribute-based-regulation",
       "ortiz-2025-better-understanding-triple",
@@ -4902,6 +5255,7 @@
       "chandra-2007-productivity-spillovers-health",
       "marquardt-2026-physician-decision-adhd",
       "eliason-2025-ambulance-taxis-impact",
+      "lin-2025-did-model-misspecification",
       "chan-2021-influence-information-team",
       "chen-2021-team-specific-human",
       "ito-2018-economics-attribute-based-regulation",
@@ -4938,6 +5292,7 @@
       "marquardt-2026-physician-decision-adhd",
       "eliason-2025-ambulance-taxis-impact",
       "fang-2025-fear-risk-perception",
+      "lin-2025-did-model-misspecification",
       "einav-2015-response-drug-expenditure",
       "chandra-2007-productivity-spillovers-health",
       "grossman-2000-human-capital-model",
@@ -4951,6 +5306,7 @@
       "chandra-2024-health-costs-cost",
       "ito-2018-economics-attribute-based-regulation",
       "eliason-2025-ambulance-taxis-impact",
+      "lin-2025-did-model-misspecification",
       "chan-2022-selection-variation-diagnostic",
       "chandra-2020-identifying-sources-inefficiency",
       "finkelstein-2019-subsidizing-health-insurance",
@@ -4985,6 +5341,7 @@
       "marquardt-2026-physician-decision-adhd",
       "eliason-2025-ambulance-taxis-impact",
       "ortiz-2025-better-understanding-triple",
+      "lin-2025-did-model-misspecification",
       "olden-2022-triple-difference-estimator",
       "chen-2021-team-specific-human",
       "finkelstein-2019-subsidizing-health-insurance",
@@ -5005,6 +5362,7 @@
       "fang-2017-detecting-potential-overbilling"
     ],
     "qi": [
+      "lin-2025-did-model-misspecification",
       "chan-2022-selection-variation-diagnostic",
       "ito-2018-economics-attribute-based-regulation",
       "handel-2015-health-insurance-humans",
@@ -5034,6 +5392,7 @@
       "fang-2025-fear-risk-perception"
     ],
     "subjective": [
+      "lin-2025-did-model-misspecification",
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
       "chan-2022-selection-variation-diagnostic",
@@ -5064,11 +5423,11 @@
     ]
   },
   "latest": [
+    "lin-2025-did-model-misspecification",
     "marquardt-2026-physician-decision-adhd",
     "ito-2018-economics-attribute-based-regulation",
     "brot-goldberg-2017-what-does-deductible",
     "chandra-2024-health-costs-cost",
-    "shigeoka-2014-effect-patient-cost",
-    "hayek-1945-use-knowledge-society"
+    "shigeoka-2014-effect-patient-cost"
   ]
 }
