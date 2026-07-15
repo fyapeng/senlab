@@ -1,0 +1,341 @@
+{
+  "work_id": "atkin-2021-identity-food-consumption",
+  "title": "How Do We Choose Our Identity? A Revealed Preference Approach Using Food Consumption",
+  "year": 2021,
+  "authors": "David Atkin, Eve Colson-Sihra, and Moses Shayo",
+  "field": "political-economy",
+  "subfield": "development-economics",
+  "paper_paradigm": "empirical_structural",
+  "journal_or_series": "Journal of Political Economy",
+  "doi": "10.1086/712761",
+  "research_question": "社会身份是否会随环境而改变？个人在宗教身份与族群身份之间的权重，如何受到群体显著性、群体地位以及遵循群体规范的经济成本影响？能否从真实消费选择而非问卷回答中反推出身份变化？",
+  "why_it_matters": "身份影响投票、劳动供给、教育、冲突和消费，但身份本身难以观测。本文把身份变成可由日常且有成本的消费行为识别的对象，并说明价格与职业回报等经济力量可能比短期冲突更持久地塑造身份。",
+  "core_object": "印度家庭在宗教身份与语言—族群身份之间的内生选择，以及这种选择在食物禁忌、地区性主食和完整食品预算中的表现。",
+  "approach": "文章利用 1987—2000 年约 35 万户印度 NSS 家庭消费调查，将牛肉、猪肉、酒、素食以及米麦等视为身份商品；先用冲突、职业回报和价格变化检验身份反应，再把内生身份嵌入 Almost Ideal Demand System，恢复各地区—宗教单元的身份变化并评估投票、热量和福利后果。",
+  "main_claim": "身份并非固定偏好。宗教冲突提高宗教身份显著性，群体相对地位上升增强对群体规范的遵循，而遵循某身份规范的相对成本上升会使家庭转向另一身份。1991 年改革前后的长期变化中，价格和职业回报造成的身份移动量化上大于短期冲突冲击。",
+  "why_in_my_db": "这篇文章把身份经济学、需求估计和政治经济学连接起来，提供了一个可迁移的方法：用带有群体规范含义的真实行为识别难以直接观测的偏好状态，并把身份变化纳入政策、健康和福利分析。",
+  "created_at": "2026-07-15T16:56:07.933712+00:00",
+  "one_line_judgment": "一篇把身份从问卷标签变成可由真实消费选择恢复的内生经济对象的代表作。",
+  "topics": [
+    {
+      "topic_id": "food-consumption",
+      "name": "food consumption"
+    },
+    {
+      "topic_id": "identity-choice",
+      "name": "identity choice"
+    },
+    {
+      "topic_id": "india",
+      "name": "india"
+    },
+    {
+      "topic_id": "political-economy",
+      "name": "political economy"
+    },
+    {
+      "topic_id": "revealed-preference",
+      "name": "revealed preference"
+    },
+    {
+      "topic_id": "social-identity",
+      "name": "social identity"
+    }
+  ],
+  "ratings": {
+    "dao": 10,
+    "fa": 9,
+    "shi": 10,
+    "shu": 10,
+    "qi": 10,
+    "subjective": 10,
+    "overall": 59
+  },
+  "rating_notes": {
+    "dao": "把“身份如何选择”转化为可检验的经济问题，并连接行为、政治与福利。",
+    "fa": "多种识别变化与需求系统互相支撑，但身份仍是模型恢复的潜变量。",
+    "shi": "印度多重身份、强食物规范与改革期价格变化提供了难得的经验环境。",
+    "shu": "从简约事实到结构需求、外部投票校验和福利反事实，执行链条完整。",
+    "qi": "“用有成本的行为揭示身份”是高度可迁移的研究工具。",
+    "subjective": "兼具新问题、新测量方法和跨领域解释力，是很值得反复调用的论文。"
+  },
+  "themes": [
+    {
+      "theme_id": "identity-choice-and-economic-behavior",
+      "name": "身份选择与经济行为"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "atkin-2021-identity-food-consumption-ex-001",
+      "location": "正文第 1195—1202 页，方程 (1)—(2)",
+      "topic": "identity-choice",
+      "quote_or_paraphrase": "家庭同时属于多个群体；认同某一群体意味着从接近该群体原型消费束、群体地位和群体显著性中获得效用。身份本身由间接效用最大化决定，因此显著性或地位提高、遵循该群体规范的成本降低，都会使消费向该群体原型移动。",
+      "why_this_matters": "它把身份从外生标签改写为会对价格和社会环境响应的选择变量，是全文实证与福利分析的理论入口。"
+    },
+    {
+      "excerpt_id": "atkin-2021-identity-food-consumption-ex-002",
+      "location": "正文第 1214—1216 页，表 2",
+      "topic": "conflict-salience",
+      "quote_or_paraphrase": "在控制宗教—族群—地区—季度固定效应后，本季度或此前六个月发生 Hindu-Muslim 冲突，使家庭遵守本宗教食物禁忌的概率相对非禁忌品提高约 6 个百分点；显著影响集中在当前和此前两个季度。",
+      "why_this_matters": "这是群体冲突通过提高身份显著性改变真实且有成本行为的直接证据，同时给出了作用持续期。"
+    },
+    {
+      "excerpt_id": "atkin-2021-identity-food-consumption-ex-003",
+      "location": "正文第 1228—1230 页，表 5",
+      "topic": "group-status",
+      "quote_or_paraphrase": "作者以全国职业回报变化乘初始地方宗教职业结构构造 Bartik 式地位冲击。宗教群体专长职业的实际回报提高 20%（约为 1987—2000 年变化的第 90 百分位）时，该群体成员遵守宗教禁忌的概率相对提高约 1.1 个百分点。",
+      "why_this_matters": "身份选择不仅响应冲突，也响应群体成员在劳动力市场中的相对经济地位。"
+    },
+    {
+      "excerpt_id": "atkin-2021-identity-food-consumption-ex-004",
+      "location": "正文第 1231—1234 页，方程 (6) 与表 6",
+      "topic": "identity-goods",
+      "quote_or_paraphrase": "当两种商品都被同一身份视为禁忌时，一种禁忌品价格上升会提高对另一禁忌品的回避，额外产生互补关系；另一禁忌品价格提高 10% 时，对目标禁忌品的回避概率相对提高约 0.1—0.9 个百分点。",
+      "why_this_matters": "这提供了身份整体切换而非单品替代的可检验含义，也说明经济成本可以重塑商品间需求关系。"
+    },
+    {
+      "excerpt_id": "atkin-2021-identity-food-consumption-ex-005",
+      "location": "正文第 1240—1244 页，图 3—4 与表 8",
+      "topic": "identity-and-voting",
+      "quote_or_paraphrase": "1987—2000 年最受影响的地区—宗教单元中，超过 10% 的家庭改变身份；长期变化主要由价格和职业地位而非短期冲突推动。恢复的宗教身份比例提高 10 个百分点，与宗教政党相对族群政党的票份额提高约 4 个百分点相关。",
+      "why_this_matters": "匿名投票提供了消费型身份测量的外部校验，并把身份变化连接到政治结果。"
+    },
+    {
+      "excerpt_id": "atkin-2021-identity-food-consumption-ex-006",
+      "location": "正文第 1245—1248 页，图 5—6 与方程 (14)",
+      "topic": "identity-welfare",
+      "quote_or_paraphrase": "恢复的身份变化平均使样本期热量摄入下降约 1.4%，与 1987—2000 年样本中的人均热量总降幅相当；但身份可调整也让家庭在不利价格或地位冲击后改变所遵循的规范，部分抵消固定身份下的补偿变差损失。",
+      "why_this_matters": "身份变化既可能带来健康代价，也是一种适应环境冲击的偏好弹性，福利方向不能只看行为是否更符合传统规范。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-economic-drivers",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "mechanism",
+      "title": "长期身份变化更多由价格与群体经济地位推动，而非短期冲突",
+      "claim": "1987—2000 年印度身份变化中，原型消费束相对价格和群体职业回报的变化量化上比短期冲突冲击更重要。",
+      "interpretation": "短期事件提高身份显著性，但普遍且持久的价格和收入变化更可能累积为长期身份重组。",
+      "use_when": "用于贸易改革、相对价格、职业结构与民族主义或身份变化之间的讨论。",
+      "overclaim_risk": "反事实忽略一般均衡反馈，成本渠道可能被低估；不同国家的群体规范未必同样可测。",
+      "safer_formulation": "Atkin 等（2021）的需求系统分解表明，在印度 1987—2000 年的长期身份变化中，价格与职业地位渠道大于他们所测得的局部短期冲突渠道。",
+      "source_locator": "正文第 1228—1230 页及第 1240—1244 页。",
+      "keywords": [
+        "相对价格",
+        "群体地位",
+        "职业回报",
+        "印度改革",
+        "身份政治"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-003",
+        "atkin-2021-identity-food-consumption-ex-005"
+      ]
+    },
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-framework",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "theory",
+      "title": "身份可以被建模为对社会与经济环境作出反应的内生选择",
+      "claim": "当个人同时属于多个群体时，其身份权重会随群体显著性、相对地位和遵循群体规范的经济成本变化。",
+      "interpretation": "身份既影响效用函数，也由不同身份下的间接效用比较决定，因此政策和价格能够通过身份渠道改变行为。",
+      "use_when": "用于身份经济学、文化偏好、政治极化或群体规范的理论动机。",
+      "overclaim_risk": "模型不能区分心理认同、社交收益与可观察信号等不同微观来源。",
+      "safer_formulation": "Atkin 等（2021）提供了一个内生身份框架，其中群体显著性、地位和规范成本共同影响家庭在宗教与族群身份之间的行为权重。",
+      "source_locator": "正文第 1195—1202 页，方程 (1)—(2)。",
+      "keywords": [
+        "内生身份",
+        "社会认同",
+        "群体地位",
+        "规范成本",
+        "间接效用"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-001"
+      ]
+    },
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-method",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "method",
+      "title": "可用有成本的群体规范行为从显示偏好中恢复身份变化",
+      "claim": "若不同身份对应不同原型消费束，价格、地位和显著性冲击导致的消费束移动可以用于恢复潜在身份权重，并可用匿名投票等外部行为校验。",
+      "interpretation": "好的身份指标应预测真实、非假设且需要付出成本的行为，而不只是自我报告。",
+      "use_when": "用于潜变量测量、显示偏好、文化经济学和行为指标设计。",
+      "overclaim_risk": "消费接近群体原型可能由供给或社交约束造成，恢复的身份依赖模型排除限制。",
+      "safer_formulation": "该文展示了一种以群体规范商品的真实消费和外部冲击恢复身份权重、再用投票方向校验的方法。",
+      "source_locator": "正文第 1231—1234 页及第 1240—1244 页。",
+      "keywords": [
+        "显示偏好",
+        "身份测量",
+        "潜变量",
+        "需求系统",
+        "外部校验"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-004",
+        "atkin-2021-identity-food-consumption-ex-005"
+      ]
+    },
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-salience",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "mechanism",
+      "title": "群体冲突会在短期内提高身份显著性并强化规范遵循",
+      "claim": "Hindu-Muslim 冲突发生后，家庭对自身宗教食物禁忌的遵循相对提高约 6 个百分点，主要持续当前及随后约 6—9 个月。",
+      "interpretation": "冲突通过身份显著性使群体边界进入日常且有成本的行为，而非只体现在问卷表达。",
+      "use_when": "用于冲突、极化、民族主义或社会显著性影响消费的机制讨论。",
+      "overclaim_risk": "冲突并非随机；估计反映印度特定宗教冲突和食物规范。",
+      "safer_formulation": "在印度 NSS 数据中，Atkin 等发现宗教冲突后家庭短期内更严格遵守本宗教食物禁忌，这与身份显著性渠道一致。",
+      "source_locator": "正文第 1214—1216 页，表 2。",
+      "keywords": [
+        "冲突",
+        "身份显著性",
+        "宗教规范",
+        "食物禁忌",
+        "极化"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-002"
+      ]
+    }
+  ],
+  "citation_points": [
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-economic-drivers",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "mechanism",
+      "title": "长期身份变化更多由价格与群体经济地位推动，而非短期冲突",
+      "claim": "1987—2000 年印度身份变化中，原型消费束相对价格和群体职业回报的变化量化上比短期冲突冲击更重要。",
+      "interpretation": "短期事件提高身份显著性，但普遍且持久的价格和收入变化更可能累积为长期身份重组。",
+      "use_when": "用于贸易改革、相对价格、职业结构与民族主义或身份变化之间的讨论。",
+      "overclaim_risk": "反事实忽略一般均衡反馈，成本渠道可能被低估；不同国家的群体规范未必同样可测。",
+      "safer_formulation": "Atkin 等（2021）的需求系统分解表明，在印度 1987—2000 年的长期身份变化中，价格与职业地位渠道大于他们所测得的局部短期冲突渠道。",
+      "source_locator": "正文第 1228—1230 页及第 1240—1244 页。",
+      "keywords": [
+        "相对价格",
+        "群体地位",
+        "职业回报",
+        "印度改革",
+        "身份政治"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-003",
+        "atkin-2021-identity-food-consumption-ex-005"
+      ]
+    },
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-framework",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "theory",
+      "title": "身份可以被建模为对社会与经济环境作出反应的内生选择",
+      "claim": "当个人同时属于多个群体时，其身份权重会随群体显著性、相对地位和遵循群体规范的经济成本变化。",
+      "interpretation": "身份既影响效用函数，也由不同身份下的间接效用比较决定，因此政策和价格能够通过身份渠道改变行为。",
+      "use_when": "用于身份经济学、文化偏好、政治极化或群体规范的理论动机。",
+      "overclaim_risk": "模型不能区分心理认同、社交收益与可观察信号等不同微观来源。",
+      "safer_formulation": "Atkin 等（2021）提供了一个内生身份框架，其中群体显著性、地位和规范成本共同影响家庭在宗教与族群身份之间的行为权重。",
+      "source_locator": "正文第 1195—1202 页，方程 (1)—(2)。",
+      "keywords": [
+        "内生身份",
+        "社会认同",
+        "群体地位",
+        "规范成本",
+        "间接效用"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-001"
+      ]
+    },
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-method",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "method",
+      "title": "可用有成本的群体规范行为从显示偏好中恢复身份变化",
+      "claim": "若不同身份对应不同原型消费束，价格、地位和显著性冲击导致的消费束移动可以用于恢复潜在身份权重，并可用匿名投票等外部行为校验。",
+      "interpretation": "好的身份指标应预测真实、非假设且需要付出成本的行为，而不只是自我报告。",
+      "use_when": "用于潜变量测量、显示偏好、文化经济学和行为指标设计。",
+      "overclaim_risk": "消费接近群体原型可能由供给或社交约束造成，恢复的身份依赖模型排除限制。",
+      "safer_formulation": "该文展示了一种以群体规范商品的真实消费和外部冲击恢复身份权重、再用投票方向校验的方法。",
+      "source_locator": "正文第 1231—1234 页及第 1240—1244 页。",
+      "keywords": [
+        "显示偏好",
+        "身份测量",
+        "潜变量",
+        "需求系统",
+        "外部校验"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-004",
+        "atkin-2021-identity-food-consumption-ex-005"
+      ]
+    },
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-salience",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "mechanism",
+      "title": "群体冲突会在短期内提高身份显著性并强化规范遵循",
+      "claim": "Hindu-Muslim 冲突发生后，家庭对自身宗教食物禁忌的遵循相对提高约 6 个百分点，主要持续当前及随后约 6—9 个月。",
+      "interpretation": "冲突通过身份显著性使群体边界进入日常且有成本的行为，而非只体现在问卷表达。",
+      "use_when": "用于冲突、极化、民族主义或社会显著性影响消费的机制讨论。",
+      "overclaim_risk": "冲突并非随机；估计反映印度特定宗教冲突和食物规范。",
+      "safer_formulation": "在印度 NSS 数据中，Atkin 等发现宗教冲突后家庭短期内更严格遵守本宗教食物禁忌，这与身份显著性渠道一致。",
+      "source_locator": "正文第 1214—1216 页，表 2。",
+      "keywords": [
+        "冲突",
+        "身份显著性",
+        "宗教规范",
+        "食物禁忌",
+        "极化"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-002"
+      ]
+    }
+  ],
+  "sections": {
+    "Identity": "- Work ID: `atkin-2021-identity-food-consumption`\n- Canonical Version ID: `atkin-2021-identity-food-consumption-published`",
+    "Common Core": "",
+    "Research Question": "社会身份是否会随环境而改变？个人在宗教身份与族群身份之间的权重，如何受到群体显著性、群体地位以及遵循群体规范的经济成本影响？能否从真实消费选择而非问卷回答中反推出身份变化？",
+    "Why It Matters": "身份影响投票、劳动供给、教育、冲突和消费，但身份本身难以观测。本文把身份变成可由日常且有成本的消费行为识别的对象，并说明价格与职业回报等经济力量可能比短期冲突更持久地塑造身份。",
+    "Core Object": "印度家庭在宗教身份与语言—族群身份之间的内生选择，以及这种选择在食物禁忌、地区性主食和完整食品预算中的表现。",
+    "Approach": "文章利用 1987—2000 年约 35 万户印度 NSS 家庭消费调查，将牛肉、猪肉、酒、素食以及米麦等视为身份商品；先用冲突、职业回报和价格变化检验身份反应，再把内生身份嵌入 Almost Ideal Demand System，恢复各地区—宗教单元的身份变化并评估投票、热量和福利后果。",
+    "Main Claim": "身份并非固定偏好。宗教冲突提高宗教身份显著性，群体相对地位上升增强对群体规范的遵循，而遵循某身份规范的相对成本上升会使家庭转向另一身份。1991 年改革前后的长期变化中，价格和职业回报造成的身份移动量化上大于短期冲突冲击。",
+    "Why In My Database": "这篇文章把身份经济学、需求估计和政治经济学连接起来，提供了一个可迁移的方法：用带有群体规范含义的真实行为识别难以直接观测的偏好状态，并把身份变化纳入政策、健康和福利分析。",
+    "Paradigm-Specific Analysis": "",
+    "Empirical Branch": "",
+    "Institutional Setting": "印度家庭同时属于宗教、种姓和语言族群。不同群体对牛肉、猪肉、酒、素食以及地区性主食有清晰而不同的规范；1991 年改革又持续改变了食品相对价格和不同职业的回报。",
+    "Data Source": "印度 National Sample Survey 1987—88、1993—94 与 1999—2000 等轮次的详细家庭食品消费与价格数据，约 35 万户；并合并 Hindu-Muslim 冲突、职业结构与回报、人口普查语言以及州议会选举数据。",
+    "Unit of Observation": "基础回归多为家庭—商品观察；需求系统和反事实聚合到宗教—族群—地区单元。",
+    "Sample": "重点分析 Hindu upper caste、Hindu scheduled caste、Muslim 与 Christian 家庭，以及四类宗教禁忌和米麦两类族群性商品。",
+    "Outcome Variables": "是否回避禁忌品、食品预算份额、恢复的宗教身份概率、宗教相对族群政党的票份额、热量摄入与补偿变差。",
+    "Treatment Or Variation": "地区和时间上的 Hindu-Muslim 冲突；全国职业回报变化与初始地方职业结构形成的 shift-share 地位冲击；各身份原型消费束的相对价格变化。",
+    "Identification Logic": "跨截面规格在相同宗教—族群—州—时间内比较有无冲突或不同状态冲击的地区；面板规格利用同一宗教—地区—季度跨调查轮次变化。职业地位采用全国回报变化乘初始地方职业份额，降低本地身份选择反向影响地位的风险。需求系统则检验消费束是否随相对成本、地位和显著性朝相应身份原型移动。",
+    "Main Results": "冲突使家庭遵守其宗教禁忌的概率相对提高约 6 个百分点，作用约 6—9 个月后消退。宗教群体专长职业的实际回报提高 20% 时，禁忌遵守率相对提高约 1.1 个百分点。1987—2000 年最受影响的地区—宗教单元中超过 10% 家庭改变身份；长期看价格与地位比冲突解释更多变化。",
+    "Mechanism Evidence": "当一种禁忌品变贵时，同一身份下其他禁忌品也表现出更强互补性，符合“昂贵规范促使身份整体切换”的机制，而非单一商品替代。恢复的身份变化还与匿名投票方向一致：宗教身份份额提高 10 个百分点，对应宗教相对族群政党票份额提高约 4 个百分点。",
+    "Counterfactual Or Policy Exercise": "恢复的身份变化平均使热量摄入下降约 1.4%，与样本期人均热量总降幅相当；但身份可调整也使家庭能通过改变遵循的规范缓冲价格和地位冲击，在分布尾部带来显著补偿变差收益。",
+    "Theory Branch": "",
+    "Players": "同时属于多个群体的家庭消费者。",
+    "State Space": "价格、收入、群体地位、群体显著性和各群体的原型消费束。",
+    "Action Space": "选择认同的群体或身份权重，并据此选择消费束。",
+    "Information Structure": "家庭观察自身经济与社会环境；研究者通过消费、价格和外生环境变化间接恢复身份。",
+    "Timing": "环境给定后先决定最优身份，再在该身份偏好下选择消费束；实证允许身份权重连续变化。",
+    "Objective Functions": "效用随消费束接近所认同群体的原型而提高，并随群体地位和显著性提高；身份选择满足 $J=\\arg\\max_{J\\in G_h}V_h^J(p,m_h,y_J,k_{hJ};\\bar{x}_J)$。",
+    "Solution Concept": "内生身份下的间接效用最大化，并在 Almost Ideal Demand System 中以宗教与族群原型消费束的混合表示。",
+    "Key Propositions": "群体显著性或地位上升、遵循规范成本下降都会使消费靠近该群体原型；身份内生还会使同一身份鼓励或禁止的商品产生额外互补性。",
+    "Conditions": "关键行为必须能够可靠映射到群体规范，价格与社会冲击的识别变化不能完全由供给、误报或同步偏好冲击驱动。",
+    "Comparative Statics": "身份原型束相对变贵会降低该身份概率；相对地位或冲突显著性提高会增加该身份概率。",
+    "Applications": "可扩展到投票、教育、职业选择、女性劳动供给以及其他具有群体规范的消费与行为。",
+    "Limitations": "消费相似性也可能来自供给、社交约束或信号而非内在身份；冲突并非随机发生；shift-share 地位指标和需求系统需要额外排除限制。健康与福利反事实忽略一般均衡价格反馈，并依赖把规范偏离解释为效用损失。",
+    "Theme Links": "- `identity-choice-and-economic-behavior`",
+    "Ratings": "",
+    "Dao": "- Score: 10\n- Note: 把“身份如何选择”转化为可检验的经济问题，并连接行为、政治与福利。",
+    "Fa": "- Score: 9\n- Note: 多种识别变化与需求系统互相支撑，但身份仍是模型恢复的潜变量。",
+    "Shi": "- Score: 10\n- Note: 印度多重身份、强食物规范与改革期价格变化提供了难得的经验环境。",
+    "Shu": "- Score: 10\n- Note: 从简约事实到结构需求、外部投票校验和福利反事实，执行链条完整。",
+    "Qi": "- Score: 10\n- Note: “用有成本的行为揭示身份”是高度可迁移的研究工具。",
+    "Subjective": "- Score: 10\n- Note: 兼具新问题、新测量方法和跨领域解释力，是很值得反复调用的论文。",
+    "One-Line Judgment": "一篇把身份从问卷标签变成可由真实消费选择恢复的内生经济对象的代表作。",
+    "TODO_VERIFY": "- 若用于精确福利复现，需结合在线附录核对需求系统估计和置信区间构造。"
+  }
+}

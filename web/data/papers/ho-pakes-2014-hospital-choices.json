@@ -1,0 +1,347 @@
+{
+  "work_id": "ho-pakes-2014-hospital-choices",
+  "title": "Hospital Choices, Hospital Prices, and Financial Incentives to Physicians",
+  "year": 2014,
+  "authors": "Kate Ho and Ariel Pakes",
+  "field": "health-economics",
+  "subfield": "industrial-organization",
+  "paper_paradigm": "empirical_structural",
+  "journal_or_series": "American Economic Review",
+  "doi": "10.1257/aer.104.12.3841",
+  "research_question": "医生或医生集团承担更多按人头付费风险时，会不会把患者转诊到价格更低的医院？这种成本控制是通过牺牲医院质量，还是通过让患者多走一些距离实现？",
+  "why_it_matters": "医院支出占医疗费用的重要部分，ACO 和 managed care 都依赖医生端成本激励。判断这些激励改变的是价格、便利性还是质量，对支付改革、医院并购和纵向整合都有直接含义。",
+  "core_object": "2003 年加州六家商业保险计划中孕产妇的医院转诊，以及计划的医生按人头付费比例与医院价格、距离和隐含质量权重之间的关系。",
+  "approach": "文章先估计标准 hospital-choice logit，再构造 revealed-preference moment inequalities：匹配同一保险计划、同一严重度且选择不同医院的两名患者，互换其所选医院作为备选并相加不等式，消去医院—严重度质量固定效应；对价格测量误差取平均，从而估计各计划价格系数及价格—质量—距离权衡。",
+  "main_claim": "医院价格确实影响转诊，而且医生按人头付费比例越高，转诊对价格越敏感。高 capitation 计划主要通过让患者前往更远但质量相近、价格更低的医院节约成本；没有证据表明其价格—质量权衡或健康结果更差。",
+  "why_in_my_db": "这篇文章同时贡献于医生激励、医院需求和不等式估计。它特别适合支撑“组织支付如何通过转诊边际改变资源配置”以及“标准离散选择模型可能严重低估价格反应”的论点。",
+  "created_at": "2026-07-15T16:56:09.780491+00:00",
+  "one_line_judgment": "高强度成本激励改变的是患者愿意走多远，而不是医生愿意牺牲多少医院质量。",
+  "topics": [
+    {
+      "topic_id": "capitation",
+      "name": "capitation"
+    },
+    {
+      "topic_id": "healthcare-quality",
+      "name": "healthcare quality"
+    },
+    {
+      "topic_id": "hospital-choice",
+      "name": "hospital choice"
+    },
+    {
+      "topic_id": "hospital-prices",
+      "name": "hospital prices"
+    },
+    {
+      "topic_id": "moment-inequalities",
+      "name": "moment inequalities"
+    },
+    {
+      "topic_id": "physician-incentives",
+      "name": "physician incentives"
+    }
+  ],
+  "ratings": {
+    "dao": 9,
+    "fa": 10,
+    "shi": 9,
+    "shu": 10,
+    "qi": 10,
+    "subjective": 10,
+    "overall": 58
+  },
+  "rating_notes": {
+    "dao": "把支付激励落实到医生具体选择哪家医院这一资源配置边际。",
+    "fa": "匹配、互换备选并消去质量项的不等式构造非常有创造性。",
+    "shi": "加州计划间 capitation 差异和详细出院网络数据提供良好窗口，但非随机。",
+    "shu": "明确展示 logit 偏误、测量误差修正、置信集合和权衡恢复。",
+    "qi": "方法可用于多种未观测质量和价格误差共存的选择问题。",
+    "subjective": "对医生激励、组织设计和结构 IO 都很有用。"
+  },
+  "themes": [
+    {
+      "theme_id": "organizational-economics-health",
+      "name": "医疗组织经济学"
+    },
+    {
+      "theme_id": "comparative-advantage-hospitals",
+      "name": "医院比较优势"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "ho-pakes-2014-hospital-choices-ex-001",
+      "location": "正文第 3841—3853 页，表 1—3",
+      "topic": "capitation-setting",
+      "quote_or_paraphrase": "六家加州商业保险计划支付初级医生的 capitation 比例从 Blue Cross 的 38% 到 Pacificare 的 97% 不等。Logit 样本包含 88,157 名分娩患者和 195 家医院；患者平均可选 38 家医院，备选医院平均距离 24.6 英里，实际所选医院平均仅 6.7 英里。",
+      "why_this_matters": "跨计划激励差异与丰富选择集共同构成识别价格—距离权衡的经验基础。"
+    },
+    {
+      "excerpt_id": "ho-pakes-2014-hospital-choices-ex-002",
+      "location": "正文第 3844 页及第 3860—3861 页，表 5",
+      "topic": "logit-bias",
+      "quote_or_paraphrase": "把所有分娩诊断合并进标准 logit 时，医院价格系数甚至为正；限制到更同质严重度后才转为负。遗漏医院—严重度质量会把价格系数向上推，而预测价格的测量误差又会向零衰减，两种偏误无法在标准 multinomial logit 中充分解决。",
+      "why_this_matters": "这说明医院需求中“价格不重要”可能是规格与测量共同造成的假象。"
+    },
+    {
+      "excerpt_id": "ho-pakes-2014-hospital-choices-ex-003",
+      "location": "正文第 3862—3867 页，第 VI 节",
+      "topic": "moment-inequalities",
+      "quote_or_paraphrase": "作者将同一计划、同一严重度且选择不同医院的两名患者配对，把彼此所选医院设为对方备选。两条 revealed-preference inequalities 相加后，医院—严重度质量项相消；跨配对取平均又能消除均值为零的价格测量误差，从而界定计划价格系数。",
+      "why_this_matters": "这是一个可迁移的识别技巧：利用成对选择消去高维未观测质量，同时保留价格和距离差异。"
+    },
+    {
+      "excerpt_id": "ho-pakes-2014-hospital-choices-ex-004",
+      "location": "正文第 3871—3874 页，表 7—10 与图 1",
+      "topic": "price-responsiveness",
+      "quote_or_paraphrase": "除 Blue Shield 外，各计划的医院价格系数为负且大多显著，置信集合基本按 capitation 比例排序：capitation 越高，价格权重越负。不等式估计得到的选择价格弹性远大于同样样本上的 logit 结果。",
+      "why_this_matters": "它给出医生承担成本风险会实质改变医院转诊的核心证据，也显示估计方法会改变经济结论的量级。"
+    },
+    {
+      "excerpt_id": "ho-pakes-2014-hospital-choices-ex-005",
+      "location": "正文第 3879—3881 页，表 11—12",
+      "topic": "cost-quality-distance",
+      "quote_or_paraphrase": "高 capitation 计划的价格系数绝对值更大，但质量系数也近乎同比例提高，使各计划的价格—质量比集中在约 $-0.29$。计划之间真正不同的是成本相对距离的权衡：高 capitation 计划愿意让患者走得更远以获得同质量、低价格医院。",
+      "why_this_matters": "它把“控制成本”进一步分解为牺牲便利性而非牺牲隐含质量。"
+    },
+    {
+      "excerpt_id": "ho-pakes-2014-hospital-choices-ex-006",
+      "location": "正文第 3881—3882 页，第 VIII 节",
+      "topic": "healthcare-quality",
+      "quote_or_paraphrase": "在按严重度比较的 40 个计划两两健康结果检验中，没有一个在 5% 水平显著。结合稳定的价格—质量权衡，作者认为产科场景下 capitation 通过更远的低价医院降低成本，没有观察到质量或健康结果受损。",
+      "why_this_matters": "它为成本激励不必然等于削减质量提供了边界清楚的经验依据。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-incentives",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "mechanism",
+      "title": "医生承担更多成本风险时，医院转诊对价格更敏感",
+      "claim": "在加州商业保险分娩样本中，医生 capitation 比例更高的计划具有更负的医院价格系数，转诊更倾向低价医院。",
+      "interpretation": "组织层面的成本激励能够传导到医生—患者共同作出的具体医院选择。",
+      "use_when": "用于医生合同、ACO、managed care 或转诊网络的激励机制。",
+      "overclaim_risk": "capitation 跨计划差异非随机，Blue Shield 也不符合整齐排序。",
+      "safer_formulation": "Ho 与 Pakes（2014）发现，除一个特殊计划外，医生 capitation 更高的保险计划在产科转诊中表现出更强的医院价格反应。",
+      "source_locator": "正文第 3841—3853 页及第 3871—3874 页。",
+      "keywords": [
+        "医生激励",
+        "capitation",
+        "医院转诊",
+        "价格敏感度",
+        "ACO"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-001",
+        "ho-pakes-2014-hospital-choices-ex-004"
+      ]
+    },
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-method",
+      "theme_id": "comparative-advantage-hospitals",
+      "lens_type": "method",
+      "title": "成对显示偏好不等式可同时处理未观测质量与价格测量误差",
+      "claim": "匹配同计划同严重度患者、互换其所选医院并相加选择不等式，可消去医院—严重度质量固定效应；对矩条件取平均还能降低价格测量误差。",
+      "interpretation": "当高维质量不可观察且价格含误差时，成对 choice inequalities 可比强行参数化完整误差分布更稳健。",
+      "use_when": "用于医院选择、学校选择、供应商选择或其他带未观测质量的离散选择研究。",
+      "overclaim_risk": "仍需正确选择集、可加质量结构和矩不等式条件；通常识别集合而非天然点识别。",
+      "safer_formulation": "该文利用同计划同严重度患者的成对选择不等式消去医院质量项，并以平均矩缓解价格测量误差。",
+      "source_locator": "正文第 3860—3867 页，第 VI 节。",
+      "keywords": [
+        "矩不等式",
+        "显示偏好",
+        "未观测质量",
+        "测量误差",
+        "医院选择"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-002",
+        "ho-pakes-2014-hospital-choices-ex-003"
+      ]
+    },
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-policy",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "policy",
+      "title": "ACO 的成本节约可能取决于是否保留跨医院转诊选择",
+      "claim": "capitation 可能通过把患者转向同质量低价医院降低成本；若组织整合使医生偏好 ACO 内部医院，则会削弱这一跨医院价格选择渠道。",
+      "interpretation": "纵向一体化的协调收益与医院选择受限造成的采购成本损失应同时评估。",
+      "use_when": "用于 ACO、医生—医院整合、窄网络和医院并购政策。",
+      "overclaim_risk": "论文没有直接估计 ACO 或纵向整合的因果效应，只是依据转诊估计提出含义。",
+      "safer_formulation": "Ho 与 Pakes 的结果提示，若 capitation 的节约依赖跨医院选择，偏向组织内部医院的整合安排可能削弱部分价格节约。",
+      "source_locator": "正文第 3882 页，第 VIII 节。",
+      "keywords": [
+        "ACO",
+        "纵向整合",
+        "窄网络",
+        "转诊",
+        "成本控制"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-006"
+      ]
+    },
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-tradeoff",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "mechanism",
+      "title": "高 capitation 计划以患者便利性而非医院质量换取成本节约",
+      "claim": "各计划价格—质量比基本稳定，高 capitation 计划主要让患者前往更远但隐含质量相近、价格更低的医院。",
+      "interpretation": "成本激励不必然导致质量削减，它可能改变距离、等待或其他便利性边际。",
+      "use_when": "用于成本—质量—便利性的多属性权衡和支付改革机制。",
+      "overclaim_risk": "质量是模型中的综合吸引力，且证据来自产科；不能外推到所有医疗服务。",
+      "safer_formulation": "在该加州产科样本中，高 capitation 计划的节省主要对应更远的低价医院，而非更差的模型隐含质量或可观察健康结果。",
+      "source_locator": "正文第 3879—3882 页，表 11—12。",
+      "keywords": [
+        "成本质量权衡",
+        "患者距离",
+        "便利性",
+        "医院质量",
+        "capitation"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-005",
+        "ho-pakes-2014-hospital-choices-ex-006"
+      ]
+    }
+  ],
+  "citation_points": [
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-incentives",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "mechanism",
+      "title": "医生承担更多成本风险时，医院转诊对价格更敏感",
+      "claim": "在加州商业保险分娩样本中，医生 capitation 比例更高的计划具有更负的医院价格系数，转诊更倾向低价医院。",
+      "interpretation": "组织层面的成本激励能够传导到医生—患者共同作出的具体医院选择。",
+      "use_when": "用于医生合同、ACO、managed care 或转诊网络的激励机制。",
+      "overclaim_risk": "capitation 跨计划差异非随机，Blue Shield 也不符合整齐排序。",
+      "safer_formulation": "Ho 与 Pakes（2014）发现，除一个特殊计划外，医生 capitation 更高的保险计划在产科转诊中表现出更强的医院价格反应。",
+      "source_locator": "正文第 3841—3853 页及第 3871—3874 页。",
+      "keywords": [
+        "医生激励",
+        "capitation",
+        "医院转诊",
+        "价格敏感度",
+        "ACO"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-001",
+        "ho-pakes-2014-hospital-choices-ex-004"
+      ]
+    },
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-method",
+      "theme_id": "comparative-advantage-hospitals",
+      "lens_type": "method",
+      "title": "成对显示偏好不等式可同时处理未观测质量与价格测量误差",
+      "claim": "匹配同计划同严重度患者、互换其所选医院并相加选择不等式，可消去医院—严重度质量固定效应；对矩条件取平均还能降低价格测量误差。",
+      "interpretation": "当高维质量不可观察且价格含误差时，成对 choice inequalities 可比强行参数化完整误差分布更稳健。",
+      "use_when": "用于医院选择、学校选择、供应商选择或其他带未观测质量的离散选择研究。",
+      "overclaim_risk": "仍需正确选择集、可加质量结构和矩不等式条件；通常识别集合而非天然点识别。",
+      "safer_formulation": "该文利用同计划同严重度患者的成对选择不等式消去医院质量项，并以平均矩缓解价格测量误差。",
+      "source_locator": "正文第 3860—3867 页，第 VI 节。",
+      "keywords": [
+        "矩不等式",
+        "显示偏好",
+        "未观测质量",
+        "测量误差",
+        "医院选择"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-002",
+        "ho-pakes-2014-hospital-choices-ex-003"
+      ]
+    },
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-policy",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "policy",
+      "title": "ACO 的成本节约可能取决于是否保留跨医院转诊选择",
+      "claim": "capitation 可能通过把患者转向同质量低价医院降低成本；若组织整合使医生偏好 ACO 内部医院，则会削弱这一跨医院价格选择渠道。",
+      "interpretation": "纵向一体化的协调收益与医院选择受限造成的采购成本损失应同时评估。",
+      "use_when": "用于 ACO、医生—医院整合、窄网络和医院并购政策。",
+      "overclaim_risk": "论文没有直接估计 ACO 或纵向整合的因果效应，只是依据转诊估计提出含义。",
+      "safer_formulation": "Ho 与 Pakes 的结果提示，若 capitation 的节约依赖跨医院选择，偏向组织内部医院的整合安排可能削弱部分价格节约。",
+      "source_locator": "正文第 3882 页，第 VIII 节。",
+      "keywords": [
+        "ACO",
+        "纵向整合",
+        "窄网络",
+        "转诊",
+        "成本控制"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-006"
+      ]
+    },
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-tradeoff",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "mechanism",
+      "title": "高 capitation 计划以患者便利性而非医院质量换取成本节约",
+      "claim": "各计划价格—质量比基本稳定，高 capitation 计划主要让患者前往更远但隐含质量相近、价格更低的医院。",
+      "interpretation": "成本激励不必然导致质量削减，它可能改变距离、等待或其他便利性边际。",
+      "use_when": "用于成本—质量—便利性的多属性权衡和支付改革机制。",
+      "overclaim_risk": "质量是模型中的综合吸引力，且证据来自产科；不能外推到所有医疗服务。",
+      "safer_formulation": "在该加州产科样本中，高 capitation 计划的节省主要对应更远的低价医院，而非更差的模型隐含质量或可观察健康结果。",
+      "source_locator": "正文第 3879—3882 页，表 11—12。",
+      "keywords": [
+        "成本质量权衡",
+        "患者距离",
+        "便利性",
+        "医院质量",
+        "capitation"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-005",
+        "ho-pakes-2014-hospital-choices-ex-006"
+      ]
+    }
+  ],
+  "sections": {
+    "Identity": "- Work ID: `ho-pakes-2014-hospital-choices`\n- Canonical Version ID: `ho-pakes-2014-hospital-choices-published`",
+    "Common Core": "",
+    "Research Question": "医生或医生集团承担更多按人头付费风险时，会不会把患者转诊到价格更低的医院？这种成本控制是通过牺牲医院质量，还是通过让患者多走一些距离实现？",
+    "Why It Matters": "医院支出占医疗费用的重要部分，ACO 和 managed care 都依赖医生端成本激励。判断这些激励改变的是价格、便利性还是质量，对支付改革、医院并购和纵向整合都有直接含义。",
+    "Core Object": "2003 年加州六家商业保险计划中孕产妇的医院转诊，以及计划的医生按人头付费比例与医院价格、距离和隐含质量权重之间的关系。",
+    "Approach": "文章先估计标准 hospital-choice logit，再构造 revealed-preference moment inequalities：匹配同一保险计划、同一严重度且选择不同医院的两名患者，互换其所选医院作为备选并相加不等式，消去医院—严重度质量固定效应；对价格测量误差取平均，从而估计各计划价格系数及价格—质量—距离权衡。",
+    "Main Claim": "医院价格确实影响转诊，而且医生按人头付费比例越高，转诊对价格越敏感。高 capitation 计划主要通过让患者前往更远但质量相近、价格更低的医院节约成本；没有证据表明其价格—质量权衡或健康结果更差。",
+    "Why In My Database": "这篇文章同时贡献于医生激励、医院需求和不等式估计。它特别适合支撑“组织支付如何通过转诊边际改变资源配置”以及“标准离散选择模型可能严重低估价格反应”的论点。",
+    "Paradigm-Specific Analysis": "",
+    "Empirical Branch": "",
+    "Institutional Setting": "加州 HMO 常以按人头付费或 shared-risk 合同支付医生集团，使其分享医院支出节省。六家计划的 primary-care capitation 从 Blue Cross 的 38% 到 Pacificare 的 97% 不等。",
+    "Data Source": "2003 年 California OSHPD 出院数据、医院财务报告中的折扣信息、保险计划财务报表和出生队列后续结果。",
+    "Unit of Observation": "商业保险孕产妇的一次分娩住院及其可选医院集合。",
+    "Sample": "Logit 样本为 88,157 名患者、195 家医院，平均选择集 38 家；不等式估计在价格信息完整后使用 64,691 名患者、157 家医院。",
+    "Outcome Variables": "所选医院、保险人支付价格、患者到医院距离、模型恢复的医院—严重度质量，以及死亡、转院、非回家出院和再入院等结果。",
+    "Treatment Or Variation": "六家保险计划之间 38%—97% 的医生 capitation 差异，以及同计划同严重度患者在医院价格和距离上的选择差异。",
+    "Identification Logic": "每位患者选择的医院必须弱优于可行备选。对同计划、同严重度但选择不同医院的患者配对并互换备选，两个 revealed-preference inequalities 相加后消去医院—严重度质量项；跨患者和医院取平均降低价格测量误差。识别依赖配对患者的未观测偏好不系统性改变所构造矩条件。",
+    "Main Results": "除特殊的 Blue Shield 外，计划价格系数随 capitation 率下降而更负且置信集合基本按 capitation 排序。Pacificare、Aetna、Health Net、Cigna 和 Blue Cross 的估计均显示转诊会响应价格；不等式估计得到的价格弹性远大于 logit。",
+    "Mechanism Evidence": "高 capitation 计划的价格系数和质量系数同比例变化，使价格—质量比约稳定在 $-0.29$ 左右；变化主要体现在价格相对距离的权重。这意味着节省来自更远的同质量低价医院，而非降低隐含质量。",
+    "Counterfactual Or Policy Exercise": "文章没有模拟完整政策反事实，但将估计用于判断 ACO：capitation 很可能降低成本且在产科场景下不降低质量；若纵向一体化使医生偏好组织内医院，则可能削弱跨医院价格选择带来的节省。",
+    "Theory Branch": "",
+    "Players": "患者、转诊医生或医生集团、保险计划与医院。",
+    "State Space": "患者严重度、地理位置、计划网络、医院价格与医院—严重度隐含质量。",
+    "Action Space": "在可行网络内选择转诊医院。",
+    "Information Structure": "决策者观察医院属性；研究者观察近似支付价格和距离，但质量及真实折扣部分不可观察。",
+    "Timing": "计划合同和网络先给定，医生与患者形成转诊协议，再实现医院选择和结果。",
+    "Objective Functions": "计划特定转诊价值由医院价格、距离、医院—严重度质量和误差加性组成。",
+    "Solution Concept": "被选择医院相对每个可行备选满足 revealed-preference inequality；矩不等式界定价格权重。",
+    "Key Propositions": "配对并相加同计划同严重度患者的不等式可消去质量固定效应；平均矩还能缓解价格测量误差。",
+    "Conditions": "选择集正确，质量在医院—严重度层面可加，配对误差的条件均值满足矩不等式，capitation 与其他计划差异不完全混同。",
+    "Comparative Statics": "医生承担的成本风险越高，医院价格在转诊目标中的负权重越大；质量—价格权衡未随 capitation 明显变化。",
+    "Applications": "ACO、医生集团支付、医院并购模拟、转诊网络设计和带测量误差的离散选择。",
+    "Limitations": "只研究加州商业保险分娩，无法观察具体医生和转诊协议；跨计划 capitation 并非随机；“质量”是价格和距离之外的综合吸引力，不等同于临床质量；对 ACO 的外推需谨慎。",
+    "Theme Links": "- `organizational-economics-health`\n- `comparative-advantage-hospitals`",
+    "Ratings": "",
+    "Dao": "- Score: 9\n- Note: 把支付激励落实到医生具体选择哪家医院这一资源配置边际。",
+    "Fa": "- Score: 10\n- Note: 匹配、互换备选并消去质量项的不等式构造非常有创造性。",
+    "Shi": "- Score: 9\n- Note: 加州计划间 capitation 差异和详细出院网络数据提供良好窗口，但非随机。",
+    "Shu": "- Score: 10\n- Note: 明确展示 logit 偏误、测量误差修正、置信集合和权衡恢复。",
+    "Qi": "- Score: 10\n- Note: 方法可用于多种未观测质量和价格误差共存的选择问题。",
+    "Subjective": "- Score: 10\n- Note: 对医生激励、组织设计和结构 IO 都很有用。",
+    "One-Line Judgment": "高强度成本激励改变的是患者愿意走多远，而不是医生愿意牺牲多少医院质量。",
+    "TODO_VERIFY": "- 外推到非产科和医院整合型 ACO 时需要额外证据。"
+  }
+}

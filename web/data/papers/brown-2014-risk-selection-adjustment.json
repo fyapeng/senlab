@@ -1,0 +1,341 @@
+{
+  "work_id": "brown-2014-risk-selection-adjustment",
+  "title": "How Does Risk Selection Respond to Risk Adjustment? New Evidence from the Medicare Advantage Program",
+  "year": 2014,
+  "authors": "Jason Brown, Mark Duggan, Ilyana Kuziemko, and William Woolston",
+  "field": "health-economics",
+  "subfield": "insurance-markets",
+  "paper_paradigm": "empirical_reduced_form",
+  "journal_or_series": "American Economic Review",
+  "doi": "10.1257/aer.104.10.3335",
+  "research_question": "风险调整是否真正减少 Medicare Advantage 的有利选择和政府超额支付，还是仅仅改变保险计划筛选参保人的维度？",
+  "why_it_matters": "按风险付费是公共保险、交易所和按人头付费改革的核心工具。公式若只追求预测准确而忽略行为反应，可能关闭一种选择空间，却打开利润更高的另一种选择空间。",
+  "core_object": "2004 年 Medicare 从人口学调整转向基于 70 多种疾病的 HCC 风险调整后，FFS 与 MA 之间的参保迁移、风险分数、条件成本和超额支付。",
+  "approach": "文章建立一个区分风险类别间选择与类别内选择的模型，并使用 Medicare Current Beneficiary Survey 1994—2006 年个体支出和转换数据，以 2004 年改革为断点比较转入 MA 者与留在 FFS 者的风险分数和给定风险分数的成本变化。",
+  "main_claim": "风险调整降低了保险计划回避公式所列疾病的动机，却增强了在同一风险分数内寻找低成本患者的动机。改革后转入 MA 者风险分数提高，但条件成本下降；两种效应抵消后，选择性超额支付没有下降，反而小幅增加。",
+  "why_in_my_db": "这是理解“监管参数会诱发重新优化”的关键健康保险论文：更精确的风险公式不等于更好的激励，可用于风险调整、按人头付费、编码、筛选和机制设计研究。",
+  "created_at": "2026-07-15T16:56:08.419693+00:00",
+  "one_line_judgment": "风险调整没有消灭选择，而是把选择从风险类别之间推入风险类别内部。",
+  "topics": [
+    {
+      "topic_id": "adverse-selection",
+      "name": "adverse selection"
+    },
+    {
+      "topic_id": "health-insurance",
+      "name": "health insurance"
+    },
+    {
+      "topic_id": "insurer-incentives",
+      "name": "insurer incentives"
+    },
+    {
+      "topic_id": "medicare-advantage",
+      "name": "medicare advantage"
+    },
+    {
+      "topic_id": "risk-adjustment",
+      "name": "risk adjustment"
+    }
+  ],
+  "ratings": {
+    "dao": 10,
+    "fa": 9,
+    "shi": 10,
+    "shu": 9,
+    "qi": 10,
+    "subjective": 10,
+    "overall": 58
+  },
+  "rating_notes": {
+    "dao": "直接追问风险调整究竟改变了什么激励，而不把预测精度等同于政策成功。",
+    "fa": "简洁模型与改革前后转换证据紧密对应，但仍受同期支付变化限制。",
+    "shi": "HCC 分阶段改革和 FFS claims 提供了观察筛选维度变化的罕见窗口。",
+    "shu": "类别间、类别内和总超额支付的分解清楚且可复用。",
+    "qi": "“预测公式不是激励充分统计量”可迁移到大量算法监管环境。",
+    "subjective": "对保险筛选和监管反应研究非常有启发性。"
+  },
+  "themes": [
+    {
+      "theme_id": "health-insurance-market-design",
+      "name": "健康保险市场设计"
+    },
+    {
+      "theme_id": "adverse-selection-insurance",
+      "name": "逆向选择与保险市场"
+    }
+  ],
+  "excerpts": [
+    {
+      "excerpt_id": "brown-2014-risk-selection-adjustment-ex-001",
+      "location": "正文第 3337—3343 页，图 1 与表 1",
+      "topic": "residual-selection",
+      "quote_or_paraphrase": "医疗成本的方差随风险分数上升。风险调整前，计划倾向吸收整体健康者；风险调整后，高风险类别获得更高支付，计划转而寻找“相对其风险分数更便宜”的患者。即使同属癌症类别，缓解期患者也可能盈利而治疗期患者仍亏损。",
+      "why_this_matters": "它清楚解释了为何风险调整只会改变筛选维度，而不会自动消除筛选。"
+    },
+    {
+      "excerpt_id": "brown-2014-risk-selection-adjustment-ex-002",
+      "location": "正文第 3347 页，表 3",
+      "topic": "risk-formula-incentives",
+      "quote_or_paraphrase": "相较人口学支付，HCC 对最低四分位风险者平均少付约 2,993 美元，对 75—99 百分位多付约 6,701 美元；但最高 1% 风险者的 HCC 支付仍平均低于真实支出约 5,907 美元。风险分数越高并不意味着每个高分患者都对计划有利。",
+      "why_this_matters": "它把公式支付梯度与类别内残差风险区分开，避免把“多收高分患者”误写成无条件预测。"
+    },
+    {
+      "excerpt_id": "brown-2014-risk-selection-adjustment-ex-003",
+      "location": "正文第 3348—3350 页，方程 (2) 与表 4",
+      "topic": "selection-decomposition",
+      "quote_or_paraphrase": "改革前转入 MA 者的年度支出比留在 FFS 者低约 2,847 美元，改革后总差距没有显著改变；但转入者的相对 HCC 风险分数提高 0.106，而给定风险分数后的成本下降约 1,218 美元。类别间选择减弱与类别内选择增强同时发生。",
+      "why_this_matters": "这是本文最核心的经验分解，说明只看平均风险分数或平均成本都会漏掉另一边际。"
+    },
+    {
+      "excerpt_id": "brown-2014-risk-selection-adjustment-ex-004",
+      "location": "正文第 3352—3358 页及第 3362 页结论",
+      "topic": "overpayments",
+      "quote_or_paraphrase": "风险调整后的选择变化使公式本欲减少的 differential payments 小幅上升；再叠加 MA 县级基准和过渡支付的普遍提高，实际超额支付明显增加。提高公式预测力并不是政府支付或福利效果的充分统计量。",
+      "why_this_matters": "它直接反驳“更高预测准确率必然减少超额支付”的政策直觉。"
+    },
+    {
+      "excerpt_id": "brown-2014-risk-selection-adjustment-ex-005",
+      "location": "正文第 3359—3361 页，第 VII 节",
+      "topic": "welfare-evidence",
+      "quote_or_paraphrase": "作者未发现改革后 MA 相对 FFS 的满意度差距明显改善，也未在预防性服务或死亡率中发现 Medicare 受益人的普遍改善；差健康状态者的相对满意度甚至没有按政策目标改善。",
+      "why_this_matters": "更多支付和更复杂风险调整并未在可观察结果中表现出相称的消费者收益。"
+    },
+    {
+      "excerpt_id": "brown-2014-risk-selection-adjustment-ex-006",
+      "location": "正文第 3362 页，第 VII.C 节",
+      "topic": "mechanism-design",
+      "quote_or_paraphrase": "若某疾病组的低成本患者在风险调整后从 FFS 大量转入 MA，这种迁移本身揭示了该类别容易被筛选。支付方可以据此下调该类别支付；若仍只用剩余 FFS 样本机械校准，反而可能因 FFS 更趋高成本而继续上调支付。",
+      "why_this_matters": "它提出了一种从均衡行为而非单纯预测误差更新风险公式的机制设计思路。"
+    }
+  ],
+  "lenses": [
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-decomposition",
+      "theme_id": "adverse-selection-insurance",
+      "lens_type": "method",
+      "title": "评估风险调整必须同时检验风险分数和条件成本",
+      "claim": "改革后 MA 转入者风险分数上升 0.106，但给定风险分数的成本下降约 1,218 美元，而其相对 FFS 的总成本差距几乎不变。",
+      "interpretation": "平均成本不变可以掩盖两个方向相反且政策含义不同的选择边际。",
+      "use_when": "用于设计风险调整评估、筛选分解或解释“平均效应为零”。",
+      "overclaim_risk": "改革前后设计受到同期支付和 MA 市场变化影响，部分系数精度有限。",
+      "safer_formulation": "该文将风险调整后的选择变化分为风险类别间与类别内两部分，发现二者方向相反并大致抵消总体成本差距。",
+      "source_locator": "正文第 3348—3350 页，表 4。",
+      "keywords": [
+        "选择分解",
+        "差分中的差分",
+        "HCC",
+        "条件成本",
+        "风险分数"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-003"
+      ]
+    },
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-mechanism",
+      "theme_id": "adverse-selection-insurance",
+      "lens_type": "mechanism",
+      "title": "风险调整会把选择从风险类别之间推入风险类别内部",
+      "claim": "风险调整减少计划回避被公式识别疾病的动机，却增加其寻找给定风险分数下低成本患者的回报。",
+      "interpretation": "监管关闭一个利润边际后，企业会沿未被定价的残差维度重新优化。",
+      "use_when": "用于风险调整、算法定价、按人头付费和监管规避的机制分析。",
+      "overclaim_risk": "需要计划能观察并影响公式之外的成本预测变量。",
+      "safer_formulation": "Brown 等（2014）表明，Medicare 风险调整降低了类别间选择，但增强了同一风险类别内针对低成本患者的选择激励。",
+      "source_locator": "正文第 3337—3347 页，图 1、表 1 与表 3。",
+      "keywords": [
+        "风险调整",
+        "残差选择",
+        "逆向选择",
+        "监管反应",
+        "Medicare Advantage"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-001",
+        "brown-2014-risk-selection-adjustment-ex-002"
+      ]
+    },
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-policy",
+      "theme_id": "health-insurance-market-design",
+      "lens_type": "policy",
+      "title": "风险公式的预测拟合度不是支付或福利效果的充分统计量",
+      "claim": "风险调整的福利和财政效果取决于公式诱发的筛选行为；只在剩余 FFS 样本上机械重估还可能放大原有误价。",
+      "interpretation": "支付规则应利用参保迁移暴露的行为信息，而不只追求静态样本内预测准确。",
+      "use_when": "用于风险调整改革、算法监管、动态机制设计和再校准讨论。",
+      "overclaim_risk": "论文没有给出可直接部署的最优公式，行为校准也可能受计划质量和编码影响。",
+      "safer_formulation": "Brown 等（2014）提醒，评价和更新风险公式时必须考虑计划对公式的均衡反应，而不能把预测拟合度当作政策表现。",
+      "source_locator": "正文第 3352—3358 页及第 3362 页。",
+      "keywords": [
+        "风险公式",
+        "预测精度",
+        "机制设计",
+        "再校准",
+        "均衡反应"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-004",
+        "brown-2014-risk-selection-adjustment-ex-006"
+      ]
+    },
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-welfare",
+      "theme_id": "health-insurance-market-design",
+      "lens_type": "welfare",
+      "title": "更多风险调整支付未在可观察质量结果中产生相称改善",
+      "claim": "改革后没有清晰证据表明 MA 满意度、Medicare 预防性服务或死亡率出现与额外支付相称的改善。",
+      "interpretation": "提高支付并不保证转化为消费者剩余，尤其当计划把资源投入筛选和营销时。",
+      "use_when": "用于 MA 支付传导、监管成本和消费者福利讨论。",
+      "overclaim_risk": "辅助结果统计功效和指标覆盖有限，不能据此断言所有质量效应为零。",
+      "safer_formulation": "该文在若干满意度、预防服务和死亡指标中没有发现风险调整后明确的普遍改善。",
+      "source_locator": "正文第 3359—3361 页。",
+      "keywords": [
+        "消费者福利",
+        "满意度",
+        "质量",
+        "支付传导",
+        "Medicare"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-005"
+      ]
+    }
+  ],
+  "citation_points": [
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-decomposition",
+      "theme_id": "adverse-selection-insurance",
+      "lens_type": "method",
+      "title": "评估风险调整必须同时检验风险分数和条件成本",
+      "claim": "改革后 MA 转入者风险分数上升 0.106，但给定风险分数的成本下降约 1,218 美元，而其相对 FFS 的总成本差距几乎不变。",
+      "interpretation": "平均成本不变可以掩盖两个方向相反且政策含义不同的选择边际。",
+      "use_when": "用于设计风险调整评估、筛选分解或解释“平均效应为零”。",
+      "overclaim_risk": "改革前后设计受到同期支付和 MA 市场变化影响，部分系数精度有限。",
+      "safer_formulation": "该文将风险调整后的选择变化分为风险类别间与类别内两部分，发现二者方向相反并大致抵消总体成本差距。",
+      "source_locator": "正文第 3348—3350 页，表 4。",
+      "keywords": [
+        "选择分解",
+        "差分中的差分",
+        "HCC",
+        "条件成本",
+        "风险分数"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-003"
+      ]
+    },
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-mechanism",
+      "theme_id": "adverse-selection-insurance",
+      "lens_type": "mechanism",
+      "title": "风险调整会把选择从风险类别之间推入风险类别内部",
+      "claim": "风险调整减少计划回避被公式识别疾病的动机，却增加其寻找给定风险分数下低成本患者的回报。",
+      "interpretation": "监管关闭一个利润边际后，企业会沿未被定价的残差维度重新优化。",
+      "use_when": "用于风险调整、算法定价、按人头付费和监管规避的机制分析。",
+      "overclaim_risk": "需要计划能观察并影响公式之外的成本预测变量。",
+      "safer_formulation": "Brown 等（2014）表明，Medicare 风险调整降低了类别间选择，但增强了同一风险类别内针对低成本患者的选择激励。",
+      "source_locator": "正文第 3337—3347 页，图 1、表 1 与表 3。",
+      "keywords": [
+        "风险调整",
+        "残差选择",
+        "逆向选择",
+        "监管反应",
+        "Medicare Advantage"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-001",
+        "brown-2014-risk-selection-adjustment-ex-002"
+      ]
+    },
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-policy",
+      "theme_id": "health-insurance-market-design",
+      "lens_type": "policy",
+      "title": "风险公式的预测拟合度不是支付或福利效果的充分统计量",
+      "claim": "风险调整的福利和财政效果取决于公式诱发的筛选行为；只在剩余 FFS 样本上机械重估还可能放大原有误价。",
+      "interpretation": "支付规则应利用参保迁移暴露的行为信息，而不只追求静态样本内预测准确。",
+      "use_when": "用于风险调整改革、算法监管、动态机制设计和再校准讨论。",
+      "overclaim_risk": "论文没有给出可直接部署的最优公式，行为校准也可能受计划质量和编码影响。",
+      "safer_formulation": "Brown 等（2014）提醒，评价和更新风险公式时必须考虑计划对公式的均衡反应，而不能把预测拟合度当作政策表现。",
+      "source_locator": "正文第 3352—3358 页及第 3362 页。",
+      "keywords": [
+        "风险公式",
+        "预测精度",
+        "机制设计",
+        "再校准",
+        "均衡反应"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-004",
+        "brown-2014-risk-selection-adjustment-ex-006"
+      ]
+    },
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-welfare",
+      "theme_id": "health-insurance-market-design",
+      "lens_type": "welfare",
+      "title": "更多风险调整支付未在可观察质量结果中产生相称改善",
+      "claim": "改革后没有清晰证据表明 MA 满意度、Medicare 预防性服务或死亡率出现与额外支付相称的改善。",
+      "interpretation": "提高支付并不保证转化为消费者剩余，尤其当计划把资源投入筛选和营销时。",
+      "use_when": "用于 MA 支付传导、监管成本和消费者福利讨论。",
+      "overclaim_risk": "辅助结果统计功效和指标覆盖有限，不能据此断言所有质量效应为零。",
+      "safer_formulation": "该文在若干满意度、预防服务和死亡指标中没有发现风险调整后明确的普遍改善。",
+      "source_locator": "正文第 3359—3361 页。",
+      "keywords": [
+        "消费者福利",
+        "满意度",
+        "质量",
+        "支付传导",
+        "Medicare"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-005"
+      ]
+    }
+  ],
+  "sections": {
+    "Identity": "- Work ID: `brown-2014-risk-selection-adjustment`\n- Canonical Version ID: `brown-2014-risk-selection-adjustment-published`",
+    "Common Core": "",
+    "Research Question": "风险调整是否真正减少 Medicare Advantage 的有利选择和政府超额支付，还是仅仅改变保险计划筛选参保人的维度？",
+    "Why It Matters": "按风险付费是公共保险、交易所和按人头付费改革的核心工具。公式若只追求预测准确而忽略行为反应，可能关闭一种选择空间，却打开利润更高的另一种选择空间。",
+    "Core Object": "2004 年 Medicare 从人口学调整转向基于 70 多种疾病的 HCC 风险调整后，FFS 与 MA 之间的参保迁移、风险分数、条件成本和超额支付。",
+    "Approach": "文章建立一个区分风险类别间选择与类别内选择的模型，并使用 Medicare Current Beneficiary Survey 1994—2006 年个体支出和转换数据，以 2004 年改革为断点比较转入 MA 者与留在 FFS 者的风险分数和给定风险分数的成本变化。",
+    "Main Claim": "风险调整降低了保险计划回避公式所列疾病的动机，却增强了在同一风险分数内寻找低成本患者的动机。改革后转入 MA 者风险分数提高，但条件成本下降；两种效应抵消后，选择性超额支付没有下降，反而小幅增加。",
+    "Why In My Database": "这是理解“监管参数会诱发重新优化”的关键健康保险论文：更精确的风险公式不等于更好的激励，可用于风险调整、按人头付费、编码、筛选和机制设计研究。",
+    "Paradigm-Specific Analysis": "",
+    "Empirical Branch": "",
+    "Institutional Setting": "2004 年前 MA 支付主要按县和人口学调整；此后逐步采用 HCC 疾病风险分数。MA 必须接受合格参保人，但可通过广告、福利设计和网络等方式影响谁愿意加入。",
+    "Data Source": "Medicare Current Beneficiary Survey 1994—2006 年链接 claims、参保状态、人口学和健康信息；另用满意度、NHIS、县级死亡等资料讨论福利。",
+    "Unit of Observation": "Medicare 受益人—年份，以及由 FFS 转入 MA 或留在 FFS 的年度转换。",
+    "Sample": "核心转换样本包含 73,054 个个体—年份观察；表 2 的完整年度转换统计包含 143,061 个基期观察。",
+    "Outcome Variables": "前一年 Medicare 支出、HCC 风险分数、给定风险分数的残差成本、估计的 differential payment，以及满意度和死亡等辅助结果。",
+    "Treatment Or Variation": "MA 参保状态与 2004 年后指标的交互；比较改革前后转入 MA 者相对留在 FFS 者的变化。",
+    "Identification Logic": "差分中的差分把 MA 转入者与 FFS 留存者的改革前后变化相比较，并检验改革前趋势。风险分数变化刻画类别间选择，控制风险分数后的成本变化刻画类别内选择。",
+    "Main Results": "改革前转入 MA 者的支出比 FFS 留存者低约 2,847 美元；改革后该总差距几乎不变。转入者的相对风险分数提高 0.106，弥合原差距约三分之一；但给定风险分数，其成本下降约 1,218 美元。选择行为变化使风险调整未减少净超额支付。",
+    "Mechanism Evidence": "医疗成本的方差随预期均值上升，高风险类别中存在更大的“低于预测成本”空间。改革前计划偏好普遍健康者，改革后则可在癌症等高支付类别中寻找成本较低者；公式极右尾仍明显低估真实成本，因此计划不会无差别吸收所有高风险者。",
+    "Counterfactual Or Policy Exercise": "文章并未完成完整福利核算，但发现满意度、预防性服务和死亡率几乎没有显示超额支付增加带来明显质量改善；并提出风险公式应结合参保迁移反推易被筛选的类别，而不能仅在剩余 FFS 样本上机械重估。",
+    "Theory Branch": "",
+    "Players": "支付方、MA 保险计划和具有不同风险分数及真实成本的 Medicare 受益人。",
+    "State Space": "风险类别、真实成本、公式支付和筛选成本。",
+    "Action Space": "计划通过营销、福利和网络影响不同患者加入；支付方选择风险调整公式。",
+    "Information Structure": "计划可能观察到公式之外且能预测成本的患者特征，支付方只按有限风险变量付费。",
+    "Timing": "支付方设定公式，计划据此筛选，受益人加入 MA 或留在 FFS，随后实现成本。",
+    "Objective Functions": "计划最大化风险调整支付减真实成本和筛选成本；支付方希望支付接近反事实 FFS 成本。",
+    "Solution Concept": "计划选择使边际利润为正的患者类型；风险调整改变类别间和类别内筛选的相对回报。",
+    "Key Propositions": "风险调整可减少类别间选择但增加类别内选择；当成本方差随风险分数上升时，净超额支付甚至可能上升。",
+    "Conditions": "计划能够以有限成本识别公式残差中的低成本患者，且高预期成本类别具有更大成本离散度。",
+    "Comparative Statics": "风险调整越提高高分患者支付，越鼓励计划进入高风险类别，同时更精细地避开类别内高成本尾部。",
+    "Applications": "Medicare Advantage、ACA 交易所、ACO 按人头付费、疾病编码和其他基于预测分数的监管支付。",
+    "Limitations": "改革伴随县基准和过渡补贴上升；样本转换人数有限；计划具体筛选手段和利润不可观察；福利部分主要为辅助证据而非完整剩余分析。",
+    "Theme Links": "- `adverse-selection-insurance`\n- `health-insurance-market-design`",
+    "Ratings": "",
+    "Dao": "- Score: 10\n- Note: 直接追问风险调整究竟改变了什么激励，而不把预测精度等同于政策成功。",
+    "Fa": "- Score: 9\n- Note: 简洁模型与改革前后转换证据紧密对应，但仍受同期支付变化限制。",
+    "Shi": "- Score: 10\n- Note: HCC 分阶段改革和 FFS claims 提供了观察筛选维度变化的罕见窗口。",
+    "Shu": "- Score: 9\n- Note: 类别间、类别内和总超额支付的分解清楚且可复用。",
+    "Qi": "- Score: 10\n- Note: “预测公式不是激励充分统计量”可迁移到大量算法监管环境。",
+    "Subjective": "- Score: 10\n- Note: 对保险筛选和监管反应研究非常有启发性。",
+    "One-Line Judgment": "风险调整没有消灭选择，而是把选择从风险类别之间推入风险类别内部。",
+    "TODO_VERIFY": "- 完整福利结论应与后续 MA 风险调整和编码文献联合更新。"
+  }
+}

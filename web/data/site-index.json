@@ -37,12 +37,12 @@
     "overall_max": 60
   },
   "meta": {
-    "paper_count": 28,
-    "theme_count": 16,
-    "topic_count": 140,
-    "excerpt_count": 94,
-    "lens_count": 98,
-    "citation_count": 98,
+    "paper_count": 31,
+    "theme_count": 21,
+    "topic_count": 154,
+    "excerpt_count": 112,
+    "lens_count": 110,
+    "citation_count": 110,
     "updated_from_local_db": true
   },
   "score_dimensions": [
@@ -625,6 +625,62 @@
       "excerpt_count": 3,
       "lens_count": 3,
       "citation_count": 3
+    },
+    {
+      "work_id": "atkin-2021-identity-food-consumption",
+      "title": "How Do We Choose Our Identity? A Revealed Preference Approach Using Food Consumption",
+      "year": 2021,
+      "authors": "David Atkin, Eve Colson-Sihra, and Moses Shayo",
+      "field": "political-economy",
+      "subfield": "development-economics",
+      "paper_paradigm": "empirical_structural",
+      "journal_or_series": "Journal of Political Economy",
+      "doi": "10.1086/712761",
+      "one_line_judgment": "一篇把身份从问卷标签变成可由真实消费选择恢复的内生经济对象的代表作。",
+      "topics": [
+        {
+          "topic_id": "food-consumption",
+          "name": "food consumption"
+        },
+        {
+          "topic_id": "identity-choice",
+          "name": "identity choice"
+        },
+        {
+          "topic_id": "india",
+          "name": "india"
+        },
+        {
+          "topic_id": "political-economy",
+          "name": "political economy"
+        },
+        {
+          "topic_id": "revealed-preference",
+          "name": "revealed preference"
+        },
+        {
+          "topic_id": "social-identity",
+          "name": "social identity"
+        }
+      ],
+      "ratings": {
+        "dao": 10,
+        "fa": 9,
+        "shi": 10,
+        "shu": 10,
+        "qi": 10,
+        "subjective": 10,
+        "overall": 59
+      },
+      "themes": [
+        {
+          "theme_id": "identity-choice-and-economic-behavior",
+          "name": "身份选择与经济行为"
+        }
+      ],
+      "excerpt_count": 6,
+      "lens_count": 4,
+      "citation_count": 4
     },
     {
       "work_id": "chan-2021-influence-information-team",
@@ -1295,6 +1351,122 @@
       "citation_count": 4
     },
     {
+      "work_id": "ho-pakes-2014-hospital-choices",
+      "title": "Hospital Choices, Hospital Prices, and Financial Incentives to Physicians",
+      "year": 2014,
+      "authors": "Kate Ho and Ariel Pakes",
+      "field": "health-economics",
+      "subfield": "industrial-organization",
+      "paper_paradigm": "empirical_structural",
+      "journal_or_series": "American Economic Review",
+      "doi": "10.1257/aer.104.12.3841",
+      "one_line_judgment": "高强度成本激励改变的是患者愿意走多远，而不是医生愿意牺牲多少医院质量。",
+      "topics": [
+        {
+          "topic_id": "capitation",
+          "name": "capitation"
+        },
+        {
+          "topic_id": "healthcare-quality",
+          "name": "healthcare quality"
+        },
+        {
+          "topic_id": "hospital-choice",
+          "name": "hospital choice"
+        },
+        {
+          "topic_id": "hospital-prices",
+          "name": "hospital prices"
+        },
+        {
+          "topic_id": "moment-inequalities",
+          "name": "moment inequalities"
+        },
+        {
+          "topic_id": "physician-incentives",
+          "name": "physician incentives"
+        }
+      ],
+      "ratings": {
+        "dao": 9,
+        "fa": 10,
+        "shi": 9,
+        "shu": 10,
+        "qi": 10,
+        "subjective": 10,
+        "overall": 58
+      },
+      "themes": [
+        {
+          "theme_id": "organizational-economics-health",
+          "name": "医疗组织经济学"
+        },
+        {
+          "theme_id": "comparative-advantage-hospitals",
+          "name": "医院比较优势"
+        }
+      ],
+      "excerpt_count": 6,
+      "lens_count": 4,
+      "citation_count": 4
+    },
+    {
+      "work_id": "brown-2014-risk-selection-adjustment",
+      "title": "How Does Risk Selection Respond to Risk Adjustment? New Evidence from the Medicare Advantage Program",
+      "year": 2014,
+      "authors": "Jason Brown, Mark Duggan, Ilyana Kuziemko, and William Woolston",
+      "field": "health-economics",
+      "subfield": "insurance-markets",
+      "paper_paradigm": "empirical_reduced_form",
+      "journal_or_series": "American Economic Review",
+      "doi": "10.1257/aer.104.10.3335",
+      "one_line_judgment": "风险调整没有消灭选择，而是把选择从风险类别之间推入风险类别内部。",
+      "topics": [
+        {
+          "topic_id": "adverse-selection",
+          "name": "adverse selection"
+        },
+        {
+          "topic_id": "health-insurance",
+          "name": "health insurance"
+        },
+        {
+          "topic_id": "insurer-incentives",
+          "name": "insurer incentives"
+        },
+        {
+          "topic_id": "medicare-advantage",
+          "name": "medicare advantage"
+        },
+        {
+          "topic_id": "risk-adjustment",
+          "name": "risk adjustment"
+        }
+      ],
+      "ratings": {
+        "dao": 10,
+        "fa": 9,
+        "shi": 10,
+        "shu": 9,
+        "qi": 10,
+        "subjective": 10,
+        "overall": 58
+      },
+      "themes": [
+        {
+          "theme_id": "health-insurance-market-design",
+          "name": "健康保险市场设计"
+        },
+        {
+          "theme_id": "adverse-selection-insurance",
+          "name": "逆向选择与保险市场"
+        }
+      ],
+      "excerpt_count": 6,
+      "lens_count": 4,
+      "citation_count": 4
+    },
+    {
       "work_id": "shigeoka-2014-effect-patient-cost",
       "title": "The Effect of Patient Cost Sharing on Utilization, Health, and Risk Protection",
       "year": 2014,
@@ -1762,8 +1934,29 @@
       "paper_count": 1
     },
     {
+      "theme_id": "health-insurance-market-design",
+      "name": "健康保险市场设计",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "organizational-economics-health",
+      "name": "医疗组织经济学",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
       "theme_id": "empirical-structural-health",
       "name": "医疗结构估计",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "comparative-advantage-hospitals",
+      "name": "医院比较优势",
       "field": "health-economics",
       "status": "draft_completed",
       "paper_count": 1
@@ -1792,6 +1985,20 @@
     {
       "theme_id": "diagnostic-accuracy",
       "name": "诊断准确性",
+      "field": "health-economics",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "identity-choice-and-economic-behavior",
+      "name": "身份选择与经济行为",
+      "field": "political-economy",
+      "status": "draft_completed",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "adverse-selection-insurance",
+      "name": "逆向选择与保险市场",
       "field": "health-economics",
       "status": "draft_completed",
       "paper_count": 1
@@ -1854,8 +2061,23 @@
       "paper_count": 1
     },
     {
+      "theme_id": "health-insurance-market-design",
+      "name": "健康保险市场设计",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "organizational-economics-health",
+      "name": "医疗组织经济学",
+      "paper_count": 1
+    },
+    {
       "theme_id": "empirical-structural-health",
       "name": "医疗结构估计",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "comparative-advantage-hospitals",
+      "name": "医院比较优势",
       "paper_count": 1
     },
     {
@@ -1877,12 +2099,27 @@
       "theme_id": "diagnostic-accuracy",
       "name": "诊断准确性",
       "paper_count": 1
+    },
+    {
+      "theme_id": "identity-choice-and-economic-behavior",
+      "name": "身份选择与经济行为",
+      "paper_count": 1
+    },
+    {
+      "theme_id": "adverse-selection-insurance",
+      "name": "逆向选择与保险市场",
+      "paper_count": 1
     }
   ],
   "topic_distribution": [
     {
       "topic_id": "cost-sharing",
       "name": "cost sharing",
+      "paper_count": 3
+    },
+    {
+      "topic_id": "health-insurance",
+      "name": "health insurance",
       "paper_count": 3
     },
     {
@@ -1926,6 +2163,11 @@
       "paper_count": 2
     },
     {
+      "topic_id": "adverse-selection",
+      "name": "adverse selection",
+      "paper_count": 2
+    },
+    {
       "topic_id": "bunching",
       "name": "bunching",
       "paper_count": 2
@@ -1941,8 +2183,8 @@
       "paper_count": 2
     },
     {
-      "topic_id": "health-insurance",
-      "name": "health insurance",
+      "topic_id": "physician-incentives",
+      "name": "physician incentives",
       "paper_count": 2
     },
     {
@@ -2146,6 +2388,36 @@
       "paper_count": 1
     },
     {
+      "topic_id": "food-consumption",
+      "name": "food consumption",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "identity-choice",
+      "name": "identity choice",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "india",
+      "name": "india",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "political-economy",
+      "name": "political economy",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "revealed-preference",
+      "name": "revealed preference",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "social-identity",
+      "name": "social identity",
+      "paper_count": 1
+    },
+    {
       "topic_id": "information-aggregation",
       "name": "information aggregation",
       "paper_count": 1
@@ -2243,11 +2515,6 @@
     {
       "topic_id": "practice-style",
       "name": "practice style",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "adverse-selection",
-      "name": "adverse selection",
       "paper_count": 1
     },
     {
@@ -2411,6 +2678,46 @@
       "paper_count": 1
     },
     {
+      "topic_id": "capitation",
+      "name": "capitation",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "healthcare-quality",
+      "name": "healthcare quality",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "hospital-choice",
+      "name": "hospital choice",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "hospital-prices",
+      "name": "hospital prices",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "moment-inequalities",
+      "name": "moment inequalities",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "insurer-incentives",
+      "name": "insurer incentives",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "medicare-advantage",
+      "name": "medicare advantage",
+      "paper_count": 1
+    },
+    {
+      "topic_id": "risk-adjustment",
+      "name": "risk adjustment",
+      "paper_count": 1
+    },
+    {
       "topic_id": "elderly-health",
       "name": "elderly health",
       "paper_count": 1
@@ -2433,11 +2740,6 @@
     {
       "topic_id": "intrinsic-motivation",
       "name": "intrinsic motivation",
-      "paper_count": 1
-    },
-    {
-      "topic_id": "physician-incentives",
-      "name": "physician incentives",
       "paper_count": 1
     },
     {
@@ -2584,11 +2886,15 @@
   "field_distribution": [
     {
       "name": "health-economics",
-      "paper_count": 22
+      "paper_count": 24
     },
     {
       "name": "econometrics",
       "paper_count": 3
+    },
+    {
+      "name": "political-economy",
+      "paper_count": 1
     },
     {
       "name": "environmental-economics",
@@ -2606,7 +2912,7 @@
   "paradigm_distribution": [
     {
       "name": "empirical_structural",
-      "paper_count": 8
+      "paper_count": 10
     },
     {
       "name": "reduced_form_IV",
@@ -2630,6 +2936,10 @@
     },
     {
       "name": "mixed",
+      "paper_count": 1
+    },
+    {
+      "name": "empirical_reduced_form",
       "paper_count": 1
     },
     {
@@ -3115,6 +3425,81 @@
         ]
       },
       {
+        "id": "health-insurance-market-design",
+        "name": "健康保险市场设计",
+        "paper_count": 1,
+        "paper_ids": [
+          "brown-2014-risk-selection-adjustment"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "adverse-selection",
+            "name": "adverse selection",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "health-insurance",
+            "name": "health insurance",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "insurer-incentives",
+            "name": "insurer incentives",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "medicare-advantage",
+            "name": "medicare advantage",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "risk-adjustment",
+            "name": "risk adjustment",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "organizational-economics-health",
+        "name": "医疗组织经济学",
+        "paper_count": 1,
+        "paper_ids": [
+          "ho-pakes-2014-hospital-choices"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "capitation",
+            "name": "capitation",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "healthcare-quality",
+            "name": "healthcare quality",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "hospital-choice",
+            "name": "hospital choice",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "hospital-prices",
+            "name": "hospital prices",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "moment-inequalities",
+            "name": "moment inequalities",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "physician-incentives",
+            "name": "physician incentives",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
         "id": "empirical-structural-health",
         "name": "医疗结构估计",
         "paper_count": 1,
@@ -3150,6 +3535,46 @@
           {
             "topic_id": "gender-gap",
             "name": "gender gap",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "comparative-advantage-hospitals",
+        "name": "医院比较优势",
+        "paper_count": 1,
+        "paper_ids": [
+          "ho-pakes-2014-hospital-choices"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "capitation",
+            "name": "capitation",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "healthcare-quality",
+            "name": "healthcare quality",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "hospital-choice",
+            "name": "hospital choice",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "hospital-prices",
+            "name": "hospital prices",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "moment-inequalities",
+            "name": "moment inequalities",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "physician-incentives",
+            "name": "physician incentives",
             "paper_count": 1
           }
         ]
@@ -3313,6 +3738,81 @@
             "paper_count": 1
           }
         ]
+      },
+      {
+        "id": "identity-choice-and-economic-behavior",
+        "name": "身份选择与经济行为",
+        "paper_count": 1,
+        "paper_ids": [
+          "atkin-2021-identity-food-consumption"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "food-consumption",
+            "name": "food consumption",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "identity-choice",
+            "name": "identity choice",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "india",
+            "name": "india",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "political-economy",
+            "name": "political economy",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "revealed-preference",
+            "name": "revealed preference",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "social-identity",
+            "name": "social identity",
+            "paper_count": 1
+          }
+        ]
+      },
+      {
+        "id": "adverse-selection-insurance",
+        "name": "逆向选择与保险市场",
+        "paper_count": 1,
+        "paper_ids": [
+          "brown-2014-risk-selection-adjustment"
+        ],
+        "top_topics": [
+          {
+            "topic_id": "adverse-selection",
+            "name": "adverse selection",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "health-insurance",
+            "name": "health insurance",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "insurer-incentives",
+            "name": "insurer incentives",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "medicare-advantage",
+            "name": "medicare advantage",
+            "paper_count": 1
+          },
+          {
+            "topic_id": "risk-adjustment",
+            "name": "risk adjustment",
+            "paper_count": 1
+          }
+        ]
       }
     ],
     "theme_edges": [
@@ -3381,6 +3881,14 @@
         ]
       },
       {
+        "source": "adverse-selection-insurance",
+        "target": "health-insurance-market-design",
+        "weight": 1,
+        "paper_ids": [
+          "brown-2014-risk-selection-adjustment"
+        ]
+      },
+      {
         "source": "causal-inference-and-program-evaluation",
         "target": "healthcare-fraud-waste-and-enforcement",
         "weight": 1,
@@ -3410,6 +3918,14 @@
         "weight": 1,
         "paper_ids": [
           "lin-2025-did-model-misspecification"
+        ]
+      },
+      {
+        "source": "comparative-advantage-hospitals",
+        "target": "organizational-economics-health",
+        "weight": 1,
+        "paper_ids": [
+          "ho-pakes-2014-hospital-choices"
         ]
       },
       {
@@ -3851,6 +4367,44 @@
         ]
       },
       {
+        "id": "atkin-2021-identity-food-consumption",
+        "title": "How Do We Choose Our Identity? A Revealed Preference Approach Using Food Consumption",
+        "year": 2021,
+        "field": "political-economy",
+        "paper_paradigm": "empirical_structural",
+        "overall": 59,
+        "primary_theme_id": "identity-choice-and-economic-behavior",
+        "theme_ids": [
+          "identity-choice-and-economic-behavior"
+        ],
+        "topics": [
+          {
+            "topic_id": "food-consumption",
+            "name": "food consumption"
+          },
+          {
+            "topic_id": "identity-choice",
+            "name": "identity choice"
+          },
+          {
+            "topic_id": "india",
+            "name": "india"
+          },
+          {
+            "topic_id": "political-economy",
+            "name": "political economy"
+          },
+          {
+            "topic_id": "revealed-preference",
+            "name": "revealed preference"
+          },
+          {
+            "topic_id": "social-identity",
+            "name": "social identity"
+          }
+        ]
+      },
+      {
         "id": "chan-2021-influence-information-team",
         "title": "Influence and Information in Team Decisions: Evidence from Medical Residency",
         "year": 2021,
@@ -4272,6 +4826,80 @@
           {
             "topic_id": "nonlinear-pricing",
             "name": "nonlinear pricing"
+          }
+        ]
+      },
+      {
+        "id": "ho-pakes-2014-hospital-choices",
+        "title": "Hospital Choices, Hospital Prices, and Financial Incentives to Physicians",
+        "year": 2014,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_structural",
+        "overall": 58,
+        "primary_theme_id": "organizational-economics-health",
+        "theme_ids": [
+          "organizational-economics-health",
+          "comparative-advantage-hospitals"
+        ],
+        "topics": [
+          {
+            "topic_id": "capitation",
+            "name": "capitation"
+          },
+          {
+            "topic_id": "healthcare-quality",
+            "name": "healthcare quality"
+          },
+          {
+            "topic_id": "hospital-choice",
+            "name": "hospital choice"
+          },
+          {
+            "topic_id": "hospital-prices",
+            "name": "hospital prices"
+          },
+          {
+            "topic_id": "moment-inequalities",
+            "name": "moment inequalities"
+          },
+          {
+            "topic_id": "physician-incentives",
+            "name": "physician incentives"
+          }
+        ]
+      },
+      {
+        "id": "brown-2014-risk-selection-adjustment",
+        "title": "How Does Risk Selection Respond to Risk Adjustment? New Evidence from the Medicare Advantage Program",
+        "year": 2014,
+        "field": "health-economics",
+        "paper_paradigm": "empirical_reduced_form",
+        "overall": 58,
+        "primary_theme_id": "health-insurance-market-design",
+        "theme_ids": [
+          "health-insurance-market-design",
+          "adverse-selection-insurance"
+        ],
+        "topics": [
+          {
+            "topic_id": "adverse-selection",
+            "name": "adverse selection"
+          },
+          {
+            "topic_id": "health-insurance",
+            "name": "health insurance"
+          },
+          {
+            "topic_id": "insurer-incentives",
+            "name": "insurer incentives"
+          },
+          {
+            "topic_id": "medicare-advantage",
+            "name": "medicare advantage"
+          },
+          {
+            "topic_id": "risk-adjustment",
+            "name": "risk adjustment"
           }
         ]
       },
@@ -5213,10 +5841,13 @@
   "rankings": {
     "overall": [
       "chan-2022-selection-variation-diagnostic",
+      "atkin-2021-identity-food-consumption",
       "handel-2015-health-insurance-humans",
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
       "chandra-2020-identifying-sources-inefficiency",
+      "ho-pakes-2014-hospital-choices",
+      "brown-2014-risk-selection-adjustment",
       "finkelstein-2019-subsidizing-health-insurance",
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
@@ -5245,12 +5876,14 @@
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
       "chan-2022-selection-variation-diagnostic",
+      "atkin-2021-identity-food-consumption",
       "chandra-2020-identifying-sources-inefficiency",
       "finkelstein-2019-subsidizing-health-insurance",
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
       "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
+      "brown-2014-risk-selection-adjustment",
       "kamenica-2011-bayesian-persuasion",
       "chandra-2007-productivity-spillovers-health",
       "marquardt-2026-physician-decision-adhd",
@@ -5260,6 +5893,7 @@
       "chen-2021-team-specific-human",
       "ito-2018-economics-attribute-based-regulation",
       "brot-goldberg-2017-what-does-deductible",
+      "ho-pakes-2014-hospital-choices",
       "shigeoka-2014-effect-patient-cost",
       "kolstad-2013-information-quality-when",
       "grossman-2000-human-capital-model",
@@ -5281,12 +5915,15 @@
       "finkelstein-2019-subsidizing-health-insurance",
       "finkelstein-2016-sources-geographic-variation",
       "handel-2015-health-insurance-humans",
+      "ho-pakes-2014-hospital-choices",
       "kamenica-2011-bayesian-persuasion",
+      "atkin-2021-identity-food-consumption",
       "chan-2021-influence-information-team",
       "chen-2021-team-specific-human",
       "ito-2018-economics-attribute-based-regulation",
       "brot-goldberg-2017-what-does-deductible",
       "chan-2016-teamwork-moral-hazard",
+      "brown-2014-risk-selection-adjustment",
       "shigeoka-2014-effect-patient-cost",
       "kolstad-2013-information-quality-when",
       "marquardt-2026-physician-decision-adhd",
@@ -5304,7 +5941,9 @@
     "shi": [
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
+      "atkin-2021-identity-food-consumption",
       "ito-2018-economics-attribute-based-regulation",
+      "brown-2014-risk-selection-adjustment",
       "eliason-2025-ambulance-taxis-impact",
       "lin-2025-did-model-misspecification",
       "chan-2022-selection-variation-diagnostic",
@@ -5314,6 +5953,7 @@
       "chan-2016-teamwork-moral-hazard",
       "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
+      "ho-pakes-2014-hospital-choices",
       "shigeoka-2014-effect-patient-cost",
       "chandra-2007-productivity-spillovers-health",
       "marquardt-2026-physician-decision-adhd",
@@ -5335,8 +5975,10 @@
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
       "chan-2022-selection-variation-diagnostic",
+      "atkin-2021-identity-food-consumption",
       "chandra-2020-identifying-sources-inefficiency",
       "handel-2015-health-insurance-humans",
+      "ho-pakes-2014-hospital-choices",
       "kamenica-2011-bayesian-persuasion",
       "marquardt-2026-physician-decision-adhd",
       "eliason-2025-ambulance-taxis-impact",
@@ -5350,6 +5992,7 @@
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
       "einav-2015-response-drug-expenditure",
+      "brown-2014-risk-selection-adjustment",
       "kolstad-2013-information-quality-when",
       "chandra-2007-productivity-spillovers-health",
       "hayek-1945-use-knowledge-society",
@@ -5364,9 +6007,12 @@
     "qi": [
       "lin-2025-did-model-misspecification",
       "chan-2022-selection-variation-diagnostic",
+      "atkin-2021-identity-food-consumption",
       "ito-2018-economics-attribute-based-regulation",
       "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
+      "ho-pakes-2014-hospital-choices",
+      "brown-2014-risk-selection-adjustment",
       "kamenica-2011-bayesian-persuasion",
       "marquardt-2026-physician-decision-adhd",
       "ortiz-2025-better-understanding-triple",
@@ -5396,12 +6042,15 @@
       "shi-2024-monitoring-waste-medicare",
       "chandra-2024-health-costs-cost",
       "chan-2022-selection-variation-diagnostic",
+      "atkin-2021-identity-food-consumption",
       "chandra-2020-identifying-sources-inefficiency",
       "finkelstein-2019-subsidizing-health-insurance",
       "finkelstein-2016-sources-geographic-variation",
       "chan-2016-teamwork-moral-hazard",
       "handel-2015-health-insurance-humans",
       "einav-2015-response-drug-expenditure",
+      "ho-pakes-2014-hospital-choices",
+      "brown-2014-risk-selection-adjustment",
       "chandra-2007-productivity-spillovers-health",
       "marquardt-2026-physician-decision-adhd",
       "eliason-2025-ambulance-taxis-impact",
@@ -5423,11 +6072,11 @@
     ]
   },
   "latest": [
+    "ho-pakes-2014-hospital-choices",
+    "brown-2014-risk-selection-adjustment",
+    "atkin-2021-identity-food-consumption",
     "lin-2025-did-model-misspecification",
     "marquardt-2026-physician-decision-adhd",
-    "ito-2018-economics-attribute-based-regulation",
-    "brot-goldberg-2017-what-does-deductible",
-    "chandra-2024-health-costs-cost",
-    "shigeoka-2014-effect-patient-cost"
+    "ito-2018-economics-attribute-based-regulation"
   ]
 }

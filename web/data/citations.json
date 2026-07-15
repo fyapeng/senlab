@@ -1,6 +1,6 @@
 {
   "meta": {
-    "citation_count": 98
+    "citation_count": 110
   },
   "citation_points": [
     {
@@ -1018,7 +1018,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "shi-2024-monitoring-waste-medicare-ex-001 shi-2024-monitoring-waste-medicare-ex-002"
+        "shi-2024-monitoring-waste-medicare-ex-001",
+        "shi-2024-monitoring-waste-medicare-ex-002"
       ],
       "work_id": "shi-2024-monitoring-waste-medicare",
       "paper_title": "Monitoring for Waste: Evidence from Medicare Audits",
@@ -1083,7 +1084,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "shi-2024-monitoring-waste-medicare-ex-001 shi-2024-monitoring-waste-medicare-ex-003"
+        "shi-2024-monitoring-waste-medicare-ex-001",
+        "shi-2024-monitoring-waste-medicare-ex-003"
       ],
       "work_id": "shi-2024-monitoring-waste-medicare",
       "paper_title": "Monitoring for Waste: Evidence from Medicare Audits",
@@ -1381,6 +1383,144 @@
         {
           "theme_id": "causal-inference-and-program-evaluation",
           "name": "因果识别与政策评估"
+        }
+      ]
+    },
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-economic-drivers",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "mechanism",
+      "title": "长期身份变化更多由价格与群体经济地位推动，而非短期冲突",
+      "claim": "1987—2000 年印度身份变化中，原型消费束相对价格和群体职业回报的变化量化上比短期冲突冲击更重要。",
+      "interpretation": "短期事件提高身份显著性，但普遍且持久的价格和收入变化更可能累积为长期身份重组。",
+      "use_when": "用于贸易改革、相对价格、职业结构与民族主义或身份变化之间的讨论。",
+      "overclaim_risk": "反事实忽略一般均衡反馈，成本渠道可能被低估；不同国家的群体规范未必同样可测。",
+      "safer_formulation": "Atkin 等（2021）的需求系统分解表明，在印度 1987—2000 年的长期身份变化中，价格与职业地位渠道大于他们所测得的局部短期冲突渠道。",
+      "source_locator": "正文第 1228—1230 页及第 1240—1244 页。",
+      "keywords": [
+        "相对价格",
+        "群体地位",
+        "职业回报",
+        "印度改革",
+        "身份政治"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-003",
+        "atkin-2021-identity-food-consumption-ex-005"
+      ],
+      "work_id": "atkin-2021-identity-food-consumption",
+      "paper_title": "How Do We Choose Our Identity? A Revealed Preference Approach Using Food Consumption",
+      "authors": "David Atkin, Eve Colson-Sihra, and Moses Shayo",
+      "year": 2021,
+      "field": "political-economy",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "identity-choice-and-economic-behavior",
+          "name": "身份选择与经济行为"
+        }
+      ]
+    },
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-framework",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "theory",
+      "title": "身份可以被建模为对社会与经济环境作出反应的内生选择",
+      "claim": "当个人同时属于多个群体时，其身份权重会随群体显著性、相对地位和遵循群体规范的经济成本变化。",
+      "interpretation": "身份既影响效用函数，也由不同身份下的间接效用比较决定，因此政策和价格能够通过身份渠道改变行为。",
+      "use_when": "用于身份经济学、文化偏好、政治极化或群体规范的理论动机。",
+      "overclaim_risk": "模型不能区分心理认同、社交收益与可观察信号等不同微观来源。",
+      "safer_formulation": "Atkin 等（2021）提供了一个内生身份框架，其中群体显著性、地位和规范成本共同影响家庭在宗教与族群身份之间的行为权重。",
+      "source_locator": "正文第 1195—1202 页，方程 (1)—(2)。",
+      "keywords": [
+        "内生身份",
+        "社会认同",
+        "群体地位",
+        "规范成本",
+        "间接效用"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-001"
+      ],
+      "work_id": "atkin-2021-identity-food-consumption",
+      "paper_title": "How Do We Choose Our Identity? A Revealed Preference Approach Using Food Consumption",
+      "authors": "David Atkin, Eve Colson-Sihra, and Moses Shayo",
+      "year": 2021,
+      "field": "political-economy",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "identity-choice-and-economic-behavior",
+          "name": "身份选择与经济行为"
+        }
+      ]
+    },
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-method",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "method",
+      "title": "可用有成本的群体规范行为从显示偏好中恢复身份变化",
+      "claim": "若不同身份对应不同原型消费束，价格、地位和显著性冲击导致的消费束移动可以用于恢复潜在身份权重，并可用匿名投票等外部行为校验。",
+      "interpretation": "好的身份指标应预测真实、非假设且需要付出成本的行为，而不只是自我报告。",
+      "use_when": "用于潜变量测量、显示偏好、文化经济学和行为指标设计。",
+      "overclaim_risk": "消费接近群体原型可能由供给或社交约束造成，恢复的身份依赖模型排除限制。",
+      "safer_formulation": "该文展示了一种以群体规范商品的真实消费和外部冲击恢复身份权重、再用投票方向校验的方法。",
+      "source_locator": "正文第 1231—1234 页及第 1240—1244 页。",
+      "keywords": [
+        "显示偏好",
+        "身份测量",
+        "潜变量",
+        "需求系统",
+        "外部校验"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-004",
+        "atkin-2021-identity-food-consumption-ex-005"
+      ],
+      "work_id": "atkin-2021-identity-food-consumption",
+      "paper_title": "How Do We Choose Our Identity? A Revealed Preference Approach Using Food Consumption",
+      "authors": "David Atkin, Eve Colson-Sihra, and Moses Shayo",
+      "year": 2021,
+      "field": "political-economy",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "identity-choice-and-economic-behavior",
+          "name": "身份选择与经济行为"
+        }
+      ]
+    },
+    {
+      "lens_id": "atkin-2021-identity-food-consumption-lens-salience",
+      "theme_id": "identity-choice-and-economic-behavior",
+      "lens_type": "mechanism",
+      "title": "群体冲突会在短期内提高身份显著性并强化规范遵循",
+      "claim": "Hindu-Muslim 冲突发生后，家庭对自身宗教食物禁忌的遵循相对提高约 6 个百分点，主要持续当前及随后约 6—9 个月。",
+      "interpretation": "冲突通过身份显著性使群体边界进入日常且有成本的行为，而非只体现在问卷表达。",
+      "use_when": "用于冲突、极化、民族主义或社会显著性影响消费的机制讨论。",
+      "overclaim_risk": "冲突并非随机；估计反映印度特定宗教冲突和食物规范。",
+      "safer_formulation": "在印度 NSS 数据中，Atkin 等发现宗教冲突后家庭短期内更严格遵守本宗教食物禁忌，这与身份显著性渠道一致。",
+      "source_locator": "正文第 1214—1216 页，表 2。",
+      "keywords": [
+        "冲突",
+        "身份显著性",
+        "宗教规范",
+        "食物禁忌",
+        "极化"
+      ],
+      "evidence_excerpt_ids": [
+        "atkin-2021-identity-food-consumption-ex-002"
+      ],
+      "work_id": "atkin-2021-identity-food-consumption",
+      "paper_title": "How Do We Choose Our Identity? A Revealed Preference Approach Using Food Consumption",
+      "authors": "David Atkin, Eve Colson-Sihra, and Moses Shayo",
+      "year": 2021,
+      "field": "political-economy",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "identity-choice-and-economic-behavior",
+          "name": "身份选择与经济行为"
         }
       ]
     },
@@ -1873,7 +2013,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "- ito-2018-economics-attribute-based-regulation-ex-003 - ito-2018-economics-attribute-based-regulation-ex-004"
+        "ito-2018-economics-attribute-based-regulation-ex-003",
+        "ito-2018-economics-attribute-based-regulation-ex-004"
       ],
       "work_id": "ito-2018-economics-attribute-based-regulation",
       "paper_title": "The Economics of Attribute-Based Regulation: Theory and Evidence from Fuel Economy Standards",
@@ -1905,7 +2046,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "- ito-2018-economics-attribute-based-regulation-ex-004 - ito-2018-economics-attribute-based-regulation-ex-005"
+        "ito-2018-economics-attribute-based-regulation-ex-004",
+        "ito-2018-economics-attribute-based-regulation-ex-005"
       ],
       "work_id": "ito-2018-economics-attribute-based-regulation",
       "paper_title": "The Economics of Attribute-Based Regulation: Theory and Evidence from Fuel Economy Standards",
@@ -1937,7 +2079,9 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "- ito-2018-economics-attribute-based-regulation-ex-003 - ito-2018-economics-attribute-based-regulation-ex-005 - ito-2018-economics-attribute-based-regulation-ex-001"
+        "ito-2018-economics-attribute-based-regulation-ex-001",
+        "ito-2018-economics-attribute-based-regulation-ex-003",
+        "ito-2018-economics-attribute-based-regulation-ex-005"
       ],
       "work_id": "ito-2018-economics-attribute-based-regulation",
       "paper_title": "The Economics of Attribute-Based Regulation: Theory and Evidence from Fuel Economy Standards",
@@ -1969,7 +2113,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "- ito-2018-economics-attribute-based-regulation-ex-002 - ito-2018-economics-attribute-based-regulation-ex-001"
+        "ito-2018-economics-attribute-based-regulation-ex-001",
+        "ito-2018-economics-attribute-based-regulation-ex-002"
       ],
       "work_id": "ito-2018-economics-attribute-based-regulation",
       "paper_title": "The Economics of Attribute-Based Regulation: Theory and Evidence from Fuel Economy Standards",
@@ -2099,7 +2244,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "- brot-goldberg-2017-what-does-deductible-ex-002 - brot-goldberg-2017-what-does-deductible-ex-001"
+        "brot-goldberg-2017-what-does-deductible-ex-001",
+        "brot-goldberg-2017-what-does-deductible-ex-002"
       ],
       "work_id": "brot-goldberg-2017-what-does-deductible",
       "paper_title": "What Does a Deductible Do? The Impact of Cost-Sharing on Health Care Prices, Quantities, and Spending Dynamics",
@@ -2127,7 +2273,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "- brot-goldberg-2017-what-does-deductible-ex-002 - brot-goldberg-2017-what-does-deductible-ex-001"
+        "brot-goldberg-2017-what-does-deductible-ex-001",
+        "brot-goldberg-2017-what-does-deductible-ex-002"
       ],
       "work_id": "brot-goldberg-2017-what-does-deductible",
       "paper_title": "What Does a Deductible Do? The Impact of Cost-Sharing on Health Care Prices, Quantities, and Spending Dynamics",
@@ -2155,7 +2302,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "- brot-goldberg-2017-what-does-deductible-ex-001 - brot-goldberg-2017-what-does-deductible-ex-003"
+        "brot-goldberg-2017-what-does-deductible-ex-001",
+        "brot-goldberg-2017-what-does-deductible-ex-003"
       ],
       "work_id": "brot-goldberg-2017-what-does-deductible",
       "paper_title": "What Does a Deductible Do? The Impact of Cost-Sharing on Health Care Prices, Quantities, and Spending Dynamics",
@@ -2268,7 +2416,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "chan-2016-teamwork-moral-hazard-ex-001 chan-2016-teamwork-moral-hazard-ex-002"
+        "chan-2016-teamwork-moral-hazard-ex-001",
+        "chan-2016-teamwork-moral-hazard-ex-002"
       ],
       "work_id": "chan-2016-teamwork-moral-hazard",
       "paper_title": "Teamwork and Moral Hazard: Evidence from the Emergency Department",
@@ -2332,7 +2481,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "chan-2016-teamwork-moral-hazard-ex-001 chan-2016-teamwork-moral-hazard-ex-002"
+        "chan-2016-teamwork-moral-hazard-ex-001",
+        "chan-2016-teamwork-moral-hazard-ex-002"
       ],
       "work_id": "chan-2016-teamwork-moral-hazard",
       "paper_title": "Teamwork and Moral Hazard: Evidence from the Emergency Department",
@@ -2613,6 +2763,315 @@
       ]
     },
     {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-incentives",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "mechanism",
+      "title": "医生承担更多成本风险时，医院转诊对价格更敏感",
+      "claim": "在加州商业保险分娩样本中，医生 capitation 比例更高的计划具有更负的医院价格系数，转诊更倾向低价医院。",
+      "interpretation": "组织层面的成本激励能够传导到医生—患者共同作出的具体医院选择。",
+      "use_when": "用于医生合同、ACO、managed care 或转诊网络的激励机制。",
+      "overclaim_risk": "capitation 跨计划差异非随机，Blue Shield 也不符合整齐排序。",
+      "safer_formulation": "Ho 与 Pakes（2014）发现，除一个特殊计划外，医生 capitation 更高的保险计划在产科转诊中表现出更强的医院价格反应。",
+      "source_locator": "正文第 3841—3853 页及第 3871—3874 页。",
+      "keywords": [
+        "医生激励",
+        "capitation",
+        "医院转诊",
+        "价格敏感度",
+        "ACO"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-001",
+        "ho-pakes-2014-hospital-choices-ex-004"
+      ],
+      "work_id": "ho-pakes-2014-hospital-choices",
+      "paper_title": "Hospital Choices, Hospital Prices, and Financial Incentives to Physicians",
+      "authors": "Kate Ho and Ariel Pakes",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "organizational-economics-health",
+          "name": "医疗组织经济学"
+        },
+        {
+          "theme_id": "comparative-advantage-hospitals",
+          "name": "医院比较优势"
+        }
+      ]
+    },
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-method",
+      "theme_id": "comparative-advantage-hospitals",
+      "lens_type": "method",
+      "title": "成对显示偏好不等式可同时处理未观测质量与价格测量误差",
+      "claim": "匹配同计划同严重度患者、互换其所选医院并相加选择不等式，可消去医院—严重度质量固定效应；对矩条件取平均还能降低价格测量误差。",
+      "interpretation": "当高维质量不可观察且价格含误差时，成对 choice inequalities 可比强行参数化完整误差分布更稳健。",
+      "use_when": "用于医院选择、学校选择、供应商选择或其他带未观测质量的离散选择研究。",
+      "overclaim_risk": "仍需正确选择集、可加质量结构和矩不等式条件；通常识别集合而非天然点识别。",
+      "safer_formulation": "该文利用同计划同严重度患者的成对选择不等式消去医院质量项，并以平均矩缓解价格测量误差。",
+      "source_locator": "正文第 3860—3867 页，第 VI 节。",
+      "keywords": [
+        "矩不等式",
+        "显示偏好",
+        "未观测质量",
+        "测量误差",
+        "医院选择"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-002",
+        "ho-pakes-2014-hospital-choices-ex-003"
+      ],
+      "work_id": "ho-pakes-2014-hospital-choices",
+      "paper_title": "Hospital Choices, Hospital Prices, and Financial Incentives to Physicians",
+      "authors": "Kate Ho and Ariel Pakes",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "organizational-economics-health",
+          "name": "医疗组织经济学"
+        },
+        {
+          "theme_id": "comparative-advantage-hospitals",
+          "name": "医院比较优势"
+        }
+      ]
+    },
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-policy",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "policy",
+      "title": "ACO 的成本节约可能取决于是否保留跨医院转诊选择",
+      "claim": "capitation 可能通过把患者转向同质量低价医院降低成本；若组织整合使医生偏好 ACO 内部医院，则会削弱这一跨医院价格选择渠道。",
+      "interpretation": "纵向一体化的协调收益与医院选择受限造成的采购成本损失应同时评估。",
+      "use_when": "用于 ACO、医生—医院整合、窄网络和医院并购政策。",
+      "overclaim_risk": "论文没有直接估计 ACO 或纵向整合的因果效应，只是依据转诊估计提出含义。",
+      "safer_formulation": "Ho 与 Pakes 的结果提示，若 capitation 的节约依赖跨医院选择，偏向组织内部医院的整合安排可能削弱部分价格节约。",
+      "source_locator": "正文第 3882 页，第 VIII 节。",
+      "keywords": [
+        "ACO",
+        "纵向整合",
+        "窄网络",
+        "转诊",
+        "成本控制"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-006"
+      ],
+      "work_id": "ho-pakes-2014-hospital-choices",
+      "paper_title": "Hospital Choices, Hospital Prices, and Financial Incentives to Physicians",
+      "authors": "Kate Ho and Ariel Pakes",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "organizational-economics-health",
+          "name": "医疗组织经济学"
+        },
+        {
+          "theme_id": "comparative-advantage-hospitals",
+          "name": "医院比较优势"
+        }
+      ]
+    },
+    {
+      "lens_id": "ho-pakes-2014-hospital-choices-lens-tradeoff",
+      "theme_id": "organizational-economics-health",
+      "lens_type": "mechanism",
+      "title": "高 capitation 计划以患者便利性而非医院质量换取成本节约",
+      "claim": "各计划价格—质量比基本稳定，高 capitation 计划主要让患者前往更远但隐含质量相近、价格更低的医院。",
+      "interpretation": "成本激励不必然导致质量削减，它可能改变距离、等待或其他便利性边际。",
+      "use_when": "用于成本—质量—便利性的多属性权衡和支付改革机制。",
+      "overclaim_risk": "质量是模型中的综合吸引力，且证据来自产科；不能外推到所有医疗服务。",
+      "safer_formulation": "在该加州产科样本中，高 capitation 计划的节省主要对应更远的低价医院，而非更差的模型隐含质量或可观察健康结果。",
+      "source_locator": "正文第 3879—3882 页，表 11—12。",
+      "keywords": [
+        "成本质量权衡",
+        "患者距离",
+        "便利性",
+        "医院质量",
+        "capitation"
+      ],
+      "evidence_excerpt_ids": [
+        "ho-pakes-2014-hospital-choices-ex-005",
+        "ho-pakes-2014-hospital-choices-ex-006"
+      ],
+      "work_id": "ho-pakes-2014-hospital-choices",
+      "paper_title": "Hospital Choices, Hospital Prices, and Financial Incentives to Physicians",
+      "authors": "Kate Ho and Ariel Pakes",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_structural",
+      "themes": [
+        {
+          "theme_id": "organizational-economics-health",
+          "name": "医疗组织经济学"
+        },
+        {
+          "theme_id": "comparative-advantage-hospitals",
+          "name": "医院比较优势"
+        }
+      ]
+    },
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-decomposition",
+      "theme_id": "adverse-selection-insurance",
+      "lens_type": "method",
+      "title": "评估风险调整必须同时检验风险分数和条件成本",
+      "claim": "改革后 MA 转入者风险分数上升 0.106，但给定风险分数的成本下降约 1,218 美元，而其相对 FFS 的总成本差距几乎不变。",
+      "interpretation": "平均成本不变可以掩盖两个方向相反且政策含义不同的选择边际。",
+      "use_when": "用于设计风险调整评估、筛选分解或解释“平均效应为零”。",
+      "overclaim_risk": "改革前后设计受到同期支付和 MA 市场变化影响，部分系数精度有限。",
+      "safer_formulation": "该文将风险调整后的选择变化分为风险类别间与类别内两部分，发现二者方向相反并大致抵消总体成本差距。",
+      "source_locator": "正文第 3348—3350 页，表 4。",
+      "keywords": [
+        "选择分解",
+        "差分中的差分",
+        "HCC",
+        "条件成本",
+        "风险分数"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-003"
+      ],
+      "work_id": "brown-2014-risk-selection-adjustment",
+      "paper_title": "How Does Risk Selection Respond to Risk Adjustment? New Evidence from the Medicare Advantage Program",
+      "authors": "Jason Brown, Mark Duggan, Ilyana Kuziemko, and William Woolston",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_reduced_form",
+      "themes": [
+        {
+          "theme_id": "health-insurance-market-design",
+          "name": "健康保险市场设计"
+        },
+        {
+          "theme_id": "adverse-selection-insurance",
+          "name": "逆向选择与保险市场"
+        }
+      ]
+    },
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-mechanism",
+      "theme_id": "adverse-selection-insurance",
+      "lens_type": "mechanism",
+      "title": "风险调整会把选择从风险类别之间推入风险类别内部",
+      "claim": "风险调整减少计划回避被公式识别疾病的动机，却增加其寻找给定风险分数下低成本患者的回报。",
+      "interpretation": "监管关闭一个利润边际后，企业会沿未被定价的残差维度重新优化。",
+      "use_when": "用于风险调整、算法定价、按人头付费和监管规避的机制分析。",
+      "overclaim_risk": "需要计划能观察并影响公式之外的成本预测变量。",
+      "safer_formulation": "Brown 等（2014）表明，Medicare 风险调整降低了类别间选择，但增强了同一风险类别内针对低成本患者的选择激励。",
+      "source_locator": "正文第 3337—3347 页，图 1、表 1 与表 3。",
+      "keywords": [
+        "风险调整",
+        "残差选择",
+        "逆向选择",
+        "监管反应",
+        "Medicare Advantage"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-001",
+        "brown-2014-risk-selection-adjustment-ex-002"
+      ],
+      "work_id": "brown-2014-risk-selection-adjustment",
+      "paper_title": "How Does Risk Selection Respond to Risk Adjustment? New Evidence from the Medicare Advantage Program",
+      "authors": "Jason Brown, Mark Duggan, Ilyana Kuziemko, and William Woolston",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_reduced_form",
+      "themes": [
+        {
+          "theme_id": "health-insurance-market-design",
+          "name": "健康保险市场设计"
+        },
+        {
+          "theme_id": "adverse-selection-insurance",
+          "name": "逆向选择与保险市场"
+        }
+      ]
+    },
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-policy",
+      "theme_id": "health-insurance-market-design",
+      "lens_type": "policy",
+      "title": "风险公式的预测拟合度不是支付或福利效果的充分统计量",
+      "claim": "风险调整的福利和财政效果取决于公式诱发的筛选行为；只在剩余 FFS 样本上机械重估还可能放大原有误价。",
+      "interpretation": "支付规则应利用参保迁移暴露的行为信息，而不只追求静态样本内预测准确。",
+      "use_when": "用于风险调整改革、算法监管、动态机制设计和再校准讨论。",
+      "overclaim_risk": "论文没有给出可直接部署的最优公式，行为校准也可能受计划质量和编码影响。",
+      "safer_formulation": "Brown 等（2014）提醒，评价和更新风险公式时必须考虑计划对公式的均衡反应，而不能把预测拟合度当作政策表现。",
+      "source_locator": "正文第 3352—3358 页及第 3362 页。",
+      "keywords": [
+        "风险公式",
+        "预测精度",
+        "机制设计",
+        "再校准",
+        "均衡反应"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-004",
+        "brown-2014-risk-selection-adjustment-ex-006"
+      ],
+      "work_id": "brown-2014-risk-selection-adjustment",
+      "paper_title": "How Does Risk Selection Respond to Risk Adjustment? New Evidence from the Medicare Advantage Program",
+      "authors": "Jason Brown, Mark Duggan, Ilyana Kuziemko, and William Woolston",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_reduced_form",
+      "themes": [
+        {
+          "theme_id": "health-insurance-market-design",
+          "name": "健康保险市场设计"
+        },
+        {
+          "theme_id": "adverse-selection-insurance",
+          "name": "逆向选择与保险市场"
+        }
+      ]
+    },
+    {
+      "lens_id": "brown-2014-risk-selection-adjustment-lens-welfare",
+      "theme_id": "health-insurance-market-design",
+      "lens_type": "welfare",
+      "title": "更多风险调整支付未在可观察质量结果中产生相称改善",
+      "claim": "改革后没有清晰证据表明 MA 满意度、Medicare 预防性服务或死亡率出现与额外支付相称的改善。",
+      "interpretation": "提高支付并不保证转化为消费者剩余，尤其当计划把资源投入筛选和营销时。",
+      "use_when": "用于 MA 支付传导、监管成本和消费者福利讨论。",
+      "overclaim_risk": "辅助结果统计功效和指标覆盖有限，不能据此断言所有质量效应为零。",
+      "safer_formulation": "该文在若干满意度、预防服务和死亡指标中没有发现风险调整后明确的普遍改善。",
+      "source_locator": "正文第 3359—3361 页。",
+      "keywords": [
+        "消费者福利",
+        "满意度",
+        "质量",
+        "支付传导",
+        "Medicare"
+      ],
+      "evidence_excerpt_ids": [
+        "brown-2014-risk-selection-adjustment-ex-005"
+      ],
+      "work_id": "brown-2014-risk-selection-adjustment",
+      "paper_title": "How Does Risk Selection Respond to Risk Adjustment? New Evidence from the Medicare Advantage Program",
+      "authors": "Jason Brown, Mark Duggan, Ilyana Kuziemko, and William Woolston",
+      "year": 2014,
+      "field": "health-economics",
+      "paper_paradigm": "empirical_reduced_form",
+      "themes": [
+        {
+          "theme_id": "health-insurance-market-design",
+          "name": "健康保险市场设计"
+        },
+        {
+          "theme_id": "adverse-selection-insurance",
+          "name": "逆向选择与保险市场"
+        }
+      ]
+    },
+    {
       "lens_id": "shigeoka-2014-effect-patient-cost-lens-fact",
       "theme_id": "cost-sharing-demand",
       "lens_type": "fact",
@@ -2722,7 +3181,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "kolstad-2013-information-quality-when-ex-001 kolstad-2013-information-quality-when-ex-002"
+        "kolstad-2013-information-quality-when-ex-001",
+        "kolstad-2013-information-quality-when-ex-002"
       ],
       "work_id": "kolstad-2013-information-quality-when",
       "paper_title": "Information and Quality When Motivation is Intrinsic: Evidence from Surgeon Report Cards",
@@ -3014,7 +3474,8 @@
       "source_locator": "",
       "keywords": [],
       "evidence_excerpt_ids": [
-        "cutler-2006-determinants-mortality-ex-001 cutler-2006-determinants-mortality-ex-003"
+        "cutler-2006-determinants-mortality-ex-001",
+        "cutler-2006-determinants-mortality-ex-003"
       ],
       "work_id": "cutler-2006-determinants-mortality",
       "paper_title": "The Determinants of Mortality",

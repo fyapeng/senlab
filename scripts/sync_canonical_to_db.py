@@ -318,7 +318,8 @@ def sync_lenses(conn: sqlite3.Connection) -> None:
         conn.execute("DELETE FROM lens_excerpt_links WHERE lens_id=?", (lens_id,))
         evidence_text = compact_text(sections.get("Evidence Excerpts", ""))
         if evidence_text:
-            for excerpt_id in [item.strip() for item in evidence_text.split(",") if item.strip()]:
+            evidence_ids = re.findall(r"[a-z0-9][a-z0-9-]*-ex-\d+", evidence_text.lower())
+            for excerpt_id in dict.fromkeys(evidence_ids):
                 conn.execute(
                     "INSERT OR REPLACE INTO lens_excerpt_links (lens_id, excerpt_id) VALUES (?, ?)",
                     (lens_id, excerpt_id),
