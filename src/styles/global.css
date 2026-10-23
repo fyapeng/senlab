@@ -104,6 +104,7 @@ select option { background: var(--bg-2); }
 .prose { font-size: 15.5px; line-height: 1.85; color: var(--text); }
 .prose p { margin: 0 0 1em; }
 .prose strong { color: var(--gold); font-weight: 600; margin-right: .25em; }
+.prose > p:first-child > strong:only-child { color: var(--text); font-size: 16.5px; line-height: 1.7; margin-right: 0; }
 .prose a { color: var(--cyan); }
 .prose ul, .prose ol { padding-left: 1.3em; }
 
