@@ -82,7 +82,7 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
 
         {p.summary ? (
           <section>
-            <h2>简介 {p.summary_status === "ai-draft" && <span class="src">AI 初稿 · 待我审阅</span>}{p.summary_status === "legacy" && <span class="src">旧版卡片迁入</span>}</h2>
+            <h2>简介</h2>
             <div class="prose" set:html={md(p.summary)} />
             {p.abstract && (
               <details class="abs">
@@ -128,7 +128,7 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
 
       <aside>
         <section class="card rate">
-          <h3 class="ah">道法势术器 · 主观 <span class="muted small">{hasRatings ? `综合 ${p.rating}` : "未评分"}</span>{hasRatings && <span class="src">{p.ratings_by === "claude" ? "Claude 初评" : p.ratings_by === "legacy" ? "旧版卡片评分" : "我的评分"}</span>}</h3>
+          <h3 class="ah">道法势术器 · 主观 <span class="muted small">{hasRatings ? `综合 ${p.rating}` : "未评分"}</span></h3>
           <svg viewBox="0 0 260 190" class="radar" role="img" aria-label="六维评分">
             {[0.25, 0.5, 0.75, 1].map((f) => <polygon class="ring" points={dims.map((_, i) => axis(i, RR * f).join(",")).join(" ")} />)}
             {dims.map((_, i) => <line class="spoke" x1={RCX} y1={RCY} x2={axis(i, RR)[0]} y2={axis(i, RR)[1]} />)}
@@ -230,7 +230,6 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
   .attrs { margin-top: 14px; }
   .cols { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; margin-top: 28px; }
   @media (max-width: 960px) { .cols { grid-template-columns: 1fr; } }
-  .src { font: 11.5px var(--sans); color: var(--muted); border: 1px solid var(--border-strong); border-radius: 999px; padding: 1px 8px; margin-left: 8px; vertical-align: 3px; font-weight: 400; }
   .radar { width: 100%; height: auto; }
   .radar .ring { fill: none; stroke: var(--border-strong); }
   .radar .spoke { stroke: var(--border); }
