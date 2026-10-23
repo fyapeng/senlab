@@ -23,7 +23,7 @@ const used = [...papers].filter((p: any) => p.metrics.ai_reads > 0).sort((a: any
       <p class="eyebrow">Literature Atlas</p>
       <h1>文献星图</h1>
       <p class="sky-stats">{meta.counts.papers} 颗星 · {meta.counts.constellations} 个星宿 · {meta.counts.citation_edges} 条库内引用</p>
-      <p class="hint">星越亮，越是库内的中心文献；同色连线是星宿内的引用，淡蓝细线跨越星宿。悬停查看，点击打开。</p>
+      <p class="hint">星越亮，越是库内的中心文献；同色连线是星宿内的引用，淡蓝细线跨越星宿。悬停查看，点击打开；拖动平移，Ctrl + 滚轮或右下角按钮缩放。</p>
     </div>
     <ul class="legend">
       <li><button data-c="all" class="all">全部星宿</button></li>
@@ -40,6 +40,11 @@ const used = [...papers].filter((p: any) => p.metrics.ai_reads > 0).sort((a: any
         <button class="btn on" data-mode="pub">按发表年</button>
         <button class="btn" data-mode="add">按收录时间</button>
       </span>
+    </div>
+    <div class="zoom">
+      <button class="btn" data-zoom="in" aria-label="放大">＋</button>
+      <button class="btn" data-zoom="out" aria-label="缩小">－</button>
+      <button class="btn" data-zoom="reset" aria-label="复位">⟲</button>
     </div>
     <a class="scroll-hint" href="#dash">仪表盘 ↓</a>
   </section>
@@ -114,7 +119,7 @@ const used = [...papers].filter((p: any) => p.metrics.ai_reads > 0).sort((a: any
 
 <style>
   .sky { position: relative; height: 100vh; min-height: 560px; overflow: hidden; background: radial-gradient(ellipse at 50% 45%, #0f1a33 0%, #060a14 70%); }
-  .sky canvas { position: absolute; inset: 0; display: block; }
+  .sky canvas { position: absolute; inset: 0; display: block; touch-action: pan-y; }
   .sky-intro { position: absolute; left: 28px; top: 78px; max-width: 360px; pointer-events: none; }
   .sky-intro h1 { font-size: 40px; margin: 2px 0 4px; }
   .sky-stats { margin: 0; color: var(--gold); font-family: var(--serif); }
@@ -138,6 +143,9 @@ const used = [...papers].filter((p: any) => p.metrics.ai_reads > 0).sort((a: any
   .timebar .modes { display: flex; gap: 6px; }
   .timebar .btn { padding: 4px 10px; font-size: 12px; }
   .scroll-hint { position: absolute; right: 28px; bottom: 32px; color: var(--muted); font-size: 13px; }
+  .zoom { position: absolute; right: 24px; bottom: 70px; display: flex; flex-direction: column; gap: 6px; }
+  .zoom .btn { width: 34px; height: 34px; padding: 0; justify-content: center; font-size: 15px; background: rgba(9,14,28,.7); }
+  @media (max-width: 760px) { .zoom { bottom: auto; top: 70px; right: 12px; } }
   .h { margin: 0 0 10px; font-size: 18px; }
   .spans { display: flex; align-items: center; gap: 6px; margin-top: 4px; color: var(--muted); }
   .spans i { font-style: normal; font-family: var(--serif); font-size: 12px; color: var(--dot); border: 1px solid var(--dot); border-radius: 50%; width: 20px; height: 20px; display: inline-grid; place-items: center; opacity: .9; }
