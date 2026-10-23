@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PaperLine from "../../components/PaperLine.astro";
+import papers from "../../data/papers.json";
+import constellations from "../../data/constellations.json";
+import vocab from "../../data/vocab.json";
+
+export function getStaticPaths() {
+  return constellations.map((c: any) => ({ params: { key: c.key }, props: { c } }));
+}
+const { c } = Astro.props as any;
+const base = import.meta.env.BASE_URL;
+const v: any = vocab;
+const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
+const cons = Object.fromEntries(constellations.map((x: any) => [x.key, x]));
+const members = c.members.map((m: string) => byId[m]);
+const methodCount: Record<string, number> = {};
+members.forEach((p: any) => p.methods.forEach((m: string) => (methodCount[m] = (methodCount[m] || 0) + 1)));
+const topMethods = Object.entries(methodCount).sort((a, b) => b[1] - a[1]).slice(0, 6);
+const years = members.map((p: any) => p.year).filter(Boolean);
+
+// citations inside this constellation
+const set = new Set(c.members);
+const internal = members.flatMap((p: any) => p.cites.filter((x: string) => set.has(x)).map((x: string) => [p.id, x]));
+---
+<Layout title={`${c.lodge}宿 · ${c.name}`} active="stars">
+  <main class="page" style={`--dot:${c.color}`}>
+    <nav class="small muted"><a href={`${base}stars/`}>星宿</a> / {c.lodge}宿</nav>
+    <header class="page-head">
+      <h1 class="cname"><i></i>{c.lodge}宿 · {c.name}</h1>
+      {c.blurb && <p class="lede">{c.blurb}</p>}
+      <p class="muted small">{members.length} 篇 · {Math.min(...years)}—{Math.max(...years)} · 星宿内引用 {internal.length} 条</p>
+      <div class="chips">{c.keywords.map((k: string) => <a class="chip" href={`${base}rank/?q=${encodeURIComponent(k)}`}>{k}</a>)}</div>
+      <div class="chips" style="margin-top:8px">{topMethods.map(([m, n]) => <span class="chip gold">{v.methods[m]} {n}</span>)}</div>
+    </header>
+    <ol class="list members">
+      {members.map((p: any, i: number) => (
+        <li>
+          <span class="idx mono">{i + 1}</span>
+          <div>
+            <PaperLine p={p} cons={cons} extra={`库内被引 ${p.metrics.cited_in_lib}${p.id === c.star ? " · 距星" : ""}`} />
+            {p.summary && <p class="sum small">{p.summary.split("\n")[0].replace(/\*\*/g, "").slice(0, 140)}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </main>
+</Layout>
+<style>
+  .cname { display: flex; align-items: center; gap: 10px; }
+  .cname i { width: 12px; height: 12px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 12px var(--dot); }
+  .members li { display: grid; grid-template-columns: 34px 1fr; gap: 6px; }
+  .idx { color: var(--muted); padding-top: 3px; }
+  .sum { color: var(--text-2); margin: 4px 0 0; }
+</style>

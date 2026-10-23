@@ -1,0 +1,159 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PaperLine from "../components/PaperLine.astro";
+import papers from "../data/papers.json";
+import constellations from "../data/constellations.json";
+import meta from "../data/meta.json";
+import lab from "../data/lab.json";
+import frontier from "../data/frontier.json";
+
+const base = import.meta.env.BASE_URL;
+const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
+const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
+const central = [...papers].sort((a: any, b: any) => a.metrics.rank - b.metrics.rank).slice(0, 8);
+const recent = [...papers].sort((a: any, b: any) => (b.added || "").localeCompare(a.added || "")).slice(0, 6);
+const bridges = lab.bridges.slice(0, 7).map((b: any) => ({ ...byId[b.id], spans: b.spans }));
+const front = (frontier.papers || []).slice(0, 4);
+const used = [...papers].filter((p: any) => p.metrics.ai_reads > 0).sort((a: any, b: any) => b.metrics.ai_reads - a.metrics.ai_reads).slice(0, 6);
+---
+<Layout active="map" overlay>
+  <section class="sky" id="sky">
+    <canvas aria-label="文献星图：每颗星是一篇文献，亮度表示库内中心度，连线表示库内引用"></canvas>
+    <div class="sky-intro">
+      <p class="eyebrow">Literature Atlas</p>
+      <h1>文献星图</h1>
+      <p class="sky-stats">{meta.counts.papers} 颗星 · {meta.counts.constellations} 个星宿 · {meta.counts.citation_edges} 条库内引用</p>
+      <p class="hint">星越亮，越是库内的中心文献；同色连线是星宿内的引用，淡蓝细线跨越星宿。悬停查看，点击打开。</p>
+    </div>
+    <ul class="legend">
+      <li><button data-c="all" class="all">全部星宿</button></li>
+      {constellations.map((c: any) => (
+        <li><button data-c={c.key} style={`--dot:${c.color}`}><i></i><span class="lodge">{c.lodge}</span><span class="nm">{c.name}</span><em>{c.members.length}</em></button></li>
+      ))}
+    </ul>
+    <div class="tip card" hidden></div>
+    <div class="timebar">
+      <button class="play btn" aria-label="播放时间">▶</button>
+      <input type="range" aria-label="时间" />
+      <span class="year small"></span>
+      <span class="modes">
+        <button class="btn on" data-mode="pub">按发表年</button>
+        <button class="btn" data-mode="add">按收录时间</button>
+      </span>
+    </div>
+    <a class="scroll-hint" href="#dash">仪表盘 ↓</a>
+  </section>
+
+  <main class="page" id="dash">
+    <div class="grid cols-4 stats">
+      <div class="card stat"><b>{meta.counts.papers}</b><span>篇文献（中文 {meta.counts.zh}）</span></div>
+      <div class="card stat"><b>{meta.counts.constellations}</b><span>个星宿（主题簇）</span></div>
+      <div class="card stat"><b>{meta.counts.with_summary}</b><span>篇已有详细简介</span></div>
+      <div class="card stat"><b>{meta.counts.with_fulltext}</b><span>篇已解析全文（供 AI 精读）</span></div>
+    </div>
+
+    <div class="grid cols-2" style="margin-top:16px">
+      <section class="card">
+        <h2 class="h">中心文献 <span class="muted small">库内 PageRank</span></h2>
+        <ol class="list rankl">
+          {central.map((p: any) => <li><PaperLine p={p} cons={cons} extra={`库内被引 ${p.metrics.cited_in_lib}`} /></li>)}
+        </ol>
+      </section>
+      <section class="card">
+        <h2 class="h">桥梁文献 <span class="muted small">连接多个星宿</span></h2>
+        <ul class="list">
+          {bridges.map((p: any) => (
+            <li>
+              <PaperLine p={p} cons={cons} />
+              <span class="spans small">连接 {p.spans.length} 个星宿 {p.spans.map((k: string) => <i title={`${cons[k].lodge}宿 · ${cons[k].name}`} style={`--dot:${cons[k].color}`}>{cons[k].lodge}</i>)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section class="card">
+        <h2 class="h">本周前沿 <span class="muted small">NBER 与本库最相关</span></h2>
+        {front.length ? (
+          <ul class="list">
+            {front.map((f: any) => (
+              <li>
+                <a class="paper-line" href={f.url} target="_blank" rel="noopener">
+                  <span class="t">{f.title}</span>
+                  <span class="m">{f.title_cn} · 相关度 {f.score.toFixed(2)}{f.near ? ` · 最近：${byId[f.near]?.authors_short} ${byId[f.near]?.year}` : ""}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : <p class="muted">尚未抓取本周 NBER。</p>}
+        <a class="more" href={`${base}frontier/`}>全部前沿 →</a>
+      </section>
+      <section class="card">
+        <h2 class="h">{used.length ? "AI 最常调用" : "最近收录"}</h2>
+        <ul class="list">
+          {(used.length ? used : recent).map((p: any) => <li><PaperLine p={p} cons={cons} extra={used.length ? `调用 ${p.metrics.ai_reads} 次` : `收录于 ${p.added}`} /></li>)}
+        </ul>
+      </section>
+    </div>
+
+    <h2>星宿</h2>
+    <div class="grid cols-3">
+      {constellations.map((c: any) => (
+        <a class="card cons" href={`${base}stars/${c.key}/`} style={`--dot:${c.color}`}>
+          <span class="cname"><i></i>{c.lodge}宿 · {c.name}</span>
+          <span class="muted small">{c.members.length} 篇 · 距星：{byId[c.star].authors_short} {byId[c.star].year}</span>
+          <span class="chips">{c.keywords.slice(0, 5).map((k: string) => <span class="chip">{k}</span>)}</span>
+        </a>
+      ))}
+    </div>
+  </main>
+</Layout>
+
+<script>
+  import { initStarmap } from "../scripts/starmap.js";
+  initStarmap(document.getElementById("sky"));
+</script>
+
+<style>
+  .sky { position: relative; height: 100vh; min-height: 560px; overflow: hidden; background: radial-gradient(ellipse at 50% 45%, #0f1a33 0%, #060a14 70%); }
+  .sky canvas { position: absolute; inset: 0; display: block; }
+  .sky-intro { position: absolute; left: 28px; top: 78px; max-width: 360px; pointer-events: none; }
+  .sky-intro h1 { font-size: 40px; margin: 2px 0 4px; }
+  .sky-stats { margin: 0; color: var(--gold); font-family: var(--serif); }
+  .hint { color: var(--muted); font-size: 13px; margin-top: 10px; }
+  .legend { position: absolute; left: 20px; bottom: 86px; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; max-height: 46vh; overflow: auto; }
+  .legend button { display: flex; align-items: center; gap: 8px; background: none; border: 1px solid transparent; color: var(--text-2); font: 13px var(--sans); padding: 3px 10px; border-radius: 999px; cursor: pointer; text-align: left; }
+  .legend button:hover, .legend button.on { border-color: var(--border-strong); background: rgba(6,10,20,.6); color: var(--text); }
+  .legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 8px var(--dot); flex: none; }
+  .legend .lodge { font-family: var(--serif); color: var(--dot); width: 1.2em; }
+  .legend em { font-style: normal; color: var(--muted); font-size: 11.5px; }
+  .legend .all { color: var(--muted); }
+  .tip { position: absolute; z-index: 5; width: 320px; display: flex; flex-direction: column; gap: 6px; background: rgba(9, 14, 28, 0.92); backdrop-filter: blur(8px); pointer-events: auto; }
+  .tip[hidden] { display: none; }
+  :global(.tip b) { font-family: var(--serif); font-size: 15.5px; line-height: 1.4; }
+  :global(.tip .m) { font-size: 12.5px; color: var(--muted); }
+  :global(.tip .open) { font-size: 13px; color: var(--gold); }
+  :global(.tip .chip) { align-self: flex-start; }
+  .timebar { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; padding: 8px 14px; border-radius: 999px; background: rgba(9, 14, 28, 0.78); border: 1px solid var(--border); backdrop-filter: blur(8px); }
+  .timebar input { width: 260px; accent-color: var(--gold); }
+  .timebar .year { min-width: 150px; color: var(--text-2); }
+  .timebar .modes { display: flex; gap: 6px; }
+  .timebar .btn { padding: 4px 10px; font-size: 12px; }
+  .scroll-hint { position: absolute; right: 28px; bottom: 32px; color: var(--muted); font-size: 13px; }
+  .h { margin: 0 0 10px; font-size: 18px; }
+  .spans { display: flex; align-items: center; gap: 6px; margin-top: 4px; color: var(--muted); }
+  .spans i { font-style: normal; font-family: var(--serif); font-size: 12px; color: var(--dot); border: 1px solid var(--dot); border-radius: 50%; width: 20px; height: 20px; display: inline-grid; place-items: center; opacity: .9; }
+  .rankl { counter-reset: r; }
+  .more { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--gold); }
+  .cons { display: flex; flex-direction: column; gap: 8px; transition: border-color .2s, transform .2s; }
+  .cons:hover { border-color: var(--dot); transform: translateY(-2px); color: inherit; }
+  .cname { font-family: var(--serif); font-size: 17px; display: flex; align-items: center; gap: 8px; }
+  .cname i { width: 9px; height: 9px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 10px var(--dot); }
+  @media (max-width: 760px) {
+    .sky-intro { left: 16px; top: 70px; }
+    .sky-intro h1 { font-size: 30px; }
+    .hint { display: none; }
+    .legend { display: none; }
+    .timebar { width: calc(100% - 24px); flex-wrap: wrap; justify-content: center; border-radius: 16px; bottom: 14px; }
+    .timebar input { width: 100%; order: 3; }
+    .scroll-hint { display: none; }
+  }
+</style>

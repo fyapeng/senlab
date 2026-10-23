@@ -1,0 +1,16 @@
+---
+interface Props { p: any; cons?: Record<string, any>; extra?: string }
+const { p, cons = {}, extra = "" } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const c = cons[p.constellation];
+---
+<a class="paper-line" href={`${base}papers/${p.id}/`}>
+  <span class="t">{p.title}</span>
+  <span class="m">
+    {c && <span class="cdot" style={`--dot:${c.color}`}></span>}
+    {p.authors_short} · {p.year}{p.venue ? ` · ${p.venue}` : ""}{extra ? ` · ${extra}` : ""}
+  </span>
+</a>
+<style>
+  .cdot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 6px var(--dot); margin-right: 6px; vertical-align: 1px; }
+</style>

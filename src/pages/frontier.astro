@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+import papers from "../data/papers.json";
+import constellations from "../data/constellations.json";
+import frontier from "../data/frontier.json";
+
+const base = import.meta.env.BASE_URL;
+const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
+const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
+const items = (frontier as any).papers || [];
+const scores = items.map((f: any) => f.score);
+const hi = scores.length ? scores[Math.min(scores.length - 1, Math.floor(scores.length * 0.2))] : 1;
+const level = (s: number) => (s >= hi ? "高" : s >= hi - 0.03 ? "中" : "低");
+---
+<Layout title="前沿" active="frontier">
+  <main class="page">
+    <header class="page-head">
+      <p class="eyebrow">Frontier</p>
+      <h1>前沿：本周 NBER</h1>
+      <p class="lede">
+        数据来自 <a href="https://fyapeng.com/nber/" class="lnk">NBER 每周工作论文</a>（{(frontier as any).batch_date || "—"}，{items.length} 篇）。
+        每篇按内容与本库文献的相似度排序，并标出最接近的星宿和库内文献。顶刊追踪（AER、QJE、REStud、Econometrica、JPE）将在 nber 项目中接入。
+      </p>
+    </header>
+    {items.length === 0 && <p class="muted">尚未抓取。</p>}
+    <ol class="list fl">
+      {items.map((f: any) => {
+        const c = cons[f.c];
+        return (
+          <li>
+            <div class="score">
+              <b>{f.score.toFixed(2)}</b>
+              <span class:list={["lvl", level(f.score)]}>{level(f.score)}相关</span>
+            </div>
+            <div>
+              <a class="t" href={f.url} target="_blank" rel="noopener">{f.title}</a>
+              <p class="cn">{f.title_cn}</p>
+              <p class="m small">{f.id} · {(f.authors || []).slice(0, 4).join(", ")}{(f.authors || []).length > 4 ? " 等" : ""}</p>
+              <p class="links small">
+                <span class="chip dot" style={`--dot:${c.color}`}>{c.lodge}宿 · {c.name}</span>
+                <span class="muted">最接近：</span>
+                {f.related.map((id: string) => byId[id] && <a href={`${base}papers/${id}/`} class="rel">{byId[id].authors_short} {byId[id].year}</a>)}
+              </p>
+              {f.abstract_cn && <details><summary class="small muted">中文摘要</summary><p class="small abs">{f.abstract_cn}</p></details>}
+            </div>
+          </li>
+        );
+      })}
+    </ol>
+  </main>
+</Layout>
+<style>
+  .lnk { color: var(--cyan); }
+  .fl li { display: grid; grid-template-columns: 72px 1fr; gap: 14px; padding: 16px 0; }
+  .score b { display: block; font-family: var(--serif); font-size: 22px; }
+  .lvl { font-size: 11.5px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--muted); }
+  .lvl.高 { color: var(--bg); background: var(--gold); border-color: var(--gold); }
+  .lvl.中 { color: var(--gold); border-color: rgba(232,196,122,.5); }
+  .t { font-family: var(--serif); font-size: 16.5px; line-height: 1.4; }
+  .cn { margin: 2px 0 0; color: var(--text-2); }
+  .m { margin: 4px 0; color: var(--muted); }
+  .links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 6px 0 0; }
+  .rel { color: var(--cyan); }
+  .abs { color: var(--text-2); }
+</style>

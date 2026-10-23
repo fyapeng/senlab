@@ -1,0 +1,146 @@
+---
+import Layout from "../layouts/Layout.astro";
+import papers from "../data/papers.json";
+import constellations from "../data/constellations.json";
+import vocab from "../data/vocab.json";
+
+const base = import.meta.env.BASE_URL;
+const v: any = vocab;
+const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
+const rows = [...papers].sort((a: any, b: any) => a.metrics.rank - b.metrics.rank);
+const used = (field: string) => [...new Set(papers.flatMap((p: any) => [].concat(p[field] || [])))].filter(Boolean);
+const methods = Object.keys(v.methods).filter((m) => used("methods").includes(m));
+const kinds = Object.keys(v.kind).filter((k) => used("kind").includes(k));
+const countries = Object.keys(v.country).filter((k) => used("country").includes(k));
+---
+<Layout title="文库" active="rank">
+  <main class="page wide">
+    <header class="page-head">
+      <p class="eyebrow">Library</p>
+      <h1>文库与排行</h1>
+      <p class="lede">全部 {papers.length} 篇文献。可以按中心度、库内被引、外部被引、六维综合评分、我读过的次数或 AI 调用次数排序；搜索覆盖标题、作者、期刊、关键词和简介。</p>
+    </header>
+
+    <div class="controls">
+      <input type="search" id="q" placeholder="搜索标题、作者、关键词……" />
+      <select id="fc"><option value="">全部星宿</option>{constellations.map((c: any) => <option value={c.key}>{c.lodge}宿 · {c.name}</option>)}</select>
+      <select id="fk"><option value="">全部类型</option>{kinds.map((k) => <option value={k}>{v.kind[k]}</option>)}</select>
+      <select id="fm"><option value="">全部方法</option>{methods.map((m) => <option value={m}>{v.methods[m]}</option>)}</select>
+      <select id="fco"><option value="">全部国家</option>{countries.map((k) => <option value={k}>{v.country[k]}</option>)}</select>
+      <select id="fl"><option value="">中英文</option><option value="en">英文</option><option value="zh">中文</option></select>
+      <label class="tog"><input type="checkbox" id="fs" /> 有简介</label>
+      <label class="tog"><input type="checkbox" id="fn" /> 有笔记</label>
+      <span class="count muted small" id="count"></span>
+    </div>
+
+    <div class="tablewrap">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th data-k="rk" class="num on">#</th>
+            <th>文献</th>
+            <th>星宿</th>
+            <th>类型 · 方法</th>
+            <th data-k="ci" class="num">库内被引</th>
+            <th data-k="cb" class="num">外部被引</th>
+            <th data-k="r" class="num" title="道法势术器与主观六维平均">评分</th>
+            <th data-k="mr" class="num">我读过</th>
+            <th data-k="ai" class="num">AI 调用</th>
+            <th data-k="y" class="num">年份</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((p: any) => {
+            const c = cons[p.constellation];
+            const hay = [p.title, p.authors.join(" "), p.venue, p.keywords.join(" "), p.summary.slice(0, 400), (v.methods[p.methods[0]] || "")].join(" ").toLowerCase();
+            return (
+              <tr data-id={p.id} data-c={p.constellation} data-k={p.kind} data-m={p.methods.join(" ")} data-co={p.country} data-l={p.lang}
+                  data-s={p.summary ? 1 : 0} data-n={p.notes.length} data-rk={p.metrics.rank} data-ci={p.metrics.cited_in_lib}
+                  data-cb={p.metrics.cited_by ?? -1} data-r={p.rating ?? -1} data-mr={p.metrics.my_reads} data-ai={p.metrics.ai_reads} data-y={p.year ?? 0} data-h={hay}>
+                <td class="num mono">{p.metrics.rank}</td>
+                <td class="ttl">
+                  <a href={`${base}papers/${p.id}/`}>{p.title}</a>
+                  <span class="m">{p.authors_short} · {p.venue}{p.summary ? " · 简介" : ""}{p.notes.length ? ` · 笔记 ${p.notes.length}` : ""}</span>
+                </td>
+                <td><span class="chip dot" style={`--dot:${c.color}`}>{c.lodge}·{c.name}</span></td>
+                <td class="small muted">{v.kind[p.kind]}{p.methods.length ? ` · ${p.methods.map((m: string) => v.methods[m]).join("、")}` : ""}</td>
+                <td class="num">{p.metrics.cited_in_lib || ""}</td>
+                <td class="num">{p.metrics.cited_by ?? ""}</td>
+                <td class="num">{p.rating ?? ""}</td>
+                <td class="num">{p.metrics.my_reads || ""}</td>
+                <td class="num">{p.metrics.ai_reads || ""}</td>
+                <td class="num">{p.year}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  const $ = (id: string) => document.getElementById(id) as HTMLInputElement;
+  const tbody = document.querySelector("#tbl tbody")!;
+  const rows = [...tbody.querySelectorAll("tr")] as HTMLTableRowElement[];
+  const heads = document.querySelectorAll("#tbl th[data-k]");
+  let sortKey = "rk", asc = true;
+
+  const params = new URLSearchParams(location.search);
+  if (params.get("q")) $("q").value = params.get("q")!;
+  if (params.get("m")) $("fm").value = params.get("m")!;
+  if (params.get("c")) $("fc").value = params.get("c")!;
+
+  function apply() {
+    const q = $("q").value.trim().toLowerCase();
+    const terms = q.split(/\s+/).filter(Boolean);
+    const f = { c: $("fc").value, k: $("fk").value, m: $("fm").value, co: $("fco").value, l: $("fl").value };
+    let n = 0;
+    for (const tr of rows) {
+      const d = tr.dataset;
+      const ok = terms.every((t) => d.h!.includes(t))
+        && (!f.c || d.c === f.c) && (!f.k || d.k === f.k) && (!f.m || d.m!.split(" ").includes(f.m))
+        && (!f.co || d.co === f.co) && (!f.l || d.l === f.l)
+        && (!$("fs").checked || d.s === "1") && (!$("fn").checked || Number(d.n) > 0);
+      tr.hidden = !ok;
+      if (ok) n++;
+    }
+    document.getElementById("count")!.textContent = `${n} 篇`;
+  }
+  function sort() {
+    const key = sortKey;
+    rows.sort((a, b) => {
+      const x = Number(a.dataset[key]), y = Number(b.dataset[key]);
+      return asc ? x - y : y - x;
+    });
+    rows.forEach((r) => tbody.appendChild(r));
+    heads.forEach((h) => h.classList.toggle("on", (h as HTMLElement).dataset.k === key));
+  }
+  heads.forEach((h) => h.addEventListener("click", () => {
+    const k = (h as HTMLElement).dataset.k!;
+    if (k === sortKey) asc = !asc; else { sortKey = k; asc = k === "rk"; }
+    sort();
+  }));
+  ["q", "fc", "fk", "fm", "fco", "fl", "fs", "fn"].forEach((id) => $(id).addEventListener("input", apply));
+  apply();
+</script>
+
+<style>
+  .wide { max-width: 1320px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; position: sticky; top: 58px; z-index: 10; padding: 10px 0; background: linear-gradient(var(--bg) 70%, transparent); }
+  .controls input[type=search] { flex: 1 1 260px; }
+  .tog { font-size: 13px; color: var(--text-2); display: flex; gap: 4px; align-items: center; }
+  .tog input { accent-color: var(--gold); }
+  .tablewrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-weight: 500; font-size: 12.5px; color: var(--muted); padding: 10px 12px; border-bottom: 1px solid var(--border-strong); white-space: nowrap; }
+  th[data-k] { cursor: pointer; user-select: none; }
+  th[data-k]:hover, th.on { color: var(--gold); }
+  td { padding: 10px 12px; border-top: 1px solid var(--border); vertical-align: top; }
+  tr:hover td { background: rgba(255,255,255,.025); }
+  .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .ttl { min-width: 320px; }
+  .ttl a { font-family: var(--serif); font-size: 15px; line-height: 1.4; }
+  .ttl .m { display: block; color: var(--muted); font-size: 12.5px; margin-top: 2px; }
+  td .chip { font-size: 12px; }
+</style>

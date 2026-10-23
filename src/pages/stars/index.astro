@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PaperLine from "../../components/PaperLine.astro";
+import papers from "../../data/papers.json";
+import constellations from "../../data/constellations.json";
+
+const base = import.meta.env.BASE_URL;
+const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
+const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
+---
+<Layout title="星宿" active="stars">
+  <main class="page">
+    <header class="page-head">
+      <p class="eyebrow">Constellations</p>
+      <h1>星宿</h1>
+      <p class="lede">星宿由库内引用和内容相似度自动聚类得到，以中心度最高的一篇为"距星"。名称经确认后固定；新文献只会加入已有星宿，不会让已有名称变动。</p>
+    </header>
+    <div class="grid cols-2">
+      {constellations.map((c: any) => (
+        <section class="card cs" style={`--dot:${c.color}`}>
+          <a href={`${base}stars/${c.key}/`} class="cname"><i></i>{c.lodge}宿 · {c.name}{!c.confirmed && <span class="chip prov">暂定名</span>}</a>
+          {c.blurb && <p class="muted small">{c.blurb}</p>}
+          <p class="small muted">{c.members.length} 篇 · {c.keywords.slice(0, 6).join(" · ")}</p>
+          <ul class="list">
+            {c.members.slice(0, 4).map((m: string) => <li><PaperLine p={byId[m]} cons={cons} extra={m === c.star ? "距星" : ""} /></li>)}
+          </ul>
+          <a class="more small" href={`${base}stars/${c.key}/`}>全部 {c.members.length} 篇 →</a>
+        </section>
+      ))}
+    </div>
+  </main>
+</Layout>
+<style>
+  .cs { display: flex; flex-direction: column; gap: 6px; }
+  .cname { font-family: var(--serif); font-size: 19px; display: flex; align-items: center; gap: 8px; }
+  .cname i { width: 10px; height: 10px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 10px var(--dot); }
+  .prov { font-family: var(--sans); font-size: 11px; color: var(--muted); }
+  .more { color: var(--gold); }
+  p { margin: 0; }
+</style>

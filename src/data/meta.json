@@ -1,0 +1,16 @@
+{
+ "built": "2026-10-23",
+ "counts": {
+  "papers": 157,
+  "constellations": 8,
+  "citation_edges": 306,
+  "with_summary": 33,
+  "with_notes": 25,
+  "with_fulltext": 79,
+  "zh": 20
+ },
+ "years": [
+  1945,
+  2025
+ ]
+}

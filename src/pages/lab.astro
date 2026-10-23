@@ -1,0 +1,153 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PaperLine from "../components/PaperLine.astro";
+import papers from "../data/papers.json";
+import constellations from "../data/constellations.json";
+import vocab from "../data/vocab.json";
+import lab from "../data/lab.json";
+
+const base = import.meta.env.BASE_URL;
+const v: any = vocab;
+const L: any = lab;
+const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
+const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
+
+// matrix: keep methods used at least twice
+const methods = L.methods.filter((m: string) => L.matrix.reduce((s: number, r: any) => s + r.cells[m].length, 0) >= 2);
+const maxCell = Math.max(...L.matrix.flatMap((r: any) => methods.map((m: string) => r.cells[m].length)));
+const maxDec = Math.max(...L.timeline.flatMap((t: any) => t.counts));
+const maxFlow = Math.max(1, ...L.flow.map((f: any) => f.n));
+const maxKw = Math.max(...L.kw_top.map((k: any) => k.n));
+const sortedKinds = Object.entries(L.by_kind).sort((a: any, b: any) => b[1] - a[1]);
+const sortedCountries = Object.entries(L.by_country).sort((a: any, b: any) => b[1] - a[1]);
+const maxKind = Math.max(...sortedKinds.map((x: any) => x[1]));
+const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
+---
+<Layout title="探索实验室" active="lab">
+  <main class="page wide">
+    <header class="page-head">
+      <p class="eyebrow">Lab</p>
+      <h1>探索实验室</h1>
+      <p class="lede">基于本库自身做的分析。本页全部由程序计算，每次更新文献库时自动重算；大模型生成的星宿综述和研究设想单列在页尾，标明来源与日期。</p>
+    </header>
+
+    <section>
+      <h2>方法 × 星宿 <span class="muted small">格子里是篇数，空格是候选研究空白</span></h2>
+      <div class="tablewrap">
+        <table class="matrix">
+          <thead><tr><th></th>{methods.map((m: string) => <th class="mh"><span>{v.methods[m]}</span></th>)}</tr></thead>
+          <tbody>
+            {L.matrix.map((r: any) => (
+              <tr>
+                <th class="rh"><span class="chip dot" style={`--dot:${cons[r.c].color}`}>{cons[r.c].lodge}·{cons[r.c].name}</span></th>
+                {methods.map((m: string) => {
+                  const n = r.cells[m].length;
+                  return <td style={`--a:${n ? 0.15 + 0.75 * n / maxCell : 0}`} title={n ? r.cells[m].map((id: string) => `${byId[id].authors_short} ${byId[id].year}`).join("；") : "空白"}>{n || "·"}</td>;
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="grid cols-2">
+      <section>
+        <h2>主题演化 <span class="muted small">各星宿按发表年代的篇数</span></h2>
+        <table class="spark">
+          <thead><tr><th></th>{L.decades.map((d: number) => <th>{String(d).slice(2)}s</th>)}</tr></thead>
+          <tbody>
+            {L.timeline.map((t: any) => (
+              <tr>
+                <th><span class="dotc" style={`--dot:${cons[t.c].color}`}></span>{cons[t.c].lodge}·{cons[t.c].name}</th>
+                {t.counts.map((n: number) => <td><span class="bar" style={`height:${n ? 4 + 26 * n / maxDec : 0}px;background:${cons[t.c].color}`} title={`${n} 篇`}></span></td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2>星宿间引用流 <span class="muted small">谁引用谁</span></h2>
+        <ul class="list flows">
+          {L.flow.slice(0, 12).map((f: any) => (
+            <li>
+              <span class="fname"><span class="dotc" style={`--dot:${cons[f.from].color}`}></span>{cons[f.from].name} → <span class="dotc" style={`--dot:${cons[f.to].color}`}></span>{cons[f.to].name}</span>
+              <span class="fbar"><i style={`width:${100 * f.n / maxFlow}%`}></i></span>
+              <span class="mono small">{f.n}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </div>
+
+    <div class="grid cols-2">
+      <section>
+        <h2>桥梁文献</h2>
+        <ul class="list">
+          {L.bridges.map((b: any) => (
+            <li>
+              <PaperLine p={byId[b.id]} cons={cons} />
+              <span class="chips" style="margin-top:4px">{b.spans.map((k: string) => <span class="chip dot" style={`--dot:${cons[k].color}`}>{cons[k].name}</span>)}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <section>
+        <h2>孤星 <span class="muted small">与库内其他文献没有引用关系（{L.lonely.length} 篇）</span></h2>
+        <p class="muted small">它们只靠内容相似度挂在星宿上：或是方法论与背景文献，或是值得补齐上下游文献的线索。</p>
+        <ul class="list">{L.lonely.slice(0, 12).map((id: string) => <li><PaperLine p={byId[id]} cons={cons} /></li>)}</ul>
+      </section>
+    </div>
+
+    <div class="grid cols-2">
+      <section>
+        <h2>关键词</h2>
+        <p class="cloud">
+          {L.kw_top.map((k: any) => <a href={`${base}rank/?q=${encodeURIComponent(k.k)}`} style={`font-size:${12 + 12 * k.n / maxKw}px;opacity:${0.55 + 0.45 * k.n / maxKw}`}>{k.k}</a>)}
+        </p>
+        <h3>常一起出现</h3>
+        <p class="chips">{L.kw_pairs.slice(0, 16).map((p: any) => <span class="chip">{p.a} + {p.b} · {p.n}</span>)}</p>
+      </section>
+      <section>
+        <h2>构成</h2>
+        <h3>研究类型</h3>
+        <ul class="bars">{sortedKinds.map(([k, n]: any) => <li><span>{v.kind[k] || "未标注"}</span><i style={`width:${100 * n / maxKind}%`}></i><b>{n}</b></li>)}</ul>
+        <h3>情境国家</h3>
+        <ul class="bars">{sortedCountries.map(([k, n]: any) => <li><span>{v.country[k] || "未标注"}</span><i style={`width:${100 * n / maxCountry}%`}></i><b>{n}</b></li>)}</ul>
+      </section>
+    </div>
+
+    <section class="card gen">
+      <h2>生成层 <span class="chip">待运行</span></h2>
+      <p class="muted">星宿综述、跨星宿研究设想、结论分歧地图将由本地命令 <code>senlab lab</code> 生成（默认 DeepSeek），只在星宿成员或笔记变化时重算，结果标注模型与日期后发布在这里。</p>
+    </section>
+  </main>
+</Layout>
+<style>
+  .wide { max-width: 1320px; }
+  .tablewrap { overflow-x: auto; }
+  .matrix { border-collapse: separate; border-spacing: 3px; font-size: 13px; }
+  .matrix .mh { height: 120px; vertical-align: bottom; padding: 0 2px; }
+  .matrix .mh span { writing-mode: vertical-rl; color: var(--muted); font-weight: 400; white-space: nowrap; }
+  .matrix .rh { text-align: right; font-weight: 400; padding-right: 8px; white-space: nowrap; }
+  .matrix td { width: 34px; height: 30px; text-align: center; border-radius: 5px; background: rgba(232, 196, 122, var(--a)); color: var(--text); font-variant-numeric: tabular-nums; }
+  .matrix td:not([style*="--a:0;"]) { cursor: help; }
+  .spark { border-collapse: collapse; font-size: 12.5px; width: 100%; }
+  .spark th { font-weight: 400; color: var(--muted); text-align: left; white-space: nowrap; padding: 2px 6px 2px 0; }
+  .spark thead th { text-align: center; }
+  .spark td { height: 34px; vertical-align: bottom; text-align: center; border-bottom: 1px solid var(--border); }
+  .spark .bar { display: inline-block; width: 14px; border-radius: 3px 3px 0 0; opacity: .85; }
+  .dotc { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--dot); margin-right: 6px; box-shadow: 0 0 6px var(--dot); }
+  .flows li { display: grid; grid-template-columns: minmax(0, 1fr) 120px 28px; gap: 10px; align-items: center; padding: 7px 0; font-size: 13.5px; }
+  .fbar { height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
+  .fbar i { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--gold)); }
+  .cloud { line-height: 2; }
+  .cloud a { margin-right: 12px; font-family: var(--serif); }
+  .bars { list-style: none; padding: 0; margin: 0; }
+  .bars li { display: grid; grid-template-columns: 110px 1fr 32px; gap: 10px; align-items: center; font-size: 13px; padding: 3px 0; }
+  .bars i { height: 8px; border-radius: 4px; background: linear-gradient(90deg, rgba(232,196,122,.35), var(--gold)); }
+  .bars b { font-weight: 500; text-align: right; color: var(--text-2); }
+  .gen { margin-top: 40px; }
+  .gen h2 { margin-top: 0; }
+  code { font-family: var(--mono); background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
+</style>

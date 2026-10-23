@@ -1,0 +1,272 @@
+---
+import { marked } from "marked";
+import Layout from "../../layouts/Layout.astro";
+import PaperLine from "../../components/PaperLine.astro";
+import papers from "../../data/papers.json";
+import constellations from "../../data/constellations.json";
+import vocab from "../../data/vocab.json";
+
+export function getStaticPaths() {
+  return papers.map((p: any) => ({ params: { id: p.id }, props: { p } }));
+}
+const { p } = Astro.props as any;
+const base = import.meta.env.BASE_URL;
+const byId = Object.fromEntries(papers.map((x: any) => [x.id, x]));
+const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
+const c = cons[p.constellation];
+const v: any = vocab;
+const md = (s: string) => marked.parse(s || "", { async: false }) as string;
+
+const citeLine = [p.venue, p.volume && `${p.volume}${p.issue ? `(${p.issue})` : ""}`, p.pages].filter(Boolean).join(", ");
+const related = p.related.slice(0, 8).map((r: any) => ({ ...r, p: byId[r.id] })).filter((r: any) => r.p);
+const siblings = c.members.filter((m: string) => m !== p.id).slice(0, 6).map((m: string) => byId[m]);
+const cites = p.cites.map((x: string) => byId[x]).filter(Boolean);
+const citedBy = p.cited_by_lib.map((x: string) => byId[x]).filter(Boolean);
+
+// ego network: this paper in the middle, related papers on a ring
+const ring = related.slice(0, 8);
+const R = 92, CX = 130, CY = 120;
+const pts = ring.map((r: any, i: number) => {
+  const a = -Math.PI / 2 + (2 * Math.PI * i) / ring.length;
+  const kind = p.cites.includes(r.id) ? "out" : p.cited_by_lib.includes(r.id) ? "in" : "sim";
+  return { ...r, x: CX + R * Math.cos(a), y: CY + R * Math.sin(a), kind, color: cons[r.p.constellation].color };
+});
+const jelName = (code: string) => v.jel.codes[code] || v.jel.top[code[0]] || code;
+
+// six-dimension rating radar
+const dims = Object.entries(v.ratings) as [string, any][];
+const RR = 70, RCX = 130, RCY = 92;
+const axis = (i: number, r: number) => {
+  const a = -Math.PI / 2 + (2 * Math.PI * i) / dims.length;
+  return [RCX + r * Math.cos(a), RCY + r * Math.sin(a)];
+};
+const hasRatings = Object.keys(p.ratings).length > 0;
+const poly = dims.map(([k], i) => axis(i, (RR * (p.ratings[k] ?? 0)) / 10).join(",")).join(" ");
+const isDev = import.meta.env.DEV;
+const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenAlex ${p.metrics.cited_by_src.openalex ?? "—"}`;
+---
+<Layout title={p.title} active="rank" description={p.summary ? p.summary.slice(0, 120) : (p.abstract || "").slice(0, 160)}>
+  <main class="page detail">
+    <nav class="crumbs small">
+      <a href={base}>星图</a> / <a href={`${base}stars/${c.key}/`} style={`color:${c.color}`}>{c.lodge}宿 · {c.name}</a>
+    </nav>
+
+    <header class="head">
+      <h1 lang={p.lang === "zh" ? "zh" : "en"}>{p.title}</h1>
+      <p class="authors">{p.authors.join(p.lang === "zh" ? "、" : ", ")}</p>
+      <p class="muted small">
+        {p.year}{citeLine && ` · ${citeLine}`}
+        {p.doi && <> · <a class="doi" href={`https://doi.org/${p.doi}`} target="_blank" rel="noopener">doi:{p.doi}</a></>}
+        {p.url && <> · <a class="doi" href={p.url} target="_blank" rel="noopener">原文链接</a></>}
+      </p>
+      <div class="chips attrs">
+        {p.kind && <span class="chip gold">{v.kind[p.kind]}</span>}
+        {p.methods.map((m: string) => <a class="chip" href={`${base}rank/?m=${m}`}>{v.methods[m] || m}</a>)}
+        {p.data.filter((d: string) => d !== "none").map((d: string) => <span class="chip">{v.data[d] || d}</span>)}
+        {p.country && p.country !== "none" && <span class="chip">{v.country[p.country] || p.country}</span>}
+        {p.jel.map((j: string) => <span class="chip mono" title={jelName(j)}>{j} {jelName(j)}</span>)}
+      </div>
+    </header>
+
+    <div class="cols">
+      <article>
+        <section class="metrics">
+          <div><b>#{p.metrics.rank}</b><span>中心度排名</span></div>
+          <div><b>{p.metrics.cited_in_lib}</b><span>库内被引</span></div>
+          <div><b>{p.metrics.cites_in_lib}</b><span>引用库内</span></div>
+          <div title={citeSrc}><b>{p.metrics.cited_by ?? "—"}</b><span>外部被引</span></div>
+          <div><b>{p.rating ?? "—"}</b><span>综合评分</span></div>
+          <div><b id="my-reads">{p.metrics.my_reads}</b><span>我读过</span></div>
+          <div><b>{p.metrics.ai_reads}</b><span>AI 调用</span></div>
+        </section>
+
+        {p.summary ? (
+          <section>
+            <h2>简介</h2>
+            <div class="prose" set:html={md(p.summary)} />
+            {p.abstract && (
+              <details class="abs">
+                <summary>原文摘要</summary>
+                <p>{p.abstract}</p>
+              </details>
+            )}
+          </section>
+        ) : (
+          <section>
+            <h2>摘要 <span class="muted small">原文 · 简介待写</span></h2>
+            <div class="prose"><p>{p.abstract || "暂无摘要。"}</p></div>
+          </section>
+        )}
+
+        {p.keywords.length > 0 && (
+          <div class="chips kw">{p.keywords.map((k: string) => <a class="chip" href={`${base}rank/?q=${encodeURIComponent(k)}`}># {k}</a>)}</div>
+        )}
+
+        <section>
+          <h2>笔记</h2>
+          {p.notes.length ? p.notes.map((n: any) => (
+            <div class="note">
+              <p class="nd small"><span class="mono">{n.date}</span> {n.title}</p>
+              <div class="prose" set:html={md(n.body)} />
+            </div>
+          )) : <p class="muted">还没有读后笔记。</p>}
+        </section>
+
+        {(cites.length > 0 || citedBy.length > 0) && (
+          <section class="grid cols-2">
+            <div>
+              <h3>引用了库内 {cites.length} 篇</h3>
+              <ul class="list">{cites.map((x: any) => <li><PaperLine p={x} cons={cons} /></li>)}</ul>
+            </div>
+            <div>
+              <h3>被库内 {citedBy.length} 篇引用</h3>
+              <ul class="list">{citedBy.map((x: any) => <li><PaperLine p={x} cons={cons} /></li>)}</ul>
+            </div>
+          </section>
+        )}
+      </article>
+
+      <aside>
+        <section class="card rate">
+          <h3 class="ah">道法势术器 · 主观 <span class="muted small">{hasRatings ? `综合 ${p.rating}` : "未评分"}</span></h3>
+          <svg viewBox="0 0 260 190" class="radar" role="img" aria-label="六维评分">
+            {[0.25, 0.5, 0.75, 1].map((f) => <polygon class="ring" points={dims.map((_, i) => axis(i, RR * f).join(",")).join(" ")} />)}
+            {dims.map((_, i) => <line class="spoke" x1={RCX} y1={RCY} x2={axis(i, RR)[0]} y2={axis(i, RR)[1]} />)}
+            {hasRatings && <polygon class="val" points={poly} />}
+            {dims.map(([k, d], i) => {
+              const [x, y] = axis(i, RR + 16);
+              return <text x={x} y={y + 4} text-anchor="middle"><title>{d.means}</title>{d.label}{p.ratings[k] ? ` ${p.ratings[k]}` : ""}</text>;
+            })}
+          </svg>
+          {Object.keys(p.rating_notes).length > 0 && (
+            <details class="rnotes small">
+              <summary>评分说明</summary>
+              <ul>{dims.filter(([k]) => p.rating_notes[k]).map(([k, d]) => <li><b>{d.label}</b> {p.rating_notes[k]}</li>)}</ul>
+            </details>
+          )}
+          {isDev && (
+            <div class="local" data-id={p.id}>
+              <p class="lt small">本地记录 <span class="muted">（只在本机预览时出现，写入 content 与 data/reads.jsonl）</span></p>
+              <div class="readrow">
+                <button class="btn" data-read="1">读过 +1</button>
+                <button class="btn" data-read="-1">−1</button>
+                <span class="small muted">已记 <b class="rc">{p.metrics.my_reads}</b> 次{p.metrics.last_read ? `，上次 ${p.metrics.last_read}` : ""}</span>
+              </div>
+              <div class="rateform">
+                {dims.map(([k, d]) => (
+                  <label title={d.means}>{d.label}<input type="number" min="1" max="10" step="1" name={k} value={p.ratings[k] ?? ""} /></label>
+                ))}
+              </div>
+              <button class="btn save">保存评分</button> <span class="small muted status"></span>
+            </div>
+          )}
+        </section>
+        <section class="card" style="margin-top:16px">
+          <h3 class="ah">关联文献</h3>
+          {pts.length > 0 && (
+            <svg viewBox="0 0 260 240" class="ego" role="img" aria-label="以本文为中心的关联文献">
+              {pts.map((q: any) => (
+                <line x1={CX} y1={CY} x2={q.x} y2={q.y} class={`e ${q.kind}`} />
+              ))}
+              {pts.map((q: any) => (
+                <a href={`${base}papers/${q.id}/`}>
+                  <circle cx={q.x} cy={q.y} r={4 + 4 * Math.min(1, q.score / 2)} fill={q.color}><title>{q.p.title}</title></circle>
+                  <text x={q.x} y={q.y + (q.y > CY ? 16 : -9)} text-anchor="middle">{q.p.authors_short.split(" ")[0]} {String(q.p.year).slice(2)}</text>
+                </a>
+              ))}
+              <circle cx={CX} cy={CY} r="9" fill={c.color} class="me" />
+            </svg>
+          )}
+          <p class="legendline small"><span class="l out"></span>引用 <span class="l in"></span>被引 <span class="l sim"></span>相近</p>
+          <ul class="list">
+            {related.map((r: any) => (
+              <li>
+                <PaperLine p={r.p} cons={cons} />
+                <span class="why small">{r.reasons.join(" · ")}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <section class="card" style="margin-top:16px">
+          <h3 class="ah">同一星宿</h3>
+          <ul class="list">{siblings.map((x: any) => <li><PaperLine p={x} cons={cons} /></li>)}</ul>
+          <a class="more small" href={`${base}stars/${c.key}/`}>查看{c.lodge}宿全部 {c.members.length} 篇 →</a>
+        </section>
+      </aside>
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // local recording controls (rendered only by `astro dev`)
+  const box = document.querySelector<HTMLElement>(".local");
+  if (box) {
+    const id = box.dataset.id!;
+    const api = `${import.meta.env.BASE_URL}_local/`;
+    const status = box.querySelector(".status")!;
+    const post = (path: string, body: object) =>
+      fetch(api + path + "/", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ id, ...body }) }).then((r) => r.json());
+    box.querySelectorAll<HTMLButtonElement>("[data-read]").forEach((b) =>
+      b.addEventListener("click", async () => {
+        const res = await post("read", { delta: Number(b.dataset.read) });
+        box.querySelector(".rc")!.textContent = String(res.reads);
+        document.getElementById("my-reads")!.textContent = String(res.reads);
+      }));
+    box.querySelector(".save")!.addEventListener("click", async () => {
+      const ratings: Record<string, number> = {};
+      box.querySelectorAll<HTMLInputElement>(".rateform input").forEach((i) => { if (i.value) ratings[i.name] = Number(i.value); });
+      const res = await post("rate", { ratings });
+      status.textContent = res.error ? `失败：${res.error}` : "已保存，页面将自动刷新";
+    });
+  }
+</script>
+
+<style>
+  .detail { max-width: 1240px; }
+  .crumbs { color: var(--muted); }
+  .head h1 { font-size: 30px; max-width: 900px; }
+  .authors { margin: 0; color: var(--text-2); }
+  .doi { color: var(--cyan); }
+  .attrs { margin-top: 14px; }
+  .cols { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 40px; margin-top: 28px; }
+  @media (max-width: 960px) { .cols { grid-template-columns: 1fr; } }
+  .radar { width: 100%; height: auto; }
+  .radar .ring { fill: none; stroke: var(--border-strong); }
+  .radar .spoke { stroke: var(--border); }
+  .radar .val { fill: rgba(232,196,122,.22); stroke: var(--gold); stroke-width: 1.5; }
+  .radar text { fill: var(--text-2); font-size: 12px; font-family: var(--serif); }
+  .rnotes ul { padding-left: 1.1em; margin: 6px 0 0; color: var(--text-2); }
+  .rnotes b { color: var(--gold); font-weight: 500; }
+  .local { border-top: 1px dashed var(--border-strong); margin-top: 12px; padding-top: 10px; }
+  .lt { margin: 0 0 8px; color: var(--gold); }
+  .readrow { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+  .rateform { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px; }
+  .rateform label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-2); }
+  .rateform input { width: 52px; background: var(--surface-2); border: 1px solid var(--border-strong); border-radius: 6px; color: var(--text); padding: 3px 6px; font: 13px var(--sans); }
+  .metrics { display: grid; grid-template-columns: repeat(7, 1fr); border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+  .metrics div { padding: 12px 14px; border-left: 1px solid var(--border); }
+  .metrics div:first-child { border-left: none; }
+  .metrics b { display: block; font-family: var(--serif); font-size: 21px; }
+  .metrics span { font-size: 12px; color: var(--muted); }
+  @media (max-width: 760px) { .metrics { grid-template-columns: repeat(4, 1fr); } .metrics div:nth-child(5) { border-left: none; } .metrics div:nth-child(n+5) { border-top: 1px solid var(--border); } }
+  .abs { margin-top: 8px; color: var(--text-2); font-size: 14px; }
+  .abs summary { cursor: pointer; color: var(--muted); }
+  .kw { margin-top: 18px; }
+  .note { border-left: 2px solid var(--gold-dim); padding-left: 16px; margin-bottom: 18px; }
+  .nd { color: var(--gold); margin: 0 0 4px; }
+  .ah { margin-top: 0; }
+  .ego { width: 100%; height: auto; }
+  .ego .e { stroke-width: 1.2; }
+  .ego .e.out { stroke: var(--gold); }
+  .ego .e.in { stroke: var(--cyan); }
+  .ego .e.sim { stroke: rgba(200,210,255,.35); stroke-dasharray: 3 3; }
+  .ego text { fill: var(--text-2); font-size: 10px; font-family: var(--sans); }
+  .ego .me { filter: drop-shadow(0 0 6px currentColor); }
+  .legendline { display: flex; gap: 10px; align-items: center; color: var(--muted); margin: 4px 0 8px; }
+  .legendline .l { display: inline-block; width: 16px; height: 0; border-top: 2px solid; margin-right: 2px; }
+  .legendline .out { border-color: var(--gold); }
+  .legendline .in { border-color: var(--cyan); }
+  .legendline .sim { border-color: rgba(200,210,255,.5); border-top-style: dashed; }
+  .why { display: block; color: var(--muted); margin-top: 3px; }
+  .more { color: var(--gold); display: inline-block; margin-top: 8px; }
+</style>
