@@ -38,7 +38,7 @@ const internal = members.flatMap((p: any) => p.cites.filter((x: string) => set.h
         <li>
           <span class="idx mono">{i + 1}</span>
           <div>
-            <PaperLine p={p} cons={cons} extra={`库内被引 ${p.metrics.cited_in_lib}${p.id === c.star ? " · 距星" : ""}`} />
+            <PaperLine p={p} cons={cons} extra={`库内被引 ${p.metrics.cited_in_lib}${p.id === c.star ? " · 距星" : ""}${p.metrics.pinned ? " · 人工归入" : p.metrics.conf < 0.5 ? ` · 边缘（置信度 ${p.metrics.conf}）` : ""}`} />
             {p.summary && <p class="sum small">{p.summary.split("\n")[0].replace(/\*\*/g, "").slice(0, 140)}</p>}
           </div>
         </li>

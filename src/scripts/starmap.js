@@ -113,7 +113,10 @@ export async function initStarmap(root) {
   });
 
   // on wide screens the sky sits right of the intro text and legend
-  const R = () => (W < H * 0.8 ? Math.min(W * 0.52, (H - 240) / 2) : Math.min(W * (W > 900 ? 0.82 : 1), H * 1.2) * 0.42);
+  // x spans ±1 and y about ±0.85: keep the sky clear of the top bar and the time bar
+  const R = () => (W < H * 0.8
+    ? Math.min(W * 0.52, (H - 240) / 2)
+    : Math.min((W - (W > 900 ? 2 * Math.min(150, W * 0.08) + 120 : 60)) / 2.1, (H - 200) / 1.75));
   const CX = () => W / 2 + (W > 900 ? Math.min(150, W * 0.08) : 0);
   const project = (x, y, depth = 1) => {
     const dx = x - view.fx * depth, dy = y - view.fy * depth;
