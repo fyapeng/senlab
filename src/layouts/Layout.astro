@@ -3,7 +3,7 @@ import "../styles/global.css";
 import meta from "../data/meta.json";
 
 interface Props { title?: string; active?: string; overlay?: boolean; description?: string }
-const { title, active = "", overlay = false, description = "SenciumLab：付亚鹏的个人文献库，文献星图、排行、详细简介与读书笔记。" } = Astro.props;
+const { title, active = "", overlay = false, description = "SenciumLab · 申椿文献库：文献星图、排行、详细简介与读书笔记。" } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const nav = [
   ["map", "星图", ""],
@@ -32,7 +32,7 @@ const nav = [
     <slot />
     {!overlay && (
       <footer class="footer">
-        <span>SenciumLab · 付亚鹏的文献库 · 数据更新于 {meta.built} · 中心度口径：库内引用 PageRank（自 2026-10-24）</span>
+        <span>SenciumLab · 申椿文献库 · 数据更新于 {meta.built} · 中心度口径：库内引用 PageRank（自 2026-10-24）</span>
         <span>简介与笔记为个人阅读记录；准确引用请回到原文。</span>
       </footer>
     )}
