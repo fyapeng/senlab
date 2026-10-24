@@ -1,0 +1,99 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import LabNav from "../../components/lab/LabNav.astro";
+import papers from "../../data/papers.json";
+import constellations from "../../data/constellations.json";
+import frontier from "../../data/frontier.json";
+import lab from "../../data/lab.json";
+import labGen from "../../data/lab_gen.json";
+import meta from "../../data/meta.json";
+
+const base = import.meta.env.BASE_URL;
+const F: any = frontier, L: any = lab, G: any = labGen;
+const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
+const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
+
+// 全景: the constellation where the field publishes most relative to the library
+const near = (F.journals?.papers || []).filter((f: any) => f.c);
+const heat = constellations.map((c: any) => {
+  const lib = papers.filter((p: any) => p.constellation === c.key).length;
+  const hot = near.filter((f: any) => f.c === c.key).length;
+  return { c, ratio: lib && near.length ? hot / near.length / (lib / papers.length) : 0 };
+}).sort((a: any, b: any) => b.ratio - a.ratio);
+
+// 工具
+const tools = papers.filter((p: any) => p.rating_notes?.qi).length;
+
+// AI 研读: a feasible idea from a paper rated highly for my own work
+const ideas = Object.entries(G.ideas || {}).filter(([id]) => byId[id]) as [string, any][];
+const featured = ideas.sort(([a, x], [b, y]) => (x.feasibility === "高" ? 0 : 1) - (y.feasibility === "高" ? 0 : 1)
+  || (byId[b].ratings.subjective ?? 0) - (byId[a].ratings.subjective ?? 0))[0];
+const nDisputes = Object.values(G.disputes || {}).reduce((s: number, d: any) => s + (d.items?.length || 0), 0);
+
+const cards = [
+  {
+    href: "lab/landscape/", title: "全景", sub: "本库的整体结构",
+    parts: [["热度对照", "heat"], ["方法 × 星宿", "matrix"], ["主题演化与引用流", "evolution"], ["桥梁与孤星", "bridges"], ["关键词与构成", "keywords"]],
+    hint: heat[0] && { label: "领域相对最热", html: `<b style="color:${heat[0].c.color}">${heat[0].c.lodge}宿 · ${heat[0].c.name}</b>：五大期刊相关新文中的占比是本库占比的 ${heat[0].ratio.toFixed(1)} 倍` },
+  },
+  {
+    href: "lab/toolkit/", title: "工具", sub: "可以直接上手用",
+    parts: [["引用路径", "path"], ["评分象限", "ratings"], ["方法工具箱", "tools"]],
+    hint: { label: "规模", html: `${meta.counts.citation_edges} 条库内引用可供寻路 · ${tools} 条可复用的方法工具` },
+  },
+  {
+    href: "lab/ai/", title: "AI 研读", sub: "DeepSeek 依据本库写成",
+    parts: [["星宿综述", "reviews"], ["中国情境研究设想", "ideas"], ["分歧地图", "disputes"]],
+    hint: featured && {
+      label: `研究设想 · 可行性${featured[1].feasibility}`,
+      html: `<a href="${base}lab/ai/#ideas">${featured[1].title}</a><span>源自 ${byId[featured[0]].authors_short} ${byId[featured[0]].year}</span>`,
+    },
+    counts: `${Object.keys(G.review || {}).length} 篇综述 · ${ideas.length} 条设想 · ${nDisputes} 处分歧`,
+  },
+];
+---
+<Layout title="探索实验室" active="lab">
+  <main class="page wide">
+    <LabNav active="home" title="探索实验室" lede="基于本库自身做的分析，分三部分：全景看整体结构，工具用来检索和探索，AI 研读是 DeepSeek 依据本库内容写的综述、研究设想与分歧。" />
+
+    <div class="cards">
+      {cards.map((c) => (
+        <section class="card lab-card">
+          <a class="ttl" href={`${base}${c.href}`}><h2>{c.title}</h2><span class="muted small">{c.sub}</span></a>
+          <ul class="parts">
+            {c.parts.map(([label, anchor]) => <li><a href={`${base}${c.href}#${anchor}`}>{label}</a></li>)}
+          </ul>
+          {c.counts && <p class="small muted">{c.counts}</p>}
+          {c.hint && (
+            <div class="hint">
+              <span class="lbl">{c.hint.label}</span>
+              <p set:html={c.hint.html} />
+            </div>
+          )}
+          <a class="go" href={`${base}${c.href}`}>进入{c.title} →</a>
+        </section>
+      ))}
+    </div>
+  </main>
+</Layout>
+<style>
+  .wide { max-width: 1320px; }
+  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+  .lab-card { display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; }
+  .ttl { display: flex; align-items: baseline; gap: 10px; }
+  .ttl h2 { margin: 0; font-size: 22px; }
+  .ttl:hover h2 { color: var(--gold); }
+  .parts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .parts a { color: var(--text-2); font-size: 14.5px; }
+  .parts a::before { content: "· "; color: var(--muted); }
+  .parts a:hover { color: var(--gold); }
+  .lab-card > p { margin: 0; }
+  .hint { padding: 12px 14px; border-radius: 8px; background: var(--surface-2); }
+  .hint .lbl { font-size: 11.5px; letter-spacing: .08em; color: var(--muted); }
+  .hint p { margin: 4px 0 0; font-size: 14px; line-height: 1.7; color: var(--text-2); }
+  :global(.hint p a) { display: block; font-family: var(--serif); font-size: 15.5px; color: var(--text); }
+  :global(.hint p a:hover) { color: var(--gold); }
+  :global(.hint p span) { display: block; font-size: 12.5px; color: var(--muted); }
+  .go { margin-top: auto; color: var(--gold); font-size: 14px; }
+  @media (max-width: 900px) { .cards { grid-template-columns: minmax(0, 1fr); } }
+</style>

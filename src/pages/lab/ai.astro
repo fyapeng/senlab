@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import LabNav from "../../components/lab/LabNav.astro";
+import GenLayer from "../../components/lab/GenLayer.astro";
+import papers from "../../data/papers.json";
+import constellations from "../../data/constellations.json";
+import labGen from "../../data/lab_gen.json";
+---
+<Layout title="AI 研读 · 探索实验室" active="lab">
+  <main class="page wide">
+    <LabNav active="ai" title="AI 研读" lede="DeepSeek 依据本库各篇的简介、评分说明与公开笔记写成：每个星宿的综述、把外国研究搬到中国情境的研究设想、同一问题上结论不同的文献。只在库有变化时重写，未经人工逐条核对。" />
+    <GenLayer gen={labGen} papers={papers} constellations={constellations} />
+  </main>
+</Layout>
+<style>
+  .wide { max-width: 1320px; }
+  code { font-family: var(--mono); background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
+</style>

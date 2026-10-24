@@ -27,8 +27,14 @@ const empty = !reviews.length && !ideas.length && !disputes.length;
 <div class="gen">
   <p class="ai small">AI 生成 · DeepSeek {models.join("、")} · {dates[0]}{dates.at(-1) !== dates[0] ? `–${dates.at(-1)}` : ""} · 依据本库各篇的简介、评分说明与公开笔记写成，未经人工逐条核对；引用的文献均在库内，点击可查原文要点。</p>
 
-  <section id="reviews">
-    <h3>星宿综述 <span class="muted small">{reviews.length} 个星宿</span></h3>
+  <nav class="gtabs" data-gtabs>
+    <button type="button" data-t="reviews" class="on">星宿综述 <em>{reviews.length}</em></button>
+    <button type="button" data-t="ideas">中国情境研究设想 <em>{ideas.length}</em></button>
+    <button type="button" data-t="disputes">分歧地图 <em>{disputes.length}</em></button>
+  </nav>
+
+  <section id="reviews" data-tab="reviews">
+    <p class="desc small muted">每个星宿一篇：它在回答什么问题、怎样发展而来、还有哪些问题没有答案。选择星宿查看。</p>
     <div class="pills" data-pills>
       {reviews.map(({ c }, i) => <button type="button" class:list={{ on: i === 0 }} data-k={c.key} style={`--dot:${c.color}`}><i>{c.lodge}</i>{c.name}</button>)}
     </div>
@@ -51,8 +57,8 @@ const empty = !reviews.length && !ideas.length && !disputes.length;
     ))}
   </section>
 
-  <section id="ideas">
-    <h3>中国情境研究设想 <span class="muted small">{ideas.length} 条 · 基于「器」8 分以上、用外国数据的实证文章</span></h3>
+  <section id="ideas" data-tab="ideas" hidden>
+    <p class="desc small muted">从「器」8 分以上、用外国数据的实证文章出发，设想在中国可以利用什么制度变化与数据做类似研究。点开查看问题、政策、数据、设计与威胁。</p>
     <div class="filters" data-ideas-filter>
       <button type="button" class="on" data-f="">全部</button>
       {["高", "中", "低"].map((f) => <button type="button" data-f={f}>可行性{f}</button>)}
@@ -79,11 +85,17 @@ const empty = !reviews.length && !ideas.length && !disputes.length;
     </div>
   </section>
 
-  <section id="disputes">
-    <h3>分歧地图 <span class="muted small">{disputes.length} 处 · 同一问题上结论不同的库内文献</span></h3>
+  <section id="disputes" data-tab="disputes" hidden>
+    <p class="desc small muted">同一问题上结论不同的库内文献：两方各自的结论、分歧来自哪里、能否调和。</p>
+    <div class="pills" data-dfilter>
+      <button type="button" class="on" data-k="">全部 <em>{disputes.length}</em></button>
+      {constellations.filter((c: any) => disputes.some((x) => x.c.key === c.key)).map((c: any) => (
+        <button type="button" data-k={c.key} style={`--dot:${c.color}`}><i>{c.lodge}</i>{c.name} <em>{disputes.filter((x) => x.c.key === c.key).length}</em></button>
+      ))}
+    </div>
     <div class="disputes">
       {disputes.map(({ c, d }) => (
-        <article class="dispute" style={`--dot:${c.color}`}>
+        <article class="dispute" data-k={c.key} style={`--dot:${c.color}`}>
           <p class="dq"><i>{c.lodge}</i><span set:html={inline(d.question)} /></p>
           <div class="sides">
             {(d.sides || []).slice(0, 2).map((s: any) => (
@@ -102,11 +114,30 @@ const empty = !reviews.length && !ideas.length && !disputes.length;
 )}
 
 <script>
+  // tabs: one part at a time; #reviews / #ideas / #disputes in the address opens that part
+  document.querySelectorAll<HTMLElement>("[data-gtabs]").forEach((bar) => {
+    const box = bar.parentElement!;
+    const show = (t: string, push = true) => {
+      bar.querySelectorAll<HTMLButtonElement>("button").forEach((b) => b.classList.toggle("on", b.dataset.t === t));
+      box.querySelectorAll<HTMLElement>("[data-tab]").forEach((s) => (s.hidden = s.dataset.tab !== t));
+      if (push) history.replaceState(null, "", `#${t}`);
+    };
+    bar.querySelectorAll<HTMLButtonElement>("button").forEach((b) => b.addEventListener("click", () => show(b.dataset.t!)));
+    const h = location.hash.slice(1);
+    if (box.querySelector(`[data-tab="${h}"]`)) show(h, false);
+  });
   document.querySelectorAll<HTMLElement>("[data-pills]").forEach((bar) => {
     const box = bar.parentElement!;
     bar.querySelectorAll<HTMLButtonElement>("button").forEach((b) => b.addEventListener("click", () => {
       bar.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
       box.querySelectorAll<HTMLElement>(".review").forEach((r) => (r.hidden = r.dataset.k !== b.dataset.k));
+    }));
+  });
+  document.querySelectorAll<HTMLElement>("[data-dfilter]").forEach((bar) => {
+    const cards = [...bar.parentElement!.querySelectorAll<HTMLElement>(".dispute")];
+    bar.querySelectorAll<HTMLButtonElement>("button").forEach((b) => b.addEventListener("click", () => {
+      bar.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
+      cards.forEach((c) => (c.hidden = !!b.dataset.k && c.dataset.k !== b.dataset.k));
     }));
   });
   document.querySelectorAll<HTMLElement>("[data-ideas-filter]").forEach((bar) => {
@@ -120,11 +151,19 @@ const empty = !reviews.length && !ideas.length && !disputes.length;
 
 <style>
   .ai { margin: 0 0 18px; padding: 8px 12px; border-radius: 8px; border: 1px dashed var(--border-strong); color: var(--muted); }
-  h3 { margin: 26px 0 10px; font-size: 18px; }
+  .gtabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+  .gtabs button { background: var(--surface); border: 1px solid var(--border-strong); border-radius: 999px; color: var(--text-2); font: 14px var(--sans); padding: 6px 16px; cursor: pointer; }
+  .gtabs button em { font-style: normal; color: var(--muted); margin-left: 4px; }
+  .gtabs button.on { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+  .gtabs button.on em { color: var(--bg); opacity: .7; }
+  .desc { margin: 0 0 12px; max-width: 760px; }
   section[id] { scroll-margin-top: 70px; }
   .pills, .filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
   .pills button, .filters button { background: none; border: 1px solid var(--border-strong); border-radius: 999px; color: var(--text-2); font: 13px var(--sans); padding: 3px 12px; cursor: pointer; }
   .pills i { font-style: normal; font-family: var(--serif); color: var(--dot); margin-right: 5px; }
+  .pills em { font-style: normal; color: var(--muted); margin-left: 3px; font-size: 11.5px; }
+  [data-dfilter] button.on:first-child { border-color: var(--gold); background: var(--gold-dim); }
+  .dispute[hidden] { display: none; }
   .pills button.on { border-color: var(--dot); background: color-mix(in srgb, var(--dot) 18%, transparent); color: var(--text); }
   .filters button.on { background: var(--gold); border-color: var(--gold); color: var(--bg); }
   .review { max-width: 880px; padding: 18px 22px; border-radius: var(--radius); border: 1px solid var(--border); border-left: 3px solid var(--dot); background: var(--surface); }

@@ -1,0 +1,29 @@
+---
+// Header and section tabs shared by the lab's pages.
+interface Props { active: "home" | "landscape" | "toolkit" | "ai"; title: string; lede: string }
+const { active, title, lede } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const tabs = [
+  ["home", "概览", "lab/"],
+  ["landscape", "全景", "lab/landscape/"],
+  ["toolkit", "工具", "lab/toolkit/"],
+  ["ai", "AI 研读", "lab/ai/"],
+] as const;
+---
+<header class="page-head lab-head">
+  <p class="eyebrow">Lab{active !== "home" && <> · <a href={`${base}lab/`}>探索实验室</a></>}</p>
+  <h1>{title}</h1>
+  <p class="lede">{lede}</p>
+  <nav class="lab-tabs" aria-label="实验室各部分">
+    {tabs.map(([k, label, href]) => <a href={`${base}${href}`} class:list={{ on: k === active }} aria-current={k === active ? "page" : undefined}>{label}</a>)}
+  </nav>
+</header>
+<style>
+  .lab-head .eyebrow a { color: var(--muted); }
+  .lab-head .eyebrow a:hover { color: var(--gold); }
+  .lab-tabs { display: flex; gap: 4px; margin-top: 18px; border-bottom: 1px solid var(--border); }
+  .lab-tabs a { padding: 8px 16px; margin-bottom: -1px; border-bottom: 2px solid transparent; color: var(--muted); font-size: 14.5px; }
+  .lab-tabs a:hover { color: var(--text); }
+  .lab-tabs a.on { color: var(--gold); border-bottom-color: var(--gold); }
+  @media (max-width: 520px) { .lab-tabs a { padding: 8px 10px; font-size: 13.5px; } }
+</style>

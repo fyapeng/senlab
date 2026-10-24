@@ -1,17 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import PaperLine from "../components/PaperLine.astro";
-import papers from "../data/papers.json";
-import constellations from "../data/constellations.json";
-import vocab from "../data/vocab.json";
-import lab from "../data/lab.json";
-import frontier from "../data/frontier.json";
-import Heat from "../components/lab/Heat.astro";
-import RatingMap from "../components/lab/RatingMap.astro";
-import CitePath from "../components/lab/CitePath.astro";
-import Toolbox from "../components/lab/Toolbox.astro";
-import GenLayer from "../components/lab/GenLayer.astro";
-import labGen from "../data/lab_gen.json";
+import Layout from "../../layouts/Layout.astro";
+import PaperLine from "../../components/PaperLine.astro";
+import papers from "../../data/papers.json";
+import constellations from "../../data/constellations.json";
+import vocab from "../../data/vocab.json";
+import lab from "../../data/lab.json";
+import frontier from "../../data/frontier.json";
+import Heat from "../../components/lab/Heat.astro";
+import LabNav from "../../components/lab/LabNav.astro";
 
 const base = import.meta.env.BASE_URL;
 const v: any = vocab;
@@ -30,38 +26,16 @@ const sortedCountries = Object.entries(L.by_country).sort((a: any, b: any) => b[
 const maxKind = Math.max(...sortedKinds.map((x: any) => x[1]));
 const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
 ---
-<Layout title="探索实验室" active="lab">
+<Layout title="全景 · 探索实验室" active="lab">
   <main class="page wide">
-    <header class="page-head">
-      <p class="eyebrow">Lab</p>
-      <h1>探索实验室</h1>
-      <p class="lede">基于本库自身做的分析。上面各部分由程序计算，每次更新文献库时自动重算；页尾的生成层由 DeepSeek 依据本库内容写成，单独标注。</p>
-      <nav class="jump">
-        <a href="#heat">热度对照</a><a href="#ratings">评分象限</a><a href="#path">引用路径</a><a href="#tools">方法工具箱</a>
-        <a href="#matrix">方法 × 星宿</a><a href="#evolution">主题演化</a><a href="#bridges">桥梁与孤星</a><a href="#keywords">关键词与构成</a>
-        <a href="#gen" class="gen-link">生成层：综述 · 研究设想 · 分歧</a>
-      </nav>
-    </header>
+    <LabNav active="landscape" title="全景" lede="本库的整体结构：和领域发文的对比、方法覆盖、主题如何随年代演化、星宿之间如何互相引用、哪些文献连接多个主题。全部由程序计算，每次更新文献库时自动重算。" />
+    <nav class="jump">
+      <a href="#heat">热度对照</a><a href="#matrix">方法 × 星宿</a><a href="#evolution">主题演化与引用流</a><a href="#bridges">桥梁与孤星</a><a href="#keywords">关键词与构成</a>
+    </nav>
 
     <section id="heat">
       <h2>热度对照 <span class="muted small">五大期刊的新文章落在哪些星宿，和你的收藏比一比</span></h2>
       <Heat papers={papers} constellations={constellations} frontier={frontier} />
-    </section>
-
-    <div class="grid cols-2 duo">
-      <section id="ratings">
-        <h2>评分象限 <span class="muted small">默认：术（执行）× 道（洞见），可切换任意两项</span></h2>
-        <RatingMap papers={papers} cons={cons} dims={v.ratings} />
-      </section>
-      <section id="path">
-        <h2>引用路径 <span class="muted small">任意两篇之间最短的库内引用链</span></h2>
-        <CitePath papers={papers} cons={cons} />
-      </section>
-    </div>
-
-    <section id="tools">
-      <h2>方法工具箱 <span class="muted small">各篇「器」评分说明里可以拿来用的方法、框架与数据，按主要方法归类</span></h2>
-      <Toolbox papers={papers} cons={cons} methods={v.methods} />
     </section>
 
     <section id="matrix">
@@ -159,19 +133,14 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
       </section>
     </div>
 
-    <section id="gen" class="genwrap">
-      <h2>生成层 <span class="muted small">星宿综述 · 中国情境研究设想 · 分歧地图</span></h2>
-      <GenLayer gen={labGen} papers={papers} constellations={constellations} />
-    </section>
   </main>
 </Layout>
 <style>
   .wide { max-width: 1320px; }
   section[id] { scroll-margin-top: 70px; }
-  .jump { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .jump { display: flex; flex-wrap: wrap; gap: 6px; margin: -8px 0 8px; }
   .jump a { font-size: 13px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text-2); }
   .jump a:hover { border-color: var(--gold); color: var(--gold); }
-  .duo { gap: 40px; align-items: start; }
   .tablewrap { overflow-x: auto; }
   .matrix { border-collapse: separate; border-spacing: 3px; font-size: 13px; }
   .matrix .mh { height: 120px; vertical-align: bottom; padding: 0 2px; }
@@ -205,7 +174,4 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
   .bars li { display: grid; grid-template-columns: 110px 1fr 32px; gap: 10px; align-items: center; font-size: 13px; padding: 3px 0; }
   .bars i { height: 8px; border-radius: 4px; background: linear-gradient(90deg, rgba(232,196,122,.35), var(--gold)); }
   .bars b { font-weight: 500; text-align: right; color: var(--text-2); }
-  .genwrap { margin-top: 48px; padding-top: 8px; border-top: 1px solid var(--border); }
-  .jump .gen-link { border-color: rgba(232,196,122,.45); color: var(--gold); }
-  code { font-family: var(--mono); background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
 </style>

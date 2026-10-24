@@ -1,0 +1,40 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import LabNav from "../../components/lab/LabNav.astro";
+import CitePath from "../../components/lab/CitePath.astro";
+import RatingMap from "../../components/lab/RatingMap.astro";
+import Toolbox from "../../components/lab/Toolbox.astro";
+import papers from "../../data/papers.json";
+import constellations from "../../data/constellations.json";
+import vocab from "../../data/vocab.json";
+
+const v: any = vocab;
+const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
+---
+<Layout title="工具 · 探索实验室" active="lab">
+  <main class="page wide">
+    <LabNav active="toolkit" title="工具" lede="可以直接上手用的三件工具：找两篇文献之间的引用链，在评分平面上看文献分布，按方法检索各篇可复用的识别与估计工具。" />
+
+    <div class="grid cols-2 duo">
+      <section id="path">
+        <h2>引用路径 <span class="muted small">任意两篇之间最短的库内引用链</span></h2>
+        <CitePath papers={papers} cons={cons} />
+      </section>
+      <section id="ratings">
+        <h2>评分象限 <span class="muted small">默认：术（执行）× 道（洞见），可切换任意两项</span></h2>
+        <RatingMap papers={papers} cons={cons} dims={v.ratings} />
+      </section>
+    </div>
+
+    <section id="tools">
+      <h2>方法工具箱 <span class="muted small">各篇「器」评分说明里可以拿来用的方法、框架与数据，按主要方法归类</span></h2>
+      <Toolbox papers={papers} cons={cons} methods={v.methods} />
+    </section>
+  </main>
+</Layout>
+<style>
+  .wide { max-width: 1320px; }
+  section[id] { scroll-margin-top: 70px; }
+  .duo { gap: 40px; align-items: start; }
+  #path h2, #ratings h2 { margin-top: 8px; }
+</style>
