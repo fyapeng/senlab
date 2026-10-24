@@ -1,0 +1,117 @@
+---
+// Papers on two rating dimensions (default 术 × 道). Ratings are whole numbers and pile up, so each
+// (x, y) pair is a cell and its papers are dots packed inside it.
+interface Props { papers: any[]; cons: Record<string, any>; dims: Record<string, any> }
+const { papers, cons, dims } = Astro.props;
+const data = papers.filter((p: any) => Object.keys(p.ratings || {}).length).map((p: any) => ({
+  id: p.id, l: `${p.authors_short} ${p.year}`, t: p.title, c: cons[p.constellation]?.color || "#888", r: p.ratings,
+}));
+const keys = Object.keys(dims);
+---
+<div class="rm" data-points={JSON.stringify(data)} data-dims={JSON.stringify(dims)}>
+  <div class="axes">
+    <label>横轴 <select data-ax="x">{keys.map((k) => <option value={k} selected={k === "shu"}>{dims[k].label}</option>)}</select></label>
+    <label>纵轴 <select data-ax="y">{keys.map((k) => <option value={k} selected={k === "dao"}>{dims[k].label}</option>)}</select></label>
+    <span class="small muted" data-means></span>
+  </div>
+  <svg data-svg role="img" aria-label="按两项评分排布的文献"></svg>
+  <p class="small muted">每个点是一篇文献，颜色是星宿；同一格内的点评分相同。虚线把 8 分及以上与以下分开。点击打开文章。</p>
+</div>
+
+<script>
+  const NS = "http://www.w3.org/2000/svg";
+  const base = import.meta.env.BASE_URL;
+  // names for the four corners of the default view; other pairs get generic ones
+  const NAMES: Record<string, string[]> = {
+    "shu|dao": ["典范：洞见深、执行也好", "洞见先行：问题好、完成度一般", "精工之作：执行好、洞见一般", "两者都一般"],
+  };
+
+  document.querySelectorAll<HTMLElement>(".rm").forEach((box) => {
+    type P = { id: string; l: string; t: string; c: string; r: Record<string, number> };
+    const pts: P[] = JSON.parse(box.dataset.points!);
+    const dims: Record<string, { label: string; means: string }> = JSON.parse(box.dataset.dims!);
+    const svg = box.querySelector<SVGSVGElement>("[data-svg]")!;
+    const sel = (k: string) => box.querySelector<HTMLSelectElement>(`[data-ax="${k}"]`)!;
+    const el = (tag: string, attrs: Record<string, any>, parent: Element, text?: string) => {
+      const e = document.createElementNS(NS, tag);
+      for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, String(v));
+      if (text !== undefined) e.textContent = text;
+      parent.appendChild(e);
+      return e;
+    };
+
+    function draw() {
+      const kx = sel("x").value, ky = sel("y").value;
+      box.querySelector<HTMLElement>("[data-means]")!.textContent = `${dims[kx].label}：${dims[kx].means}；${dims[ky].label}：${dims[ky].means}`;
+      const rated = pts.filter((p) => p.r[kx] && p.r[ky]);
+      const xs = rated.map((p) => p.r[kx]), ys = rated.map((p) => p.r[ky]);
+      const x0 = Math.min(...xs, 6), y0 = Math.min(...ys, 6);
+      const nx = 10 - x0 + 1, ny = 10 - y0 + 1;
+      const cells = new Map<string, P[]>();
+      rated.forEach((p) => { const k = `${p.r[kx]}|${p.r[ky]}`; cells.set(k, [...(cells.get(k) ?? []), p]); });
+      const most = Math.max(...[...cells.values()].map((c) => c.length));
+      const per = Math.ceil(Math.sqrt(most));   // dots per row inside a cell
+
+      const L = 40, B = 34, T = 8, R = 8, cell = 64;
+      const W = L + nx * cell + R, H = T + ny * cell + B;
+      svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+      svg.innerHTML = "";
+      const cx = (v: number) => L + (v - x0) * cell, cy = (v: number) => T + (10 - v) * cell;
+      // quadrant split at 8
+      const sx = cx(8), sy = cy(8) + cell;
+      el("rect", { x: sx, y: T, width: L + nx * cell - sx, height: sy - T, class: "q top" }, svg);
+      const names = NAMES[`${kx}|${ky}`] ?? [`${dims[ky].label}高、${dims[kx].label}也高`, `${dims[ky].label}高、${dims[kx].label}一般`, `${dims[kx].label}高、${dims[ky].label}一般`, "两者都一般"];
+      el("text", { x: L + nx * cell - 6, y: T + 14, "text-anchor": "end", class: "ql" }, svg, names[0]);
+      el("text", { x: L + 6, y: T + 14, class: "ql" }, svg, names[1]);
+      el("text", { x: L + nx * cell - 6, y: T + ny * cell - 6, "text-anchor": "end", class: "ql" }, svg, names[2]);
+      el("text", { x: L + 6, y: T + ny * cell - 6, class: "ql" }, svg, names[3]);
+      for (let v = x0; v <= 10; v++) {
+        el("line", { x1: cx(v), x2: cx(v), y1: T, y2: T + ny * cell, class: v === 8 ? "split" : "grid" }, svg);
+        el("text", { x: cx(v) + cell / 2, y: T + ny * cell + 16, "text-anchor": "middle", class: "tk" }, svg, v);
+      }
+      for (let v = y0; v <= 10; v++) {
+        el("line", { x1: L, x2: L + nx * cell, y1: cy(v), y2: cy(v), class: v === 8 ? "split" : "grid" }, svg);
+        el("text", { x: L - 8, y: cy(v) + cell / 2 + 4, "text-anchor": "end", class: "tk" }, svg, v);
+      }
+      el("line", { x1: L + nx * cell, x2: L + nx * cell, y1: T, y2: T + ny * cell, class: "grid" }, svg);
+      el("line", { x1: L, x2: L + nx * cell, y1: T + ny * cell, y2: T + ny * cell, class: "grid" }, svg);
+      el("text", { x: L + (nx * cell) / 2, y: H - 2, "text-anchor": "middle", class: "axt" }, svg, `${dims[kx].label} →`);
+      el("text", { x: 10, y: T + (ny * cell) / 2, "text-anchor": "middle", class: "axt", transform: `rotate(-90 10 ${T + (ny * cell) / 2})` }, svg, `${dims[ky].label} →`);
+
+      const gap = (cell - 8) / per, rad = Math.min(5, gap / 2 - 0.6);
+      for (const [k, ps] of cells) {
+        const [vx, vy] = k.split("|").map(Number);
+        const rows = Math.ceil(ps.length / per);
+        ps.forEach((p, i) => {
+          const col = i % per, row = Math.floor(i / per);
+          const a = el("a", { href: `${base}papers/${p.id}/` }, svg);
+          const px = cx(vx) + cell / 2 + (col - (Math.min(per, ps.length) - 1) / 2) * gap;
+          const py = cy(vy) + cell / 2 + (row - (rows - 1) / 2) * gap;
+          el("circle", { cx: px, cy: py, r: rad, fill: p.c, class: "pt" }, a);
+          el("title", {}, a, `${p.l} · ${p.t}（${dims[kx].label} ${p.r[kx]}，${dims[ky].label} ${p.r[ky]}）`);
+        });
+        if (ps.length > 1) el("text", { x: cx(vx) + cell - 4, y: cy(vy) + 11, "text-anchor": "end", class: "cnt" }, svg, ps.length);
+      }
+    }
+    sel("x").addEventListener("change", draw);
+    sel("y").addEventListener("change", draw);
+    draw();
+  });
+</script>
+
+<style>
+  .axes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; margin-bottom: 10px; }
+  .axes label { font-size: 13px; color: var(--text-2); display: inline-flex; align-items: center; gap: 6px; }
+  .axes select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border-strong); border-radius: 6px; padding: 3px 8px; font: 13px var(--serif); }
+  svg { display: block; width: 100%; max-width: 640px; height: auto; }
+  :global(.rm .q.top) { fill: var(--gold); opacity: .06; }
+  :global(.rm .ql) { fill: var(--muted); font-size: 11px; }
+  :global(.rm .grid) { stroke: var(--border); }
+  :global(.rm .split) { stroke: var(--border-strong); stroke-dasharray: 4 4; }
+  :global(.rm .tk) { fill: var(--muted); font: 11px var(--mono); }
+  :global(.rm .axt) { fill: var(--text-2); font: 13px var(--serif); }
+  :global(.rm .cnt) { fill: var(--muted); font: 9.5px var(--mono); }
+  :global(.rm .pt) { opacity: .9; }
+  :global(.rm a:hover .pt) { opacity: 1; stroke: #fff; stroke-width: 1.5; }
+  .rm p { margin: 8px 0 0; }
+</style>

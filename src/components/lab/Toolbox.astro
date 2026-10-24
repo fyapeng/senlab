@@ -1,0 +1,81 @@
+---
+// The 器 notes, gathered by method: reusable tools, frameworks and data the library offers.
+interface Props { papers: any[]; cons: Record<string, any>; methods: Record<string, string> }
+const { papers, cons, methods } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const withTool = papers.filter((p: any) => p.rating_notes?.qi);
+const groups = new Map<string, any[]>();
+for (const p of withTool) {
+  const m = p.methods[0] || "other";   // the primary method, so each tool is listed once
+  groups.set(m, [...(groups.get(m) ?? []), p]);
+}
+const list = [...groups.entries()]
+  .map(([m, ps]) => ({ m, name: methods[m] || "其他", ps: ps.sort((a, b) => (b.ratings.qi ?? 0) - (a.ratings.qi ?? 0)) }))
+  .sort((a, b) => b.ps.length - a.ps.length);
+---
+<div class="tb">
+  <div class="bar">
+    <input type="search" data-q placeholder={`在 ${withTool.length} 条工具里检索，如 断点、聚束、工具变量、医保`} autocomplete="off" />
+    <span class="small muted" data-n></span>
+  </div>
+  <nav class="cats">{list.map((g) => <a href={`#tool-${g.m}`}>{g.name} <em>{g.ps.length}</em></a>)}</nav>
+  {list.map((g, i) => (
+    <details class="grp" id={`tool-${g.m}`} open={i < 2}>
+      <summary><span>{g.name}</span><em>{g.ps.length}</em></summary>
+      <ul>
+        {g.ps.map((p: any) => (
+          <li style={`--dot:${cons[p.constellation]?.color}`} data-s={`${g.name} ${p.authors_short} ${p.title} ${p.rating_notes.qi} ${p.keywords.join(" ")}`.toLowerCase()}>
+            <span class="score" title="器：可迁移的工具">{p.ratings.qi ?? "—"}</span>
+            <div>
+              <p>{p.rating_notes.qi}</p>
+              <a href={`${base}papers/${p.id}/`}>{p.authors_short} {p.year} · {p.title}</a>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </details>
+  ))}
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>(".tb").forEach((tb) => {
+    const q = tb.querySelector<HTMLInputElement>("[data-q]")!;
+    const n = tb.querySelector<HTMLElement>("[data-n]")!;
+    const grps = [...tb.querySelectorAll<HTMLDetailsElement>(".grp")];
+    const initial = grps.map((g) => g.open);
+    q.addEventListener("input", () => {
+      const terms = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+      let shown = 0;
+      grps.forEach((g, i) => {
+        let k = 0;
+        g.querySelectorAll<HTMLLIElement>("li").forEach((li) => { const ok = terms.every((t) => li.dataset.s!.includes(t)); li.hidden = !ok; k += +ok; });
+        g.hidden = k === 0;
+        g.open = terms.length ? k > 0 : initial[i];
+        shown += k;
+      });
+      n.textContent = terms.length ? `${shown} 条` : "";
+    });
+  });
+</script>
+
+<style>
+  .bar { display: flex; align-items: center; gap: 12px; }
+  .bar input { flex: 1; max-width: 440px; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--border-strong); background: var(--surface); color: var(--text); font: 13.5px var(--sans); }
+  .bar input:focus { outline: none; border-color: var(--gold); }
+  .cats { display: flex; flex-wrap: wrap; gap: 6px; margin: 12px 0 6px; }
+  .cats a { font-size: 12.5px; padding: 2px 10px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text-2); }
+  .cats a:hover { border-color: var(--gold); color: var(--gold); }
+  .cats em, summary em { font-style: normal; color: var(--muted); margin-left: 4px; }
+  .grp { border-bottom: 1px solid var(--border); scroll-margin-top: 70px; }
+  summary { cursor: pointer; padding: 12px 0; font-family: var(--serif); font-size: 16.5px; }
+  summary:hover span { color: var(--gold); }
+  ul { list-style: none; margin: 0 0 12px; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; }
+  li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 10px; padding: 8px 0; }
+  li[hidden] { display: none; }
+  .score { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--dot); color: var(--dot); font: 12.5px var(--mono); }
+  li p { margin: 0 0 4px; font-size: 13.5px; line-height: 1.7; color: var(--text-2); }
+  li a { font-size: 12.5px; color: var(--muted); }
+  li a:hover { color: var(--dot); }
+  @media (max-width: 860px) { ul { grid-template-columns: minmax(0, 1fr); } }
+</style>

@@ -1,0 +1,126 @@
+---
+// Shortest chain of in-library citations between two papers (citations followed in either direction).
+interface Props { papers: any[]; cons: Record<string, any> }
+const { papers, cons } = Astro.props;
+
+const graph = papers.map((p: any) => ({
+  id: p.id, l: `${p.authors_short} ${p.year}`, t: p.title, y: Number(p.year) || 0,
+  c: cons[p.constellation]?.color || "#888", k: cons[p.constellation]?.lodge || "", cites: p.cites,
+}));
+
+// default pair: the oldest paper to the most recent one it can reach, so the first view shows a long chain
+const adj = new Map<string, Set<string>>(graph.map((g) => [g.id, new Set<string>()]));
+graph.forEach((g) => g.cites.forEach((t: string) => { if (adj.has(t)) { adj.get(g.id)!.add(t); adj.get(t)!.add(g.id); } }));
+const reach = (from: string) => {
+  const seen = new Set([from]); let q = [from];
+  while (q.length) { const nx: string[] = []; q.forEach((v) => adj.get(v)!.forEach((w) => { if (!seen.has(w)) { seen.add(w); nx.push(w); } })); q = nx; }
+  return seen;
+};
+const byYear = [...graph].filter((g) => g.y && adj.get(g.id)!.size).sort((a, b) => a.y - b.y);
+const start = byYear[0];
+const reachable = reach(start.id);
+const end = [...byYear].reverse().find((g) => reachable.has(g.id) && g.id !== start.id)!;
+const label = (g: any) => `${g.l} · ${g.t}`;
+---
+<div class="cp" data-graph={JSON.stringify(graph)} data-from={start.id} data-to={end.id}>
+  <div class="pick">
+    <label><span>从</span><input list="cp-papers" data-in="from" value={label(start)} autocomplete="off" /></label>
+    <label><span>到</span><input list="cp-papers" data-in="to" value={label(end)} autocomplete="off" /></label>
+    <button type="button" class="btn" data-go>找路径</button>
+    <button type="button" class="btn" data-rand>随机一对</button>
+    <datalist id="cp-papers">{[...graph].sort((a, b) => a.l.localeCompare(b.l)).map((g) => <option value={label(g)} />)}</datalist>
+  </div>
+  <p class="small muted msg" data-msg></p>
+  <ol class="chain" data-chain></ol>
+</div>
+
+<script>
+  const base = import.meta.env.BASE_URL;
+  document.querySelectorAll<HTMLElement>(".cp").forEach((box) => {
+    type G = { id: string; l: string; t: string; y: number; c: string; k: string; cites: string[] };
+    const graph: G[] = JSON.parse(box.dataset.graph!);
+    const byId = new Map(graph.map((g) => [g.id, g]));
+    const byLabel = new Map(graph.map((g) => [`${g.l} · ${g.t}`, g.id]));
+    const adj = new Map<string, Set<string>>(graph.map((g) => [g.id, new Set()]));
+    graph.forEach((g) => g.cites.forEach((t) => { if (adj.has(t)) { adj.get(g.id)!.add(t); adj.get(t)!.add(g.id); } }));
+    const cites = (a: string, b: string) => byId.get(a)!.cites.includes(b);
+    const input = (k: string) => box.querySelector<HTMLInputElement>(`[data-in="${k}"]`)!;
+    const msg = box.querySelector<HTMLElement>("[data-msg]")!;
+    const chain = box.querySelector<HTMLElement>("[data-chain]")!;
+
+    function path(a: string, b: string): string[] | null {
+      const prev = new Map<string, string>([[a, ""]]);
+      let q = [a];
+      while (q.length && !prev.has(b)) {
+        const nx: string[] = [];
+        for (const v of q) for (const w of adj.get(v)!) if (!prev.has(w)) { prev.set(w, v); nx.push(w); }
+        q = nx;
+      }
+      if (!prev.has(b)) return null;
+      const out = [b];
+      while (out[0] !== a) out.unshift(prev.get(out[0])!);
+      return out;
+    }
+
+    function show(a: string, b: string) {
+      chain.innerHTML = "";
+      const p = path(a, b);
+      if (!p) { msg.textContent = "这两篇之间在库内没有引用链：它们分属不相连的文献群。"; return; }
+      msg.textContent = p.length === 1 ? "同一篇文章。" : `相隔 ${p.length - 1} 步，经过 ${Math.max(0, p.length - 2)} 篇中间文献。`;
+      p.forEach((id, i) => {
+        const g = byId.get(id)!;
+        if (i > 0) {
+          const link = document.createElement("li");
+          link.className = "link";
+          const prevId = p[i - 1];
+          link.textContent = cites(prevId, id) ? "↓ 上面这篇引用了下面这篇" : "↑ 下面这篇引用了上面这篇";
+          chain.appendChild(link);
+        }
+        const li = document.createElement("li");
+        li.className = "node";
+        li.style.setProperty("--dot", g.c);
+        const a2 = document.createElement("a");
+        a2.href = `${base}papers/${g.id}/`;
+        a2.innerHTML = `<i></i><b></b><span></span>`;
+        a2.querySelector("i")!.textContent = g.k;
+        a2.querySelector("b")!.textContent = g.l;
+        a2.querySelector("span")!.textContent = g.t;
+        li.appendChild(a2);
+        chain.appendChild(li);
+      });
+    }
+
+    function go() {
+      const a = byLabel.get(input("from").value), b = byLabel.get(input("to").value);
+      if (!a || !b) { msg.textContent = "从下拉列表里选择文章（可输入作者或标题筛选）。"; chain.innerHTML = ""; return; }
+      show(a, b);
+    }
+    box.querySelector("[data-go]")!.addEventListener("click", go);
+    box.querySelectorAll("input").forEach((i) => i.addEventListener("change", go));
+    box.querySelector("[data-rand]")!.addEventListener("click", () => {
+      const linked = graph.filter((g) => adj.get(g.id)!.size);
+      for (let k = 0; k < 50; k++) {
+        const a = linked[Math.floor(Math.random() * linked.length)], b = linked[Math.floor(Math.random() * linked.length)];
+        const p = a.id !== b.id && path(a.id, b.id);
+        if (p && p.length >= 4) { input("from").value = `${a.l} · ${a.t}`; input("to").value = `${b.l} · ${b.t}`; show(a.id, b.id); return; }
+      }
+    });
+    show(box.dataset.from!, box.dataset.to!);
+  });
+</script>
+
+<style>
+  .pick { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .pick label { flex: 1 1 280px; display: flex; align-items: center; gap: 8px; min-width: 0; }
+  .pick span { color: var(--muted); font-size: 13px; }
+  .pick input { flex: 1; min-width: 0; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--border-strong); background: var(--surface); color: var(--text); font: 13.5px var(--sans); }
+  .pick input:focus { outline: none; border-color: var(--gold); }
+  .msg { margin: 12px 0 6px; }
+  .chain { list-style: none; margin: 0; padding: 0; max-width: 760px; }
+  :global(.chain .node a) { display: grid; grid-template-columns: 26px auto minmax(0, 1fr); gap: 10px; align-items: baseline; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); border-left: 3px solid var(--dot); background: var(--surface); color: var(--text-2); }
+  :global(.chain .node a:hover) { border-color: var(--dot); color: var(--text); }
+  :global(.chain .node i) { font-style: normal; font-family: var(--serif); color: var(--dot); }
+  :global(.chain .node b) { font-weight: 500; color: var(--gold); white-space: nowrap; font-size: 13.5px; }
+  :global(.chain .node span) { font-family: var(--serif); font-size: 14.5px; line-height: 1.4; }
+  :global(.chain .link) { padding: 4px 0 4px 22px; font-size: 12px; color: var(--muted); }
+</style>

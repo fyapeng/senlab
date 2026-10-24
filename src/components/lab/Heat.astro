@@ -1,0 +1,90 @@
+---
+// Field heat vs. my attention: each constellation's share of recent top-five papers related to the library
+// against its share of the library itself.
+interface Props { papers: any[]; constellations: any[]; frontier: any }
+const { papers, constellations, frontier } = Astro.props;
+const base = import.meta.env.BASE_URL;
+
+const near = (frontier.journals?.papers || []).filter((f: any) => f.c);
+const nLib = papers.length, nNew = near.length;
+const rows = constellations.map((c: any) => {
+  const lib = papers.filter((p: any) => p.constellation === c.key).length;
+  const hot = near.filter((f: any) => f.c === c.key).length;
+  return { c, lib, hot, x: (100 * lib) / nLib, y: nNew ? (100 * hot) / nNew : 0, ratio: lib ? hot / nNew / (lib / nLib) : 0 };
+});
+const even = 100 / constellations.length;   // every constellation equally weighted
+const maxX = Math.max(even * 2, ...rows.map((r) => r.x)) * 1.12;
+const maxY = Math.max(even * 2, ...rows.map((r) => r.y)) * 1.12;
+const W = 560, H = 400, L = 46, B = 40, T = 14, R = 16;
+const sx = (v: number) => L + ((W - L - R) * v) / maxX;
+const sy = (v: number) => H - B - ((H - B - T) * v) / maxY;
+const ticks = (max: number) => [0, 5, 10, 15, 20, 25, 30].filter((t) => t <= max);
+const order = [...rows].sort((a, b) => b.ratio - a.ratio);
+const [sy0, sm0] = (frontier.journals?.since || "").split("-");
+---
+<div class="heat">
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="各星宿：领域热度与本库占比">
+    <rect class="q hot" x={sx(0)} y={sy(maxY)} width={sx(even) - sx(0)} height={sy(even) - sy(maxY)} />
+    <rect class="q main" x={sx(even)} y={sy(maxY)} width={sx(maxX) - sx(even)} height={sy(even) - sy(maxY)} />
+    <rect class="q mine" x={sx(even)} y={sy(even)} width={sx(maxX) - sx(even)} height={sy(0) - sy(even)} />
+    <text class="ql" x={sx(0) + 8} y={sy(maxY) + 18}>该补的方向</text>
+    <text class="ql" x={sx(maxX) - 8} y={sy(maxY) + 18} text-anchor="end">主战场</text>
+    <text class="ql" x={sx(maxX) - 8} y={sy(0) - 10} text-anchor="end">我的独特积累</text>
+    <text class="ql" x={sx(0) + 8} y={sy(0) - 10}>两边都少</text>
+    {ticks(maxX).map((t) => <g class="tick"><line x1={sx(t)} x2={sx(t)} y1={sy(0)} y2={sy(0) + 4} /><text x={sx(t)} y={sy(0) + 16} text-anchor="middle">{t}%</text></g>)}
+    {ticks(maxY).map((t) => <g class="tick"><line x1={sx(0) - 4} x2={sx(0)} y1={sy(t)} y2={sy(t)} /><text x={sx(0) - 7} y={sy(t) + 4} text-anchor="end">{t}%</text></g>)}
+    <line class="axis" x1={sx(0)} x2={sx(maxX)} y1={sy(0)} y2={sy(0)} />
+    <line class="axis" x1={sx(0)} x2={sx(0)} y1={sy(0)} y2={sy(maxY)} />
+    <line class="even" x1={sx(even)} x2={sx(even)} y1={sy(0)} y2={sy(maxY)} />
+    <line class="even" x1={sx(0)} x2={sx(maxX)} y1={sy(even)} y2={sy(even)} />
+    <line class="diag" x1={sx(0)} y1={sy(0)} x2={sx(Math.min(maxX, maxY))} y2={sy(Math.min(maxX, maxY))} />
+    <text class="axt" x={(L + W - R) / 2} y={H - 6} text-anchor="middle">本库占比（我的关注度）</text>
+    <text class="axt" x={12} y={(T + H - B) / 2} text-anchor="middle" transform={`rotate(-90 12 ${(T + H - B) / 2})`}>五大期刊相关新文占比（领域热度）</text>
+    {rows.map((r) => (
+      <a href={`${base}stars/${r.c.key}/`} style={`--dot:${r.c.color}`}>
+        <circle cx={sx(r.x)} cy={sy(r.y)} r="13" />
+        <text class="seal" x={sx(r.x)} y={sy(r.y) + 5} text-anchor="middle">{r.c.lodge}</text>
+        <title>{r.c.lodge}宿 · {r.c.name}：本库 {r.lib} 篇（{r.x.toFixed(1)}%），五大期刊相关新文 {r.hot} 篇（{r.y.toFixed(1)}%）</title>
+      </a>
+    ))}
+  </svg>
+  <div class="side">
+    <p class="small muted">横轴：这个星宿占本库的比例；纵轴：五大期刊{sy0 ? ` ${sy0} 年${Number(sm0) === 1 ? "" : ` ${Number(sm0)} 月`}以来` : ""}与本库相关的 {nNew} 篇新文章里，最接近这个星宿的比例。虚线是平均（{even.toFixed(1)}%），斜线上方表示领域比你更热。</p>
+    <ol class="rank">
+      {order.map((r) => (
+        <li style={`--dot:${r.c.color}`}>
+          <a href={`${base}stars/${r.c.key}/`}><i>{r.c.lodge}</i>{r.c.name}</a>
+          <span class="mono">{r.hot}/{r.lib}</span>
+          <b class:list={["mono", { up: r.ratio >= 1.3, down: r.ratio <= 0.7 }]}>{r.ratio.toFixed(1)}×</b>
+        </li>
+      ))}
+    </ol>
+    <p class="small muted">右列是热度倍数：领域占比 ÷ 本库占比。大于 1 说明领域在这个方向上发文比你收藏得多。</p>
+  </div>
+</div>
+<style>
+  .heat { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 28px; align-items: start; }
+  svg { width: 100%; height: auto; }
+  .q { opacity: .07; }
+  .q.hot { fill: var(--rose); } .q.main { fill: var(--gold); } .q.mine { fill: var(--cyan); }
+  .ql { fill: var(--muted); font-size: 12px; }
+  .tick line, .axis { stroke: var(--border-strong); }
+  .tick text { fill: var(--muted); font: 10.5px var(--mono); }
+  .even { stroke: var(--border-strong); stroke-dasharray: 4 4; }
+  .diag { stroke: var(--border); stroke-dasharray: 2 5; }
+  .axt { fill: var(--text-2); font-size: 12px; }
+  circle { fill: color-mix(in srgb, var(--dot) 25%, #060a14); stroke: var(--dot); stroke-width: 1.5; }
+  a:hover circle { fill: var(--dot); }
+  .seal { fill: var(--dot); font: 14px var(--serif); pointer-events: none; }
+  a:hover .seal { fill: var(--bg); }
+  .side p { margin: 0 0 10px; line-height: 1.7; }
+  .rank { list-style: none; margin: 0 0 10px; padding: 0; }
+  .rank li { display: grid; grid-template-columns: minmax(0, 1fr) 54px 44px; gap: 8px; align-items: center; padding: 4px 0; font-size: 13.5px; border-bottom: 1px solid var(--border); }
+  .rank a { color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .rank a:hover { color: var(--dot); }
+  .rank i { font-style: normal; font-family: var(--serif); color: var(--dot); margin-right: 6px; }
+  .rank span { color: var(--muted); font-size: 12px; text-align: right; }
+  .rank b { font-weight: 500; text-align: right; color: var(--text-2); font-size: 12.5px; }
+  .rank b.up { color: var(--rose); } .rank b.down { color: var(--cyan); }
+  @media (max-width: 900px) { .heat { grid-template-columns: minmax(0, 1fr); } }
+</style>

@@ -5,6 +5,11 @@ import papers from "../data/papers.json";
 import constellations from "../data/constellations.json";
 import vocab from "../data/vocab.json";
 import lab from "../data/lab.json";
+import frontier from "../data/frontier.json";
+import Heat from "../components/lab/Heat.astro";
+import RatingMap from "../components/lab/RatingMap.astro";
+import CitePath from "../components/lab/CitePath.astro";
+import Toolbox from "../components/lab/Toolbox.astro";
 
 const base = import.meta.env.BASE_URL;
 const v: any = vocab;
@@ -29,9 +34,34 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
       <p class="eyebrow">Lab</p>
       <h1>探索实验室</h1>
       <p class="lede">基于本库自身做的分析。本页全部由程序计算，每次更新文献库时自动重算。</p>
+      <nav class="jump">
+        <a href="#heat">热度对照</a><a href="#ratings">评分象限</a><a href="#path">引用路径</a><a href="#tools">方法工具箱</a>
+        <a href="#matrix">方法 × 星宿</a><a href="#evolution">主题演化</a><a href="#bridges">桥梁与孤星</a><a href="#keywords">关键词与构成</a>
+      </nav>
     </header>
 
-    <section>
+    <section id="heat">
+      <h2>热度对照 <span class="muted small">五大期刊的新文章落在哪些星宿，和你的收藏比一比</span></h2>
+      <Heat papers={papers} constellations={constellations} frontier={frontier} />
+    </section>
+
+    <div class="grid cols-2 duo">
+      <section id="ratings">
+        <h2>评分象限 <span class="muted small">默认：术（执行）× 道（洞见），可切换任意两项</span></h2>
+        <RatingMap papers={papers} cons={cons} dims={v.ratings} />
+      </section>
+      <section id="path">
+        <h2>引用路径 <span class="muted small">任意两篇之间最短的库内引用链</span></h2>
+        <CitePath papers={papers} cons={cons} />
+      </section>
+    </div>
+
+    <section id="tools">
+      <h2>方法工具箱 <span class="muted small">各篇「器」评分说明里可以拿来用的方法、框架与数据，按主要方法归类</span></h2>
+      <Toolbox papers={papers} cons={cons} methods={v.methods} />
+    </section>
+
+    <section id="matrix">
       <h2>方法 × 星宿 <span class="muted small">格子里是篇数，空格是候选研究空白</span></h2>
       <div class="tablewrap">
         <table class="matrix">
@@ -52,7 +82,7 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
     </section>
 
     <div class="grid cols-2">
-      <section>
+      <section id="evolution">
         <h2>主题演化 <span class="muted small">各星宿按发表年代的篇数</span></h2>
         <table class="spark">
           <thead><tr><th></th>{L.decades.map((d: number) => <th>{String(d).slice(2)}s</th>)}</tr></thead>
@@ -87,7 +117,7 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
     </div>
 
     <div class="grid cols-2">
-      <section>
+      <section id="bridges">
         <h2>桥梁文献 <span class="muted small">引用关系横跨多个星宿</span></h2>
         <ul class="list">
           {L.bridges.map((b: any) => (
@@ -109,7 +139,7 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
     </div>
 
     <div class="grid cols-2">
-      <section>
+      <section id="keywords">
         <h2>关键词</h2>
         <p class="cloud">
           {L.kw_top.map((k: any) => <a href={`${base}rank/?q=${encodeURIComponent(k.k)}`} style={`font-size:${12 + 12 * k.n / maxKw}px;opacity:${0.55 + 0.45 * k.n / maxKw}`}>{k.k}</a>)}
@@ -136,6 +166,11 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
 </Layout>
 <style>
   .wide { max-width: 1320px; }
+  section[id] { scroll-margin-top: 70px; }
+  .jump { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+  .jump a { font-size: 13px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text-2); }
+  .jump a:hover { border-color: var(--gold); color: var(--gold); }
+  .duo { gap: 40px; align-items: start; }
   .tablewrap { overflow-x: auto; }
   .matrix { border-collapse: separate; border-spacing: 3px; font-size: 13px; }
   .matrix .mh { height: 120px; vertical-align: bottom; padding: 0 2px; }
