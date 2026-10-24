@@ -21,7 +21,7 @@ const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
         <CitePath papers={papers} cons={cons} />
       </section>
       <section id="ratings">
-        <h2>评分象限 <span class="muted small">默认：术（执行）× 道（洞见），可切换任意两项</span></h2>
+        <h2>评分象限 <span class="muted small">默认：术（技艺）× 道（洞见），可切换任意两项</span></h2>
         <RatingMap papers={papers} cons={cons} dims={v.ratings} quadrants={v.rating_quadrants} />
       </section>
     </div>

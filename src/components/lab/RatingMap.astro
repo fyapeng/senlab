@@ -15,8 +15,9 @@ const keys = Object.keys(dims);
   </div>
   <dl class="defs small" data-defs></dl>
   <details class="all small">
-    <summary>六个维度分别评什么、看文章哪里</summary>
-    <dl>{keys.map((k) => <><dt>{dims[k].label}</dt><dd><b>{dims[k].means}</b>{dims[k].where && <span>看：{dims[k].where}</span>}</dd></>)}</dl>
+    <summary>道法势术器：从形而上到形而下，自大而小</summary>
+    <dl>{keys.map((k) => <><dt>{dims[k].label}</dt><dd>{dims[k].origin && dims[k].origin !== "—" && <i>{dims[k].origin}</i>}<b>{dims[k].means}</b>{dims[k].where && <span>看：{dims[k].where}</span>}</dd></>)}</dl>
+    <p class="anchor">打分锚点：9–10 本领域标杆；7–8 同类研究中明显出色；5–6 合格；4 分及以下是短板或不涉及这一维度。主观只看对我研究的实际用处，不因作者身份加分。</p>
   </details>
   <svg data-svg role="img" aria-label="按两项评分排布的文献"></svg>
   <p class="small muted">每个点是一篇文献，颜色是星宿；同一格内的点评分相同。虚线把 8 分及以上与以下分开，四个角的名称标在图的上下两侧（↖↗↙↘）。点击打开文章。</p>
@@ -150,6 +151,8 @@ const keys = Object.keys(dims);
   .all dd { margin: 0; }
   .all dd b { display: block; font-weight: 500; color: var(--text); }
   .all dd span { color: var(--muted); }
+  .all dd i { display: block; font-style: normal; font-family: var(--serif); color: var(--gold); opacity: .85; }
+  .all .anchor { margin: 10px 0 0; color: var(--muted); line-height: 1.7; }
   :global(.rm .grid) { stroke: var(--border); }
   :global(.rm .split) { stroke: var(--border-strong); stroke-dasharray: 4 4; }
   :global(.rm .tk) { fill: var(--muted); font: 11px var(--mono); }
