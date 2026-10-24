@@ -24,10 +24,11 @@ const heat = constellations.map((c: any) => {
 // 工具
 const tools = papers.filter((p: any) => p.rating_notes?.qi).length;
 
-// AI 研读: a feasible idea from a paper rated highly for my own work
-const ideas = Object.entries(G.ideas || {}).filter(([id]) => byId[id]) as [string, any][];
-const featured = ideas.sort(([a, x], [b, y]) => (x.feasibility === "高" ? 0 : 1) - (y.feasibility === "高" ? 0 : 1)
-  || (byId[b].ratings.subjective ?? 0) - (byId[a].ratings.subjective ?? 0))[0];
+// AI 研读: the first direction where two literatures meet (pairs are ordered by how closely they are linked)
+const dirs = Object.entries(G.directions || {}) as [string, any][];
+const nDirs = dirs.reduce((s, [, d]) => s + (d.items?.length || 0), 0);
+const fk = dirs.find(([k, d]) => k.startsWith("x:") && d.items?.length);
+const featured = fk && { x: fk[1].items[0], cs: fk[0].slice(2).split("|").map((k) => cons[k]).filter(Boolean) };
 const nDisputes = Object.values(G.disputes || {}).reduce((s: number, d: any) => s + (d.items?.length || 0), 0);
 
 const cards = [
@@ -43,18 +44,18 @@ const cards = [
   },
   {
     href: "lab/ai/", title: "AI 研读", sub: "DeepSeek 依据本库写成",
-    parts: [["星宿综述", "reviews"], ["中国情境研究设想", "ideas"], ["分歧地图", "disputes"]],
+    parts: [["星宿综述", "reviews"], ["研究方向", "directions"], ["分歧地图", "disputes"]],
     hint: featured && {
-      label: `研究设想 · 可行性${featured[1].feasibility}`,
-      html: `<a href="${base}lab/ai/#ideas">${featured[1].title}</a><span>源自 ${byId[featured[0]].authors_short} ${byId[featured[0]].year}</span>`,
+      label: `研究方向 · ${featured.cs.map((c: any) => c.lodge).join(" × ")} 文献交汇`,
+      html: `<a href="${base}lab/ai/#directions">${featured.x.name}</a><span>${featured.cs.map((c: any) => c.name).join(" × ")}</span>`,
     },
-    counts: `${Object.keys(G.review || {}).length} 篇综述 · ${ideas.length} 条设想 · ${nDisputes} 处分歧`,
+    counts: `${Object.keys(G.review || {}).length} 篇综述 · ${nDirs} 个方向 · ${nDisputes} 处分歧`,
   },
 ];
 ---
 <Layout title="探索实验室" active="lab">
   <main class="page wide">
-    <LabNav active="home" title="探索实验室" lede="基于本库自身做的分析，分三部分：全景看整体结构，工具用来检索和探索，AI 研读是 DeepSeek 依据本库内容写的综述、研究设想与分歧。" />
+    <LabNav active="home" title="探索实验室" lede="基于本库自身做的分析，分三部分：全景看整体结构，工具用来检索和探索，AI 研读是 DeepSeek 依据本库内容写的综述、研究方向与分歧。" />
 
     <div class="cards">
       {cards.map((c) => (

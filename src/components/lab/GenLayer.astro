@@ -1,6 +1,6 @@
 ---
-// The generated part of the lab (pipeline/lab_gen.py): constellation reviews, China-context research ideas,
-// and disagreements. Every block is labelled as AI-generated with model and date.
+// The generated part of the lab (pipeline/lab_gen.py): constellation reviews, research directions (where
+// literatures meet; why Chinese policies succeed or fail), and disagreements. Every block is labelled as AI-generated with model and date.
 import { citeHtml } from "../../lib/papers";
 
 interface Props { gen: any; papers: any[]; constellations: any[] }
@@ -14,14 +14,17 @@ const inline = (t: unknown) => cite(t).replace(/^<p>|<\/p>$/g, "").replace(/<\/p
 const short = (id: string) => (byId[id] ? `${byId[id].authors_short} ${byId[id].year}` : "");
 
 const reviews = constellations.filter((c: any) => gen.review?.[c.key]).map((c: any) => ({ c, r: gen.review[c.key] }));
-const RANK: Record<string, number> = { 高: 0, 中: 1, 低: 2 };
-const ideas = Object.entries(gen.ideas || {}).filter(([id]) => byId[id])
-  .map(([id, x]: [string, any]) => ({ p: byId[id], x, c: cons[byId[id].constellation] }))
-  .sort((a, b) => (RANK[a.x.feasibility] ?? 3) - (RANK[b.x.feasibility] ?? 3) || (b.p.ratings.subjective ?? 0) - (a.p.ratings.subjective ?? 0));
+// directions: "x:c1|c4" where two literatures meet, "p:c0" why a Chinese policy succeeded or failed
+const directions = Object.entries(gen.directions || {}).flatMap(([key, d]: [string, any]) => {
+  const [kind, ks] = key.split(":");
+  const cs = ks.split("|").map((k) => cons[k]).filter(Boolean);
+  return cs.length ? (d.items || []).map((x: any) => ({ kind, cs, x })) : [];
+}).sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "x" ? -1 : 1));
+const nCross = directions.filter((d) => d.kind === "x").length;
 const disputes = constellations.flatMap((c: any) => (gen.disputes?.[c.key]?.items || []).map((d: any) => ({ c, d })));
 const models = [...new Set(Object.values(gen).flatMap((t: any) => Object.values(t || {}).map((x: any) => x.model)))].filter(Boolean);
 const dates = Object.values(gen).flatMap((t: any) => Object.values(t || {}).map((x: any) => x.date)).filter(Boolean).sort();
-const empty = !reviews.length && !ideas.length && !disputes.length;
+const empty = !reviews.length && !directions.length && !disputes.length;
 ---
 {empty ? <p class="muted">生成层尚未运行（本机运行 <code>python pipeline/lab_gen.py</code>）。</p> : (
 <div class="gen">
@@ -29,7 +32,7 @@ const empty = !reviews.length && !ideas.length && !disputes.length;
 
   <nav class="gtabs" data-gtabs>
     <button type="button" data-t="reviews" class="on">星宿综述 <em>{reviews.length}</em></button>
-    <button type="button" data-t="ideas">中国情境研究设想 <em>{ideas.length}</em></button>
+    <button type="button" data-t="directions">研究方向 <em>{directions.length}</em></button>
     <button type="button" data-t="disputes">分歧地图 <em>{disputes.length}</em></button>
   </nav>
 
@@ -57,29 +60,38 @@ const empty = !reviews.length && !ideas.length && !disputes.length;
     ))}
   </section>
 
-  <section id="ideas" data-tab="ideas" hidden>
-    <p class="desc small muted">从「器」8 分以上、用外国数据的实证文章出发，设想在中国可以利用什么制度变化与数据做类似研究。点开查看问题、政策、数据、设计与威胁。</p>
-    <div class="filters" data-ideas-filter>
+  <section id="directions" data-tab="directions" hidden>
+    <p class="desc small muted">方向，不是题目。<b>文献交汇</b>从两支相邻文献的核心文章出发（按道、法挑选，不看方法与数据）：各自的理论预期在交汇处出现什么张力，能上升为什么经济理论问题，有哪些相互竞争的答案。<b>政策成败</b>从库内的中国政策研究出发，不问“政策有什么效果”，而问它为什么成功或失败。</p>
+    <div class="filters" data-dir-filter>
       <button type="button" class="on" data-f="">全部</button>
-      {["高", "中", "低"].map((f) => <button type="button" data-f={f}>可行性{f}</button>)}
+      <button type="button" data-f="x">文献交汇 {nCross}</button>
+      <button type="button" data-f="p">政策成败 {directions.length - nCross}</button>
     </div>
     <div class="ideas">
-      {ideas.map(({ p, x, c }) => (
-        <details class="idea" data-f={x.feasibility} style={`--dot:${c?.color}`}>
+      {directions.map(({ kind, cs, x }) => (
+        <details class="idea" data-f={kind} style={`--dot:${cs[0].color}`}>
           <summary>
-            <span class:list={["feas", { hi: x.feasibility === "高", lo: x.feasibility === "低" }]}>{x.feasibility}</span>
-            <span class="it">{x.title}</span>
-            <span class="src small">源自 {p.authors_short} {p.year} · {c?.lodge}宿</span>
+            <span class="src small">{kind === "x" ? <>{cs.map((c: any, i: number) => <><i style={`color:${c.color}`}>{c.lodge}</i>{i < cs.length - 1 && " × "}</>)} 文献交汇</> : <><i style={`color:${cs[0].color}`}>{cs[0].lodge}</i> 政策成败</>}</span>
+            {kind === "x" ? <span class="it">{x.name}</span> : <span class="it" set:html={inline(x.question)} />}
+            {kind === "x" && <span class="q" set:html={inline(x.question)} />}
           </summary>
-          <dl>
-            <dt>问题</dt><dd set:html={cite(x.question)} />
-            <dt>制度与政策</dt><dd set:html={cite(x.policy)} />
-            <dt>数据</dt><dd set:html={cite(x.data)} />
-            <dt>识别设计</dt><dd set:html={cite(x.design)} />
-            <dt>威胁</dt><dd set:html={cite(x.threats)} />
-            <dt>可行性</dt><dd>{x.feasibility}：{x.why}</dd>
-          </dl>
-          <a class="small" href={`${base}papers/${p.id}/`}>原文：{p.title} →</a>
+          {kind === "x" ? (
+            <dl>
+              <dt>两支文献</dt><dd set:html={cite(x.lines)} />
+              <dt>交汇处</dt><dd set:html={cite(x.tension)} />
+              <dt>竞争答案</dt><dd><ol>{(x.answers || []).map((a: string) => <li set:html={inline(a)} />)}</ol></dd>
+              <dt>改变什么</dt><dd set:html={cite(x.stakes)} />
+              <dt>中国情境</dt><dd set:html={cite(x.china)} />
+            </dl>
+          ) : (
+            <dl>
+              <dt>政策</dt><dd set:html={cite(x.policy)} />
+              <dt>已知证据</dt><dd set:html={cite(x.evidence)} />
+              <dt>成败之谜</dt><dd set:html={cite(x.puzzle)} />
+              <dt>可能机制</dt><dd><ol>{(x.mechanisms || []).map((a: string) => <li set:html={inline(a)} />)}</ol></dd>
+              <dt>改变什么</dt><dd set:html={cite(x.stakes)} />
+            </dl>
+          )}
         </details>
       ))}
     </div>
@@ -114,7 +126,7 @@ const empty = !reviews.length && !ideas.length && !disputes.length;
 )}
 
 <script>
-  // tabs: one part at a time; #reviews / #ideas / #disputes in the address opens that part
+  // tabs: one part at a time; #reviews / #directions / #disputes in the address opens that part
   document.querySelectorAll<HTMLElement>("[data-gtabs]").forEach((bar) => {
     const box = bar.parentElement!;
     const show = (t: string, push = true) => {
@@ -140,7 +152,7 @@ const empty = !reviews.length && !ideas.length && !disputes.length;
       cards.forEach((c) => (c.hidden = !!b.dataset.k && c.dataset.k !== b.dataset.k));
     }));
   });
-  document.querySelectorAll<HTMLElement>("[data-ideas-filter]").forEach((bar) => {
+  document.querySelectorAll<HTMLElement>("[data-dir-filter]").forEach((bar) => {
     const cards = [...bar.parentElement!.querySelectorAll<HTMLElement>(".idea")];
     bar.querySelectorAll<HTMLButtonElement>("button").forEach((b) => b.addEventListener("click", () => {
       bar.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
@@ -182,11 +194,13 @@ const empty = !reviews.length && !ideas.length && !disputes.length;
   .ideas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; }
   .idea { border: 1px solid var(--border); border-left: 3px solid var(--dot); border-radius: 8px; padding: 10px 14px; background: var(--surface); align-self: start; }
   .idea[hidden] { display: none; }
-  .idea summary { cursor: pointer; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 2px 10px; align-items: baseline; }
-  .feas { grid-row: span 2; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--border-strong); font-size: 12px; color: var(--text-2); }
-  .feas.hi { border-color: var(--gold); color: var(--gold); } .feas.lo { color: var(--muted); }
-  .it { font-family: var(--serif); font-size: 15.5px; line-height: 1.45; }
+  .idea summary { cursor: pointer; display: flex; flex-direction: column; gap: 3px; }
+  .it { font-family: var(--serif); font-size: 16px; line-height: 1.45; }
   .src { color: var(--muted); }
+  .src i { font-style: normal; font-family: var(--serif); font-size: 14px; }
+  .q { font-size: 13.5px; line-height: 1.7; color: var(--text-2); }
+  .desc b { color: var(--text-2); font-weight: 500; }
+  dd ol { margin: 0; padding-left: 1.3em; }
   dl { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 6px 12px; margin: 12px 0 8px; font-size: 13.5px; line-height: 1.75; }
   dt { color: var(--gold); }
   dd { margin: 0; color: var(--text-2); }
