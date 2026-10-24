@@ -10,7 +10,12 @@ import frontier from "../data/frontier.json";
 const base = import.meta.env.BASE_URL;
 const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
 const recent = [...papers].sort((a: any, b: any) => (b.added || "").localeCompare(a.added || "")).slice(0, 3);
-const front = (frontier.papers || []).slice(0, 3);
+// outside papers related to the library: NBER by relevance, top-5 journals newest first
+const F: any = frontier;
+const JN: Record<string, string> = { AER: "AER", JPE: "JPE", QJE: "QJE", RES: "REStud", ECTA: "ECTA" };
+const nberNear = (F.papers || []).filter((f: any) => f.fit !== "far").slice(0, 3);
+const top5New = (F.journals?.papers || []).filter((f: any) => f.fit !== "far")
+  .sort((a: any, b: any) => (b.date || "").localeCompare(a.date || "") || b.score - a.score).slice(0, 3);
 
 const [y0, y1] = meta.years;
 
@@ -70,14 +75,20 @@ const guide = constellations.map((c: any) => {
       {recent.map((p: any) => <a class="row" href={`${base}papers/${p.id}/`}><em>{p.authors_short} {p.year}</em> {p.title}</a>)}
     </div>
     <div class="seg">
-      <span class="lbl">NBER 前沿{(frontier as any).batch_date ? ` · ${(frontier as any).batch_date}` : ""}</span>
-      {front.length
-        ? front.map((f: any) => <a class="row" href={f.url} target="_blank" rel="noopener">{f.title_cn || f.title}</a>)
-        : <span class="row muted">尚未抓取 NBER。</span>}
+      <a class="lbl" href={`${base}frontier/#journals`}>五大期刊 · 新近相关 <i>{(F.journals?.papers || []).length} 篇 →</i></a>
+      {top5New.length
+        ? top5New.map((f: any) => <a class="row" href={f.url} target="_blank" rel="noopener" title={f.title}><em>{JN[f.journal] || f.journal}</em> {f.title_cn || f.title}</a>)
+        : <span class="row muted">暂无相关文章。</span>}
+    </div>
+    <div class="seg">
+      <a class="lbl" href={`${base}frontier/#nber`}>NBER 本周{F.batch_date ? ` · ${F.batch_date}` : ""} <i>{(F.papers || []).filter((f: any) => f.fit !== "far").length} 篇 →</i></a>
+      {nberNear.length
+        ? nberNear.map((f: any) => <a class="row" href={f.url} target="_blank" rel="noopener" title={f.title}>{f.title_cn || f.title}</a>)
+        : <span class="row muted">本周暂无相关文章。</span>}
     </div>
     <nav class="seg go">
       <a href={`${base}rank/`}>文库 · 排行 →</a>
-      <a href={`${base}frontier/`}>全部前沿 →</a>
+      <a href={`${base}frontier/`}>前沿 →</a>
       <a href={`${base}lab/`}>实验室 →</a>
     </nav>
   </div>
@@ -177,9 +188,11 @@ const guide = constellations.map((c: any) => {
   .zoom .btn { width: 34px; height: 34px; padding: 0; justify-content: center; font-size: 15px; background: rgba(9,14,28,.7); }
   @media (max-width: 760px) { .zoom { bottom: auto; top: 70px; right: 12px; } }
   /* info strip */
-  .strip { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.2fr) auto; gap: 28px; max-width: var(--maxw); margin: 0 auto; padding: 18px 28px; border-bottom: 1px solid var(--border); font-size: 13px; scroll-margin-top: 56px; }
+  .strip { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) auto; gap: 28px; max-width: 1320px; margin: 0 auto; padding: 18px 28px; border-bottom: 1px solid var(--border); font-size: 13px; scroll-margin-top: 56px; }
   .seg { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
   .seg .lbl { font-size: 11.5px; letter-spacing: .08em; color: var(--muted); margin-bottom: 2px; }
+  a.lbl:hover { color: var(--gold); }
+  .seg .lbl i { font-style: normal; letter-spacing: 0; margin-left: 4px; opacity: .8; }
   .seg .row { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-2); }
   .seg a.row:hover { color: var(--text); }
   .seg .row em { font-style: normal; color: var(--gold); margin-right: 4px; }
@@ -214,8 +227,13 @@ const guide = constellations.map((c: any) => {
   .picks { list-style: none; margin: 0; padding: 0 2px; display: flex; flex-direction: column; gap: 12px; }
   .picks .gist { -webkit-line-clamp: 2; }
   .lcard .more { margin-top: auto; font-size: 13px; color: var(--dot); }
+  @media (max-width: 1180px) {
+    .strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); }
+    .facts { flex-direction: row; flex-wrap: wrap; gap: 4px 14px; grid-column: 1 / -1; }
+    .go { flex-direction: row; flex-wrap: wrap; gap: 4px 16px; grid-column: 1 / -1; }
+  }
   @media (max-width: 980px) {
-    .strip { grid-template-columns: 1fr 1fr; }
+    .strip { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
     .facts { flex-direction: row; flex-wrap: wrap; gap: 4px 14px; grid-column: 1 / -1; }
     .go { flex-direction: row; flex-wrap: wrap; gap: 4px 16px; grid-column: 1 / -1; }
     .lodges { grid-template-columns: minmax(0, 1fr); }
