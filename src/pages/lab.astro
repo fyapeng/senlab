@@ -10,6 +10,8 @@ import Heat from "../components/lab/Heat.astro";
 import RatingMap from "../components/lab/RatingMap.astro";
 import CitePath from "../components/lab/CitePath.astro";
 import Toolbox from "../components/lab/Toolbox.astro";
+import GenLayer from "../components/lab/GenLayer.astro";
+import labGen from "../data/lab_gen.json";
 
 const base = import.meta.env.BASE_URL;
 const v: any = vocab;
@@ -33,10 +35,11 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
     <header class="page-head">
       <p class="eyebrow">Lab</p>
       <h1>探索实验室</h1>
-      <p class="lede">基于本库自身做的分析。本页全部由程序计算，每次更新文献库时自动重算。</p>
+      <p class="lede">基于本库自身做的分析。上面各部分由程序计算，每次更新文献库时自动重算；页尾的生成层由 DeepSeek 依据本库内容写成，单独标注。</p>
       <nav class="jump">
         <a href="#heat">热度对照</a><a href="#ratings">评分象限</a><a href="#path">引用路径</a><a href="#tools">方法工具箱</a>
         <a href="#matrix">方法 × 星宿</a><a href="#evolution">主题演化</a><a href="#bridges">桥梁与孤星</a><a href="#keywords">关键词与构成</a>
+        <a href="#gen" class="gen-link">生成层：综述 · 研究设想 · 分歧</a>
       </nav>
     </header>
 
@@ -156,12 +159,10 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
       </section>
     </div>
 
-    {import.meta.env.DEV && (
-      <section class="card gen">
-        <h2>生成层 <span class="chip">待运行 · 只在本机预览显示</span></h2>
-        <p class="muted">星宿综述、跨星宿研究设想、结论分歧地图将由本地命令 <code>senlab lab</code> 生成（默认 DeepSeek），只在星宿成员或笔记变化时重算，结果标注模型与日期后发布在这里。</p>
-      </section>
-    )}
+    <section id="gen" class="genwrap">
+      <h2>生成层 <span class="muted small">星宿综述 · 中国情境研究设想 · 分歧地图</span></h2>
+      <GenLayer gen={labGen} papers={papers} constellations={constellations} />
+    </section>
   </main>
 </Layout>
 <style>
@@ -204,7 +205,7 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
   .bars li { display: grid; grid-template-columns: 110px 1fr 32px; gap: 10px; align-items: center; font-size: 13px; padding: 3px 0; }
   .bars i { height: 8px; border-radius: 4px; background: linear-gradient(90deg, rgba(232,196,122,.35), var(--gold)); }
   .bars b { font-weight: 500; text-align: right; color: var(--text-2); }
-  .gen { margin-top: 40px; }
-  .gen h2 { margin-top: 0; }
+  .genwrap { margin-top: 48px; padding-top: 8px; border-top: 1px solid var(--border); }
+  .jump .gen-link { border-color: rgba(232,196,122,.45); color: var(--gold); }
   code { font-family: var(--mono); background: var(--surface-2); padding: 1px 6px; border-radius: 4px; }
 </style>

@@ -2,7 +2,8 @@
 import { marked } from "marked";
 import Layout from "../../layouts/Layout.astro";
 import YearStrip from "../../components/YearStrip.astro";
-import { gist, splitLead, chrono } from "../../lib/papers";
+import { gist, splitLead, chrono, citeHtml } from "../../lib/papers";
+import labGen from "../../data/lab_gen.json";
 import papers from "../../data/papers.json";
 import constellations from "../../data/constellations.json";
 import vocab from "../../data/vocab.json";
@@ -45,6 +46,14 @@ members.forEach((p: any) => {
   if (decades.at(-1)?.label !== label) decades.push({ label, items: [] });
   decades.at(-1)!.items.push(p);
 });
+
+// generated review and disagreements for this constellation (pipeline/lab_gen.py)
+const G: any = labGen;
+const review = G.review?.[c.key];
+const disputes = G.disputes?.[c.key]?.items || [];
+const cite = (t: unknown) => citeHtml(t, byId, base);
+const inline = (t: unknown) => cite(t).replace(/^<p>|<\/p>$/g, "").replace(/<\/p><p>/g, " ");
+const shortOf = (id: string) => (byId[id] ? `${byId[id].authors_short} ${byId[id].year}` : "");
 
 const prev = constellations[(i + constellations.length - 1) % constellations.length] as any;
 const next = constellations[(i + 1) % constellations.length] as any;
@@ -100,6 +109,28 @@ const next = constellations[(i + 1) % constellations.length] as any;
         </aside>
       )}
     </div>
+
+    {review && (
+      <section class="gen">
+        <h2 class="sec">综述 <span class="muted small">AI 生成 · {review.model} · {review.date}，依据本星宿各篇简介与评分说明</span></h2>
+        <p class="tagline" set:html={inline(review.tagline)} />
+        <div class="prose" set:html={cite(review.body)} />
+        {review.open?.length > 0 && <div class="open"><b>尚待回答</b><ul>{review.open.map((q: string) => <li set:html={inline(q)} />)}</ul></div>}
+        {disputes.length > 0 && (
+          <div class="disp">
+            <b>分歧</b>
+            {disputes.map((d: any) => (
+              <div class="d">
+                <p class="dq" set:html={inline(d.question)} />
+                {(d.sides || []).slice(0, 2).map((sd: any) => (
+                  <p class="sd"><span set:html={inline(sd.claim)} /> {(sd.ids || []).filter((id: string) => byId[id]).map((id: string) => <a href={`${base}papers/${id}/`}>{shortOf(id)}</a>)}</p>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+    )}
 
     <h2 class="sec">按时间读 <span class="muted small">从最早到最新，{members.length} 篇</span></h2>
     {decades.map((d) => (
@@ -177,6 +208,17 @@ const next = constellations[(i + 1) % constellations.length] as any;
   .near i, .pager i { font-style: normal; font-family: var(--serif); color: var(--o); margin-right: 6px; }
   .near em { font-style: normal; font-family: var(--mono); font-size: 12px; color: var(--muted); }
 
+  .gen .tagline { margin: 6px 0 12px; font-family: var(--serif); font-size: 18px; color: var(--dot); }
+  .gen .prose { font-size: 14.5px; line-height: 1.9; max-width: 880px; }
+  :global(.gen .cites) { font-size: 12.5px; color: var(--muted); }
+  :global(.gen a.cite) { color: var(--cyan); }
+  .gen .open, .gen .disp { max-width: 880px; font-size: 13.5px; color: var(--text-2); margin-top: 12px; }
+  .gen .open b, .gen .disp > b { color: var(--gold); font-weight: 500; }
+  .gen .open ul { margin: 6px 0; padding-left: 1.2em; line-height: 1.8; }
+  .gen .d { margin-top: 8px; padding: 10px 12px; border-radius: 8px; background: var(--surface); border: 1px solid var(--border); }
+  .gen .dq { margin: 0 0 4px; font-family: var(--serif); font-size: 15px; color: var(--text); }
+  .gen .sd { margin: 4px 0 0; line-height: 1.7; }
+  .gen .sd a { color: var(--gold); margin-left: 6px; font-size: 12.5px; }
   .sec { margin-top: 48px; display: flex; align-items: baseline; gap: 10px; }
   .decade h3 { margin: 26px 0 6px; font-size: 14px; letter-spacing: .1em; color: var(--dot); font-family: var(--sans); font-weight: 500; }
   .rail { list-style: none; margin: 0; padding: 0 0 0 4px; }

@@ -1,0 +1,168 @@
+---
+// The generated part of the lab (pipeline/lab_gen.py): constellation reviews, China-context research ideas,
+// and disagreements. Every block is labelled as AI-generated with model and date.
+import { citeHtml } from "../../lib/papers";
+
+interface Props { gen: any; papers: any[]; constellations: any[] }
+const { gen, papers, constellations } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
+const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
+const cite = (t: unknown) => citeHtml(t, byId, base);
+// one paragraph, without the <p> wrapper, for list items and headings
+const inline = (t: unknown) => cite(t).replace(/^<p>|<\/p>$/g, "").replace(/<\/p><p>/g, " ");
+const short = (id: string) => (byId[id] ? `${byId[id].authors_short} ${byId[id].year}` : "");
+
+const reviews = constellations.filter((c: any) => gen.review?.[c.key]).map((c: any) => ({ c, r: gen.review[c.key] }));
+const RANK: Record<string, number> = { 高: 0, 中: 1, 低: 2 };
+const ideas = Object.entries(gen.ideas || {}).filter(([id]) => byId[id])
+  .map(([id, x]: [string, any]) => ({ p: byId[id], x, c: cons[byId[id].constellation] }))
+  .sort((a, b) => (RANK[a.x.feasibility] ?? 3) - (RANK[b.x.feasibility] ?? 3) || (b.p.ratings.subjective ?? 0) - (a.p.ratings.subjective ?? 0));
+const disputes = constellations.flatMap((c: any) => (gen.disputes?.[c.key]?.items || []).map((d: any) => ({ c, d })));
+const models = [...new Set(Object.values(gen).flatMap((t: any) => Object.values(t || {}).map((x: any) => x.model)))].filter(Boolean);
+const dates = Object.values(gen).flatMap((t: any) => Object.values(t || {}).map((x: any) => x.date)).filter(Boolean).sort();
+const empty = !reviews.length && !ideas.length && !disputes.length;
+---
+{empty ? <p class="muted">生成层尚未运行（本机运行 <code>python pipeline/lab_gen.py</code>）。</p> : (
+<div class="gen">
+  <p class="ai small">AI 生成 · DeepSeek {models.join("、")} · {dates[0]}{dates.at(-1) !== dates[0] ? `–${dates.at(-1)}` : ""} · 依据本库各篇的简介、评分说明与公开笔记写成，未经人工逐条核对；引用的文献均在库内，点击可查原文要点。</p>
+
+  <section id="reviews">
+    <h3>星宿综述 <span class="muted small">{reviews.length} 个星宿</span></h3>
+    <div class="pills" data-pills>
+      {reviews.map(({ c }, i) => <button type="button" class:list={{ on: i === 0 }} data-k={c.key} style={`--dot:${c.color}`}><i>{c.lodge}</i>{c.name}</button>)}
+    </div>
+    {reviews.map(({ c, r }, i) => (
+      <article class="review" data-k={c.key} hidden={i > 0} style={`--dot:${c.color}`}>
+        <p class="tagline" set:html={inline(r.tagline)} />
+        <div class="prose" set:html={cite(r.body)} />
+        {r.threads?.length > 0 && (
+          <div class="threads">
+            {r.threads.map((t: any) => (
+              <div class="thread"><b>{t.name}</b>{(t.ids || []).filter((id: string) => byId[id]).map((id: string) => <a href={`${base}papers/${id}/`}>{short(id)}</a>)}</div>
+            ))}
+          </div>
+        )}
+        {r.open?.length > 0 && (
+          <div class="open"><b>尚待回答</b><ul>{r.open.map((q: string) => <li set:html={inline(q)} />)}</ul></div>
+        )}
+        <a class="more small" href={`${base}stars/${c.key}/`}>进入{c.lodge}宿 →</a>
+      </article>
+    ))}
+  </section>
+
+  <section id="ideas">
+    <h3>中国情境研究设想 <span class="muted small">{ideas.length} 条 · 基于「器」8 分以上、用外国数据的实证文章</span></h3>
+    <div class="filters" data-ideas-filter>
+      <button type="button" class="on" data-f="">全部</button>
+      {["高", "中", "低"].map((f) => <button type="button" data-f={f}>可行性{f}</button>)}
+    </div>
+    <div class="ideas">
+      {ideas.map(({ p, x, c }) => (
+        <details class="idea" data-f={x.feasibility} style={`--dot:${c?.color}`}>
+          <summary>
+            <span class:list={["feas", { hi: x.feasibility === "高", lo: x.feasibility === "低" }]}>{x.feasibility}</span>
+            <span class="it">{x.title}</span>
+            <span class="src small">源自 {p.authors_short} {p.year} · {c?.lodge}宿</span>
+          </summary>
+          <dl>
+            <dt>问题</dt><dd set:html={cite(x.question)} />
+            <dt>制度与政策</dt><dd set:html={cite(x.policy)} />
+            <dt>数据</dt><dd set:html={cite(x.data)} />
+            <dt>识别设计</dt><dd set:html={cite(x.design)} />
+            <dt>威胁</dt><dd set:html={cite(x.threats)} />
+            <dt>可行性</dt><dd>{x.feasibility}：{x.why}</dd>
+          </dl>
+          <a class="small" href={`${base}papers/${p.id}/`}>原文：{p.title} →</a>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <section id="disputes">
+    <h3>分歧地图 <span class="muted small">{disputes.length} 处 · 同一问题上结论不同的库内文献</span></h3>
+    <div class="disputes">
+      {disputes.map(({ c, d }) => (
+        <article class="dispute" style={`--dot:${c.color}`}>
+          <p class="dq"><i>{c.lodge}</i><span set:html={inline(d.question)} /></p>
+          <div class="sides">
+            {(d.sides || []).slice(0, 2).map((s: any) => (
+              <div class="side">
+                <p set:html={cite(s.claim)} />
+                <p class="who">{(s.ids || []).filter((id: string) => byId[id]).map((id: string) => <a href={`${base}papers/${id}/`}>{short(id)}</a>)}</p>
+              </div>
+            ))}
+          </div>
+          <p class="why small"><b>{(d.source || "").replace(/^分歧主要来自[:：]\s*/, "")}</b>　<span set:html={inline(d.explain)} /></p>
+        </article>
+      ))}
+    </div>
+  </section>
+</div>
+)}
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-pills]").forEach((bar) => {
+    const box = bar.parentElement!;
+    bar.querySelectorAll<HTMLButtonElement>("button").forEach((b) => b.addEventListener("click", () => {
+      bar.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
+      box.querySelectorAll<HTMLElement>(".review").forEach((r) => (r.hidden = r.dataset.k !== b.dataset.k));
+    }));
+  });
+  document.querySelectorAll<HTMLElement>("[data-ideas-filter]").forEach((bar) => {
+    const cards = [...bar.parentElement!.querySelectorAll<HTMLElement>(".idea")];
+    bar.querySelectorAll<HTMLButtonElement>("button").forEach((b) => b.addEventListener("click", () => {
+      bar.querySelectorAll("button").forEach((x) => x.classList.toggle("on", x === b));
+      cards.forEach((c) => (c.hidden = !!b.dataset.f && c.dataset.f !== b.dataset.f));
+    }));
+  });
+</script>
+
+<style>
+  .ai { margin: 0 0 18px; padding: 8px 12px; border-radius: 8px; border: 1px dashed var(--border-strong); color: var(--muted); }
+  h3 { margin: 26px 0 10px; font-size: 18px; }
+  section[id] { scroll-margin-top: 70px; }
+  .pills, .filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .pills button, .filters button { background: none; border: 1px solid var(--border-strong); border-radius: 999px; color: var(--text-2); font: 13px var(--sans); padding: 3px 12px; cursor: pointer; }
+  .pills i { font-style: normal; font-family: var(--serif); color: var(--dot); margin-right: 5px; }
+  .pills button.on { border-color: var(--dot); background: color-mix(in srgb, var(--dot) 18%, transparent); color: var(--text); }
+  .filters button.on { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+  .review { max-width: 880px; padding: 18px 22px; border-radius: var(--radius); border: 1px solid var(--border); border-left: 3px solid var(--dot); background: var(--surface); }
+  .tagline { margin: 0 0 12px; font-family: var(--serif); font-size: 18px; color: var(--dot); }
+  .review .prose { font-size: 14.5px; line-height: 1.9; }
+  :global(.gen .cites) { font-size: 12.5px; color: var(--muted); }
+  :global(.gen a.cite) { color: var(--cyan); }
+  .threads { display: flex; flex-direction: column; gap: 6px; margin: 14px 0; padding-top: 12px; border-top: 1px solid var(--border); font-size: 13px; }
+  .thread b { font-weight: 500; color: var(--dot); margin-right: 10px; }
+  .thread a { color: var(--text-2); margin-right: 10px; white-space: nowrap; }
+  .thread a:hover, .who a:hover { color: var(--cyan); }
+  .open { font-size: 13.5px; color: var(--text-2); }
+  .open b { color: var(--gold); font-weight: 500; }
+  .open ul { margin: 6px 0 10px; padding-left: 1.2em; line-height: 1.8; }
+  .more { color: var(--dot); }
+  .ideas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 18px; }
+  .idea { border: 1px solid var(--border); border-left: 3px solid var(--dot); border-radius: 8px; padding: 10px 14px; background: var(--surface); align-self: start; }
+  .idea[hidden] { display: none; }
+  .idea summary { cursor: pointer; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 2px 10px; align-items: baseline; }
+  .feas { grid-row: span 2; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--border-strong); font-size: 12px; color: var(--text-2); }
+  .feas.hi { border-color: var(--gold); color: var(--gold); } .feas.lo { color: var(--muted); }
+  .it { font-family: var(--serif); font-size: 15.5px; line-height: 1.45; }
+  .src { color: var(--muted); }
+  dl { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 6px 12px; margin: 12px 0 8px; font-size: 13.5px; line-height: 1.75; }
+  dt { color: var(--gold); }
+  dd { margin: 0; color: var(--text-2); }
+  :global(.gen dd p) { margin: 0; }
+  .idea > a { color: var(--cyan); }
+  .disputes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 22px; }
+  .dispute { padding: 14px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); }
+  .dq { margin: 0 0 10px; font-family: var(--serif); font-size: 15.5px; line-height: 1.5; }
+  .dq i { font-style: normal; color: var(--dot); margin-right: 8px; }
+  .sides { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .side { padding: 8px 10px; border-radius: 6px; background: var(--surface-2); font-size: 13px; line-height: 1.7; color: var(--text-2); }
+  .side p { margin: 0; }
+  .who { margin-top: 4px !important; display: flex; flex-wrap: wrap; gap: 4px 10px; }
+  .who a { color: var(--gold); font-size: 12.5px; }
+  .why { margin: 10px 0 0; line-height: 1.75; color: var(--text-2); }
+  .why b { color: var(--rose); font-weight: 500; }
+  @media (max-width: 900px) { .ideas, .disputes { grid-template-columns: minmax(0, 1fr); } .sides { grid-template-columns: minmax(0, 1fr); } }
+</style>

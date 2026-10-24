@@ -16,7 +16,9 @@ const nber = near(F.papers);
 const nberFar = (F.papers || []).length - nber.length;
 const j5 = near(F.journals?.papers);
 const j5Far = F.journals?.far ?? 0;
-const SHOW = 8;
+// eight at first; folding away only one or two would leave the header count looking wrong, so then show all
+const SHOW = 8, SLACK = 2;
+const cut = (n: number) => (n > SHOW + SLACK ? SHOW : n);
 const nClose = (xs: any[]) => xs.filter((f: any) => f.fit === "close").length;
 const [sy, sm] = (F.journals?.since || "").split("-");
 const sinceLabel = sy ? `${sy} 年${Number(sm) === 1 ? "以来" : ` ${Number(sm)} 月以来`}` : "";
@@ -86,10 +88,10 @@ const columns = [
           )}
           {col.items.length === 0 ? <p class="muted small">暂无相关文章。</p> : (
             <ol class="list fl" data-list>
-              {col.items.map((f: any, i: number) => <FrontierItem f={f} cons={cons} byId={byId} fill={fill} hidden={i >= SHOW} isNew={isNew(f)} />)}
+              {col.items.map((f: any, i: number) => <FrontierItem f={f} cons={cons} byId={byId} fill={fill} hidden={i >= cut(col.items.length)} isNew={isNew(f)} />)}
             </ol>
           )}
-          {col.items.length > SHOW && (
+          {col.items.length > SHOW + SLACK && (
             <button type="button" class="btn more" data-more>展开全部 {col.items.length} 篇</button>
           )}
         </section>
@@ -99,7 +101,7 @@ const columns = [
 </Layout>
 
 <script>
-  const SHOW = 8;
+  const SHOW = 8, SLACK = 2;
   const KEY = "senlab-frontier-top5";
   const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch { return {}; } };
   const save = (v: object) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch {} };
@@ -121,9 +123,10 @@ const columns = [
       const by = (li: HTMLLIElement) => (st.sort === "date" ? li.dataset.date || "" : Number(li.dataset.score));
       match.sort((a, b) => (by(a) < by(b) ? 1 : by(a) > by(b) ? -1 : Number(b.dataset.score) - Number(a.dataset.score)));
       items.forEach((li) => (li.hidden = true));
-      match.forEach((li, i) => { list!.appendChild(li); li.hidden = !st.open && i >= SHOW; });
+      const limit = match.length > SHOW + SLACK ? SHOW : match.length;
+      match.forEach((li, i) => { list!.appendChild(li); li.hidden = !st.open && i >= limit; });
       if (more) {
-        more.hidden = match.length <= SHOW;
+        more.hidden = match.length <= SHOW + SLACK;
         more.textContent = st.open ? "收起" : `展开全部 ${match.length} 篇`;
       }
       if (ctl) {
