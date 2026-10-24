@@ -1,35 +1,49 @@
 ---
 // Papers on two rating dimensions (default 术 × 道). Ratings are whole numbers and pile up, so each
 // (x, y) pair is a cell and its papers are dots packed inside it.
-interface Props { papers: any[]; cons: Record<string, any>; dims: Record<string, any> }
-const { papers, cons, dims } = Astro.props;
+interface Props { papers: any[]; cons: Record<string, any>; dims: Record<string, any>; quadrants?: Record<string, string[]> }
+const { papers, cons, dims, quadrants = {} } = Astro.props;
 const data = papers.filter((p: any) => Object.keys(p.ratings || {}).length).map((p: any) => ({
   id: p.id, l: `${p.authors_short} ${p.year}`, t: p.title, c: cons[p.constellation]?.color || "#888", r: p.ratings,
 }));
 const keys = Object.keys(dims);
 ---
-<div class="rm" data-points={JSON.stringify(data)} data-dims={JSON.stringify(dims)}>
+<div class="rm" data-points={JSON.stringify(data)} data-dims={JSON.stringify(dims)} data-quads={JSON.stringify(quadrants)}>
   <div class="axes">
     <label>横轴 <select data-ax="x">{keys.map((k) => <option value={k} selected={k === "shu"}>{dims[k].label}</option>)}</select></label>
     <label>纵轴 <select data-ax="y">{keys.map((k) => <option value={k} selected={k === "dao"}>{dims[k].label}</option>)}</select></label>
-    <span class="small muted" data-means></span>
   </div>
+  <dl class="defs small" data-defs></dl>
+  <details class="all small">
+    <summary>六个维度分别评什么、看文章哪里</summary>
+    <dl>{keys.map((k) => <><dt>{dims[k].label}</dt><dd><b>{dims[k].means}</b>{dims[k].where && <span>看：{dims[k].where}</span>}</dd></>)}</dl>
+  </details>
   <svg data-svg role="img" aria-label="按两项评分排布的文献"></svg>
-  <p class="small muted">每个点是一篇文献，颜色是星宿；同一格内的点评分相同。虚线把 8 分及以上与以下分开。点击打开文章。</p>
+  <p class="small muted">每个点是一篇文献，颜色是星宿；同一格内的点评分相同。虚线把 8 分及以上与以下分开，四个角的名称标在图的上下两侧（↖↗↙↘）。点击打开文章。</p>
 </div>
 
 <script>
   const NS = "http://www.w3.org/2000/svg";
   const base = import.meta.env.BASE_URL;
-  // names for the four corners of the default view; other pairs get generic ones
-  const NAMES: Record<string, string[]> = {
-    "shu|dao": ["典范：洞见深、执行也好", "洞见先行：问题好、完成度一般", "精工之作：执行好、洞见一般", "两者都一般"],
-  };
 
   document.querySelectorAll<HTMLElement>(".rm").forEach((box) => {
     type P = { id: string; l: string; t: string; c: string; r: Record<string, number> };
     const pts: P[] = JSON.parse(box.dataset.points!);
-    const dims: Record<string, { label: string; means: string }> = JSON.parse(box.dataset.dims!);
+    const dims: Record<string, { label: string; means: string; where?: string; high?: string; low?: string }> = JSON.parse(box.dataset.dims!);
+    const quads: Record<string, string[]> = JSON.parse(box.dataset.quads || "{}");
+    const order = Object.keys(dims);
+    // corner names [top-right, top-left, bottom-right, bottom-left] for x = kx, y = ky; config/vocab.yaml keys
+    // a pair in dimension order with [both high, first high, second high, both low]
+    function corners(kx: string, ky: string): string[] {
+      const [a, b] = [kx, ky].sort((p, q) => order.indexOf(p) - order.indexOf(q));
+      const q = quads[`${a}|${b}`];
+      if (q && kx !== ky) {
+        const [hh, aHi, bHi, ll] = q;
+        return a === kx ? [hh, bHi, aHi, ll] : [hh, aHi, bHi, ll];
+      }
+      const X = dims[kx], Y = dims[ky];
+      return [`两者都高：${Y.high ?? ""}、${X.high ?? ""}`, `${Y.label}高、${X.label}低`, `${X.label}高、${Y.label}低`, "两者平平"];
+    }
     const svg = box.querySelector<SVGSVGElement>("[data-svg]")!;
     const sel = (k: string) => box.querySelector<HTMLSelectElement>(`[data-ax="${k}"]`)!;
     const el = (tag: string, attrs: Record<string, any>, parent: Element, text?: string) => {
@@ -42,17 +56,26 @@ const keys = Object.keys(dims);
 
     function draw() {
       const kx = sel("x").value, ky = sel("y").value;
-      box.querySelector<HTMLElement>("[data-means]")!.textContent = `${dims[kx].label}：${dims[kx].means}；${dims[ky].label}：${dims[ky].means}`;
+      const defs = box.querySelector<HTMLElement>("[data-defs]")!;
+      defs.innerHTML = "";
+      [["横", kx], ["纵", ky]].forEach(([axis, k]) => {
+        if (axis === "纵" && k === kx) return;
+        const dt = document.createElement("dt"), dd = document.createElement("dd");
+        dt.textContent = `${axis} · ${dims[k].label}`;
+        dd.textContent = `${dims[k].means}${dims[k].where ? `。看：${dims[k].where}` : ""}`;
+        defs.append(dt, dd);
+      });
       const rated = pts.filter((p) => p.r[kx] && p.r[ky]);
       const xs = rated.map((p) => p.r[kx]), ys = rated.map((p) => p.r[ky]);
-      const x0 = Math.min(...xs, 6), y0 = Math.min(...ys, 6);
+      // always show at least 4-10, so the grid is wide enough for two corner names side by side
+      const x0 = Math.min(...xs, 4), y0 = Math.min(...ys, 4);
       const nx = 10 - x0 + 1, ny = 10 - y0 + 1;
       const cells = new Map<string, P[]>();
       rated.forEach((p) => { const k = `${p.r[kx]}|${p.r[ky]}`; cells.set(k, [...(cells.get(k) ?? []), p]); });
       const most = Math.max(...[...cells.values()].map((c) => c.length));
       const per = Math.ceil(Math.sqrt(most));   // dots per row inside a cell
 
-      const L = 40, B = 34, T = 8, R = 8, cell = 64;
+      const L = 40, B = 66, T = 26, R = 8, cell = 64;   // corner names sit in the top and bottom margins
       const W = L + nx * cell + R, H = T + ny * cell + B;
       svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
       svg.innerHTML = "";
@@ -60,11 +83,19 @@ const keys = Object.keys(dims);
       // quadrant split at 8
       const sx = cx(8), sy = cy(8) + cell;
       el("rect", { x: sx, y: T, width: L + nx * cell - sx, height: sy - T, class: "q top" }, svg);
-      const names = NAMES[`${kx}|${ky}`] ?? [`${dims[ky].label}高、${dims[kx].label}也高`, `${dims[ky].label}高、${dims[kx].label}一般`, `${dims[kx].label}高、${dims[ky].label}一般`, "两者都一般"];
-      el("text", { x: L + nx * cell - 6, y: T + 14, "text-anchor": "end", class: "ql" }, svg, names[0]);
-      el("text", { x: L + 6, y: T + 14, class: "ql" }, svg, names[1]);
-      el("text", { x: L + nx * cell - 6, y: T + ny * cell - 6, "text-anchor": "end", class: "ql" }, svg, names[2]);
-      el("text", { x: L + 6, y: T + ny * cell - 6, class: "ql" }, svg, names[3]);
+      // corner names outside the grid: top pair above it, bottom pair below the year ticks
+      const [tr, tl, br, bl] = corners(kx, ky);
+      const label = (text: string, x: number, y: number, anchor: string, tag: string) => {
+        const [name, desc] = text.split("：");
+        const t = el("text", { x, y, "text-anchor": anchor, class: "ql" }, svg);
+        el("tspan", { class: "qn" }, t, `${tag} ${name}`);
+        if (desc) el("tspan", { class: "qd" }, t, `：${desc}`);
+      };
+      const right = L + nx * cell, gridBottom = T + ny * cell;
+      label(tl, L, T - 9, "start", "↖");
+      label(tr, right, T - 9, "end", "↗");
+      label(bl, L, gridBottom + 38, "start", "↙");
+      label(br, right, gridBottom + 38, "end", "↘");
       for (let v = x0; v <= 10; v++) {
         el("line", { x1: cx(v), x2: cx(v), y1: T, y2: T + ny * cell, class: v === 8 ? "split" : "grid" }, svg);
         el("text", { x: cx(v) + cell / 2, y: T + ny * cell + 16, "text-anchor": "middle", class: "tk" }, svg, v);
@@ -75,7 +106,7 @@ const keys = Object.keys(dims);
       }
       el("line", { x1: L + nx * cell, x2: L + nx * cell, y1: T, y2: T + ny * cell, class: "grid" }, svg);
       el("line", { x1: L, x2: L + nx * cell, y1: T + ny * cell, y2: T + ny * cell, class: "grid" }, svg);
-      el("text", { x: L + (nx * cell) / 2, y: H - 2, "text-anchor": "middle", class: "axt" }, svg, `${dims[kx].label} →`);
+      el("text", { x: L + (nx * cell) / 2, y: H - 4, "text-anchor": "middle", class: "axt" }, svg, `${dims[kx].label} →`);
       el("text", { x: 10, y: T + (ny * cell) / 2, "text-anchor": "middle", class: "axt", transform: `rotate(-90 10 ${T + (ny * cell) / 2})` }, svg, `${dims[ky].label} →`);
 
       const gap = (cell - 8) / per, rad = Math.min(5, gap / 2 - 0.6);
@@ -105,7 +136,20 @@ const keys = Object.keys(dims);
   .axes select { background: var(--surface-2); color: var(--text); border: 1px solid var(--border-strong); border-radius: 6px; padding: 3px 8px; font: 13px var(--serif); }
   svg { display: block; width: 100%; max-width: 640px; height: auto; }
   :global(.rm .q.top) { fill: var(--gold); opacity: .06; }
-  :global(.rm .ql) { fill: var(--muted); font-size: 11px; }
+  :global(.rm .ql) { font-size: 11.5px; }
+  :global(.rm .qn) { fill: var(--gold); }
+  :global(.rm .qd) { fill: var(--muted); }
+  .defs { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 10px; margin: 0 0 10px; color: var(--text-2); line-height: 1.65; }
+  :global(.rm .defs dt) { color: var(--gold); white-space: nowrap; }
+  :global(.rm .defs dd) { margin: 0; }
+  .all { margin: 0 0 12px; color: var(--text-2); }
+  .all summary { cursor: pointer; color: var(--muted); width: max-content; }
+  .all summary:hover { color: var(--gold); }
+  .all dl { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 8px 10px; margin: 10px 0 0; line-height: 1.65; }
+  .all dt { color: var(--gold); font-family: var(--serif); font-size: 15px; }
+  .all dd { margin: 0; }
+  .all dd b { display: block; font-weight: 500; color: var(--text); }
+  .all dd span { color: var(--muted); }
   :global(.rm .grid) { stroke: var(--border); }
   :global(.rm .split) { stroke: var(--border-strong); stroke-dasharray: 4 4; }
   :global(.rm .tk) { fill: var(--muted); font: 11px var(--mono); }

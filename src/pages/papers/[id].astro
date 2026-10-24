@@ -162,7 +162,7 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
             {hasRatings && <polygon class="val" points={poly} />}
             {dims.map(([k, d], i) => {
               const [x, y] = axis(i, RR + 16);
-              return <text x={x} y={y + 4} text-anchor="middle"><title>{d.means}</title>{d.label}{p.ratings[k] ? ` ${p.ratings[k]}` : ""}</text>;
+              return <text x={x} y={y + 4} text-anchor="middle"><title>{d.means}{d.where ? `。看：${d.where}` : ""}</title>{d.label}{p.ratings[k] ? ` ${p.ratings[k]}` : ""}</text>;
             })}
           </svg>
           {Object.keys(p.rating_notes).length > 0 && (
@@ -176,7 +176,7 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
               <p class="lt small">修改评分 <span class="muted">（只在本机预览时出现，写入 content）</span></p>
               <div class="rateform">
                 {dims.map(([k, d]) => (
-                  <label title={d.means}>{d.label}<input type="number" min="1" max="10" step="1" name={k} value={p.ratings[k] ?? ""} /></label>
+                  <label title={`${d.means}${d.where ? `。看：${d.where}` : ""}`}>{d.label}<input type="number" min="1" max="10" step="1" name={k} value={p.ratings[k] ?? ""} /></label>
                 ))}
               </div>
               <button class="btn save">保存评分</button> <span class="small muted status"></span>
