@@ -18,7 +18,7 @@ const countries = Object.keys(v.country).filter((k) => used("country").includes(
     <header class="page-head">
       <p class="eyebrow">Library</p>
       <h1>文库与排行</h1>
-      <p class="lede">全部 {papers.length} 篇文献。可以按中心度、库内被引、外部被引、六维综合评分、我读过的次数或 AI 调用次数排序；搜索覆盖标题、作者、期刊、关键词和简介。</p>
+      <p class="lede">全部 {papers.length} 篇文献。可以按中心度、库内被引、外部被引、六维综合评分或 AI 调用次数排序；搜索覆盖标题、作者、期刊、关键词和简介。</p>
     </header>
 
     <div class="controls">
@@ -44,8 +44,7 @@ const countries = Object.keys(v.country).filter((k) => used("country").includes(
             <th data-k="ci" class="num">库内被引</th>
             <th data-k="cb" class="num">外部被引</th>
             <th data-k="r" class="num" title="道法势术器与主观六维平均">评分</th>
-            <th data-k="mr" class="num">我读过</th>
-            <th data-k="ai" class="num">AI 调用</th>
+            <th data-k="ai" class="num" title="读取过本文的 AI 会话数">AI 调用</th>
             <th data-k="y" class="num">年份</th>
           </tr>
         </thead>
@@ -56,7 +55,7 @@ const countries = Object.keys(v.country).filter((k) => used("country").includes(
             return (
               <tr data-id={p.id} data-c={p.constellation} data-k={p.kind} data-m={p.methods.join(" ")} data-co={p.country} data-l={p.lang}
                   data-s={p.summary ? 1 : 0} data-n={p.notes.length} data-rk={p.metrics.rank} data-ci={p.metrics.cited_in_lib}
-                  data-cb={p.metrics.cited_by ?? -1} data-r={p.rating ?? -1} data-mr={p.metrics.my_reads} data-ai={p.metrics.ai_reads} data-y={p.year ?? 0} data-h={hay}>
+                  data-cb={p.metrics.cited_by ?? -1} data-r={p.rating ?? -1} data-ai={p.metrics.ai_reads} data-y={p.year ?? 0} data-h={hay}>
                 <td class="num mono">{p.metrics.rank}</td>
                 <td class="ttl">
                   <a href={`${base}papers/${p.id}/`}>{p.title}</a>
@@ -67,7 +66,6 @@ const countries = Object.keys(v.country).filter((k) => used("country").includes(
                 <td class="num">{p.metrics.cited_in_lib || ""}</td>
                 <td class="num">{p.metrics.cited_by ?? ""}</td>
                 <td class="num">{p.rating ?? ""}</td>
-                <td class="num">{p.metrics.my_reads || ""}</td>
                 <td class="num">{p.metrics.ai_reads || ""}</td>
                 <td class="num">{p.year}</td>
               </tr>

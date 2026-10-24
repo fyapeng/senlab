@@ -76,19 +76,19 @@ const used = [...papers].filter((p: any) => p.metrics.ai_reads > 0).sort((a: any
         </ul>
       </section>
       <section class="card">
-        <h2 class="h">本周前沿 <span class="muted small">NBER 与本库最相关</span></h2>
+        <h2 class="h">前沿 <span class="muted small">NBER {(frontier as any).batch_date || ""} · 与本库最相关</span></h2>
         {front.length ? (
           <ul class="list">
             {front.map((f: any) => (
               <li>
                 <a class="paper-line" href={f.url} target="_blank" rel="noopener">
                   <span class="t">{f.title}</span>
-                  <span class="m">{f.title_cn} · 相关度 {f.score.toFixed(2)}{f.near ? ` · 最近：${byId[f.near]?.authors_short} ${byId[f.near]?.year}` : ""}</span>
+                  <span class="m">{f.title_cn} · 相关度 {f.score.toFixed(2)}{byId[f.near] ? ` · 最近：${byId[f.near].authors_short} ${byId[f.near].year}` : ""}</span>
                 </a>
               </li>
             ))}
           </ul>
-        ) : <p class="muted">尚未抓取本周 NBER。</p>}
+        ) : <p class="muted">尚未抓取 NBER。</p>}
         <a class="more" href={`${base}frontier/`}>全部前沿 →</a>
       </section>
       <section class="card">

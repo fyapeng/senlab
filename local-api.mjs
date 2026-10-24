@@ -1,5 +1,4 @@
 // Vite dev-server plugin with local-only endpoints, active in `astro dev` only (never in the built site):
-//   POST /senlab/_local/read  {id, delta}      -> append to data/reads.jsonl
 //   POST /senlab/_local/rate  {id, ratings}    -> rewrite `ratings:` in content/papers/<id>.md
 // After a write the site data is re-exported so the page shows the new values.
 import fs from "node:fs";
@@ -9,7 +8,6 @@ import { fileURLToPath } from "node:url";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const CONTENT = path.join(ROOT, "content", "papers");
-const READS = path.join(ROOT, "data", "reads.jsonl");
 const DIMS = ["dao", "fa", "shi", "shu", "qi", "subjective"];
 
 let exportTimer = null;
@@ -28,12 +26,6 @@ const readBody = (req) => new Promise((resolve, reject) => {
   req.on("error", reject);
 });
 
-function countReads(id) {
-  if (!fs.existsSync(READS)) return 0;
-  return fs.readFileSync(READS, "utf8").split("\n").filter(Boolean)
-    .map((l) => JSON.parse(l)).filter((e) => e.id === id).reduce((s, e) => s + (e.delta ?? 1), 0);
-}
-
 export function localApi() {
   return {
     name: "senlab-local-api",
@@ -50,13 +42,6 @@ export function localApi() {
             if (!/^[a-z0-9-]+$/.test(id) || !fs.existsSync(file)) return reply(404, { error: "unknown id" });
 
             const route = req.url.split("?")[0].replace(/\/$/, "");
-            if (route.endsWith("/read")) {
-              const delta = body.delta === -1 ? -1 : 1;
-              if (delta === -1 && countReads(id) <= 0) return reply(200, { id, reads: 0 });
-              fs.appendFileSync(READS, JSON.stringify({ t: new Date().toISOString().slice(0, 19), id, delta }) + "\n");
-              scheduleExport();
-              return reply(200, { id, reads: countReads(id) });
-            }
 
             if (route.endsWith("/rate")) {
               const r = body.ratings || {};

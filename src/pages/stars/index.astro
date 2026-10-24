@@ -13,7 +13,7 @@ const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
     <header class="page-head">
       <p class="eyebrow">Constellations</p>
       <h1>星宿</h1>
-      <p class="lede">星宿由程序自动划分：先把文献连成一张网，连线包括库内引用（OpenAlex 参考文献 + 从每篇全文的参考文献表中识别）和相似连线（内容相似度 0.6 + 领域、方法、关键词等属性重合 0.4，中英文分别标准化）；再用社区发现算法（Louvain）切分，个别文献按人工核对移动。中心度最高的一篇为"距星"。</p>
+      <p class="lede">星宿由程序自动划分：先把文献连成一张网，连线包括库内引用（OpenAlex 参考文献 + 从每篇全文的参考文献表中识别）和相似连线（内容相似度 0.6 + 领域、方法、关键词等属性重合 0.4，中英文分别标准化）；再用社区发现算法（Louvain）切分，个别文献按人工核对移动。中心度是库内引用网络上的 PageRank（不含相似连线，自 2026-10-24 起），库内无人引用的文献并列时依次按库内被引、外部被引排序；中心度最高的一篇为"距星"。</p>
       <p class="lede small muted">每篇文献有一个"归属置信度"：它的连线有多大比例落在本星宿内。低于 0.5 的标为"边缘"，多是跨领域的桥梁文献。</p>
     </header>
     <div class="grid cols-2">
