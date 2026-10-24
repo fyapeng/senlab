@@ -1,12 +1,12 @@
 {
  "built": "2026-10-24",
  "counts": {
-  "papers": 159,
+  "papers": 160,
   "constellations": 12,
-  "citation_edges": 485,
-  "with_summary": 159,
+  "citation_edges": 491,
+  "with_summary": 160,
   "with_notes": 31,
-  "with_fulltext": 159,
+  "with_fulltext": 160,
   "zh": 25
  },
  "years": [
