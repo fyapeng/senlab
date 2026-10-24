@@ -266,13 +266,14 @@ export async function initStarmap(root) {
   }
   new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) wake(); }, { threshold: 0.02 }).observe(root);
   document.addEventListener("visibilitychange", () => { if (!document.hidden) wake(); });
-  window.addEventListener("resize", resize);
+  // the sky can start at 0×0 (e.g. a hidden tab or pane); follow the element, not just the window
+  new ResizeObserver(resize).observe(root);
 
   const stats = { frames: 0, ms: 0 };
   window.__sky = stats;
 
   function frame(now) {
-    if (!visible || document.hidden) { running = false; return; }
+    if (!visible || document.hidden || !W || !H) { running = false; return; }
     const moving = playing || drag || now < busyUntil || Math.abs(view.tz - view.zoom) > 1e-3 ||
       Math.abs(view.tfx - view.fx) > 1e-4 || Math.abs(view.tfy - view.fy) > 1e-4;
     if (!moving && now - lastDraw < 33) { requestAnimationFrame(frame); return; }

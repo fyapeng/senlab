@@ -28,7 +28,7 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
     <header class="page-head">
       <p class="eyebrow">Lab</p>
       <h1>探索实验室</h1>
-      <p class="lede">基于本库自身做的分析。本页全部由程序计算，每次更新文献库时自动重算；大模型生成的星宿综述和研究设想单列在页尾，标明来源与日期。</p>
+      <p class="lede">基于本库自身做的分析。本页全部由程序计算，每次更新文献库时自动重算。</p>
     </header>
 
     <section>
@@ -59,8 +59,10 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
           <tbody>
             {L.timeline.map((t: any) => (
               <tr>
-                <th><span class="dotc" style={`--dot:${cons[t.c].color}`}></span>{cons[t.c].lodge}·{cons[t.c].name}</th>
-                {t.counts.map((n: number) => <td><span class="bar" style={`height:${n ? 4 + 26 * n / maxDec : 0}px;background:${cons[t.c].color}`} title={`${n} 篇`}></span></td>)}
+                <th><a href={`${base}stars/${t.c}/`} style={`--dot:${cons[t.c].color}`}><i class="seal">{cons[t.c].lodge}</i>{cons[t.c].name}</a></th>
+                {t.counts.map((n: number, j: number) => (
+                  <td><span class="bar" style={`height:${n ? 4 + 34 * n / maxDec : 0}px;background:${cons[t.c].color}`} title={`${cons[t.c].lodge}宿 · ${L.decades[j]} 年代 · ${n} 篇`}>{n >= 3 && <em>{n}</em>}</span></td>
+                ))}
               </tr>
             ))}
           </tbody>
@@ -71,7 +73,11 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
         <ul class="list flows">
           {L.flow.slice(0, 12).map((f: any) => (
             <li>
-              <span class="fname"><span class="dotc" style={`--dot:${cons[f.from].color}`}></span>{cons[f.from].name} → <span class="dotc" style={`--dot:${cons[f.to].color}`}></span>{cons[f.to].name}</span>
+              <span class="fname">
+                <a href={`${base}stars/${f.from}/`} style={`--dot:${cons[f.from].color}`} title={cons[f.from].name}><i class="seal">{cons[f.from].lodge}</i>{cons[f.from].name}</a>
+                <span class="arrow">→</span>
+                <a href={`${base}stars/${f.to}/`} style={`--dot:${cons[f.to].color}`} title={cons[f.to].name}><i class="seal">{cons[f.to].lodge}</i>{cons[f.to].name}</a>
+              </span>
               <span class="fbar"><i style={`width:${100 * f.n / maxFlow}%`}></i></span>
               <span class="mono small">{f.n}</span>
             </li>
@@ -82,12 +88,15 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
 
     <div class="grid cols-2">
       <section>
-        <h2>桥梁文献</h2>
+        <h2>桥梁文献 <span class="muted small">引用关系横跨多个星宿</span></h2>
         <ul class="list">
           {L.bridges.map((b: any) => (
             <li>
               <PaperLine p={byId[b.id]} cons={cons} />
-              <span class="chips" style="margin-top:4px">{b.spans.map((k: string) => <span class="chip dot" style={`--dot:${cons[k].color}`}>{cons[k].name}</span>)}</span>
+              <span class="spans small">
+                <span class="muted">连接 {b.spans.length} 个星宿</span>
+                {b.spans.map((k: string) => <a class="seal" href={`${base}stars/${k}/`} style={`--dot:${cons[k].color}`} title={`${cons[k].lodge}宿 · ${cons[k].name}`}>{cons[k].lodge}</a>)}
+              </span>
             </li>
           ))}
         </ul>
@@ -117,10 +126,12 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
       </section>
     </div>
 
-    <section class="card gen">
-      <h2>生成层 <span class="chip">待运行</span></h2>
-      <p class="muted">星宿综述、跨星宿研究设想、结论分歧地图将由本地命令 <code>senlab lab</code> 生成（默认 DeepSeek），只在星宿成员或笔记变化时重算，结果标注模型与日期后发布在这里。</p>
-    </section>
+    {import.meta.env.DEV && (
+      <section class="card gen">
+        <h2>生成层 <span class="chip">待运行 · 只在本机预览显示</span></h2>
+        <p class="muted">星宿综述、跨星宿研究设想、结论分歧地图将由本地命令 <code>senlab lab</code> 生成（默认 DeepSeek），只在星宿成员或笔记变化时重算，结果标注模型与日期后发布在这里。</p>
+      </section>
+    )}
   </main>
 </Layout>
 <style>
@@ -132,13 +143,24 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
   .matrix .rh { text-align: right; font-weight: 400; padding-right: 8px; white-space: nowrap; }
   .matrix td { width: 34px; height: 30px; text-align: center; border-radius: 5px; background: rgba(232, 196, 122, var(--a)); color: var(--text); font-variant-numeric: tabular-nums; }
   .matrix td:not([style*="--a:0;"]) { cursor: help; }
-  .spark { border-collapse: collapse; font-size: 12.5px; width: 100%; }
-  .spark th { font-weight: 400; color: var(--muted); text-align: left; white-space: nowrap; padding: 2px 6px 2px 0; }
-  .spark thead th { text-align: center; }
-  .spark td { height: 34px; vertical-align: bottom; text-align: center; border-bottom: 1px solid var(--border); }
-  .spark .bar { display: inline-block; width: 14px; border-radius: 3px 3px 0 0; opacity: .85; }
-  .dotc { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--dot); margin-right: 6px; box-shadow: 0 0 6px var(--dot); }
-  .flows li { display: grid; grid-template-columns: minmax(0, 1fr) 120px 28px; gap: 10px; align-items: center; padding: 7px 0; font-size: 13.5px; }
+  .seal { display: inline-grid; place-items: center; flex: none; width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--dot); color: var(--dot); font: normal 12px var(--serif); }
+  a.seal:hover { background: var(--dot); color: var(--bg); }
+  .spark { border-collapse: collapse; font-size: 13px; width: 100%; table-layout: fixed; }
+  .spark th { font-weight: 400; color: var(--muted); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 2px 8px 2px 0; }
+  .spark thead th:first-child { width: 42%; }
+  .spark th a { display: inline-flex; align-items: center; gap: 8px; color: var(--text-2); }
+  .spark th a:hover { color: var(--dot); }
+  .spark thead th { text-align: center; font-family: var(--mono); font-size: 11px; }
+  .spark td { height: 46px; vertical-align: bottom; text-align: center; border-bottom: 1px solid var(--border); }
+  .spark .bar { position: relative; display: inline-block; width: 70%; max-width: 22px; border-radius: 3px 3px 0 0; opacity: .85; }
+  .spark .bar em { position: absolute; left: 0; right: 0; top: 2px; font: normal 10px var(--mono); color: var(--bg); }
+  .flows li { display: grid; grid-template-columns: minmax(0, 1fr) 100px 28px; gap: 10px; align-items: center; padding: 7px 0; font-size: 13.5px; }
+  .fname { display: flex; align-items: center; gap: 6px; min-width: 0; }
+  .fname a { display: inline-flex; align-items: center; gap: 6px; min-width: 0; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .fname a:hover { color: var(--dot); }
+  .arrow { color: var(--muted); flex: none; }
+  .spans { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin-top: 6px; }
+  .spans .muted { margin-right: 4px; }
   .fbar { height: 6px; background: var(--surface-2); border-radius: 3px; overflow: hidden; }
   .fbar i { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--gold)); }
   .cloud { line-height: 2; }

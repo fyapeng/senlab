@@ -2,6 +2,7 @@
 import { marked } from "marked";
 import Layout from "../../layouts/Layout.astro";
 import PaperLine from "../../components/PaperLine.astro";
+import { splitLead, chrono } from "../../lib/papers";
 import papers from "../../data/papers.json";
 import constellations from "../../data/constellations.json";
 import vocab from "../../data/vocab.json";
@@ -22,6 +23,13 @@ const related = p.related.slice(0, 8).map((r: any) => ({ ...r, p: byId[r.id] }))
 const siblings = c.members.filter((m: string) => m !== p.id).slice(0, 6).map((m: string) => byId[m]);
 const cites = p.cites.map((x: string) => byId[x]).filter(Boolean);
 const citedBy = p.cited_by_lib.map((x: string) => byId[x]).filter(Boolean);
+const { lead, rest } = splitLead(p.summary);
+
+// previous / next paper in the constellation's reading order (the timeline on its 星宿 page)
+const order = chrono(c.members.map((m: string) => byId[m]).filter(Boolean));
+const at = order.findIndex((x: any) => x.id === p.id);
+const prevP = at > 0 ? order[at - 1] : null;
+const nextP = at < order.length - 1 ? order[at + 1] : null;
 
 // ego network: this paper in the middle, related papers on a ring
 const ring = related.slice(0, 8);
@@ -47,8 +55,9 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
 ---
 <Layout title={p.title} active="rank" description={p.summary ? p.summary.slice(0, 120) : (p.abstract || "").slice(0, 160)}>
   <main class="page detail">
-    <nav class="crumbs small">
-      <a href={base}>星图</a> / <a href={`${base}stars/${c.key}/`} style={`color:${c.color}`}>{c.lodge}宿 · {c.name}</a>
+    <nav class="crumbs small" style={`--dot:${c.color}`}>
+      <a href={base}>星图</a> / <a class="lodge-link" href={`${base}stars/${c.key}/`}><i>{c.lodge}</i>{c.name}</a>
+      <span class="muted">· 第 {at + 1} / {order.length} 篇</span>
     </nav>
 
     <header class="head">
@@ -82,7 +91,10 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
         {p.summary ? (
           <section>
             <h2>简介</h2>
-            <div class="prose" set:html={md(p.summary)} />
+            <div class="prose summary">
+              {lead && <p class="lead">{lead}</p>}
+              <Fragment set:html={md(rest)} />
+            </div>
             {p.abstract && (
               <details class="abs">
                 <summary>原文摘要</summary>
@@ -101,28 +113,44 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
           <div class="chips kw">{p.keywords.map((k: string) => <a class="chip" href={`${base}rank/?q=${encodeURIComponent(k)}`}># {k}</a>)}</div>
         )}
 
-        <section>
-          <h2>笔记</h2>
-          {p.notes.length ? p.notes.map((n: any) => (
-            <div class="note">
-              <p class="nd small"><span class="mono">{n.date}</span> {n.title}</p>
-              <div class="prose" set:html={md(n.body)} />
-            </div>
-          )) : <p class="muted">还没有读后笔记。</p>}
-        </section>
-
-        {(cites.length > 0 || citedBy.length > 0) && (
-          <section class="grid cols-2">
-            <div>
-              <h3>引用了库内 {cites.length} 篇</h3>
-              <ul class="list">{cites.map((x: any) => <li><PaperLine p={x} cons={cons} /></li>)}</ul>
-            </div>
-            <div>
-              <h3>被库内 {citedBy.length} 篇引用</h3>
-              <ul class="list">{citedBy.map((x: any) => <li><PaperLine p={x} cons={cons} /></li>)}</ul>
-            </div>
+        {p.notes.length > 0 && (
+          <section>
+            <h2>笔记</h2>
+            {p.notes.map((n: any) => (
+              <div class="note">
+                <p class="nd small"><span class="mono">{n.date}</span> {n.title}</p>
+                <div class="prose" set:html={md(n.body)} />
+              </div>
+            ))}
           </section>
         )}
+
+        {(cites.length > 0 || citedBy.length > 0) && (
+          <section class:list={["grid", { "cols-2": cites.length > 0 && citedBy.length > 0 }]}>
+            {cites.length > 0 && (
+              <div>
+                <h3>引用了库内 {cites.length} 篇</h3>
+                <ul class="list">{cites.map((x: any) => <li><PaperLine p={x} cons={cons} /></li>)}</ul>
+              </div>
+            )}
+            {citedBy.length > 0 && (
+              <div>
+                <h3>被库内 {citedBy.length} 篇引用</h3>
+                <ul class="list">{citedBy.map((x: any) => <li><PaperLine p={x} cons={cons} /></li>)}</ul>
+              </div>
+            )}
+          </section>
+        )}
+
+        <nav class="pager" style={`--dot:${c.color}`}>
+          {prevP ? (
+            <a href={`${base}papers/${prevP.id}/`}><span class="small muted">← 上一篇 · {prevP.authors_short} {prevP.year}</span><span class="t">{prevP.title}</span></a>
+          ) : <span></span>}
+          {nextP ? (
+            <a class="nx" href={`${base}papers/${nextP.id}/`}><span class="small muted">下一篇 · {nextP.authors_short} {nextP.year} →</span><span class="t">{nextP.title}</span></a>
+          ) : <span></span>}
+        </nav>
+        <p class="pager-note small muted">按<a href={`${base}stars/${c.key}/`}>{c.lodge}宿</a>的时间线顺序</p>
       </article>
 
       <aside>
@@ -211,7 +239,19 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
 
 <style>
   .detail { max-width: 1240px; }
-  .crumbs { color: var(--muted); }
+  .crumbs { color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+  .lodge-link { color: var(--dot); display: inline-flex; align-items: center; gap: 6px; }
+  .lodge-link i { font-style: normal; font-family: var(--serif); width: 20px; height: 20px; display: inline-grid; place-items: center; border-radius: 50%; border: 1px solid var(--dot); font-size: 12px; }
+  .lodge-link:hover { color: var(--text); }
+  .summary .lead { font-family: var(--serif); font-size: 17px; line-height: 1.85; color: var(--text); padding-left: 16px; border-left: 2px solid var(--gold-dim); margin-bottom: 1.4em; }
+  .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .pager a { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); }
+  .pager a:hover { border-color: var(--dot); color: inherit; }
+  .pager .t { font-family: var(--serif); font-size: 14.5px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .pager .nx { text-align: right; }
+  .pager-note { margin: 8px 0 0; text-align: center; }
+  .pager-note a { color: var(--dot, var(--gold)); }
+  @media (max-width: 760px) { .pager { grid-template-columns: 1fr; } .pager .nx { text-align: left; } }
   .head h1 { font-size: 30px; max-width: 900px; }
   .authors { margin: 0; color: var(--text-2); }
   .doi { color: var(--cyan); }

@@ -65,7 +65,7 @@ const countries = Object.keys(v.country).filter((k) => used("country").includes(
                 <td class="small muted">{v.kind[p.kind]}{p.methods.length ? ` · ${p.methods.map((m: string) => v.methods[m]).join("、")}` : ""}</td>
                 <td class="num">{p.metrics.cited_in_lib || ""}</td>
                 <td class="num">{p.metrics.cited_by ?? ""}</td>
-                <td class="num">{p.rating ?? ""}</td>
+                <td class="num rate">{p.rating ? <><span class="rbar" aria-hidden="true"><i style={`width:${10 * p.rating}%`}></i></span>{Number(p.rating).toFixed(1)}</> : ""}</td>
                 <td class="num">{p.metrics.ai_reads || ""}</td>
                 <td class="num">{p.year}</td>
               </tr>
@@ -141,4 +141,7 @@ const countries = Object.keys(v.country).filter((k) => used("country").includes(
   .ttl a { font-family: var(--serif); font-size: 15px; line-height: 1.4; }
   .ttl .m { display: block; color: var(--muted); font-size: 12.5px; margin-top: 2px; }
   td .chip { font-size: 12px; }
+  .rate { min-width: 84px; }
+  .rbar { display: inline-block; width: 38px; height: 5px; margin-right: 8px; vertical-align: 2px; border-radius: 3px; background: var(--surface-2); overflow: hidden; }
+  .rbar i { display: block; height: 100%; border-radius: 3px; background: linear-gradient(90deg, rgba(232,196,122,.35), var(--gold)); }
 </style>

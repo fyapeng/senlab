@@ -46,12 +46,13 @@ a:hover { color: var(--gold); }
   border-bottom: 1px solid var(--border);
 }
 .topbar.overlay { position: fixed; left: 0; right: 0; background: linear-gradient(rgba(6,10,20,.85), rgba(6,10,20,0)); border-bottom: none; backdrop-filter: none; }
-.brand { display: flex; align-items: baseline; gap: 10px; font-family: var(--serif); letter-spacing: .02em; }
+.brand { flex: none; display: flex; align-items: baseline; gap: 10px; font-family: var(--serif); letter-spacing: .02em; }
 .brand b { font-size: 20px; font-weight: 600; color: var(--gold); }
 .brand span { font-size: 13px; color: var(--muted); }
-.nav { display: flex; gap: 4px; margin-left: auto; }
+.nav { display: flex; gap: 4px; margin-left: auto; min-width: 0; }
 .nav a { padding: 6px 12px; border-radius: 999px; color: var(--text-2); font-size: 14px; white-space: nowrap; }
-@media (max-width: 520px) { .nav { gap: 0; overflow-x: auto; } .nav a { padding: 5px 9px; font-size: 13.5px; } .brand b { font-size: 18px; } }
+@media (max-width: 520px) { .nav { gap: 0; overflow-x: auto; scrollbar-width: none; } .nav a { padding: 5px 9px; font-size: 13.5px; } .brand b { font-size: 18px; } }
+@media (max-width: 420px) { .topbar { gap: 8px; } .nav a { padding: 5px 7px; font-size: 13px; } .brand b { font-size: 16px; } }
 .nav a:hover { color: var(--text); background: var(--surface-2); }
 .nav a.on { color: var(--bg); background: var(--gold); }
 

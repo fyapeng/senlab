@@ -1,0 +1,32 @@
+---
+// Publication-year strip: one dot per paper on the library-wide year axis, same-year papers stacked.
+import meta from "../data/meta.json";
+
+interface Props { papers: any[]; star?: string; size?: number; ticks?: number[] }
+const { papers, star = "", size = 6, ticks = [1950, 1970, 1990, 2010] } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const [y0, y1] = meta.years;
+const pos = (y: number) => (100 * (y - y0)) / (y1 - y0);
+const gap = size + 1;
+
+const seen: Record<number, number> = {};
+const dots = papers.filter((p) => Number(p.year))
+  .sort((a, b) => (a.id === star ? -1 : b.id === star ? 1 : 0))
+  .map((p) => { const y = Number(p.year); const k = (seen[y] = (seen[y] ?? -1) + 1); return { p, x: pos(y), k }; });
+const stack = Math.max(0, ...Object.values(seen)) + 1;
+---
+<div class="years" style={`--h:${stack * gap + 6}px;--s:${size}px`} aria-label={`${papers.length} 篇文献的发表年份分布`}>
+  {ticks.filter((t) => t > y0 && t < y1).map((t) => <span class="tick" style={`left:${pos(t)}%`}>{t}</span>)}
+  {dots.map((d) => (
+    <a class:list={["dot", { star: d.p.id === star }]} href={`${base}papers/${d.p.id}/`}
+       style={`left:${d.x}%;bottom:${d.k * gap + 3}px`} title={`${d.p.authors_short} ${d.p.year} · ${d.p.title}`}></a>
+  ))}
+</div>
+<style>
+  .years { position: relative; height: var(--h); margin: 2px 4px 14px; border-bottom: 1px solid var(--border-strong); }
+  .tick { position: absolute; top: 100%; transform: translateX(-50%); margin-top: 3px; font-size: 10.5px; color: var(--muted); font-family: var(--mono); }
+  .tick::before { content: ""; position: absolute; left: 50%; top: -6px; height: 4px; border-left: 1px solid var(--border-strong); }
+  .dot { position: absolute; width: var(--s); height: var(--s); margin-left: calc(var(--s) / -2); border-radius: 50%; background: var(--dot); opacity: .75; }
+  .dot:hover { opacity: 1; transform: scale(1.5); }
+  .dot.star { width: calc(var(--s) * 1.5); height: calc(var(--s) * 1.5); margin-left: calc(var(--s) * -.75); opacity: 1; background: #fff; box-shadow: 0 0 0 2px var(--dot), 0 0 10px var(--dot); z-index: 1; }
+</style>

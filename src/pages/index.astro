@@ -1,20 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import PaperLine from "../components/PaperLine.astro";
+import YearStrip from "../components/YearStrip.astro";
+import { gist } from "../lib/papers";
 import papers from "../data/papers.json";
 import constellations from "../data/constellations.json";
 import meta from "../data/meta.json";
-import lab from "../data/lab.json";
 import frontier from "../data/frontier.json";
 
 const base = import.meta.env.BASE_URL;
-const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
 const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
-const central = [...papers].sort((a: any, b: any) => a.metrics.rank - b.metrics.rank).slice(0, 8);
-const recent = [...papers].sort((a: any, b: any) => (b.added || "").localeCompare(a.added || "")).slice(0, 6);
-const bridges = lab.bridges.slice(0, 7).map((b: any) => ({ ...byId[b.id], spans: b.spans }));
-const front = (frontier.papers || []).slice(0, 4);
-const used = [...papers].filter((p: any) => p.metrics.ai_reads > 0).sort((a: any, b: any) => b.metrics.ai_reads - a.metrics.ai_reads).slice(0, 6);
+const recent = [...papers].sort((a: any, b: any) => (b.added || "").localeCompare(a.added || "")).slice(0, 3);
+const front = (frontier.papers || []).slice(0, 3);
+
+const [y0, y1] = meta.years;
+
+const guide = constellations.map((c: any) => {
+  const ms = c.members.map((id: string) => byId[id]).filter(Boolean);
+  const years = ms.map((p: any) => Number(p.year)).filter(Boolean);
+  const picks = ms.filter((p: any) => p.id !== c.star && p.rating)
+    .sort((a: any, b: any) => b.rating - a.rating || a.metrics.rank - b.metrics.rank).slice(0, 2);
+  return {
+    ...c, ms, n: ms.length, from: Math.min(...years), to: Math.max(...years), picks,
+    star: byId[c.star], noted: ms.filter((p: any) => p.notes.length).length,
+  };
+});
 ---
 <Layout active="map" overlay>
   <section class="sky" id="sky">
@@ -46,67 +55,81 @@ const used = [...papers].filter((p: any) => p.metrics.ai_reads > 0).sort((a: any
       <button class="btn" data-zoom="out" aria-label="缩小">－</button>
       <button class="btn" data-zoom="reset" aria-label="复位">⟲</button>
     </div>
-    <a class="scroll-hint" href="#dash">仪表盘 ↓</a>
+    <a class="scroll-hint" href="#guide">星宿导览 ↓</a>
   </section>
 
-  <main class="page" id="dash">
-    <div class="grid cols-4 stats">
-      <div class="card stat"><b>{meta.counts.papers}</b><span>篇文献（中文 {meta.counts.zh}）</span></div>
-      <div class="card stat"><b>{meta.counts.constellations}</b><span>个星宿（主题簇）</span></div>
-      <div class="card stat"><b>{meta.counts.with_summary}</b><span>篇已有详细简介</span></div>
-      <div class="card stat"><b>{meta.counts.with_fulltext}</b><span>篇已解析全文（供 AI 精读）</span></div>
+  <div class="strip" id="guide">
+    <div class="seg facts">
+      <span><b>{meta.counts.papers}</b> 篇文献</span>
+      <span><b>{meta.counts.constellations}</b> 个星宿</span>
+      <span><b>{meta.counts.with_notes}</b> 篇有笔记</span>
+      <span class="muted">{y0}–{y1}</span>
     </div>
-
-    <div class="grid cols-2" style="margin-top:16px">
-      <section class="card">
-        <h2 class="h">中心文献 <span class="muted small">库内 PageRank</span></h2>
-        <ol class="list rankl">
-          {central.map((p: any) => <li><PaperLine p={p} cons={cons} extra={`库内被引 ${p.metrics.cited_in_lib}`} /></li>)}
-        </ol>
-      </section>
-      <section class="card">
-        <h2 class="h">桥梁文献 <span class="muted small">连接多个星宿</span></h2>
-        <ul class="list">
-          {bridges.map((p: any) => (
-            <li>
-              <PaperLine p={p} cons={cons} />
-              <span class="spans small">连接 {p.spans.length} 个星宿 {p.spans.map((k: string) => <i title={`${cons[k].lodge}宿 · ${cons[k].name}`} style={`--dot:${cons[k].color}`}>{cons[k].lodge}</i>)}</span>
-            </li>
-          ))}
-        </ul>
-      </section>
-      <section class="card">
-        <h2 class="h">前沿 <span class="muted small">NBER {(frontier as any).batch_date || ""} · 与本库最相关</span></h2>
-        {front.length ? (
-          <ul class="list">
-            {front.map((f: any) => (
-              <li>
-                <a class="paper-line" href={f.url} target="_blank" rel="noopener">
-                  <span class="t">{f.title}</span>
-                  <span class="m">{f.title_cn} · 相关度 {f.score.toFixed(2)}{byId[f.near] ? ` · 最近：${byId[f.near].authors_short} ${byId[f.near].year}` : ""}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        ) : <p class="muted">尚未抓取 NBER。</p>}
-        <a class="more" href={`${base}frontier/`}>全部前沿 →</a>
-      </section>
-      <section class="card">
-        <h2 class="h">{used.length ? "AI 最常调用" : "最近收录"}</h2>
-        <ul class="list">
-          {(used.length ? used : recent).map((p: any) => <li><PaperLine p={p} cons={cons} extra={used.length ? `调用 ${p.metrics.ai_reads} 次` : `收录于 ${p.added}`} /></li>)}
-        </ul>
-      </section>
+    <div class="seg">
+      <span class="lbl">最近收录</span>
+      {recent.map((p: any) => <a class="row" href={`${base}papers/${p.id}/`}><em>{p.authors_short} {p.year}</em> {p.title}</a>)}
     </div>
+    <div class="seg">
+      <span class="lbl">NBER 前沿{(frontier as any).batch_date ? ` · ${(frontier as any).batch_date}` : ""}</span>
+      {front.length
+        ? front.map((f: any) => <a class="row" href={f.url} target="_blank" rel="noopener">{f.title_cn || f.title}</a>)
+        : <span class="row muted">尚未抓取 NBER。</span>}
+    </div>
+    <nav class="seg go">
+      <a href={`${base}rank/`}>文库 · 排行 →</a>
+      <a href={`${base}frontier/`}>全部前沿 →</a>
+      <a href={`${base}lab/`}>实验室 →</a>
+    </nav>
+  </div>
 
-    <h2>星宿</h2>
-    <div class="grid cols-3">
-      {constellations.map((c: any) => (
-        <a class="card cons" href={`${base}stars/${c.key}/`} style={`--dot:${c.color}`}>
-          <span class="cname"><i></i>{c.lodge}宿 · {c.name}</span>
-          <span class="muted small">{c.members.length} 篇 · 距星：{byId[c.star].authors_short} {byId[c.star].year}</span>
-          <span class="chips">{c.keywords.slice(0, 5).map((k: string) => <span class="chip">{k}</span>)}</span>
-        </a>
+  <main class="page guide">
+    <header class="guide-head">
+      <p class="eyebrow">Atlas · 星宿导览</p>
+      <h2>十二星宿</h2>
+      <p class="muted">星图里每一种颜色是一个研究主题。下面逐一说明它在问什么、从哪篇文献起步、哪几篇最值得先读。</p>
+    </header>
+
+    <div class="lodges">
+      {guide.map((c: any) => (
+        <article class="lcard" style={`--dot:${c.color}`}>
+          <header>
+            <span class="seal">{c.lodge}</span>
+            <div class="ttl">
+              <h3><a href={`${base}stars/${c.key}/`}>{c.name}</a></h3>
+              <span class="muted small">{c.lodge}宿 · {c.n} 篇 · {c.from}–{c.to}{c.noted ? ` · ${c.noted} 篇有笔记` : ""}</span>
+            </div>
+            <button class="locate" data-c={c.key} title="回到星图并点亮这个星宿">星图中看 ↑</button>
+          </header>
+
+          <p class="blurb">{c.blurb}</p>
+
+          <YearStrip papers={c.ms} star={c.star.id} />
+
+          <div class="anchor">
+            <span class="lbl">距星</span>
+            <a href={`${base}papers/${c.star.id}/`}>
+              <span class="t">{c.star.title}</span>
+              <span class="m">{c.star.authors_short} · {c.star.year}{c.star.venue ? ` · ${c.star.venue}` : ""}</span>
+            </a>
+            <p class="gist">{gist(c.star)}</p>
+          </div>
+
+          {c.picks.length > 0 && (
+            <ul class="picks">
+              {c.picks.map((p: any) => (
+                <li>
+                  <a href={`${base}papers/${p.id}/`}>
+                    <span class="t">{p.title}</span>
+                    <span class="m">{p.authors_short} · {p.year} · 评分 {Number(p.rating).toFixed(1)}</span>
+                  </a>
+                  <p class="gist">{gist(p)}</p>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <a class="more" href={`${base}stars/${c.key}/`}>进入{c.lodge}宿 · 全部 {c.n} 篇 →</a>
+        </article>
       ))}
     </div>
   </main>
@@ -115,6 +138,13 @@ const used = [...papers].filter((p: any) => p.metrics.ai_reads > 0).sort((a: any
 <script>
   import { initStarmap } from "../scripts/starmap.js";
   initStarmap(document.getElementById("sky"));
+
+  // "星图中看": scroll back up and focus that constellation through the legend
+  document.querySelectorAll<HTMLButtonElement>(".locate").forEach((b) => b.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    const el = document.querySelector<HTMLButtonElement>(`.legend [data-c="${b.dataset.c}"]`);
+    if (el && !el.classList.contains("on")) el.click();
+  }));
 </script>
 
 <style>
@@ -146,16 +176,56 @@ const used = [...papers].filter((p: any) => p.metrics.ai_reads > 0).sort((a: any
   .zoom { position: absolute; right: 24px; bottom: 70px; display: flex; flex-direction: column; gap: 6px; }
   .zoom .btn { width: 34px; height: 34px; padding: 0; justify-content: center; font-size: 15px; background: rgba(9,14,28,.7); }
   @media (max-width: 760px) { .zoom { bottom: auto; top: 70px; right: 12px; } }
-  .h { margin: 0 0 10px; font-size: 18px; }
-  .spans { display: flex; align-items: center; gap: 6px; margin-top: 4px; color: var(--muted); }
-  .spans i { font-style: normal; font-family: var(--serif); font-size: 12px; color: var(--dot); border: 1px solid var(--dot); border-radius: 50%; width: 20px; height: 20px; display: inline-grid; place-items: center; opacity: .9; }
-  .rankl { counter-reset: r; }
-  .more { display: inline-block; margin-top: 10px; font-size: 13px; color: var(--gold); }
-  .cons { display: flex; flex-direction: column; gap: 8px; transition: border-color .2s, transform .2s; }
-  .cons:hover { border-color: var(--dot); transform: translateY(-2px); color: inherit; }
-  .cname { font-family: var(--serif); font-size: 17px; display: flex; align-items: center; gap: 8px; }
-  .cname i { width: 9px; height: 9px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 10px var(--dot); }
+  /* info strip */
+  .strip { display: grid; grid-template-columns: auto minmax(0, 1fr) minmax(0, 1.2fr) auto; gap: 28px; max-width: var(--maxw); margin: 0 auto; padding: 18px 28px; border-bottom: 1px solid var(--border); font-size: 13px; scroll-margin-top: 56px; }
+  .seg { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .seg .lbl { font-size: 11.5px; letter-spacing: .08em; color: var(--muted); margin-bottom: 2px; }
+  .seg .row { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--text-2); }
+  .seg a.row:hover { color: var(--text); }
+  .seg .row em { font-style: normal; color: var(--gold); margin-right: 4px; }
+  .facts { gap: 4px; color: var(--text-2); }
+  .facts b { font-family: var(--serif); font-size: 17px; color: var(--gold); font-weight: 500; margin-right: 2px; }
+  .go { gap: 6px; }
+  .go a { color: var(--gold); white-space: nowrap; }
+
+  /* constellation guide */
+  .guide { padding-top: 8px; }
+  .guide-head { max-width: 640px; margin: 28px 0 22px; }
+  .guide-head h2 { margin: 4px 0 8px; font-size: 26px; }
+  .guide-head p:last-child { margin: 0; }
+  .lodges { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .lcard { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 20px 22px; border: 1px solid var(--border); border-top: 2px solid var(--dot); border-radius: var(--radius); background: linear-gradient(180deg, color-mix(in srgb, var(--dot) 7%, transparent), var(--surface) 140px); }
+  .lcard header { display: flex; align-items: center; gap: 14px; }
+  .seal { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--dot); color: var(--dot); font-family: var(--serif); font-size: 22px; box-shadow: 0 0 18px -6px var(--dot); }
+  .ttl { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .ttl h3 { margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.3; }
+  .ttl h3 a { color: var(--text); }
+  .ttl h3 a:hover { color: var(--dot); }
+  .locate { flex: none; align-self: flex-start; background: none; border: 1px solid var(--border-strong); border-radius: 999px; color: var(--muted); font: 12px var(--sans); padding: 3px 10px; cursor: pointer; }
+  .locate:hover { color: var(--dot); border-color: var(--dot); }
+  .blurb { margin: 0; color: var(--text-2); font-size: 14px; line-height: 1.7; }
+  .anchor, .picks li { display: flex; flex-direction: column; gap: 4px; }
+  .anchor { padding: 12px 14px; border-radius: 8px; background: var(--surface-2); }
+  .anchor .lbl { font-size: 11.5px; letter-spacing: .08em; color: var(--dot); }
+  .lcard .t { display: block; font-family: var(--serif); font-size: 15px; line-height: 1.4; color: var(--text); }
+  .lcard .m { display: block; font-size: 12px; color: var(--muted); margin-top: 1px; }
+  .lcard a:hover .t { color: var(--dot); }
+  .gist { margin: 2px 0 0; font-size: 13px; line-height: 1.65; color: var(--text-2); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .picks { list-style: none; margin: 0; padding: 0 2px; display: flex; flex-direction: column; gap: 12px; }
+  .picks .gist { -webkit-line-clamp: 2; }
+  .lcard .more { margin-top: auto; font-size: 13px; color: var(--dot); }
+  @media (max-width: 980px) {
+    .strip { grid-template-columns: 1fr 1fr; }
+    .facts { flex-direction: row; flex-wrap: wrap; gap: 4px 14px; grid-column: 1 / -1; }
+    .go { flex-direction: row; flex-wrap: wrap; gap: 4px 16px; grid-column: 1 / -1; }
+    .lodges { grid-template-columns: minmax(0, 1fr); }
+  }
   @media (max-width: 760px) {
+    .strip { grid-template-columns: 1fr; gap: 16px; padding: 16px; }
+    .lcard { padding: 16px; }
+    .lcard header { flex-wrap: wrap; row-gap: 8px; }
+    .ttl { flex-basis: calc(100% - 58px); }
+    .locate { margin-left: 58px; }
     .sky-intro { left: 16px; top: 70px; }
     .sky-intro h1 { font-size: 30px; }
     .hint { display: none; }

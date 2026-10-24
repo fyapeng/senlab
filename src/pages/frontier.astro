@@ -11,26 +11,36 @@ const items = (frontier as any).papers || [];
 const ref = (frontier as any).ref || {};
 const LEVEL: Record<string, string> = { close: "紧密", related: "相关", far: "较远" };
 const nFar = items.filter((f: any) => f.fit === "far").length;
+const nClose = items.filter((f: any) => f.fit === "close").length;
+const nRel = items.filter((f: any) => f.fit === "related").length;
+const mix = [["紧密", nClose], ["相关", nRel], ["库外主题", nFar]].filter(([, n]) => n).map(([k, n]) => `${k} ${n} 篇`).join("、");
+// ring fill: 0 a little below the "related" cut, full at the "close" cut
+const lo = (ref.p5 ?? 0.8) - 0.1, hi = ref.p25 ?? 0.9;
+const fill = (s: number) => Math.round(100 * Math.max(0.04, Math.min(1, (s - lo) / (hi - lo))));
 ---
 <Layout title="前沿" active="frontier">
   <main class="page">
     <header class="page-head">
       <p class="eyebrow">Frontier</p>
-      <h1>前沿：NBER {(frontier as any).batch_date || ""}</h1>
+      <h1>前沿：NBER <span style="white-space:nowrap">{(frontier as any).batch_date || ""}</span></h1>
       <p class="lede">
-        数据来自 <a href="https://fyapeng.com/nber/" class="lnk">NBER 每周工作论文</a>（{(frontier as any).batch_date || "—"}，{items.length} 篇）。
-        每篇按内容与本库文献的相似度排序，并标出最接近的库内文献。相似度以库内文献与自身最近邻的相似度为参照：不低于其第 25 百分位（{ref.p25 ?? "—"}）为"紧密"，不低于第 5 百分位（{ref.p5 ?? "—"}）为"相关"并标出所属星宿，更低的为"较远"、属库外主题（本批 {nFar} 篇）。顶刊追踪（AER、QJE、REStud、Econometrica、JPE）将在 nber 项目中接入。
+        本周 <a href="https://fyapeng.com/nber/" class="lnk">NBER 工作论文</a> {items.length} 篇，按与本库的相近程度排序：{mix}。左侧圆环的颜色是最接近的星宿，填满程度是相近程度（填满即达到"紧密"）；每篇另标出最接近的库内文献。
       </p>
+      <details class="method small">
+        <summary>相近程度怎么算</summary>
+        <p>每篇按内容与本库文献的相似度排序。相似度以库内文献与自身最近邻的相似度为参照：不低于其第 25 百分位（{ref.p25 ?? "—"}）为"紧密"，不低于第 5 百分位（{ref.p5 ?? "—"}）为"相关"并标出所属星宿，更低的为"较远"、属库外主题。顶刊追踪（AER、QJE、REStud、Econometrica、JPE）将在 nber 项目中接入。</p>
+      </details>
     </header>
     {items.length === 0 && <p class="muted">尚未抓取。</p>}
     <ol class="list fl">
       {items.map((f: any) => {
         const c = f.c ? cons[f.c] : null;
         return (
-          <li>
-            <div class="score">
-              <b>{f.score.toFixed(2)}</b>
-              <span class:list={["lvl", f.fit]}>{LEVEL[f.fit] || ""}</span>
+          <li style={c ? `--dot:${c.color}` : ""}>
+            <div class:list={["score", f.fit]} title={`相似度 ${f.score.toFixed(2)}`}>
+              <span class="ring" style={`--p:${fill(f.score)}`}><b>{c ? c.lodge : "—"}</b></span>
+              <span class="lvl">{LEVEL[f.fit] || ""}</span>
+              <span class="sc mono">{f.score.toFixed(2)}</span>
             </div>
             <div>
               <a class="t" href={f.url} target="_blank" rel="noopener">{f.title}</a>
@@ -51,11 +61,19 @@ const nFar = items.filter((f: any) => f.fit === "far").length;
 </Layout>
 <style>
   .lnk { color: var(--cyan); }
-  .fl li { display: grid; grid-template-columns: 72px 1fr; gap: 14px; padding: 16px 0; }
-  .score b { display: block; font-family: var(--serif); font-size: 22px; }
-  .lvl { font-size: 11.5px; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--muted); }
-  .lvl.close { color: var(--bg); background: var(--gold); border-color: var(--gold); }
-  .lvl.related { color: var(--gold); border-color: rgba(232,196,122,.5); }
+  .method { margin-top: 10px; color: var(--text-2); max-width: 760px; }
+  .method summary { cursor: pointer; color: var(--muted); width: max-content; }
+  .method summary:hover { color: var(--gold); }
+  .method p { margin: 8px 0 0; line-height: 1.8; }
+  .fl li { --dot: var(--muted); display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; padding: 18px 0; }
+  .score { display: flex; flex-direction: column; align-items: center; gap: 5px; padding-top: 2px; }
+  /* ring fill = similarity; colour = nearest constellation */
+  .ring { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--dot) calc(var(--p) * 1%), var(--surface-2) 0); }
+  .ring b { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--bg); color: var(--dot); font: 500 16px var(--serif); }
+  .far .ring { opacity: .55; }
+  .lvl { font-size: 11px; color: var(--dot); }
+  .far .lvl { color: var(--muted); }
+  .sc { font-size: 10.5px; color: var(--muted); }
   .t { font-family: var(--serif); font-size: 16.5px; line-height: 1.4; }
   .cn { margin: 2px 0 0; color: var(--text-2); }
   .m { margin: 4px 0; color: var(--muted); }

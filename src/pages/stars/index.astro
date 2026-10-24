@@ -1,41 +1,160 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import PaperLine from "../../components/PaperLine.astro";
 import papers from "../../data/papers.json";
 import constellations from "../../data/constellations.json";
+import lab from "../../data/lab.json";
+import meta from "../../data/meta.json";
 
 const base = import.meta.env.BASE_URL;
 const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
 const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
+
+// undirected citation weight between constellations
+const pairW: Record<string, number> = {};
+lab.flow.forEach((f: any) => {
+  if (f.from === f.to) return;
+  const k = [f.from, f.to].sort().join("|");
+  pairW[k] = (pairW[k] || 0) + f.n;
+});
+const pairs = Object.entries(pairW).map(([k, n]) => { const [a, b] = k.split("|"); return { a, b, n }; }).sort((x, y) => x.n - y.n);
+const maxW = Math.max(1, ...pairs.map((e) => e.n));
+const linkSum = pairs.reduce((s, e) => s + e.n, 0);
+
+// relation graph: constellations on a ring, node area ~ papers, curve width ~ citations between them
+const W = 860, H = 560, CX = W / 2, CY = H / 2, RING = 190;
+const nodes = constellations.map((c: any, i: number) => {
+  const a = -Math.PI / 2 + (2 * Math.PI * i) / constellations.length;
+  const cos = Math.cos(a), sin = Math.sin(a);
+  const r = 9 + 3.4 * Math.sqrt(c.members.length);
+  const side = Math.abs(cos) < 0.3 ? "mid" : cos > 0 ? "start" : "end";
+  const lx = CX + (RING + r + 12) * cos, ly = CY + (RING + r + 12) * sin;
+  return { c, x: CX + RING * cos, y: CY + RING * sin, r, lx, ly: side === "mid" ? ly + (sin > 0 ? 12 : -2) : ly + 5, side };
+});
+const pos = Object.fromEntries(nodes.map((n: any) => [n.c.key, n]));
+const curve = (a: any, b: any) => {
+  const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+  const qx = mx + (CX - mx) * 0.55, qy = my + (CY - my) * 0.55;
+  return `M${a.x},${a.y} Q${qx},${qy} ${b.x},${b.y}`;
+};
+
+const tiles = constellations.map((c: any) => {
+  const ms = c.members.map((m: string) => byId[m]).filter(Boolean);
+  const years = ms.map((p: any) => Number(p.year)).filter(Boolean);
+  const near = pairs.filter((e) => e.a === c.key || e.b === c.key).sort((x, y) => y.n - x.n).slice(0, 3)
+    .map((e) => ({ o: cons[e.a === c.key ? e.b : e.a], n: e.n }));
+  return { c, n: ms.length, from: Math.min(...years), to: Math.max(...years), star: byId[c.star], near };
+});
 ---
 <Layout title="星宿" active="stars">
   <main class="page">
     <header class="page-head">
       <p class="eyebrow">Constellations</p>
-      <h1>星宿</h1>
-      <p class="lede">星宿按文献内容人工划分：先根据全库文献确定若干主题，再逐篇决定归属（2026-10-24 起）。文献之间的连线仍由程序计算，包括库内引用（OpenAlex 参考文献 + 从每篇全文的参考文献表中识别）和相似连线（内容相似度 0.6 + 领域、方法、关键词等属性重合 0.4），用于星图、关联文献与中心度。中心度是库内引用网络上的 PageRank（不含相似连线），库内无人引用的文献并列时依次按库内被引、外部被引排序；每个星宿的"距星"是人工指定的代表作。</p>
-      <p class="lede small muted">每篇文献另有一个"连线置信度"：它的连线有多大比例落在所属星宿内，只作参考。低于 0.5 的标为"边缘"，多是跨领域的桥梁文献。</p>
+      <h1>十二星宿</h1>
+      <p class="lede">{meta.counts.papers} 篇文献分成 {constellations.length} 个研究主题。下图里圆越大、篇数越多；两个星宿之间的弧线越粗，彼此之间的库内引用越多（共 {linkSum} 条）。悬停一个星宿只看它的联系，点击进入。</p>
     </header>
-    <div class="grid cols-2">
-      {constellations.map((c: any) => (
-        <section class="card cs" style={`--dot:${c.color}`}>
-          <a href={`${base}stars/${c.key}/`} class="cname"><i></i>{c.lodge}宿 · {c.name}{!c.confirmed && <span class="chip prov">暂定名</span>}</a>
-          {c.blurb && <p class="muted small">{c.blurb}</p>}
-          <p class="small muted">{c.members.length} 篇 · {c.keywords.slice(0, 6).join(" · ")}</p>
-          <ul class="list">
-            {c.members.slice(0, 4).map((m: string) => <li><PaperLine p={byId[m]} cons={cons} extra={m === c.star ? "距星" : ""} /></li>)}
-          </ul>
-          <a class="more small" href={`${base}stars/${c.key}/`}>全部 {c.members.length} 篇 →</a>
-        </section>
+
+    <figure class="graph">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="星宿之间的库内引用关系图">
+        <g class="edges">
+          {pairs.map((e) => (
+            <path d={curve(pos[e.a], pos[e.b])} data-a={e.a} data-b={e.b}
+                  style={`stroke-width:${0.8 + 9 * e.n / maxW};opacity:${0.2 + 0.6 * e.n / maxW}`}>
+              <title>{cons[e.a].lodge}宿 ↔ {cons[e.b].lodge}宿 · {e.n} 条引用</title>
+            </path>
+          ))}
+        </g>
+        {nodes.map((n: any) => (
+          <a href={`${base}stars/${n.c.key}/`} class="node" data-k={n.c.key} style={`--dot:${n.c.color}`}>
+            <circle cx={n.x} cy={n.y} r={n.r} />
+            <text x={n.x} y={n.y + 6} text-anchor="middle" class="seal">{n.c.lodge}</text>
+            <text x={n.lx} y={n.ly} text-anchor={n.side === "mid" ? "middle" : n.side} class="gname">{n.c.name}<tspan class="gn"> {n.c.members.length}</tspan></text>
+            <title>{n.c.lodge}宿 · {n.c.name} · {n.c.members.length} 篇</title>
+          </a>
+        ))}
+      </svg>
+    </figure>
+
+    <div class="tiles">
+      {tiles.map((t: any) => (
+        <a class="tile" href={`${base}stars/${t.c.key}/`} style={`--dot:${t.c.color}`}>
+          <span class="top">
+            <span class="seal-s">{t.c.lodge}</span>
+            <span class="nm">{t.c.name}<span class="muted small">{t.n} 篇 · {t.from}–{t.to}</span></span>
+          </span>
+          <span class="blurb">{t.c.blurb}</span>
+          {t.star && <span class="st"><em>距星</em>{t.star.authors_short} {t.star.year} · {t.star.title}</span>}
+          {t.near.length > 0 && (
+            <span class="nb">{t.near.map((x: any) => <span style={`--o:${x.o.color}`}><i>{x.o.lodge}</i>{x.n}</span>)}<span class="muted">条引用往来</span></span>
+          )}
+        </a>
       ))}
     </div>
+
+    <details class="method">
+      <summary>星宿是怎么划分的，连线和中心度怎么算</summary>
+      <p>星宿按文献内容人工划分：先根据全库文献确定若干主题，再逐篇决定归属（2026-10-24 起）。文献之间的连线仍由程序计算，包括库内引用（OpenAlex 参考文献 + 从每篇全文的参考文献表中识别）和相似连线（内容相似度 0.6 + 领域、方法、关键词等属性重合 0.4），用于星图、关联文献与中心度。中心度是库内引用网络上的 PageRank（不含相似连线），库内无人引用的文献并列时依次按库内被引、外部被引排序；每个星宿的"距星"是人工指定的代表作。</p>
+      <p>每篇文献另有一个"连线置信度"：它的连线有多大比例落在所属星宿内，只作参考。低于 0.5 的标为"边缘"，多是跨领域的桥梁文献。</p>
+    </details>
   </main>
 </Layout>
+
+<script>
+  // hover a constellation: keep only its arcs lit
+  const svg = document.querySelector<SVGSVGElement>(".graph svg");
+  if (svg) {
+    const edges = [...svg.querySelectorAll<SVGPathElement>(".edges path")];
+    svg.querySelectorAll<SVGAElement>(".node").forEach((n) => {
+      n.addEventListener("mouseenter", () => {
+        const k = n.dataset.k;
+        svg.classList.add("focus");
+        svg.style.setProperty("--f", getComputedStyle(n).getPropertyValue("--dot"));
+        n.classList.add("on");
+        edges.forEach((e) => e.classList.toggle("on", e.dataset.a === k || e.dataset.b === k));
+      });
+      n.addEventListener("mouseleave", () => {
+        svg.classList.remove("focus");
+        n.classList.remove("on");
+        edges.forEach((e) => e.classList.remove("on"));
+      });
+    });
+  }
+</script>
+
 <style>
-  .cs { display: flex; flex-direction: column; gap: 6px; }
-  .cname { font-family: var(--serif); font-size: 19px; display: flex; align-items: center; gap: 8px; }
-  .cname i { width: 10px; height: 10px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 10px var(--dot); }
-  .prov { font-family: var(--sans); font-size: 11px; color: var(--muted); }
-  .more { color: var(--gold); }
-  p { margin: 0; }
+  .graph { margin: 8px 0 36px; padding: 10px 0; border-radius: 14px; background: radial-gradient(ellipse at 50% 50%, #0f1a33 0%, transparent 70%); }
+  .graph svg { display: block; width: 100%; height: auto; max-height: 76vh; }
+  .edges path { fill: none; stroke: #b8c4e6; stroke-linecap: round; transition: opacity .2s, stroke .2s; }
+  .focus .edges path { opacity: .04 !important; }
+  .focus .edges path.on { opacity: .9 !important; stroke: var(--f); }
+  .node circle { fill: color-mix(in srgb, var(--dot) 22%, #060a14); stroke: var(--dot); stroke-width: 1.5; filter: drop-shadow(0 0 8px color-mix(in srgb, var(--dot) 60%, transparent)); transition: transform .2s; }
+  .node .seal { fill: var(--dot); font-family: var(--serif); font-size: 17px; pointer-events: none; }
+  .node .gname { fill: var(--text-2); font-family: var(--serif); font-size: 14px; }
+  .node .gn { fill: var(--muted); font-family: var(--mono); font-size: 11px; }
+  .focus .node:not(.on) { opacity: .45; }
+  .node.on .gname, .node:hover .gname { fill: var(--dot); }
+
+  .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+  .tile { display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; border-radius: var(--radius); border: 1px solid var(--border); border-top: 2px solid var(--dot); background: var(--surface); transition: border-color .2s, transform .2s; }
+  .tile:hover { color: inherit; border-color: var(--dot); transform: translateY(-2px); }
+  .tile .top { display: flex; align-items: center; gap: 12px; }
+  .seal-s { flex: none; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--dot); color: var(--dot); font-family: var(--serif); font-size: 18px; }
+  .nm { display: flex; flex-direction: column; font-family: var(--serif); font-size: 16.5px; line-height: 1.35; }
+  .nm .small { font-family: var(--sans); }
+  .blurb { font-size: 13px; line-height: 1.7; color: var(--text-2); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .st { font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .st em { font-style: normal; color: var(--dot); margin-right: 6px; }
+  .nb { display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-2); margin-top: auto; }
+  .nb i { font-style: normal; font-family: var(--serif); color: var(--o); margin-right: 3px; }
+
+  .method { margin-top: 40px; padding: 14px 18px; border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-2); font-size: 13.5px; line-height: 1.8; }
+  .method summary { cursor: pointer; color: var(--muted); }
+  .method summary:hover { color: var(--gold); }
+  .method p { margin: 10px 0 0; }
+
+  @media (max-width: 980px) { .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 760px) {
+    .tiles { grid-template-columns: minmax(0, 1fr); }
+    .node .gname { display: none; }
+    .node .seal { font-size: 24px; }
+  }
 </style>
