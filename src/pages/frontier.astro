@@ -6,6 +6,7 @@ import constellations from "../data/constellations.json";
 import frontier from "../data/frontier.json";
 
 const F = frontier as any;
+const base = import.meta.env.BASE_URL;
 const byId = Object.fromEntries(papers.map((p: any) => [p.id, p]));
 const cons = Object.fromEntries(constellations.map((c: any) => [c.key, c]));
 const ref = F.ref || {};
@@ -22,12 +23,20 @@ const sinceLabel = sy ? `${sy} 年${Number(sm) === 1 ? "以来" : ` ${Number(sm)
 // ring fill: 0 a little below the "related" cut, full at the "close" cut
 const lo = (ref.p5 ?? 0.8) - 0.1, hi = ref.p25 ?? 0.9;
 const fill = (s: number) => Math.round(100 * Math.max(0.04, Math.min(1, (s - lo) / (hi - lo))));
+// "new" (top-5 only; NBER is a weekly batch anyway): online this week, or picked up this week by a run after
+// the first one, whose first_seen stamps are not news
+const upd = F.journals?.updated ? new Date(F.journals.updated) : new Date();
+const dayStr = (n: number) => new Date(upd.getTime() - n * 864e5).toISOString().slice(0, 10);
+const weekAgo = dayStr(7), recent = dayStr(45);
+const tracked = j5.map((f: any) => f.first_seen).filter(Boolean).sort()[0] ?? "";
+const isNew = (f: any) => !!f.journal && (f.date >= weekAgo || (f.first_seen > tracked && f.first_seen >= weekAgo && f.date >= recent));
+const JN: Record<string, string> = { AER: "AER", JPE: "JPE", QJE: "QJE", RES: "REStud", ECTA: "Econometrica" };
 
 const columns = [
-  { id: "journals", title: "五大期刊", sub: sinceLabel, items: j5, far: j5Far,
+  { id: "journals", title: "五大期刊", sub: sinceLabel, items: j5, far: j5Far, known: F.journals?.in_library || [], controls: true,
     src: "Top 5 Journals", href: "https://fyapeng.com/top5papers/",
     after: `（AER、JPE、QJE、REStud、Econometrica）${F.journals?.updated ? `，更新于 ${F.journals.updated}` : ""}` },
-  { id: "nber", title: "NBER 本周", sub: F.batch_date || "", items: nber, far: nberFar,
+  { id: "nber", title: "NBER 本周", sub: F.batch_date || "", items: nber, far: nberFar, known: F.in_library || [], controls: false,
     src: "NBER Weekly", href: "https://fyapeng.com/nber/", after: "" },
 ];
 ---
@@ -36,7 +45,7 @@ const columns = [
     <header class="page-head">
       <p class="eyebrow">Frontier</p>
       <h1>前沿</h1>
-      <p class="lede">库外的新论文中，与本库紧密或相关的文章，按相近程度排序。左侧圆环的颜色是最接近的星宿，填满程度是相近程度（填满即达到"紧密"）；每篇另标出最接近的库内文献。</p>
+      <p class="lede">还不在库里的新论文中，与本库紧密或相关的文章。左侧圆环的颜色是最接近的星宿，填满程度是相近程度（填满即达到"紧密"）；每篇另标出最接近的库内文献。已在库中的文章（例如库里的工作论文正式发表了）不参与排序，单独列在栏目开头。</p>
       <details class="method small">
         <summary>相近程度怎么算</summary>
         <p>每篇按内容与本库文献的相似度排序。相似度以库内文献与自身最近邻的相似度为参照：不低于其第 25 百分位（{ref.p25 ?? "—"}）为"紧密"，不低于第 5 百分位（{ref.p5 ?? "—"}）为"相关"并标出所属星宿，更低的为"较远"、属库外主题，不在这里列出。</p>
@@ -53,14 +62,35 @@ const columns = [
               相关 <b>{col.items.length}</b> 篇{nClose(col.items) ? `，其中紧密 ${nClose(col.items)} 篇` : ""}{col.far ? ` · 另有 ${col.far} 篇库外主题未列出` : ""}
             </p>
             <p class="small muted src">来自 <a href={col.href} class="lnk">{col.src}</a>{col.after}</p>
+            {col.controls && (
+              <div class="ctl" data-ctl>
+                <span class="seg" role="group" aria-label="排序">
+                  <button type="button" class="on" data-sort="score">相关度</button>
+                  <button type="button" data-sort="date">最新</button>
+                </span>
+                <span class="seg" role="group" aria-label="期刊">
+                  <button type="button" class="on" data-j="">全部</button>
+                  {Object.entries(JN).map(([k, v]) => <button type="button" data-j={k}>{k === "ECTA" ? "ECTA" : v}</button>)}
+                </span>
+                <label class="tog"><input type="checkbox" data-close /> 只看紧密</label>
+              </div>
+            )}
           </header>
+          {col.known.length > 0 && (
+            <div class="known small">
+              <span class="muted">已在库中 {col.known.length} 篇，不参与排序：</span>
+              {col.known.map((k: any) => (
+                <a href={`${base}papers/${k.lib}/`}>{byId[k.lib] ? `${byId[k.lib].authors_short} ${byId[k.lib].year}` : k.title}{k.journal ? `（已刊于 ${JN[k.journal] || k.journal}${k.issue ? ` ${k.volume}(${k.issue})` : "，提前在线"}）` : ""}</a>
+              ))}
+            </div>
+          )}
           {col.items.length === 0 ? <p class="muted small">暂无相关文章。</p> : (
             <ol class="list fl" data-list>
-              {col.items.map((f: any, i: number) => <FrontierItem f={f} cons={cons} byId={byId} fill={fill} hidden={i >= SHOW} />)}
+              {col.items.map((f: any, i: number) => <FrontierItem f={f} cons={cons} byId={byId} fill={fill} hidden={i >= SHOW} isNew={isNew(f)} />)}
             </ol>
           )}
           {col.items.length > SHOW && (
-            <button type="button" class="btn more" data-more data-n={col.items.length}>展开全部 {col.items.length} 篇</button>
+            <button type="button" class="btn more" data-more>展开全部 {col.items.length} 篇</button>
           )}
         </section>
       ))}
@@ -69,14 +99,52 @@ const columns = [
 </Layout>
 
 <script>
-  document.querySelectorAll<HTMLButtonElement>("[data-more]").forEach((b) => b.addEventListener("click", () => {
-    const list = b.closest(".col")!.querySelector("[data-list]")!;
-    const open = b.dataset.open === "1";
-    list.querySelectorAll<HTMLElement>(":scope > li").forEach((li, i) => { li.hidden = open && i >= 8; });
-    b.dataset.open = open ? "" : "1";
-    b.textContent = open ? `展开全部 ${b.dataset.n} 篇` : "收起";
-    if (open) b.closest(".col")!.scrollIntoView({ block: "start" });
-  }));
+  const SHOW = 8;
+  const KEY = "senlab-frontier-top5";
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch { return {}; } };
+  const save = (v: object) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch {} };
+
+  document.querySelectorAll<HTMLElement>(".col").forEach((col) => {
+    const list = col.querySelector<HTMLElement>("[data-list]");
+    if (!list) return;
+    const items = [...list.querySelectorAll<HTMLLIElement>(":scope > li")];
+    const more = col.querySelector<HTMLButtonElement>("[data-more]");
+    const ctl = col.querySelector<HTMLElement>("[data-ctl]");
+    const st = { sort: "score", j: "", close: false, ...(ctl ? load() : {}), open: false };
+    const empty = document.createElement("p");
+    empty.className = "none small muted";
+    empty.textContent = "没有符合条件的文章。";
+    list.after(empty);
+
+    function apply() {
+      const match = items.filter((li) => (!st.j || li.dataset.j === st.j) && (!st.close || li.dataset.fit === "close"));
+      const by = (li: HTMLLIElement) => (st.sort === "date" ? li.dataset.date || "" : Number(li.dataset.score));
+      match.sort((a, b) => (by(a) < by(b) ? 1 : by(a) > by(b) ? -1 : Number(b.dataset.score) - Number(a.dataset.score)));
+      items.forEach((li) => (li.hidden = true));
+      match.forEach((li, i) => { list!.appendChild(li); li.hidden = !st.open && i >= SHOW; });
+      if (more) {
+        more.hidden = match.length <= SHOW;
+        more.textContent = st.open ? "收起" : `展开全部 ${match.length} 篇`;
+      }
+      if (ctl) {
+        ctl.querySelectorAll<HTMLButtonElement>("[data-sort]").forEach((b) => b.classList.toggle("on", b.dataset.sort === st.sort));
+        ctl.querySelectorAll<HTMLButtonElement>("[data-j]").forEach((b) => b.classList.toggle("on", b.dataset.j === st.j));
+        ctl.querySelector<HTMLInputElement>("[data-close]")!.checked = st.close;
+        save({ sort: st.sort, j: st.j, close: st.close });
+      }
+      empty.hidden = match.length > 0;
+    }
+
+    ctl?.querySelectorAll<HTMLButtonElement>("[data-sort]").forEach((b) => b.addEventListener("click", () => { st.sort = b.dataset.sort!; apply(); }));
+    ctl?.querySelectorAll<HTMLButtonElement>("[data-j]").forEach((b) => b.addEventListener("click", () => { st.j = b.dataset.j!; apply(); }));
+    ctl?.querySelector<HTMLInputElement>("[data-close]")?.addEventListener("change", (e) => { st.close = (e.target as HTMLInputElement).checked; apply(); });
+    more?.addEventListener("click", () => {
+      st.open = !st.open;
+      apply();
+      if (!st.open) col.scrollIntoView({ block: "start" });
+    });
+    apply();
+  });
 </script>
 
 <style>
@@ -95,6 +163,17 @@ const columns = [
   .col-head b { color: var(--gold); font-weight: 600; }
   .src { margin-top: 2px; }
   .more { margin-top: 14px; }
+  .ctl { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 10px; }
+  .seg { display: inline-flex; flex-wrap: wrap; border: 1px solid var(--border-strong); border-radius: 999px; overflow: hidden; }
+  .seg button { border: 0; background: none; color: var(--muted); font: 12.5px var(--sans); padding: 3px 10px; cursor: pointer; }
+  .seg button + button { border-left: 1px solid var(--border); }
+  .seg button:hover { color: var(--text); }
+  .seg button.on { background: var(--gold); color: var(--bg); }
+  .tog { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; color: var(--text-2); cursor: pointer; }
+  .tog input { accent-color: var(--gold); }
+  .known { display: flex; flex-wrap: wrap; gap: 4px 12px; margin: 12px 0 0; padding: 10px 12px; border-radius: 8px; background: var(--surface); border: 1px dashed var(--border-strong); }
+  .known a { color: var(--cyan); }
+  .none { margin: 16px 0 0; }
   /* stacked columns on narrow screens: jump links so NBER is one tap away */
   .jump { display: none; gap: 8px; margin-top: 14px; }
   .jump a { padding: 5px 14px; border-radius: 999px; border: 1px solid var(--border-strong); color: var(--text-2); font-size: 13.5px; }

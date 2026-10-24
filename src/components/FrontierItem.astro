@@ -1,17 +1,15 @@
 ---
 // One outside paper (NBER or top-five journal) scored against the library.
-interface Props { f: any; cons: Record<string, any>; byId: Record<string, any>; fill: (s: number) => number; hidden?: boolean }
-const { f, cons, byId, fill, hidden = false } = Astro.props;
+interface Props { f: any; cons: Record<string, any>; byId: Record<string, any>; fill: (s: number) => number; hidden?: boolean; isNew?: boolean }
+const { f, cons, byId, fill, hidden = false, isNew = false } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const LEVEL: Record<string, string> = { close: "紧密", related: "相关", far: "较远" };
 const JOURNAL: Record<string, string> = { AER: "AER", JPE: "JPE", QJE: "QJE", RES: "REStud", ECTA: "Econometrica" };
 const c = f.c ? cons[f.c] : null;
 const authors = `${(f.authors || []).slice(0, 4).join(", ")}${(f.authors || []).length > 4 ? " 等" : ""}`;
-const where = f.journal
-  ? `${JOURNAL[f.journal] || f.journal} · ${f.issue ? `Vol. ${f.volume} No. ${f.issue}` : "提前在线"} · ${f.date}`
-  : f.id;
 ---
-<li style={c ? `--dot:${c.color}` : ""} hidden={hidden}>
+<li style={c ? `--dot:${c.color}` : ""} hidden={hidden}
+    data-j={f.journal || ""} data-fit={f.fit} data-score={f.score} data-date={f.date || ""}>
   <div class:list={["score", f.fit]} title={`相似度 ${f.score.toFixed(2)}`}>
     <span class="ring" style={`--p:${fill(f.score)}`}><b>{c ? c.lodge : "—"}</b></span>
     <span class="lvl">{LEVEL[f.fit] || ""}</span>
@@ -20,7 +18,12 @@ const where = f.journal
   <div class="body">
     <a class="t" href={f.url} target="_blank" rel="noopener">{f.title}</a>
     {f.title_cn && <p class="cn">{f.title_cn}</p>}
-    <p class="m small">{where} · {authors}</p>
+    <p class="m small">
+      {f.journal ? (
+        <><b class="jn">{JOURNAL[f.journal] || f.journal}</b> · <span class:list={[{ aop: !f.issue }]}>{f.issue ? `Vol. ${f.volume} No. ${f.issue}` : "提前在线"}</span> · 首次在线 {f.date}</>
+      ) : f.id}
+      {isNew && <span class="new">新</span>} · {authors}
+    </p>
     <p class="links small">
       {c ? <span class="chip dot" style={`--dot:${c.color}`}>{c.lodge}宿 · {c.name}</span> : <span class="chip">库外主题</span>}
       <span class="muted">最接近：</span>
@@ -46,6 +49,9 @@ const where = f.journal
   .t { font-family: var(--serif); font-size: 16.5px; line-height: 1.4; }
   .cn { margin: 2px 0 0; color: var(--text-2); }
   .m { margin: 4px 0; color: var(--muted); }
+  .jn { font-weight: 600; color: var(--text-2); }
+  .aop { color: var(--gold); }
+  .new { display: inline-block; margin-left: 6px; padding: 0 6px; border-radius: 999px; background: var(--rose); color: var(--bg); font-size: 11px; font-weight: 600; line-height: 16px; }
   .links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 6px 0 0; }
   .rel { color: var(--cyan); }
   .abs { color: var(--text-2); }
