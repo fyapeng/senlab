@@ -36,11 +36,11 @@ const guide = constellations.map((c: any) => {
     <div class="sky-intro">
       <p class="eyebrow">Literature Atlas</p>
       <h1>文献星图</h1>
-      <p class="sky-stats">{meta.counts.papers} 颗星 · {meta.counts.constellations} 个星宿 · {meta.counts.citation_edges} 条库内引用</p>
-      <p class="hint">星越亮，越是库内的中心文献；同色连线是星宿内的引用，淡蓝细线跨越星宿。悬停查看，点击打开；拖动平移，Ctrl + 滚轮或右下角按钮缩放。</p>
+      <p class="sky-stats">{meta.counts.papers} 颗星 · {meta.counts.constellations} 个星次 · {meta.counts.citation_edges} 条库内引用</p>
+      <p class="hint">星越亮，越是库内的中心文献；同色连线是星次内的引用，淡蓝细线跨越星次。悬停查看，点击打开；拖动平移，Ctrl + 滚轮或右下角按钮缩放。</p>
     </div>
     <ul class="legend">
-      <li><button data-c="all" class="all">全部星宿</button></li>
+      <li><button data-c="all" class="all">全部星次</button></li>
       {constellations.map((c: any) => (
         <li><button data-c={c.key} style={`--dot:${c.color}`}><i></i><span class="lodge">{c.lodge}</span><span class="nm">{c.name}</span><em>{c.members.length}</em></button></li>
       ))}
@@ -60,13 +60,13 @@ const guide = constellations.map((c: any) => {
       <button class="btn" data-zoom="out" aria-label="缩小">－</button>
       <button class="btn" data-zoom="reset" aria-label="复位">⟲</button>
     </div>
-    <a class="scroll-hint" href="#guide">星宿导览 ↓</a>
+    <a class="scroll-hint" href="#guide">星次导览 ↓</a>
   </section>
 
   <div class="strip" id="guide">
     <div class="seg facts">
       <span><b>{meta.counts.papers}</b> 篇文献</span>
-      <span><b>{meta.counts.constellations}</b> 个星宿</span>
+      <span><b>{meta.counts.constellations}</b> 个星次</span>
       <span><b>{meta.counts.with_notes}</b> 篇有笔记</span>
       <span class="muted">{y0}–{y1}</span>
     </div>
@@ -95,8 +95,8 @@ const guide = constellations.map((c: any) => {
 
   <main class="page guide">
     <header class="guide-head">
-      <p class="eyebrow">Atlas · 星宿导览</p>
-      <h2>十二星宿</h2>
+      <p class="eyebrow">Atlas · 星次导览</p>
+      <h2>十二星次</h2>
       <p class="muted">星图里每一种颜色是一个研究主题。下面逐一说明它在问什么、从哪篇文献起步、哪几篇最值得先读。</p>
     </header>
 
@@ -107,9 +107,9 @@ const guide = constellations.map((c: any) => {
             <span class="seal">{c.lodge}</span>
             <div class="ttl">
               <h3><a href={`${base}stars/${c.key}/`}>{c.name}</a></h3>
-              <span class="muted small">{c.lodge}宿 · {c.n} 篇 · {c.from}–{c.to}{c.noted ? ` · ${c.noted} 篇有笔记` : ""}</span>
+              <span class="muted small">{c.lodge} · {c.n} 篇 · {c.from}–{c.to}{c.noted ? ` · ${c.noted} 篇有笔记` : ""}</span>
             </div>
-            <button class="locate" data-c={c.key} title="回到星图并点亮这个星宿">星图中看 ↑</button>
+            <button class="locate" data-c={c.key} title="回到星图并点亮这个星次">星图中看 ↑</button>
           </header>
 
           <p class="blurb">{c.blurb}</p>
@@ -139,7 +139,7 @@ const guide = constellations.map((c: any) => {
             </ul>
           )}
 
-          <a class="more" href={`${base}stars/${c.key}/`}>进入{c.lodge}宿 · 全部 {c.n} 篇 →</a>
+          <a class="more" href={`${base}stars/${c.key}/`}>进入{c.lodge} · 全部 {c.n} 篇 →</a>
         </article>
       ))}
     </div>
@@ -169,7 +169,7 @@ const guide = constellations.map((c: any) => {
   .legend button { display: flex; align-items: center; gap: 8px; background: none; border: 1px solid transparent; color: var(--text-2); font: 13px var(--sans); padding: 3px 10px; border-radius: 999px; cursor: pointer; text-align: left; }
   .legend button:hover, .legend button.on { border-color: var(--border-strong); background: rgba(6,10,20,.6); color: var(--text); }
   .legend i { width: 8px; height: 8px; border-radius: 50%; background: var(--dot); box-shadow: 0 0 8px var(--dot); flex: none; }
-  .legend .lodge { font-family: var(--serif); color: var(--dot); width: 1.2em; }
+  .legend .lodge { font-family: var(--serif); color: var(--dot); width: 2.3em; }
   .legend em { font-style: normal; color: var(--muted); font-size: 11.5px; }
   .legend .all { color: var(--muted); }
   .tip { position: absolute; z-index: 5; width: 320px; display: flex; flex-direction: column; gap: 6px; background: rgba(9, 14, 28, 0.92); backdrop-filter: blur(8px); pointer-events: auto; }
@@ -209,7 +209,7 @@ const guide = constellations.map((c: any) => {
   .lodges { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
   .lcard { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 20px 22px; border: 1px solid var(--border); border-top: 2px solid var(--dot); border-radius: var(--radius); background: linear-gradient(180deg, color-mix(in srgb, var(--dot) 7%, transparent), var(--surface) 140px); }
   .lcard header { display: flex; align-items: center; gap: 14px; }
-  .seal { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--dot); color: var(--dot); font-family: var(--serif); font-size: 22px; box-shadow: 0 0 18px -6px var(--dot); }
+  .seal { flex: none; width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--dot); color: var(--dot); font-family: var(--serif); font-size: 15px; box-shadow: 0 0 18px -6px var(--dot); }
   .ttl { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
   .ttl h3 { margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 500; line-height: 1.3; }
   .ttl h3 a { color: var(--text); }

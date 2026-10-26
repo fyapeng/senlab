@@ -45,30 +45,30 @@ const tiles = constellations.map((c: any) => {
   return { c, n: ms.length, from: Math.min(...years), to: Math.max(...years), star: byId[c.star], near };
 });
 ---
-<Layout title="星宿" active="stars">
+<Layout title="星次" active="stars">
   <main class="page">
     <header class="page-head">
       <p class="eyebrow">Constellations</p>
-      <h1>十二星宿</h1>
-      <p class="lede">{meta.counts.papers} 篇文献分成 {constellations.length} 个研究主题。下图里圆越大、篇数越多；两个星宿之间的弧线越粗，彼此之间的库内引用越多（共 {linkSum} 条）。悬停一个星宿只看它的联系，点击进入。</p>
+      <h1>十二星次</h1>
+      <p class="lede">{meta.counts.papers} 篇文献分成 {constellations.length} 个研究主题。下图里圆越大、篇数越多；两个星次之间的弧线越粗，彼此之间的库内引用越多（共 {linkSum} 条）。悬停一个星次只看它的联系，点击进入。</p>
     </header>
 
     <figure class="graph">
-      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="星宿之间的库内引用关系图">
+      <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label="星次之间的库内引用关系图">
         <g class="edges">
           {pairs.map((e) => (
             <path d={curve(pos[e.a], pos[e.b])} data-a={e.a} data-b={e.b}
                   style={`stroke-width:${0.8 + 9 * e.n / maxW};opacity:${0.2 + 0.6 * e.n / maxW}`}>
-              <title>{cons[e.a].lodge}宿 ↔ {cons[e.b].lodge}宿 · {e.n} 条引用</title>
+              <title>{cons[e.a].lodge} ↔ {cons[e.b].lodge} · {e.n} 条引用</title>
             </path>
           ))}
         </g>
         {nodes.map((n: any) => (
           <a href={`${base}stars/${n.c.key}/`} class="node" data-k={n.c.key} style={`--dot:${n.c.color}`}>
             <circle cx={n.x} cy={n.y} r={n.r} />
-            <text x={n.x} y={n.y + 6} text-anchor="middle" class="seal">{n.c.lodge}</text>
+            <text x={n.x} y={n.y + Math.min(17, n.r * 0.8) * 0.36} text-anchor="middle" class="seal" style={`--fs:${Math.min(17, n.r * 0.8).toFixed(1)}`}>{n.c.lodge}</text>
             <text x={n.lx} y={n.ly} text-anchor={n.side === "mid" ? "middle" : n.side} class="gname">{n.c.name}<tspan class="gn"> {n.c.members.length}</tspan></text>
-            <title>{n.c.lodge}宿 · {n.c.name} · {n.c.members.length} 篇</title>
+            <title>{n.c.lodge} · {n.c.name} · {n.c.members.length} 篇</title>
           </a>
         ))}
       </svg>
@@ -91,9 +91,9 @@ const tiles = constellations.map((c: any) => {
     </div>
 
     <details class="method">
-      <summary>星宿是怎么划分的，连线和中心度怎么算</summary>
-      <p>星宿按文献内容人工划分：先根据全库文献确定若干主题，再逐篇决定归属（2026-10-24 起）。文献之间的连线仍由程序计算，包括库内引用（OpenAlex 参考文献 + 从每篇全文的参考文献表中识别）和相似连线（内容相似度 0.6 + 领域、方法、关键词等属性重合 0.4），用于星图、关联文献与中心度。中心度是库内引用网络上的 PageRank（不含相似连线），库内无人引用的文献并列时依次按库内被引、外部被引排序；每个星宿的"距星"是人工指定的代表作。</p>
-      <p>每篇文献另有一个"连线置信度"：它的连线有多大比例落在所属星宿内，只作参考。低于 0.5 的标为"边缘"，多是跨领域的桥梁文献。</p>
+      <summary>星次是怎么划分的，连线和中心度怎么算</summary>
+      <p>星次由程序从文献之间的连线聚成（2026-10-26 起）。连线有两种：库内引用（OpenAlex 参考文献 + 从每篇全文的参考文献表中识别），和相似连线（内容相似度 0.6 + 领域、方法、关键词等属性重合 0.4）。内容相似度用本机的 Qwen3-Embedding-4B 计算，每篇都用同样的文本：英文标题与摘要（中文论文用其英文摘要），加上依据全文写的简介和"道"的评分说明；并去掉中文与英文两组文献各自的平均向量，使文献按主题而不是按语言或国别相聚。在这张网上反复做社区划分，取多次结果一致的分组，全库稳定地分成 12 组，依天上十二星次（星纪、玄枵、娵訾、降娄、大梁、实沈、鹑首、鹑火、鹑尾、寿星、大火、析木）的顺序命名，在星图上顺时针排成一圈；少数文献由人工指定归属。中心度是库内引用网络上的 PageRank（不含相似连线），库内无人引用的文献并列时依次按库内被引、外部被引排序；每个星次的"距星"是它的代表作。</p>
+      <p>每篇文献另有一个"连线置信度"：它的连线有多大比例落在所属星次内，只作参考。低于 0.5 的标为"边缘"，多是跨领域的桥梁文献。</p>
     </details>
   </main>
 </Layout>
@@ -127,7 +127,7 @@ const tiles = constellations.map((c: any) => {
   .focus .edges path { opacity: .04 !important; }
   .focus .edges path.on { opacity: .9 !important; stroke: var(--f); }
   .node circle { fill: color-mix(in srgb, var(--dot) 22%, #060a14); stroke: var(--dot); stroke-width: 1.5; filter: drop-shadow(0 0 8px color-mix(in srgb, var(--dot) 60%, transparent)); transition: transform .2s; }
-  .node .seal { fill: var(--dot); font-family: var(--serif); font-size: 17px; pointer-events: none; }
+  .node .seal { fill: var(--dot); font-family: var(--serif); font-size: calc(var(--fs) * 1px); pointer-events: none; }
   .node .gname { fill: var(--text-2); font-family: var(--serif); font-size: 14px; }
   .node .gn { fill: var(--muted); font-family: var(--mono); font-size: 11px; }
   .focus .node:not(.on) { opacity: .45; }
@@ -137,7 +137,7 @@ const tiles = constellations.map((c: any) => {
   .tile { display: flex; flex-direction: column; gap: 10px; padding: 16px 18px; border-radius: var(--radius); border: 1px solid var(--border); border-top: 2px solid var(--dot); background: var(--surface); transition: border-color .2s, transform .2s; }
   .tile:hover { color: inherit; border-color: var(--dot); transform: translateY(-2px); }
   .tile .top { display: flex; align-items: center; gap: 12px; }
-  .seal-s { flex: none; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--dot); color: var(--dot); font-family: var(--serif); font-size: 18px; }
+  .seal-s { flex: none; width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; border: 1px solid var(--dot); color: var(--dot); font-family: var(--serif); font-size: 13px; }
   .nm { display: flex; flex-direction: column; font-family: var(--serif); font-size: 16.5px; line-height: 1.35; }
   .nm .small { font-family: var(--sans); }
   .blurb { font-size: 13px; line-height: 1.7; color: var(--text-2); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
@@ -155,6 +155,6 @@ const tiles = constellations.map((c: any) => {
   @media (max-width: 760px) {
     .tiles { grid-template-columns: minmax(0, 1fr); }
     .node .gname { display: none; }
-    .node .seal { font-size: 24px; }
+    .node .seal { font-size: calc(var(--fs) * 1.4px); }
   }
 </style>

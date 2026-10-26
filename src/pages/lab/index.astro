@@ -32,8 +32,8 @@ const nDisputes = Object.values(G.disputes || {}).reduce((s: number, d: any) => 
 const cards = [
   {
     href: "lab/landscape/", title: "全景", sub: "本库的整体结构",
-    parts: [["热度对照", "heat"], ["方法 × 星宿", "matrix"], ["主题演化与引用流", "evolution"], ["桥梁与孤星", "bridges"], ["关键词与构成", "keywords"]],
-    hint: heat[0] && { label: "领域相对最热", html: `<b style="color:${heat[0].c.color}">${heat[0].c.lodge}宿 · ${heat[0].c.name}</b>：五大期刊相关新文中的占比是本库占比的 ${heat[0].ratio.toFixed(1)} 倍` },
+    parts: [["热度对照", "heat"], ["方法 × 星次", "matrix"], ["主题演化与引用流", "evolution"], ["桥梁与孤星", "bridges"], ["关键词与构成", "keywords"]],
+    hint: heat[0] && { label: "领域相对最热", html: `<b style="color:${heat[0].c.color}">${heat[0].c.lodge} · ${heat[0].c.name}</b>：五大期刊相关新文中的占比是本库占比的 ${heat[0].ratio.toFixed(1)} 倍` },
   },
   {
     href: "lab/toolkit/", title: "工具", sub: "可以直接上手用",
@@ -42,7 +42,7 @@ const cards = [
   },
   {
     href: "lab/ai/", title: "AI 研读", sub: "DeepSeek 依据本库写成",
-    parts: [["星宿综述", "reviews"], ["涌现选题", "topics"], ["分歧地图", "disputes"]],
+    parts: [["星次综述", "reviews"], ["涌现选题", "topics"], ["分歧地图", "disputes"]],
     hint: featured && {
       label: "涌现选题",
       html: `<a href="${base}lab/ai/#topics">${featured.title}</a><span>${featured.question.replace(/\[[^\]]*\]/g, "")}</span>`,

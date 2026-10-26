@@ -198,7 +198,7 @@ export async function initStarmap(root) {
     if (!n) { tip.hidden = true; return; }
     const c = cons[n.c];
     tip.innerHTML = `
-      <span class="chip dot" style="--dot:${c.color}">${c.lodge ? c.lodge + "宿 · " : ""}${c.name}</span>
+      <span class="chip dot" style="--dot:${c.color}">${c.lodge ? c.lodge + " · " : ""}${c.name}</span>
       <b>${n.m.t}</b>
       <span class="m">${n.m.a || ""} · ${n.m.y || ""}${n.m.v ? " · " + n.m.v : ""}</span>
       <span class="m">库内被引 ${n.m.ci} · 中心度第 ${n.m.rk} 位${n.m.s ? " · 有简介" : ""}</span>
@@ -375,7 +375,7 @@ export async function initStarmap(root) {
       ctx.fillStyle = cons[k].color;
       ctx.font = `600 ${focus === k ? 16 : narrow ? 11.5 : 13}px ${SERIF}`;
       const name = narrow && focus !== k ? cons[k].name.split(/[、与·：]/)[0] : cons[k].name;
-      ctx.fillText(`${cons[k].lodge ? cons[k].lodge + "宿 · " : ""}${name}`, Math.min(W - 60, Math.max(60, x)), y - off);
+      ctx.fillText(`${cons[k].lodge ? cons[k].lodge + " · " : ""}${name}`, Math.min(W - 60, Math.max(60, x)), y - off);
     }
 
     // paper labels: top stars, the hovered one and its neighbours; zooming in reveals more

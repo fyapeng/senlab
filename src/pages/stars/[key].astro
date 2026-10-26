@@ -58,14 +58,14 @@ const shortOf = (id: string) => (byId[id] ? `${byId[id].authors_short} ${byId[id
 const prev = constellations[(i + constellations.length - 1) % constellations.length] as any;
 const next = constellations[(i + 1) % constellations.length] as any;
 ---
-<Layout title={`${c.lodge}宿 · ${c.name}`} active="stars" description={c.blurb}>
+<Layout title={`${c.lodge} · ${c.name}`} active="stars" description={c.blurb}>
   <main class="page lodge-page" style={`--dot:${c.color}`}>
-    <nav class="crumbs small muted"><a href={`${base}stars/`}>星宿</a> / {c.lodge}宿</nav>
+    <nav class="crumbs small muted"><a href={`${base}stars/`}>星次</a> / {c.lodge}</nav>
 
     <header class="head">
       <span class="seal">{c.lodge}</span>
       <div>
-        <p class="eyebrow">{c.lodge}宿 · 第 {i + 1} / {constellations.length} 个星宿</p>
+        <p class="eyebrow">{c.lodge} · 第 {i + 1} / {constellations.length} 个星次</p>
         <h1>{c.name}</h1>
       </div>
     </header>
@@ -74,7 +74,7 @@ const next = constellations[(i + 1) % constellations.length] as any;
     <div class="facts">
       <span><b>{members.length}</b> 篇</span>
       <span><b>{Math.min(...years)}–{Math.max(...years)}</b></span>
-      <span><b>{internal.length}</b> 条星宿内引用</span>
+      <span><b>{internal.length}</b> 条星次内引用</span>
       {noted > 0 && <span><b>{noted}</b> 篇有笔记</span>}
     </div>
 
@@ -90,7 +90,7 @@ const next = constellations[(i + 1) % constellations.length] as any;
     <div class="top">
       {star && (
         <a class="anchor" href={`${base}papers/${star.id}/`}>
-          <span class="lbl">距星 · 这个星宿的代表作</span>
+          <span class="lbl">距星 · 这个星次的代表作</span>
           <span class="t">{star.title}</span>
           <span class="m">{star.authors_short} · {star.year}{star.venue ? ` · ${star.venue}` : ""}</span>
           <span class="gist">{gist(star)}</span>
@@ -98,7 +98,7 @@ const next = constellations[(i + 1) % constellations.length] as any;
       )}
       {neighbours.length > 0 && (
         <aside class="near">
-          <span class="lbl">联系最紧的星宿 <span class="muted">· 库内引用条数</span></span>
+          <span class="lbl">联系最紧的星次 <span class="muted">· 库内引用条数</span></span>
           <ul>
             {neighbours.map(({ c: o, n }) => (
               <li style={`--o:${o.color}`}>
@@ -112,7 +112,7 @@ const next = constellations[(i + 1) % constellations.length] as any;
 
     {review && (
       <section class="gen">
-        <h2 class="sec">综述 <span class="muted small">AI 生成 · {review.model} · {review.date}，依据本星宿各篇简介与评分说明</span></h2>
+        <h2 class="sec">综述 <span class="muted small">AI 生成 · {review.model} · {review.date}，依据本星次各篇简介与评分说明</span></h2>
         <p class="tagline" set:html={inline(review.tagline)} />
         <div class="prose" set:html={cite(review.body)} />
         {review.open?.length > 0 && <div class="open"><b>尚待回答</b><ul>{review.open.map((q: string) => <li set:html={inline(q)} />)}</ul></div>}
@@ -151,8 +151,8 @@ const next = constellations[(i + 1) % constellations.length] as any;
                     {p.id === c.star && <span class="b star">距星</span>}
                     {p.notes.length > 0 && <span class="b note">笔记 {p.notes.length}</span>}
                     {p.metrics.pinned
-                      ? <span class="b" title="由人工指定归入本星宿">人工归入</span>
-                      : p.metrics.conf < 0.5 && <span class="b" title={`连线置信度 ${p.metrics.conf}：多数连线落在其他星宿`}>边缘</span>}
+                      ? <span class="b" title="由人工指定归入本星次">人工归入</span>
+                      : p.metrics.conf < 0.5 && <span class="b" title={`连线置信度 ${p.metrics.conf}：多数连线落在其他星次`}>边缘</span>}
                   </span>
                   <p class="gist">{gist(p)}</p>
                   {p.summary && (
@@ -174,7 +174,7 @@ const next = constellations[(i + 1) % constellations.length] as any;
 
     <nav class="pager">
       <a href={`${base}stars/${prev.key}/`} style={`--o:${prev.color}`}><span class="muted small">← 上一个</span><span><i>{prev.lodge}</i>{prev.name}</span></a>
-      <a href={`${base}stars/`} class="all small">全部星宿</a>
+      <a href={`${base}stars/`} class="all small">全部星次</a>
       <a href={`${base}stars/${next.key}/`} style={`--o:${next.color}`} class="nx"><span class="muted small">下一个 →</span><span><i>{next.lodge}</i>{next.name}</span></a>
     </nav>
   </main>
@@ -184,7 +184,7 @@ const next = constellations[(i + 1) % constellations.length] as any;
   .head { display: flex; align-items: center; gap: 18px; margin-top: 18px; }
   .head h1 { margin: 2px 0 0; font-size: 32px; }
   .head .eyebrow { margin: 0; color: var(--dot); }
-  .seal { flex: none; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid var(--dot); color: var(--dot); font-family: var(--serif); font-size: 32px; box-shadow: 0 0 28px -8px var(--dot), inset 0 0 18px -10px var(--dot); }
+  .seal { flex: none; width: 64px; height: 64px; display: grid; place-items: center; border-radius: 50%; border: 1.5px solid var(--dot); color: var(--dot); font-family: var(--serif); font-size: 22px; box-shadow: 0 0 28px -8px var(--dot), inset 0 0 18px -10px var(--dot); }
   .lede { margin-top: 16px; font-size: 15.5px; line-height: 1.8; }
   .facts { display: flex; flex-wrap: wrap; gap: 6px 22px; margin-top: 16px; color: var(--muted); font-size: 13px; }
   .facts b { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--text); margin-right: 3px; }
@@ -250,7 +250,7 @@ const next = constellations[(i + 1) % constellations.length] as any;
 
   @media (max-width: 760px) {
     .top { grid-template-columns: 1fr; }
-    .seal { width: 52px; height: 52px; font-size: 26px; }
+    .seal { width: 52px; height: 52px; font-size: 18px; }
     .head h1 { font-size: 26px; }
     .rail li { grid-template-columns: 1fr; gap: 2px; padding-left: 18px; }
     .pager { grid-template-columns: 1fr 1fr; }

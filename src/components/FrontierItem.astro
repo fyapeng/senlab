@@ -10,7 +10,7 @@ const authors = `${(f.authors || []).slice(0, 4).join(", ")}${(f.authors || []).
 ---
 <li style={c ? `--dot:${c.color}` : ""} hidden={hidden}
     data-j={f.journal || ""} data-fit={f.fit} data-score={f.score} data-date={f.date || ""}>
-  <div class:list={["score", f.fit]} title={`相似度 ${f.score.toFixed(2)}`}>
+  <div class:list={["score", f.fit]} title={`相关度 ${f.score.toFixed(2)}`}>
     <span class="ring" style={`--p:${fill(f.score)}`}><b>{c ? c.lodge : "—"}</b></span>
     <span class="lvl">{LEVEL[f.fit] || ""}</span>
     <span class="sc mono">{f.score.toFixed(2)}</span>
@@ -25,8 +25,8 @@ const authors = `${(f.authors || []).slice(0, 4).join(", ")}${(f.authors || []).
       {isNew && <span class="new">新</span>} · {authors}
     </p>
     <p class="links small">
-      {c ? <span class="chip dot" style={`--dot:${c.color}`} title={f.manual ? "人工指定" : "最接近的 8 篇库内文献按相似度投票"}>{c.lodge}宿 · {c.name}{f.manual && " ✎"}</span> : <span class="chip">库外主题</span>}
-      {f.c2 && cons[f.c2] && <span class="also" style={`--dot:${cons[f.c2].color}`} title="投票与第一名相差不到 15%">也接近 <i>{cons[f.c2].lodge}宿</i></span>}
+      {c ? <span class="chip dot" style={`--dot:${c.color}`} title={f.manual ? "人工指定" : "最接近的 8 篇库内文献按相似度投票"}>{c.lodge} · {c.name}{f.manual && " ✎"}</span> : <span class="chip">库外主题</span>}
+      {f.c2 && cons[f.c2] && <span class="also" style={`--dot:${cons[f.c2].color}`} title="投票与第一名相差不到 15%">也接近 <i>{cons[f.c2].lodge}</i></span>}
       <span class="muted">最接近：</span>
       {f.related.map((id: string) => byId[id] && <a href={`${base}papers/${id}/`} class="rel">{byId[id].authors_short} {byId[id].year}</a>)}
     </p>
@@ -39,9 +39,9 @@ const authors = `${(f.authors || []).slice(0, 4).join(", ")}${(f.authors || []).
   li[hidden] { display: none; }
   li { --dot: var(--muted); display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; padding: 18px 0; }
   .score { display: flex; flex-direction: column; align-items: center; gap: 5px; padding-top: 2px; }
-  /* ring fill = similarity; colour = nearest constellation */
+  /* ring fill = relevance; colour = nearest constellation */
   .ring { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--dot) calc(var(--p) * 1%), var(--surface-2) 0); }
-  .ring b { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--bg); color: var(--dot); font: 500 16px var(--serif); }
+  .ring b { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; background: var(--bg); color: var(--dot); font: 500 13px var(--serif); letter-spacing: -.02em; }
   .far .ring { opacity: .55; }
   .lvl { font-size: 11px; color: var(--dot); }
   .far .lvl { color: var(--muted); }

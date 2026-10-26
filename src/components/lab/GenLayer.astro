@@ -32,13 +32,13 @@ const empty = !reviews.length && !topics.length && !disputes.length;
   <p class="ai small">AI 生成 · DeepSeek {models.join("、")} · {dates[0]}{dates.at(-1) !== dates[0] ? `–${dates.at(-1)}` : ""} · 依据本库各篇的简介、评分说明与公开笔记写成，未经人工逐条核对；引用的文献均在库内，点击可查原文要点。</p>
 
   <nav class="gtabs" data-gtabs>
-    <button type="button" data-t="reviews" class="on">星宿综述 <em>{reviews.length}</em></button>
+    <button type="button" data-t="reviews" class="on">星次综述 <em>{reviews.length}</em></button>
     <button type="button" data-t="topics">涌现选题 <em>{topics.length}</em></button>
     <button type="button" data-t="disputes">分歧地图 <em>{disputes.length}</em></button>
   </nav>
 
   <section id="reviews" data-tab="reviews">
-    <p class="desc small muted">每个星宿一篇：它在回答什么问题、怎样发展而来、还有哪些问题没有答案。选择星宿查看。</p>
+    <p class="desc small muted">每个星次一篇：它在回答什么问题、怎样发展而来、还有哪些问题没有答案。选择星次查看。</p>
     <div class="pills" data-pills>
       {reviews.map(({ c }, i) => <button type="button" class:list={{ on: i === 0 }} data-k={c.key} style={`--dot:${c.color}`}><i>{c.lodge}</i>{c.name}</button>)}
     </div>
@@ -56,7 +56,7 @@ const empty = !reviews.length && !topics.length && !disputes.length;
         {r.open?.length > 0 && (
           <div class="open"><b>尚待回答</b><ul>{r.open.map((q: string) => <li set:html={inline(q)} />)}</ul></div>
         )}
-        <a class="more small" href={`${base}stars/${c.key}/`}>进入{c.lodge}宿 →</a>
+        <a class="more small" href={`${base}stars/${c.key}/`}>进入{c.lodge} →</a>
       </article>
     ))}
   </section>

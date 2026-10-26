@@ -25,7 +25,7 @@ const cites = p.cites.map((x: string) => byId[x]).filter(Boolean);
 const citedBy = p.cited_by_lib.map((x: string) => byId[x]).filter(Boolean);
 const { lead, rest } = splitLead(p.summary);
 
-// previous / next paper in the constellation's reading order (the timeline on its 星宿 page)
+// previous / next paper in the constellation's reading order (the timeline on its 星次 page)
 const order = chrono(c.members.map((m: string) => byId[m]).filter(Boolean));
 const at = order.findIndex((x: any) => x.id === p.id);
 const prevP = at > 0 ? order[at - 1] : null;
@@ -150,7 +150,7 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
             <a class="nx" href={`${base}papers/${nextP.id}/`}><span class="small muted">下一篇 · {nextP.authors_short} {nextP.year} →</span><span class="t">{nextP.title}</span></a>
           ) : <span></span>}
         </nav>
-        <p class="pager-note small muted">按<a href={`${base}stars/${c.key}/`}>{c.lodge}宿</a>的时间线顺序</p>
+        <p class="pager-note small muted">按<a href={`${base}stars/${c.key}/`}>{c.lodge}</a>的时间线顺序</p>
       </article>
 
       <aside>
@@ -210,9 +210,9 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
           </ul>
         </section>
         <section class="card" style="margin-top:16px">
-          <h3 class="ah">同一星宿</h3>
+          <h3 class="ah">同一星次</h3>
           <ul class="list">{siblings.map((x: any) => <li><PaperLine p={x} cons={cons} /></li>)}</ul>
-          <a class="more small" href={`${base}stars/${c.key}/`}>查看{c.lodge}宿全部 {c.members.length} 篇 →</a>
+          <a class="more small" href={`${base}stars/${c.key}/`}>查看{c.lodge}全部 {c.members.length} 篇 →</a>
         </section>
       </aside>
     </div>
@@ -241,7 +241,7 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
   .detail { max-width: 1240px; }
   .crumbs { color: var(--muted); display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
   .lodge-link { color: var(--dot); display: inline-flex; align-items: center; gap: 6px; }
-  .lodge-link i { font-style: normal; font-family: var(--serif); width: 20px; height: 20px; display: inline-grid; place-items: center; border-radius: 50%; border: 1px solid var(--dot); font-size: 12px; }
+  .lodge-link i { font-style: normal; font-family: var(--serif); min-width: 20px; height: 20px; padding: 0 5px; display: inline-grid; place-items: center; border-radius: 10px; border: 1px solid var(--dot); font-size: 12px; }
   .lodge-link:hover { color: var(--text); }
   .summary .lead { font-family: var(--serif); font-size: 17px; line-height: 1.85; color: var(--text); padding-left: 16px; border-left: 2px solid var(--gold-dim); margin-bottom: 1.4em; }
   .pager { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); }

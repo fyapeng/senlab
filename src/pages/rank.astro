@@ -23,7 +23,7 @@ const countries = Object.keys(v.country).filter((k) => used("country").includes(
 
     <div class="controls">
       <input type="search" id="q" placeholder="搜索标题、作者、关键词……" />
-      <select id="fc"><option value="">全部星宿</option>{constellations.map((c: any) => <option value={c.key}>{c.lodge}宿 · {c.name}</option>)}</select>
+      <select id="fc"><option value="">全部星次</option>{constellations.map((c: any) => <option value={c.key}>{c.lodge} · {c.name}</option>)}</select>
       <select id="fk"><option value="">全部类型</option>{kinds.map((k) => <option value={k}>{v.kind[k]}</option>)}</select>
       <select id="fm"><option value="">全部方法</option>{methods.map((m) => <option value={m}>{v.methods[m]}</option>)}</select>
       <select id="fco"><option value="">全部国家</option>{countries.map((k) => <option value={k}>{v.country[k]}</option>)}</select>
@@ -39,7 +39,7 @@ const countries = Object.keys(v.country).filter((k) => used("country").includes(
           <tr>
             <th data-k="rk" class="num on">#</th>
             <th>文献</th>
-            <th>星宿</th>
+            <th>星次</th>
             <th>类型 · 方法</th>
             <th data-k="ci" class="num">库内被引</th>
             <th data-k="cb" class="num">外部被引</th>

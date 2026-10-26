@@ -28,18 +28,18 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
 ---
 <Layout title="全景 · 探索实验室" active="lab">
   <main class="page wide">
-    <LabNav active="landscape" title="全景" lede="本库的整体结构：和领域发文的对比、方法覆盖、主题如何随年代演化、星宿之间如何互相引用、哪些文献连接多个主题。全部由程序计算，每次更新文献库时自动重算。" />
+    <LabNav active="landscape" title="全景" lede="本库的整体结构：和领域发文的对比、方法覆盖、主题如何随年代演化、星次之间如何互相引用、哪些文献连接多个主题。全部由程序计算，每次更新文献库时自动重算。" />
     <nav class="jump">
-      <a href="#heat">热度对照</a><a href="#matrix">方法 × 星宿</a><a href="#evolution">主题演化与引用流</a><a href="#bridges">桥梁与孤星</a><a href="#keywords">关键词与构成</a>
+      <a href="#heat">热度对照</a><a href="#matrix">方法 × 星次</a><a href="#evolution">主题演化与引用流</a><a href="#bridges">桥梁与孤星</a><a href="#keywords">关键词与构成</a>
     </nav>
 
     <section id="heat">
-      <h2>热度对照 <span class="muted small">五大期刊的新文章落在哪些星宿，和你的收藏比一比</span></h2>
+      <h2>热度对照 <span class="muted small">五大期刊的新文章落在哪些星次，和你的收藏比一比</span></h2>
       <Heat papers={papers} constellations={constellations} frontier={frontier} />
     </section>
 
     <section id="matrix">
-      <h2>方法 × 星宿 <span class="muted small">格子里是篇数，空格是候选研究空白</span></h2>
+      <h2>方法 × 星次 <span class="muted small">格子里是篇数，空格是候选研究空白</span></h2>
       <div class="tablewrap">
         <table class="matrix">
           <thead><tr><th></th>{methods.map((m: string) => <th class="mh"><span>{v.methods[m]}</span></th>)}</tr></thead>
@@ -60,7 +60,7 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
 
     <div class="grid cols-2">
       <section id="evolution">
-        <h2>主题演化 <span class="muted small">各星宿按发表年代的篇数</span></h2>
+        <h2>主题演化 <span class="muted small">各星次按发表年代的篇数</span></h2>
         <table class="spark">
           <thead><tr><th></th>{L.decades.map((d: number) => <th>{String(d).slice(2)}s</th>)}</tr></thead>
           <tbody>
@@ -68,7 +68,7 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
               <tr>
                 <th><a href={`${base}stars/${t.c}/`} style={`--dot:${cons[t.c].color}`}><i class="seal">{cons[t.c].lodge}</i>{cons[t.c].name}</a></th>
                 {t.counts.map((n: number, j: number) => (
-                  <td><span class="bar" style={`height:${n ? 4 + 34 * n / maxDec : 0}px;background:${cons[t.c].color}`} title={`${cons[t.c].lodge}宿 · ${L.decades[j]} 年代 · ${n} 篇`}>{n >= 3 && <em>{n}</em>}</span></td>
+                  <td><span class="bar" style={`height:${n ? 4 + 34 * n / maxDec : 0}px;background:${cons[t.c].color}`} title={`${cons[t.c].lodge} · ${L.decades[j]} 年代 · ${n} 篇`}>{n >= 3 && <em>{n}</em>}</span></td>
                 ))}
               </tr>
             ))}
@@ -76,7 +76,7 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
         </table>
       </section>
       <section>
-        <h2>星宿间引用流 <span class="muted small">谁引用谁</span></h2>
+        <h2>星次间引用流 <span class="muted small">谁引用谁</span></h2>
         <ul class="list flows">
           {L.flow.slice(0, 12).map((f: any) => (
             <li>
@@ -95,14 +95,14 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
 
     <div class="grid cols-2">
       <section id="bridges">
-        <h2>桥梁文献 <span class="muted small">引用关系横跨多个星宿</span></h2>
+        <h2>桥梁文献 <span class="muted small">引用关系横跨多个星次</span></h2>
         <ul class="list">
           {L.bridges.map((b: any) => (
             <li>
               <PaperLine p={byId[b.id]} cons={cons} />
               <span class="spans small">
-                <span class="muted">连接 {b.spans.length} 个星宿</span>
-                {b.spans.map((k: string) => <a class="seal" href={`${base}stars/${k}/`} style={`--dot:${cons[k].color}`} title={`${cons[k].lodge}宿 · ${cons[k].name}`}>{cons[k].lodge}</a>)}
+                <span class="muted">连接 {b.spans.length} 个星次</span>
+                {b.spans.map((k: string) => <a class="seal" href={`${base}stars/${k}/`} style={`--dot:${cons[k].color}`} title={`${cons[k].lodge} · ${cons[k].name}`}>{cons[k].lodge}</a>)}
               </span>
             </li>
           ))}
@@ -110,7 +110,7 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
       </section>
       <section>
         <h2>孤星 <span class="muted small">与库内其他文献没有引用关系（{L.lonely.length} 篇）</span></h2>
-        <p class="muted small">它们只靠内容相似度挂在星宿上：或是方法论与背景文献，或是值得补齐上下游文献的线索。</p>
+        <p class="muted small">它们只靠内容相似度挂在星次上：或是方法论与背景文献，或是值得补齐上下游文献的线索。</p>
         <ul class="list">{L.lonely.slice(0, 12).map((id: string) => <li><PaperLine p={byId[id]} cons={cons} /></li>)}</ul>
       </section>
     </div>
@@ -148,7 +148,7 @@ const maxCountry = Math.max(...sortedCountries.map((x: any) => x[1]));
   .matrix .rh { text-align: right; font-weight: 400; padding-right: 8px; white-space: nowrap; }
   .matrix td { width: 34px; height: 30px; text-align: center; border-radius: 5px; background: rgba(232, 196, 122, var(--a)); color: var(--text); font-variant-numeric: tabular-nums; }
   .matrix td:not([style*="--a:0;"]) { cursor: help; }
-  .seal { display: inline-grid; place-items: center; flex: none; width: 20px; height: 20px; border-radius: 50%; border: 1px solid var(--dot); color: var(--dot); font: normal 12px var(--serif); }
+  .seal { display: inline-grid; place-items: center; flex: none; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; border: 1px solid var(--dot); color: var(--dot); font: normal 11.5px var(--serif); }
   a.seal:hover { background: var(--dot); color: var(--bg); }
   .spark { border-collapse: collapse; font-size: 13px; width: 100%; table-layout: fixed; }
   .spark th { font-weight: 400; color: var(--muted); text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 2px 8px 2px 0; }
