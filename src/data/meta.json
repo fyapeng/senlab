@@ -1,9 +1,9 @@
 {
- "built": "2026-11-03",
+ "built": "2026-11-04",
  "counts": {
   "papers": 167,
   "constellations": 12,
-  "citation_edges": 502,
+  "citation_edges": 497,
   "with_summary": 167,
   "with_notes": 33,
   "with_fulltext": 167,
