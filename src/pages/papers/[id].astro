@@ -97,14 +97,14 @@ const citeSrc = `Semantic Scholar ${p.metrics.cited_by_src.s2 ?? "—"} · OpenA
             </div>
             {p.abstract && (
               <details class="abs">
-                <summary>原文摘要</summary>
+                <summary>{p.abstract_kind === "written" ? "摘要（原文无摘要，据正文整理）" : "原文摘要"}</summary>
                 <p>{p.abstract}</p>
               </details>
             )}
           </section>
         ) : (
           <section>
-            <h2>摘要 <span class="muted small">原文 · 简介待写</span></h2>
+            <h2>摘要 <span class="muted small">{p.abstract_kind === "written" ? "原文无摘要，据正文整理" : "原文"} · 简介待写</span></h2>
             <div class="prose"><p>{p.abstract || "暂无摘要。"}</p></div>
           </section>
         )}
